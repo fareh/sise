@@ -4,29 +4,110 @@
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entities is defined %}
-    <center>
-        <table width="99%" style="font-size: 14pt; font-family: Verdana">
+        <center>
+            <br>
 
-            <tbody>
-            {% for entity in entities %}
-                <tr>
-                    <td width="80%" class="RowStyle">
-                        &nbsp;
-                        <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" width="12px">
-                        <span>{{ entity.libequesar }}</span>
-                    </td>
-                    <td width="10%" class="RowStyle" align="center">
-                        <a href="Eleve_DemiResidant.aspx">
-                            <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
-                    </td>
-                    <td width="10%" class="RowStyle" align="center">
+            <div id="CPHMain_upGridView">
 
-                        <a href="{{ path('StatEleve_edit', { 'table': entity.nameclass|lower }) }}">
-                            <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"></a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody></table>
-    </center>
-{% endif %}
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                أنصاف المقيمين
+                            </td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                الممنوحون
+                            </td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد المنح</th>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <span id="CPHMain_GridView_Edit_LibeCyclEnse_0" class="#Niveau Scolaire"
+                                      style="display:inline-block;width:98%;">مرحلة التعليم الثانوي</span>
+
+                            </td>
+                            <td align="right">
+                                <div id="CPHMain_GridView_Edit_nemn_0">
+
+                                    <span id="CPHMain_GridView_Edit_RVNombElevResiMasc_0" class="tooltips"
+                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
+                                    <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevResiMasc" type="text"
+                                           value="0" id="CPHMain_GridView_Edit_NombElevResiMasc_0"
+                                           onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+
+                                </div>
+                            </td>
+                            <td align="left">
+                                <div id="CPHMain_GridView_Edit_nefn_0">
+
+                                    <span id="CPHMain_GridView_Edit_RVNombElevResiFemi_0" class="tooltips"
+                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
+                                    <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevResiFemi" type="text"
+                                           value="0" id="CPHMain_GridView_Edit_NombElevResiFemi_0"
+                                           onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+
+                                </div>
+                            </td>
+                            <td align="center" style="background-color:#EEEEEE;">
+                                <span id="CPHMain_GridView_Edit_NombTotaResiElev_0" class="أنصاف المقيمين"
+                                      style="display:inline-block;width:98%;">0</span>
+                            </td>
+                            <td align="right">
+                                <div id="CPHMain_GridView_Edit_nemr_0">
+
+                                    <span id="CPHMain_GridView_Edit_RVNombElevBourMasc_0" class="tooltips"
+                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
+                                    <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourMasc" type="text"
+                                           value="0" id="CPHMain_GridView_Edit_NombElevBourMasc_0"
+                                           onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+
+                                </div>
+                            </td>
+                            <td align="left">
+                                <div id="CPHMain_GridView_Edit_nefr_0">
+
+                                    <span id="CPHMain_GridView_Edit_RVNombElevBourFemi_0" class="tooltips"
+                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
+                                    <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourFemi" type="text"
+                                           value="0" id="CPHMain_GridView_Edit_NombElevBourFemi_0"
+                                           onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+
+                                </div>
+                            </td>
+                            <td align="center" style="background-color:#EEEEEE;">
+                                <span id="CPHMain_GridView_Edit_NombTotaBourElev_0" class="الممنوحون"
+                                      style="display:inline-block;width:98%;">0</span>
+                            </td>
+                            <td align="right">
+                                <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombBour" type="text" value="0"
+                                       id="CPHMain_GridView_Edit_NombBour_0" class=" "
+                                       style="border-style:None;width:30px;">
+                                <span id="CPHMain_GridView_Edit_RVNombBour_0" class=" " style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </center>
+    {% endif %}
 {% endblock %}

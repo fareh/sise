@@ -53,14 +53,19 @@ class NomenclatureQuestionnaireController extends Controller
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
 
         if ($request->isMethod('POST')) {
-           // $request->request->get('aaa');
+          $params= $request->request->get($search->getName());
+            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
+            foreach ( $entities as $nomenclature){
 
-            var_dump($search);
 
-            die;
+                echo $nomenclature->getCodeetab();
+
+            }
+
         }
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
             'entity' => $entity,
+            'entities'=>($entities)?$entities:'',
             'search'=>$search->createView(),
             'pathfilter'=> $url
         ));
