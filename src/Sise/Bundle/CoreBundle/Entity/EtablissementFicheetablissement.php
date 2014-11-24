@@ -1,0 +1,444 @@
+<?php
+
+namespace Sise\Bundle\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EtablissementFicheetablissement
+ *
+ * @ORM\Table(name="etablissement_ficheetablissement")
+ * @ORM\Entity
+ */
+class EtablissementFicheetablissement
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $codeetab;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $codetypeetab;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="AnneScol", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $annescol;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeRece", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $coderece;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdreEtab", type="string", length=100, nullable=true)
+     */
+    private $adreetab;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodePost", type="string", length=50, nullable=true)
+     */
+    private $codepost;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TeleFixe", type="string", length=50, nullable=true)
+     */
+    private $telefixe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Fax", type="string", length=50, nullable=true)
+     */
+    private $fax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Mail", type="string", length=50, nullable=true)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SiteWeb", type="string", length=200, nullable=true)
+     */
+    private $siteweb;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="EducPrio", type="boolean", nullable=true)
+     */
+    private $educprio;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="EtabInteHand", type="boolean", nullable=true)
+     */
+    private $etabintehand;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ExisAnnePrep", type="boolean", nullable=true)
+     */
+    private $exisanneprep;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ExisAnnePrepInteHand", type="boolean", nullable=true)
+     */
+    private $exisanneprepintehand;
+
+
+
+    /**
+     * Set codeetab
+     *
+     * @param string $codeetab
+     * @return EtablissementFicheetablissement
+     */
+    public function setCodeetab($codeetab)
+    {
+        $this->codeetab = $codeetab;
+
+        return $this;
+    }
+
+    /**
+     * Get codeetab
+     *
+     * @return string 
+     */
+    public function getCodeetab()
+    {
+        return $this->codeetab;
+    }
+
+    /**
+     * Set codetypeetab
+     *
+     * @param string $codetypeetab
+     * @return EtablissementFicheetablissement
+     */
+    public function setCodetypeetab($codetypeetab)
+    {
+        $this->codetypeetab = $codetypeetab;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeetab
+     *
+     * @return string 
+     */
+    public function getCodetypeetab()
+    {
+        return $this->codetypeetab;
+    }
+
+    /**
+     * Set annescol
+     *
+     * @param integer $annescol
+     * @return EtablissementFicheetablissement
+     */
+    public function setAnnescol($annescol)
+    {
+        $this->annescol = $annescol;
+
+        return $this;
+    }
+
+    /**
+     * Get annescol
+     *
+     * @return integer 
+     */
+    public function getAnnescol()
+    {
+        return $this->annescol;
+    }
+
+    /**
+     * Set coderece
+     *
+     * @param string $coderece
+     * @return EtablissementFicheetablissement
+     */
+    public function setCoderece($coderece)
+    {
+        $this->coderece = $coderece;
+
+        return $this;
+    }
+
+    /**
+     * Get coderece
+     *
+     * @return string 
+     */
+    public function getCoderece()
+    {
+        return $this->coderece;
+    }
+
+    /**
+     * Set adreetab
+     *
+     * @param string $adreetab
+     * @return EtablissementFicheetablissement
+     */
+    public function setAdreetab($adreetab)
+    {
+        $this->adreetab = $adreetab;
+
+        return $this;
+    }
+
+    /**
+     * Get adreetab
+     *
+     * @return string 
+     */
+    public function getAdreetab()
+    {
+        return $this->adreetab;
+    }
+
+    /**
+     * Set codepost
+     *
+     * @param string $codepost
+     * @return EtablissementFicheetablissement
+     */
+    public function setCodepost($codepost)
+    {
+        $this->codepost = $codepost;
+
+        return $this;
+    }
+
+    /**
+     * Get codepost
+     *
+     * @return string 
+     */
+    public function getCodepost()
+    {
+        return $this->codepost;
+    }
+
+    /**
+     * Set telefixe
+     *
+     * @param string $telefixe
+     * @return EtablissementFicheetablissement
+     */
+    public function setTelefixe($telefixe)
+    {
+        $this->telefixe = $telefixe;
+
+        return $this;
+    }
+
+    /**
+     * Get telefixe
+     *
+     * @return string 
+     */
+    public function getTelefixe()
+    {
+        return $this->telefixe;
+    }
+
+    /**
+     * Set fax
+     *
+     * @param string $fax
+     * @return EtablissementFicheetablissement
+     */
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+
+        return $this;
+    }
+
+    /**
+     * Get fax
+     *
+     * @return string 
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     * @return EtablissementFicheetablissement
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string 
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set siteweb
+     *
+     * @param string $siteweb
+     * @return EtablissementFicheetablissement
+     */
+    public function setSiteweb($siteweb)
+    {
+        $this->siteweb = $siteweb;
+
+        return $this;
+    }
+
+    /**
+     * Get siteweb
+     *
+     * @return string 
+     */
+    public function getSiteweb()
+    {
+        return $this->siteweb;
+    }
+
+    /**
+     * Set educprio
+     *
+     * @param boolean $educprio
+     * @return EtablissementFicheetablissement
+     */
+    public function setEducprio($educprio)
+    {
+        $this->educprio = $educprio;
+
+        return $this;
+    }
+
+    /**
+     * Get educprio
+     *
+     * @return boolean 
+     */
+    public function getEducprio()
+    {
+        return $this->educprio;
+    }
+
+    /**
+     * Set etabintehand
+     *
+     * @param boolean $etabintehand
+     * @return EtablissementFicheetablissement
+     */
+    public function setEtabintehand($etabintehand)
+    {
+        $this->etabintehand = $etabintehand;
+
+        return $this;
+    }
+
+    /**
+     * Get etabintehand
+     *
+     * @return boolean 
+     */
+    public function getEtabintehand()
+    {
+        return $this->etabintehand;
+    }
+
+    /**
+     * Set exisanneprep
+     *
+     * @param boolean $exisanneprep
+     * @return EtablissementFicheetablissement
+     */
+    public function setExisanneprep($exisanneprep)
+    {
+        $this->exisanneprep = $exisanneprep;
+
+        return $this;
+    }
+
+    /**
+     * Get exisanneprep
+     *
+     * @return boolean 
+     */
+    public function getExisanneprep()
+    {
+        return $this->exisanneprep;
+    }
+
+    /**
+     * Set exisanneprepintehand
+     *
+     * @param boolean $exisanneprepintehand
+     * @return EtablissementFicheetablissement
+     */
+    public function setExisanneprepintehand($exisanneprepintehand)
+    {
+        $this->exisanneprepintehand = $exisanneprepintehand;
+
+        return $this;
+    }
+
+    /**
+     * Get exisanneprepintehand
+     *
+     * @return boolean 
+     */
+    public function getExisanneprepintehand()
+    {
+        return $this->exisanneprepintehand;
+    }
+}

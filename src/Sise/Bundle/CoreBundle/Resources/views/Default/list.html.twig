@@ -1,0 +1,57 @@
+<br />
+<style type="text/css">
+    .TopfixedMenu
+    {
+        width: 100%;
+        position: fixed;
+        left : 10px;
+        top: 0px;
+        height: 75px;
+        background-color:White ;
+
+    }
+</Style>
+<script type="text/javascript"  >
+    window.onscroll = scroll;
+    function scroll() {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > 230) {
+            document.getElementById("MenuDiv").className = "TopfixedMenu";
+        } else {
+            document.getElementById("MenuDiv").className = ""
+        }
+    }
+</script>
+<div id="MenuDiv" >
+
+
+    <table  width="100%" style=" font-family :wf_segoe-ui_normal,Tahoma,Verdana,Arial,sans-serif;font-size: 1.2em;height:56px; border-spacing: 2px">
+        <tr>
+            <td rowspan ="2"  style="background-color:#EEEEEE; border-left :2px; border-left-color: White; border-left-style :solid;  ">
+                &nbsp; <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" />
+                &nbsp; {{ TitleContextValue }}
+            </td>
+            <td id="TdNouveau" width="6%" align="center"  style="background-color:#EEEEEE; height:32px; border-right :1px;">
+                <input name="IBNouveau" id="IBNouveau" type="image" src="{{ asset('bundles/sisecore/images/32x32/add.png') }}"  />
+            </td>
+            <td id="TdExporter" width="6%" align="center" style="background-color:#EEEEEE;height:32px; border-right :1px;">
+                <input name="IBExporter" id="IBExporter" type="image"  src="{{ asset('bundles/sisecore/images/32x32/excel.png') }}" />
+            </td>
+
+
+        </tr>
+        <tr>
+            <td id="TdNouveau2"align="center" style="background-color: #00BCF2; color: White; font-size: 1em;">
+                <input name="LNouveau" id="LNouveau" value="LNouveau"
+                       style="color:White;background-color:Transparent;border-style:None;" type="submit">
+            </td>
+            <td id="TdExporter2"align="center" style="background-color: #68217A; color: White; font-size: 1em;">
+                <input name="LExporter" id="LExporter" value="LExporter"
+                       style="color:White;background-color:Transparent;border-style:None;" type="submit">
+            </td>
+
+
+        </tr>
+    </table>
+
+</div>

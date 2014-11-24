@@ -1,0 +1,15 @@
+sise_core_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SiseCoreBundle:Default:index }
+sise_core_search:
+    path:     /search
+    defaults: { _controller: SiseCoreBundle:Default:search }
+sise_core_listEntities:
+    path:     /listEntities
+    defaults: { _controller: SiseCoreBundle:Default:listEntities }
+sise_core_getList:
+    path:     /getList
+    defaults: { _controller: SiseCoreBundle:Default:getList }
+SiseCoreBundle_StatEleve:
+    resource: "@SiseCoreBundle/Resources/config/routing/nomenclaturequestionnaire.yml"
+    prefix:   /stat

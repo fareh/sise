@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if entities is defined %}
+    <center>
+        <table width="99%" style="font-size: 14pt; font-family: Verdana">
+
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td width="80%" class="RowStyle">
+                        &nbsp;
+                        <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" width="12px">
+                        <span>{{ entity.libequesar }}</span>
+                    </td>
+                    <td width="10%" class="RowStyle" align="center">
+                        <a href="Eleve_DemiResidant.aspx">
+                            <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
+                    </td>
+                    <td width="10%" class="RowStyle" align="center">
+
+                        <a href="{{ path('StatEleve_edit', { 'table': entity.nameclass|lower }) }}">
+                            <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody></table>
+    </center>
+{% endif %}
+{% endblock %}

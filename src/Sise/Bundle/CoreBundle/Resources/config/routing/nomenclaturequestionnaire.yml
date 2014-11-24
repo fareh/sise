@@ -1,0 +1,30 @@
+statEleve:
+    path:     /statEleve{trailingSlash}
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:statEleve", trailingSlash : "/" }
+    requirements: { trailingSlash : "[/]{0,1}" }
+StatEleve_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:show" }
+
+StatEleve_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:new" }
+
+StatEleve_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:create" }
+    requirements: { _method: post }
+
+StatEleve_edit:
+    path:     /{table}/edit
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:edit" }
+
+StatEleve_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:update" }
+    requirements: { _method: post|put }
+
+StatEleve_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:delete" }
+    requirements: { _method: post|delete }

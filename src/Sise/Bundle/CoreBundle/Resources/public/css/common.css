@@ -1,0 +1,11 @@
+.BtnRecherche {
+    width: 100px;
+    border-Left-style: solid;
+    border-top-style: none;
+    border-Right-style: none;
+    border-bottom-style: solid;
+    border-Left-style: none;
+    border-bottom-color: #777;
+    background-color: transparent;
+    color: #777;
+}

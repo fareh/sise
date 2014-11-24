@@ -1,0 +1,65 @@
+
+
+    <center>
+        <form action="{{ path(pathfilter) }}" method="post" {{ form_enctype(form) }} class="well form-search">
+            <div id="CPHMain_EtabFiltre1_upfiltre">
+
+                <br>
+                <table width="100%" style="font-size: 14pt; background-color: #EEEEEE; padding-top: 10px;
+            padding-right: 10px;">
+                    <tbody>
+                    <tr>
+                        <td id="CPHMain_EtabFiltre1_TdCodeCircRegi" width="15%">
+                            المندوبية الجهوية
+                        </td>
+
+                        <td id="CPHMain_EtabFiltre1_TdCodeDele" width="15%">
+                            المعتمدية
+                        </td>
+
+                        <td id="CPHMain_EtabFiltre1_TdCodeTypeEtab" width="15%">
+                            نوع المؤسسة
+                        </td>
+
+                        <td id="CPHMain_EtabFiltre1_TdCodeEtab" width="15%">
+                            المؤسسة
+
+                        </td>
+
+                        <td id="CPHMain_EtabFiltre1_Td1" width="15%">
+                            رمز المؤسسة
+
+                        </td>
+                        <td width="15%">
+
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                       <td>  {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListe("sise_bundle_corebundle_search_NomenclatureCirconscriptionregional","NomenclatureDelegation", "sise_bundle_corebundle_search_NomenclatureDelegation" );'}}) }}</td>
+                        <td>  {{ form_widget(form.NomenclatureDelegation, {'attr': {'class': 'NomenclatureDelegation', 'onChange': 'getListe("sise_bundle_corebundle_search_NomenclatureDelegation","NomenclatureTypeetablissement", "sise_bundle_corebundle_search_NomenclatureTypeetablissement" );'}}) }}</td>
+                        <td>  {{ form_widget(form.NomenclatureTypeetablissement, {'attr': {'class': 'NomenclatureTypeetablissement', 'onChange': 'getListe("sise_bundle_corebundle_search_NomenclatureTypeetablissement","NomenclatureEtablissement", "sise_bundle_corebundle_search_NomenclatureEtablissement" );'}}) }}</td>
+                        <td>  {{ form_widget(form.NomenclatureEtablissement, {'attr': {'class': 'NomenclatureEtablissement', 'onChange': 'getListe("sise_bundle_corebundle_search_NomenclatureEtablissement","CodeEtab", "sise_bundle_corebundle_search_CodeEtab" );'}}) }}</td>
+                        <td>  {{ form_widget(form.CodeEtab, {'attr': {'class': 'CodeEtab'}}) }}</td>
+                        <td width="15%" align="center">
+                            <input type="submit" name="ctl00$CPHMain$BtnRechercher" value="بحث" id="CPHMain_BtnRechercher" class="BtnRecherche">
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </form>
+    </center>
+
+
+
+

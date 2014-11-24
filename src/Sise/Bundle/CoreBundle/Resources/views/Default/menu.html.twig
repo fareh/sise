@@ -1,0 +1,161 @@
+<br />
+<style type="text/css">
+    .TopfixedMenu
+    {
+        width: 100%;
+        position: fixed;
+        left : 10px;
+        top: 0px;
+        height: 75px;
+        background-color:White ;
+
+    }
+</Style>
+<script type="text/javascript"  >
+    window.onscroll = scroll;
+    function scroll() {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > 230) {
+            document.getElementById("MenuDiv").className = "TopfixedMenu";
+        } else {
+            document.getElementById("MenuDiv").className = ""
+        }
+    }
+</script>
+<div id="MenuDiv" >
+        {{ Route.Exporter|routeExists }}
+        {{ 'Nouveau : ' ~ Route.Nouveau ~ ' - Exporter : ' ~ Route.Exporter }}
+        <table  width="100%" style=" font-family :wf_segoe-ui_normal,Tahoma,Verdana,Arial,sans-serif;font-size: 1.2em;height:56px; border-spacing :2px;">
+            <tr>
+                <td rowspan ="2"  style="background-color:#EEEEEE; border-left :2px; border-left-color: White; border-left-style :solid;  ">
+                    &nbsp; <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" />
+                    &nbsp; {{ TitleContextValue }}
+                </td>
+
+                {% if TdNouveau == true and  Route.Nouveau|routeExists == 1  %}
+                    <td id="TdNouveau" width="6%" align="center"  style="background-color:#EEEEEE; height:32px;">
+                           <input name="IBNouveau" id="IBNouveau" type="image" src="{{ asset('bundles/sisecore/images/32x32/add.png') }}"
+                                   action="{{ path(Route.Nouveau) }}" type="submit"/>
+                    </td>
+                {% endif %}
+        {% if TdExporter == true and  Route.Exporter|routeExists==1  %}
+                <td id="TdExporter" width="6%" align="center" style="background-color:#EEEEEE;height:32px;">
+                    <input name="IBExporter" id="IBExporter" type="image"  src="{{ asset('bundles/sisecore/images/32x32/excel.png') }}"
+                           action="{{ path(Route.Exporter) }}" type="submit"/>
+                </td>
+                {% endif %}
+                {% if TdValider == true %}
+                <td id="TdValider" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                    <input name="btnValider" id="btnValider" type="image"  src="{{ asset('bundles/sisecore/images/32x32/save.png') }}"
+                           action="{{ path( Route.Valider) }}" type="submit"/>
+                </td>
+                {% endif %}
+                {% if TdRetour == true %}
+                    <td id="TdRetour" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                        <input name="btnRetour" id="btnRetour" type="image" src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"
+                               action="{{ path( Route.Retour) }}" type="submit" />
+                    </td>
+                {% endif %}
+                {% if TdAnnuler == true %}
+                    <td id="TdAnnuler" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                        <input name="btnAnnuler" id="btnAnnuler" type="image" src="{{ asset('bundles/sisecore/images/32x32/cancel.png') }}"
+                               action="{{ path( Route.Annuler) }}" type="submit"/>
+                    </td>
+                {% endif %}
+                {% if TdSupprimer == true %}
+                    <td id="TdSupprimer" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                        <input name="btnSupprimer" id="btnSupprimer" type="image" src="{{ asset('bundles/sisecore/images/32x32/delete.png') }}"
+                               action="{{ path( Route.Delete) }}" type="submit"/>
+                    </td>
+                {% endif %}
+                {% if TdRechercher == true %}
+                    <td id="TdRechercher" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                        <input name="btnRechercher" id="btnRechercher"  type="image" src="{{ asset('bundles/sisecore/images/32x32/find.png') }}"
+                               action="{{ path( Route.Rechercher) }}" type="submit"/>
+                    </td>
+                {% endif %}
+                {% if TdEditer == true %}
+                    <td id="TdEditer" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                        <input name="btnEditer" id="btnEditer"  type="image" src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"
+                               action="{{ path( Route.Editer) }}" type="submit"/>
+                    </td>
+                {% endif %}
+                {% if TdCloturer == true %}
+                    <td id="TdCloturer" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                        <input name="btnCloturer" id="btnCloturer"  type="image" src="{{ asset('bundles/sisecore/images/32x32/valider.png') }}"
+                               action="{{ path( Route.Cloturer) }}" type="submit"/>
+                    </td>
+                {% endif %}
+            </tr>
+            <tr>
+                {% if TdNouveau == true and  Route.Nouveau|routeExists == 1  %}
+                    <td id="TdNouveau2"align="center" style="background-color: #00BCF2; color: White; font-size: 1em; ">
+                        <input name="LNouveau" id="LNouveau" value="LNouveau"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Nouveau) }}" type="submit">
+                    </td>
+                {% endif %}
+                {% if TdExporter == true and  Route.Exporter|routeExists==1  %}
+                    <td id="TdExporter2"align="center" style="background-color: #68217A; color: White; font-size: 1em; ">
+                        <input name="LExporter" id="LExporter" value="LExporter"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Exporter ) }}" type="submit">
+                    </td>
+                {% endif %}
+
+                {% if TdValider == true %}
+                    <td id="TdValider2"align="center" style="background-color: #52B043; color: White; font-size: 1em;">
+                        <input name="LValider" id="LValider" value="LValider"
+                               style="color:White;background-color:Transparent;border-style:None;" t
+                               action="{{ path( Route.Valider) }}" type="submit">
+                    </td>
+                {% endif %}
+                {% if TdRetour == true %}
+                    <td id="TdRetour2"align="center" style="background-color: #00AEEF; color: White; font-size: 1em;">
+                        <input name="LRetour" id="LRetour" value="LRetour"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Retour) }}" type="submit">
+                    </td>
+                {% endif %}
+                {% if TdAnnuler == true %}
+                    <td id="TdAnnuler2"align="center" style="background-color: #FFB800; color: White; font-size: 1em;">
+                        <input name="LAnnuler" id="LAnnuler" value="LAnnuler"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Annuler) }}" type="submit">
+                    </td>
+                {% endif %}
+                {% if TdSupprimer == true %}
+                    <td id="TdSupprimer2"align="center" style="background-color: #EA3E23; color: White; font-size: 1em;">
+                        <input name="LSupprimer" id="LSupprimer" value="LSupprimer"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Supprimer) }}" type="submit">
+
+
+                    </td>
+                {% endif %}
+                {% if TdRechercher == true %}
+                    <td id="TdRechercher2"align="center" style="background-color: #FFB800; color: White; font-size: 1em;">
+                        <input name="LRechercher" id="LRechercher" value="LRechercher"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Rechercher) }}" type="submit">
+                    </td>
+                {% endif %}
+                {% if TdEditer == true %}
+                    <td id="TdEditer2"align="center" style="background-color: #52B043; color: White; font-size: 1em;">
+                        <input name="LEditer" id="LEditer" value="LEditer"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Editer) }}" type="submit">
+                    </td>
+                {% endif %}
+                {% if TdCloturer == true %}
+                    <td id="TdCloturer2"align="center" style="background-color: #EA3E23; color: White; font-size: 1em;">
+                        <input name="LCloturer" id="LCloturer" value="LCloturer"
+                               style="color:White;background-color:Transparent;border-style:None;"
+                               action="{{ path( Route.Cloturer) }}" type="submit">
+                    </td>
+                {% endif %}
+
+            </tr>
+        </table>
+
+</div>

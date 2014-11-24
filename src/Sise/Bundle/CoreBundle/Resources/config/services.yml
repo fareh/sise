@@ -1,0 +1,7 @@
+services:
+    sise_sise.example:
+        class: Sise\Bundle\CoreBundle\Twig\Extension\SiseExtension
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
