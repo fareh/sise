@@ -40,7 +40,7 @@ class NomenclatureQuestionnaireController extends Controller
      * Displays a form to edit an existing NomenclatureQuestionnaire entity.
      *
      */
-    public function editAction($table)
+    public function editAction($table, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
@@ -50,10 +50,19 @@ class NomenclatureQuestionnaireController extends Controller
             throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
+        $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
+
+        if ($request->isMethod('POST')) {
+           // $request->request->get('aaa');
+
+            var_dump($search);
+
+            die;
+        }
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
             'entity' => $entity,
             'search'=>$search->createView(),
-            'pathfilter'=>'statEleve'
+            'pathfilter'=> $url
         ));
     }
     /**
