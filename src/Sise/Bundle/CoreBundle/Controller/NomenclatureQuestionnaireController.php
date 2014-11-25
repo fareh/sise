@@ -8,6 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire;
 use Sise\Bundle\CoreBundle\Form\NomenclatureQuestionnaireType;
 use Sise\Bundle\CoreBundle\Form\Search\SearchType;
+use Sise\Bundle\CoreBundle\Form\EffectifeleveDemiresidantType;
+use Sise\Bundle\CoreBundle\Form\EffectifeleveDemiresidantCollectionType;
+use Sise\Bundle\CoreBundle\Entity\EffectifeleveDemiresidant;
 
 
 /**
@@ -44,8 +47,7 @@ class NomenclatureQuestionnaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
-
-
+        $editForms = array();
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
         }
@@ -55,21 +57,43 @@ class NomenclatureQuestionnaireController extends Controller
         if ($request->isMethod('POST')) {
           $params= $request->request->get($search->getName());
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
-            foreach ( $entities as $nomenclature){
-
-
-                echo $nomenclature->getCodeetab();
-
+            //$editForms = $this->createCustomForm($entities)->createView();
+          foreach ( $entities as $key => $nomenclature){
+                $editForms[] = $this->createCustomForm($nomenclature)->createView();
             }
 
         }
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
             'entity' => $entity,
+            'editForms'=>$editForms,
             'entities'=>($entities)?$entities:'',
             'search'=>$search->createView(),
             'pathfilter'=> $url
         ));
     }
+
+
+
+    /**
+     * Creates a form to edit a NomenclatureQuestionnaire entity.
+     *
+     * @param NomenclatureQuestionnaire $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createCustomForm(EffectifeleveDemiresidant $entity)
+    {
+        $form = $this->createForm(new EffectifeleveDemiresidantType(), $entity, array(
+            'action' => '',
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+
+
     /**
      * Creates a new NomenclatureQuestionnaire entity.
      *
@@ -170,6 +194,8 @@ class NomenclatureQuestionnaireController extends Controller
 
         return $form;
     }
+
+
     /**
      * Edits an existing NomenclatureQuestionnaire entity.
      *
