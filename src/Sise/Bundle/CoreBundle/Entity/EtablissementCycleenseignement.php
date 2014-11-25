@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * EtablissementCycleenseignement
@@ -36,7 +37,7 @@ class EtablissementCycleenseignement
      * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     */
+     **/
     private $codecyclense;
 
 
@@ -86,6 +87,8 @@ class EtablissementCycleenseignement
     {
         return $this->codetypeetab;
     }
+
+
 
     /**
      * Set codecyclense

@@ -10,7 +10,7 @@
             {{ form(editForm) }}
         {% endfor %}
     {% endif %}#}
-    {% if entities is defined %}
+    {% if entities is defined  and entities|length > 0%}
         <center>
             <br>
 

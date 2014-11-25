@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class NomenclatureCycleenseignement
 {
+
     /**
      * @var string
      *
@@ -20,6 +21,7 @@ class NomenclatureCycleenseignement
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecyclense;
+
 
     /**
      * @var string
@@ -86,15 +88,6 @@ class NomenclatureCycleenseignement
 
 
 
-    /**
-     * Get codecyclense
-     *
-     * @return string 
-     */
-    public function getCodecyclense()
-    {
-        return $this->codecyclense;
-    }
 
     /**
      * Set libecyclensear
@@ -307,5 +300,16 @@ class NomenclatureCycleenseignement
     public  function  __toString(){
 
         return ($this->getLibecyclensear())?$this->getLibecyclensear():'';
+    }
+
+
+    /**
+     * Get codecyclense
+     *
+     * @return string 
+     */
+    public function getCodecyclense()
+    {
+        return $this->codecyclense;
     }
 }

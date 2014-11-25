@@ -49,11 +49,10 @@ class NomenclatureQuestionnaireController extends Controller
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         $editForms = array();
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
+            throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
-
         if ($request->isMethod('POST')) {
           $params= $request->request->get($search->getName());
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
@@ -66,11 +65,41 @@ class NomenclatureQuestionnaireController extends Controller
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
             'entity' => $entity,
             'editForms'=>$editForms,
-            'entities'=>($entities)?$entities:'',
+            'entities'=>@$entities,
             'search'=>$search->createView(),
             'pathfilter'=> $url
         ));
     }
+
+
+
+
+    /**
+     * Displays a form to edit an existing NomenclatureQuestionnaire entity.
+     *
+     */
+    public function listStatAction($table, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
+        $editForms = array();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
+        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
+        $url = $this->generateUrl('StatEleve_listStat', array('table' => $table));
+        if ($request->isMethod('POST')) {
+            $params= $request->request->get($search->getName());
+            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
+        }
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:listStat.html.twig', array(
+            'entities'=>@$entities,
+            'search'=>$search->createView(),
+            'pathfilter'=> $url
+        ));
+    }
+
+
 
 
 

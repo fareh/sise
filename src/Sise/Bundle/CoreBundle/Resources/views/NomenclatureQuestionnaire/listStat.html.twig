@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    {#
+    {% if editForms|length > 0 %}
+        {% for editForm in editForms %}
+            {{ form(editForm) }}
+        {% endfor %}
+    {% endif %}#}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+
+            <div id="CPHMain_upGridView">
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                أنصاف المقيمين
+                            </td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                الممنوحون
+                            </td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد المنح</th>
+                        </tr>
+
+
+                        {% for key, entity in entities %}
+                            <tr>
+
+
+                                <td> {{ entity.codecyclense.libecyclensear }}</td>
+                                <td>
+                                    {{ entity.nombelevresimasc }}</td>
+                                <td>
+                                    {{ entity.nombelevresifemi }}</td>
+                                <td>
+                                    {{ entity.nombtotaresielev }}</td>
+                                <td>
+                                    {{ entity.nombelevbourmasc }}</td>
+                                <td>
+
+                                    {{ entity.nombelevbourfemi }}</td>
+                                <td>
+
+                                    {{ entity.nombtotabourelev }}</td>
+                                <td>
+
+                                    {{ entity.nombbour }}</td>
+
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </center>
+    {% endif %}
+{% endblock %}

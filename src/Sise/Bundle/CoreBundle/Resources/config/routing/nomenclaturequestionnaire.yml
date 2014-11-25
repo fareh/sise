@@ -19,6 +19,10 @@ StatEleve_edit:
     path:     /{table}/edit
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:edit" }
 
+StatEleve_listStat:
+    path:     /{table}/stat
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:listStat" }
+
 StatEleve_update:
     path:     /{id}/update
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:update" }

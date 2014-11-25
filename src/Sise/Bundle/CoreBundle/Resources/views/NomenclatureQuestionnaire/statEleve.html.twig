@@ -15,7 +15,7 @@
                           <span>{{ entity.libequesar }}</span>
                 </td>
                 <td width="10%" class="RowStyle" align="center">
-                    <a href="Eleve_DemiResidant.aspx">
+                    <a href="{{ path('StatEleve_listStat', { 'table': entity.nameclass|lower }) }}">
                         <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
                 </td>
                 <td width="10%" class="RowStyle" align="center">
