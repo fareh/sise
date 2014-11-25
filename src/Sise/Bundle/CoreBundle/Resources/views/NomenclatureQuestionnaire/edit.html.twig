@@ -3,14 +3,13 @@
 {% block body %}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    {#
     {% if editForms|length > 0 %}
         {% for editForm in editForms %}
             {{ form(editForm) }}
-
-
-
         {% endfor %}
-    {% endif %}
+    {% endif %}#}
     {% if entities is defined %}
         <center>
             <br>
@@ -51,7 +50,10 @@
                             <tr>
                                 <td align="center">
                                 <span id="CPHMain_GridView_Edit_LibeCyclEnse_{{ key }}" class="#Niveau Scolaire"
-                                      style="display:inline-block;width:98%;">مرحلة التعليم الثانوي</span>
+                                      style="display:inline-block;width:98%;"> {{ entity.codecyclense.libecyclensear }}</span>
+
+
+
 
                                 </td>
                                 <td align="right">
