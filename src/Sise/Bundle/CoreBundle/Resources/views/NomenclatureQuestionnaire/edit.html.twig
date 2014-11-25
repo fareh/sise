@@ -5,12 +5,12 @@
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if editForms|length > 0 %}
         {% for editForm in editForms %}
-           {{ form(editForm) }}
+            {{ form(editForm) }}
 
 
 
         {% endfor %}
-{% endif %}
+    {% endif %}
     {% if entities is defined %}
         <center>
             <br>
@@ -59,9 +59,12 @@
 
                                     <span id="CPHMain_GridView_Edit_RVNombElevResiMasc_{{ key }}" class="tooltips"
                                           style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevResiMasc" type="text"
-                                               value="{{ entity.nombelevresimasc }}" id="CPHMain_GridView_Edit_NombElevResiMasc_{{ key }}"
-                                               onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
+                                               type="text"
+                                               value="{{ entity.nombelevresimasc }}"
+                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
+                                               onchange="javascript:txtChanged(this);"
+                                               style="border-style:None;width:98%;">
 
                                     </div>
                                 </td>
@@ -70,15 +73,22 @@
 
                                     <span id="CPHMain_GridView_Edit_RVNombElevResiFemi_{{ key }}" class="tooltips"
                                           style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevResiFemi" type="text"
-                                               value="{{ entity.nombelevresifemi }}" id="CPHMain_GridView_Edit_NombElevResiFemi_{{ key }}"
-                                               onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
+                                               type="text"
+                                               value="{{ entity.nombelevresifemi }}"
+                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
+                                               onchange="javascript:txtChanged(this);"
+                                               style="border-style:None;width:98%;">
 
                                     </div>
                                 </td>
                                 <td align="center" style="background-color:#EEEEEE;">
                                 <span id="CPHMain_GridView_Edit_NombTotaResiElev_{{ key }}" class="أنصاف المقيمين"
                                       style="display:inline-block;width:98%;">{{ entity.nombtotaresielev }}</span>
+                                    <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}"
+                                           type="hidden"
+                                           value="{{ entity.nombtotaresielev }}"
+                                           id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}">
                                 </td>
                                 <td align="right">
                                     <div id="CPHMain_GridView_Edit_nemr_{{ key }}">
@@ -86,8 +96,10 @@
                                     <span id="CPHMain_GridView_Edit_RVNombElevBourMasc_{{ key }}" class="tooltips"
                                           style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
                                         <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourMasc" type="text"
-                                               value="{{ entity.nombelevbourmasc }}" id="CPHMain_GridView_Edit_NombElevBourMasc_{{ key }}"
-                                               onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+                                               value="{{ entity.nombelevbourmasc }}"
+                                               id="CPHMain_GridView_Edit_NombElevBourMasc_{{ key }}"
+                                               onchange="javascript:txtChanged(this);"
+                                               style="border-style:None;width:98%;">
 
                                     </div>
                                 </td>
@@ -96,9 +108,12 @@
 
                                     <span id="CPHMain_GridView_Edit_RVNombElevBourFemi_{{ key }}" class="tooltips"
                                           style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourFemi" type="text"
-                                               value="{{ entity.nombelevbourfemi }}" id="CPHMain_GridView_Edit_NombElevBourFemi_{{ key }}"
-                                               onchange="javascript:txtChanged(this);" style="border-style:None;width:98%;">
+                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
+                                               type="text"
+                                               value="{{ entity.nombelevbourfemi }}"
+                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
+                                               onchange="javascript:txtChanged(this);"
+                                               style="border-style:None;width:98%;">
 
                                     </div>
                                 </td>
@@ -107,10 +122,13 @@
                                       style="display:inline-block;width:98%;">{{ entity.nombtotabourelev }}</span>
                                 </td>
                                 <td align="right">
-                                    <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombBour" type="text" value="{{ entity.nombbour }}"
-                                           id="CPHMain_GridView_Edit_NombBour_{{ key }}" class=" "
+                                    <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
+                                           type="text" value="{{ entity.nombbour }}"
+                                           id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
+                                           class=" "
                                            style="border-style:None;width:30px;">
-                                    <span id="CPHMain_GridView_Edit_RVNombBour_{{ key }}" class=" " style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
+                                    <span id="CPHMain_GridView_Edit_RVNombBour_{{ key }}" class=" "
+                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
 
                                 </td>
                             </tr>
