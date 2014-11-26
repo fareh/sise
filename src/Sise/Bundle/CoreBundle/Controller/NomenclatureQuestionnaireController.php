@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire;
 use Sise\Bundle\CoreBundle\Form\NomenclatureQuestionnaireType;
@@ -46,6 +47,7 @@ class NomenclatureQuestionnaireController extends Controller
     public function editAction($table, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         $editForms = array();
         if (!$entity) {
@@ -53,19 +55,30 @@ class NomenclatureQuestionnaireController extends Controller
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
+
+        if($session->has('items')) {
+            $entities =  $session->get('items');
+        }
+
+        if($session->has('features')) {
+            $features =  $session->get('features');
+        }
         if ($request->isMethod('POST')) {
           $params= $request->request->get($search->getName());
+            $session->set("features", $params);
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
-            //$editForms = $this->createCustomForm($entities)->createView();
-          foreach ( $entities as $key => $nomenclature){
-                $editForms[] = $this->createCustomForm($nomenclature)->createView();
+            $session->set("items", $entities);
+            foreach($entities as $item){
+
+                $editForms[]=$this->createCustomForm($item)->createView();
+
             }
 
         }
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
-            'entity' => $entity,
-            'editForms'=>$editForms,
             'entities'=>@$entities,
+            'editForms'=>$editForms,
+            'features'=>@$features,
             'search'=>$search->createView(),
             'pathfilter'=> $url
         ));

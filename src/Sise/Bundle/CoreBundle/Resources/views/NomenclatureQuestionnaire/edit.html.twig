@@ -2,14 +2,22 @@
 
 {% block body %}
 
-    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter, 'features' : features}) }}
 
-    {#
+{#
     {% if editForms|length > 0 %}
         {% for editForm in editForms %}
             {{ form(editForm) }}
         {% endfor %}
-    {% endif %}#}
+    {% endif %}
+
+
+    #}
+    {% if features|length > 0 %}
+        {% for feature in features %}
+            {{ feature }}
+        {% endfor %}
+    {% endif %}
     {% if entities is defined  and entities|length > 0%}
         <center>
             <br>
@@ -51,6 +59,7 @@
                                 <td align="center">
                                 <span id="CPHMain_GridView_Edit_LibeCyclEnse_{{ key }}" class="#Niveau Scolaire"
                                       style="display:inline-block;width:98%;"> {{ entity.codecyclense.libecyclensear }}</span>
+                                    <input type="hidden" name="key_{{ key }}" value=" {{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}"/>
 
 
 
