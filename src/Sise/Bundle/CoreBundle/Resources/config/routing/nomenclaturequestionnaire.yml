@@ -24,7 +24,7 @@ StatEleve_listStat:
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:listStat" }
 
 StatEleve_update:
-    path:     /{id}/update
+    path:     /{table}/{codeetab}/{codetypeetab}/update
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:update" }
     requirements: { _method: post|put }
 

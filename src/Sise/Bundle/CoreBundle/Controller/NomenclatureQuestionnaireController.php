@@ -34,8 +34,8 @@ class NomenclatureQuestionnaireController extends Controller
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statEleve.html.twig', array(
             'entities' => $entities,
-            'search'=>$search->createView(),
-            'pathfilter'=>'statEleve'
+            'search' => $search->createView(),
+            'pathfilter' => 'statEleve'
         ));
     }
 
@@ -56,35 +56,94 @@ class NomenclatureQuestionnaireController extends Controller
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
 
-        if($session->has('items')) {
-            $entities =  $session->get('items');
+        if ($session->has('items')) {
+            $entities = $session->get('items');
         }
 
-        if($session->has('features')) {
-            $features =  $session->get('features');
+        if ($session->has('features')) {
+            $features = $session->get('features');
         }
         if ($request->isMethod('POST')) {
-          $params= $request->request->get($search->getName());
-            $session->set("features", $params);
-            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
-            $session->set("items", $entities);
-            foreach($entities as $item){
+            if ($table == "effectifeleve_demiresidan") {
+                $params = $request->request->get($search->getName());
+                $session->set("features", $params);
 
-                $editForms[]=$this->createCustomForm($item)->createView();
+                $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $session->set("items", $entities);
+                foreach ($entities as $item) {
+
+                    $editForms[] = $this->createCustomForm($item)->createView();
+
+                }
 
             }
 
         }
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
-            'entities'=>@$entities,
-            'editForms'=>$editForms,
-            'features'=>@$features,
-            'search'=>$search->createView(),
-            'pathfilter'=> $url
+            'entities' => @$entities,
+            'editForms' => $editForms,
+            'features' => @$features,
+            'search' => $search->createView(),
+            'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate
         ));
     }
 
 
+    /**
+     * Edits an existing NomenclatureQuestionnaire entity.
+     *
+     */
+    public function updateAction(Request $request, $table, $codeetab, $codetypeetab)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+        $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
+        $editForms = array();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
+        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
+        $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
+
+        if ($session->has('items')) {
+            $entities = $session->get('items');
+        }
+
+        if ($session->has('features')) {
+            $features = $session->get('features');
+        }
+
+        if ($request->isMethod('POST')) {
+            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $session->set("items", $entities);
+            for ($i = 0; $i < count($entities); $i++) {
+                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
+                $item = $em->getRepository($entity->getEntity())->findOneBy($items);
+                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_' . $i));
+                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_' . $i));
+                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_' . $i));
+                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_' . $i));
+                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_' . $i));
+                $em->persist($item);
+                $em->flush();
+            }
+            return $this->redirect($this->generateUrl('StatEleve_edit', array('table' => $table)));
+        }
+
+
+        $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+
+
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
+            'entities' => @$entities,
+            'editForms' => $editForms,
+            'features' => @$features,
+            'search' => $search->createView(),
+            'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate
+        ));
+    }
 
 
     /**
@@ -102,18 +161,15 @@ class NomenclatureQuestionnaireController extends Controller
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_listStat', array('table' => $table));
         if ($request->isMethod('POST')) {
-            $params= $request->request->get($search->getName());
-            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab'=>$params['NomenclatureEtablissement'], 'codetypeetab'=>$params['NomenclatureTypeetablissement'] ));
+            $params = $request->request->get($search->getName());
+            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
         }
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:listStat.html.twig', array(
-            'entities'=>@$entities,
-            'search'=>$search->createView(),
-            'pathfilter'=> $url
+            'entities' => @$entities,
+            'search' => $search->createView(),
+            'pathfilter' => $url
         ));
     }
-
-
-
 
 
     /**
@@ -156,7 +212,7 @@ class NomenclatureQuestionnaireController extends Controller
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -186,11 +242,11 @@ class NomenclatureQuestionnaireController extends Controller
     public function newAction()
     {
         $entity = new NomenclatureQuestionnaire();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -211,20 +267,19 @@ class NomenclatureQuestionnaireController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
 
-
     /**
-    * Creates a form to edit a NomenclatureQuestionnaire entity.
-    *
-    * @param NomenclatureQuestionnaire $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a NomenclatureQuestionnaire entity.
+     *
+     * @param NomenclatureQuestionnaire $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(NomenclatureQuestionnaire $entity)
     {
         $form = $this->createForm(new NomenclatureQuestionnaireType(), $entity, array(
@@ -242,7 +297,7 @@ class NomenclatureQuestionnaireController extends Controller
      * Edits an existing NomenclatureQuestionnaire entity.
      *
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction111(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -263,11 +318,12 @@ class NomenclatureQuestionnaireController extends Controller
         }
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a NomenclatureQuestionnaire entity.
      *
@@ -305,7 +361,6 @@ class NomenclatureQuestionnaireController extends Controller
             ->setAction($this->generateUrl('StatEleve_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

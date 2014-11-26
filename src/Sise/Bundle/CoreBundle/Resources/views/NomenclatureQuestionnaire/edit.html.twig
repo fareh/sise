@@ -12,12 +12,13 @@
     {% endif %}
 
 
-    #}
+
     {% if features|length > 0 %}
-        {% for feature in features %}
+        {% for key,  feature in features %}
+            {{ key }}
             {{ feature }}
         {% endfor %}
-    {% endif %}
+    {% endif %} #}
     {% if entities is defined  and entities|length > 0%}
         <center>
             <br>
@@ -25,6 +26,7 @@
             <div id="CPHMain_upGridView">
 
                 <div>
+                    <form action="{{ pathUpdate }}" method="post"  class="well form-search">
                     <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
                            style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                         <tbody>
@@ -59,7 +61,11 @@
                                 <td align="center">
                                 <span id="CPHMain_GridView_Edit_LibeCyclEnse_{{ key }}" class="#Niveau Scolaire"
                                       style="display:inline-block;width:98%;"> {{ entity.codecyclense.libecyclensear }}</span>
-                                    <input type="hidden" name="key_{{ key }}" value=" {{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}"/>
+
+                                    <input type="hidden" name="val_{{ key }}" value="{{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}"/>
+
+
+                                    <input type="hidden" name="key_{{ key }}" value="codeetab_codetypeetab_annescol_coderece"/>
 
 
 
@@ -145,8 +151,18 @@
                             </tr>
                         {% endfor %}
 
+
+
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="8"><input type="submit" value="Envoyer"></td>
+
+                        </tr>
+
+                        </tfoot>
                     </table>
+                    </form>
                 </div>
 
             </div>
