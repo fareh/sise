@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NomenclatureEtablissement</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeetab</th>
+                <td>{{ entity.codeetab }}</td>
+            </tr>
+            <tr>
+                <th>Codetypeetab</th>
+                <td>{{ entity.Codetypeetab.Codetypeetab }}</td>
+            </tr>
+            <tr>
+                <th>Libeetabar</th>
+                <td>{{ entity.libeetabar }}</td>
+            </tr>
+            <tr>
+                <th>Libeetabfr</th>
+                <td>{{ entity.libeetabfr }}</td>
+            </tr>
+            <tr>
+                <th>Libecourar</th>
+                <td>{{ entity.libecourar }}</td>
+            </tr>
+            <tr>
+                <th>Libecourfr</th>
+                <td>{{ entity.libecourfr }}</td>
+            </tr>
+            <tr>
+                <th>Sect</th>
+                <td>{{ entity.codesect.libesectar }}</td>
+            </tr>
+            <tr>
+                <th>del</th>
+                <td>{{entity.codedele.libedelear}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('nomenclatureetablissement') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('nomenclatureetablissement_edit', { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
