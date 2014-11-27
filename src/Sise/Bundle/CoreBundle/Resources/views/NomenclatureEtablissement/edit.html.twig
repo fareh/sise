@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<center>
+    <h1>NomenclatureEtablissement edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('nomenclatureetablissement') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+</center>
+{% endblock %}
