@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DoctrineCommonCollectionsArrayCollection;
 /**
  * NomenclatureCycleenseignement
  *
@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class NomenclatureCycleenseignement
 {
-
     /**
      * @var string
      *
@@ -21,7 +20,6 @@ class NomenclatureCycleenseignement
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecyclense;
-
 
     /**
      * @var string
@@ -56,38 +54,69 @@ class NomenclatureCycleenseignement
      *
      * @ORM\Column(name="Prep", type="boolean", nullable=false)
      */
-    private $prep;
+    private $prep = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="Prim", type="boolean", nullable=false)
      */
-    private $prim;
+    private $prim = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="CollGene", type="boolean", nullable=false)
      */
-    private $collgene;
+    private $collgene = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="Lyce", type="boolean", nullable=false)
      */
-    private $lyce;
+    private $lyce = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="CollTech", type="boolean", nullable=false)
      */
-    private $colltech;
+    private $colltech = '0';
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="NomenclatureEtablissement", mappedBy="codecyclense")
+     */
+    private $codeetab;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="SecuriteProfil", mappedBy="codecyclense")
+     */
+    private $codeprof;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codeetab = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codeprof = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
-
+    /**
+     * Get codecyclense
+     *
+     * @return string
+     */
+    public function getCodecyclense()
+    {
+        return $this->codecyclense;
+    }
 
     /**
      * Set libecyclensear
@@ -105,7 +134,7 @@ class NomenclatureCycleenseignement
     /**
      * Get libecyclensear
      *
-     * @return string 
+     * @return string
      */
     public function getLibecyclensear()
     {
@@ -128,7 +157,7 @@ class NomenclatureCycleenseignement
     /**
      * Get libecyclensefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecyclensefr()
     {
@@ -151,7 +180,7 @@ class NomenclatureCycleenseignement
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -174,7 +203,7 @@ class NomenclatureCycleenseignement
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -197,7 +226,7 @@ class NomenclatureCycleenseignement
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -220,7 +249,7 @@ class NomenclatureCycleenseignement
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -243,7 +272,7 @@ class NomenclatureCycleenseignement
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -266,7 +295,7 @@ class NomenclatureCycleenseignement
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -289,27 +318,76 @@ class NomenclatureCycleenseignement
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
 
+    /**
+     * Add codeetab
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
+     * @return NomenclatureCycleenseignement
+     */
+    public function addCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab)
+    {
+        $this->codeetab[] = $codeetab;
 
-    public  function  __toString(){
-
-        return ($this->getLibecyclensear())?$this->getLibecyclensear():'';
+        return $this;
     }
 
+    /**
+     * Remove codeetab
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
+     */
+    public function removeCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab)
+    {
+        $this->codeetab->removeElement($codeetab);
+    }
 
     /**
-     * Get codecyclense
+     * Get codeetab
      *
-     * @return string 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCodecyclense()
+    public function getCodeetab()
     {
-        return $this->codecyclense;
+        return $this->codeetab;
+    }
+
+    /**
+     * Add codeprof
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
+     * @return NomenclatureCycleenseignement
+     */
+    public function addCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
+    {
+        $this->codeprof[] = $codeprof;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeprof
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
+     */
+    public function removeCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
+    {
+        $this->codeprof->removeElement($codeprof);
+    }
+
+    /**
+     * Get codeprof
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCodeprof()
+    {
+        return $this->codeprof;
     }
 }

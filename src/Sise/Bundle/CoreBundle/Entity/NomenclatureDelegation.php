@@ -36,13 +36,6 @@ class NomenclatureDelegation
     private $libedelefr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeGouv", type="string", length=50, nullable=true)
-     */
-    private $codegouv;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -61,42 +54,52 @@ class NomenclatureDelegation
      *
      * @ORM\Column(name="Prep", type="boolean", nullable=false)
      */
-    private $prep;
+    private $prep = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="Prim", type="boolean", nullable=false)
      */
-    private $prim;
+    private $prim = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="CollGene", type="boolean", nullable=false)
      */
-    private $collgene;
+    private $collgene = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="Lyce", type="boolean", nullable=false)
      */
-    private $lyce;
+    private $lyce = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="CollTech", type="boolean", nullable=false)
      */
-    private $colltech;
+    private $colltech = '0';
+
+    /**
+     * @var \NomenclatureGouvernorat
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureGouvernorat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGouv", referencedColumnName="CodeGouv")
+     * })
+     */
+    private $codegouv;
 
 
 
     /**
      * Get codedele
      *
-     * @return string 
+     * @return string
      */
     public function getCodedele()
     {
@@ -119,7 +122,7 @@ class NomenclatureDelegation
     /**
      * Get libedelear
      *
-     * @return string 
+     * @return string
      */
     public function getLibedelear()
     {
@@ -142,34 +145,11 @@ class NomenclatureDelegation
     /**
      * Get libedelefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibedelefr()
     {
         return $this->libedelefr;
-    }
-
-    /**
-     * Set codegouv
-     *
-     * @param string $codegouv
-     * @return NomenclatureDelegation
-     */
-    public function setCodegouv($codegouv)
-    {
-        $this->codegouv = $codegouv;
-
-        return $this;
-    }
-
-    /**
-     * Get codegouv
-     *
-     * @return string 
-     */
-    public function getCodegouv()
-    {
-        return $this->codegouv;
     }
 
     /**
@@ -188,7 +168,7 @@ class NomenclatureDelegation
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +191,7 @@ class NomenclatureDelegation
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +214,7 @@ class NomenclatureDelegation
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +237,7 @@ class NomenclatureDelegation
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +260,7 @@ class NomenclatureDelegation
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +283,7 @@ class NomenclatureDelegation
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,10 +306,33 @@ class NomenclatureDelegation
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Set codegouv
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat $codegouv
+     * @return NomenclatureDelegation
+     */
+    public function setCodegouv(\Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat $codegouv = null)
+    {
+        $this->codegouv = $codegouv;
+
+        return $this;
+    }
+
+    /**
+     * Get codegouv
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat
+     */
+    public function getCodegouv()
+    {
+        return $this->codegouv;
     }
 }

@@ -6,9 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * NomenclatureBassinpedagogiqueetablissement
- *
- * @ORM\Table(name="nomenclature_bassinpedagogiqueetablissement", indexes={@ORM\Index(name="FK_Nomenclature_BassinPedagogiqueEtablissement_Nomenclature_Ba13", columns={"CodeBassPeda"})})
- * @ORM\Entity
  */
 class NomenclatureBassinpedagogiqueetablissement
 {
@@ -29,16 +26,17 @@ class NomenclatureBassinpedagogiqueetablissement
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetypeetab;
-
     /**
-     * @var string
+     * @var \NomenclatureBassinpedagogique
      *
-     * @ORM\Column(name="CodeBassPeda", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureBassinpedagogique")
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="CodeBassPeda", referencedColumnName="CodeBassPeda")
+     * })
      */
     private $codebasspeda;
-
 
 
     /**
@@ -57,7 +55,7 @@ class NomenclatureBassinpedagogiqueetablissement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -80,7 +78,7 @@ class NomenclatureBassinpedagogiqueetablissement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -103,7 +101,7 @@ class NomenclatureBassinpedagogiqueetablissement
     /**
      * Get codebasspeda
      *
-     * @return string 
+     * @return string
      */
     public function getCodebasspeda()
     {

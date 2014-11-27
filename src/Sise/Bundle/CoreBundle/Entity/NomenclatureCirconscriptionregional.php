@@ -182,4 +182,8 @@ class NomenclatureCirconscriptionregional
     {
         return $this->acti;
     }
+    public function __toString()
+    {
+        return $this->codecircregi;
+    }
 }

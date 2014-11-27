@@ -54,42 +54,42 @@ class NomenclatureGouvernorat
      *
      * @ORM\Column(name="Prep", type="boolean", nullable=false)
      */
-    private $prep;
+    private $prep = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="Prim", type="boolean", nullable=false)
      */
-    private $prim;
+    private $prim = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="CollGene", type="boolean", nullable=false)
      */
-    private $collgene;
+    private $collgene = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="Lyce", type="boolean", nullable=false)
      */
-    private $lyce;
+    private $lyce = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="CollTech", type="boolean", nullable=false)
      */
-    private $colltech;
+    private $colltech = '0';
 
 
 
     /**
      * Get codegouv
      *
-     * @return string 
+     * @return string
      */
     public function getCodegouv()
     {
@@ -112,7 +112,7 @@ class NomenclatureGouvernorat
     /**
      * Get libegouvar
      *
-     * @return string 
+     * @return string
      */
     public function getLibegouvar()
     {
@@ -135,7 +135,7 @@ class NomenclatureGouvernorat
     /**
      * Get libegouvfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibegouvfr()
     {
@@ -158,7 +158,7 @@ class NomenclatureGouvernorat
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +181,7 @@ class NomenclatureGouvernorat
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +204,7 @@ class NomenclatureGouvernorat
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +227,7 @@ class NomenclatureGouvernorat
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +250,7 @@ class NomenclatureGouvernorat
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +273,7 @@ class NomenclatureGouvernorat
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,10 +296,14 @@ class NomenclatureGouvernorat
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function __toString()
+    {
+        return $this->libegouvar;
     }
 }

@@ -302,4 +302,8 @@ class NomenclatureSecteur
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codesect;
+    }
 }

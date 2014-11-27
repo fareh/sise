@@ -3,13 +3,9 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * EtablissementCycleenseignement
- *
- * @ORM\Table(name="etablissement_cycleenseignement", indexes={@ORM\Index(name="FK_Etablissement_CycleEnseignement_Nomenclature_CycleEnseignem25", columns={"CodeCyclEnse"})})
- * @ORM\Entity
  */
 class EtablissementCycleenseignement
 {
@@ -34,12 +30,11 @@ class EtablissementCycleenseignement
     /**
      * @var string
      *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=false)
+     * @ORM\Column(name="codecyclense", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     **/
+     */
     private $codecyclense;
-
 
 
     /**
@@ -58,7 +53,7 @@ class EtablissementCycleenseignement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -81,14 +76,12 @@ class EtablissementCycleenseignement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
         return $this->codetypeetab;
     }
-
-
 
     /**
      * Set codecyclense
@@ -106,7 +99,7 @@ class EtablissementCycleenseignement
     /**
      * Get codecyclense
      *
-     * @return string 
+     * @return string
      */
     public function getCodecyclense()
     {

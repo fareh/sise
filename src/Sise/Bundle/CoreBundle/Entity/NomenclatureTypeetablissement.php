@@ -332,4 +332,8 @@ class NomenclatureTypeetablissement
     {
         return $this->concrece;
     }
+    public function __toString()
+    {
+        return $this->codetypeetab;
+    }
 }
