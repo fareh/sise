@@ -36,11 +36,10 @@ class NomenclatureSousdomaine
     private $libesousdomafr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeDoma", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureDomaine", inversedBy="codesousdoma")
+     * @ORM\JoinColumn(name="CodeDoma", referencedColumnName="CodeDoma")
      */
-    private $codedoma;
+    protected $codedoma;
 
     /**
      * @var integer
@@ -148,30 +147,6 @@ class NomenclatureSousdomaine
     {
         return $this->libesousdomafr;
     }
-
-    /**
-     * Set codedoma
-     *
-     * @param string $codedoma
-     * @return NomenclatureSousdomaine
-     */
-    public function setCodedoma($codedoma)
-    {
-        $this->codedoma = $codedoma;
-
-        return $this;
-    }
-
-    /**
-     * Get codedoma
-     *
-     * @return string 
-     */
-    public function getCodedoma()
-    {
-        return $this->codedoma;
-    }
-
     /**
      * Set ordraffi
      *
@@ -331,5 +306,30 @@ class NomenclatureSousdomaine
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+
+
+    /**
+     * Set codedoma
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine $codedoma
+     * @return NomenclatureSousdomaine
+     */
+    public function setCodedoma(\Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine $codedoma = null)
+    {
+        $this->codedoma = $codedoma;
+
+        return $this;
+    }
+
+    /**
+     * Get codedoma
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine 
+     */
+    public function getCodedoma()
+    {
+        return $this->codedoma;
     }
 }

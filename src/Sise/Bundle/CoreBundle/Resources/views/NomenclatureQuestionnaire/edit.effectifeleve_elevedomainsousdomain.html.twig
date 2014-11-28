@@ -1,0 +1,111 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    {#
+    {% if editForms|length > 0 %}
+        {% for editForm in editForms %}
+            {{ form(editForm) }}
+        {% endfor %}
+    {% endif %}#}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+
+            <div id="CPHMain_upGridView">
+
+                <div>
+                    <form action="{{ pathUpdate }}" method="post"  class="well form-search">
+                    <table cellspacing="0"
+                           style="border-color:#4F81BD;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;"
+                           id="CPHMain_GridView_Browse" rules="all">
+                        <tbody>
+                        <tr>
+                            <td align="center"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"
+                                colspan="2"></td>
+                            <td align="center"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"
+                                colspan="2"></td>
+                            <td align="center"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"
+                                colspan="3">عــدد التـلاميــذ
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">المجال</th>
+                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">المجال الفرعي
+                            </th>
+                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">عدد الفرق</th>
+                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">عدد الفصول</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">ذكر</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">أنثى</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">الجملة</th>
+                        </tr>
+                        {% for key, entity in entities %}
+                            {% for key1, codesousdoma in entity.codedoma.codesousdoma %}
+                                <tr>
+                                    {% if key1==0 %}
+
+                                        <td rowspan="{{ entity.codedoma.codesousdoma|length }}">
+                                            {{ entity.codedoma.libedomaar }}
+                                            <input type="hidden" name="val_{{ key }}"
+                                                   value="{{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}_{{ entity.codesousdoma }}">
+                                            <input type="hidden" name="key_{{ key }}"
+                                                   value="codeetab_codetypeetab_annescol_coderece_codesousdoma">
+
+                                        </td>
+                                    {% endif %}
+
+                                    <td>{{ codesousdoma.libesousdomaar }}</td>
+                                    <td align="right">
+                                        <input type="text" name="codesousdoma_ordraffi_{{ codesousdoma.codesousdoma }}_{{ key }}"
+                                               value=" {{ codesousdoma.ordraffi }} "
+                                               id="codesousdoma_ordraffi_{{ codesousdoma.codesousdoma }}_{{ key }}">
+                                    </td>
+                                    {% if key1==0 %}
+                                        <td align="right"
+                                            rowspan="{{ entity.codedoma.codesousdoma|length }}">
+                                            <input type="text"  name="nombclass{{ key }}" value="{{ entity.nombclass }} "
+                                                   id="nombclass{{ key }}">
+                                        </td>
+                                        <td align="right" rowspan="{{ entity.codedoma.codesousdoma|length }}">
+                                            <input type="text"  name="nombelevmasc{{ key }}" value="{{ entity.nombelevmasc }} "
+                                                   id="nombelevmasc{{ key }}">
+                                        </td>
+                                        <td align="right" rowspan="{{ entity.codedoma.codesousdoma|length }}">
+
+                                            <input type="text"  name="nombelevfemi{{ key }}" value="{{ entity.nombelevmasc }} "
+                                                   id="nombelevfemi{{ key }}">
+                                        </td>
+                                        <td align="right" rowspan="{{ entity.codedoma.codesousdoma|length }}">
+                                            <input type="text"  name="nombtotaelev{{ key }}" value="{{ entity.nombtotaelev }} "
+                                                   id="nombtotaelev{{ key }}">
+                                        </td>
+                                    {% endif %}
+
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+
+
+                        </tbody>
+
+                        <tfoot>
+                        <tr>
+                            <td colspan="8"><input type="submit" value="Envoyer"></td>
+
+                        </tr>
+
+                        </tfoot>
+                    </table>
+                    </form>
+                </div>
+
+            </div>
+        </center>
+    {% endif %}
+{% endblock %}

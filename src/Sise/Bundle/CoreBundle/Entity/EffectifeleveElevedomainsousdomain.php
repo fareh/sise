@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * EffectifeleveElevedomainsousdomain
  *
@@ -56,6 +57,14 @@ class EffectifeleveElevedomainsousdomain
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codesousdoma;
+
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="NomenclatureDomaine")
+     * @ORM\JoinColumn(name="CodeDoma", referencedColumnName="CodeDoma")
+     **/
+    private $codedoma;
 
     /**
      * @var integer
@@ -322,5 +331,28 @@ class EffectifeleveElevedomainsousdomain
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codedoma
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine $codedoma
+     * @return EffectifeleveElevedomainsousdomain
+     */
+    public function setCodedoma(\Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine $codedoma = null)
+    {
+        $this->codedoma = $codedoma;
+
+        return $this;
+    }
+
+    /**
+     * Get codedoma
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine 
+     */
+    public function getCodedoma()
+    {
+        return $this->codedoma;
     }
 }

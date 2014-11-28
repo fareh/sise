@@ -4,6 +4,8 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * NomenclatureDomaine
  *
@@ -20,6 +22,17 @@ class NomenclatureDomaine
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codedoma;
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureSousdomaine", mappedBy="codedoma")
+     */
+    private $codesousdoma;
+
+    public function __construct()
+    {
+        $this->codesousdoma = new ArrayCollection();
+    }
+
+
 
     /**
      * @var string
@@ -86,15 +99,7 @@ class NomenclatureDomaine
 
 
 
-    /**
-     * Get codedoma
-     *
-     * @return string 
-     */
-    public function getCodedoma()
-    {
-        return $this->codedoma;
-    }
+
 
     /**
      * Set libedomaar
@@ -301,5 +306,48 @@ class NomenclatureDomaine
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Get codedoma
+     *
+     * @return string 
+     */
+    public function getCodedoma()
+    {
+        return $this->codedoma;
+    }
+
+    /**
+     * Add codesousdoma
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine $codesousdoma
+     * @return NomenclatureDomaine
+     */
+    public function addCodesousdoma(\Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine $codesousdoma)
+    {
+        $this->codesousdoma[] = $codesousdoma;
+
+        return $this;
+    }
+
+    /**
+     * Remove codesousdoma
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine $codesousdoma
+     */
+    public function removeCodesousdoma(\Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine $codesousdoma)
+    {
+        $this->codesousdoma->removeElement($codesousdoma);
+    }
+
+    /**
+     * Get codesousdoma
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodesousdoma()
+    {
+        return $this->codesousdoma;
     }
 }

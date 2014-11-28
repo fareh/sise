@@ -76,10 +76,21 @@ class NomenclatureQuestionnaireController extends Controller
 
                 }
 
+                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' =>  $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+
+            }elseif($table == "effectifeleve_elevedomainsousdomain"){
+
+                $params = $request->request->get($search->getName());
+                $session->set("features", $params);
+
+                $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $session->set("items", $entities);
+
+                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' =>  $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
             }
 
         }
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.'.$table.'.html.twig', array(
             'entities' => @$entities,
             'editForms' => $editForms,
             'features' => @$features,
@@ -117,16 +128,43 @@ class NomenclatureQuestionnaireController extends Controller
         if ($request->isMethod('POST')) {
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             $session->set("items", $entities);
-            for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
-                $item = $em->getRepository($entity->getEntity())->findOneBy($items);
-                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_' . $i));
-                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_' . $i));
-                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_' . $i));
-                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_' . $i));
-                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_' . $i));
-                $em->persist($item);
-                $em->flush();
+            if ($table == "effectifeleve_demiresidan") {
+                for ($i = 0; $i < count($entities); $i++) {
+                    $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
+                    $item = $em->getRepository($entity->getEntity())->findOneBy($items);
+                    $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_' . $i));
+                    $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_' . $i));
+                    $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_' . $i));
+                    $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_' . $i));
+                    $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_' . $i));
+                    $em->persist($item);
+
+                    $em->flush();
+                }
+            }elseif($table == "effectifeleve_elevedomainsousdomain"){
+                for ($i = 0; $i < count($entities); $i++) {
+                    $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
+
+                    $item = $em->getRepository($entity->getEntity())->findOneBy($items);
+
+                    if (!$item) {
+                        throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
+                    }
+                    $subdomains = $item->getCodedoma()->getCodesousdoma();
+                    $item->setNombclass($request->request->get('nombclass' . $i));
+                    $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
+                    $item->setNombelevfemi($request->request->get('nombelevmasc' . $i));
+                    $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
+                    $em->persist($item);
+                    foreach($subdomains as $subdomain){
+                        $subdomain->setOrdraffi($request->request->get('codesousdoma_ordraffi_' . $subdomain->getCodesousdoma().'_'.$i));
+                        $em->persist($subdomain);
+                    }
+
+                    $em->flush();
+                }
+
+
             }
             return $this->redirect($this->generateUrl('StatEleve_edit', array('table' => $table)));
         }
@@ -135,7 +173,7 @@ class NomenclatureQuestionnaireController extends Controller
         $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
 
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.'.$table.'.html.twig', array(
             'entities' => @$entities,
             'editForms' => $editForms,
             'features' => @$features,
@@ -164,7 +202,7 @@ class NomenclatureQuestionnaireController extends Controller
             $params = $request->request->get($search->getName());
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
         }
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:listStat.html.twig', array(
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.'.$table.'.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url

@@ -32,6 +32,5 @@
 
 # Composer PHAR
 /composer.phar
-
 #phpStorm
 /.idea/
