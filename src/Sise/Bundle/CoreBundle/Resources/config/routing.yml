@@ -10,15 +10,15 @@ sise_core_listEntities:
 sise_core_getList:
     path:     /getList
     defaults: { _controller: SiseCoreBundle:Default:getList }
+sise_core_getListMulti:
+    path:     /getListMulti
+    defaults: { _controller: SiseCoreBundle:Default:getListMulti }
 SiseCoreBundle_StatEleve:
     resource: "@SiseCoreBundle/Resources/config/routing/nomenclaturequestionnaire.yml"
     prefix:   /stat
 Coreblog_NomenclatureEtablissement:
     resource: "routing/NomenclatureEtablissement.yml"
     prefix: /NomenclatureEtablissement
-Coreblog_EtablissementCycleenseignement:
-    resource: "routing/EtablissementCycleenseignement.yml"
-    prefix: /EtablissementCycleenseignement
 Coreblog_NomenclatureCycleenseignement:
     resource: "routing/NomenclatureCycleenseignement.yml"
     prefix: /NomenclatureCycleenseignement

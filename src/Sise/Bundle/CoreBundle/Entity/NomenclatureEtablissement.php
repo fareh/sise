@@ -4,10 +4,11 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * NomenclatureEtablissement
  *
- * @ORM\Table(name="nomenclature_etablissement", indexes={@ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Circonscription", columns={"CodeCirc"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_CirconscriptionRegi45", columns={"CodeCircRegi"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Delegation", columns={"CodeDele"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Secteur", columns={"CodeSect"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_TypeEtablissement", columns={"CodeTypeEtab"})})
+ * @ORM\Table(name="nomenclature_etablissement", indexes={@ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Circonscription", columns={"CodeCirc"}),@ORM\Index(name="IDX_nomenclature_etablissement_nomenclature_zone", columns={"CodeZone"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_CirconscriptionRegi45", columns={"CodeCircRegi"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Delegation", columns={"CodeDele"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Secteur", columns={"CodeSect"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_TypeEtablissement", columns={"CodeTypeEtab"})})
  * @ORM\Entity
  */
 class NomenclatureEtablissement
@@ -78,9 +79,12 @@ class NomenclatureEtablissement
     private $datecreabd;
 
     /**
-     * @var string
+     * @var \NomenclatureZone
      *
-     * @ORM\Column(name="CodeZone", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureZone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeZone", referencedColumnName="CodeZone")
+     * })
      */
     private $codezone;
 
@@ -177,7 +181,6 @@ class NomenclatureEtablissement
         $this->codebasspeda = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datecons = new \DateTime();
         $this->datecrea = new \DateTime();
-        $this->datecreabd = new \DateTime();
     }
 
 
@@ -377,6 +380,25 @@ class NomenclatureEtablissement
 
         return $this;
     }
+
+
+
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        $date = new \DateTime('now');
+        if ($date instanceof \DateTime) {
+            if ($this->getDatecreabd() == null) {
+                $this->setDatecreabd($date);
+            }
+        }
+    }
+
+
 
     /**
      * Get datecreabd

@@ -11,16 +11,17 @@ use Sise\Bundle\CoreBundle\Entity\CoreProject;
 
 class DefaultController extends Controller
 {
-    public  function  listEntitiesAction(){
+    public function  listEntitiesAction()
+    {
         $entities = array();
         $em = $this->getDoctrine()->getManager();
         $meta = $em->getMetadataFactory()->getAllMetadata();
         foreach ($meta as $key => $m) {
-                $entity = new CoreProject();
-                $entity->setEntity($m->getName());
-                $entity->setTableName($m->getTableName());
-                $em->persist($entity);
-                $em->flush();
+            $entity = new CoreProject();
+            $entity->setEntity($m->getName());
+            $entity->setTableName($m->getTableName());
+            $em->persist($entity);
+            $em->flush();
             $entities[$key]['name'] = $m->getName();
             $entities[$key]['tableName'] = $m->getTableName();
         }
@@ -29,6 +30,7 @@ class DefaultController extends Controller
 
 
     }
+
     public function indexAction($name)
     {
         return $this->render('SiseCoreBundle:Default:index.html.twig', array('name' => $name));
@@ -187,12 +189,77 @@ class DefaultController extends Controller
                         $json[$i]['libelle'] = $nomenclatureDelegation->getLibeetabar();
                         $i++;
                     }
+                } elseif ($entity == 'NomenclatureCirconscription') {
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodecirc($codegouv);
+                    $json = array();
+                    $json[0]['code'] = '';
+                    $json[0]['libelle'] = '-- اختيار --';
+                    $i = 1;
+                    foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                    {
+                        $json[$i]['code'] = $nomenclatureDelegation->getCodecirc();
+                        $json[$i]['libelle'] = $nomenclatureDelegation->getLibecircar();
+                        $i++;
+                    }
                 } elseif ($entity == 'CodeEtab') {
                     $nomenclatureDelegation = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneByCodeetab($codegouv);
                     $json = array();
                     $json['code'] = $nomenclatureDelegation->getCodeetab();
                     $json['libelle'] = $nomenclatureDelegation->getLibeetabar();
                 }
+                $response = new Response();
+                $data = json_encode($json); // c'est pour formater la réponse de la requete en format que jquery va comprendre
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent($data);
+                return $response;
+            }
+
+        }
+        return new Response('Erreur');
+    }
+
+
+
+    public function getListMultiAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $codegouv = '';
+            $entity1 = '';
+            $entity2 = '';
+            $previous_select = '';
+            $previous_select2 = '';
+            $codegouv = $request->get('codegouv');
+            $entity1 = $request->get('entity1');
+            $entity2 = $request->get('entity2');
+            $previous_select1 = $request->get('previous_select1');
+            $previous_select2 = $request->get('previous_select2');
+            if ($codegouv != '' and $entity1 != '' and $entity2 != '' and $previous_select1 != '' and $previous_select2 != '') {
+                if ($entity1 == 'NomenclatureDelegation' and  $entity2 == 'NomenclatureCirconscription' ) {
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findByCodegouv($codegouv);
+                    $nomenclatureCirconscriptions = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodegouv($codegouv);
+                    $json[$entity1] = array();
+                    $json[$entity2] = array();
+                    $json[$entity1][0]['code'] = '';
+                    $json[$entity1][0]['libelle'] = '-- اختيار --';
+                    $json[$entity2][0]['code'] = '';
+                    $json[$entity2][0]['libelle'] = '-- اختيار --';
+                    $i = 1;
+                    foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                    {
+                        $json[$entity1][$i]['code'] = $nomenclatureDelegation->getCodedele();
+                        $json[$entity1][$i]['libelle'] = $nomenclatureDelegation->getLibedelear();
+                        $i++;
+                    }
+                    foreach ($nomenclatureCirconscriptions as $nomenclatureCirconscription) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                    {
+                        $json[$entity2][$i]['code'] = $nomenclatureCirconscription->getCodecirc();
+                        $json[$entity2][$i]['libelle'] = $nomenclatureCirconscription->getLibecircar();
+                        $i++;
+                    }
+                }
+
                 $response = new Response();
                 $data = json_encode($json); // c'est pour formater la réponse de la requete en format que jquery va comprendre
                 $response->headers->set('Content-Type', 'application/json');

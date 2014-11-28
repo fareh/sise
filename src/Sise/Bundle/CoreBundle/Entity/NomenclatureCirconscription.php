@@ -334,6 +334,6 @@ class NomenclatureCirconscription
     }
     public function __toString()
     {
-        return $this->codecirc;
+        return $this->libecircar;
     }
 }

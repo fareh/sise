@@ -7,6 +7,8 @@
         <link href="{{ asset('bundles/sisecore/css/master.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/sisecore/css/grid.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/sisecore/css/common.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/sisecore/JQuery-ui/css/cupertino/jquery-ui-1.10.4.custom.css') }}" rel="stylesheet" />
+
     {% endblock %}
     {% block head %}{% endblock %}
 </head>
@@ -41,7 +43,7 @@
             <li><a href="FicheEtab/FicheEtab.php">المؤسسة التربوية</a>
                 <span id="Span4"></span>
                 <ul class="subs">
-                    <li><a href="FicheEtab/Etablissement_List.php">
+                    <li><a href="{{ path('nomenclatureetablissement') }}">
                             قائمة المؤسسات التربوية</a></li>
                     <li><a href="FicheEtab/Etablissement_AnneeScolaire_List.php">
                             بطاقة المؤسسة /مساحة الارض والمباني</a></li>
@@ -124,12 +126,13 @@
         </ul>
     </div>
     <div class="MainPage">
-</div>
+
         {% block body %}{% endblock %}
-    
+    </div>
     <br />
     {% block javascripts %}
         <script src="{{ asset('bundles/sisecore/js/jquery-2.1.0.min.js') }}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('bundles/sisecore/JQuery-ui/js/jquery-ui-1.10.4.custom.js') }}"></script>
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <script src="{{ asset('js/fos_js_routes.js') }}"></script>

@@ -9,3 +9,22 @@
     background-color: transparent;
     color: #777;
 }
+
+#CPHMain_upmain input, #CPHMain_upmain select {
+    height: 28px;
+    line-height: 28px;
+    margin-top: 10px;
+    padding-right: 15px;
+    width: 50%;
+}
+#CPHMain_CBCyclEnse input {
+   width: auto;
+}
+
+table#CPHMain_CBCyclEnse tr {
+    background: none repeat scroll 0 0 white;
+}
+
+table#CPHMain_CBCyclEnse {
+    width: 100%;
+}

@@ -67,7 +67,7 @@ class NomenclatureEtablissementController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        //$form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -145,7 +145,7 @@ class NomenclatureEtablissementController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+     //   $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -168,6 +168,7 @@ class NomenclatureEtablissementController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('nomenclatureetablissement_edit', array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab())));

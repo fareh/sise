@@ -1,18 +1,24 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>NomenclatureEtablissement list</h1>
-
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'قائمة المؤسسات التربوية', 'RouteAction' : 'nomenclatureetablissement' })) }}
+    <ul>
+        <li>
+            <a href="{{ path('nomenclatureetablissement_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
     <table class="records_list">
         <thead>
             <tr>
-                <th>Libeetabar</th>
-                <th>Libeetabfr</th>
-                <th>Libecourar</th>
-                <th>Libecourfr</th>
-                <th>codetypeetab</th>
-                <th>codedele</th>
-                <th>codesect</th>
+                <th>إسم المؤسسة بالعربية</th>
+                <th>إسم المؤسسة بالفرنسية</th>
+                <th>الإسم القصير بالعربية</th>
+                <th>الإسم القصير بالفرنسية</th>
+                <th>نوع المؤسسة</th>
+                <th>المعتمدية</th>
+                <th>قطاع التعليم</th>
             </tr>
         </thead>
         <tbody>
@@ -29,12 +35,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('nomenclatureetablissement_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}

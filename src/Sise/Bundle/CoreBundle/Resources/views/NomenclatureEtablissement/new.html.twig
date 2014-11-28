@@ -1,15 +1,114 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    <h1>NomenclatureEtablissement creation</h1>
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'بطاقة المؤسسة', 'RouteAction' : 'nomenclatureetablissement' })) }}
+    <div id="CPHMain_upmain">
+        <form action="{{ path('nomenclatureetablissement_create') }}" method="post" {{ form_enctype(form) }}>
+            <input type="hidden" name="_method" value="PUT" />
+            {#{{ form_widget(edit_form) }}#}
+            {{ form_errors(form) }}
+            <fieldset style="font-size:14pt; padding-right:5px ">
+                <legend>
+                    تعريف المؤسسة
+                </legend>
+                <div>
+                    <span id="CPHMain_Label1" style="display:inline-block;height:28px;width:20%;">رمز المؤسسة</span>
+                    {{ form_widget(form.codeetab) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label2" style="display:inline-block;height:28px;width:20%;">نوع المؤسسة</span>
+                    {{ form_widget(form.codetypeetab) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label3" style="display:inline-block;height:28px;width:20%;">إسم المؤسسة بالعربية</span>
+                    {{ form_widget(form.libeetabar) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label4" style="display:inline-block;height:28px;width:20%;">إسم المؤسسة بالفرنسية</span>
+                    {{ form_widget(form.libeetabfr) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label5" style="display:inline-block;height:28px;width:20%;">الإسم القصير بالعربية</span>
+                    {{ form_widget(form.libecourar) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label6" style="display:inline-block;height:28px;width:20%;">الإسم القصير بالفرنسية</span>
+                    {{ form_widget(form.libecourfr) }}
+                </div>
 
-    {{ form(form) }}
+                <div id="CPHMain_CodeCircRegi">
+                    <span id="CPHMain_Lblcodecircregi" style="display:inline-block;height:28px;width:20%;">المندوبية الجهوية</span>
+                    {{ form_widget(form.codecircregi, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListeMulti("sise_corebundle_nomenclatureetablissement_codecircregi","NomenclatureDelegation","NomenclatureCirconscription","sise_corebundle_nomenclatureetablissement_codedele", "sise_corebundle_nomenclatureetablissement_codecirc");'}}) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label7" style="display:inline-block;height:28px;width:20%;">المعتمدية</span>
+                    {{ form_widget(form.codedele)}}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('nomenclatureetablissement') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+                </div>
+                <div>
+                    <span id="CPHMain_Label8" style="display:inline-block;height:28px;width:20%;">قطاع التعليم</span>
+                    {{ form_widget(form.codesect) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label9" style="display:inline-block;height:28px;width:20%;">العمادة</span>
+                    {{ form_widget(form.sect) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label10" style="display:inline-block;height:28px;width:20%;">الدائرة</span>
+                    {{ form_widget(form.codecirc) }}
+                </div>
+
+                <div>
+                    <span id="CPHMain_Label42" style="display:inline-block;width:20%;">الوســـط</span>
+                    {{ form_widget(form.codezone) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label18" style="display:inline-block;height:28px;width:20%;">تاريخ البناء </span>
+                    {{ form_widget(form.datecons) }}
+                </div>
+                <div>
+                    <span id="CPHMain_Label19" style="display:inline-block;height:28px;width:20%;">تاريخ الاحداث </span>
+                    {{ form_widget(form.datecrea) }}
+
+                </div>
+                <div>
+                    <span id="CPHMain_Label16" style="display:inline-block;height:28px;width:20%;">تاريخ التسجيل</span>
+
+                    {{ form.vars.value.datecreabd|date("d-m-Y") }}
+                </div>
+            </fieldset>
+            <fieldset style="font-size:14pt; padding-right:5px ">
+                <legend>
+                    مراحل التعليم التي يتم مباشرتها بالمؤسسة
+                </legend>
+                <div>
+                    <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                        <tbody> <tr>
+                            <td>       {{ form_widget(form.codecyclense.children['3']) }} <label for="CPHMain_CBCyclEnse_0">مرحلة تحضيرية</label></td>
+                        </tr><tr>
+                            <td>   {{ form_widget(form.codecyclense.children['0']) }} <label for="CPHMain_CBCyclEnse_1">المرحلة أولى من التعليم الأساسي </label></td>
+                        </tr><tr>
+                            <td>    {{ form_widget(form.codecyclense.children['1']) }} <label for="CPHMain_CBCyclEnse_2">المرحلة ثانية من التعليم الأساسي</label></td>
+                        </tr><tr>
+                            <td>     {{ form_widget(form.codecyclense.children['2']) }}<label for="CPHMain_CBCyclEnse_3">مرحلة التعليم الثانوي</label></td>
+                        </tr><tr>
+                            <td>    {{ form_widget(form.codecyclense.children['4']) }}<label for="CPHMain_CBCyclEnse_4">المرحلة الإعدادية التقنية </label></td>
+                        </tr>
+                        </tbody>  </table>
+                </div>
+                <br>
+            </fieldset>
+            {{ form_rest(form) }}
+
+            <input class="btn" type="submit" value="Create" >
+
+        </form>
+    </div>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('nomenclatureetablissement') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
 {% endblock %}

@@ -302,4 +302,8 @@ class NomenclatureZone
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codezone;
+    }
 }
