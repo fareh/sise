@@ -74,12 +74,12 @@
                                         </td>
                                         <td align="right" rowspan="{{ entity.codedoma.codesousdoma|length }}">
                                             <input type="text"  name="nombelevmasc{{ key }}" value="{{ entity.nombelevmasc }} "
-                                                   id="nombelevmasc{{ key }}">
+                                                   id="nombelevmasc{{ key }}" onchange="javascript:txtChanged('nombelevmasc{{ key }}','nombelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
                                         </td>
                                         <td align="right" rowspan="{{ entity.codedoma.codesousdoma|length }}">
 
-                                            <input type="text"  name="nombelevfemi{{ key }}" value="{{ entity.nombelevmasc }} "
-                                                   id="nombelevfemi{{ key }}">
+                                            <input type="text"  name="nombelevfemi{{ key }}" value="{{ entity.nombelevfemi }} "
+                                                   id="nombelevfemi{{ key }}" onchange="javascript:txtChanged('nombelevmasc{{ key }}','nombelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
                                         </td>
                                         <td align="right" rowspan="{{ entity.codedoma.codesousdoma|length }}">
                                             <input type="text"  name="nombtotaelev{{ key }}" value="{{ entity.nombtotaelev }} "

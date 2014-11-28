@@ -54,3 +54,11 @@ $(function () {
     $("#sise_corebundle_nomenclatureetablissement_datecons").datepicker();
     $("#sise_corebundle_nomenclatureetablissement_datecrea").datepicker();
 });
+
+
+
+function txtChanged(v1 , v2 , v3) {
+    document.getElementById(v3).value =  parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+}
+
+

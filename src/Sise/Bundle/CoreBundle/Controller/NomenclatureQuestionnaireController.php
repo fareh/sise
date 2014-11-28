@@ -153,7 +153,7 @@ class NomenclatureQuestionnaireController extends Controller
                     $subdomains = $item->getCodedoma()->getCodesousdoma();
                     $item->setNombclass($request->request->get('nombclass' . $i));
                     $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
-                    $item->setNombelevfemi($request->request->get('nombelevmasc' . $i));
+                    $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
                     $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
                     $em->persist($item);
                     foreach($subdomains as $subdomain){
