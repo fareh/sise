@@ -14,7 +14,7 @@ sise_core_getListMulti:
     path:     /getListMulti
     defaults: { _controller: SiseCoreBundle:Default:getListMulti }
 SiseCoreBundle_StatEleve:
-    resource: "@SiseCoreBundle/Resources/config/routing/nomenclaturequestionnaire.yml"
+    resource: "routing/nomenclaturequestionnaire.yml"
     prefix:   /stat
 Coreblog_NomenclatureEtablissement:
     resource: "routing/NomenclatureEtablissement.yml"
