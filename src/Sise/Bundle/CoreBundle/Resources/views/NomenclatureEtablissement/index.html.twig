@@ -11,20 +11,22 @@
     </ul>
     <table class="records_list">
         <thead>
-            <tr>
-                <th>إسم المؤسسة بالعربية</th>
-                <th>إسم المؤسسة بالفرنسية</th>
-                <th>الإسم القصير بالعربية</th>
-                <th>الإسم القصير بالفرنسية</th>
-                <th>نوع المؤسسة</th>
-                <th>المعتمدية</th>
-                <th>قطاع التعليم</th>
-            </tr>
+        <tr>
+            <th>إسم المؤسسة بالعربية</th>
+            <th>إسم المؤسسة بالفرنسية</th>
+            <th>الإسم القصير بالعربية</th>
+            <th>الإسم القصير بالفرنسية</th>
+            <th>نوع المؤسسة</th>
+            <th>المعتمدية</th>
+            <th>قطاع التعليم</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('nomenclatureetablissement_edit', { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab }) }}">{{ entity.libeetabar }}</a></td>
+                <td>
+                    <a href="{{ path('nomenclatureetablissement_edit', { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab }) }}">{{ entity.libeetabar }}</a>
+                </td>
                 <td>{{ entity.libeetabfr }}</td>
                 <td>{{ entity.libecourar }}</td>
                 <td>{{ entity.libecourfr }}</td>
@@ -35,4 +37,4 @@
         {% endfor %}
         </tbody>
     </table>
-    {% endblock %}
+{% endblock %}

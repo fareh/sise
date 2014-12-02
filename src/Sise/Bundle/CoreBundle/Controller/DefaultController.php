@@ -70,39 +70,39 @@ class DefaultController extends Controller
                 //Mode List
                 $TdExporter = true;
                 $TdNouveau = true;
-                //Router
-                //if ($this->routeExists($RouteAction . '_export')) {
-                $RouteExporter = $RouteAction . '_export';
-                //};
-                //
-                //if ($this->routeExists($RouteAction + '_new')) {
-                $RouteNouveau = $RouteAction . '_new';
-                //};
                 break;
             case 'ListFind':
                 // Mode List avec un boutton de recherche
                 $TdExporter = true;
                 $TdNouveau = true;
                 $TdRechercher = true;
-                //if ($this->routeExists($RouteAction . '_export')) {
-                $RouteExporter = $RouteAction . '_export';
-                //}
-                //if ($this->routeExists($RouteAction . '_new')) {
-                $RouteNouveau = $RouteAction . '_new';
-                //}
-                //if ($this->routeExists($RouteAction . '_find')) {
-                $RouteRechercher = $RouteAction . '_find';
-                //}
                 break;
             case 'Edit':
                 //Mode Edition
-                $TdValider = false;
-                $TdRechercher = false;
+                $TdRetour = true;
+                $TdValider = true;
+                $TdSupprimer = true;
                 break;
             case 'New':
                 //Mode New
+                $TdRetour = true;
+                $TdAnnuler = true;
+                $TdValider = true;
+
                 break;
         };
+
+
+        if ($TdExporter == true) $RouteExporter = $RouteAction . '_export';
+        if ($TdNouveau == true) $RouteNouveau = $RouteAction . '_new';
+        if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
+        if ($TdRetour == true) $RouteRetour = $RouteAction . '';
+        if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
+        if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_New';
+        if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '';
+        if ($TdValider == true) $RouteValider = '';
+        if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
+
 
         return $this->render('SiseCoreBundle:Default:menu.html.twig',
             array('TitleContextValue' => $TitleContextValue,
@@ -219,7 +219,6 @@ class DefaultController extends Controller
     }
 
 
-
     public function getListMultiAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -236,7 +235,7 @@ class DefaultController extends Controller
             $previous_select1 = $request->get('previous_select1');
             $previous_select2 = $request->get('previous_select2');
             if ($codegouv != '' and $entity1 != '' and $entity2 != '' and $previous_select1 != '' and $previous_select2 != '') {
-                if ($entity1 == 'NomenclatureDelegation' and  $entity2 == 'NomenclatureCirconscription' ) {
+                if ($entity1 == 'NomenclatureDelegation' and $entity2 == 'NomenclatureCirconscription') {
                     $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findByCodegouv($codegouv);
                     $nomenclatureCirconscriptions = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodegouv($codegouv);
                     $json[$entity1] = array();
