@@ -53,7 +53,7 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
             $response = new RedirectResponse($this->router->generate('fos_user_security_login'));
         // Sinon on redirige vers la homepage
         else
-            $response = new RedirectResponse($this->router->generate('statEleve'));
+            $response = new RedirectResponse($this->router->generate('fos_user_security_login'));
 
         return $response;
     }

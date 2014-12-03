@@ -10,7 +10,6 @@ services:
     redirect.after.login:
         class: Sise\Bundle\UserBundle\Handler\AfterLoginRedirection
         arguments: [@router]
-
     redirect.after.logout:
         class: Sise\Bundle\UserBundle\Handler\AfterLogoutRedirection
         arguments: [@router, @security.context]
