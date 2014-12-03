@@ -1,0 +1,84 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+        <div style="text-align: center; vertical-align: middle;">
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <td align="center">
+                        <div class="titre">
+
+                            <span id="Label1">وزارة التربية  -  الإدارة العامة للدراسات والتخطيط ونظم المعلومات</span>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="height:400px; vertical-align:middle">
+                        <table cellspacing="0" cellpadding="4" id="Login1"
+                               style="background-color:#EFF3FB;border-color:#B5C7DE;border-width:1px;border-style:Solid;border-collapse:collapse;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <table cellpadding="0"
+                                           style="color:#333333;font-family:Verdana;font-size:1em;height:162px;width:352px;">
+                                        <tbody>
+                                        <tr>
+                                            <td align="center" colspan="2"
+                                                style="color:White;background-color:#507CD1;font-size:1.1em;font-weight:bold;">
+                                                الإتصال
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right"><label for="Login1_UserName">المستعمل</label></td>
+                                            <td>
+                                                <input type="text" id="username" name="_username" value="{{ last_username }}"
+                                                       required="required"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right"><label for="Login1_Password">كلمة العبور</label></td>
+                                            <td><input type="password" id="password" name="_password" required="required"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" colspan="2"><input type="checkbox" id="remember_me"
+                                                                                 name="_remember_me" value="on"/>
+                                                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+                                                <input type="submit" id="_submit" name="_submit"
+                                                       value="الإتصال "/></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+{% endblock fos_user_content %}
+
+
+<style>.titre {
+        width: 100%;
+        color: White;
+        text-align: center;
+        font-family: Verdana;
+        font-size: 18pt;
+        font-weight: bold;
+        background-color: #16499A;
+        position: relative;
+        height: 32px;
+
+    }</style>
