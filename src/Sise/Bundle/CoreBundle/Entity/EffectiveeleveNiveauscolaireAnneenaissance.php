@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveeleveNiveauscolaireAnneenaissance
  *
- * @ORM\Table(name="effectiveeleve_niveauscolaire_anneenaissance", indexes={@ORM\Index(name="FK_EffectiveEleve_NiveauScolaire_AnneeNaissance_Nomenclature_N78", columns={"CodeNiveScol"}), @ORM\Index(name="FK_EffectiveEleve_NiveauScolaire_AnneeNaissance_Nomenclature_R79", columns={"CodeRece"}), @ORM\Index(name="FK_EffectiveEleve_NiveauScolaire_AnneeNaissance_Nomenclature_A80", columns={"CodeAnneNais"})})
+ * @ORM\Table(name="effectiveeleve_niveauscolaire_anneenaissance")
  * @ORM\Entity
  */
 class EffectiveeleveNiveauscolaireAnneenaissance
@@ -48,11 +48,13 @@ class EffectiveeleveNiveauscolaireAnneenaissance
      */
     private $coderece;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
      * @ORM\Id
+     * @ORM\OneToMany(targetEntity="NomenclatureNiveauscolaire", mappedBy="codenivescol")
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codenivescol;
@@ -62,9 +64,19 @@ class EffectiveeleveNiveauscolaireAnneenaissance
      *
      * @ORM\Column(name="CodeAnneNais", type="string", length=50, nullable=false)
      * @ORM\Id
+     * @ORM\OneToMany(targetEntity="NomenclatureAnneenaissance", mappedBy="codeannenais")
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeannenais;
+
+
+
+    public function __construct()
+    {
+        $this->codenivescol = new ArrayCollection();
+        $this->codeannenais = new ArrayCollection();
+    }
+
 
     /**
      * @var integer
@@ -181,51 +193,6 @@ class EffectiveeleveNiveauscolaireAnneenaissance
         return $this->coderece;
     }
 
-    /**
-     * Set codenivescol
-     *
-     * @param string $codenivescol
-     * @return EffectiveeleveNiveauscolaireAnneenaissance
-     */
-    public function setCodenivescol($codenivescol)
-    {
-        $this->codenivescol = $codenivescol;
-
-        return $this;
-    }
-
-    /**
-     * Get codenivescol
-     *
-     * @return string 
-     */
-    public function getCodenivescol()
-    {
-        return $this->codenivescol;
-    }
-
-    /**
-     * Set codeannenais
-     *
-     * @param string $codeannenais
-     * @return EffectiveeleveNiveauscolaireAnneenaissance
-     */
-    public function setCodeannenais($codeannenais)
-    {
-        $this->codeannenais = $codeannenais;
-
-        return $this;
-    }
-
-    /**
-     * Get codeannenais
-     *
-     * @return string 
-     */
-    public function getCodeannenais()
-    {
-        return $this->codeannenais;
-    }
 
     /**
      * Set nombelevmasc
@@ -294,5 +261,52 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+    
+
+    /**
+     * Set codenivescol
+     *
+     * @param string $codenivescol
+     * @return EffectiveeleveNiveauscolaireAnneenaissance
+     */
+    public function setCodenivescol($codenivescol)
+    {
+        $this->codenivescol = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return string 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
+    }
+
+    /**
+     * Set codeannenais
+     *
+     * @param string $codeannenais
+     * @return EffectiveeleveNiveauscolaireAnneenaissance
+     */
+    public function setCodeannenais($codeannenais)
+    {
+        $this->codeannenais = $codeannenais;
+
+        return $this;
+    }
+
+    /**
+     * Get codeannenais
+     *
+     * @return string 
+     */
+    public function getCodeannenais()
+    {
+        return $this->codeannenais;
     }
 }

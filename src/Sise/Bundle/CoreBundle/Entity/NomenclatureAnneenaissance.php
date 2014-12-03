@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NomenclatureAnneenaissance
  *
- * @ORM\Table(name="nomenclature_anneenaissance", indexes={@ORM\Index(name="FK_Nomenclature_AnneeNaissance_Nomenclature_AnneeScolaire", columns={"CodeAnneScol"}), @ORM\Index(name="FK_Nomenclature_AnneeNaissance_Nomenclature_CycleEnseignement", columns={"CodeCyclEnse"})})
+ * @ORM\Table(name="nomenclature_anneenaissance")
  * @ORM\Entity
  */
 class NomenclatureAnneenaissance
@@ -16,10 +16,13 @@ class NomenclatureAnneenaissance
      * @var string
      *
      * @ORM\Column(name="CodeAnneNais", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="EffectiveeleveNiveauscolaireAnneenaissance", inversedBy="codeannenais")
+     * @ORM\JoinColumn(name="CodeAnneNais", referencedColumnName="CodeAnneNais")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codeannenais;
+
 
     /**
      * @var string
@@ -106,16 +109,6 @@ class NomenclatureAnneenaissance
     private $colltech;
 
 
-
-    /**
-     * Get codeannenais
-     *
-     * @return string 
-     */
-    public function getCodeannenais()
-    {
-        return $this->codeannenais;
-    }
 
     /**
      * Set libeannenaisar
@@ -391,5 +384,40 @@ class NomenclatureAnneenaissance
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+
+
+    /**
+     * Set effectiveeleve_niveauscolaire_anneenaissance
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance $effectiveeleveNiveauscolaireAnneenaissance
+     * @return NomenclatureAnneenaissance
+     */
+    public function setEffectiveeleveNiveauscolaireAnneenaissance(\Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance $effectiveeleveNiveauscolaireAnneenaissance = null)
+    {
+        $this->effectiveeleve_niveauscolaire_anneenaissance = $effectiveeleveNiveauscolaireAnneenaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get effectiveeleve_niveauscolaire_anneenaissance
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance 
+     */
+    public function getEffectiveeleveNiveauscolaireAnneenaissance()
+    {
+        return $this->effectiveeleve_niveauscolaire_anneenaissance;
+    }
+
+    /**
+     * Get codeannenais
+     *
+     * @return string 
+     */
+    public function getCodeannenais()
+    {
+        return $this->codeannenais;
     }
 }
