@@ -20,23 +20,6 @@ class EtablissementResponsable
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetab;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="NomenclatureCycleenseignement", inversedBy="codeetab")
-     * @ORM\JoinTable(name="etablissement_cycleenseignement",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
-     *     @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
-     *   }
-     * )
-     */
-    private $codecyclense;
-
     /**
      * @var string
      *
