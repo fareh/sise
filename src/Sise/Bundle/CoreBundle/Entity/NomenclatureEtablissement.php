@@ -21,7 +21,6 @@ class NomenclatureEtablissement
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetab;
-
     /**
      * @var string
      *
@@ -155,7 +154,6 @@ class NomenclatureEtablissement
      * )
      */
     private $codecyclense;
-
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
@@ -612,5 +610,9 @@ class NomenclatureEtablissement
     public function getCodebasspeda()
     {
         return $this->codebasspeda;
+    }
+    public function __toString()
+    {
+        return $this->codeetab;
     }
 }

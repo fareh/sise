@@ -1,13 +1,13 @@
 <?php
 
 namespace Sise\Bundle\CoreBundle\Entity;
-
+use DoctrineCommonCollectionsArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * EtablissementFicheetablissement
  *
- * @ORM\Table(name="etablissement_ficheetablissement")
+ * @ORM\Table(name="etablissement_ficheetablissement", indexes={@ORM\Index(name="IDX_netab_etabfichetab", columns={"CodeEtab"}),@ORM\Index(name="IDX_ntypeetab_fichetab", columns={"CodeTypeEtab"})})
  * @ORM\Entity
  */
 class EtablissementFicheetablissement
@@ -22,11 +22,14 @@ class EtablissementFicheetablissement
     private $codeetab;
 
     /**
-     * @var string
+     * @var \NomenclatureTypeetablissement
      *
-     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codetypeetab;
 
@@ -118,38 +121,13 @@ class EtablissementFicheetablissement
      */
     private $exisanneprepintehand;
 
-
-
-    /**
-     * Set codeetab
-     *
-     * @param string $codeetab
-     * @return EtablissementFicheetablissement
-     */
-    public function setCodeetab($codeetab)
-    {
-        $this->codeetab = $codeetab;
-
-        return $this;
-    }
-
-    /**
-     * Get codeetab
-     *
-     * @return string 
-     */
-    public function getCodeetab()
-    {
-        return $this->codeetab;
-    }
-
     /**
      * Set codetypeetab
      *
-     * @param string $codetypeetab
-     * @return EtablissementFicheetablissement
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetab
+     * @return NomenclatureEtablissement
      */
-    public function setCodetypeetab($codetypeetab)
+    public function setCodetypeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetab = null)
     {
         $this->codetypeetab = $codetypeetab;
 
@@ -159,7 +137,7 @@ class EtablissementFicheetablissement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement
      */
     public function getCodetypeetab()
     {
@@ -440,5 +418,27 @@ class EtablissementFicheetablissement
     public function getExisanneprepintehand()
     {
         return $this->exisanneprepintehand;
+    }
+    /**
+     * Set codetypeetab
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
+     * @return NomenclatureEtablissement
+     */
+    public function setCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab = null)
+    {
+        $this->codeetab = $codeetab;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeetab
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement
+     */
+    public function getCodeetab()
+    {
+        return $this->codeetab;
     }
 }

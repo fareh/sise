@@ -22,3 +22,6 @@ Coreblog_NomenclatureEtablissement:
 Coreblog_NomenclatureCycleenseignement:
     resource: "routing/NomenclatureCycleenseignement.yml"
     prefix: /NomenclatureCycleenseignement
+Siseblog_EtablissementFicheetablissement:
+    resource: "routing/EtablissementFicheetablissement.yml"
+    prefix: /EtablissementFicheetablissement

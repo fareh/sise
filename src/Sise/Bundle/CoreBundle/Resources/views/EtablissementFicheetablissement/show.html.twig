@@ -1,0 +1,80 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>EtablissementFicheetablissement</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeetab</th>
+                <td>{{ entity.codeetab }}</td>
+            </tr>
+            <tr>
+                <th>Codetypeetab</th>
+                <td>{{ entity.codetypeetab }}</td>
+            </tr>
+            <tr>
+                <th>Annescol</th>
+                <td>{{ entity.annescol }}</td>
+            </tr>
+            <tr>
+                <th>Coderece</th>
+                <td>{{ entity.coderece }}</td>
+            </tr>
+            <tr>
+                <th>Adreetab</th>
+                <td>{{ entity.adreetab }}</td>
+            </tr>
+            <tr>
+                <th>Codepost</th>
+                <td>{{ entity.codepost }}</td>
+            </tr>
+            <tr>
+                <th>Telefixe</th>
+                <td>{{ entity.telefixe }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ entity.fax }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ entity.mail }}</td>
+            </tr>
+            <tr>
+                <th>Siteweb</th>
+                <td>{{ entity.siteweb }}</td>
+            </tr>
+            <tr>
+                <th>Educprio</th>
+                <td>{{ entity.educprio }}</td>
+            </tr>
+            <tr>
+                <th>Etabintehand</th>
+                <td>{{ entity.etabintehand }}</td>
+            </tr>
+            <tr>
+                <th>Exisanneprep</th>
+                <td>{{ entity.exisanneprep }}</td>
+            </tr>
+            <tr>
+                <th>Exisanneprepintehand</th>
+                <td>{{ entity.exisanneprepintehand }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('etablissementficheetablissement') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('etablissementficheetablissement_edit', { 'id': entity.codeetab }) }}">
+            Edit
+        </a>
+    </li>
+
+</ul>
+{% endblock %}

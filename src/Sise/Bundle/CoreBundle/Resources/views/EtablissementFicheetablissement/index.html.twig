@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'بطاقة المؤسسة /مساحة الارض والمباني', 'RouteAction' : 'etablissementficheetablissement' })) }}
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>السنة دراسية</th>
+                <th>إسم المؤسسة بالعربية</th>
+                <th>إسم المؤسسة بالفرنسية</th>
+                <th>الإسم القصير بالعربية</th>
+                <th>الإسم القصير بالفرنسية</th>
+                <th>نوع المؤسسة</th>
+                <th>المعتمدية</th>
+                <th>قطاع التعليم</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+
+
+            {% if entity.annescol is defined %}
+                <tr>
+                    <td>{{ entity.annescol }}</td>
+                    <td><a href="{{ path('etablissementficheetablissement_edit',  { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab}) }}">{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libeetabar }}</a></td>
+                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libeetabfr }}</td>
+                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libecourar }}</td>
+                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libecourfr }}</td>
+                    <td> {{ items[entity.codeetab][entity.codetypeetab.codetypeetab].codetypeetab.libetypeetabar }}</td>
+                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].codedele.libedelear }}</td>
+                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].codesect.libesectar }}</td>
+                    <td>
+                    </td>
+                </tr>
+            {% endif %}
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('etablissementficheetablissement_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

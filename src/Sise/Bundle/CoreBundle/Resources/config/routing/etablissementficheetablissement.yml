@@ -1,0 +1,30 @@
+etablissementficheetablissement:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:index" }
+
+etablissementficheetablissement_show:
+    path:     /{codetypeetab}/{codeetab}/show
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:show" }
+
+etablissementficheetablissement_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:new" }
+
+etablissementficheetablissement_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:create" }
+    requirements: { _method: post }
+
+etablissementficheetablissement_edit:
+    path:     /{codetypeetab}/{codeetab}/edit
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:edit" }
+
+etablissementficheetablissement_update:
+    path:     /{codetypeetab}/{codeetab}/update
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:update" }
+    requirements: { _method: post|put }
+
+etablissementficheetablissement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:delete" }
+    requirements: { _method: post|delete }
