@@ -17,8 +17,10 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-                default_target_path: statEleve
-            logout:       true
+#                default_target_path: statEleve
+                success_handler: redirect.after.login
+            logout:
+                success_handler: redirect.after.logout
             anonymous:    true
 
     access_control:
