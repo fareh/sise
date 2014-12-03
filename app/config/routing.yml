@@ -1,5 +1,11 @@
+sise_user:
+    resource: "@SiseUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sise_core:
     resource: "@SiseCoreBundle/Resources/config/routing.yml"
     prefix:   /
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
