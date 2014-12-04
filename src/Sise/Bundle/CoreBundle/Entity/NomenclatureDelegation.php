@@ -335,4 +335,8 @@ class NomenclatureDelegation
     {
         return $this->codegouv;
     }
+    public function __toString()
+    {
+        return $this->codedele;
+    }
 }

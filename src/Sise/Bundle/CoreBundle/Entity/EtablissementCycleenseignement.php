@@ -36,7 +36,6 @@ class EtablissementCycleenseignement
      */
     private $codecyclense;
 
-
     /**
      * Set codeetab
      *

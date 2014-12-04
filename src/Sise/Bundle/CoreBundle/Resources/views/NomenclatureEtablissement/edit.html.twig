@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+
     <form action="{{ path('nomenclatureetablissement_update', {  'codetypeetab': entity.codetypeetab , 'codeetab': entity.codeetab }) }}"
           method="post" {{ form_enctype(edit_form) }}>
         {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : 'بطاقة المؤسسة', 'RouteAction' : 'nomenclatureetablissement' })) }}

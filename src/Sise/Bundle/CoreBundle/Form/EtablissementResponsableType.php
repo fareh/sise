@@ -30,8 +30,22 @@ class EtablissementResponsableType extends AbstractType
             ->add('telemobidireadjo')
             ->add('maildireadjo')
             ->add('codeetab')
-            ->add('codegraddire')
-            ->add('codegraddireadjo')
+            ->add('codegraddire','entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
+                'property' => 'libegradar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+                'empty_value' => "-- اختيار --",
+            ))
+            ->add('codegraddireadjo','entity', array(
+        'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
+        'property' => 'libegradar',
+        'expanded' => false,
+        'multiple' => false,
+        'required' => true,
+        'empty_value' => "-- اختيار --",
+    ))
         ;
     }
     

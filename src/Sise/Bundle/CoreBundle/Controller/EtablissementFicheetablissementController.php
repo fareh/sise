@@ -22,22 +22,21 @@ class EtablissementFicheetablissementController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'SELECT F,P
-             FROM SiseCoreBundle:EtablissementFicheetablissement F
-             INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab');
-          $entities = $query->getResult();
-
-        $items = array();
-        foreach ($entities as $item) {
-            if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement')) {
-                $items[$item->getCodeetab()][$item->getCodetypeetab()->getCodetypeetab()] = $item;
-            }
-        }
-       // $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findAll();
+//        $query = $em->createQuery(
+//            'SELECT F,P
+//             FROM SiseCoreBundle:EtablissementFicheetablissement F
+//             INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab');
+//          $entities = $query->getResult();
+//
+//        $items = array();
+//        foreach ($entities as $item) {
+//            if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement')) {
+//                $items[$item->getCodeetab()][$item->getCodetypeetab()->getCodetypeetab()] = $item;
+//            }
+//        }
+        $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findAll();
         return $this->render('SiseCoreBundle:EtablissementFicheetablissement:index.html.twig', array(
             'entities' => $entities,
-            'items'=>$items
         ));
     }
     /**
@@ -78,7 +77,7 @@ class EtablissementFicheetablissementController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+    //    $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -160,7 +159,7 @@ class EtablissementFicheetablissementController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+      //  $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }

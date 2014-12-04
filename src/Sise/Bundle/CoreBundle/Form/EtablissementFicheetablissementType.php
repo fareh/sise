@@ -18,6 +18,8 @@ class EtablissementFicheetablissementType extends AbstractType
             ->add('codeetab')
             ->add('codetypeetab')
             ->add('adreetab')
+            ->add('annescol')
+            ->add('coderece')
             ->add('codepost')
             ->add('telefixe')
             ->add('fax')
@@ -27,6 +29,9 @@ class EtablissementFicheetablissementType extends AbstractType
             ->add('etabintehand')
             ->add('exisanneprep')
             ->add('exisanneprepintehand')
+            ->add('resp',new EtablissementResponsableType())
+            ->add('infr',new EtablissementInfrastructureType())
+            ->add('nomeetab',new NomenclatureEtablissementType())
         ;
     }
     
