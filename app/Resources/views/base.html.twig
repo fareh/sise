@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/sisecore/css/master.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/sisecore/css/grid.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/sisecore/css/common.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/sisecore/colorbox/colorbox.css') }}" rel="stylesheet" />
+
+        <link href="{{ asset('bundles/sisecore/JQuery-ui/css/cupertino/jquery-ui-1.10.4.custom.css') }}" rel="stylesheet" />
+
+    {% endblock %}
+    {% block head %}{% endblock %}
+</head>
+<body dir="rtl">
+
+<div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+         {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+            خروج
+        </a>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
+</div>
+
+    <div class="containertitre">
+        <img id="Image1" src="{{ asset('bundles/sisecore/images/flag_tn.gif') }}" />
+        <span style="vertical-align: top">الجمهورية التونسية | وزارة التربية</span>
+    </div>
+    <div class="containertitre2">
+        <span style="vertical-align: top">الإدارة العامة للدراسات و التخطيط و نظم المعلومات</span>
+    </div>
+    <div class="containertitre2">
+        <div style="width: 50%; float: right; direction: rtl">
+            <span style="vertical-align: top">النظام المعلوماتي للإحصاء</span>
+        </div>
+        <form method="post" action="index.php"  id="form1" dir="rtl">
+        <div style="width: 50%; float: left; direction: ltr">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ path('fos_user_security_logout') }}" class="buttonStyle" >
+                    {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+                    خروج
+                </a>
+&nbsp;
+                <a href="{{ path('fos_user_resetting_request') }}" class="buttonStyle" >
+                 {{ app.user.username }}
+                </a>
+                &nbsp;
+            <a href="#" class="buttonStyle getcoderecen" rel="{{ path('sise_core_selectCodeRec') }}" >إحصاء</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+        </form>
+
+    </div>
+    <div class="container">
+        <ul id="nav" dir="rtl">
+            <li class="active"><a href="../index.php">
+                    الصفحة الرئيسية
+                </a></li>
+            <li><a href="FicheEtab/FicheEtab.php">المؤسسة التربوية</a>
+                <span id="Span4"></span>
+                <ul class="subs">
+                    <li><a href="{{ path('nomenclatureetablissement') }}">
+                            قائمة المؤسسات التربوية</a></li>
+                    <li><a href="{{ path('etablissementficheetablissement') }}">
+                            بطاقة المؤسسة /مساحة الارض والمباني</a></li>
+                </ul>
+            </li>
+            <li><a href="#s1">التلاميذ</a> <span id="s1"></span>
+                <ul class="subs">
+                    <li> <a href="{{ path('statEleve') }}">
+
+                            إحصاءالتلاميذ</a>
+                    </li>
+                    <li><a href="OrienEleve/OrienEleve.php">توجيه التلاميذ</a> </li>
+                    <li><a href="MouvEleve/HomeMouvEleve.php">حركة التلاميذ</a> </li>
+                </ul>
+            </li>
+            <li><a href="StatEquipement/StatEquipement.php">البناءات و التجهيزات</a>
+                <span id="s2"></span>
+                <ul class="subs">
+                    <li><a href="StatEquipement/Espaces.php">
+                            فضاءات المؤسسة</a></li>
+                    <li><a href="StatEquipement/Equipements.php">
+                            تجهيزات المؤسسة</a></li>
+                    <li><a href="StatEquipement/Logement.php">
+                            المساكن الوظيفية</a></li>
+                </ul>
+            </li>
+            <li><a href="#">الموارد البشرية</a> <span id="Span1"></span>
+                <ul class="subs">
+                    <li><a href="StatRh/StatEnse.php">إطار التدريس</a> </li>
+                    <li><a href="StatRh/StatPers.php">الموارد البشريةالغير مدرّسة</a>
+                    </li>
+                    <li><a href="StatRh/Personnel_List.php">قائمة اسمية بالموارد البشرية</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="StatBudget/StatBudget.php">الميزانية</a> <span id="Span2">
+            </span>
+                <ul class="subs">
+                    <li><a href="StatBudget/ConsultModifBudget.php">
+                            استمارة متابعة الميزانية</a></li>
+                </ul>
+            </li>
+            <li><a href="ActivitEtab/HomeActEtab.php">نشاط المؤسسة</a> <span
+                        id="Span3"></span>
+                <ul class="subs">
+                    <li><a href="ActivitEtab/ActEtab.php">
+                            التقرير اليومي لنشاط المؤسسة</a></li>
+                </ul>
+            </li>
+            <li><a href="Stat/Stat.php">تقارير إحصائية</a>
+                <ul class="subs">
+                    <li><a href="Stat/ResumeStatistique.php">
+                            ملخص لنتائج الاحصاء المدرسي</a></li>
+                    <li><a href="RapportStatistique/RapportStatistique.php">
+                            تقارير إحصائية</a></li>
+                    <li><a href="Stat/Stat.php?P=1">
+                            إحصاءالتلاميذ</a></li>
+                    <li><a href="Stat/Stat.php?P=2">
+                            إحصاء الموارد البشرية</a></li>
+                    <li><a href="Stat/Stat.php?P=3">
+                            إحصاء البناءات و التجهيزات<</a></li>
+                    <li><a href="Stat/Stat.php?P=4">
+                            متابعة الميزانية</a></li>
+                    <li><a href="Stat/Stat.php?P=5">
+                            إحصاء حركة التلاميذ</a></li>
+                    <li><a href="Stat/Stat.php?P=6">
+                            إحصاء توجيه التلاميذ</a></li>
+                    <li><a href="Stat/Stat.php?P=7">
+                            المؤسسة</a></li>
+                    <li><a href="Stat/ListIndicateur.php">
+                            المؤشرات</a></li>
+                </ul>
+            </li>
+            <li><a href="#">إدارة النظام</a>
+                <ul class="subs">
+                    <li><a href="{{ path('sise_user_list')}}">ادارة بيانات المستخدمين</a></li>
+                    <li><a href="./Nomenclature/Nomenclature_Liste.php">إدارة بيانات التسميات</a></li>
+                    <li><a href="./Administration/recensement_List.php">التعداد</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="MainPage">
+
+        {% block body %}{% endblock %}
+    </div>
+    <br />
+    {% block javascripts %}
+        <script src="{{ asset('bundles/sisecore/js/jquery-2.1.0.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/sisecore/colorbox/jquery.colorbox-min.js') }}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('bundles/sisecore/JQuery-ui/js/jquery-ui-1.10.4.custom.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script src="{{ asset('js/fos_js_routes.js') }}"></script>
+        <script src="{{ asset('bundles/sisecore/js/script.js') }}" type="text/javascript"></script>
+
+    {% endblock %}
+    {% block CPHScript %}{% endblock %}
+
+</body>
+</html>
