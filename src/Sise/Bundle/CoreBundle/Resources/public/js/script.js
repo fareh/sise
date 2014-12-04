@@ -2,6 +2,10 @@ $("a.getcoderecen").colorbox({
     href: "/app.php" + Routing.generate('sise_core_selectCodeRec'),
     onClosed:function(){ location.reload(true); }
 });
+
+
+
+
 $('#btnCancel').click(function () {
     $('#cboxClose').click()
 });
