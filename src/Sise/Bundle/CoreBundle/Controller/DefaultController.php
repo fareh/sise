@@ -11,6 +11,19 @@ use Sise\Bundle\CoreBundle\Entity\CoreProject;
 
 class DefaultController extends Controller
 {
+
+    public  function selectCodeRecAction (Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+        $query = $em->createQuery(
+            'Select R
+        from  SiseCoreBundle:NomenclatureRecensement  R'
+        );
+        $items = $query->getResult();
+
+
+        return $this->render('SiseCoreBundle:Default:codeRec.html.twig', array('items' => $items));
+       }
     public function  listEntitiesAction()
     {
         $entities = array();

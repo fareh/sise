@@ -1,0 +1,27 @@
+<div id="inline_content" style='padding:10px; background:#fff;'>
+    <div id="PRece"
+        >
+
+        <div id="up">
+
+            الرجاء اختيار التعداد.
+            <br>
+            <select name="ctl00$DDLCodeRece"
+                    onchange="javascript:setTimeout('__doPostBack(\'ctl00$DDLCodeRece\',\'\')', 0)" id="DDLCodeRece"
+                    style="height:28px;width:99%;">
+
+
+                {% for key ,  item in items %}
+                <option value="{{ item.coderece}}">{{ item.liberecear}}</option>
+                {% endfor %}
+
+            </select>
+
+        </div>
+        <br>
+        <input type="submit" name="ctl00$btnCancel" value="متابعة" id="btnCancel" class="buttonStyle">
+
+    </div>
+</div>
+
+

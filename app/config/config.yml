@@ -10,7 +10,7 @@ fos_user:
     group:
         group_class: Sise\Bundle\UserBundle\Entity\Group
 fos_js_routing:
-    routes_to_expose: [sise_core_getList,sise_core_getListMulti]
+    routes_to_expose: [sise_core_getList,sise_core_getListMulti,sise_core_selectCodeRec]
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
