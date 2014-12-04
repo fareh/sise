@@ -15,7 +15,7 @@ class NomenclatureEtablissementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab','text', array('read_only' => true))
+            ->add('codeetab','text')
             ->add('codetypeetab', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement',
                 'property' => 'libetypeetabar',

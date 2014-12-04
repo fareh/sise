@@ -126,8 +126,9 @@ class EtablissementFicheetablissementController extends Controller
     public function editAction($codetypeetab,$codeetab)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
+        $annescol='2014';
+        $coderece='16Oct';
+        $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
         //$entityresp = $em->getRepository('SiseCoreBundle:EtablissementResponsable')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
        //  $entityinfras = $em->getRepository('SiseCoreBundle:EtablissementInfrastructure')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
 
@@ -155,7 +156,7 @@ class EtablissementFicheetablissementController extends Controller
     private function createEditForm(EtablissementFicheetablissement $entity)
     {
         $form = $this->createForm(new EtablissementFicheetablissementType(), $entity, array(
-            'action' => $this->generateUrl('etablissementficheetablissement_update',array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab())),
+            'action' => $this->generateUrl('etablissementficheetablissement_update',array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab(), 'annescol'=> $entity->getAnnescol(), 'coderece'=> $entity->getCoderece())),
             'method' => 'PUT',
         ));
 
@@ -170,8 +171,9 @@ class EtablissementFicheetablissementController extends Controller
     public function updateAction(Request $request,$codetypeetab,$codeetab)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
+        $annescol='2014';
+        $coderece='16Oct';
+        $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EtablissementFicheetablissement entity.');

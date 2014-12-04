@@ -8,10 +8,10 @@
         width:20%;
         }
     </style>
-  {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : 'بطاقة المؤسسة /مساحة الارض والمباني', 'RouteAction' : 'etablissementficheetablissement' })) }}
 
 <form action="{{ path('etablissementficheetablissement_update', {  'codetypeetab': entity.codetypeetab , 'codeetab': entity.codeetab }) }}"
       method="post" {{ form_enctype(edit_form) }}>
+{{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : 'بطاقة المؤسسة /مساحة الارض والمباني', 'RouteAction' : 'etablissementficheetablissement' })) }}
 
     <div id="CPHMain_upmain">
 
@@ -245,28 +245,7 @@
         </div>
         </div>
 
-
-
-
-
-
-
-
-
-        <input class="btn" type="submit" value="Mise à jour">
-
-
     </div>
 </form>
 
-
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('etablissementficheetablissement') }}">
-            Back to the list
-        </a>
-    </li>
-
-</ul>
 {% endblock %}

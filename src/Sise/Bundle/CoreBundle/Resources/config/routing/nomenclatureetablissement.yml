@@ -2,10 +2,6 @@ nomenclatureetablissement:
     path:     /
     defaults: { _controller: "SiseCoreBundle:NomenclatureEtablissement:index" }
 
-nomenclatureetablissement_show:
-    path:     /{codetypeetab}/{codeetab}/show
-    defaults: { _controller: "SiseCoreBundle:NomenclatureEtablissement:show" }
-
 nomenclatureetablissement_new:
     path:     /new
     defaults: { _controller: "SiseCoreBundle:NomenclatureEtablissement:new" }
@@ -24,7 +20,6 @@ nomenclatureetablissement_update:
     defaults: { _controller: "SiseCoreBundle:NomenclatureEtablissement:update" }
     requirements: { _method: post|put }
 
-nomenclatureetablissement_delete:
-    path:     /{codeetab}/delete
-    defaults: { _controller: "SiseCoreBundle:NomenclatureEtablissement:delete" }
-    requirements: { _method: post|delete }
+nomenclatureetablissement_export:
+    path:     /_export
+    defaults: { _controller: "SiseCoreBundle:EtablissementFicheetablissement:export" }
