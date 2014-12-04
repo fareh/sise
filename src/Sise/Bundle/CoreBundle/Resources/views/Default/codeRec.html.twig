@@ -7,7 +7,11 @@
             <br>
             <select id="DDLCodeRece" name="ctl00$DDLCodeRece" onchange="getCodeRecen();"  style="height:28px;width:99%;">
                 {% for key ,  item in items %}
-                <option value="{{ item.coderece}}|{{ item.annescol }}">{{ item.liberecear}}</option>
+                    {% if app.session.get('LibeReceAr') == item.liberecear %}
+                <option value="{{ item.coderece}}|{{ item.annescol }}|{{ item.liberecear}}" selected>{{ item.liberecear}}</option>
+                        {% else %}
+                        <option value="{{ item.coderece}}|{{ item.annescol }}|{{ item.liberecear}}">{{ item.liberecear}}</option>
+                {% endif %}
                 {% endfor %}
             </select>
 

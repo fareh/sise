@@ -38,6 +38,7 @@ class DefaultController extends Controller
                 $items = explode("|", $CodeRece);
                 $session->set("CodeRece", $items[0]);
                 $session->set("AnneScol", $items[1]);
+                $session->set("LibeReceAr", $items[2]);
             }
             $response = new Response();
             $data = json_encode(array($session->get('CodeRece'), $session->get('AnneScol'))); // c'est pour formater la réponse de la requete en format que jquery va comprendre

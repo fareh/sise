@@ -51,7 +51,7 @@
                  {{ app.user.username }}
                 </a>
                 &nbsp;
-            <a href="#" class="buttonStyle getcoderecen" rel="{{ path('sise_core_selectCodeRec') }}" >إحصاء</a>
+            <a href="#" class="buttonStyle getcoderecen" rel="{{ path('sise_core_selectCodeRec') }}" > {% if app.session.get('LibeReceAr') %} {{ app.session.get('LibeReceAr') }} {% else %}إختر التعداد المناسب {% endif %}</a>
 
 
 
