@@ -1,3 +1,6 @@
 sise_user_homepage:
     path:     /hello/{name}
     defaults: { _controller: SiseUserBundle:Default:index }
+sise_user_list:
+    path:     /securite/users
+    defaults: { _controller: SiseUserBundle:Default:users }

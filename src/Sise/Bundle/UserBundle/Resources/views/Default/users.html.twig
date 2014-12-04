@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<br>
+    <div id="CPHMain_upGridView">
+    <div>
+    <table cellspacing="0" cellpadding="4" id="CPHMain_GV" style="color:#333333;width:100%;border-collapse:collapse;">
+    <tbody>
+    <tr align="right" style="color:White;background-color:#507CD1;font-weight:bold;">
+        <th scope="col"><a href="javascript:__doPostBack('ctl00$CPHMain$GV','Sort$CodeUtil')" style="color:White;">
+                الرمز</a></th>
+        <th scope="col"><a href="javascript:__doPostBack('ctl00$CPHMain$GV','Sort$NOMPRENUTIL')" style="color:White;">الاسم
+                واللقب</a></th>
+        <th scope="col"><a href="javascript:__doPostBack('ctl00$CPHMain$GV','Sort$LibeNIVEHIERAR')"
+                           style="color:White;">المستوى الإداري</a></th>
+        <th scope="col"><a href="javascript:__doPostBack('ctl00$CPHMain$GV','Sort$NiveDire')" style="color:White;">الهيكل
+                الاداري</a></th>
+        <th scope="col"><a href="javascript:__doPostBack('ctl00$CPHMain$GV','Sort$DATEMAJ')" style="color:White;">تاريخ
+                آخر تحديث</a></th>
+    </tr>
+    {% for user in users %}
+        <tr style="background-color:#EFF3FB;">
+            <td>
+                <a href="Utilisateur_Edit.aspx?NameClass=SECURITE_UTILISATEUR&amp;Entite=Util&amp;CODE=ZaghouanS">{{ user.id|e }}</a>
+            </td>
+            <td>{{ user.username|e }}</td>
+            <td>{{ user.username|e }}</td>
+            <td>{{ user.username|e }}</td>
+            <td>{{ user.lastLogin|date() }}</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+    </div>
+
+
+    </div>
+{% endblock %}
+
