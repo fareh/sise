@@ -44,7 +44,7 @@ class NomenclatureEtablissementController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nomenclatureetablissement_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('nomenclatureetablissement'));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:new.html.twig', array(

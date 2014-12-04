@@ -21,7 +21,8 @@ class NomenclatureEtablissementType extends AbstractType
                 'property' => 'libetypeetabar',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true
+                'required' => true,
+                'empty_value' => "-- اختيار --"
             ))
             ->add('libeetabar')
             ->add('libeetabfr')
@@ -32,21 +33,24 @@ class NomenclatureEtablissementType extends AbstractType
                 'property' => 'libecircregiar',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true
+                'required' => true,
+                'empty_value' => "-- اختيار --"
             ))
             ->add('codedele','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation',
                 'property' => 'libedelear',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true
+                'required' => true,
+                'empty_value' => "-- اختيار --"
             ))
             ->add('codesect','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSecteur',
                 'property' => 'libesectar',
                  'expanded' => false,
                  'multiple' => false,
-                 'required' => true
+                 'required' => true,
+                'empty_value' => "-- اختيار --"
                   ))
             ->add('sect')
             ->add('codecirc','entity', array(
@@ -55,13 +59,15 @@ class NomenclatureEtablissementType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
+                'empty_value' => "-- اختيار --"
             ))
             ->add('codezone','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureZone',
                 'property' => 'libezonear',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true
+                'required' => true,
+                'empty_value' => "-- اختيار --"
             ))
             ->add('datecons','datetime',array(
                 'input'  => 'datetime',
