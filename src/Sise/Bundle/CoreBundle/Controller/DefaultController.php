@@ -138,9 +138,9 @@ class DefaultController extends Controller
         if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
         if ($TdRetour == true) $RouteRetour = $RouteAction . '';
         if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
-        if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_New';
-        if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '';
-        if ($TdValider == true) $RouteValider = '';
+        if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_new';
+        if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
+        if ($TdValider == true) $RouteValider = '_create';
         if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
 
 
