@@ -20,6 +20,7 @@ class EtablissementResponsable
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetab;
+
     /**
      * @var string
      *
@@ -62,9 +63,12 @@ class EtablissementResponsable
     private $nomprendire;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGradDire", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGradDire", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegraddire;
 
@@ -111,9 +115,12 @@ class EtablissementResponsable
     private $nomprendireadjo;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGradDireAdjo", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGradDireAdjo", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegraddireadjo;
 
@@ -163,7 +170,7 @@ class EtablissementResponsable
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -559,5 +566,37 @@ class EtablissementResponsable
     public function getMaildireadjo()
     {
         return $this->maildireadjo;
+    }
+    /**
+     * @var \EtablissementFicheetablissement
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="EtablissementFicheetablissement",inversedBy="resp")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
+     * })
+     */
+    private $fichetab;
+
+    /**
+     * @return \EtablissementFicheetablissement
+     */
+    public function getFichetab()
+    {
+        return $this->fichetab;
+    }
+
+    /**
+     * @param \EtablissementFicheetablissement $fichetab
+     */
+    public function setFichetab($fichetab)
+    {
+        $this->fichetab = $fichetab;
+    }
+
+    public function __toString()
+    {
+        return $this->codeetab;
     }
 }

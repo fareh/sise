@@ -33,4 +33,5 @@
 # Composer PHAR
 /composer.phar
 #phpStorm
+/vendor12
 /.idea/

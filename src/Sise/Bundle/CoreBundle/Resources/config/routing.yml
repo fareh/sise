@@ -4,6 +4,12 @@ sise_core_homepage:
 sise_core_search:
     path:     /search
     defaults: { _controller: SiseCoreBundle:Default:search }
+sise_core_selectCodeRec:
+    path:     /selectCodeRec
+    defaults: { _controller: SiseCoreBundle:Default:selectCodeRec }
+sise_core_setCodeRec:
+    path:     /setCodeRec
+    defaults: { _controller: SiseCoreBundle:Default:setCodeRec }
 sise_core_listEntities:
     path:     /listEntities
     defaults: { _controller: SiseCoreBundle:Default:listEntities }

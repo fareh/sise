@@ -2,6 +2,7 @@
 
 {% block body -%}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'بطاقة المؤسسة /مساحة الارض والمباني', 'RouteAction' : 'etablissementficheetablissement' })) }}
+
     <table class="records_list">
         <thead>
             <tr>
@@ -22,13 +23,13 @@
             {% if entity.annescol is defined %}
                 <tr>
                     <td>{{ entity.annescol }}</td>
-                    <td><a href="{{ path('etablissementficheetablissement_edit',  { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab}) }}">{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libeetabar }}</a></td>
-                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libeetabfr }}</td>
-                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libecourar }}</td>
-                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].libecourfr }}</td>
-                    <td> {{ items[entity.codeetab][entity.codetypeetab.codetypeetab].codetypeetab.libetypeetabar }}</td>
-                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].codedele.libedelear }}</td>
-                    <td>{{ items[entity.codeetab][entity.codetypeetab.codetypeetab].codesect.libesectar }}</td>
+                    <td><a href="{{ path('etablissementficheetablissement_edit',  { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab}) }}">{{entity.nomeetab.libeetabar }}</a></td>
+                    <td>{{ entity.nomeetab.libeetabfr }}</td>
+                    <td>{{ entity.nomeetab.libecourar }}</td>
+                    <td>{{ entity.nomeetab.libecourfr }}</td>
+                    <td> {{ entity.nomeetab.codetypeetab.libetypeetabar }}</td>
+                    <td>{{ entity.nomeetab.codedele.libedelear }}</td>
+                    <td>{{ entity.nomeetab.codesect.libesectar }}</td>
                     <td>
                     </td>
                 </tr>
@@ -37,12 +38,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('etablissementficheetablissement_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}

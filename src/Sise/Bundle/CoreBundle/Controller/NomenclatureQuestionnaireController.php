@@ -48,6 +48,9 @@ class NomenclatureQuestionnaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
+        if ($session->has('features')) {
+            $features = $session->get('features');
+        }
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         $editForms = array();
         if (!$entity) {
@@ -56,20 +59,13 @@ class NomenclatureQuestionnaireController extends Controller
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
 
-        if ($session->has('items')) {
-            $entities = $session->get('items');
-        }
-
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
         if ($request->isMethod('POST')) {
             if ($table == "effectifeleve_demiresidan") {
                 $params = $request->request->get($search->getName());
                 $session->set("features", $params);
 
                 $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
-                $session->set("items", $entities);
+
                 foreach ($entities as $item) {
 
                     $editForms[] = $this->createCustomForm($item)->createView();
@@ -84,16 +80,18 @@ class NomenclatureQuestionnaireController extends Controller
                 $session->set("features", $params);
 
                 $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
-                $session->set("items", $entities);
+
 
                 $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
             } elseif ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
-                $session->set("items", '');
+
                 $params = $request->request->get($search->getName());
                 $session->set("features", $params);
                 $codeannenais = array();
                 $codenivescol = array();
-                $html = "  <table cellspacing='0' rules='all' border='1' id='CPHMain_GridView_Edit' style='width:100%;border-collapse:collapse;'><thead>";
+                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $html = '<form action="' . $pathUpdate . '" method="post"  class="well form-search">';
+                $html .= "  <table cellspacing='0' rules='all' border='1' id='CPHMain_GridView_Edit' style='width:100%;border-collapse:collapse;'><thead>";
                 $query = $em->createQuery(
                     'SELECT   P , F1 , F2 , F3
                      FROM SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance P
@@ -107,11 +105,14 @@ class NomenclatureQuestionnaireController extends Controller
                          Order by  F2.ordraffi  asc
                     '
                 )
-                    ->setParameter('CodeEtab', '100101')
-                    ->setParameter('CodeTypeEtab', '10')
+                    ->setParameter('CodeEtab', $params['NomenclatureEtablissement'])
+                    ->setParameter('CodeTypeEtab', $params['NomenclatureTypeetablissement'])
                     ->setParameter('AnneScol', 2014)
                     ->setParameter('CodeRece', '16Oct');
                 $items = $query->getResult();
+
+
+
 
                 foreach ($items as $item) {
                     if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance')) {
@@ -130,10 +131,7 @@ class NomenclatureQuestionnaireController extends Controller
                     }
                 }
 
-
                 $html .= "<tr><th></th>";
-
-
                 foreach ($codeannenais as $key => $codeannenai) {
 
                     $html .= "<th colspan='3'>" . $codeannenai . "</th>";
@@ -142,13 +140,10 @@ class NomenclatureQuestionnaireController extends Controller
                 }
                 $html .= "</tr>";
 
-
                 $html .= "<tr> <th align ='center' scope = 'col' style = 'color:White;background-color:#4F81BD;' >
  المستوى الدراسي </th >";
 
-
                 foreach ($codeannenais as $key => $codeannenai) {
-
 
                     $html .=
                         '
@@ -184,25 +179,10 @@ class NomenclatureQuestionnaireController extends Controller
                     $html .= "</tr>";
 
                 }
-
-
                 $html .= "</tbody></table>";
-
-
-                /*   var_dump($codenivescol);
-                   var_dump($codeannenais);
-                   var_dump($items);*/
-
-
-                $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']), array('annescol' => 'ASC', 'codenivescol' => 'ASC'));
-
-
-                $session->set("items", $entities);
-
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
-
+                $html .= '<input type="submit" value="Envoyer">';
+                $html .= '</form>';
                 return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.' . $table . '.html.twig', array(
-                    'entities' => @$entities,
                     'editForms' => $editForms,
                     'features' => @$features,
                     'search' => $search->createView(),
@@ -253,18 +233,11 @@ class NomenclatureQuestionnaireController extends Controller
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
-
-        if ($session->has('items')) {
-            $entities = $session->get('items');
-        }
-
         if ($session->has('features')) {
             $features = $session->get('features');
         }
-
         if ($request->isMethod('POST')) {
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-            $session->set("items", $entities);
             if ($table == "effectifeleve_demiresidan") {
                 for ($i = 0; $i < count($entities); $i++) {
                     $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
@@ -302,6 +275,152 @@ class NomenclatureQuestionnaireController extends Controller
                 }
 
 
+            } elseif ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
+
+                $params = $request->request->get($search->getName());
+                $session->set("features", $params);
+                $codeannenais = array();
+                $codenivescol = array();
+                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+                $html = '<form action="' . $pathUpdate . '" method="post"  class="well form-search">';
+                $html .= "  <table cellspacing='0' rules='all' border='1' id='CPHMain_GridView_Edit' style='width:100%;border-collapse:collapse;'><thead>";
+                $query = $em->createQuery(
+                    'SELECT   P , F1 , F2 , F3
+                     FROM SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance P
+                       INNER JOIN  SiseCoreBundle:NomenclatureEtablissement F1 WITH  P.codeetab=F1.codeetab and P.codetypeetab=F1.codetypeetab
+                       INNER JOIN SiseCoreBundle:NomenclatureAnneenaissance   F2 WITH  P.codeannenais=F2.codeannenais
+                       INNER JOIN  SiseCoreBundle:NomenclatureNiveauscolaire  F3 WITH  P.codenivescol=F3.codenivescol
+         WHERE
+                    P.codeetab = :CodeEtab
+                    and P.codetypeetab = :CodeTypeEtab
+                    and P.annescol = :AnneScol and P.coderece = :CodeRece
+                         Order by  F2.ordraffi  asc
+                    '
+                )
+                    ->setParameter('CodeEtab', $codeetab)
+                    ->setParameter('CodeTypeEtab', $codetypeetab)
+                    ->setParameter('AnneScol', 2014)
+                    ->setParameter('CodeRece', '16Oct');
+                $items = $query->getResult();
+
+
+                foreach ($items as $item) {
+                    if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance')) {
+                        $nf = $request->request->get($item->getCodenivescol() . '_F_' . $item->getCodeannenais());
+
+
+                        $nm = $request->request->get($item->getCodenivescol() . '_M_' . $item->getCodeannenais());
+
+
+
+                        $item->setNombelevmasc($nm);
+                        $item->setNombelevfemi($nf);
+                       // echo (int) $nm + (int)$nf ;
+                        $item->setNombtotaelev((int) $nm + (int)$nf);
+                        $em->persist($item);
+
+                    }
+                }
+                $em->flush();
+
+                $query = $em->createQuery(
+                    'SELECT   P , F1 , F2 , F3
+                     FROM SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance P
+                       INNER JOIN  SiseCoreBundle:NomenclatureEtablissement F1 WITH  P.codeetab=F1.codeetab and P.codetypeetab=F1.codetypeetab
+                       INNER JOIN SiseCoreBundle:NomenclatureAnneenaissance   F2 WITH  P.codeannenais=F2.codeannenais
+                       INNER JOIN  SiseCoreBundle:NomenclatureNiveauscolaire  F3 WITH  P.codenivescol=F3.codenivescol
+         WHERE
+                    P.codeetab = :CodeEtab
+                    and P.codetypeetab = :CodeTypeEtab
+                    and P.annescol = :AnneScol and P.coderece = :CodeRece
+                         Order by  F2.ordraffi  asc
+                    '
+                )
+                    ->setParameter('CodeEtab', $codeetab)
+                    ->setParameter('CodeTypeEtab', $codetypeetab)
+                    ->setParameter('AnneScol', 2014)
+                    ->setParameter('CodeRece', '16Oct');
+                $items = $query->getResult();
+
+                foreach ($items as $item) {
+                    if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance')) {
+                        $EffectiveeleveNiveauscolaireAnneenaissance[$item->getCodenivescol()][$item->getCodeannenais()] = $item;
+                    }
+
+
+                    if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire')) {
+                        $codenivescol[$item->getOrdraffi()] = $item;
+                    }
+
+
+                    if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance')) {
+                        $codeannenais[$item->getCodeannenais()] = $item->getLibeannenaisar();
+
+                    }
+                }
+
+                $html .= "<tr><th></th>";
+                foreach ($codeannenais as $key => $codeannenai) {
+
+                    $html .= "<th colspan='3'>" . $codeannenai . "</th>";
+
+
+                }
+                $html .= "</tr>";
+
+                $html .= "<tr> <th align ='center' scope = 'col' style = 'color:White;background-color:#4F81BD;' >
+ المستوى الدراسي </th >";
+
+                foreach ($codeannenais as $key => $codeannenai) {
+
+                    $html .=
+                        '
+
+ <th align = "center" scope = "col" style = "color:White;background-color:#92B3CF;" > ذكر</th >
+ <th align = "center" scope = "col" style = "color:White;background-color:#92B3CF;" > أنثى</th >
+   <th align = "center" scope = "col" style = "color:White;background-color:#92B3CF;" > الجملة</th >
+   ';
+
+
+                }
+                $html .= "</tr></thead>";
+
+                $html .= "<tbody>";
+                ksort($codenivescol);
+                foreach ($codenivescol as $key => $codeniv) {
+
+                    $html .= "<tr><td>" . $codeniv->getLibenivescolar() . "</td>";
+                    foreach ($codeannenais as $key1 => $codeannenai) {
+
+                        $ValueItem = @$EffectiveeleveNiveauscolaireAnneenaissance[$codeniv->getCodenivescol()][$key1];
+                        if ($ValueItem === null) {
+                            $html .= "<td></td>";
+                            $html .= "<td></td>";
+                            $html .= "<td></td>";
+                        } else {
+                            $html .= "<td><input style='width:35px' value='".$ValueItem->getNombelevmasc()."' id='".$codeniv->getCodenivescol() . '_M_' . $key1 . "'  name='" . $codeniv->getCodenivescol() . '_M_' . $key1 . "'  ></td>";
+                            $html .= "<td><input style='width:35px' value='".$ValueItem->getNombelevfemi()."' id='".$codeniv->getCodenivescol() . '_F_' . $key1 . "'  name='" . $codeniv->getCodenivescol() . '_F_' . $key1 . "' ></td>";
+                            $html .= "<td><span >" . $ValueItem->getNombtotaelev() . "</span></td>";
+                        }
+
+                    }
+
+
+                    $html .= "</tr>";
+
+                }
+                $html .= "</tbody></table>";
+                $html .= '<input type="submit" value="Envoyer">';
+                $html .= '</form>';
+                return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.' . $table . '.html.twig', array(
+                    'editForms' => $editForms,
+                    'features' => @$features,
+                    'search' => $search->createView(),
+                    'pathfilter' => $url,
+                    'pathUpdate' => @$pathUpdate,
+                    'html' => $html
+                ));
+
             }
             return $this->redirect($this->generateUrl('StatEleve_edit', array('table' => $table)));
         }
@@ -328,6 +447,10 @@ class NomenclatureQuestionnaireController extends Controller
     public function listStatAction($table, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+        if ($session->has('features')) {
+            $features = $session->get('features');
+        }
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         $editForms = array();
         if (!$entity) {
@@ -337,6 +460,7 @@ class NomenclatureQuestionnaireController extends Controller
         $url = $this->generateUrl('StatEleve_listStat', array('table' => $table));
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
+            $session->set("features", $params);
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
 
             if ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
@@ -344,6 +468,7 @@ class NomenclatureQuestionnaireController extends Controller
                 $params = $request->request->get($search->getName());
                 $codeannenais = array();
                 $codenivescol = array();
+
                 $html = "  <table cellspacing='0' rules='all' border='1' id='CPHMain_GridView_Edit' style='width:100%;border-collapse:collapse;'><thead>";
                 $query = $em->createQuery(
                     'SELECT   P , F1 , F2 , F3
@@ -358,7 +483,7 @@ class NomenclatureQuestionnaireController extends Controller
                          Order by  F2.ordraffi  asc
                     '
                 )
-                    ->setParameter('CodeEtab',  $params['NomenclatureEtablissement'])
+                    ->setParameter('CodeEtab', $params['NomenclatureEtablissement'])
                     ->setParameter('CodeTypeEtab', $params['NomenclatureTypeetablissement'])
                     ->setParameter('AnneScol', 2014)
                     ->setParameter('CodeRece', '16Oct');

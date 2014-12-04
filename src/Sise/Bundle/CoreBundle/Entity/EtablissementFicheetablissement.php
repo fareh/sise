@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * EtablissementFicheetablissement
  *
- * @ORM\Table(name="etablissement_ficheetablissement", indexes={@ORM\Index(name="IDX_netab_etabfichetab", columns={"CodeEtab"}),@ORM\Index(name="IDX_ntypeetab_fichetab", columns={"CodeTypeEtab"})})
+ * @ORM\Table(name="etablissement_ficheetablissement")
  * @ORM\Entity
  */
 class EtablissementFicheetablissement
@@ -122,10 +122,26 @@ class EtablissementFicheetablissement
     private $exisanneprepintehand;
 
     /**
+     * @return string
+     */
+    public function getCodeetab()
+    {
+        return $this->codeetab;
+    }
+
+    /**
+     * @param string $codeetab
+     */
+    public function setCodeetab($codeetab)
+    {
+        $this->codeetab = $codeetab;
+    }
+
+    /**
      * Set codetypeetab
      *
      * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetab
-     * @return NomenclatureEtablissement
+     * @return EtablissementFicheetablissement
      */
     public function setCodetypeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetab = null)
     {
@@ -420,25 +436,77 @@ class EtablissementFicheetablissement
         return $this->exisanneprepintehand;
     }
     /**
-     * Set codetypeetab
+     * @var \EtablissementResponsable
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
-     * @return NomenclatureEtablissement
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="EtablissementResponsable",mappedBy="fichetab")
      */
-    public function setCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab = null)
-    {
-        $this->codeetab = $codeetab;
+    private $resp;
 
-        return $this;
+    /**
+     * @return \EtablissementResponsable
+     */
+    public function getResp()
+    {
+        return $this->resp;
     }
 
     /**
-     * Get codetypeetab
-     *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement
+     * @param \EtablissementResponsable $resp
      */
-    public function getCodeetab()
+    public function setResp($resp)
     {
-        return $this->codeetab;
+        $this->resp = $resp;
+    }
+    /**
+     * @var \EtablissementInfrastructure
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="EtablissementInfrastructure",mappedBy="fichetabinfr")
+     */
+    private $infr;
+
+    /**
+     * @return \EtablissementInfrastructure
+     */
+    public function getInfr()
+    {
+        return $this->infr;
+    }
+
+    /**
+     * @param \EtablissementInfrastructure $infr
+     */
+    public function setInfr($infr)
+    {
+        $this->infr = $infr;
+    }
+
+    /**
+     * @var \NomenclatureEtablissement
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
+     * })
+     */
+    private $nomeetab;
+
+    /**
+     * @return \NomenclatureEtablissement
+     */
+    public function getNomeetab()
+    {
+        return $this->nomeetab;
+    }
+
+    /**
+     * @param \NomenclatureEtablissement $nomeetab
+     */
+    public function setNomeetab($nomeetab)
+    {
+        $this->nomeetab = $nomeetab;
     }
 }

@@ -61,7 +61,6 @@ $(function () {
     collapsible: true,
     active: true,
     heightStyle: "content" });
-
 });
 
 
@@ -70,3 +69,103 @@ function txtChanged(v1 , v2 , v3) {
 }
 
 
+$(function () {
+    $("#CPHMain_AnciDireAdjoAdmi").spinner({
+        step: 1,
+        numberFormat: "n"
+    });
+    $("#CPHMain_AnciDireAdjoEnse").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#CPHMain_AnciDireEnse").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#CPHMain_AnciDireAdmi").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#CPHMain_SurfTotaTerr").spinner({
+        step: 0.01,
+        numberFormat: "n"
+    });
+    $("#CPHMain_SurfCons").spinner({
+        step: 0.01,
+        numberFormat: "n"
+    });
+    $("#CPHMain_SurfCouv").spinner({
+        step: 0.01,
+        numberFormat: "n"
+    });
+    $("#CPHMain_DistRoutGoud").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#CPHMain_DistDele").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#CPHMain_NombSallExte").spinner();
+
+    $("#accordion").accordion({
+        collapsible: true,
+        active: true,
+                heightStyle: "content"
+            });
+
+        });
+
+        //On PostBack
+        jQuery(document).ready(function () {
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+            function EndRequestHandler(sender, args) {
+                SetUI();
+            }
+            function SetUI() {
+                $("#CPHMain_AnciDireAdjoAdmi").spinner({
+                step: 0.1,
+                numberFormat: "n"
+                });
+                $("#CPHMain_AnciDireAdjoEnse").spinner({
+                    step: 0.1,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_AnciDireEnse").spinner({
+                    step: 0.1,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_AnciDireAdmi").spinner({
+                    step: 0.1,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_SurfTotaTerr").spinner({
+                    step: 0.01,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_SurfCons").spinner({
+                    step: 0.01,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_SurfCouv").spinner({
+                    step: 0.01,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_DistRoutGoud").spinner({
+                    step: 0.1,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_DistDele").spinner({
+                    step: 0.1,
+                    numberFormat: "n"
+                    });
+                $("#CPHMain_NombSallExte").spinner();
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    active: true ,
+                    heightStyle: "content"
+                });
+            }
+            SetUI();
+        });

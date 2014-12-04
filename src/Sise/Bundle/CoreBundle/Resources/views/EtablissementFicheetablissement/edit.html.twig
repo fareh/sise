@@ -1,9 +1,265 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>EtablissementFicheetablissement edit</h1>
+    <style type="text/css">
+        div span{
+        display:inline-block;
+        height:28px;
+        width:20%;
+        }
+    </style>
+  {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : 'بطاقة المؤسسة /مساحة الارض والمباني', 'RouteAction' : 'etablissementficheetablissement' })) }}
 
-    {{ form(edit_form) }}
+<form action="{{ path('etablissementficheetablissement_update', {  'codetypeetab': entity.codetypeetab , 'codeetab': entity.codeetab }) }}"
+      method="post" {{ form_enctype(edit_form) }}>
+
+    <div id="CPHMain_upmain">
+
+
+        <input type="hidden" name="_method" value="PUT"/>
+        {{ form_errors(edit_form) }}
+
+        <div id="accordion" >
+        <h3>
+            معطيات عامّة</h3>
+        <div>
+            <!-- D- Info generale-->
+            <div>
+                <span id="CPHMain_Label1">رمز المؤسسة</span>
+                {{ edit_form.vars.value.nomeetab.codeetab }}
+            </div>
+            <div>
+                <span id="CPHMain_Label3">إسم المؤسسة بالعربية</span>
+                {{ edit_form.vars.value.nomeetab.libeetabar }}
+            </div>
+            <div>
+                <span id="CPHMain_Label4">إسم المؤسسة بالفرنسية</span>
+                {{ edit_form.vars.value.nomeetab.libeetabfr }}
+            </div>
+            <div>
+                <span id="CPHMain_Label5">الإسم القصير بالعربية</span>
+                {{ edit_form.vars.value.nomeetab.libecourar }}
+            </div>
+            <div>
+                <span id="CPHMain_Label6">الإسم القصير بالفرنسية</span>
+                {{ edit_form.vars.value.nomeetab.libecourfr }}
+            </div>
+            <div>
+                <span id="CPHMain_Label8">قطاع التعليم</span>
+                {{ edit_form.vars.value.nomeetab.codesect.libesectar }}
+            </div>
+            <div>
+                <span id="CPHMain_Label7">المعتمدية</span>
+                {{ edit_form.vars.value.nomeetab.codedele.libedelear }}
+            </div>
+            <div>
+                <span id="CPHMain_Label9">العمادة</span>
+                {{ edit_form.vars.value.nomeetab.sect }}
+            </div>
+            <div>
+                <span id="CPHMain_Label10">الدائرة</span>
+                {{ edit_form.vars.value.nomeetab.codecirc.libecircar }}
+            </div>
+            <div>
+                <span id="CPHMain_Label16">تاريخ التسجيل</span>
+                {{ edit_form.vars.value.nomeetab.datecreabd|date("d-m-Y") }}
+            </div>
+            <!-- F- Info generale-->
+        </div>
+        <h3>
+            الإتصال بالمؤسسة</h3>
+        <div>
+            <!-- D- Contact-->
+
+            <div>
+                <span id="CPHMain_Label12">العنـوان</span>
+                {{ form_widget(edit_form.adreetab) }}
+            </div>
+
+
+            <div>
+                <span id="CPHMain_Label13">الترقيـم البريـدي</span>
+                {{ form_widget(edit_form.codepost) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label14">الهاتف القارّ</span>
+                {{ form_widget(edit_form.telefixe) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label15">الفاكس</span>
+                {{ form_widget(edit_form.fax) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label17">العنوان الإلكتروني</span>
+                {{ form_widget(edit_form.mail) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label18">موقــع الواب</span>
+                {{ form_widget(edit_form.siteweb) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label19">مؤسسة ذات أولوية</span>
+                {{ form_widget(edit_form.educprio) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label20">تدمج تلاميذ ذوي إحتياجات خاصة</span>
+                {{ form_widget(edit_form.etabintehand) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label21">لديها سنة تحضيرية </span>
+                {{ form_widget(edit_form.exisanneprep) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label22">لديها سنة تحضيرية لادماج ذوى الإحتياجات الخاصة</span>
+                {{ form_widget(edit_form.exisanneprepintehand) }}
+            </div>
+            <!-- F- Contact-->
+        </div>
+        <h3>
+            مدير(ة) المؤسسة</h3>
+        <div>
+            <!-- D- Directeur-->
+            <div>
+                <span id="CPHMain_Label23">المعرف الوحيد</span>
+                {{ form_widget(edit_form.resp.idenuniqdire) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label24">الإسم و اللقب</span>
+                {{ form_widget(edit_form.resp.nomprendire) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label25">الرتــبة</span>
+                {{ form_widget(edit_form.resp.codegraddire) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label26">الأقدمية في التدريس</span>
+                 {{ form_widget(edit_form.resp.ancidireense) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label27">الأقدمية في الإدارة</span>
+                {{ form_widget(edit_form.resp.ancidireadmi) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label28">الهـــاتف الجوال</span>
+                {{ form_widget(edit_form.resp.telemobidire) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label29">العنوان الإلكتروني</span>
+                {{ form_widget(edit_form.resp.maildire) }}
+            </div>
+            <!-- F- Directeur-->
+        </div>
+        <h3>
+            مساعد مدير(ة) المؤسسة: (خاصّ بالمدارس الإبتدائية)</h3>
+        <div>
+            <!-- D- AdjoDirec-->
+            <div>
+                <span id="CPHMain_Label30">المعرف الوحيد</span>
+                {{ form_widget(edit_form.resp.idenuniqdireadjo) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label31">الإسم و اللقب</span>
+                {{ form_widget(edit_form.resp.nomprendireadjo) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label32">الرتــبة</span>
+                {{ form_widget(edit_form.resp.codegraddireadjo) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label33">الأقدمية في التدريس</span>
+                {{ form_widget(edit_form.resp.ancidireadjoense) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label34">الأقدمية في الإدارة</span>
+                {{ form_widget(edit_form.resp.ancidireadjoadmi) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label35">الهـــاتف الجوال</span>
+                {{ form_widget(edit_form.resp.telemobidireadjo) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label36">العنوان الإلكتروني</span>
+                {{ form_widget(edit_form.resp.maildireadjo) }}
+            </div>
+            <!-- F- AdjoDirec-->
+        </div>
+        <h3 >
+            مساحة  الارض ومباني المؤسسة</h3>
+        <div>
+            <div>
+                <span id="CPHMain_Label2">الوضعية العقارية</span>
+                {{ form_widget(edit_form.infr.codesitufonc) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label37">مساحة الأرض الجملية  (بالمتر المربع)</span>
+                {{ form_widget(edit_form.infr.surftotaterr) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label38">المساحة المبنية (حيز البناء على الأرض بالمتر المربع)</span>
+                {{ form_widget(edit_form.infr.surfcons) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label39">المساحة المغطاة (باعتبار الطوابق بالمتر المربع)</span>
+                {{ form_widget(edit_form.infr.surfcouv) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label40">المسافة التي تفصل المؤسسة عن الطريق المعبدة(بالمتر)</span>
+                {{ form_widget(edit_form.infr.distroutgoud) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label41">المسافة التي تفصل المؤسسة عن مركز المعتمدية(بالمتر)</span>
+                {{ form_widget(edit_form.infr.distdele) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label42">الوســـط</span>
+                {{ form_widget(edit_form.infr.codezone) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label43">المؤسسة قابلة للتوسيع</span>
+                {{ form_widget(edit_form.infr.possexteetab) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label44">عدد القاعات التي يمكن إضافتها باعتبار الطوابق</span>
+                {{ form_widget(edit_form.infr.nombsallexte) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label51">حالة الشبكة الكهربائية بالورشات</span>
+                {{ form_widget(edit_form.infr.codesituelecatel) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label45">سياج المؤسسة</span>
+                {{ form_widget(edit_form.infr.codetypeclot) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label46">الملاحظات</span>
+                {{ form_widget(edit_form.infr.obse) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label47">الربط مع شبكة الأنترنات</span>
+                {{ form_widget(edit_form.infr.exisconninte) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label48">نوع الربط مع شبكة الأنترنات</span>
+                {{ form_widget(edit_form.infr.codetypeconninte) }}
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <input class="btn" type="submit" value="Mise à jour">
+
+
+    </div>
+</form>
+
+
 
         <ul class="record_actions">
     <li>

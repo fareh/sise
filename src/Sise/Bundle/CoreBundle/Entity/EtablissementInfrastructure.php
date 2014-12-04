@@ -49,9 +49,12 @@ class EtablissementInfrastructure
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureProprietebatiment
      *
-     * @ORM\Column(name="CodeSituFonc", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureProprietebatiment")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodePropBati", referencedColumnName="CodePropBati")
+     * })
      */
     private $codesitufonc;
 
@@ -91,9 +94,12 @@ class EtablissementInfrastructure
     private $distdele;
 
     /**
-     * @var string
+     * @var \NomenclatureZone
      *
-     * @ORM\Column(name="CodeZone", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureZone")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeZone", referencedColumnName="CodeZone")
+     * })
      */
     private $codezone;
 
@@ -112,9 +118,12 @@ class EtablissementInfrastructure
     private $nombsallexte;
 
     /**
-     * @var string
+     * @var \NomenclatureTypecloture
      *
-     * @ORM\Column(name="CodeTypeClot", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypecloture")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeClot", referencedColumnName="CodeTypeClot")
+     * })
      */
     private $codetypeclot;
 
@@ -133,16 +142,22 @@ class EtablissementInfrastructure
     private $exisconninte;
 
     /**
-     * @var string
+     * @var \NomenclatureTypeconnxioninternet
      *
-     * @ORM\Column(name="CodeTypeConnInte", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeconnxioninternet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeConnInte", referencedColumnName="CodeTypeConnInte")
+     * })
      */
     private $codetypeconninte;
 
     /**
-     * @var string
+     * @var \NomenclatureSituationreseauelectriqueatelier
      *
-     * @ORM\Column(name="CodeSituElecAtel", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSituationreseauelectriqueatelier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSituElecAtel", referencedColumnName="CodeSituElecAtel")
+     * })
      */
     private $codesituelecatel;
 
@@ -560,5 +575,39 @@ class EtablissementInfrastructure
     public function getCodesituelecatel()
     {
         return $this->codesituelecatel;
+    }
+    /**
+     * @var \EtablissementFicheetablissement
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="EtablissementFicheetablissement",inversedBy="infr")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
+     * })
+     */
+    private $fichetabinfr;
+
+    /**
+     * @return \EtablissementFicheetablissement
+     */
+    public function getFichetabinfr()
+    {
+        return $this->fichetabinfr;
+    }
+
+    /**
+     * @param \EtablissementFicheetablissement $fichetabinfr
+     */
+    public function setFichetabinfr($fichetabinfr)
+    {
+        $this->fichetabinfr = $fichetabinfr;
+    }
+
+
+
+    public function __toString()
+    {
+        return $this->codeetab;
     }
 }
