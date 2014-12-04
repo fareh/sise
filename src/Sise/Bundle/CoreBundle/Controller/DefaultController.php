@@ -12,9 +12,9 @@ use Sise\Bundle\CoreBundle\Entity\CoreProject;
 class DefaultController extends Controller
 {
 
-    public  function selectCodeRecAction (Request $request){
+    public function selectCodeRecAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
-        $session = $request->getSession();
         $query = $em->createQuery(
             'Select R
         from  SiseCoreBundle:NomenclatureRecensement  R'
@@ -23,7 +23,33 @@ class DefaultController extends Controller
 
 
         return $this->render('SiseCoreBundle:Default:codeRec.html.twig', array('items' => $items));
-       }
+    }
+
+    public function setCodeRecAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $CodeRece = '';
+            $CodeRece = $request->get('CodeRece');
+            if ($CodeRece != '') {
+                $items = explode("|", $CodeRece);
+                $session->set("CodeRece", $items[0]);
+                $session->set("AnneScol", $items[1]);
+            }
+            $response = new Response();
+            $data = json_encode(array($session->get('CodeRece'), $session->get('AnneScol'))); // c'est pour formater la réponse de la requete en format que jquery va comprendre
+            $response->headers->set('Content-Type', 'application/json');
+            $response->setContent($data);
+            return $response;
+        }
+
+     return new Response($request->get('CodeRece') );
+    }
+
+
     public function  listEntitiesAction()
     {
         $entities = array();

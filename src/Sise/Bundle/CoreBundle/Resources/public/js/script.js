@@ -1,3 +1,10 @@
+$("a.getcoderecen").colorbox({
+    href: "/app.php" + Routing.generate('sise_core_selectCodeRec'),
+    onClosed:function(){ location.reload(true); }
+});
+$('#btnCancel').click(function () {
+    $('#cboxClose').click()
+});
 function getListe(codegouv, entity, previous_select) {
     var codegouv = $('#' + codegouv).val();
     //alert(id_select)
@@ -77,7 +84,5 @@ $(function () {
 function txtChanged(v1, v2, v3) {
     document.getElementById(v3).value = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
 }
-$("a.getcoderecen").colorbox({
-    href: "/app.php" + Routing.generate('sise_core_selectCodeRec')
-});
+
 
