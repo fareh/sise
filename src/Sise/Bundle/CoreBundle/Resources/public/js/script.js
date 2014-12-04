@@ -84,6 +84,12 @@ $(function () {
     $("#sise_corebundle_nomenclatureetablissement_datecrea").datepicker();
 });
 
+$(function () {
+    $("#accordion").accordion({
+        collapsible: true,
+        active: true,
+        heightStyle: "content" });
+});
 
 function txtChanged(v1, v2, v3) {
     document.getElementById(v3).value = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
