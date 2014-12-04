@@ -22,7 +22,6 @@ else
 fi
 
 ./app/console fos:js-routing:dump
-./app/console fos:js-routing:dump
 ./app/console fos:js-routing:debug
 ./app/console assetic:dump --env=prod --no-debug -v
 ./app/console doctrine:schema:update --force
