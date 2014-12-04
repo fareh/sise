@@ -7,6 +7,10 @@ services:
         arguments: [@router]
         tags:
             - { name: kernel.event_subscriber }
+    sise_user.registration.form.type:
+        class: Sise\Bundle\UserBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: sise_user_registration }
     redirect.after.login:
         class: Sise\Bundle\UserBundle\Handler\AfterLoginRedirection
         arguments: [@router]

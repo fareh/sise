@@ -9,6 +9,9 @@ fos_user:
     user_class: Sise\Bundle\UserBundle\Entity\User
     group:
         group_class: Sise\Bundle\UserBundle\Entity\Group
+    registration:
+        form:
+            type: sise_user_registration
 fos_js_routing:
     routes_to_expose: [sise_core_getList,sise_core_getListMulti,sise_core_selectCodeRec,sise_core_setCodeRec]
 framework:
