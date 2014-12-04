@@ -302,4 +302,8 @@ class NomenclatureProprietebatiment
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codepropbati;
+    }
 }
