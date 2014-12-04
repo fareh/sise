@@ -15,19 +15,6 @@
     {% block head %}{% endblock %}
 </head>
 <body dir="rtl">
-
-<div>
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-        <a href="{{ path('fos_user_security_logout') }}">
-         {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-            خروج
-        </a>
-    {% else %}
-        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-    {% endif %}
-</div>
-
     <div class="containertitre">
         <img id="Image1" src="{{ asset('bundles/sisecore/images/flag_tn.gif') }}" />
         <span style="vertical-align: top">الجمهورية التونسية | وزارة التربية</span>
