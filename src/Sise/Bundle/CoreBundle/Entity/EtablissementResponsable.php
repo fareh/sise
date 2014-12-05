@@ -575,6 +575,8 @@ class EtablissementResponsable
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
      *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
+     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="AnneScol"),
+     *   @ORM\JoinColumn(name="CodeRece", referencedColumnName="CodeRece"),
      * })
      */
     private $fichetab;

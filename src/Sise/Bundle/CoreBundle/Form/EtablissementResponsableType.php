@@ -15,8 +15,6 @@ class EtablissementResponsableType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('annescol')
-            ->add('coderece')
             ->add('idenuniqdire')
             ->add('nomprendire')
             ->add('ancidireense')
@@ -29,7 +27,6 @@ class EtablissementResponsableType extends AbstractType
             ->add('ancidireadjoadmi')
             ->add('telemobidireadjo')
             ->add('maildireadjo')
-            ->add('codeetab')
             ->add('codegraddire','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
                 'property' => 'libegradar',

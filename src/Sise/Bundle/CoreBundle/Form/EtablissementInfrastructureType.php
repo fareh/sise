@@ -15,8 +15,6 @@ class EtablissementInfrastructureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('annescol')
-            ->add('coderece')
             ->add('codesitufonc','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment',
                 'property' => 'libepropbatiar',
@@ -34,7 +32,6 @@ class EtablissementInfrastructureType extends AbstractType
             ->add('nombsallexte')
             ->add('obse','text')
             ->add('exisconninte')
-            ->add('codeetab')
             ->add('codesituelecatel','entity', array(
                   'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationreseauelectriqueatelier',
                   'property' => 'libesituelecatelar',

@@ -15,11 +15,7 @@ class EtablissementFicheetablissementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
             ->add('adreetab')
-            ->add('annescol')
-            ->add('coderece')
             ->add('codepost')
             ->add('telefixe')
             ->add('fax')
@@ -31,7 +27,6 @@ class EtablissementFicheetablissementType extends AbstractType
             ->add('exisanneprepintehand')
             ->add('resp',new EtablissementResponsableType())
             ->add('infr',new EtablissementInfrastructureType())
-            ->add('nomeetab',new NomenclatureEtablissementType())
         ;
     }
     
