@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 use Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire;
 use Sise\Bundle\CoreBundle\Form\NomenclatureQuestionnaireType;
-use Sise\Bundle\CoreBundle\Form\Search\SearchType;
+use Sise\Bundle\CoreBundle\Form\search\SearchType;
 use Sise\Bundle\CoreBundle\Form\EffectifeleveDemiresidantType;
 use Sise\Bundle\CoreBundle\Form\EffectifeleveDemiresidantCollectionType;
 use Sise\Bundle\CoreBundle\Entity\EffectifeleveDemiresidant;
