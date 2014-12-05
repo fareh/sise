@@ -1,6 +1,6 @@
 <?php
 
-namespace Sise\Bundle\CoreBundle\Form\Search;
+namespace Sise\Bundle\CoreBundle\Form\search;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
