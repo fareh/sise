@@ -8,9 +8,11 @@
 
 namespace Sise\Bundle\UserBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Model\User  as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use FOS\UserBundle\Model\GroupInterface;
 
 /**
  * @ORM\Entity
@@ -26,17 +28,14 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Sise\Bundle\UserBundle\Entity\Group")
-     * @ORM\JoinTable(name="fos_user_user_group",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
-     * )
-     */
-    protected $groups;
+     * @ORM\OneToOne(targetEntity="Sise\Bundle\UserBundle\Entity\Group")
+     * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
+     **/
+    protected $group;
 
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
      * @Assert\Length(
@@ -47,7 +46,55 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $name;
+
+    protected $givenName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max="255",
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+
+    protected $familyName;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max="255",
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+
+    protected $phoneNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max="255",
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+
+    protected $mobileNumber;
+
 
     /**
      * Constructor
@@ -60,7 +107,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -83,11 +130,127 @@ class User extends BaseUser
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
 
+
+    /**
+     * Set givenName
+     *
+     * @param string $givenName
+     * @return User
+     */
+    public function setGivenName($givenName)
+    {
+        $this->givenName = $givenName;
+
+        return $this;
+    }
+
+    /**
+     * Get givenName
+     *
+     * @return string
+     */
+    public function getGivenName()
+    {
+        return $this->givenName;
+    }
+
+    /**
+     * Set familyName
+     *
+     * @param string $familyName
+     * @return User
+     */
+    public function setFamilyName($familyName)
+    {
+        $this->familyName = $familyName;
+
+        return $this;
+    }
+
+    /**
+     * Get familyName
+     *
+     * @return string
+     */
+    public function getFamilyName()
+    {
+        return $this->familyName;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     * @return User
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * Set mobileNumber
+     *
+     * @param string $mobileNumber
+     * @return User
+     */
+    public function setMobileNumber($mobileNumber)
+    {
+        $this->mobileNumber = $mobileNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get mobileNumber
+     *
+     * @return string
+     */
+    public function getMobileNumber()
+    {
+        return $this->mobileNumber;
+    }
+
+
+    /**
+     * Set group
+     *
+     * @param \Sise\Bundle\UserBundle\Entity\Group $group
+     * @return User
+     */
+    public function setGroup(\Sise\Bundle\UserBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Sise\Bundle\UserBundle\Entity\Group 
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
 }
