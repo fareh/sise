@@ -189,6 +189,16 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+    public function searchetabAction()
+    {
+        // Generation of the form
+        $form = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
+
+        // return the form view
+        return $this->render('SiseCoreBundle:Default:searchetab.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
 
     public function getListAction(Request $request)
     {

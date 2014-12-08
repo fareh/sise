@@ -1,0 +1,71 @@
+    <center>
+        <form action="{{ pathfilter }}" method="post" {{ form_enctype(form) }} class="well form-search">
+            <div id="CPHMain_EtabFiltre1_upfiltre">
+
+                <br>
+                <div id="Filter">
+                    <div id="CPHMain_upfiltre">
+                <table style="font-size :14pt; background-color:#EEEEEE; padding-top:10px; padding-right :10px;" width="100%">
+                    <tbody>
+                    <tr style="background-color:#EEEEEE;">
+                        <td style="padding-right:5px; " width="15%">
+                            المندوبية الجهوية
+                        </td>
+
+                        <td style="padding-right:5px; " width="15%">
+                            المعتمدية
+                        </td>
+
+                        <td style="padding-right:5px; " width="15%">
+                            نوع المؤسسة
+                        </td>
+                        <td style="padding-right:5px; " width="15%">
+                            قطاع التعليم
+
+                        </td>
+
+                        <td style="padding-right:5px; " width="15%">
+                            المؤسسة
+
+                        </td>
+
+                        <td style="padding-right:5px; " width="15%">
+                            رمز المؤسسة
+
+                        </td>
+                        <td width="15%">
+
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureCirconscriptionregional","NomenclatureDelegation", "sise_bundle_corebundle_searchetab_NomenclatureDelegation" );'}}) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%"> {{ form_widget(form.NomenclatureDelegation, {'attr': {'class': 'NomenclatureDelegation', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureDelegation","NomenclatureTypeetablissement", "sise_bundle_corebundle_searchetab_NomenclatureTypeetablissement" );'}}) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureTypeetablissement, {'attr': {'class': 'NomenclatureTypeetablissement', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureTypeetablissement","NomenclatureEtablissement", "sise_bundle_corebundle_searchetab_NomenclatureEtablissement" );'}}) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureSecteur)}}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureEtablissement, {'attr': {'class': 'NomenclatureEtablissement', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureEtablissement","CodeEtab", "sise_bundle_corebundle_searchetab_CodeEtab" );'}}) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.CodeEtab, {'attr': {'class': 'CodeEtab'}}) }}</td>
+                        <td width="15%" align="center">
+                            <input type="submit" name="ctl00$CPHMain$BtnRechercher" value="بحث" id="CPHMain_BtnRechercher" class="BtnRecherche">
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+        </form>
+    </center>
+
+
+
+

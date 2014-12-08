@@ -4,9 +4,10 @@ namespace Sise\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Sise\Bundle\CoreBundle\Form\search\SearchEtabType;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement;
 use Sise\Bundle\CoreBundle\Form\NomenclatureEtablissementType;
+
 
 /**
  * NomenclatureEtablissement controller.
@@ -19,14 +20,21 @@ class NomenclatureEtablissementController extends Controller
      * Lists all NomenclatureEtablissement entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findAll();
-
+        $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
+        if ($request->isMethod('POST')) {
+            $params = $request->request->get($searchetab->getName());
+            var_dump($params); die ;
+            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+        }
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:index.html.twig', array(
             'entities' => $entities,
+            'searchetab' => $searchetab->createView(),
+            'pathfilter' => 'NomenclatureEtablissement'
         ));
     }
     /**
