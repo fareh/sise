@@ -47,7 +47,7 @@ class DefaultController extends Controller
             return $response;
         }
 
-     return new Response($request->get('CodeRece') );
+        return new Response($request->get('CodeRece'));
     }
 
 
@@ -128,8 +128,17 @@ class DefaultController extends Controller
                 $TdRetour = true;
                 $TdAnnuler = true;
                 $TdValider = true;
-
                 break;
+            Case 'ConsQues':
+                $TdRetour = true;
+                $TdEditer = true;
+
+            Case 'EditQues':
+                $TdRetour = true;
+                $TdValider = true;
+
+            Case 'ValiQues':
+                $TdCloturer = true;
         };
 
 
