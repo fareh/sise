@@ -11,9 +11,13 @@ services:
         class: Sise\Bundle\UserBundle\Form\Type\RegistrationFormType
         tags:
             - { name: form.type, alias: sise_user_registration }
+    sise_user.group.form.type:
+         class: Sise\Bundle\UserBundle\Form\Type\GroupFormType
+         tags:
+             - { name: form.type, alias: sise_user_group }
     redirect.after.login:
         class: Sise\Bundle\UserBundle\Handler\AfterLoginRedirection
-        arguments: [@router]
+        arguments: [@router, @doctrine.orm.entity_manager]
     redirect.after.logout:
         class: Sise\Bundle\UserBundle\Handler\AfterLogoutRedirection
         arguments: [@router, @security.context]

@@ -15,11 +15,12 @@ class SecuriteNiveauhierarchique
     /**
      * @var string
      *
-     * @ORM\Column(name="CODENIVEHIER", type="string", length=100, nullable=false)
+     * @ORM\Column(name="codenivehier", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codenivehier;
+
 
     /**
      * @var string
@@ -121,5 +122,10 @@ class SecuriteNiveauhierarchique
     public function getObse()
     {
         return $this->obse;
+    }
+
+
+    public function __toString() {
+        return $this->getLibenivehierar();
     }
 }

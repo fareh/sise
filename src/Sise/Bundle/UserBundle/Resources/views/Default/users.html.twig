@@ -21,11 +21,18 @@
     {% for user in users %}
         <tr style="background-color:#EFF3FB;">
             <td>
-                <a href="Utilisateur_Edit.aspx?NameClass=SECURITE_UTILISATEUR&amp;Entite=Util&amp;CODE=ZaghouanS">{{ user.id|e }}</a>
+                <a href="{{ path('fos_user_profile_edit') }}">{{ user.id|e }}</a>
+
             </td>
             <td>{{ user.username|e }}</td>
-            <td>{{ user.username|e }}</td>
-            <td>{{ user.username|e }}</td>
+            <td>{{ user.givenName|e }} {{ user.familyName|e }} </td>
+            <td>
+
+                {% for group in user.groups %}
+                    {{ group.name|e }}
+                {% endfor %}
+
+               </td>
             <td>{{ user.lastLogin|date() }}</td>
         </tr>
     {% endfor %}

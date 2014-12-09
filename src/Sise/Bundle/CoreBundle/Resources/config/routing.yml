@@ -1,5 +1,5 @@
 sise_core_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: SiseCoreBundle:Default:index }
 sise_core_search:
     path:     /search

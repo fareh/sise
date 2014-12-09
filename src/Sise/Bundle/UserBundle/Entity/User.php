@@ -11,8 +11,6 @@ namespace Sise\Bundle\UserBundle\Entity;
 use FOS\UserBundle\Model\User  as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
-use FOS\UserBundle\Model\GroupInterface;
 
 /**
  * @ORM\Entity
@@ -28,11 +26,22 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Sise\Bundle\UserBundle\Entity\Group")
-     * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
-     **/
-    protected $group;
+     * @ORM\ManyToMany(targetEntity="Sise\Bundle\UserBundle\Entity\Group")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique")
+     * @ORM\JoinTable(name="fos_user_securite_niveauhierarchique",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="securite_niveauhierarchique_id", referencedColumnName="codenivehier")}
+     * )
+     */
+    protected $niveauhierarchique;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -102,6 +111,9 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+       // $this->groups = new ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->niveauhierarchique =  new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -229,28 +241,72 @@ class User extends BaseUser
     {
         return $this->mobileNumber;
     }
+    
+
+    /**
+     * Add groups
+     *
+     * @param \Sise\Bundle\UserBundle\Entity\Group $groups
+     * @return User
+     */
+   /* public function addGroup(\Sise\Bundle\UserBundle\Entity\Group $groups)
+    {
+        $this->groups[] = $groups;
+
+        return $this;
+    }*/
+
+    /**
+     * Remove groups
+     *
+     * @param \Sise\Bundle\UserBundle\Entity\Group $groups
+     */
+  /*  public function removeGroup(\Sise\Bundle\UserBundle\Entity\Group $groups)
+    {
+        $this->groups->removeElement($groups);
+    }*/
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
 
 
     /**
-     * Set group
+     * Add niveauhierarchique
      *
-     * @param \Sise\Bundle\UserBundle\Entity\Group $group
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique
      * @return User
      */
-    public function setGroup(\Sise\Bundle\UserBundle\Entity\Group $group = null)
+    public function addNiveauhierarchique(\Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique)
     {
-        $this->group = $group;
+        $this->niveauhierarchique[] = $niveauhierarchique;
 
         return $this;
     }
 
     /**
-     * Get group
+     * Remove niveauhierarchique
      *
-     * @return \Sise\Bundle\UserBundle\Entity\Group 
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique
      */
-    public function getGroup()
+    public function removeNiveauhierarchique(\Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique)
     {
-        return $this->group;
+        $this->niveauhierarchique->removeElement($niveauhierarchique);
+    }
+
+    /**
+     * Get niveauhierarchique
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNiveauhierarchique()
+    {
+        return $this->niveauhierarchique;
     }
 }

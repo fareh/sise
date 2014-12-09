@@ -106,9 +106,19 @@ class RegistrationFormType extends AbstractType
                     'type' => 'choice', 'options' =>
                     array( 'choices' => array('ROLE_USER' => 'user', 'ROLE_ADMIN' => 'admin') ) ))
 
-            ->add('group', 'entity', array(
+            ->add('groups', 'entity', array(
+                'label'=>'مجموعة المستخدمين',
                 'class' => 'SiseUserBundle:Group',
-                'property' => 'name'
+                'property' => 'name',
+                'multiple'=>true,
+                'expanded' => true
+            ))
+            ->add('niveauhierarchique', 'entity', array(
+                'label'=>'Niveau hierarchique',
+                'class' => 'SiseCoreBundle:SecuriteNiveauhierarchique',
+                'property' => 'libenivehierar',
+                'multiple'=>true,
+                'expanded' => true
             ))
 
 

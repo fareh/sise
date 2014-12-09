@@ -9,6 +9,8 @@ fos_user:
     user_class: Sise\Bundle\UserBundle\Entity\User
     group:
         group_class: Sise\Bundle\UserBundle\Entity\Group
+        form:
+            type: sise_user_group
     registration:
         form:
             type: sise_user_registration
