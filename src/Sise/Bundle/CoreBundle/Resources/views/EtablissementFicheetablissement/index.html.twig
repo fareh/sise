@@ -2,7 +2,7 @@
 
 {% block body -%}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'بطاقة المؤسسة /مساحة الارض والمباني', 'RouteAction' : 'etablissementficheetablissement' })) }}
-
+    {{ include('SiseCoreBundle:Default:searchetab.html.twig', {'form': searchetab, 'pathfilter' : pathfilter}) }}
     <table class="records_list">
         <thead>
             <tr>

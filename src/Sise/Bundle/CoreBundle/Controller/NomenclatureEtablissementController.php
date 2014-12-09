@@ -28,13 +28,23 @@ class NomenclatureEtablissementController extends Controller
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchetab->getName());
-            var_dump($params); die ;
-            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+            $FiltreArray =array();
+
+            if($params['NomenclatureCirconscriptionregional']!=''){$FiltreArray['codecircregi']= $params['NomenclatureCirconscriptionregional'];}
+            if($params['NomenclatureDelegation']!=''){$FiltreArray['codedele']= $params['NomenclatureDelegation'];}
+            if($params['NomenclatureCirconscription']!=''){$FiltreArray['codecirc']= $params['NomenclatureCirconscription'];}
+            if($params['NomenclatureTypeetablissement']!=''){$FiltreArray['codetypeetab']= $params['NomenclatureTypeetablissement'];}
+            if($params['NomenclatureSecteur']!=''){$FiltreArray['codesect']= $params['NomenclatureSecteur'];}
+            if($params['NomenclatureZone']!=''){$FiltreArray['codezone']= $params['NomenclatureZone'];}
+            $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy($FiltreArray);
+
+
+         //  var_dump($params); die ;
         }
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:index.html.twig', array(
             'entities' => $entities,
             'searchetab' => $searchetab->createView(),
-            'pathfilter' => 'NomenclatureEtablissement'
+            'pathfilter' => ''
         ));
     }
     /**

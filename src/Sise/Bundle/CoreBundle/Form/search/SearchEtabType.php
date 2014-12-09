@@ -17,29 +17,39 @@ class SearchEtabType extends AbstractType
                 'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
                 'property' => 'libecircregiar',
                 'empty_value' => "-- اختيار --",
-                'data' => 'codecircregi'
+                'data' => 'codecircregi',
+                'required' => false
             ))
 
             ->add('NomenclatureDelegation', 'choice', array(
-                'empty_value' => "-- اختيار --"
-            ))
-
-            ->add('NomenclatureTypeetablissement', 'choice', array(
                 'empty_value' => "-- اختيار --",
+                'required' => false
+            ))
+            ->add('NomenclatureCirconscription', 'choice', array(
+                'empty_value' => "-- اختيار --",
+                 'required' => false
+                 ))
+            ->add('NomenclatureTypeetablissement', 'entity', array(
+                'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
+                'property' => 'libetypeetabar',
+                'empty_value' => "-- اختيار --",
+                'data' => 'codetypeetab',
+                'required' => false
             ))
             ->add('NomenclatureSecteur', 'entity', array(
                 'class' => 'SiseCoreBundle:NomenclatureSecteur',
                 'property' => 'libesectar',
                 'empty_value' => "-- اختيار --",
-                'data' => 'codesect'
+                'data' => 'codesect',
+                 'required' => false
             ))
-        ->add('NomenclatureEtablissement', 'choice', array(
-
-            'empty_value' => "-- اختيار --",
-
-        ))
-        ->add('CodeEtab', 'text')
-
+            ->add('NomenclatureZone', 'entity', array(
+                'class' => 'SiseCoreBundle:NomenclatureZone',
+                'property' => 'libezonear',
+                'empty_value' => "-- اختيار --",
+                'data' => 'codezone',
+                'required' => false
+            ))
       ;
 
     }

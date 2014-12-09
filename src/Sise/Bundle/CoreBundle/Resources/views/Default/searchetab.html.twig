@@ -1,4 +1,15 @@
     <center>
+        <style type="text/css">
+
+            select{
+                height: 28px;
+                width: 100%;
+
+            }
+            td {
+                padding-right: 5px;
+            }
+        </style>
         <form action="{{ pathfilter }}" method="post" {{ form_enctype(form) }} class="well form-search">
             <div id="CPHMain_EtabFiltre1_upfiltre">
 
@@ -17,20 +28,18 @@
                         </td>
 
                         <td style="padding-right:5px; " width="15%">
+                            الدائرة
+                        </td>
+
+                        <td style="padding-right:5px; " width="15%">
                             نوع المؤسسة
                         </td>
                         <td style="padding-right:5px; " width="15%">
                             قطاع التعليم
 
                         </td>
-
                         <td style="padding-right:5px; " width="15%">
-                            المؤسسة
-
-                        </td>
-
-                        <td style="padding-right:5px; " width="15%">
-                            رمز المؤسسة
+                            الوســـط
 
                         </td>
                         <td width="15%">
@@ -42,13 +51,12 @@
 
 
                     <tr>
-
-                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureCirconscriptionregional","NomenclatureDelegation", "sise_bundle_corebundle_searchetab_NomenclatureDelegation" );'}}) }}</td>
-                        <td id="CPHMain_divCodeCircRegi2" width="15%"> {{ form_widget(form.NomenclatureDelegation, {'attr': {'class': 'NomenclatureDelegation', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureDelegation","NomenclatureTypeetablissement", "sise_bundle_corebundle_searchetab_NomenclatureTypeetablissement" );'}}) }}</td>
-                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureTypeetablissement, {'attr': {'class': 'NomenclatureTypeetablissement', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureTypeetablissement","NomenclatureEtablissement", "sise_bundle_corebundle_searchetab_NomenclatureEtablissement" );'}}) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%" > {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListeMulti("sise_bundle_corebundle_searchetab_NomenclatureCirconscriptionregional","NomenclatureDelegation","NomenclatureCirconscription","sise_bundle_corebundle_searchetab_NomenclatureDelegation", "sise_bundle_corebundle_searchetab_NomenclatureCirconscription");' }} ) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%"> {{ form_widget(form.NomenclatureDelegation) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%" >  {{ form_widget(form.NomenclatureCirconscription) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureTypeetablissement)}}</td>
                         <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureSecteur)}}</td>
-                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureEtablissement, {'attr': {'class': 'NomenclatureEtablissement', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureEtablissement","CodeEtab", "sise_bundle_corebundle_searchetab_CodeEtab" );'}}) }}</td>
-                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.CodeEtab, {'attr': {'class': 'CodeEtab'}}) }}</td>
+                        <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureZone)}}</td>
                         <td width="15%" align="center">
                             <input type="submit" name="ctl00$CPHMain$BtnRechercher" value="بحث" id="CPHMain_BtnRechercher" class="BtnRecherche">
 

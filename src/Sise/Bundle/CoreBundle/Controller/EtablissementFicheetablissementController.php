@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Sise\Bundle\CoreBundle\Entity\EtablissementFicheetablissement;
 use Sise\Bundle\CoreBundle\Form\EtablissementFicheetablissementType;
+use Sise\Bundle\CoreBundle\Form\search\SearchEtabType;
 
 /**
  * EtablissementFicheetablissement controller.
@@ -19,7 +20,7 @@ class EtablissementFicheetablissementController extends Controller
      * Lists all EtablissementFicheetablissement entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 //        $query = $em->createQuery(
@@ -34,9 +35,40 @@ class EtablissementFicheetablissementController extends Controller
 //                $items[$item->getCodeetab()][$item->getCodetypeetab()->getCodetypeetab()] = $item;
 //            }
 //        }
-        $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findAll();
+
+
+        $coderece='16Oct';
+        $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findBy(array('coderece' => $coderece));
+        $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
+       if ($request->isMethod('POST')) {
+          $params = $request->request->get($searchetab->getName());
+           $FiltreArray ='';
+           if($params['NomenclatureCirconscriptionregional']!=''){$FiltreArray .= " P.codecircregi ='".$params['NomenclatureCirconscriptionregional']."'";}
+           if($params['NomenclatureDelegation']!=''){$FiltreArray .= ($FiltreArray !='' ? ' and ' : ''). " P.codedele = '".$params['NomenclatureDelegation']."'";}
+           if($params['NomenclatureCirconscription']!=''){$FiltreArray.= ($FiltreArray !='' ? ' and ' : '')."P.codecirc='".$params['NomenclatureCirconscription']."'";}
+           if($params['NomenclatureTypeetablissement']!=''){$FiltreArray.= ($FiltreArray !='' ? ' and ' : '')."P.codetypeetab='".$params['NomenclatureTypeetablissement']."'";}
+           if($params['NomenclatureSecteur']!=''){$FiltreArray.= ($FiltreArray !='' ? ' and ' : '')."P.codesect='".$params['NomenclatureSecteur']."'";}
+           if($params['NomenclatureZone']!=''){$FiltreArray.= ($FiltreArray !='' ? ' and ' : '')."P.codezone='".$params['NomenclatureZone']."'";}
+           $query = $em->createQuery(
+           'SELECT F,P
+             FROM SiseCoreBundle:EtablissementFicheetablissement F
+             INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab
+              '.($FiltreArray !='' ? ' WHERE '. $FiltreArray : '') );
+           $entities = $query->execute();
+           //        $items = array();
+//        foreach ($entities as $item) {
+//            if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement')) {
+//                $items[$item->getCodeetab()][$item->getCodetypeetab()->getCodetypeetab()] = $item;
+//            }
+//       }
+          // var_dump($entities);
+          //   die;
+
+      }
         return $this->render('SiseCoreBundle:EtablissementFicheetablissement:index.html.twig', array(
             'entities' => $entities,
+            'searchetab' => $searchetab->createView(),
+            'pathfilter' => ''
         ));
     }
     /**
