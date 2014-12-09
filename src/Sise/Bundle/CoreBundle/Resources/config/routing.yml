@@ -23,11 +23,11 @@ SiseCoreBundle_StatEleve:
     resource: "routing/nomenclaturequestionnaire.yml"
     prefix:   /stat
 Coreblog_NomenclatureEtablissement:
-    resource: "routing/NomenclatureEtablissement.yml"
+    resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement
 Coreblog_NomenclatureCycleenseignement:
-    resource: "routing/NomenclatureCycleenseignement.yml"
+    resource: "routing/nomenclaturecycleenseignement.yml"
     prefix: /NomenclatureCycleenseignement
 Siseblog_EtablissementFicheetablissement:
-    resource: "routing/EtablissementFicheetablissement.yml"
+    resource: "routing/etablissementficheetablissement.yml"
     prefix: /EtablissementFicheetablissement
