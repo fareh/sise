@@ -20,7 +20,6 @@ use Sise\Bundle\CoreBundle\Entity\EffectifeleveDemiresidant;
  */
 class NomenclatureQuestionnaireController extends Controller
 {
-
     /**
      * Lists all NomenclatureQuestionnaire entities.
      *
@@ -48,6 +47,9 @@ class NomenclatureQuestionnaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+
         if ($session->has('features')) {
             $features = $session->get('features');
         }
@@ -110,8 +112,6 @@ class NomenclatureQuestionnaireController extends Controller
                     ->setParameter('AnneScol', 2014)
                     ->setParameter('CodeRece', '16Oct');
                 $items = $query->getResult();
-
-
 
 
                 foreach ($items as $item) {
@@ -312,11 +312,10 @@ class NomenclatureQuestionnaireController extends Controller
                         $nm = $request->request->get($item->getCodenivescol() . '_M_' . $item->getCodeannenais());
 
 
-
                         $item->setNombelevmasc($nm);
                         $item->setNombelevfemi($nf);
-                       // echo (int) $nm + (int)$nf ;
-                        $item->setNombtotaelev((int) $nm + (int)$nf);
+                        // echo (int) $nm + (int)$nf ;
+                        $item->setNombtotaelev((int)$nm + (int)$nf);
                         $em->persist($item);
 
                     }
@@ -398,8 +397,8 @@ class NomenclatureQuestionnaireController extends Controller
                             $html .= "<td></td>";
                             $html .= "<td></td>";
                         } else {
-                            $html .= "<td><input style='width:35px' value='".$ValueItem->getNombelevmasc()."' id='".$codeniv->getCodenivescol() . '_M_' . $key1 . "'  name='" . $codeniv->getCodenivescol() . '_M_' . $key1 . "'  ></td>";
-                            $html .= "<td><input style='width:35px' value='".$ValueItem->getNombelevfemi()."' id='".$codeniv->getCodenivescol() . '_F_' . $key1 . "'  name='" . $codeniv->getCodenivescol() . '_F_' . $key1 . "' ></td>";
+                            $html .= "<td><input style='width:35px' value='" . $ValueItem->getNombelevmasc() . "' id='" . $codeniv->getCodenivescol() . '_M_' . $key1 . "'  name='" . $codeniv->getCodenivescol() . '_M_' . $key1 . "'  ></td>";
+                            $html .= "<td><input style='width:35px' value='" . $ValueItem->getNombelevfemi() . "' id='" . $codeniv->getCodenivescol() . '_F_' . $key1 . "'  name='" . $codeniv->getCodenivescol() . '_F_' . $key1 . "' ></td>";
                             $html .= "<td><span >" . $ValueItem->getNombtotaelev() . "</span></td>";
                         }
 
@@ -448,11 +447,12 @@ class NomenclatureQuestionnaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
         if ($session->has('features')) {
             $features = $session->get('features');
         }
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
-        $editForms = array();
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
         }
@@ -461,10 +461,15 @@ class NomenclatureQuestionnaireController extends Controller
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+            if ($table == "effectifeleve_demiresidan " || $table == "effectifeleve_elevedomainsousdomain") {
+                $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+            } elseif ($table == "effectiveeleve_repartioneleve_lieuhabitation") {
 
-            if ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
+      //          $entities = $em->getRepository($entity->getEntity())->findBy(array('annescol' => $annescol, 'coderece' => $coderece, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
 
+                $entities = $em->getRepository($entity->getEntity())->findBy(array('annescol' => 2014, 'coderece' => 1111, 'codeetab' =>100115 , 'codetypeetab' => 10));
+
+            } elseif ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
                 $params = $request->request->get($search->getName());
                 $codeannenais = array();
                 $codenivescol = array();
@@ -485,8 +490,8 @@ class NomenclatureQuestionnaireController extends Controller
                 )
                     ->setParameter('CodeEtab', $params['NomenclatureEtablissement'])
                     ->setParameter('CodeTypeEtab', $params['NomenclatureTypeetablissement'])
-                    ->setParameter('AnneScol', 2014)
-                    ->setParameter('CodeRece', '16Oct');
+                    ->setParameter('AnneScol', $annescol)
+                    ->setParameter('CodeRece', $coderece);
                 $items = $query->getResult();
 
                 foreach ($items as $item) {
@@ -775,5 +780,12 @@ class NomenclatureQuestionnaireController extends Controller
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
+    }
+
+
+    protected function effectiveeleve_repartioneleve_lieuhabitation()
+    {
+
+
     }
 }
