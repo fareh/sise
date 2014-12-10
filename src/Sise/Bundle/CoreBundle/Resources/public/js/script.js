@@ -93,18 +93,18 @@ function txtChanged(v1, v2, v3) {
 
 $(function () {
     $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
-        step: 1,
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadmi").spinner({
+        step: 0.1,
         numberFormat: "n"
     });
     $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoense").spinner({
         step: 0.1,
         numberFormat: "n"
     });
-    $("#CPHMain_AnciDireEnse").spinner({
-        step: 0.1,
-        numberFormat: "n"
-    });
-    $("#CPHMain_AnciDireAdmi").spinner({
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoadmi").spinner({
         step: 0.1,
         numberFormat: "n"
     });
@@ -149,15 +149,15 @@ jQuery(document).ready(function () {
             step: 0.1,
             numberFormat: "n"
         });
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadmi").spinner({
+            step: 0.1,
+            numberFormat: "n"
+        });
         $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoense").spinner({
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_AnciDireEnse").spinner({
-            step: 0.1,
-            numberFormat: "n"
-        });
-        $("#CPHMain_AnciDireAdmi").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoadmi").spinner({
             step: 0.1,
             numberFormat: "n"
         });
