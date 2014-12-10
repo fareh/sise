@@ -108,24 +108,24 @@ $(function () {
         step: 0.1,
         numberFormat: "n"
     });
-    $("#CPHMain_SurfTotaTerr").spinner({
-        step: 0.01,
+    $("#sise_corebundle_etablissementficheetablissement_infr_surftotaterr").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_SurfCons").spinner({
-        step: 0.01,
+    $("#sise_corebundle_etablissementficheetablissement_infr_surfcons").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_SurfCouv").spinner({
-        step: 0.01,
+    $("#sise_corebundle_etablissementficheetablissement_infr_surfcouv").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_DistRoutGoud").spinner({
-        step: 0.1,
+    $("#sise_corebundle_etablissementficheetablissement_infr_distroutgoud").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_DistDele").spinner({
-        step: 0.1,
+    $("#sise_corebundle_etablissementficheetablissement_infr_distdele").spinner({
+        step: 1,
         numberFormat: "n"
     });
     $("#CPHMain_NombSallExte").spinner();
@@ -161,24 +161,24 @@ jQuery(document).ready(function () {
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_SurfTotaTerr").spinner({
-            step: 0.01,
+        $("#sise_corebundle_etablissementficheetablissement_infr_surftotaterr").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_SurfCons").spinner({
-            step: 0.01,
+        $("#sise_corebundle_etablissementficheetablissement_infr_surfcons").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_SurfCouv").spinner({
-            step: 0.01,
+        $("#sise_corebundle_etablissementficheetablissement_infr_surfcouv").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_DistRoutGoud").spinner({
-            step: 0.1,
+        $("#sise_corebundle_etablissementficheetablissement_infr_distroutgoud").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_DistDele").spinner({
-            step: 0.1,
+        $("#sise_corebundle_etablissementficheetablissement_infr_distdele").spinner({
+            step: 1,
             numberFormat: "n"
         });
         $("#CPHMain_NombSallExte").spinner();
