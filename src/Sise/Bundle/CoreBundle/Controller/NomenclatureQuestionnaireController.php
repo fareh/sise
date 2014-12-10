@@ -114,8 +114,8 @@ class NomenclatureQuestionnaireController extends Controller
                 )
                     ->setParameter('CodeEtab', $params['NomenclatureEtablissement'])
                     ->setParameter('CodeTypeEtab', $params['NomenclatureTypeetablissement'])
-                    ->setParameter('AnneScol', 2014)
-                    ->setParameter('CodeRece', '16Oct');
+                    ->setParameter('AnneScol',  $annescol)
+                    ->setParameter('CodeRece', $coderece);
                 $items = $query->getResult();
 
 
@@ -315,8 +315,8 @@ class NomenclatureQuestionnaireController extends Controller
                 )
                     ->setParameter('CodeEtab', $codeetab)
                     ->setParameter('CodeTypeEtab', $codetypeetab)
-                    ->setParameter('AnneScol', 2014)
-                    ->setParameter('CodeRece', '16Oct');
+                    ->setParameter('AnneScol', $annescol)
+                    ->setParameter('CodeRece', $coderece);
                 $items = $query->getResult();
 
 
@@ -353,8 +353,8 @@ class NomenclatureQuestionnaireController extends Controller
                 )
                     ->setParameter('CodeEtab', $codeetab)
                     ->setParameter('CodeTypeEtab', $codetypeetab)
-                    ->setParameter('AnneScol', 2014)
-                    ->setParameter('CodeRece', '16Oct');
+                    ->setParameter('AnneScol', $annescol)
+                    ->setParameter('CodeRece', $coderece);
                 $items = $query->getResult();
 
                 foreach ($items as $item) {

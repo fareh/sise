@@ -208,6 +208,7 @@ class DefaultController extends Controller
     public function getListAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
         if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
         {
             $codegouv = '';
@@ -230,7 +231,7 @@ class DefaultController extends Controller
                         $i++;
                     }
                 } elseif ($entity == 'NomenclatureTypeetablissement') {
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findByConcrece(10);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findByConcrece(1);
                     $json = array();
                     $json[0]['code'] = '';
                     $json[0]['libelle'] = '-- اختيار --';
@@ -241,8 +242,10 @@ class DefaultController extends Controller
                         $json[$i]['libelle'] = $nomenclatureDelegation->getLibetypeetabar();
                         $i++;
                     }
+                    $session->set("codedele", $codegouv);
                 } elseif ($entity == 'NomenclatureEtablissement') {
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findByCodetypeetab($codegouv);
+                   // $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findByCodetypeetab($codegouv);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array("codetypeetab"=>$codegouv, "codedele"=>$session->get("codedele")));
                     $json = array();
                     $json[0]['code'] = '';
                     $json[0]['libelle'] = '-- اختيار --';
@@ -250,9 +253,10 @@ class DefaultController extends Controller
                     foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
                     {
                         $json[$i]['code'] = $nomenclatureDelegation->getCodeetab();
-                        $json[$i]['libelle'] = $nomenclatureDelegation->getLibeetabar();
+                        $json[$i]['libelle'] =$nomenclatureDelegation->getCodeetab().' | '.$nomenclatureDelegation->getLibeetabar();
                         $i++;
                     }
+                    $session->set("codetypeetab", $codegouv);
                 } elseif ($entity == 'NomenclatureCirconscription') {
                     $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodecirc($codegouv);
                     $json = array();
@@ -266,10 +270,11 @@ class DefaultController extends Controller
                         $i++;
                     }
                 } elseif ($entity == 'CodeEtab') {
-                    $nomenclatureDelegation = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneByCodeetab($codegouv);
+                    $nomenclatureDelegation = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneByCodeetab($codegouv);;
                     $json = array();
                     $json['code'] = $nomenclatureDelegation->getCodeetab();
                     $json['libelle'] = $nomenclatureDelegation->getLibeetabar();
+                    $session->set("codeetab", $nomenclatureDelegation->getCodeetab());
                 }
                 $response = new Response();
                 $data = json_encode($json); // c'est pour formater la réponse de la requete en format que jquery va comprendre
