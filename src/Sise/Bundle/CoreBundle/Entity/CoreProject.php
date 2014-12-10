@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CoreProject
  *
- * @ORM\Table()
+ * @ORM\Table(name="coreproject")
  * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Entity\CoreProjectRepository")
  */
 class CoreProject

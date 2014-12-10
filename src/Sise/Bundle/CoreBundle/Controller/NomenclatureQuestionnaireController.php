@@ -24,11 +24,13 @@ class NomenclatureQuestionnaireController extends Controller
      * Lists all NomenclatureQuestionnaire entities.
      *
      */
-    public function statEleveAction()
+    public function statEleveAction($codepack)
     {
+       //  = "StatElev";
+
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack("StatElev");
+        $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statEleve.html.twig', array(

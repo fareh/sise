@@ -63,13 +63,13 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         }, $roles);
         // S'il s'agit d'un admin ou d'un super admin on le redirige vers le backoffice
         if (in_array('ROLE_ADMIN', $rolesTab, true) || in_array('ROLE_SUPER_ADMIN', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('statEleve'));
+            $redirection = new RedirectResponse($this->router->generate('sise_core_homepage'));
         // sinon, s'il s'agit d'un commercial on le redirige vers le CRM
         elseif (in_array('ROLE_COMMERCIAL', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('statEleve'));
+            $redirection = new RedirectResponse($this->router->generate('sise_core_homepage'));
         // sinon il s'agit d'un membre
         else
-            $redirection = new RedirectResponse($this->router->generate('statEleve'));
+            $redirection = new RedirectResponse($this->router->generate('sise_core_homepage'));
 
         return $redirection;
     }
