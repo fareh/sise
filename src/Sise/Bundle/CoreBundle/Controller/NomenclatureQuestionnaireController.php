@@ -24,16 +24,44 @@ class NomenclatureQuestionnaireController extends Controller
      * Lists all NomenclatureQuestionnaire entities.
      *
      */
-    public function statEleveAction($codepack)
+    public function statEleveAction(Request $request, $codepack)
     {
-        //  = "StatElev";
-
         $em = $this->getDoctrine()->getManager();
+        //
+        $prep = true;
+        $prim = true;
+        $collgene = true;
+        $lyce = true;
+        $colltech = true;
 
-        $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
+        $session = $request->getSession();
+        $codetypeetab= $session->get('codetypeetab');
+        $entitiestypeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneByCodetypeetab($codetypeetab);
+        //var_dump($entitiestypeetab); die;
+        $FilterArray=array();
+        $FilterArray['codepack']=$codepack;
+        if ($prep == true and $entitiestypeetab->getPrep()==true){
+            $FilterArray['prep']= true;
+        }
+        if ($prim == true and $entitiestypeetab->getPrim()== true){
+            $FilterArray['prim']= true;
+        }
+        if ($collgene == true and $entitiestypeetab->getCollgene()==true){
+            $FilterArray['collgene']= true;
+        }
+        if ($lyce == true and $entitiestypeetab->getLyce()==true){
+            $FilterArray['lyce']=true;
+        }
+        if ($colltech == true and  $entitiestypeetab->getColltech()==true){
+            $FilterArray['colltech']=true;
+        }
+        //var_dump($FilterArray); die;
+
+        $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findBy($FilterArray);//findByCodepack($codepack);
+        //var_dump($entities); die;
+
         $Package = $em->getRepository('SiseCoreBundle:SecuritePackage')->findOneByCodepack($codepack);
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
-
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statEleve.html.twig', array(
             'entities' => $entities,
             'search' => $search->createView(),
