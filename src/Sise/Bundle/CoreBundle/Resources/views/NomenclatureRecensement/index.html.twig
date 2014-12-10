@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturerecensement' })) }}
+    <table class="records_list">
+        <thead>
+            <tr>
+				{#    <th>Coderece</th> #} 
+				
+                <th>إسم التعداد (عربي)</th>
+				<th>إسم التعداد (فرنسي)</th>
+				<th>حالة التعداد</th>      
+              
+				
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                {#   <td><a href="{{ path('nomenclaturerecensement_show', { 'id': entity.coderece }) }}">{{ entity.coderece }}</a></td> #} 
+                <td>{{ entity.liberecear }}</td>
+                <td>{{ entity.liberecefr }}</td>
+				<td> </td>
+            
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% endblock %}

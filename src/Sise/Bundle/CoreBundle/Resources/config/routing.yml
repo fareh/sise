@@ -31,3 +31,6 @@ Coreblog_NomenclatureCycleenseignement:
 Siseblog_EtablissementFicheetablissement:
     resource: "routing/etablissementficheetablissement.yml"
     prefix: /EtablissementFicheetablissement
+Siseblog_NomenclatureRecensement:
+    resource: "routing/NomenclatureRecensement.yml"
+    prefix: /NomenclatureRecensement

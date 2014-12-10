@@ -1,0 +1,1223 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    
+ <form action="{{ path('nomenclaturerecensement_create') }}" method="post" {{ form_enctype(form) }}>
+	{{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturerecensement' })) }}
+  
+
+
+            {#{{ form_widget(edit_form) }}#}
+            {{ form_errors(form) }}
+            <div id="CPHMain_upmain">
+                
+               <fieldset style="font-size: 14pt; padding-right: 5px">
+                <legend>
+                    معطيات التعداد
+                </legend>
+                <div>
+                    <div>
+                        <span id="Label1" style="display:inline-block;height:28px;width:20%;">بيان التعداد</span>
+                        <input name="CodeRece" type="text" maxlength="50" id="CodeRece" >
+                        
+                    </div>
+                    <div>
+                        <span id="Label2" style="display:inline-block;height:28px;width:20%;">اسم التعداد (عربى)</span>
+                        <input name="LibeReceAr" type="text" maxlength="50" id="LibeReceAr">
+                     
+                    </div>
+                    
+                    <div>
+                        <span id="Label4" style="display:inline-block;height:28px;width:20%;">السنة دراسية</span>
+                        <select name="AnneScol" id="AnneScol" >
+	<option value="1995">1995/1996</option>
+	<option value="1996">1996/1997</option>
+	<option value="1997">1997/1998</option>
+	<option value="1998">1998/1999</option>
+	<option value="1999">1999/2000</option>
+	<option value="2000">2000/2001</option>
+	<option value="2001">2001/2002</option>
+	<option value="2002">2002/2003</option>
+	<option value="2003">2003/2004</option>
+	<option value="2004">2004/2005</option>
+	<option value="2005">2005/2006</option>
+	<option value="2006">2006/2007</option>
+	<option value="2007">2007/2008</option>
+	<option value="2008">2008/2009</option>
+	<option value="2009">2009/2010</option>
+	<option value="2010">2010/2011</option>
+	<option value="2011">2011/2012</option>
+	<option value="2012">2012/2013</option>
+	<option value="2013">2013/2014</option>
+	<option value="2014">2014/2015</option>
+	<option value="2015">2015/2016</option>
+	<option selected="selected" value="">-- اختيار --</option>
+
+</select>
+                        <span id="RFVAnneScol" style="color:Red;visibility:hidden;">*</span>
+                    </div>
+                    <div>
+                        <span id="Label5" style="display:inline-block;height:28px;width:20%;">تاريخ بداية حجز المعطيات</span>
+                        <input name="DateOuve" type="text" id="DateOuve"  class="hasDatepicker">
+                        
+                    </div>
+                    <div>
+                        <span id="Label6" style="display:inline-block;height:28px;width:20%;">تاريخ نهاية حجز المعطيات</span>
+                        <input name="DateClot" type="text" id="DateClot"  class="hasDatepicker">
+                      
+                   
+                    </div>
+                    
+                    
+                    <div>
+                        <span id="Label10" style="display:inline-block;height:28px;width:20%;">دورية</span>
+                        <select name="DDLCodePeri" id="DDLCodePeri" >
+	<option value="0">سنوية</option>
+	<option value="1">نصف سنوية</option>
+	<option value="2">ثلاثية</option>
+	<option value="3">شهرية</option>
+	<option selected="selected" value="">-- اختيار --</option>
+
+</select>
+                    </div>
+                     
+                     <div>
+                        <span id="Label9" style="display:inline-block;height:28px;width:20%;">الملاحظات</span>
+                        <textarea name="txtObse" rows="2" cols="20" id="txtObse" ></textarea>
+                      
+                    </div>
+                </div>
+            </fieldset>
+           
+       
+		  
+            </div> 
+              <fieldset style="font-size: 14pt; padding-right: 5px">
+                <legend>
+                    الجداول الإحصائية 
+                </legend>
+                <div>
+                    <!-- Liste des questionnaires-->
+                   
+                     <div id="UpRpt">
+	
+                 
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        بطاقة المؤسسة
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_0" style="color:White;font-family:verdana;font-size:12pt;">FicheEtab</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_0_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl00$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_0_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">بطاقة المؤسسة /مساحة الارض والمباني</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_0_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl00$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        إحصاء التلاميذ
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_1" style="color:White;font-family:verdana;font-size:12pt;">StatElev</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">تــوزيـع التـلاميـذ حسب مقر السكنــى </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_1" style="font-family:verdana;font-size:9pt;">التلاميذ القادمون من مؤسسات التعليم الخاص والمدمجون بالتعليم العمومي </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_1" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl02$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_2" style="font-family:verdana;font-size:9pt;"> 	التلاميذ المسجلون بالسنة أولى جذع مشترك والقادمين من السنة التاسعة تقني</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_2" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl03$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_3" style="font-family:verdana;font-size:9pt;">المرتقون في نهاية السنة التاسعة تقني</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_3" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl04$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_4" style="font-family:verdana;font-size:9pt;"> 	نــتــائــج امــتــحان شــهـــادة خـتـم التعـليـم الأسـاسـي التـقنـي </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_4" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl05$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_5" style="font-family:verdana;font-size:9pt;">  المقيمون والممنوحون حسب مرحلة التعليم بإعتبار التلاميذ القادمين من مؤسسات أخرى </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_5" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl06$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_6" style="font-family:verdana;font-size:9pt;">  توزيع التلاميذ الجدد بالسنة الأولى ثانوي حسب المؤسسة القادمين منها</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_6" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl07$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_7" style="font-family:verdana;font-size:9pt;"> 	التلاميذ الجـــدد بالسنة الثامنة تقني حسب النوع والمستوى </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_7" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl08$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_8" style="font-family:verdana;font-size:9pt;">الـتلاميـذ الجـدد بالسنـة الأولـى حسب سنـة الـولادة والنـوع</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_8" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl09$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_9" style="font-family:verdana;font-size:9pt;">  عدد التلاميذ أبناء التونسيين العاملين بالخارج</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_9" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl10$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_10" style="font-family:verdana;font-size:9pt;">  توزيع التلاميذ الجدد بالسنة السابعة أساسي حسب المؤسسة القادمين منها </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_10" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl11$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_11" style="font-family:verdana;font-size:9pt;"> 	المواد الاختيارية : عدد التلاميذ والفرق </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_11" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl12$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_12" style="font-family:verdana;font-size:9pt;">عدد الفصول و الفرق و التلاميذ بالسنة التاسعة حسب المجال والمجال الفرعي</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_12" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl13$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_13" style="font-family:verdana;font-size:9pt;">  أنصاف المقيمين والممنوحون حسب مرحلة التعليم بإعتبار التلاميذ القادمين من مؤسسات أخرى</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_13" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl14$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_14" style="font-family:verdana;font-size:9pt;">  توزيع التلاميذ حسب النوع و المستوى الدراسي و سنة الولادة </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_14" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl15$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_15" style="font-family:verdana;font-size:9pt;">توزيع التلاميذ الجدد و الراسبون حسب المستوى الدراسي</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_15" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl16$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_16" style="font-family:verdana;font-size:9pt;">  قائمة اسمية في التلاميذ المعوقين حاملي بطاقة معاق</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_16" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl17$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_17" style="font-family:verdana;font-size:9pt;"> التلاميـذ المـرتقـون إلى السنـة السـابعة فـي 30 جـوان من السنة الدراسية المنقضية</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_17" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl18$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_18" style="font-family:verdana;font-size:9pt;">التلاميذ الجدد بالسنة الأولى القادمون من الأقسام التحضيرية</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_18" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl19$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_1_LblLibeEnti_19" style="font-family:verdana;font-size:9pt;">عدد التلاميذ الأجانب حسب الجنسية والمرحلة والنوع الإجتماعي</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_1_CBSeleItem_19" type="checkbox" name="RPPackageVNewEdit$ctl01$RPEntiteNewedit$ctl20$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        توجيه التلاميذ
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_2" style="color:White;font-family:verdana;font-size:12pt;">OrieElev</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">  إعادة التوجيه من شعبة الرياضة إلى التعليم الثانوي العام: سنة ثالثة / رابعة </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_1" style="font-family:verdana;font-size:9pt;">  إعادة التوجيه من شعبة الرياضة إلى التعليم الثانوي العام: سنة أولى جذع مشترك/سنة ثانية </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_1" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl02$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_2" style="font-family:verdana;font-size:9pt;">التوجيه إلى شعبة الرياضة</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_2" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl03$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_3" style="font-family:verdana;font-size:9pt;">إعادة توجيه المرتقين إلى السنة الرابعة ثانوي </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_3" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl04$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_4" style="font-family:verdana;font-size:9pt;">  إعادة توجيه المرتقين إلى السنة الثالثة ثانوي</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_4" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl05$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_5" style="font-family:verdana;font-size:9pt;">  إعادة توجيه الراسبين بالسنة الثالثة ثانوي</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_5" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl06$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_2_LblLibeEnti_6" style="font-family:verdana;font-size:9pt;">  إعادة توجيه الراسبين بالسنة الثانية ثانوي </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_2_CBSeleItem_6" type="checkbox" name="RPPackageVNewEdit$ctl02$RPEntiteNewedit$ctl07$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        حركة التلاميذ
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_3" style="color:White;font-family:verdana;font-size:12pt;">MouvEleve</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_3_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl03$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_3_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">  قائمة اسمية في التلاميذ المنفصلين تلقائيا أو قانونيا قبل إنعقاد مجالس الأقسام </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_3_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl03$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_3_LblLibeEnti_1" style="font-family:verdana;font-size:9pt;">قائمة اسمية في التلاميذ المنتقلين إلى مؤسسات أخرى</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_3_CBSeleItem_1" type="checkbox" name="RPPackageVNewEdit$ctl03$RPEntiteNewedit$ctl02$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_3_LblLibeEnti_2" style="font-family:verdana;font-size:9pt;">قائمة اسمية في التلاميذ القادمين من مؤسسات أخرى</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_3_CBSeleItem_2" type="checkbox" name="RPPackageVNewEdit$ctl03$RPEntiteNewedit$ctl03$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_3_LblLibeEnti_3" style="font-family:verdana;font-size:9pt;">قائمة اسمية في التلاميذ المرفوتين الذين تم إسعافهم بعد 10/16</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_3_CBSeleItem_3" type="checkbox" name="RPPackageVNewEdit$ctl03$RPEntiteNewedit$ctl04$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_3_LblLibeEnti_4" style="font-family:verdana;font-size:9pt;">حوصلة حركة التلاميذ من 17 أكتوبر إلى 30 جوان  ونتائج آخر السنة</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_3_CBSeleItem_4" type="checkbox" name="RPPackageVNewEdit$ctl03$RPEntiteNewedit$ctl05$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        البناءات و التجهيزات
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_4" style="color:White;font-family:verdana;font-size:12pt;">StatEquipement</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_4_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl04$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_4_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">فضاءات المؤسسة </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_4_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl04$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_4_LblLibeEnti_1" style="font-family:verdana;font-size:9pt;">  المساكن الوظيفية </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_4_CBSeleItem_1" type="checkbox" name="RPPackageVNewEdit$ctl04$RPEntiteNewedit$ctl02$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_4_LblLibeEnti_2" style="font-family:verdana;font-size:9pt;">  تجهيزات المؤسسة</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_4_CBSeleItem_2" type="checkbox" name="RPPackageVNewEdit$ctl04$RPEntiteNewedit$ctl03$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        الموارد البشرية - إطار التدريس
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_5" style="color:White;font-family:verdana;font-size:12pt;">StatEnse</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">توزيع المدرسين حسب النوع والتكليف</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_1" style="font-family:verdana;font-size:9pt;">التعويضات الظرفية </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_1" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl02$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_2" style="font-family:verdana;font-size:9pt;">  مدرسون يتممون توقيتهم بمؤسسات تربويّةأخرى </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_2" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl03$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_3" style="font-family:verdana;font-size:9pt;">  قـائمـة مدرسي التربيـة البدنيـة</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_3" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl04$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_4" style="font-family:verdana;font-size:9pt;">  مدرسو التعليم العام (خاصّ بالمدارس الإبتدائية)</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_4" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl05$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_5" style="font-family:verdana;font-size:9pt;">  قـائمـة مدرسي التربيـة التقنية (دون اعتبار مربي السنة التحضيرية) </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_5" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl06$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_6" style="font-family:verdana;font-size:9pt;">  الساعات الفعلية للمدرسين</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_6" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl07$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_7" style="font-family:verdana;font-size:9pt;">  توزيع مدرسين حســب ســاعات التدريس وساعات التنشيط الفعلية و الرتبة </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_7" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl08$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_5_LblLibeEnti_8" style="font-family:verdana;font-size:9pt;">  توزيع المدرسين المباشرين حسب الرتبة و النوع ومادة التدريس </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_5_CBSeleItem_8" type="checkbox" name="RPPackageVNewEdit$ctl05$RPEntiteNewedit$ctl09$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        الموارد البشرية الغير مدرّسة
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_6" style="color:White;font-family:verdana;font-size:12pt;">StatPers</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_6_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl06$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_6_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">توزيع الموارد البشريّة الغير مدرّسة حسب النوع و السلك و الرتبة</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_6_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl06$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        متابعة الميزانية
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_7" style="color:White;font-family:verdana;font-size:12pt;">StatBudget</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_7_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl07$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%">
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_7_LblLibeEnti_0" style="font-family:verdana;font-size:9pt;">متابعة الميزانية</span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_7_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl07$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                        <table width="98%">
+                            <tbody><tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin: 0px;">
+                                   
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                        نشاط المؤسسة
+                                    </strong></span>&nbsp; 
+                                    <span id="RPPackageVNewEdit_LblCodePack_8" style="color:White;font-family:verdana;font-size:12pt;">ActiEtab</span>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt">
+                                <td style="margin: 0px">
+                                    
+                                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                                <tbody><tr> 
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+                                                         
+                                                    </th>
+                                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                                          <input id="RPPackageVNewEdit_RPEntiteNewedit_8_CBSele" type="checkbox" name="RPPackageVNewEdit$ctl08$RPEntiteNewedit$ctl00$CBSele" onclick="SelectAll(this);">
+                                                    </th>
+                                                    
+                                                    <th style="width: 10%">
+                                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                                    </th>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                            <table style="font: 8pt verdana; width: 100%; padding-bottom: 20px " >
+                                                <tbody><tr>
+                                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                                        <span id="RPPackageVNewEdit_RPEntiteNewedit_8_LblLibeEnti_0" style="font-family:verdana;font-size:9pt" >  التقرير اليومي لنشاط المؤسسة </span>
+                                                    </td>
+                                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                                        <input id="RPPackageVNewEdit_RPEntiteNewedit_8_CBSeleItem_0" type="checkbox" name="RPPackageVNewEdit$ctl08$RPEntiteNewedit$ctl01$CBSeleItem" onclick="UncheckAll(this);">
+                                                    </td>
+                                                   
+                                                    <td style="width: 10%">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+                    
+</div>
+                   <script type="text/javascript">
+                      
+
+                           function SelectAll(cb) {
+
+                               try {
+                                   //GridView_Edit_NombClassElev_0
+                                   var idcb = cb.id;
+                                   var CBItemID = idcb.replace("All", "");
+                                   for (i = 0; i < 60; i++) {
+                                       if (cb.checked) {
+                                           document.getElementById(CBItemID + "Item_" + i).checked = true;
+                                       } else {
+                                           document.getElementById(CBItemID + "Item_" + i).checked = false;
+                                       }
+                                   }
+                               }
+                               catch (err) {
+                                   //Handle errors here
+
+                               }
+
+
+                           }
+
+                           function UncheckAll(cb) {
+
+                               try {
+
+                                   var idcb = cb.id;
+                                   var CBItemID = idcb.substring(0, idcb.lastIndexOf("_")).replace("Item", "");
+                                   //alert(CBItemID);
+                                   if (cb.checked) {
+                                       // document.getElementById(CBItemID + "All" ).checked = true;
+
+                                   } else {
+                                       document.getElementById(CBItemID).checked = false;
+                                   }
+
+                               }
+                               catch (err) {
+                                   //Handle errors here
+
+                               }
+
+
+                           }
+                   </script>
+                </div>
+            </fieldset>
+         {#   {{ form_rest(form) }}#}
+
+    </form> 
+
+{% endblock %}
