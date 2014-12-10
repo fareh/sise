@@ -218,7 +218,7 @@ class DefaultController extends Controller
             $previous_select = $request->get('previous_select');
             if ($codegouv != '' and $entity != '' and $previous_select != '') {
                 if ($entity == 'NomenclatureDelegation') {
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findByCodegouv($codegouv);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findByCodecircregi($codegouv);
                     $json = array();
                     $json[0]['code'] = '';
                     $json[0]['libelle'] = '-- اختيار --';

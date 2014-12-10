@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NomenclatureDelegation
  *
- * @ORM\Table(name="nomenclature_delegation", indexes={@ORM\Index(name="FK_Nomenclature_Delegation_Nomenclature_Gouvernorat", columns={"CodeGouv"})})
+ * @ORM\Table(name="nomenclature_delegation")
  * @ORM\Entity
  */
 class NomenclatureDelegation
@@ -85,14 +85,14 @@ class NomenclatureDelegation
     private $colltech = '0';
 
     /**
-     * @var \NomenclatureGouvernorat
+     * @var \NomenclatureCirconscriptionregional
      *
-     * @ORM\ManyToOne(targetEntity="NomenclatureGouvernorat")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCirconscriptionregional")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeGouv", referencedColumnName="CodeGouv")
+     *   @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
      * })
      */
-    private $codegouv;
+    private $codecircregi;
 
 
 
@@ -313,30 +313,32 @@ class NomenclatureDelegation
         return $this->colltech;
     }
 
+
+    public function __toString()
+    {
+        return $this->codedele;
+    }
+
     /**
-     * Set codegouv
+     * Set codecircregi
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat $codegouv
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional $codecircregi
      * @return NomenclatureDelegation
      */
-    public function setCodegouv(\Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat $codegouv = null)
+    public function setCodecircregi(\Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional $codecircregi = null)
     {
-        $this->codegouv = $codegouv;
+        $this->codecircregi = $codecircregi;
 
         return $this;
     }
 
     /**
-     * Get codegouv
+     * Get codecircregi
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional 
      */
-    public function getCodegouv()
+    public function getCodecircregi()
     {
-        return $this->codegouv;
-    }
-    public function __toString()
-    {
-        return $this->codedele;
+        return $this->codecircregi;
     }
 }
