@@ -77,13 +77,6 @@ class DefaultController extends Controller
 
         $usr= $this->get('security.context')->getToken()->getUser();
 
-
-        foreach ($usr->getGroups() as $group){
-            echo var_dump($group->getRoles());
-
-
-        }
-        die;
         return $this->render('SiseCoreBundle:Default:index.html.twig');
     }
 

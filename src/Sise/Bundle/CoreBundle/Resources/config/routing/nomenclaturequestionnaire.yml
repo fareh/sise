@@ -1,5 +1,5 @@
 statEleve:
-    path:     /statEleve{trailingSlash}
+    path:     /{codepack}/statEleve{trailingSlash}
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:statEleve", trailingSlash : "/" }
     requirements: { trailingSlash : "[/]{0,1}" }
 StatEleve_show:
