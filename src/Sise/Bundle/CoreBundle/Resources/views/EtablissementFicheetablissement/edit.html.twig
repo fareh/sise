@@ -98,19 +98,24 @@
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label19">مؤسسة ذات أولوية</span>
-                {{ form_widget(edit_form.educprio) }}
+                نعم {{ form_widget(edit_form.educprio.children['0']) }}
+                لا {{ form_widget(edit_form.educprio.children['1']) }}
+
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label20">تدمج تلاميذ ذوي إحتياجات خاصة</span>
-                {{ form_widget(edit_form.etabintehand) }}
+                نعم       {{ form_widget(edit_form.etabintehand.children['0']) }}
+                لا    {{ form_widget(edit_form.etabintehand.children['1']) }}
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label21">لديها سنة تحضيرية </span>
-                {{ form_widget(edit_form.exisanneprep) }}
+                نعم    {{ form_widget(edit_form.exisanneprep.children['0']) }}
+                لا     {{ form_widget(edit_form.exisanneprep.children['1']) }}
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label22">لديها سنة تحضيرية لادماج ذوى الإحتياجات الخاصة</span>
-                {{ form_widget(edit_form.exisanneprepintehand) }}
+                نعم    {{ form_widget(edit_form.exisanneprepintehand.children['0']) }}
+                لا          {{ form_widget(edit_form.exisanneprepintehand.children['1']) }}
             </div>
             <!-- F- Contact-->
         </div>
@@ -215,7 +220,8 @@
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label43">المؤسسة قابلة للتوسيع</span>
-                {{ form_widget(edit_form.infr.possexteetab) }}
+                نعم  {{ form_widget(edit_form.infr.possexteetab.children['0']) }}
+                لا     {{ form_widget(edit_form.infr.possexteetab.children['1']) }}
             </div>
             <div>
                 <span id="CPHMain_Label44">عدد القاعات التي يمكن إضافتها باعتبار الطوابق</span>
@@ -235,7 +241,8 @@
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label47">الربط مع شبكة الأنترنات</span>
-                {{ form_widget(edit_form.infr.exisconninte) }}
+                نعم    {{ form_widget(edit_form.infr.exisconninte.children['0']) }}
+                لا       {{ form_widget(edit_form.infr.exisconninte.children['1']) }}
             </div>
             <div>
                 <span id="CPHMain_Label48">نوع الربط مع شبكة الأنترنات</span>

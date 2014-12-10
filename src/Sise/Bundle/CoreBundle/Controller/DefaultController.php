@@ -305,7 +305,7 @@ class DefaultController extends Controller
             $previous_select2 = $request->get('previous_select2');
             if ($codegouv != '' and $entity1 != '' and $entity2 != '' and $previous_select1 != '' and $previous_select2 != '') {
                 if ($entity1 == 'NomenclatureDelegation' and $entity2 == 'NomenclatureCirconscription') {
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findByCodegouv($codegouv);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findByCodecircregi($codegouv);
                     $nomenclatureCirconscriptions = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodegouv($codegouv);
                     $json[$entity1] = array();
                     $json[$entity2] = array();

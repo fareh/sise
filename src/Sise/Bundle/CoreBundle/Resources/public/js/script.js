@@ -92,11 +92,11 @@ function txtChanged(v1, v2, v3) {
 }
 
 $(function () {
-    $("#CPHMain_AnciDireAdjoAdmi").spinner({
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
         step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_AnciDireAdjoEnse").spinner({
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoense").spinner({
         step: 0.1,
         numberFormat: "n"
     });
@@ -145,11 +145,11 @@ jQuery(document).ready(function () {
         SetUI();
     }
     function SetUI() {
-        $("#CPHMain_AnciDireAdjoAdmi").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_AnciDireAdjoEnse").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoense").spinner({
             step: 0.1,
             numberFormat: "n"
         });

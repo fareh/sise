@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-
+    <style type="text/css">
+        readonly { color: #336699; }
+    </style>
     <form action="{{ path('nomenclatureetablissement_update', {  'codetypeetab': entity.codetypeetab , 'codeetab': entity.codeetab }) }}"
           method="post" {{ form_enctype(edit_form) }}>
         {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : 'بطاقة المؤسسة', 'RouteAction' : 'nomenclatureetablissement' })) }}
@@ -18,9 +20,9 @@
                 </legend>
                 <div>
                     <span id="CPHMain_Label1" style="display:inline-block;height:28px;width:20%;">رمز المؤسسة</span>
-                    {{ form_widget(edit_form.codeetab) }}
+                    {{ form_widget(edit_form.codeetab,{ 'attr': {'style':'background-color:#EEEEEE;', 'readonly':'readonly'}}) }}
                 </div>
-                <div>
+                <div >
                     <span id="CPHMain_Label2" style="display:inline-block;height:28px;width:20%;">نوع المؤسسة</span>
                     {{ form_widget(edit_form.codetypeetab) }}
                 </div>

@@ -28,10 +28,18 @@ class EtablissementInfrastructureType extends AbstractType
             ->add('surfcouv')
             ->add('distroutgoud')
             ->add('distdele')
-            ->add('possexteetab')
+            ->add('possexteetab','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('nombsallexte')
-            ->add('obse','text')
-            ->add('exisconninte')
+            ->add('obse','text',array('required' => false))
+            ->add('exisconninte','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('codesituelecatel','entity', array(
                   'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationreseauelectriqueatelier',
                   'property' => 'libesituelecatelar',

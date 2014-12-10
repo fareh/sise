@@ -36,9 +36,11 @@ class EtablissementFicheetablissementController extends Controller
 //            }
 //        }
 
+        $session = $request->getSession();
+        $annescol= $session->get('AnneScol');
+        $coderece= $session->get('CodeRece');
 
-        $coderece='16Oct';
-        $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findBy(array('coderece' => $coderece));
+        $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findBy(array('annescol' => $annescol, 'coderece' => $coderece));
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
        if ($request->isMethod('POST')) {
           $params = $request->request->get($searchetab->getName());
@@ -155,11 +157,12 @@ class EtablissementFicheetablissementController extends Controller
      * Displays a form to edit an existing EtablissementFicheetablissement entity.
      *
      */
-    public function editAction($codetypeetab,$codeetab)
+    public function editAction(Request $request,$codetypeetab,$codeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $annescol='2014';
-        $coderece='16Oct';
+        $session = $request->getSession();
+        $annescol= $session->get('AnneScol');
+        $coderece= $session->get('CodeRece');
         $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
         //$entityresp = $em->getRepository('SiseCoreBundle:EtablissementResponsable')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
        //  $entityinfras = $em->getRepository('SiseCoreBundle:EtablissementInfrastructure')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
@@ -203,8 +206,9 @@ class EtablissementFicheetablissementController extends Controller
     public function updateAction(Request $request,$codetypeetab,$codeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $annescol='2014';
-        $coderece='16Oct';
+        $session = $request->getSession();
+        $annescol= $session->get('AnneScol');
+        $coderece= $session->get('CodeRece');
         $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
 
         if (!$entity) {
@@ -218,7 +222,7 @@ class EtablissementFicheetablissementController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('etablissementficheetablissement_edit', array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab())));
+            return $this->redirect($this->generateUrl('etablissementficheetablissement_edit', array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab(), 'annescol'=> $entity->getAnnescol(), 'coderece'=> $entity->getCoderece())));
         }
 
         return $this->render('SiseCoreBundle:EtablissementFicheetablissement:edit.html.twig', array(
