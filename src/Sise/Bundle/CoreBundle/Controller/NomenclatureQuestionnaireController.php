@@ -26,7 +26,7 @@ class NomenclatureQuestionnaireController extends Controller
      */
     public function statEleveAction($codepack)
     {
-       //  = "StatElev";
+        //  = "StatElev";
 
         $em = $this->getDoctrine()->getManager();
 
@@ -48,13 +48,6 @@ class NomenclatureQuestionnaireController extends Controller
     public function editAction($table, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $session = $request->getSession();
-        $annescol = $session->get('AnneScol');
-        $coderece = $session->get('CodeRece');
-
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         $editForms = array();
         if (!$entity) {
@@ -62,8 +55,21 @@ class NomenclatureQuestionnaireController extends Controller
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
-
+        $session = $request->getSession();
+        if ($session->has('features')) {
+            $features = $session->get('features');
+        }
         if ($request->isMethod('POST')) {
+            $params = $request->request->get($search->getName());
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("features", $params);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+        }
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
+        $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        if ($codeetab && $codetypeetab) {
             if ($table == "effectifeleve_demiresidan") {
                 $params = $request->request->get($search->getName());
                 $session->set("features", $params);
@@ -227,7 +233,6 @@ class NomenclatureQuestionnaireController extends Controller
     public function updateAction(Request $request, $table, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $session = $request->getSession();
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         $editForms = array();
         if (!$entity) {
@@ -235,10 +240,22 @@ class NomenclatureQuestionnaireController extends Controller
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
+
+        $session = $request->getSession();
         if ($session->has('features')) {
             $features = $session->get('features');
         }
         if ($request->isMethod('POST')) {
+            $params = $request->request->get($search->getName());
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("features", $params);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+        }
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
+        $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             if ($table == "effectifeleve_demiresidan") {
                 for ($i = 0; $i < count($entities); $i++) {
@@ -448,28 +465,30 @@ class NomenclatureQuestionnaireController extends Controller
     public function listStatAction($table, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $session = $request->getSession();
-        $annescol = $session->get('AnneScol');
-        $coderece = $session->get('CodeRece');
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
         $entity = $em->getRepository('SiseCoreBundle:CoreProject')->findOneByTableName($table);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('StatEleve_listStat', array('table' => $table));
+        $session = $request->getSession();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
-            $session->set("features", $params);
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+        }
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
+        $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        if ($codeetab && $codetypeetab) {
             if ($table == "effectifeleve_demiresidan " || $table == "effectifeleve_elevedomainsousdomain") {
-                $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             } elseif ($table == "effectiveeleve_repartioneleve_lieuhabitation") {
 
-      //          $entities = $em->getRepository($entity->getEntity())->findBy(array('annescol' => $annescol, 'coderece' => $coderece, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                //          $entities = $em->getRepository($entity->getEntity())->findBy(array('annescol' => $annescol, 'coderece' => $coderece, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
-                $entities = $em->getRepository($entity->getEntity())->findBy(array('annescol' => 2014, 'coderece' => 1111, 'codeetab' =>100115 , 'codetypeetab' => 10));
+                $entities = $em->getRepository($entity->getEntity())->findBy(array('annescol' => 2014, 'coderece' => 1111, 'codeetab' => 100115, 'codetypeetab' => 10));
 
             } elseif ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
                 $params = $request->request->get($search->getName());
@@ -490,8 +509,8 @@ class NomenclatureQuestionnaireController extends Controller
                          Order by  F2.ordraffi  asc
                     '
                 )
-                    ->setParameter('CodeEtab', $params['NomenclatureEtablissement'])
-                    ->setParameter('CodeTypeEtab', $params['NomenclatureTypeetablissement'])
+                    ->setParameter('CodeEtab', $codeetab)
+                    ->setParameter('CodeTypeEtab', $codetypeetab)
                     ->setParameter('AnneScol', $annescol)
                     ->setParameter('CodeRece', $coderece);
                 $items = $query->getResult();
@@ -571,7 +590,7 @@ class NomenclatureQuestionnaireController extends Controller
 
                 $html .= "</tbody></table>";
 
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
                 return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.' . $table . '.html.twig', array(
                     'search' => $search->createView(),
