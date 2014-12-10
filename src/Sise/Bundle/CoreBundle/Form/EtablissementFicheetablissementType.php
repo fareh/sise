@@ -19,12 +19,28 @@ class EtablissementFicheetablissementType extends AbstractType
             ->add('codepost')
             ->add('telefixe')
             ->add('fax')
-            ->add('mail')
+            ->add('mail','email',array('required' => false))
             ->add('siteweb')
-            ->add('educprio')
-            ->add('etabintehand')
-            ->add('exisanneprep')
-            ->add('exisanneprepintehand')
+            ->add('educprio','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('etabintehand','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('exisanneprep','choice',
+        array('required' => 'false',
+            'expanded' => true,
+            'multiple' => false,
+            'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('exisanneprepintehand','choice',
+        array('required' => 'false',
+            'expanded' => true,
+            'multiple' => false,
+            'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('resp',new EtablissementResponsableType())
             ->add('infr',new EtablissementInfrastructureType())
         ;

@@ -20,13 +20,13 @@ class EtablissementResponsableType extends AbstractType
             ->add('ancidireense')
             ->add('ancidireadmi')
             ->add('telemobidire')
-            ->add('maildire')
+            ->add('maildire','email',array('required' => false))
             ->add('idenuniqdireadjo')
             ->add('nomprendireadjo')
             ->add('ancidireadjoense')
             ->add('ancidireadjoadmi')
             ->add('telemobidireadjo')
-            ->add('maildireadjo')
+            ->add('maildireadjo','email',array('required' => false))
             ->add('codegraddire','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
                 'property' => 'libegradar',

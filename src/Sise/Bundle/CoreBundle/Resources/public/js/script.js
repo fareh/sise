@@ -92,40 +92,40 @@ function txtChanged(v1, v2, v3) {
 }
 
 $(function () {
-    $("#CPHMain_AnciDireAdjoAdmi").spinner({
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadmi").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoense").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoadmi").spinner({
+        step: 0.1,
+        numberFormat: "n"
+    });
+    $("#sise_corebundle_etablissementficheetablissement_infr_surftotaterr").spinner({
         step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_AnciDireAdjoEnse").spinner({
-        step: 0.1,
+    $("#sise_corebundle_etablissementficheetablissement_infr_surfcons").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_AnciDireEnse").spinner({
-        step: 0.1,
+    $("#sise_corebundle_etablissementficheetablissement_infr_surfcouv").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_AnciDireAdmi").spinner({
-        step: 0.1,
+    $("#sise_corebundle_etablissementficheetablissement_infr_distroutgoud").spinner({
+        step: 1,
         numberFormat: "n"
     });
-    $("#CPHMain_SurfTotaTerr").spinner({
-        step: 0.01,
-        numberFormat: "n"
-    });
-    $("#CPHMain_SurfCons").spinner({
-        step: 0.01,
-        numberFormat: "n"
-    });
-    $("#CPHMain_SurfCouv").spinner({
-        step: 0.01,
-        numberFormat: "n"
-    });
-    $("#CPHMain_DistRoutGoud").spinner({
-        step: 0.1,
-        numberFormat: "n"
-    });
-    $("#CPHMain_DistDele").spinner({
-        step: 0.1,
+    $("#sise_corebundle_etablissementficheetablissement_infr_distdele").spinner({
+        step: 1,
         numberFormat: "n"
     });
     $("#CPHMain_NombSallExte").spinner();
@@ -145,40 +145,40 @@ jQuery(document).ready(function () {
         SetUI();
     }
     function SetUI() {
-        $("#CPHMain_AnciDireAdjoAdmi").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_AnciDireAdjoEnse").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadmi").spinner({
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_AnciDireEnse").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoense").spinner({
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_AnciDireAdmi").spinner({
+        $("#sise_corebundle_etablissementficheetablissement_resp_ancidireadjoadmi").spinner({
             step: 0.1,
             numberFormat: "n"
         });
-        $("#CPHMain_SurfTotaTerr").spinner({
-            step: 0.01,
+        $("#sise_corebundle_etablissementficheetablissement_infr_surftotaterr").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_SurfCons").spinner({
-            step: 0.01,
+        $("#sise_corebundle_etablissementficheetablissement_infr_surfcons").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_SurfCouv").spinner({
-            step: 0.01,
+        $("#sise_corebundle_etablissementficheetablissement_infr_surfcouv").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_DistRoutGoud").spinner({
-            step: 0.1,
+        $("#sise_corebundle_etablissementficheetablissement_infr_distroutgoud").spinner({
+            step: 1,
             numberFormat: "n"
         });
-        $("#CPHMain_DistDele").spinner({
-            step: 0.1,
+        $("#sise_corebundle_etablissementficheetablissement_infr_distdele").spinner({
+            step: 1,
             numberFormat: "n"
         });
         $("#CPHMain_NombSallExte").spinner();
