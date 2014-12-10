@@ -48,7 +48,7 @@ class SecuriteNiveauhierarchique
     /**
      * Get codenivehier
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivehier()
     {
@@ -71,7 +71,7 @@ class SecuriteNiveauhierarchique
     /**
      * Get libenivehierfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibenivehierfr()
     {
@@ -94,7 +94,7 @@ class SecuriteNiveauhierarchique
     /**
      * Get libenivehierar
      *
-     * @return string 
+     * @return string
      */
     public function getLibenivehierar()
     {
@@ -117,7 +117,7 @@ class SecuriteNiveauhierarchique
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

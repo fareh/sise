@@ -73,13 +73,10 @@ class NomenclatureQuestionnaireController extends Controller
             if ($table == "effectifeleve_demiresidan") {
                 $params = $request->request->get($search->getName());
                 $session->set("features", $params);
-
                 $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
 
                 foreach ($entities as $item) {
-
                     $editForms[] = $this->createCustomForm($item)->createView();
-
                 }
 
                 $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));

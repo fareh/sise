@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class EffectiveeleveRepartioneleveLieuhabitation
 {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
     /**
      * @var string
      *
@@ -59,10 +67,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
 
     /**
      * @var string
-     *
      * @ORM\Column(name="Lieu", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $lieu;
 
@@ -264,5 +269,28 @@ class EffectiveeleveRepartioneleveLieuhabitation
     public function getDist()
     {
         return $this->dist;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     * @return EffectiveeleveRepartioneleveLieuhabitation
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
