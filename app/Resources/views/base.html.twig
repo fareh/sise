@@ -72,12 +72,13 @@
 
                         إحصاءالتلاميذ</a>
                 </li>
-                <li><a href="OrienEleve/OrienEleve.php">توجيه التلاميذ</a></li>
-                <li><a href="MouvEleve/HomeMouvEleve.php">حركة التلاميذ</a></li>
+                <li><a href="{{ path('statEleve', {'codepack':'OrienEleve'}) }}">توجيه التلاميذ</a></li>
+                <li><a href="{{ path('statEleve', {'codepack':'MouvEleve'}) }}">حركة التلاميذ</a></li>
             </ul>
         </li>
-        <li><a href="StatEquipement/StatEquipement.php">البناءات و التجهيزات</a>
-            <span id="s2"></span>
+        <li><a href="{{ path('statEleve', {'codepack':'StatEquipement'}) }}" >البناءات
+                و التجهيزات</a>
+           {# <span id="s2"></span>
             <ul class="subs">
                 <li><a href="StatEquipement/Espaces.php">
                         فضاءات المؤسسة</a></li>
@@ -85,7 +86,7 @@
                         تجهيزات المؤسسة</a></li>
                 <li><a href="StatEquipement/Logement.php">
                         المساكن الوظيفية</a></li>
-            </ul>
+            </ul>#}
         </li>
         <li><a href="#">الموارد البشرية</a> <span id="Span1"></span>
             <ul class="subs">

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * NomenclatureEtablissement
  *
- * @ORM\Table(name="nomenclature_etablissement", indexes={@ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Circonscription", columns={"CodeCirc"}),@ORM\Index(name="IDX_nomenclature_etablissement_nomenclature_zone", columns={"CodeZone"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_CirconscriptionRegi45", columns={"CodeCircRegi"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Delegation", columns={"CodeDele"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Secteur", columns={"CodeSect"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_TypeEtablissement", columns={"CodeTypeEtab"})})
+ * @ORM\Table(name="nomenclature_etablissement", indexes={@ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Circonscription", columns={"CodeCirc"}),@ORM\Index(name="IDX_nomenclature_etablissement_nomenclature_zone", columns={"CodeZone"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_CirconscriptionRegi45", columns={"codecircregi"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Delegation", columns={"CodeDele"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Secteur", columns={"CodeSect"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_TypeEtablissement", columns={"CodeTypeEtab"})})
  * @ORM\Entity
  */
 class NomenclatureEtablissement
@@ -102,7 +102,7 @@ class NomenclatureEtablissement
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureCirconscriptionregional")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeCircRegi", referencedColumnName="CodeCircRegi")
+     *   @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
      * })
      */
     private $codecircregi;

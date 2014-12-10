@@ -15,7 +15,7 @@ class NomenclatureCirconscriptionregional
     /**
      * @var string
      *
-     * @ORM\Column(name="CodeCircRegi", type="string", length=50, nullable=false)
+     * @ORM\Column(name="codecircregi", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
