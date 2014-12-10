@@ -2,29 +2,34 @@
 
 {% block body %}
 
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ValiQues', 'TitleContextValue' : Package.libepackar, 'RouteAction' : '' })) }}
+    {#{{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter, 'features' : features}) }}#}
 
     <center>
         <table width="99%" style="font-size: 14pt; font-family: Verdana">
 
             <tbody>
             {% for entity in entities %}
-            <tr>
-                <td width="80%" class="RowStyle">
-                    &nbsp;
-                    <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" width="12px">
-                          <span>{{ entity.libequesar }}</span>
-                </td>
-                <td width="10%" class="RowStyle" align="center">
-                    <a href="{{ path('StatEleve_listStat', { 'table': entity.nameclass|lower }) }}">
-                        <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
-                </td>
-                <td width="10%" class="RowStyle" align="center">
+                <tr>
+                    <td width="80%" class="RowStyle">
+                        &nbsp;
+                        <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" width="12px">
+                        <span>{{ entity.libequesar }}</span>
+                    </td>
+                    <td width="10%" class="RowStyle" align="center">
+                        <a href="{{ path('StatEleve_listStat', { 'table': entity.nameclass|lower }) }}"
+                           title="إطلاع">
+                            <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
+                    </td>
+                    <td width="10%" class="RowStyle" align="center">
 
-                        <a href="{{ path('StatEleve_edit', { 'table': entity.nameclass|lower }) }}">
-                        <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"></a>
-                </td>
-            </tr>
+                        <a href="{{ path('StatEleve_edit', { 'table': entity.nameclass|lower }) }}"
+                           title="تحيين">
+                            <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"></a>
+                    </td>
+                </tr>
             {% endfor %}
-            </tbody></table>
+            </tbody>
+        </table>
     </center>
-    {% endblock %}
+{% endblock %}

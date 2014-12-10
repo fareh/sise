@@ -31,12 +31,14 @@ class NomenclatureQuestionnaireController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
+        $Package = $em->getRepository('SiseCoreBundle:SecuritePackage')->findOneByCodepack($codepack);
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statEleve.html.twig', array(
             'entities' => $entities,
             'search' => $search->createView(),
-            'pathfilter' => 'statEleve'
+            'pathfilter' => 'statEleve',
+            'Package' => $Package
         ));
     }
 
