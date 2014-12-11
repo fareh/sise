@@ -34,32 +34,38 @@ class NomenclatureQuestionnaireController extends Controller
         $lyce = true;
         $colltech = true;
 
+
         $session = $request->getSession();
-        $codetypeetab= $session->get('codetypeetab');
+        $codetypeetab = $session->get('codetypeetab');
         $entitiestypeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneByCodetypeetab($codetypeetab);
         //var_dump($entitiestypeetab); die;
-        $FilterArray=array();
-        $FilterArray['codepack']=$codepack;
-        if ($prep == true and $entitiestypeetab->getPrep()==true){
-            $FilterArray['prep']= true;
-        }
-        if ($prim == true and $entitiestypeetab->getPrim()== true){
-            $FilterArray['prim']= true;
-        }
-        if ($collgene == true and $entitiestypeetab->getCollgene()==true){
-            $FilterArray['collgene']= true;
-        }
-        if ($lyce == true and $entitiestypeetab->getLyce()==true){
-            $FilterArray['lyce']=true;
-        }
-        if ($colltech == true and  $entitiestypeetab->getColltech()==true){
-            $FilterArray['colltech']=true;
-        }
-        //var_dump($FilterArray); die;
+        if ($entitiestypeetab) {
 
-        $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findBy($FilterArray);//findByCodepack($codepack);
-        //var_dump($entities); die;
+            $FilterArray = array();
+            $FilterArray['codepack'] = $codepack;
+            if ($prep == true and $entitiestypeetab->getPrep() == true) {
+                $FilterArray['prep'] = true;
+            }
+            if ($prim == true and $entitiestypeetab->getPrim() == true) {
+                $FilterArray['prim'] = true;
+            }
+            if ($collgene == true and $entitiestypeetab->getCollgene() == true) {
+                $FilterArray['collgene'] = true;
+            }
+            if ($lyce == true and $entitiestypeetab->getLyce() == true) {
+                $FilterArray['lyce'] = true;
+            }
+            if ($colltech == true and $entitiestypeetab->getColltech() == true) {
+                $FilterArray['colltech'] = true;
+            }
+            //var_dump($FilterArray); die;
 
+            $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findBy($FilterArray);//findByCodepack($codepack);
+            //var_dump($entities); die;
+        } else {
+
+            $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
+        }
         $Package = $em->getRepository('SiseCoreBundle:SecuritePackage')->findOneByCodepack($codepack);
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statEleve.html.twig', array(
@@ -144,7 +150,7 @@ class NomenclatureQuestionnaireController extends Controller
                 )
                     ->setParameter('CodeEtab', $params['NomenclatureEtablissement'])
                     ->setParameter('CodeTypeEtab', $params['NomenclatureTypeetablissement'])
-                    ->setParameter('AnneScol',  $annescol)
+                    ->setParameter('AnneScol', $annescol)
                     ->setParameter('CodeRece', $coderece);
                 $items = $query->getResult();
 
