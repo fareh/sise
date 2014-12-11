@@ -1,0 +1,17 @@
+effectiveeleverepartionelevelieuhabitation_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:edit" }
+
+effectiveeleverepartionelevelieuhabitation_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:list" }
+
+effectiveeleverepartionelevelieuhabitation_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:update" }
+    requirements: { _method: post|put }
+
+effectiveeleverepartionelevelieuhabitation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:delete" }
+    requirements: { _method: post|delete }
