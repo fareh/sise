@@ -74,8 +74,6 @@
                 </td>
             {% endif %}
             {% if TdRetour == true and  Route.Retour|routeExists==1 %}
-                {{ RouteParams.Retour }}
-
                 <td id="TdRetour" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
                     <a href="{{ path(Route.Retour, RouteParams.Retour) }}"
                        style="background-color:Transparent;border-style:None; display: block">
@@ -137,7 +135,8 @@
             {% endif %}
 
             {% if TdValider == true %}
-                <td id="TdValider2" align="center" style="background-color: #52B043; color: White; font-size: 1em;"  onclick="document.getElementById('id_with_js').submit();">
+                <td id="TdValider2" align="center" style="background-color: #52B043; color: White; font-size: 1em;"
+                    onclick="document.getElementById('id_with_js').submit();">
 
                     <input name="Valider2" style="color:White;background-color:Transparent;border-style:None;"
                            value="تأكيد" type="submit">
@@ -145,7 +144,7 @@
             {% endif %}
             {% if TdRetour == true and  Route.Retour|routeExists==1 %}
                 <td id="TdRetour2" align="center" style="background-color: #00AEEF; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Retour, RouteParams.Retour )}}"
+                    <a href="{{ path( Route.Retour, RouteParams.Retour ) }}"
                        style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
                     </a>
 
