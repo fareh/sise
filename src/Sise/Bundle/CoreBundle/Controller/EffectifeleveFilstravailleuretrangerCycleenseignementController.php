@@ -53,11 +53,14 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
             $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_filstravailleuretranger_cycleenseignement.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -93,11 +96,13 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
                 $em->flush();
             }
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_filstravailleuretranger_cycleenseignement.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -123,10 +128,14 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
+
+
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_filstravailleuretranger_cycleenseignement.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'nameclass'=>$nameclass
         ));
     }
 

@@ -1,5 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevefilstravailleuretrangercycleenseignement' })) }}
+
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entities is defined  and entities|length > 0 %}
         <center>
