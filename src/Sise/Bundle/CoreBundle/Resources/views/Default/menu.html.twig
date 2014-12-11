@@ -74,8 +74,10 @@
                 </td>
             {% endif %}
             {% if TdRetour == true and  Route.Retour|routeExists==1 %}
+                {{ RouteParams.Retour }}
+
                 <td id="TdRetour" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path( Route.Retour) }}"
+                    <a href="{{ path(Route.Retour, RouteParams.Retour) }}"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"/> </a>
                 </td>
@@ -143,7 +145,7 @@
             {% endif %}
             {% if TdRetour == true and  Route.Retour|routeExists==1 %}
                 <td id="TdRetour2" align="center" style="background-color: #00AEEF; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Retour) }}"
+                    <a href="{{ path( Route.Retour, RouteParams.Retour )}}"
                        style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
                     </a>
 
