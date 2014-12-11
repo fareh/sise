@@ -43,3 +43,6 @@ Coreblog_NomenclatureCycleenseignement:
 Siseblog_EtablissementFicheetablissement:
     resource: "routing/etablissementficheetablissement.yml"
     prefix: /EtablissementFicheetablissement
+Siseblog_EffectifeleveListeelevedeplacerversautreetablissement:
+    resource: "routing/effectifelevelisteelevedeplacerversautreetablissement.yml"
+    prefix: /EffectifeleveListeelevedeplacerversautreetablissement
