@@ -1,0 +1,17 @@
+effectifelevedemiresidant_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveDemiresidant:edit" }
+
+effectifelevedemiresidant_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveDemiresidant:list" }
+
+effectifelevedemiresidant_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveDemiresidant:update" }
+    requirements: { _method: post|put }
+
+effectifelevedemiresidant_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveDemiresidant:delete" }
+    requirements: { _method: post|delete }

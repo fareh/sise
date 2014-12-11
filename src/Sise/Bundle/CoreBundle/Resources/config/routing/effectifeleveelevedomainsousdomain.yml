@@ -1,0 +1,17 @@
+effectifeleveelevedomainsousdomain_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveElevedomainsousdomain:edit" }
+
+effectifeleveelevedomainsousdomain_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveElevedomainsousdomain:list" }
+
+effectifeleveelevedomainsousdomain_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveElevedomainsousdomain:update" }
+    requirements: { _method: post|put }
+
+effectifeleveelevedomainsousdomain_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveElevedomainsousdomain:delete" }
+    requirements: { _method: post|delete }

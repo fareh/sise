@@ -17,15 +17,30 @@
                         <span>{{ entity.libequesar }}</span>
                     </td>
                     <td width="10%" class="RowStyle" align="center">
-                        <a href="{{ path('StatEleve_listStat', { 'table': entity.nameclass|lower }) }}"
-                           title="إطلاع">
-                            <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
+
+                        {% if (entity.nameclass|lower|replace({'_': ""})~'_list')|routeExists == 1 %}
+                            <a href="{{ path(entity.nameclass|lower|replace({'_': ""})~'_list') }}"
+                               title="إطلاع">
+                                <img src="{{ asset('bundles/sisecore/images/32x32/overview.png') }}"></a>
+                        {% else %}
+                            <a href="#" title="إطلاع">
+                                <img src="{{ asset('bundles/sisecore/images/32x32/overview_disactive.png') }}">
+                            </a>
+
+                        {% endif %}
                     </td>
                     <td width="10%" class="RowStyle" align="center">
+                        {% if (entity.nameclass|lower|replace({'_': ""})~'_edit')|routeExists == 1 %}
+                            <a href="{{ path(entity.nameclass|lower|replace({'_': ""})~'_edit') }}"
+                               title="تحيين">
+                                <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"></a>
+                        {% else %}
+                            <a href="#" title="تحيين">
+                                <img src="{{ asset('bundles/sisecore/images/32x32/edit_file_disactive.png') }}"></a>
 
-                        <a href="{{ path('StatEleve_edit', { 'table': entity.nameclass|lower }) }}"
-                           title="تحيين">
-                            <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"></a>
+                        {% endif %}
+
+
                     </td>
                 </tr>
             {% endfor %}

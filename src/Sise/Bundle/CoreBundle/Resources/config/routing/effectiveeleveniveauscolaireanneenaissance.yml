@@ -1,0 +1,16 @@
+effectiveeleveniveauscolaireanneenaissance_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance:edit" }
+
+effectiveeleveniveauscolaireanneenaissance_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance:list" }
+
+effectiveeleveniveauscolaireanneenaissance_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance:update" }
+    requirements: { _method: post|put|get }
+effectiveeleveniveauscolaireanneenaissance_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaireAnneenaissance:delete" }
+    requirements: { _method: post|delete }

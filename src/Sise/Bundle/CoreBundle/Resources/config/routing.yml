@@ -22,6 +22,15 @@ sise_core_getListMulti:
 SiseCoreBundle_StatEleve:
     resource: "routing/nomenclaturequestionnaire.yml"
     prefix:   /stat
+SiseCoreBundle_effectifelevedemiresidant:
+    resource: "routing/effectifelevedemiresidant.yml"
+    prefix:   /stat/effectifelevedemiresidant
+SiseCoreBundle_effectifeleveelevedomainsousdomain:
+    resource: "routing/effectifeleveelevedomainsousdomain.yml"
+    prefix:   /stat/effectifeleveelevedomainsousdomain
+SiseCoreBundle_effectiveeleveniveauscolaireanneenaissance:
+    resource: "routing/effectiveeleveniveauscolaireanneenaissance.yml"
+    prefix:   /stat/effectiveeleveniveauscolaireanneenaissance
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement
