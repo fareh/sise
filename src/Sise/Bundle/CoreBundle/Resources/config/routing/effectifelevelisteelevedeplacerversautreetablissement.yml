@@ -1,0 +1,30 @@
+effectifelevelisteelevedeplacerversautreetablissement:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:index" }
+
+effectifelevelisteelevedeplacerversautreetablissement_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:show" }
+
+effectifelevelisteelevedeplacerversautreetablissement_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:new" }
+
+effectifelevelisteelevedeplacerversautreetablissement_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:create" }
+    requirements: { _method: post }
+
+effectifelevelisteelevedeplacerversautreetablissement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:edit" }
+
+effectifelevelisteelevedeplacerversautreetablissement_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:update" }
+    requirements: { _method: post|put }
+
+effectifelevelisteelevedeplacerversautreetablissement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:delete" }
+    requirements: { _method: post|delete }
