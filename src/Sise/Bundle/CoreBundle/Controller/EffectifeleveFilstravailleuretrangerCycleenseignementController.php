@@ -45,8 +45,8 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
-        $url = $this->generateUrl('effectifelevedemiresidant_edit');
-        $pathUpdate = $this->generateUrl('effectifelevedemiresidant_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_edit');
+        $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
@@ -79,18 +79,20 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
-        $url = $this->generateUrl('effectifelevedemiresidant_edit');
-        $pathUpdate = $this->generateUrl('effectifelevedemiresidant_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        if ($codeetab && $codetypeetab) {
+        $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_edit');
+        $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
+
+                var_dump($items); die;
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findOneBy($items);
-                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_' . $i));
-                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_' . $i));
-                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_' . $i));
-                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_' . $i));
-                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_' . $i));
+                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombelevresimasc_' . $i));
+                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombelevresifemi_' . $i));
+                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombtotaresielev_' . $i));
+                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombelevbourfemi_' . $i));
+                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombtotabourelev_' . $i));
                 $em->persist($item);
 
                 $em->flush();
@@ -113,7 +115,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
     public function listAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectifelevedemiresidant_list');
+        $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_list');
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
         if ($request->isMethod('POST')) {

@@ -24,7 +24,7 @@ class NomenclatureQuestionnaireController extends Controller
      * Lists all NomenclatureQuestionnaire entities.
      *
      */
-    public function statEleveAction(Request $request, $codepack)
+    public function statElevAction(Request $request, $codepack)
     {
         $em = $this->getDoctrine()->getManager();
         //
@@ -68,10 +68,10 @@ class NomenclatureQuestionnaireController extends Controller
         }
         $Package = $em->getRepository('SiseCoreBundle:SecuritePackage')->findOneByCodepack($codepack);
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statEleve.html.twig', array(
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statElev.html.twig', array(
             'entities' => $entities,
             'search' => $search->createView(),
-            'pathfilter' => 'statEleve',
+            'pathfilter' => 'statElev',
             'Package' => $Package
         ));
     }
@@ -90,7 +90,7 @@ class NomenclatureQuestionnaireController extends Controller
             throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
-        $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
+        $url = $this->generateUrl('statElev_edit', array('table' => $table));
         $session = $request->getSession();
         if ($session->has('features')) {
             $features = $session->get('features');
@@ -115,7 +115,7 @@ class NomenclatureQuestionnaireController extends Controller
                     $editForms[] = $this->createCustomForm($item)->createView();
                 }
 
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $pathUpdate = $this->generateUrl('statElev_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
 
             } elseif ($table == "effectifeleve_elevedomainsousdomain") {
 
@@ -125,14 +125,14 @@ class NomenclatureQuestionnaireController extends Controller
                 $entities = $em->getRepository($entity->getEntity())->findBy(array('codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
 
 
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $pathUpdate = $this->generateUrl('statElev_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
             } elseif ($table == "effectiveeleve_niveauscolaire_anneenaissance") {
 
                 $params = $request->request->get($search->getName());
                 $session->set("features", $params);
                 $codeannenais = array();
                 $codenivescol = array();
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
+                $pathUpdate = $this->generateUrl('statElev_update', array('table' => $table, 'codeetab' => $params['NomenclatureEtablissement'], 'codetypeetab' => $params['NomenclatureTypeetablissement']));
                 $html = '<form action="' . $pathUpdate . '" method="post"  class="well form-search">';
                 $html .= "  <table cellspacing='0' rules='all' border='1' id='CPHMain_GridView_Edit' style='width:100%;border-collapse:collapse;'><thead>";
                 $query = $em->createQuery(
@@ -272,7 +272,7 @@ class NomenclatureQuestionnaireController extends Controller
             throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
-        $url = $this->generateUrl('StatEleve_edit', array('table' => $table));
+        $url = $this->generateUrl('statElev_edit', array('table' => $table));
 
         $session = $request->getSession();
         if ($session->has('features')) {
@@ -333,7 +333,7 @@ class NomenclatureQuestionnaireController extends Controller
                 $session->set("features", $params);
                 $codeannenais = array();
                 $codenivescol = array();
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+                $pathUpdate = $this->generateUrl('statElev_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
                 $html = '<form action="' . $pathUpdate . '" method="post"  class="well form-search">';
                 $html .= "  <table cellspacing='0' rules='all' border='1' id='CPHMain_GridView_Edit' style='width:100%;border-collapse:collapse;'><thead>";
                 $query = $em->createQuery(
@@ -473,11 +473,11 @@ class NomenclatureQuestionnaireController extends Controller
                 ));
 
             }
-            return $this->redirect($this->generateUrl('StatEleve_edit', array('table' => $table)));
+            return $this->redirect($this->generateUrl('statElev_edit', array('table' => $table)));
         }
 
 
-        $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('statElev_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.' . $table . '.html.twig', array(
@@ -503,7 +503,7 @@ class NomenclatureQuestionnaireController extends Controller
             throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
         }
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
-        $url = $this->generateUrl('StatEleve_listStat', array('table' => $table));
+        $url = $this->generateUrl('statElev_listStat', array('table' => $table));
         $session = $request->getSession();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
@@ -623,7 +623,7 @@ class NomenclatureQuestionnaireController extends Controller
 
                 $html .= "</tbody></table>";
 
-                $pathUpdate = $this->generateUrl('StatEleve_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+                $pathUpdate = $this->generateUrl('statElev_update', array('table' => $table, 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
                 return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.' . $table . '.html.twig', array(
                     'search' => $search->createView(),
@@ -679,7 +679,7 @@ class NomenclatureQuestionnaireController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('StatEleve_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('statElev_show', array('id' => $entity->getId())));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:new.html.twig', array(
@@ -698,7 +698,7 @@ class NomenclatureQuestionnaireController extends Controller
     private function createCreateForm(NomenclatureQuestionnaire $entity)
     {
         $form = $this->createForm(new NomenclatureQuestionnaireType(), $entity, array(
-            'action' => $this->generateUrl('StatEleve_create'),
+            'action' => $this->generateUrl('statElev_create'),
             'method' => 'POST',
         ));
 
@@ -755,7 +755,7 @@ class NomenclatureQuestionnaireController extends Controller
     private function createEditForm(NomenclatureQuestionnaire $entity)
     {
         $form = $this->createForm(new NomenclatureQuestionnaireType(), $entity, array(
-            'action' => $this->generateUrl('StatEleve_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('statElev_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -786,7 +786,7 @@ class NomenclatureQuestionnaireController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('StatEleve_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('statElev_edit', array('id' => $id)));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.html.twig', array(
@@ -817,7 +817,7 @@ class NomenclatureQuestionnaireController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('StatEleve'));
+        return $this->redirect($this->generateUrl('statElev'));
     }
 
     /**
@@ -830,7 +830,7 @@ class NomenclatureQuestionnaireController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('StatEleve_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('statElev_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();

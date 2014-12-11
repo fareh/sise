@@ -9,7 +9,7 @@ effectifelevefilstravailleuretrangercycleenseignement_list:
 effectifelevefilstravailleuretrangercycleenseignement_update:
     path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement:update" }
-    requirements: { _method: post|put }
+    requirements: { _method: post|put|get }
 
 effectifelevefilstravailleuretrangercycleenseignement_delete:
     path:     /{id}/delete
