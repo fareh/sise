@@ -1,3 +1,9 @@
+input, select, textarea
+{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 .BtnRecherche {
     width: 100px;
     border-Left-style: solid;
@@ -17,6 +23,14 @@
     padding-right: 15px;
     width: 50%;
 }
+#CPHMain_upmain textarea {
+   height:56px;
+   width : 50%;
+   line-height: 28px;
+   margin-top: 10px;
+   padding-right: 15px;
+}
+
 #CPHMain_CBCyclEnse input {
    width: auto;
 }
