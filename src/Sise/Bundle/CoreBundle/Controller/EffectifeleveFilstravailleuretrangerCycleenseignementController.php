@@ -51,7 +51,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
 
@@ -81,22 +81,18 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_edit');
         $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
-
-                var_dump($items); die;
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findOneBy($items);
-                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombelevresimasc_' . $i));
-                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombelevresifemi_' . $i));
-                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombtotaresielev_' . $i));
-                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombelevbourfemi_' . $i));
-                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectifelevefilstravailleuretrangercycleenseignement_nombtotabourelev_' . $i));
+                $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
+                $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
+                $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
                 $em->persist($item);
-
                 $em->flush();
             }
+            return $this->redirect($this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_edit'));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_filstravailleuretranger_cycleenseignement.html.twig', array(
@@ -128,7 +124,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
 
 
