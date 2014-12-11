@@ -45,6 +45,13 @@ class NomenclatureQuestionnaire
     /**
      * @var string
      *
+     * @ORM\Column(name="routeclass", type="string", length=500, nullable=true)
+     */
+    private $routeclass;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="SP_Browse", type="string", length=250, nullable=true)
      */
     private $spBrowse;
@@ -481,5 +488,28 @@ class NomenclatureQuestionnaire
     public function getCodeenti()
     {
         return $this->codeenti;
+    }
+
+    /**
+     * Set routeclass
+     *
+     * @param string $routeclass
+     * @return NomenclatureQuestionnaire
+     */
+    public function setRouteclass($routeclass)
+    {
+        $this->routeclass = $routeclass;
+
+        return $this;
+    }
+
+    /**
+     * Get routeclass
+     *
+     * @return string 
+     */
+    public function getRouteclass()
+    {
+        return $this->routeclass;
     }
 }

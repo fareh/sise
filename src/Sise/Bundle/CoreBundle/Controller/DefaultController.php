@@ -53,21 +53,17 @@ class DefaultController extends Controller
 
     public function  listEntitiesAction()
     {
-        $entities = array();
         $em = $this->getDoctrine()->getManager();
-        $meta = $em->getMetadataFactory()->getAllMetadata();
-        foreach ($meta as $key => $m) {
-            $entity = new CoreProject();
-            $entity->setEntity($m->getName());
-            $entity->setTableName($m->getTableName());
-            $em->persist($entity);
+        $questionnaires = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findAll();
+
+        foreach ($questionnaires as $questionnaire){
+
+            $questionnaire->setRouteclass(strtolower(str_replace('_', '',$questionnaire->getNameclass() )) );
+            $em->persist($questionnaire);
             $em->flush();
-            $entities[$key]['name'] = $m->getName();
-            $entities[$key]['tableName'] = $m->getTableName();
         }
 
-        die;
-
+die;
 
     }
 
@@ -88,7 +84,7 @@ class DefaultController extends Controller
      */
     public function menuAction($PageContext, $TitleContextValue, $RouteAction)
     {
-        //
+        //Button visibility
         $TdExporter = false;
         $TdNouveau = false;
         $TdRetour = false;
@@ -98,7 +94,7 @@ class DefaultController extends Controller
         $TdValider = false;
         $TdRechercher = false;
         $TdCloturer = false;
-        //
+        //Route
         $RouteExporter = '';
         $RouteNouveau = '';
         $RouteRetour = '';
@@ -108,8 +104,17 @@ class DefaultController extends Controller
         $RouteValider = '';
         $RouteRechercher = '';
         $RouteCloturer = '';
-
-
+        //RouteParams    
+        $RouteExporterParams = array();
+        $RouteNouveauParams = array();
+        $RouteRetourParams = array();
+        $RouteEditerParams = array();
+        $RouteAnnulerParams = array();
+        $RouteSupprimerParams = array();
+        $RouteValiderParams = array();
+        $RouteRechercherParams = array();
+        $RouteCloturerParams = array();
+        //
         switch ($PageContext) {
             case 'List':
                 //Mode List
@@ -137,26 +142,48 @@ class DefaultController extends Controller
             Case 'ConsQues':
                 $TdRetour = true;
                 $TdEditer = true;
-
+                $TdExporter = true;
+                break;
             Case 'EditQues':
                 $TdRetour = true;
                 $TdValider = true;
-
+                break;
             Case 'ValiQues':
                 $TdCloturer = true;
+                break;
         };
 
 
         if ($TdExporter == true) $RouteExporter = $RouteAction . '_export';
         if ($TdNouveau == true) $RouteNouveau = $RouteAction . '_new';
         if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
-        if ($TdRetour == true) $RouteRetour = $RouteAction . '';
-        if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
         if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_new';
         if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
-        if ($TdValider == true) $RouteValider = '_create';
-        if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
 
+
+        if (strpos($PageContext, 'Ques') + strlen('Ques') === strlen($PageContext)){
+            if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
+            if ($TdValider == true) $RouteValider = '_create';
+            //- codepack -??
+            //- path('statElev', {'codepack':'StatElev'})
+            $em = $this->getDoctrine()->getManager();
+            $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByRouteclass($RouteAction);
+
+            if ($TdRetour == true){
+                $RouteRetour = 'statElev';
+                $RouteRetourParams =array('codepack' => $nameclass->getCodepack());
+            }
+            if ($TdCloturer == true) {
+                $RouteCloturer = $RouteAction . '';
+            }
+        }else{
+
+            if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
+            if ($TdValider == true) $RouteValider = '_create';
+
+            if ($TdRetour == true) $RouteRetour = $RouteAction . '';
+            if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
+        }
 
         return $this->render('SiseCoreBundle:Default:menu.html.twig',
             array('TitleContextValue' => $TitleContextValue,
@@ -170,14 +197,23 @@ class DefaultController extends Controller
                 'TdRechercher' => $TdRechercher,
                 'TdCloturer' => $TdCloturer,
                 'Route' => array('Exporter' => $RouteExporter,
-                    'Nouveau' => $RouteNouveau,
-                    'Rechercher' => $RouteRechercher,
-                    'Retour' => $RouteRetour,
-                    'Editer' => $RouteEditer,
-                    'Annuler' => $RouteAnnuler,
-                    'Supprimer' => $RouteSupprimer,
-                    'Valider' => $RouteValider,
-                    'Cloturer' => $RouteCloturer)
+                                'Nouveau' => $RouteNouveau,
+                                'Rechercher' => $RouteRechercher,
+                                'Retour' => $RouteRetour,
+                                'Editer' => $RouteEditer,
+                                'Annuler' => $RouteAnnuler,
+                                'Supprimer' => $RouteSupprimer,
+                                'Valider' => $RouteValider,
+                                'Cloturer' => $RouteCloturer),
+                'RouteParams' => array('Exporter' => $RouteExporterParams,
+                                        'Nouveau' => $RouteNouveauParams,
+                                        'Rechercher' => $RouteRechercherParams,
+                                        'Retour' => $RouteRetourParams,
+                                        'Editer' => $RouteEditerParams,
+                                        'Annuler' => $RouteAnnulerParams,
+                                        'Supprimer' => $RouteSupprimerParams,
+                                        'Valider' => $RouteValiderParams,
+                                        'Cloturer' => $RouteCloturerParams)
             ));
 
 

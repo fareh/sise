@@ -16,6 +16,8 @@ class SiseExtension extends \Twig_Extension
         return array(
             new \Twig_SimpleFilter('price', array($this, 'priceFilter')),
             new \Twig_SimpleFilter('routeExists', array($this, 'routeExists')),
+            new \Twig_SimpleFilter('jsonDecode', array($this, 'jsonDecode')),
+
         );
     }
 
@@ -36,9 +38,16 @@ class SiseExtension extends \Twig_Extension
 
     }
 
+
+
+    public function jsonDecode($str) {
+        return json_decode($str);
+    }
+
     public function getName()
     {
         return 'acme_extension';
     }
+
 
 }
