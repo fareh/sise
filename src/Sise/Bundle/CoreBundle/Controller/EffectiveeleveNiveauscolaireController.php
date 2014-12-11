@@ -29,7 +29,6 @@ class EffectiveeleveNiveauscolaireController extends controller {
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectifeleveelevedomainsousdomain_edit');
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
         if ($session->has('features')) {
@@ -45,18 +44,24 @@ class EffectiveeleveNiveauscolaireController extends controller {
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        $url = $this->generateUrl('effectiveeleveniveauscolaire_edit');
+        $pathUpdate = $this->generateUrl('effectiveeleveniveauscolaire_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_niveauscolaire');
+
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_niveauscolaire.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
-
 
 
     /**
@@ -66,8 +71,6 @@ class EffectiveeleveNiveauscolaireController extends controller {
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveeleveniveauscolaire_edit');
-        $pathUpdate = $this->generateUrl('effectiveeleveniveauscolaire_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
         if ($session->has('features')) {
@@ -75,35 +78,28 @@ class EffectiveeleveNiveauscolaireController extends controller {
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
-        if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $url = $this->generateUrl('effectiveeleveniveauscolaire_edit');
+        $pathUpdate = $this->generateUrl('effectiveeleveniveauscolaire_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
-
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findOneBy($items);
-
-                if (!$item) {
-                    throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
-                }
-                $subdomains = $item->getCodedoma()->getCodesousdoma();
-                $item->setNombclass($request->request->get('nombclass' . $i));
                 $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
                 $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
                 $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
                 $em->persist($item);
-                foreach ($subdomains as $subdomain) {
-                    $subdomain->setOrdraffi($request->request->get('codesousdoma_ordraffi_' . $subdomain->getCodesousdoma() . '_' . $i));
-                    $em->persist($subdomain);
-                }
-
                 $em->flush();
             }
+            return $this->redirect($this->generateUrl('effectiveeleveniveauscolaire_edit'));
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_niveauscolaire');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_niveauscolaire.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -128,12 +124,11 @@ class EffectiveeleveNiveauscolaireController extends controller {
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+           // $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
-     //echo   count($entities); die;
+         $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
 
         }
-
 
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_niveauscolaire');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveeleve_niveauscolaire.html.twig', array(
