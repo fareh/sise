@@ -49,9 +49,8 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=false)
+     * @ORM\OneToOne(targetEntity="NomenclatureCycleenseignement")
+     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
@@ -172,28 +171,6 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
         return $this->coderece;
     }
 
-    /**
-     * Set codecyclense
-     *
-     * @param string $codecyclense
-     * @return EffectifeleveFilstravailleuretrangerCycleenseignement
-     */
-    public function setCodecyclense($codecyclense)
-    {
-        $this->codecyclense = $codecyclense;
-
-        return $this;
-    }
-
-    /**
-     * Get codecyclense
-     *
-     * @return string 
-     */
-    public function getCodecyclense()
-    {
-        return $this->codecyclense;
-    }
 
     /**
      * Set nombelevmasc
@@ -262,5 +239,28 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codecyclense
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense
+     * @return EffectifeleveFilstravailleuretrangerCycleenseignement
+     */
+    public function setCodecyclense(\Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense)
+    {
+        $this->codecyclense = $codecyclense;
+
+        return $this;
+    }
+
+    /**
+     * Get codecyclense
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     */
+    public function getCodecyclense()
+    {
+        return $this->codecyclense;
     }
 }

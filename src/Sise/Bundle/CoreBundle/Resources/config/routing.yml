@@ -34,6 +34,9 @@ SiseCoreBundle_effectiveeleveniveauscolaireanneenaissance:
 SiseCoreBundle_effectiveeleverepartionelevelieuhabitatione:
     resource: "routing/effectiveeleverepartionelevelieuhabitation.yml"
     prefix:   /stat/effectiveeleverepartionelevelieuhabitation
+SiseCoreBundle_effectifelevefilstravailleuretrangercycleenseignement:
+    resource: "routing/effectifelevefilstravailleuretrangercycleenseignement.yml"
+    prefix:   /stat/effectifelevefilstravailleuretrangercycleenseignement
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement

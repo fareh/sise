@@ -1,0 +1,17 @@
+effectifelevefilstravailleuretrangercycleenseignement_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement:edit" }
+
+effectifelevefilstravailleuretrangercycleenseignement_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement:list" }
+
+effectifelevefilstravailleuretrangercycleenseignement_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement:update" }
+    requirements: { _method: post|put }
+
+effectifelevefilstravailleuretrangercycleenseignement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement:delete" }
+    requirements: { _method: post|delete }
