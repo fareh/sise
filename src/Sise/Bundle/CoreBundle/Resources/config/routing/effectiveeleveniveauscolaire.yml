@@ -1,0 +1,17 @@
+effectiveeleveniveauscolaire_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaire:edit" }
+
+effectiveeleveniveauscolaire_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaire:list" }
+
+effectiveeleveniveauscolaire_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaire:update" }
+    requirements: { _method: post|put }
+
+effectiveeleveniveauscolaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaire:delete" }
+    requirements: { _method: post|delete }

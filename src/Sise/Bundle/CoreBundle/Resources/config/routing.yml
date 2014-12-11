@@ -22,6 +22,24 @@ sise_core_getListMulti:
 SiseCoreBundle_StatEleve:
     resource: "routing/nomenclaturequestionnaire.yml"
     prefix:   /stat
+SiseCoreBundle_effectifelevedemiresidant:
+    resource: "routing/effectifelevedemiresidant.yml"
+    prefix:   /stat/effectifelevedemiresidant
+SiseCoreBundle_effectifeleveelevedomainsousdomain:
+    resource: "routing/effectifeleveelevedomainsousdomain.yml"
+    prefix:   /stat/effectifeleveelevedomainsousdomain
+SiseCoreBundle_effectiveeleveniveauscolaireanneenaissance:
+    resource: "routing/effectiveeleveniveauscolaireanneenaissance.yml"
+    prefix:   /stat/effectiveeleveniveauscolaireanneenaissance
+SiseCoreBundle_effectiveeleverepartionelevelieuhabitatione:
+    resource: "routing/effectiveeleverepartionelevelieuhabitation.yml"
+    prefix:   /stat/effectiveeleverepartionelevelieuhabitation
+SiseCoreBundle_effectifelevefilstravailleuretrangercycleenseignement:
+    resource: "routing/effectifelevefilstravailleuretrangercycleenseignement.yml"
+    prefix:   /stat/effectifelevefilstravailleuretrangercycleenseignement
+SiseCoreBundle_effectiveeleveniveauscolaire:
+    resource: "routing/effectiveeleveniveauscolaire.yml"
+    prefix:   /stat/effectiveeleveniveauscolaire
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement
@@ -31,6 +49,6 @@ Coreblog_NomenclatureCycleenseignement:
 Siseblog_EtablissementFicheetablissement:
     resource: "routing/etablissementficheetablissement.yml"
     prefix: /EtablissementFicheetablissement
-Siseblog_NomenclatureRecensement:
-    resource: "routing/NomenclatureRecensement.yml"
-    prefix: /NomenclatureRecensement
+Siseblog_EffectifeleveListeelevedeplacerversautreetablissement:
+    resource: "routing/effectifelevelisteelevedeplacerversautreetablissement.yml"
+    prefix: /EffectifeleveListeelevedeplacerversautreetablissement

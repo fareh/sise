@@ -33,6 +33,6 @@
 # Composer PHAR
 /composer.phar
 #phpStorm
-/vendor12
+/vendor12/
 /.idea/
-/nbproject/private/
+/nbproject/

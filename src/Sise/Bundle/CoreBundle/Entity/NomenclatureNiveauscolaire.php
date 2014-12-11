@@ -18,7 +18,7 @@ class NomenclatureNiveauscolaire
      * @var string
      *
      * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
-     * @ORM\ManyToOne(targetEntity="EffectiveeleveNiveauscolaireAnneenaissance", inversedBy="codenivescol")
+     * @ORM\ManyToOne(targetEntity="EffectiveeleveNiveauscolaireAnneenaissance, EffectiveeleveNiveauscolaire", inversedBy="codenivescol")
      * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")

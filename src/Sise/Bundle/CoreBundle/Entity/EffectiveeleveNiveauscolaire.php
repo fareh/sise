@@ -56,15 +56,14 @@ class EffectiveeleveNiveauscolaire
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codefili;
-
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
+     * @ORM\OneToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $codenivescol;
+       private $codenivescol;
+
 
     /**
      * @var integer
@@ -238,30 +237,6 @@ class EffectiveeleveNiveauscolaire
     {
         return $this->codefili;
     }
-
-    /**
-     * Set codenivescol
-     *
-     * @param string $codenivescol
-     * @return EffectiveeleveNiveauscolaire
-     */
-    public function setCodenivescol($codenivescol)
-    {
-        $this->codenivescol = $codenivescol;
-
-        return $this;
-    }
-
-    /**
-     * Get codenivescol
-     *
-     * @return string 
-     */
-    public function getCodenivescol()
-    {
-        return $this->codenivescol;
-    }
-
     /**
      * Set nombclasselev
      *
@@ -444,5 +419,28 @@ class EffectiveeleveNiveauscolaire
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return EffectiveeleveNiveauscolaire
+     */
+    public function setCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
     }
 }
