@@ -40,6 +40,9 @@ SiseCoreBundle_effectifelevefilstravailleuretrangercycleenseignement:
 SiseCoreBundle_effectiveeleveniveauscolaire:
     resource: "routing/effectiveeleveniveauscolaire.yml"
     prefix:   /stat/effectiveeleveniveauscolaire
+SiseCoreBundle_effectiveeleveeleveeablissementprivee:
+    resource: "routing/effectiveeleveeleveeablissementprivee.yml"
+    prefix:   /stat/effectiveeleveeleveeablissementprivee
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement

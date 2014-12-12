@@ -1,5 +1,5 @@
-effectifelevelisteelevedeplacerversautreetablissement:
-    path:     /
+effectifelevelisteelevedeplacerversautreetablissement_list:
+    path:     /list
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:index" }
 
 effectifelevelisteelevedeplacerversautreetablissement_show:
@@ -16,11 +16,11 @@ effectifelevelisteelevedeplacerversautreetablissement_create:
     requirements: { _method: post }
 
 effectifelevelisteelevedeplacerversautreetablissement_edit:
-    path:     /{id}/edit
+    path:     /edit
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:edit" }
 
 effectifelevelisteelevedeplacerversautreetablissement_update:
-    path:     /{id}/update
+    path:     /{codeetab}/{codetypeetab}/update
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:update" }
     requirements: { _method: post|put }
 
