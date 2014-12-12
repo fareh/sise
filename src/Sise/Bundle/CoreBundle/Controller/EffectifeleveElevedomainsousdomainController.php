@@ -48,10 +48,12 @@ class EffectifeleveElevedomainsousdomainController extends Controller {
                 $session->set("features", $params);
                 $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_elevedomainsousdomain.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -97,11 +99,13 @@ class EffectifeleveElevedomainsousdomainController extends Controller {
                     $em->flush();
                 }
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_elevedomainsousdomain.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -128,10 +132,12 @@ class EffectifeleveElevedomainsousdomainController extends Controller {
         if ($codeetab && $codetypeetab) {
                 $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_elevedomainsousdomain.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'nameclass'=>$nameclass
         ));
     }
 

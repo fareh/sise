@@ -127,7 +127,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
             $query = $em->createQuery(
                 '      	 SELECT P ,  F2
 		   FROM SiseCoreBundle:EffectifeleveGenreAnneenaissance P
-		   INNER JOIN SiseCoreBundle:NomenclatureAnneeNaissance F2 WITH P.codeannenais = F2.codeannenais
+		   INNER JOIN SiseCoreBundle:NomenclatureAnneenaissance F2 WITH P.codeannenais = F2.codeannenais
 		   WHERE
 				P.codeetab= :CodeEtab
 				and P.codetypeetab= :CodeTypeEtab
