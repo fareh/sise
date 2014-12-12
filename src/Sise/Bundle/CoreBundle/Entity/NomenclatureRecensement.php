@@ -36,9 +36,13 @@ class NomenclatureRecensement
     private $liberecefr;
 
     /**
-     * @var integer
+     * @var \ParametreAnneescolaire
      *
-     * @ORM\Column(name="AnneScol", type="integer", nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="ParametreAnneescolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="CodeAnneScol"),
+     * })
      */
     private $annescol;
 
@@ -57,9 +61,13 @@ class NomenclatureRecensement
     private $dateclot;
 
     /**
-     * @var string
+     * @var \NomenclatureEtatrecensement
      *
-     * @ORM\Column(name="CodeEtatRece", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureEtatrecensement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtatRece", referencedColumnName="CodeEtatRece"),
+     * })
      */
     private $codeetatrece;
 
@@ -103,7 +111,7 @@ class NomenclatureRecensement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -126,7 +134,7 @@ class NomenclatureRecensement
     /**
      * Get liberecear
      *
-     * @return string 
+     * @return string
      */
     public function getLiberecear()
     {
@@ -149,7 +157,7 @@ class NomenclatureRecensement
     /**
      * Get liberecefr
      *
-     * @return string 
+     * @return string
      */
     public function getLiberecefr()
     {
@@ -172,7 +180,7 @@ class NomenclatureRecensement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -195,7 +203,7 @@ class NomenclatureRecensement
     /**
      * Get dateouve
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateouve()
     {
@@ -218,7 +226,7 @@ class NomenclatureRecensement
     /**
      * Get dateclot
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateclot()
     {
@@ -241,7 +249,7 @@ class NomenclatureRecensement
     /**
      * Get codeetatrece
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetatrece()
     {
@@ -264,7 +272,7 @@ class NomenclatureRecensement
     /**
      * Get codeperisuivbudg
      *
-     * @return string 
+     * @return string
      */
     public function getCodeperisuivbudg()
     {
@@ -287,7 +295,7 @@ class NomenclatureRecensement
     /**
      * Get initques
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getInitques()
     {
@@ -310,7 +318,7 @@ class NomenclatureRecensement
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -333,7 +341,7 @@ class NomenclatureRecensement
     /**
      * Get codeperi
      *
-     * @return string 
+     * @return string
      */
     public function getCodeperi()
     {
@@ -356,7 +364,7 @@ class NomenclatureRecensement
     /**
      * Get dureperi
      *
-     * @return integer 
+     * @return integer
      */
     public function getDureperi()
     {

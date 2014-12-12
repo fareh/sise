@@ -52,3 +52,6 @@ Siseblog_EtablissementFicheetablissement:
 Siseblog_EffectifeleveListeelevedeplacerversautreetablissement:
     resource: "routing/effectifelevelisteelevedeplacerversautreetablissement.yml"
     prefix: /EffectifeleveListeelevedeplacerversautreetablissement
+Siseblog_NomenclatureRecensement:
+    resource: "routing/NomenclatureRecensement.yml"
+    prefix: /NomenclatureRecensement
