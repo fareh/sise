@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'قائمة اسمية في التلاميذ القادمين من مؤسسات أخرى', 'RouteAction' : 'effectifelevelisteeleveemmenagerdesonetablissement' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'قائمة اسمية في التلاميذ المنفصلين تلقائيا أو قانونيا قبل إنعقاد مجالس الأقسام', 'RouteAction' : 'mouvementelevelisteelevessepareavantconseilclasse' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <br>
     {% if entities is defined  and entities|length > 0 %}
