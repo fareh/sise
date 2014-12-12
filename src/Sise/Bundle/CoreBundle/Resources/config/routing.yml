@@ -43,6 +43,15 @@ SiseCoreBundle_effectiveeleveniveauscolaire:
 SiseCoreBundle_effectiveeleveeleveeablissementprivee:
     resource: "routing/effectiveeleveeleveeablissementprivee.yml"
     prefix:   /stat/effectiveeleveeleveeablissementprivee
+SiseCoreBundle_effectifelevegenreanneenaissance:
+    resource: "routing/effectifelevegenreanneenaissance.yml"
+    prefix:   /stat/effectifelevegenreanneenaissance
+SiseCoreBundle_effectifelevenouveauhuitiemetechnique:
+    resource: "routing/effectifelevenouveauhuitiemetechnique.yml"
+    prefix:   /stat/effectifelevenouveauhuitiemetechnique
+SiseCoreBundle_effectifeleveresultatconcoureducationbase:
+    resource: "routing/effectifeleveresultatconcoureducationbase.yml"
+    prefix:   /stat/effectifeleveresultatconcoureducationbase
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement
