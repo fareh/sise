@@ -1,0 +1,122 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveniveauscolaire' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    {#
+    {% if editForms|length > 0 %}
+        {% for editForm in editForms %}
+            {{ form(editForm) }}
+        {% endfor %}
+    {% endif %}#}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_upGridView">
+
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                الجدد
+                            </td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                الراسبون
+                            </td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                الجملة
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
+                                الدراسي
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد الفصول</th>
+                            <th  align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th  align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th  align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th  align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th  align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th  align="center" scope="col" style="color:White;background-color:#92B3CF;">معدل التلاميذ
+                                للفصل الواحد
+                            </th>
+                        </tr>
+                        {% for key , entity in entities %}
+
+                            <tr>
+                                <td>{{ entity.codenivescol.libenivescolar }}
+
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codefili }}|{{ entity.codenivescol.codenivescol }}">
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece|codefili|codecyclense">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="codenivescol{{ key }}"
+                                           value="{{ entity.codenivescol.codecyclense }} "
+                                           id="codenivescol{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombclasselev{{ key }}" value="{{ entity.nombclasselev }} "
+                                           id="nombclasselev{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombelevmascnouv{{ key }}"
+                                           value="{{ entity.nombelevmascnouv }} "
+                                           id="nombelevmascnouv{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombelevfeminouv{{ key }}"
+                                           value="{{ entity.nombelevfeminouv }} "
+                                           id="nombelevfeminouv{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombelevmascredo{{ key }}"
+                                           value="{{ entity.nombelevmascredo }} "
+                                           id="nombelevmascredo{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombelevfemiredo{{ key }}"
+                                           value="{{ entity.nombelevfemiredo }} "
+                                           id="nombelevfemiredo{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombtotaelevmasc{{ key }}"
+                                           value="{{ entity.nombtotaelevmasc }} "
+                                           id="nombtotaelevmasc{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombtotaelevfemi{{ key }}"
+                                           value="{{ entity.nombtotaelevfemi }} "
+                                           id="nombtotaelevfemi{{ key }}">
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombtotaelev{{ key }}" value="{{ entity.nombtotaelev }} "
+                                           id="nombtotaelev{{ key }}">
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+        </center>
+    {% endif %}
+{% endblock %}

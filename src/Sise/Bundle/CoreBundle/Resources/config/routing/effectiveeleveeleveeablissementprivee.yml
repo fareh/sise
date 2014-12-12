@@ -1,0 +1,17 @@
+effectiveeleveeleveeablissementprivee_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveeablissementprivee:edit" }
+
+effectiveeleveeleveeablissementprivee_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveeablissementprivee:list" }
+
+effectiveeleveeleveeablissementprivee_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveeablissementprivee:update" }
+    requirements: { _method: post|put }
+
+effectiveeleveeleveeablissementprivee_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveeablissementprivee:delete" }
+    requirements: { _method: post|delete }
