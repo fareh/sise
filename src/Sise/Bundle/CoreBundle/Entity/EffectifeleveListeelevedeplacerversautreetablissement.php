@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectifeleveListeelevedeplacerversautreetablissement
  *
- * @ORM\Table(name="effectifeleve_listeelevedeplacerversautreetablissement", indexes={@ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome56", columns={"CodeEtabAutr", "CodeTypeEtabAutr"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome57", columns={"CodeFili"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome58", columns={"CodeGenr"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome59", columns={"CodeRece"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome60", columns={"CodeTypeEtabAutr"})})
+ * @ORM\Table(name="effectifeleve_listeelevedeplacerversautreetablissement")
  * @ORM\Entity
  */
 class EffectifeleveListeelevedeplacerversautreetablissement
@@ -67,7 +67,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureGenre
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureGenre")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
      * })
@@ -75,9 +75,13 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     private $codegenr;
 
     /**
-     * @var string
+     * @var \NomenclatureNiveauscolaire
      *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
+     * })
      */
     private $codenivescol;
 
@@ -85,7 +89,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureFiliere
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
      * })
@@ -95,7 +99,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureEtablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeEtabAutr", referencedColumnName="CodeEtab"),
      *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
@@ -106,7 +110,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureTypeetablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
      * })

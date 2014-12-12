@@ -47,6 +47,9 @@ class NomenclatureNiveauscolaire
      */
     private $codecyclense;
 
+
+
+
     /**
      * @var string
      *

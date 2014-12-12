@@ -78,6 +78,8 @@ $(function () {
     $.datepicker.setDefaults($.datepicker.regional['ar-TN']);
     $("#sise_corebundle_nomenclatureetablissement_datecons").datepicker();
     $("#sise_corebundle_nomenclatureetablissement_datecrea").datepicker();
+    $("#sise_sisebundle_nomenclaturerecensement_dateclot").datepicker();
+    $("#sise_sisebundle_nomenclaturerecensement_dateouve").datepicker();
 });
 
 $(function () {
