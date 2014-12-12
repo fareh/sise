@@ -1,0 +1,17 @@
+effectifeleveresultatconcoureducationbase_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResultatconcoureducationbase:edit" }
+
+effectifeleveresultatconcoureducationbase_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResultatconcoureducationbase:list" }
+
+effectifeleveresultatconcoureducationbase_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResultatconcoureducationbase:update" }
+    requirements: { _method: post|put|get }
+
+effectifeleveresultatconcoureducationbase_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResultatconcoureducationbase:delete" }
+    requirements: { _method: post|delete }

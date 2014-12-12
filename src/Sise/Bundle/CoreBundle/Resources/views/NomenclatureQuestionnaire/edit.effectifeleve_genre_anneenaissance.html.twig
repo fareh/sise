@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevefilstravailleuretrangercycleenseignement' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_upGridView">
+
+                <div>
+                    <form action="{{ pathUpdate }}" method="post"  class="well form-search" id="id_with_js">
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="4"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                        </tr>
+
+                        {% for key , entity  in entities %}
+                            <tr>
+                                <td>{{ entity.codecyclense.libecyclensear }}
+
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codecyclense.codecyclense }}">
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece|codecyclense">
+
+                                </td>
+                                <td align="right">
+                                    <input type="text" name="nombelevmasc{{ key }}" value="{{ entity.nombelevmasc }} "
+                                           id="nombelevmasc{{ key }}"
+                                           onchange="javascript:txtChanged('nombelevmasc{{ key }}','nombelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
+                                </td>
+                                <td align="right">
+
+                                    <input type="text" name="nombelevfemi{{ key }}" value="{{ entity.nombelevfemi }} "
+                                           id="nombelevfemi{{ key }}"
+                                           onchange="javascript:txtChanged('nombelevmasc{{ key }}','nombelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
+                                </td>
+                                <td align="right" style="background-color:#EEEEEE;">
+                                    <input type="text" name="nombtotaelev{{ key }}" value="{{ entity.nombtotaelev }} "
+                                           id="nombtotaelev{{ key }}">
+                                </td>
+                            </tr>
+
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </form>
+                </div>
+
+            </div>
+        </center>
+    {% endif %}
+{% endblock %}

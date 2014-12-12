@@ -47,37 +47,32 @@
                             <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
                             <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
                         </tr>
-                        <tr>
-                            <td rowspan="3">المرحلة ثانية من التعليم الأساسي</td>
-                            <td>سنة سابعة</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                        </tr>
-                        <tr>
-                            <td>سنة ثامنة</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                        </tr>
-                        <tr>
-                            <td>سنة تاسعة</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                            <td align="right" style="background-color:#EEEEEE;">0</td>
-                        </tr>
+                        {% set  cycleenseigenement = 9999999 %}
+                        {% for key ,  codenivescol in codenivescols %}
+                            {% for key1,   codeniv in codenivescol %}
+                                <tr>
+                                    {% if  key !=  cycleenseigenement %}
+                                        {% set cycleenseigenement  = key %}
+                                        <td rowspan="{{ codenivescol|length }}">{{ cycleenseignement[key].libecyclensear }}</td>
+
+                                    {% endif %}
+                                    <td>
+                                        {{ codeniv.libenivescolar }}
+                                    </td>
+                                    <td align="right">{{ etablissementprivee[key1].nombelevmascnouv }}</td>
+                                    <td align="right">{{ etablissementprivee[key1].nombelevfeminouv }}</td>
+                                    <td align="right">{{ etablissementprivee[key1].nombelevmascredo }}</td>
+                                    <td align="right">{{ etablissementprivee[key1].nombelevfemiredo }}</td>
+                                    <td align="right"
+                                        style="background-color:#EEEEEE;">{{ etablissementprivee[key1].nombtotaelevmasc }}</td>
+                                    <td align="right"
+                                        style="background-color:#EEEEEE;">{{ etablissementprivee[key1].nombtotaelevfemi }}</td>
+                                    <td align="right"
+                                        style="background-color:#EEEEEE;">{{ etablissementprivee[key1].nombtotaelev }}</td>
+
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

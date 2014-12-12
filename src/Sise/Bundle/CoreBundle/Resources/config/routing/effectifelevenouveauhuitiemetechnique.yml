@@ -1,0 +1,17 @@
+effectifelevenouveauhuitiemetechnique_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique:edit" }
+
+effectifelevenouveauhuitiemetechnique_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique:list" }
+
+effectifelevenouveauhuitiemetechnique_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique:update" }
+    requirements: { _method: post|put|get }
+
+effectifelevenouveauhuitiemetechnique_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique:delete" }
+    requirements: { _method: post|delete }

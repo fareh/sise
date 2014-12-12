@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevegenreanneenaissance' })) }}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if genreAnneenaissance is defined  and genreAnneenaissance|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_upGridView">
+
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="4"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">سنـــة
+                                الــولادة
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                        </tr>
+                        {% set nombelevmasc = 0 %}
+                        {% set nombelevfemi = 0 %}
+                        {% set nombtota = 0 %}
+
+                        {% for key ,  genre in genreAnneenaissance %}
+                        <tr>
+                           <td>{{ anneenaissance[key].libeannenaisar }} </td>
+                            <td align="right">{{ genre.nombelevmasc }}    {% set nombelevmasc = genre.nombelevmasc + nombelevmasc %}  </td>
+                            <td align="right">{{ genre.nombelevfemi }}
+
+                                {% set nombelevfemi = genre.nombelevfemi + nombelevfemi %}
+                            </td>
+                            <td align="right" style="background-color:#EEEEEE;">{{ genre.nombtota }}    {% set nombtota = genre.nombtota + nombtota %}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr align="center"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                            <td>الجملة:</td>
+                            <td>{{ nombelevmasc }}</td>
+                            <td>{{ nombelevfemi }}</td>
+                            <td>{{ nombtota }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </center>
+    {% endif %}
+{% endblock %}
