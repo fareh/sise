@@ -1,0 +1,30 @@
+mouvementelevelisteelevessepareavantconseilclasse_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:index" }
+
+mouvementelevelisteelevessepareavantconseilclasse_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:show" }
+
+mouvementelevelisteelevessepareavantconseilclasse_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:new" }
+
+mouvementelevelisteelevessepareavantconseilclasse_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:create" }
+    requirements: { _method: post }
+
+mouvementelevelisteelevessepareavantconseilclasse_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:edit" }
+
+mouvementelevelisteelevessepareavantconseilclasse_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:update" }
+    requirements: { _method: post|put }
+
+mouvementelevelisteelevessepareavantconseilclasse_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:delete" }
+    requirements: { _method: post|delete }

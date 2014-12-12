@@ -61,3 +61,9 @@ Siseblog_NomenclatureRecensement:
 Siseblog_EffectifeleveListeeleveemmenagerdesonetablissement:
     resource: "routing/effectifelevelisteeleveemmenagerdesonetablissement.yml"
     prefix: /EffectifeleveListeeleveemmenagerdesonetablissement
+Siseblog_EffectifeleveListeeleveexeclus:
+    resource: "routing/effectifelevelisteeleveexeclus.yml"
+    prefix: /EffectifeleveListeeleveexeclus
+Siseblog_MouvementeleveListeelevessepareavantconseilclasse:
+    resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
+    prefix: /MouvementeleveListeelevessepareavantconseilclasse
