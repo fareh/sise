@@ -30,12 +30,12 @@ class EffectifeleveListeelevedeplacerversautreetablissementController extends Co
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
         }
-       // $annescol = $session->get('AnneScol');
-        //$coderece = $session->get('CodeRece');
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
         }
 
        // $entities = $em->getRepository('SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement')->findBy(array('annescol' => $annescol, 'coderece' => $coderece));

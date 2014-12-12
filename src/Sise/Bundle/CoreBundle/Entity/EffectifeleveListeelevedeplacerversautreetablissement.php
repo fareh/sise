@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectifeleveListeelevedeplacerversautreetablissement
  *
- * @ORM\Table(name="effectifeleve_listeelevedeplacerversautreetablissement", indexes={@ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome56", columns={"CodeEtabAutr", "CodeTypeEtabAutr"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome57", columns={"CodeFili"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome58", columns={"CodeGenr"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome59", columns={"CodeRece"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveDeplacerVersAutreEtablissement_Nome60", columns={"CodeTypeEtabAutr"})})
+ * @ORM\Table(name="effectifeleve_listeelevedeplacerversautreetablissement")
  * @ORM\Entity
  */
 class EffectifeleveListeelevedeplacerversautreetablissement
@@ -75,9 +75,13 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     private $codegenr;
 
     /**
-     * @var string
+     * @var \NomenclatureNiveauscolaire
      *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
+     * })
      */
     private $codenivescol;
 
