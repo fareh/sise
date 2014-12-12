@@ -36,13 +36,9 @@ class NomenclatureRecensement
     private $liberecefr;
 
     /**
-     * @var \ParametreAnneescolaire
+     * @var integer
      *
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ParametreAnneescolaire")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="CodeAnneScol"),
-     * })
+     * @ORM\Column(name="AnneScol", type="integer", nullable=false)
      */
     private $annescol;
 
@@ -61,13 +57,9 @@ class NomenclatureRecensement
     private $dateclot;
 
     /**
-     * @var \NomenclatureEtatrecensement
+     * @var string
      *
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureEtatrecensement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeEtatRece", referencedColumnName="CodeEtatRece"),
-     * })
+     * @ORM\Column(name="CodeEtatRece", type="string", length=50, nullable=true)
      */
     private $codeetatrece;
 
