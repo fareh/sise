@@ -1,6 +1,6 @@
 <?php
 
-namespace Sise\SiseBundle\Form;
+namespace Sise\Bundle\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,7 +35,7 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\SiseBundle\Entity\MouvementeleveListeelevessepareavantconseilclasse'
+            'data_class' => 'Sise\CoreBundle\Entity\MouvementeleveListeelevessepareavantconseilclasse'
         ));
     }
 
@@ -44,6 +44,6 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_sisebundle_mouvementelevelisteelevessepareavantconseilclasse';
+        return 'sise_Corebundle_mouvementelevelisteelevessepareavantconseilclasse';
     }
 }

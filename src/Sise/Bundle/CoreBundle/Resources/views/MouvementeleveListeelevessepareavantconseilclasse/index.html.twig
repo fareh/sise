@@ -4,6 +4,7 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'قائمة اسمية في التلاميذ القادمين من مؤسسات أخرى', 'RouteAction' : 'effectifelevelisteeleveemmenagerdesonetablissement' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <br>
+    {% if entities is defined  and entities|length > 0 %}
     <table cellspacing="0" rules="all" border="1" id="CPHMain_GridView_Browse" style="width:100%;border-collapse:collapse;">
         <tbody><tr>
             <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
@@ -26,7 +27,7 @@
         </tr>
             {% for key, entity in entities %}
         <tr>
-            <td>{{ entity.numeelev }}</td>
+            <td>{{ entity.numeleve}}</td>
             <td>{{ entity.nomprenelev }}</td>
             <td>
                 {#{% if entity.codegenr = 'M' %}#}
@@ -36,9 +37,17 @@
                 <input type="checkbox" {{ entity.codegenr.codegenr == 'F' ? 'checked="checked"' :'' }} disabled="disabled">
                 {#{% endif %}#}
             </td>
+            <td>{{ entity.codenivescol.libenivescolar }}</td>
             <td>{{ entity.codefili.libefiliar }}</td>
-            <td>{{ entity.codetypeetabautr.libetypeetabar }}</td>
-            <td>{{ entity.codeetabautr.libeetabar }}</td>
+            <td>{{ entity.datesepa }}</td>
+            <td>
+                {#{% if entity.codegenr = 'M' %}#}
+                <input type="checkbox" {{ entity.codetypesepa.codetypesepa == '0' ? 'checked="checked"' :'' }} disabled="disabled">
+            </td>
+            <td>
+                <input type="checkbox" {{ entity.codetypesepa.codetypesepa == '1' ? 'checked="checked"' :'' }} disabled="disabled">
+                {#{% endif %}#}
+            </td>
         </tr>
         {% endfor %}
         </tbody>

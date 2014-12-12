@@ -49,11 +49,18 @@ class MouvementeleveListeelevessepareavantconseilclasse
     private $coderece;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumeElev", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $numeleve;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="NomPrenElev", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $nomprenelev;
     /**
@@ -105,16 +112,6 @@ class MouvementeleveListeelevessepareavantconseilclasse
      * })
      */
     private $codefili;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="NumEleve", type="integer", nullable=false)
-     */
-    private $numeleve;
-
-
-
     /**
      * Set codeetab
      *

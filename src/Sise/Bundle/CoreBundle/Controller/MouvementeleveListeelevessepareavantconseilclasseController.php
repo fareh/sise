@@ -35,11 +35,11 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+        $entities = $em->getRepository('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
         }
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:index.html.twig', array(
-            'entities' => @$entities,
+            'entities' => $entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
         ));
