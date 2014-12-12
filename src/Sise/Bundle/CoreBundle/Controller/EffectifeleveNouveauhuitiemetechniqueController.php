@@ -52,7 +52,7 @@ class EffectifeleveNouveauhuitiemetechniqueController  extends Controller{
             $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveauhuitiemetechnique');
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_nouveauhuitiemetechnique.html.twig', array(
             'entities' => @$entities,
@@ -93,7 +93,7 @@ class EffectifeleveNouveauhuitiemetechniqueController  extends Controller{
             }
             return $this->redirect($this->generateUrl('effectifelevenouveauhuitiemetechnique_edit'));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveauhuitiemetechnique');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_nouveauhuitiemetechnique.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
@@ -127,7 +127,7 @@ class EffectifeleveNouveauhuitiemetechniqueController  extends Controller{
         }
 
 
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveauhuitiemetechnique');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_nouveauhuitiemetechnique.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),

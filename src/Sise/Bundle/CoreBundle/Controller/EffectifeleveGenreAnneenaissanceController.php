@@ -126,7 +126,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
             // $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             $query = $em->createQuery(
                 '      	 SELECT P ,  F2
-		   FROM SiseCoreBundle:EffectifEleveGenreAnneeNaissance P
+		   FROM SiseCoreBundle:EffectifeleveGenreAnneenaissance P
 		   INNER JOIN SiseCoreBundle:NomenclatureAnneeNaissance F2 WITH P.codeannenais = F2.codeannenais
 		   WHERE
 				P.codeetab= :CodeEtab
