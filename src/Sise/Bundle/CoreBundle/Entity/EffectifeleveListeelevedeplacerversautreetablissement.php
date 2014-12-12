@@ -67,7 +67,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureGenre
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureGenre")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
      * })
@@ -89,7 +89,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureFiliere
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
      * })
@@ -99,7 +99,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureEtablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeEtabAutr", referencedColumnName="CodeEtab"),
      *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
@@ -110,7 +110,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @var \NomenclatureTypeetablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
      * })
