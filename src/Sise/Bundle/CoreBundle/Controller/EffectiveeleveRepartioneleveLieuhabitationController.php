@@ -51,11 +51,13 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_repartioneleve_lieuhabitation');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_repartioneleve_lieuhabitation.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -91,11 +93,14 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
                 $em->flush();
             }
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_repartioneleve_lieuhabitation');
+
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_repartioneleve_lieuhabitation.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
+            'nameclass'=>$nameclass
         ));
     }
 
@@ -124,10 +129,12 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation')->findBy(array('annescol' => 2014, 'coderece' => 1111, 'codeetab' => 100115, 'codetypeetab' => 10));
 
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_repartioneleve_lieuhabitation');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveeleve_repartioneleve_lieuhabitation.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'nameclass'=>$nameclass
         ));
     }
 

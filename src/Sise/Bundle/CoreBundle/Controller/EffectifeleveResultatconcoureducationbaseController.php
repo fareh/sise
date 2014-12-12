@@ -51,7 +51,7 @@ class EffectifeleveResultatconcoureducationbaseController  extends Controller{
             $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveResultatconcoureducationbase')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_resultatconcoureducationbase');
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_resultatconcoureducationbase.html.twig', array(
             'entities' => @$entities,
@@ -92,7 +92,7 @@ class EffectifeleveResultatconcoureducationbaseController  extends Controller{
             }
             return $this->redirect($this->generateUrl('effectifeleveresultatconcoureducationbase_edit'));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_resultatconcoureducationbase');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_resultatconcoureducationbase.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
@@ -126,7 +126,7 @@ class EffectifeleveResultatconcoureducationbaseController  extends Controller{
         }
 
 
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_resultatconcoureducationbase');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_resultatconcoureducationbase.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
