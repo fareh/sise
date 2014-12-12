@@ -20,7 +20,6 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetab;
-
     /**
      * @var string
      *
@@ -65,9 +64,13 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     private $nomprenelev;
 
     /**
-     * @var string
+     * @var \NomenclatureGenre
      *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 
@@ -79,23 +82,34 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     private $codenivescol;
 
     /**
-     * @var string
+     * @var \NomenclatureFiliere
      *
-     * @ORM\Column(name="CodeFili", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
+     * })
      */
     private $codefili;
-
     /**
-     * @var string
+     * @var \NomenclatureEtablissement
      *
-     * @ORM\Column(name="CodeEtabAutr", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtabAutr", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codeetabautr;
-
     /**
-     * @var string
+     * @var \NomenclatureTypeetablissement
      *
-     * @ORM\Column(name="CodeTypeEtabAutr", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codetypeetabautr;
 
