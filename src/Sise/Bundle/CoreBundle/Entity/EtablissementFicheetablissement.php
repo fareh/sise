@@ -26,7 +26,7 @@ class EtablissementFicheetablissement
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
      * })
@@ -486,7 +486,7 @@ class EtablissementFicheetablissement
      * @var \NomenclatureEtablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
      *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),

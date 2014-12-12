@@ -56,11 +56,14 @@ class MouvementeleveListeelevessepareavantconseilclasse
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $nomprenelev;
-
     /**
-     * @var string
+     * @var \NomenclatureGenre
      *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 
@@ -72,23 +75,34 @@ class MouvementeleveListeelevessepareavantconseilclasse
     private $datesepa;
 
     /**
-     * @var string
+     * @var \NomenclatureTypeseparation
      *
-     * @ORM\Column(name="CodeTypeSepa", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeseparation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeSepa", referencedColumnName="CodeTypeSepa")
+     * })
      */
     private $codetypesepa;
 
     /**
-     * @var string
+     * @var \NomenclatureNiveauscolaire
      *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
+     * })
      */
     private $codenivescol;
 
     /**
-     * @var string
+     * @var \NomenclatureFiliere
      *
-     * @ORM\Column(name="CodeFili", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
+     * })
      */
     private $codefili;
 

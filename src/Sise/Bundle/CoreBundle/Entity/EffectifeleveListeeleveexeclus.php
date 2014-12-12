@@ -65,23 +65,35 @@ class EffectifeleveListeeleveexeclus
     private $nomprenelev;
 
     /**
-     * @var string
+     * @var \NomenclatureGenre
      *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 
     /**
-     * @var string
+     * @var \NomenclatureNiveauscolaire
      *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
+     * })
      */
     private $codenivescol;
 
     /**
-     * @var string
+     * @var \NomenclatureFiliere
      *
-     * @ORM\Column(name="CodeFili", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
+     * })
      */
     private $codefili;
 

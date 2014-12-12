@@ -103,7 +103,7 @@ class NomenclatureRecensement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -126,7 +126,7 @@ class NomenclatureRecensement
     /**
      * Get liberecear
      *
-     * @return string 
+     * @return string
      */
     public function getLiberecear()
     {
@@ -149,7 +149,7 @@ class NomenclatureRecensement
     /**
      * Get liberecefr
      *
-     * @return string 
+     * @return string
      */
     public function getLiberecefr()
     {
@@ -172,7 +172,7 @@ class NomenclatureRecensement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -195,7 +195,7 @@ class NomenclatureRecensement
     /**
      * Get dateouve
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateouve()
     {
@@ -218,7 +218,7 @@ class NomenclatureRecensement
     /**
      * Get dateclot
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateclot()
     {
@@ -241,7 +241,7 @@ class NomenclatureRecensement
     /**
      * Get codeetatrece
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetatrece()
     {
@@ -264,7 +264,7 @@ class NomenclatureRecensement
     /**
      * Get codeperisuivbudg
      *
-     * @return string 
+     * @return string
      */
     public function getCodeperisuivbudg()
     {
@@ -287,7 +287,7 @@ class NomenclatureRecensement
     /**
      * Get initques
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getInitques()
     {
@@ -310,7 +310,7 @@ class NomenclatureRecensement
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -333,7 +333,7 @@ class NomenclatureRecensement
     /**
      * Get codeperi
      *
-     * @return string 
+     * @return string
      */
     public function getCodeperi()
     {
@@ -356,7 +356,7 @@ class NomenclatureRecensement
     /**
      * Get dureperi
      *
-     * @return integer 
+     * @return integer
      */
     public function getDureperi()
     {

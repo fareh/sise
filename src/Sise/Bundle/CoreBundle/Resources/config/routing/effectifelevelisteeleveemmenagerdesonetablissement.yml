@@ -1,0 +1,30 @@
+effectifelevelisteeleveemmenagerdesonetablissement_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:index" }
+
+effectifelevelisteeleveemmenagerdesonetablissement_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:show" }
+
+effectifelevelisteeleveemmenagerdesonetablissement_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:new" }
+
+effectifelevelisteeleveemmenagerdesonetablissement_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:create" }
+    requirements: { _method: post }
+
+effectifelevelisteeleveemmenagerdesonetablissement_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:edit" }
+
+effectifelevelisteeleveemmenagerdesonetablissement_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:update" }
+    requirements: { _method: post|put }
+
+effectifelevelisteeleveemmenagerdesonetablissement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:delete" }
+    requirements: { _method: post|delete }

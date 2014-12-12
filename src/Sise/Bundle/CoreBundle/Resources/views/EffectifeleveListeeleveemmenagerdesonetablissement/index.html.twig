@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'قائمة اسمية في التلاميذ القادمين من مؤسسات أخرى', 'RouteAction' : 'effectifelevelisteeleveemmenagerdesonetablissement' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+<br>
+{% if entities is defined  and entities|length > 0 %}
+<table class="records_list"cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+    <tbody><tr>
+        <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+        <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">النوع</td>
+        <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">اسم المؤسسة التي انتقل إليها و الرمزها</td>
+    </tr><tr>
+        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع/ ر</th>
+        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإسم واللقب</th>
+        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الشعبة</th>
+        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">نوع المؤسسة</th>
+        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">المؤسسة</th>
+    </tr>
+    {% for key, entity in entities %}
+        <tr>
+            <td>{{ entity.numeelev }}</td>
+            <td>{{ entity.nomprenelev }}</td>
+            <td>
+                {#{% if entity.codegenr = 'M' %}#}
+                <input type="checkbox" {{ entity.codegenr.codegenr == 'M' ? 'checked="checked"' :'' }} disabled="disabled">
+            </td>
+            <td>
+                <input type="checkbox" {{ entity.codegenr.codegenr == 'F' ? 'checked="checked"' :'' }} disabled="disabled">
+                {#{% endif %}#}
+            </td>
+            <td>{{ entity.codefili.libefiliar }}</td>
+            <td>{{ entity.codetypeetabautr.libetypeetabar }}</td>
+            <td>{{ entity.codeetabautr.libeetabar }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+    {% endblock %}

@@ -1,0 +1,30 @@
+effectifelevelisteeleveexeclus_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:index" }
+
+effectifelevelisteeleveexeclus_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:show" }
+
+effectifelevelisteeleveexeclus_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:new" }
+
+effectifelevelisteeleveexeclus_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:create" }
+    requirements: { _method: post }
+
+effectifelevelisteeleveexeclus_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:edit" }
+
+effectifelevelisteeleveexeclus_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:update" }
+    requirements: { _method: post|put }
+
+effectifelevelisteeleveexeclus_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:delete" }
+    requirements: { _method: post|delete }
