@@ -83,7 +83,7 @@ class EffectifeleveResidantboursierCycleenseignementController extends Controlle
         $url = $this->generateUrl('effectifeleveresidantboursiercycleenseignement_edit');
         $pathUpdate = $this->generateUrl('effectifeleveresidantboursiercycleenseignement_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement')->findOneBy($items);

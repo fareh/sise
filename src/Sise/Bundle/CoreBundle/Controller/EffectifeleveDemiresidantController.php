@@ -49,7 +49,7 @@ class EffectifeleveDemiresidantController extends Controller
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_demiresidant');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_demiresidant.html.twig', array(
@@ -79,7 +79,7 @@ class EffectifeleveDemiresidantController extends Controller
         $url = $this->generateUrl('effectifelevedemiresidant_edit');
         $pathUpdate = $this->generateUrl('effectifelevedemiresidant_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findOneBy($items);
@@ -123,7 +123,7 @@ class EffectifeleveDemiresidantController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveDemiresidant')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_demiresidant');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_demiresidant.html.twig', array(
