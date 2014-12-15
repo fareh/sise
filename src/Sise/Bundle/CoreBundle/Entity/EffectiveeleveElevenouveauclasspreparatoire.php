@@ -251,4 +251,27 @@ class EffectiveeleveElevenouveauclasspreparatoire
     {
         return $this->nombtotaelev;
     }
+
+    /**
+     * Set codesourprov
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSourceprovonance $codesourprov
+     * @return EffectiveeleveElevenouveauclasspreparatoire
+     */
+    public function setCodesourprov(\Sise\Bundle\CoreBundle\Entity\NomenclatureSourceprovonance $codesourprov)
+    {
+        $this->codesourprov = $codesourprov;
+
+        return $this;
+    }
+
+    /**
+     * Get codesourprov
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSourceprovonance 
+     */
+    public function getCodesourprov()
+    {
+        return $this->codesourprov;
+    }
 }

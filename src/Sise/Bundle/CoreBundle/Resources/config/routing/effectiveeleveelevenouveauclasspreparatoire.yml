@@ -1,0 +1,17 @@
+effectiveeleveelevenouveauclasspreparatoire_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire:edit" }
+
+effectiveeleveelevenouveauclasspreparatoire_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire:list" }
+
+effectiveeleveelevenouveauclasspreparatoire_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire:update" }
+    requirements: { _method: post|put }
+
+effectiveeleveelevenouveauclasspreparatoire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire:delete" }
+    requirements: { _method: post|delete }
