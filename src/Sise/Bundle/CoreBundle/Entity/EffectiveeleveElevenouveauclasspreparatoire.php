@@ -55,7 +55,17 @@ class EffectiveeleveElevenouveauclasspreparatoire
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $codesourprov;
+   // private $codesourprov;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="NomenclatureSourceprovonance")
+     * @ORM\JoinColumn(name="CodeSourProv", referencedColumnName="CodeSourProv")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+     private $codesourprov;
+
 
     /**
      * @var integer
@@ -172,28 +182,6 @@ class EffectiveeleveElevenouveauclasspreparatoire
         return $this->coderece;
     }
 
-    /**
-     * Set codesourprov
-     *
-     * @param string $codesourprov
-     * @return EffectiveeleveElevenouveauclasspreparatoire
-     */
-    public function setCodesourprov($codesourprov)
-    {
-        $this->codesourprov = $codesourprov;
-
-        return $this;
-    }
-
-    /**
-     * Get codesourprov
-     *
-     * @return string 
-     */
-    public function getCodesourprov()
-    {
-        return $this->codesourprov;
-    }
 
     /**
      * Set nombelevmasc

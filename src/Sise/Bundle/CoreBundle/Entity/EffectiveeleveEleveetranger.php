@@ -64,7 +64,18 @@ class EffectiveeleveEleveetranger
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
+   // private $codenati;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="NomenclatureNationalite")
+     * @ORM\JoinColumn(name="CodeNati", referencedColumnName="CodeNati")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
     private $codenati;
+
+
 
     /**
      * @var integer
@@ -204,28 +215,7 @@ class EffectiveeleveEleveetranger
         return $this->codecyclense;
     }
 
-    /**
-     * Set codenati
-     *
-     * @param string $codenati
-     * @return EffectiveeleveEleveetranger
-     */
-    public function setCodenati($codenati)
-    {
-        $this->codenati = $codenati;
 
-        return $this;
-    }
-
-    /**
-     * Get codenati
-     *
-     * @return string 
-     */
-    public function getCodenati()
-    {
-        return $this->codenati;
-    }
 
     /**
      * Set nombelevmasc
@@ -294,5 +284,28 @@ class EffectiveeleveEleveetranger
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codenati
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite $codenati
+     * @return EffectiveeleveEleveetranger
+     */
+    public function setCodenati(\Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite $codenati)
+    {
+        $this->codenati = $codenati;
+
+        return $this;
+    }
+
+    /**
+     * Get codenati
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite 
+     */
+    public function getCodenati()
+    {
+        return $this->codenati;
     }
 }

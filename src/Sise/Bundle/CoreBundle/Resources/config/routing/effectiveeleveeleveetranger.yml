@@ -1,0 +1,17 @@
+effectiveeleveeleveetranger_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveetranger:edit" }
+
+effectiveeleveeleveetranger_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveetranger:list" }
+
+effectiveeleveeleveetranger_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveetranger:update" }
+    requirements: { _method: post|put }
+
+effectiveeleveeleveetranger_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveetranger:delete" }
+    requirements: { _method: post|delete }
