@@ -1,0 +1,17 @@
+effectiveelevelisteelevehandicap_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:edit" }
+
+effectiveelevelisteelevehandicap_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:list" }
+
+effectiveelevelisteelevehandicap_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:update" }
+    requirements: { _method: post|put }
+
+effectiveelevelisteelevehandicap_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:delete" }
+    requirements: { _method: post|delete }
