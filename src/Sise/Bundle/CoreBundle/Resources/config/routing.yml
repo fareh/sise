@@ -88,3 +88,6 @@ Siseblog_EffectifeleveListeeleveexeclus:
 Siseblog_MouvementeleveListeelevessepareavantconseilclasse:
     resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
     prefix: /MouvementeleveListeelevessepareavantconseilclasse
+Siseblog_MouvementeleveRecapmouvmenteleve:
+    resource: "routing/mouvementeleverecapmouvmenteleve.yml"
+    prefix: /MouvementeleveRecapmouvmenteleve

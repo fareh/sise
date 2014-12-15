@@ -39,7 +39,7 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
         }
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
         ));

@@ -49,29 +49,35 @@ class MouvementeleveRecapmouvmenteleve
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeFili", type="string", length=50, nullable=false)
-     * @ORM\Id
+     * @var \NomenclatureFiliere
+     *@ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
+     * })
      */
     private $codefili;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
-     * @ORM\Id
+     * @var \NomenclatureNiveauscolaire
+     *@ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
+     * })
      */
     private $codenivescol;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=false)
-     * @ORM\Id
+     * @var \NomenclatureGenre
+     *@ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 

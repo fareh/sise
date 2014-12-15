@@ -1,0 +1,166 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'حوصلة حركة التلاميذ من 17 أكتوبر إلى 30 جوان ونتائج آخر السنة', 'RouteAction' : 'mouvementeleverecapmouvmenteleve' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    <br>
+    {% if entities is defined  and entities|length > 0 %}
+        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+            <thead>
+            {% for key, entity in entities %}
+                {% if key == '0' %}
+                    <tr>
+                        <th align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></th>
+                        <th align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></th>
+                        <th align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></th>
+                        <th align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></th>
+                        <th align="center" colspan="4"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;">
+                            حركــة التلاميــــذ
+                        </th>
+                        <th align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></th>
+                        <th align="center" colspan="4"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;">
+                            نتائج مجالس الأقسام في 30 جوان
+                        </th>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي
+                        </th>
+                        {% if entity.codenivescol.codecyclense == '2' %}
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الشعبة</th>
+                        {% endif %}
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">النوع</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد التلاميذ في
+                            10/16
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">قادمون</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">منتقلون</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">منفصلون تلقائيا
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">مفصولون قانونيا
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد التلاميذ في 30
+                            جوان
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">مرتقون</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">راسبون</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">مرفوتون</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+            </thead>
+            <tbody>
+            {% set codenivescolprec='' %}
+            {% set codefiliprec='' %}
+
+            {% set Totalnombelev16octobre=0 %}
+            {% set Totalnombelevvenaautretab=0 %}
+            {% set Totalnombelevdeplautretab=0 %}
+            {% set Totalnombelevsepa=0 %}
+            {% set Totalnombelevexcl=0 %}
+            {% set Totalnombelev30juin=0 %}
+            {% set Totalnombelevreus=0 %}
+            {% set Totalnombelevredo=0 %}
+            {% set Totalnombelevexcl30juin=0 %}
+            {% set Totalnombtotaelev=0 %}
+
+            {% for key, entity in entities %}
+                {% set Totalnombelev16octobre=Totalnombelev16octobre+entity.nombelev16octobre  %}
+                {% set Totalnombelevvenaautretab=Totalnombelevvenaautretab+ entity.nombelevvenaautretab %}
+                {% set Totalnombelevdeplautretab=Totalnombelevdeplautretab+entity.nombelevdeplautretab  %}
+                {% set Totalnombelevsepa=Totalnombelevsepa+entity.nombelevsepa  %}
+                {% set Totalnombelevexcl=Totalnombelevexcl+entity.nombelevexcl %}
+                {% set Totalnombelev30juin=Totalnombelev30juin+entity.nombelev30juin %}
+                {% set Totalnombelevreus=Totalnombelevreus+entity.nombelevreus  %}
+                {% set Totalnombelevredo=Totalnombelevredo+entity.nombelevredo  %}
+                {% set Totalnombelevexcl30juin=Totalnombelevexcl30juin+entity.nombelevexcl30juin %}
+                {% set Totalnombtotaelev=Totalnombtotaelev+entity.nombtotaelev %}
+
+                <tr>
+                    {#<td>{{ entity.codenivescol.libenivescolar }} </td>#}
+                    {% if codenivescolprec!=entity.codenivescol.codenivescol %}
+                        {% set  codenivescolprec=entity.codenivescol.codenivescol %}
+
+                        {% set rowspan= 1 %}
+                        {% for key, entity2 in entities %}
+                            {% if entity2.codenivescol.codenivescol==codenivescolprec %}
+                                {% set rowspan=rowspan+ 1 %}
+                            {% endif %}
+                        {% endfor %}
+
+
+                        <td rowspan="{{ rowspan }}">{{ entity.codenivescol.libenivescolar }}  </td>
+
+                    {% endif %}
+
+                    {% if entity.codenivescol.codecyclense == '2' %}
+
+                        {% if codefiliprec!=entity.codefili.codefili %}
+                            {% set  codefiliprec=entity.codefili.codefili %}
+
+                            {% set rowspan1= 1 %}
+                            {% for key, entity2 in entities %}
+                                {% if entity2.codefili.codefili==codefiliprec %}
+                                    {% set rowspan1=rowspan1+ 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            <td rowspan="{{ rowspan1 }}">{{ entity.codefili.libefiliar }}</td>
+                        {% endif %}
+
+                    {% endif %}
+                    {% if entity.codegenr.codegenr == 'M' %}
+                        <td>{{ entity.codegenr.libegenrar }}</td>
+                        <td>{{ entity.nombelev16octobre }}</td>
+                        <td>{{ entity.nombelevvenaautretab }}</td>
+                        <td>{{ entity.nombelevdeplautretab }}</td>
+                        <td>{{ entity.nombelevsepa }}</td>
+                        <td>{{ entity.nombelevexcl }}</td>
+                        <td>{{ entity.nombelev30juin }}</td>
+                        <td>{{ entity.nombelevreus }}</td>
+                        <td>{{ entity.nombelevredo }}</td>
+                        <td>{{ entity.nombelevexcl30juin }}</td>
+                        <td>{{ entity.nombtotaelev }}</td>
+                    {% else %}
+                        <td>{{ entity.codegenr.libegenrar }}</td>
+                        <td>{{ entity.nombelev16octobre }}</td>
+                        <td>{{ entity.nombelevvenaautretab }}</td>
+                        <td>{{ entity.nombelevdeplautretab }}</td>
+                        <td>{{ entity.nombelevsepa }}</td>
+                        <td>{{ entity.nombelevexcl }}</td>
+                        <td>{{ entity.nombelev30juin }}</td>
+                        <td>{{ entity.nombelevreus }}</td>
+                        <td>{{ entity.nombelevredo }}</td>
+                        <td>{{ entity.nombelevexcl30juin }}</td>
+                        <td>{{ entity.nombtotaelev }}</td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+            <tr></tr>
+            <tr align="center" style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                <td>الجملة:</td>
+                <td></td>
+                <td>{{ Totalnombelev16octobre }}  </td>
+                <td>{{ Totalnombelevvenaautretab }}</td>
+                <td>{{ Totalnombelevdeplautretab }}</td>
+                <td>{{ Totalnombelevsepa }}</td>
+                <td>{{ Totalnombelevexcl }}</td>
+                <td>{{ Totalnombelev30juin }}</td>
+                <td>{{ Totalnombelevreus }}</td>
+                <td>{{ Totalnombelevredo }}</td>
+                <td>{{ Totalnombelevexcl30juin }}</td>
+                <td>{{ Totalnombtotaelev }}</td>
+            </tr>
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
