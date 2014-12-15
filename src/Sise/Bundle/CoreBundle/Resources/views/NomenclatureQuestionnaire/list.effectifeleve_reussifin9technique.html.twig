@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevenouveauhuitiemetechnique' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_upGridView">
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                المسجلون بتاريخ 15 نوفمبر
+                            </td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                المرتقون في جوان
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المجال</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                        </tr>
+                        {% for key , entity in entities %}
+
+                            <tr>
+                                <td>{{ entity.codedoma.libedomaar }}</td>
+                                <td align="right">{{ entity.nombelevinscmasc }}</td>
+                                <td align="right">{{ entity.nombelevinscfemi }}</td>
+                                <td align="right">{{ entity.nombtotainscelev }}</td>
+                                <td align="right">{{ entity.nombelevreusmasc }}</td>
+                                <td align="right">{{ entity.nombelevreusfemi }}</td>
+                                <td align="right">{{ entity.nombtotareuselev }}</td>
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </center>
+    {% endif %}
+
+{% endblock %}

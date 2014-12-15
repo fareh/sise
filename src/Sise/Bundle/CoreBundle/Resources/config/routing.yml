@@ -67,6 +67,12 @@ SiseCoreBundle_effectiveelevelisteelevehandicap:
 SiseCoreBundle_effectifelevefilierematiere:
     resource: "routing/effectifelevefilierematiere.yml"
     prefix:   /stat/effectifelevefilierematiere
+SiseCoreBundle_effectiveelevenouveauseptiemeannee:
+    resource: "routing/effectiveelevenouveauseptiemeannee.yml"
+    prefix:   /stat/effectiveelevenouveauseptiemeannee
+SiseCoreBundle_effectifelevereussifin9technique:
+    resource: "routing/effectifelevereussifin9technique.yml"
+    prefix:   /stat/effectifelevereussifin9technique
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement
