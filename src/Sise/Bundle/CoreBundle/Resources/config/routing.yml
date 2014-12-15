@@ -52,6 +52,9 @@ SiseCoreBundle_effectifelevenouveauhuitiemetechnique:
 SiseCoreBundle_effectifeleveresultatconcoureducationbase:
     resource: "routing/effectifeleveresultatconcoureducationbase.yml"
     prefix:   /stat/effectifeleveresultatconcoureducationbase
+SiseCoreBundle_effectifeleveresidantboursiercycleenseignement:
+    resource: "routing/effectifeleveresidantboursiercycleenseignement.yml"
+    prefix:   /stat/effectifeleveresidantboursiercycleenseignement
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement

@@ -55,7 +55,18 @@ class EffectifeleveResidantboursierCycleenseignement
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
+   // private $codecyclense;
+
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="NomenclatureCycleenseignement")
+     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
     private $codecyclense;
+
 
     /**
      * @var integer
@@ -200,28 +211,6 @@ class EffectifeleveResidantboursierCycleenseignement
         return $this->coderece;
     }
 
-    /**
-     * Set codecyclense
-     *
-     * @param string $codecyclense
-     * @return EffectifeleveResidantboursierCycleenseignement
-     */
-    public function setCodecyclense($codecyclense)
-    {
-        $this->codecyclense = $codecyclense;
-
-        return $this;
-    }
-
-    /**
-     * Get codecyclense
-     *
-     * @return string 
-     */
-    public function getCodecyclense()
-    {
-        return $this->codecyclense;
-    }
 
     /**
      * Set nombelevresimasc
@@ -382,5 +371,28 @@ class EffectifeleveResidantboursierCycleenseignement
     public function getNombbour()
     {
         return $this->nombbour;
+    }
+
+    /**
+     * Set codecyclense
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense
+     * @return EffectifeleveResidantboursierCycleenseignement
+     */
+    public function setCodecyclense(\Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense)
+    {
+        $this->codecyclense = $codecyclense;
+
+        return $this;
+    }
+
+    /**
+     * Get codecyclense
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     */
+    public function getCodecyclense()
+    {
+        return $this->codecyclense;
     }
 }

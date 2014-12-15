@@ -1,0 +1,107 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifeleveresidantboursiercycleenseignement' })) }}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    {#
+    {% if editForms|length > 0 %}
+        {% for editForm in editForms %}
+            {{ form(editForm) }}
+        {% endfor %}
+    {% endif %}#}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+
+            <div id="CPHMain_upGridView">
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">المقيمين
+                            </td>
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">الممنوحون
+                            </td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد المنح</th>
+                        </tr>
+                        {% set nombelevresimasc = 0 %}
+                        {% set nombelevresifemi = 0 %}
+                        {% set nombtotaresielev = 0 %}
+
+
+                        {% set nombelevbourmasc = 0 %}
+                        {% set nombelevbourfemi = 0 %}
+                        {% set nombtotabourelev = 0 %}
+
+                        {% set nombbour = 0 %}
+                        {% for key, entity in entities %}
+                            <tr>
+
+
+                                <td> {{ entity.codecyclense.libecyclensear }} </td>
+                                <td>
+                                    {{ entity.nombelevresimasc }} {% set nombelevresimasc = entity.nombelevresimasc + nombelevresimasc %}</td>
+                                <td>
+                                    {{ entity.nombelevresifemi }}{% set nombelevresifemi = entity.nombelevresifemi + nombelevresifemi %}</td>
+                                <td>
+                                    {{ entity.nombtotaresielev }}{% set nombtotaresielev = entity.nombtotaresielev + nombtotaresielev %}</td>
+                                <td>
+                                    {{ entity.nombelevbourmasc }}{% set nombelevbourmasc = entity.nombelevbourmasc + nombelevbourmasc %}</td>
+                                <td>
+
+                                    {{ entity.nombelevbourfemi }}{% set nombelevbourfemi = entity.nombelevbourfemi + nombelevbourfemi %}</td>
+                                <td>
+
+                                    {{ entity.nombtotabourelev }}{% set nombtotabourelev = entity.nombtotabourelev + nombtotabourelev %}</td>
+                                <td>
+
+                                    {{ entity.nombbour }}{% set nombbour = entity.nombbour + nombbour %}</td>
+
+
+                            </tr>
+                        {% endfor %}
+
+
+                        <tr align="center"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                            <td>الجملة:</td>
+                            <td>{{nombelevresimasc }}</td>
+                            <td>{{nombelevresifemi }}</td>
+                            <td>{{nombtotaresielev }}</td>
+
+
+                            <td>{{nombelevbourmasc }}</td>
+                            <td>{{nombelevbourfemi }}</td>
+                            <td>{{nombtotabourelev }}</td>
+
+                            <td>{{nombbour }}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </center>
+    {% endif %}
+{% endblock %}

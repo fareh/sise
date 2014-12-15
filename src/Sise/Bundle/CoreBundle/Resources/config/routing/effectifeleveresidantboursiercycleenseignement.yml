@@ -1,0 +1,17 @@
+effectifeleveresidantboursiercycleenseignement_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement:edit" }
+
+effectifeleveresidantboursiercycleenseignement_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement:list" }
+
+effectifeleveresidantboursiercycleenseignement_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement:update" }
+    requirements: { _method: post|put }
+
+effectifeleveresidantboursiercycleenseignement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement:delete" }
+    requirements: { _method: post|delete }
