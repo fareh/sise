@@ -100,3 +100,6 @@ Siseblog_MouvementeleveListeelevessepareavantconseilclasse:
 Siseblog_MouvementeleveRecapmouvmenteleve:
     resource: "routing/mouvementeleverecapmouvmenteleve.yml"
     prefix: /MouvementeleveRecapmouvmenteleve
+Siseblog_OrientationFilieresport:
+    resource: "routing/OrientationFilieresport.yml"
+    prefix: /OrientationFilieresport
