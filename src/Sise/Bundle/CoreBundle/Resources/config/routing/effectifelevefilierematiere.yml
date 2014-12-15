@@ -1,0 +1,17 @@
+effectifelevefilierematiere_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilierematiere:edit" }
+
+effectifelevefilierematiere_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilierematiere:list" }
+
+effectifelevefilierematiere_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilierematiere:update" }
+    requirements: { _method: post|put }
+
+effectifelevefilierematiere_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveFilierematiere:delete" }
+    requirements: { _method: post|delete }

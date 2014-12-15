@@ -1,16 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveelevelisteelevehandicap' })) }}
-
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevefilierematiere' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
-    {#
-    {% if editForms|length > 0 %}
-        {% for editForm in editForms %}
-            {{ form(editForm) }}
-        {% endfor %}
-    {% endif %}#}
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
