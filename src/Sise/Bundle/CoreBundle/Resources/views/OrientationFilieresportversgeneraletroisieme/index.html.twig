@@ -1,0 +1,127 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'إعادة التوجيه من شعبة الرياضة إلى التعليم الثانوي العام: سنة أولى جذع مشترك/سنة ثانية', 'RouteAction' : 'orientationfilieresportversgeneraledeuxieme' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    <br>
+    {% if entities is defined  and entities|length > 0 %}
+
+        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+            <thead>
+            <tr>
+                <th align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></th>
+                {% for entityfilier in entitiesfili %}
+                    <th align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                        {{ entityfilier.libefiliar }}
+                    </th>
+                {% endfor %}
+
+            </tr>
+            <tr>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">السنة</th>
+                {% for entityfilier in entitiesfili %}
+
+                    <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                    <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                    <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+
+                {% endfor %}
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+               <td>مرتقون من السنة الثانية رياضة إلى السنة الثالثة</td>
+                {% for entityfilier2 in entitiesfili %}
+                    {% set isadded = false %}
+                    {% for entity in entities %}
+                        {% if entity.anne ==2 and not entity.redo %}
+                            {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
+                                <td>{{ entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombelevfemi }}</td>
+                                <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
+                                {% set isadded = true %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not isadded %}
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>مرتقون من السنة الثالثة رياضة إلى السنة الرابعة</td>
+                {% for entityfilier2 in entitiesfili %}
+                    {% set isadded = false %}
+                    {% for entity in entities %}
+                        {% if entity.anne ==3 and not entity.redo  %}
+                            {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
+                                <td>{{ entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombelevfemi }}</td>
+                                <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
+                                {% set isadded = true %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not isadded %}
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+
+            <tr>
+               <td>راسبون بالسنة الثالثة رياضة</td>
+                {% for entityfilier2 in entitiesfili %}
+                    {% set isadded = false %}
+                    {% for entity in entities %}
+                        {% if entity.anne ==3 and entity.redo%}
+                            {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
+                                <td>{{ entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombelevfemi }}</td>
+                                <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
+                                {% set isadded = true %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not isadded %}
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+               <td>راسبون بالسنة الرابعة رياضة</td>
+                {% for entityfilier2 in entitiesfili %}
+                    {% set isadded = false %}
+                    {% for entity in entities %}
+                        {% if entity.anne ==4 and entity.redo%}
+                            {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
+                                <td>{{ entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombelevfemi }}</td>
+                                <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
+                                {% set isadded = true %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not isadded %}
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    {% endif %}
+    {% endblock %}

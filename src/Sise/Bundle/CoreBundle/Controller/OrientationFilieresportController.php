@@ -50,7 +50,7 @@ class OrientationFilieresportController extends Controller
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'entitiesfili' => $entitiesfili,
+            'entitiesfili' => @$entitiesfili,
         ));
     }
     /**

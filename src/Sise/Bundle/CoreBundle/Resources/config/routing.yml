@@ -109,3 +109,6 @@ Siseblog_OrientationFilieresport:
 Siseblog_OrientationFilieresportversgeneraledeuxieme:
     resource: "routing/orientationfilieresportversgeneraledeuxieme.yml"
     prefix: /OrientationFilieresportversgeneraledeuxieme
+Siseblog_OrientationFilieresportversgeneraletroisieme:
+    resource: "routing/orientationfilieresportversgeneraletroisieme.yml"
+    prefix: /OrientationFilieresportversgeneraletroisieme
