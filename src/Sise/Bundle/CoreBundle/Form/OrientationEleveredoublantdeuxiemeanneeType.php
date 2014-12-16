@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OrientationFilieresportversgeneraletroisiemeType extends AbstractType
+class OrientationEleveredoublantdeuxiemeanneeType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -18,10 +18,9 @@ class OrientationFilieresportversgeneraletroisiemeType extends AbstractType
             ->add('codeetab')
             ->add('codetypeetab')
             ->add('annescol')
-            ->add('redo')
-            ->add('anne')
             ->add('nombelevmasc')
             ->add('nombelevfemi')
+            ->add('codefilireorie')
             ->add('codefiliorig')
             ->add('coderece')
         ;
@@ -33,7 +32,7 @@ class OrientationFilieresportversgeneraletroisiemeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\Bundle\CoreBundle\Entity\OrientationFilieresportversgeneraletroisieme'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\OrientationEleveredoublantdeuxiemeannee'
         ));
     }
 
@@ -42,6 +41,6 @@ class OrientationFilieresportversgeneraletroisiemeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_orientationfilieresportversgeneraletroisieme';
+        return 'sise_corebundle_orientationeleveredoublantdeuxiemeannee';
     }
 }

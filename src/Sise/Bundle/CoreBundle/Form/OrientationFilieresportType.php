@@ -1,6 +1,6 @@
 <?php
 
-namespace Sise\Bundle\CoreBundle\Form;
+namespace Sise\Bundle\CoreBundle\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,7 +32,7 @@ class OrientationFilieresportType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\SiseBundle\Entity\OrientationFilieresport'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\OrientationFilieresport'
         ));
     }
 
@@ -41,6 +41,6 @@ class OrientationFilieresportType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_sisebundle_orientationfilieresport';
+        return 'sise_corebundle_orientationfilieresport';
     }
 }
