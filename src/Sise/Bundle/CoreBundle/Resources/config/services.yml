@@ -5,3 +5,9 @@ services:
             - @service_container
         tags:
             - { name: twig.extension }
+    sise_sise.Search.form.type:
+        class: Sise\Bundle\CoreBundle\Form\search\SearchType
+        arguments:
+              - @session
+        tags:
+            - { name: form.type}

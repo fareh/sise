@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * NomenclatureTypeetablissement
  *
  * @ORM\Table(name="nomenclature_typeetablissement")
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureTypeetablissementRepository")
  */
 class NomenclatureTypeetablissement
 {

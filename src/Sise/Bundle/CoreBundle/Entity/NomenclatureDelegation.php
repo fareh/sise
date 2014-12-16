@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * NomenclatureDelegation
  *
  * @ORM\Table(name="nomenclature_delegation")
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureDelegationRepository")
  */
 class NomenclatureDelegation
 {

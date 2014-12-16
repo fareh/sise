@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * NomenclatureCirconscriptionregional
  *
  * @ORM\Table(name="nomenclature_circonscriptionregional")
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureCirconscriptionregionalRepository")
  */
 class NomenclatureCirconscriptionregional
 {

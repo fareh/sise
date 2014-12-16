@@ -33,10 +33,16 @@ class NomenclatureQuestionnaireController extends Controller
         $collgene = true;
         $lyce = true;
         $colltech = true;
-
-
         $session = $request->getSession();
         $codetypeetab = $session->get('codetypeetab');
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        if ($request->isMethod('POST')) {
+            $params = $request->request->get($search->getName());
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("features", $params);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $entitiestypeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneByCodetypeetab($codetypeetab);
         //var_dump($entitiestypeetab); die;
         if ($entitiestypeetab) {
@@ -67,7 +73,6 @@ class NomenclatureQuestionnaireController extends Controller
             $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
         }
         $Package = $em->getRepository('SiseCoreBundle:SecuritePackage')->findOneByCodepack($codepack);
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statElev.html.twig', array(
             'entities' => $entities,
             'search' => $search->createView(),
@@ -89,12 +94,12 @@ class NomenclatureQuestionnaireController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
         }
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $url = $this->generateUrl('statElev_edit', array('table' => $table));
         $session = $request->getSession();
         if ($session->has('features')) {
             $features = $session->get('features');
         }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
