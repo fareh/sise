@@ -106,3 +106,6 @@ Siseblog_MouvementeleveRecapmouvmenteleve:
 Siseblog_OrientationFilieresport:
     resource: "routing/OrientationFilieresport.yml"
     prefix: /OrientationFilieresport
+Siseblog_OrientationFilieresportversgeneraledeuxieme:
+    resource: "routing/OrientationFilieresportversgeneraledeuxieme.yml"
+    prefix: /OrientationFilieresportversgeneraledeuxieme

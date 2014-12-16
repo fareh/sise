@@ -1,0 +1,30 @@
+orientationfilieresportversgeneraledeuxieme_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:index" }
+
+orientationfilieresportversgeneraledeuxieme_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:show" }
+
+orientationfilieresportversgeneraledeuxieme_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:new" }
+
+orientationfilieresportversgeneraledeuxieme_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:create" }
+    requirements: { _method: post }
+
+orientationfilieresportversgeneraledeuxieme_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:edit" }
+
+orientationfilieresportversgeneraledeuxieme_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:update" }
+    requirements: { _method: post|put }
+
+orientationfilieresportversgeneraledeuxieme_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:delete" }
+    requirements: { _method: post|delete }
