@@ -1,0 +1,30 @@
+orientationfilieresport_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:index" }
+
+orientationfilieresport_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:show" }
+
+orientationfilieresport_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:new" }
+
+orientationfilieresport_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:create" }
+    requirements: { _method: post }
+
+orientationfilieresport_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:edit" }
+
+orientationfilieresport_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:update" }
+    requirements: { _method: post|put }
+
+orientationfilieresport_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:delete" }
+    requirements: { _method: post|delete }
