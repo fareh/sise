@@ -36,7 +36,7 @@ class OrientationFilieresportController extends Controller
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
-            $entitiesfili= $em->getRepository('SiseCoreBundle:NomenclatureFiliere')->findAll();
+           // $entitiesfili= $em->getRepository('SiseCoreBundle:NomenclatureFiliere')->findAll();
             $query = $em->createQuery(
                 'SELECT F
              FROM SiseCoreBundle:NomenclatureFiliere F
