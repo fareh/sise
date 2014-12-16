@@ -115,3 +115,12 @@ Siseblog_OrientationFilieresportversgeneraletroisieme:
 Siseblog_OrientationEleveredoublantdeuxiemeannee:
     resource: "routing/orientationeleveredoublantdeuxiemeannee.yml"
     prefix: /OrientationEleveredoublantdeuxiemeannee
+Siseblog_OrientationEleveredoublanttroisiemeannee:
+    resource: "routing/orientationeleveredoublanttroisiemeannee.yml"
+    prefix: /OrientationEleveredoublanttroisiemeannee
+Siseblog_OrientationElevereussideuxiemeannee:
+    resource: "routing/orientationelevereussideuxiemeannee.yml"
+    prefix: /OrientationElevereussideuxiemeannee
+Siseblog_OrientationElevereussitroisiemeannee:
+    resource: "routing/orientationelevereussitroisiemeannee.yml"
+    prefix: /OrientationElevereussitroisiemeannee

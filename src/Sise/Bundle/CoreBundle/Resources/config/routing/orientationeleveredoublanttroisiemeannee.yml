@@ -1,0 +1,30 @@
+orientationeleveredoublanttroisiemeannee_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:index" }
+
+orientationeleveredoublanttroisiemeannee_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:show" }
+
+orientationeleveredoublanttroisiemeannee_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:new" }
+
+orientationeleveredoublanttroisiemeannee_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:create" }
+    requirements: { _method: post }
+
+orientationeleveredoublanttroisiemeannee_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:edit" }
+
+orientationeleveredoublanttroisiemeannee_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:update" }
+    requirements: { _method: post|put }
+
+orientationeleveredoublanttroisiemeannee_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublanttroisiemeannee:delete" }
+    requirements: { _method: post|delete }

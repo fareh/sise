@@ -49,20 +49,26 @@ class OrientationElevereussitroisiemeannee
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureFiliere
      *
-     * @ORM\Column(name="CodeFiliOrig", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFiliOrig", referencedColumnName="CodeFili")
+     * })
      */
     private $codefiliorig;
 
     /**
-     * @var string
+     * @var \NomenclatureFiliere
      *
-     * @ORM\Column(name="CodeFiliReOrie", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFiliReOrie", referencedColumnName="CodeFili")
+     * })
      */
     private $codefilireorie;
 

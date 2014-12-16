@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'إعادة توجيه الراسبين بالسنة الثانية ثانوي', 'RouteAction' : 'orientationeleveredoublantdeuxiemeannee' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'إعادة توجيه المرتقين إلى السنة الثالثة ثانوي', 'RouteAction' : 'orientationelevereussideuxiemeannee' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <br>
     {% if entities is defined  and entities|length > 0 %}
@@ -35,11 +35,11 @@
             <tr>
 
                 <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                {% for entityfilier in entitiesfili %}
-                    <tr>
-                    <td>
-                        {{ entityfilier.libefiliar }}</td>
-                   {% for entityfilier2 in entitiesfili %}
+                {% for entityfilier in entitiesfili1 %}
+            <tr>
+                <td>
+                    {{ entityfilier.libefiliar }}</td>
+                {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
                         {% if entity.codefiliorig.codefili == entityfilier.codefili and entity.codefilireorie.codefili ==entityfilier2.codefili  %}
@@ -56,7 +56,7 @@
                         <td style="background-color: #EEEEEE"></td>
                     {% endif %}
                 {% endfor %}
-                </tr>{% endfor %}
+            </tr>{% endfor %}
             </tbody>
         </table>
     {% endif %}
