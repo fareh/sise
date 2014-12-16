@@ -17,6 +17,7 @@ function getListe(codegouv, entity, previous_select) {
         success: function (json) { // quand la réponse de la requete arrive
             if (previous_select == 'sise_bundle_corebundle_search_CodeEtab') {
                 $('#' + previous_select).val(json.code);
+                document.getElementById("filtrage_sise").submit();
             } else {
                 $('#' + previous_select).html('');
                 $.each(json, function (index, value) { // et  boucle sur la réponse contenu dans la variable passé à la function du success "json"
