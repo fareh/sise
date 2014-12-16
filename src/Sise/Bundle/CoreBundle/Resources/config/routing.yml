@@ -73,6 +73,9 @@ SiseCoreBundle_effectiveelevenouveauseptiemeannee:
 SiseCoreBundle_effectifelevereussifin9technique:
     resource: "routing/effectifelevereussifin9technique.yml"
     prefix:   /stat/effectifelevereussifin9technique
+SiseCoreBundle_effectifelevevenant9emetechnique:
+    resource: "routing/effectifelevevenant9emetechnique.yml"
+    prefix:   /stat/effectifelevevenant9emetechnique
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement

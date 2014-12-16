@@ -1,0 +1,17 @@
+effectifelevevenant9emetechnique_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveVenant9emetechnique:edit" }
+
+effectifelevevenant9emetechnique_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveVenant9emetechnique:list" }
+
+effectifelevevenant9emetechnique_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveVenant9emetechnique:update" }
+    requirements: { _method: post|put|get }
+
+effectifelevevenant9emetechnique_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveVenant9emetechnique:delete" }
+    requirements: { _method: post|delete }
