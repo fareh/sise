@@ -40,7 +40,16 @@ class NomenclatureEquipement
      *
      * @ORM\Column(name="CodeCateEqui", type="string", length=50, nullable=true)
      */
-    private $codecateequi;
+   // private $codecateequi;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieequipement", inversedBy="codeequi")
+     * @ORM\JoinColumn(name="CodeCateEqui", referencedColumnName="CodeCateEqui")
+     */
+    protected $codecateequi;
+
 
     /**
      * @var integer
@@ -149,28 +158,6 @@ class NomenclatureEquipement
         return $this->libeequifr;
     }
 
-    /**
-     * Set codecateequi
-     *
-     * @param string $codecateequi
-     * @return NomenclatureEquipement
-     */
-    public function setCodecateequi($codecateequi)
-    {
-        $this->codecateequi = $codecateequi;
-
-        return $this;
-    }
-
-    /**
-     * Get codecateequi
-     *
-     * @return string 
-     */
-    public function getCodecateequi()
-    {
-        return $this->codecateequi;
-    }
 
     /**
      * Set ordraffi
@@ -331,5 +318,28 @@ class NomenclatureEquipement
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Set codecateequi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieequipement $codecateequi
+     * @return NomenclatureEquipement
+     */
+    public function setCodecateequi(\Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieequipement $codecateequi = null)
+    {
+        $this->codecateequi = $codecateequi;
+
+        return $this;
+    }
+
+    /**
+     * Get codecateequi
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieequipement 
+     */
+    public function getCodecateequi()
+    {
+        return $this->codecateequi;
     }
 }

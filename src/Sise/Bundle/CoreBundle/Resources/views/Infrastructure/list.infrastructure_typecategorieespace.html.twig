@@ -1,0 +1,96 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_upGridView">
+
+            <div>
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <td class="headerCellfusion" align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                        <td class="headerCellfusion" align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                        <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;">مستغلّة
+                        </td>
+                        <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;">غير مستغلّة
+                        </td>
+                        <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;">بصدد التهيئة
+                        </td>
+                        <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;">بصدد البناء
+                        </td>
+                        <td class="headerCellfusion" align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف فضاء</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع فضاء</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+                    </tr>
+{%  set codecateespa = 0 %}
+       {% for key , entity in entities %}
+           <tr>
+              {% if(codecateespa==entity.codetypeespa.codecateespa.codecateespa) %}
+           {% else %}
+               <td rowspan="{{ entity.codetypeespa.codecateespa.codetypeespa|length }}" style="background: #ffffff">
+               {{ entity.codetypeespa.codecateespa.libecateespaar }}
+               </td>
+             {% endif %}
+               {% set  codecateespa =  entity.codetypeespa.codecateespa.codecateespa %}
+
+           <td>{{ entity.codetypeespa.libetypeespaar }}</td>
+           <td align="right">{{ entity.nombespautil }}</td>
+           <td align="right">{{ entity.capaaccuespautil }}</td>
+           <td align="right">{{ entity.nombespanonutil }}</td>
+           <td align="right">{{ entity.capaaccuespanonutil }}</td>
+           <td align="right">{{ entity.nombespaencoamen }}</td>
+           <td align="right">{{ entity.capaaccuespaencoamen }}</td>
+           <td align="right">{{ entity.nombespaencocons }}</td>
+           <td align="right">{{ entity.capaaccuespaencocons }}</td>
+           <td align="right">&nbsp;</td>
+           </tr>
+       {% endfor %}
+
+
+
+                    <tr align="center"
+                        style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                        <td>الجملة:</td>
+                        <td>&nbsp;</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </center>
+
+{% endblock %}

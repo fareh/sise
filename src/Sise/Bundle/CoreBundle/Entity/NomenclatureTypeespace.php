@@ -36,11 +36,12 @@ class NomenclatureTypeespace
     private $libetypeespafr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCateEspa", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieespace", inversedBy="codetypeespa")
+     * @ORM\JoinColumn(name="CodeCateEspa", referencedColumnName="CodeCateEspa")
      */
-    private $codecateespa;
+    protected $codecateespa;
+
+
 
     /**
      * @var integer
@@ -149,28 +150,7 @@ class NomenclatureTypeespace
         return $this->libetypeespafr;
     }
 
-    /**
-     * Set codecateespa
-     *
-     * @param string $codecateespa
-     * @return NomenclatureTypeespace
-     */
-    public function setCodecateespa($codecateespa)
-    {
-        $this->codecateespa = $codecateespa;
 
-        return $this;
-    }
-
-    /**
-     * Get codecateespa
-     *
-     * @return string 
-     */
-    public function getCodecateespa()
-    {
-        return $this->codecateespa;
-    }
 
     /**
      * Set ordraffi
@@ -331,5 +311,28 @@ class NomenclatureTypeespace
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Set codecateespa
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace $codecateespa
+     * @return NomenclatureTypeespace
+     */
+    public function setCodecateespa(\Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace $codecateespa = null)
+    {
+        $this->codecateespa = $codecateespa;
+
+        return $this;
+    }
+
+    /**
+     * Get codecateespa
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace 
+     */
+    public function getCodecateespa()
+    {
+        return $this->codecateespa;
     }
 }

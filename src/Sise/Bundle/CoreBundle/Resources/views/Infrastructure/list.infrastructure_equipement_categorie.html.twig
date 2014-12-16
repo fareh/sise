@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_upGridView">
+
+
+            <div>
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <td align="center" colspan="2"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        <td align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        <td align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        <td align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف التجهيزات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التجهيزات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">قابلة للاستعمال
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">بغير قابلة
+                            للاستعمال
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+                    </tr>
+
+                    {%  set codecateequi = 0 %}
+                    {% for key , entity in entities %}
+                        <tr>
+                            <td>{{ entity.codeequi.codecateequi.libecateequiar }}</td>
+                            {% if(codecateequi==entity.codeequi.codecateequi.codecateequi) %}
+
+                            {% else %}
+                            {#
+                             <td rowspan="{{ entity.codeequi.codecateequi.codeequi|length }}" style="background: #ffffff">
+                                    {{ entity.codeequi.codecateequi.libecateequiar }}
+                                </td>
+                            #}
+                                {{ entity.codeequi.codecateequi.codeequi|length }}
+                            {% endif %}
+                            {% set  codecateequi =  entity.codeequi.codecateequi.codecateequi %}
+
+                            <td>{{ entity.codeequi.libeequiar }}</td>
+                            <td align="right">{{ entity.nombespautil }}</td>
+                            <td align="right">{{ entity.nombespanonutil }}</td>
+                            <td align="right">&nbsp;</td>
+                        </tr>
+                    {% endfor %}
+                    <tr align="center"
+                        style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                        <td>الجملة:</td>
+                        <td>&nbsp;</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </center>
+
+{% endblock %}

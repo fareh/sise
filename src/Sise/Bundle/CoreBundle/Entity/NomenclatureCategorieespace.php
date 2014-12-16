@@ -3,6 +3,8 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * NomenclatureCategorieespace
@@ -20,6 +22,18 @@ class NomenclatureCategorieespace
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecateespa;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureTypeespace", mappedBy="codecateespa")
+     */
+    protected $codetypeespa;
+
+    public function __construct()
+    {
+        $this->codetypeespa = new ArrayCollection();
+    }
+
 
     /**
      * @var string
@@ -301,5 +315,38 @@ class NomenclatureCategorieespace
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Add codetypeespa
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace $codetypeespa
+     * @return NomenclatureCategorieespace
+     */
+    public function addCodetypeespa(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace $codetypeespa)
+    {
+        $this->codetypeespa[] = $codetypeespa;
+
+        return $this;
+    }
+
+    /**
+     * Remove codetypeespa
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace $codetypeespa
+     */
+    public function removeCodetypeespa(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace $codetypeespa)
+    {
+        $this->codetypeespa->removeElement($codetypeespa);
+    }
+
+    /**
+     * Get codetypeespa
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodetypeespa()
+    {
+        return $this->codetypeespa;
     }
 }

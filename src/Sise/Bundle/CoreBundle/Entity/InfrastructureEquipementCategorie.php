@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfrastructureEquipementCategorie
  *
  * @ORM\Table(name="infrastructure_equipement_categorie")
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureEquipementCategorieRepository")
  */
 class InfrastructureEquipementCategorie
 {
@@ -55,8 +55,16 @@ class InfrastructureEquipementCategorie
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $codeequi;
+    //private $codeequi;
 
+
+    /**
+     * @ORM\OneToOne(targetEntity="NomenclatureEquipement")
+     * @ORM\JoinColumn(name="CodeEqui", referencedColumnName="CodeEqui")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $codeequi;
     /**
      * @var integer
      *
@@ -186,28 +194,6 @@ class InfrastructureEquipementCategorie
         return $this->coderece;
     }
 
-    /**
-     * Set codeequi
-     *
-     * @param string $codeequi
-     * @return InfrastructureEquipementCategorie
-     */
-    public function setCodeequi($codeequi)
-    {
-        $this->codeequi = $codeequi;
-
-        return $this;
-    }
-
-    /**
-     * Get codeequi
-     *
-     * @return string 
-     */
-    public function getCodeequi()
-    {
-        return $this->codeequi;
-    }
 
     /**
      * Set nombespautil
@@ -322,5 +308,28 @@ class InfrastructureEquipementCategorie
     public function getObse()
     {
         return $this->obse;
+    }
+
+    /**
+     * Set codeequi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement $codeequi
+     * @return InfrastructureEquipementCategorie
+     */
+    public function setCodeequi(\Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement $codeequi)
+    {
+        $this->codeequi = $codeequi;
+
+        return $this;
+    }
+
+    /**
+     * Get codeequi
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement 
+     */
+    public function getCodeequi()
+    {
+        return $this->codeequi;
     }
 }

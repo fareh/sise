@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfrastructureTypecategorieespace
  *
  * @ORM\Table(name="infrastructure_typecategorieespace", indexes={@ORM\Index(name="FK_Infrastructure_TypeCategorieEspace_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_Infrastructure_TypeCategorieEspace_Nomenclature_TypeEspace", columns={"CodeTypeEspa"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureTypecategorieespaceRepository")
  */
 class InfrastructureTypecategorieespace
 {
@@ -52,6 +52,15 @@ class InfrastructureTypecategorieespace
      * @var string
      *
      * @ORM\Column(name="CodeTypeEspa", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+  //  private $codetypeespa;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="NomenclatureTypeespace")
+     * @ORM\JoinColumn(name="CodeTypeEspa", referencedColumnName="CodeTypeEspa")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
@@ -214,28 +223,6 @@ class InfrastructureTypecategorieespace
         return $this->coderece;
     }
 
-    /**
-     * Set codetypeespa
-     *
-     * @param string $codetypeespa
-     * @return InfrastructureTypecategorieespace
-     */
-    public function setCodetypeespa($codetypeespa)
-    {
-        $this->codetypeespa = $codetypeespa;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypeespa
-     *
-     * @return string 
-     */
-    public function getCodetypeespa()
-    {
-        return $this->codetypeespa;
-    }
 
     /**
      * Set nombespautil
@@ -442,5 +429,30 @@ class InfrastructureTypecategorieespace
     public function getObse()
     {
         return $this->obse;
+    }
+
+    
+
+    /**
+     * Set codetypeespa
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace $codetypeespa
+     * @return InfrastructureTypecategorieespace
+     */
+    public function setCodetypeespa(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace $codetypeespa)
+    {
+        $this->codetypeespa = $codetypeespa;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeespa
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace 
+     */
+    public function getCodetypeespa()
+    {
+        return $this->codetypeespa;
     }
 }

@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * NomenclatureCategorieequipement
  *
@@ -20,6 +20,16 @@ class NomenclatureCategorieequipement
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecateequi;
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureEquipement", mappedBy="codecateequi")
+     */
+    protected $codeequi;
+
+    public function __construct()
+    {
+        $this->codeequi = new ArrayCollection();
+    }
 
     /**
      * @var string
@@ -301,5 +311,38 @@ class NomenclatureCategorieequipement
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Add codeequi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement $codeequi
+     * @return NomenclatureCategorieequipement
+     */
+    public function addCodeequi(\Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement $codeequi)
+    {
+        $this->codeequi[] = $codeequi;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeequi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement $codeequi
+     */
+    public function removeCodeequi(\Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement $codeequi)
+    {
+        $this->codeequi->removeElement($codeequi);
+    }
+
+    /**
+     * Get codeequi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeequi()
+    {
+        return $this->codeequi;
     }
 }
