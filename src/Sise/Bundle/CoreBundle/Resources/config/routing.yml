@@ -130,3 +130,6 @@ Siseblog_OrientationElevereussideuxiemeannee:
 Siseblog_OrientationElevereussitroisiemeannee:
     resource: "routing/orientationelevereussitroisiemeannee.yml"
     prefix: /OrientationElevereussitroisiemeannee
+Siseblog_EffectiveenseignentGradediscipline:
+    resource: "routing/effectiveenseignentgradediscipline.yml"
+    prefix: /EffectiveenseignentGradediscipline
