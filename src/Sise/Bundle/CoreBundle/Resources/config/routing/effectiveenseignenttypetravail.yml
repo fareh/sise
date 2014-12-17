@@ -1,0 +1,30 @@
+effectiveenseignenttypetravail_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:index" }
+
+effectiveenseignenttypetravail_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:show" }
+
+effectiveenseignenttypetravail_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:new" }
+
+effectiveenseignenttypetravail_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:create" }
+    requirements: { _method: post }
+
+effectiveenseignenttypetravail_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:edit" }
+
+effectiveenseignenttypetravail_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignenttypetravail_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentTypetravail:delete" }
+    requirements: { _method: post|delete }

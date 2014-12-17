@@ -49,11 +49,14 @@ class EffectiveenseignentTypetravail
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureTypetravail
      *
-     * @ORM\Column(name="CodeTypeTrav", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureTypetravail")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeTrav", referencedColumnName="CodeTypeTrav")
+     * })
      */
     private $codetypetrav;
 

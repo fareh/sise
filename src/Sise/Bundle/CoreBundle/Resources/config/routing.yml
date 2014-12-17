@@ -163,3 +163,9 @@ Siseblog_EffectiveenseignentListeremplacementprovisoire:
 Siseblog_EffectiveenseignentGradeheuretravail:
     resource: "routing/effectiveenseignentgradeheuretravail.yml"
     prefix: /EffectiveenseignentGradeheuretravail
+Siseblog_EffectiveenseignentTypetravail:
+    resource: "routing/effectiveenseignenttypetravail.yml"
+    prefix: /EffectiveenseignentTypetravail
+Siseblog_EffectiveenseignentListeenseignentEducationtechnique:
+    resource: "routing/effectiveenseignentlisteenseignenteducationtechnique.yml"
+    prefix: /EffectiveenseignentListeenseignentEducationtechnique

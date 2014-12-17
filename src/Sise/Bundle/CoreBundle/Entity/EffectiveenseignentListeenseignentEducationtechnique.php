@@ -65,23 +65,32 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $nompren;
 
     /**
-     * @var string
+     * @var \NomenclatureGenre
      *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 
     /**
-     * @var string
+     * @var \NomenclatureDiplome
      *
-     * @ORM\Column(name="CodeDipl", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureDiplome")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDipl", referencedColumnName="CodeDipl")
+     * })
      */
     private $codedipl;
 
     /**
-     * @var string
+     * @var \NomenclatureSpecialite
      *
-     * @ORM\Column(name="CodeSpec", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSpecialite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSpec", referencedColumnName="CodeSpec")
+     * })
      */
     private $codespec;
 
@@ -93,9 +102,12 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $gradactu;
 
     /**
-     * @var string
+     * @var \NomenclatureTypetravail
      *
-     * @ORM\Column(name="CodeTypeTrav", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypetravail")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeTrav", referencedColumnName="CodeTypeTrav")
+     * })
      */
     private $codetypetrav;
 

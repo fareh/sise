@@ -1,0 +1,30 @@
+effectiveenseignentlisteenseignenteducationtechnique_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:index" }
+
+effectiveenseignentlisteenseignenteducationtechnique_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:show" }
+
+effectiveenseignentlisteenseignenteducationtechnique_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:new" }
+
+effectiveenseignentlisteenseignenteducationtechnique_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:create" }
+    requirements: { _method: post }
+
+effectiveenseignentlisteenseignenteducationtechnique_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:edit" }
+
+effectiveenseignentlisteenseignenteducationtechnique_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentlisteenseignenteducationtechnique_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:delete" }
+    requirements: { _method: post|delete }

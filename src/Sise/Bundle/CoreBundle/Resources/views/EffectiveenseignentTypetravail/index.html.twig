@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'قائمة اسمية في التلاميذ المنفصلين تلقائيا أو قانونيا قبل إنعقاد مجالس الأقسام', 'RouteAction' : 'mouvementelevelisteelevessepareavantconseilclasse' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+<br>
+{% if entities is defined  and entities|length > 0 %}
+    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+        <thead>
+        <tr>
+            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+            <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">عدد المدرسين</td>
+        </tr><tr>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع التكليف</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set totalnombensemasc = 0 %}
+        {% set totalnombensefemi = 0 %}
+        {% set totalnombtotaense = 0 %}
+        {% for entity in entities %}
+            {% set totalnombensemasc = totalnombensemasc+entity.nombensemasc %}
+            {% set totalnombensefemi = totalnombensefemi+entity.nombensefemi %}
+            {% set totalnombtotaense = totalnombtotaense+entity.nombtotaense  %}
+            <tr>
+                <td>{{ entity.codetypetrav.libetypetravar }}</td>
+                <td>{{ entity.nombensemasc }}</td>
+                <td>{{ entity.nombensefemi }}</td>
+                <td>{{ entity.nombtotaense }}</td>
+            </tr>
+        {% endfor %}
+        <tr align="center" style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+            <td>الجملة:</td><td>{{ totalnombensemasc }}</td><td>{{ totalnombensefemi }}</td><td>{{ totalnombtotaense }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endif %}
+    {% endblock %}
