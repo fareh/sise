@@ -40,7 +40,16 @@ class NomenclatureGrade
      *
      * @ORM\Column(name="CodeCorp", type="string", length=50, nullable=true)
      */
-    private $codecorp;
+   // private $codecorp;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCorps", inversedBy="codegrad")
+     * @ORM\JoinColumn(name="CodeCorp", referencedColumnName="CodeCorp")
+     */
+    protected $codecorp;
+
+
 
     /**
      * @var integer
@@ -147,29 +156,6 @@ class NomenclatureGrade
     public function getLibegradfr()
     {
         return $this->libegradfr;
-    }
-
-    /**
-     * Set codecorp
-     *
-     * @param string $codecorp
-     * @return NomenclatureGrade
-     */
-    public function setCodecorp($codecorp)
-    {
-        $this->codecorp = $codecorp;
-
-        return $this;
-    }
-
-    /**
-     * Get codecorp
-     *
-     * @return string 
-     */
-    public function getCodecorp()
-    {
-        return $this->codecorp;
     }
 
     /**
@@ -335,5 +321,28 @@ class NomenclatureGrade
     public function __toString()
     {
         return $this->codegrad;
+    }
+
+    /**
+     * Set codecorp
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCorps $codecorp
+     * @return NomenclatureGrade
+     */
+    public function setCodecorp(\Sise\Bundle\CoreBundle\Entity\NomenclatureCorps $codecorp = null)
+    {
+        $this->codecorp = $codecorp;
+
+        return $this;
+    }
+
+    /**
+     * Get codecorp
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCorps 
+     */
+    public function getCodecorp()
+    {
+        return $this->codecorp;
     }
 }

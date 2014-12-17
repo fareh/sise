@@ -76,6 +76,9 @@ SiseCoreBundle_effectifelevereussifin9technique:
 SiseCoreBundle_effectifelevevenant9emetechnique:
     resource: "routing/effectifelevevenant9emetechnique.yml"
     prefix:   /stat/effectifelevevenant9emetechnique
+SiseCoreBundle_effectivepersonelpersonelgrade:
+    resource: "routing/effectivepersonelpersonelgrade.yml"
+    prefix:   /stat/effectivepersonelpersonelgrade
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace

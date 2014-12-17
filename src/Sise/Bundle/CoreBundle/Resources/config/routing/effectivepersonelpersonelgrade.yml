@@ -1,0 +1,17 @@
+effectivepersonelpersonelgrade_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectivepersonelPersonelGrade:edit" }
+
+effectivepersonelpersonelgrade_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectivepersonelPersonelGrade:list" }
+
+effectivepersonelpersonelgrade_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectivepersonelPersonelGrade:update" }
+    requirements: { _method: post|put }
+
+effectivepersonelpersonelgrade_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectivepersonelPersonelGrade:delete" }
+    requirements: { _method: post|delete }

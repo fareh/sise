@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * NomenclatureCorps
@@ -97,6 +98,19 @@ class NomenclatureCorps
      * @ORM\Column(name="CollTech", type="boolean", nullable=false)
      */
     private $colltech;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureGrade", mappedBy="codecorp")
+     */
+    protected $codegrad;
+
+    public function __construct()
+    {
+        $this->codegrad = new ArrayCollection();
+    }
+
 
 
 
@@ -361,5 +375,38 @@ class NomenclatureCorps
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Add codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     * @return NomenclatureCorps
+     */
+    public function addCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad)
+    {
+        $this->codegrad[] = $codegrad;
+
+        return $this;
+    }
+
+    /**
+     * Remove codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     */
+    public function removeCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad)
+    {
+        $this->codegrad->removeElement($codegrad);
+    }
+
+    /**
+     * Get codegrad
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodegrad()
+    {
+        return $this->codegrad;
     }
 }

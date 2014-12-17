@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectivepersonelPersonelGrade
  *
  * @ORM\Table(name="effectivepersonel_personel_grade", indexes={@ORM\Index(name="FK_EffectivePersonel_Personel_Grade_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectivePersonel_Personel_Grade_Nomenclature_Grade", columns={"CodeGrad"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectivepersonelPersonelGradeRepository")
  */
 class EffectivepersonelPersonelGrade
 {
@@ -55,7 +55,17 @@ class EffectivepersonelPersonelGrade
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
+   // private $codegrad;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
     private $codegrad;
+
 
     /**
      * @var integer
@@ -172,28 +182,6 @@ class EffectivepersonelPersonelGrade
         return $this->coderece;
     }
 
-    /**
-     * Set codegrad
-     *
-     * @param string $codegrad
-     * @return EffectivepersonelPersonelGrade
-     */
-    public function setCodegrad($codegrad)
-    {
-        $this->codegrad = $codegrad;
-
-        return $this;
-    }
-
-    /**
-     * Get codegrad
-     *
-     * @return string 
-     */
-    public function getCodegrad()
-    {
-        return $this->codegrad;
-    }
 
     /**
      * Set nombpersmasc
@@ -262,5 +250,28 @@ class EffectivepersonelPersonelGrade
     public function getNombtotapers()
     {
         return $this->nombtotapers;
+    }
+
+    /**
+     * Set codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     * @return EffectivepersonelPersonelGrade
+     */
+    public function setCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad)
+    {
+        $this->codegrad = $codegrad;
+
+        return $this;
+    }
+
+    /**
+     * Get codegrad
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade 
+     */
+    public function getCodegrad()
+    {
+        return $this->codegrad;
     }
 }
