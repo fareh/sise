@@ -137,6 +137,7 @@ class EffectivepersonelPersonelGradeController extends Controller {
             $entities = $em->getRepository('SiseCoreBundle:EffectivepersonelPersonelGrade')->getEffectivepersonel($codeetab, $codetypeetab,$annescol,$coderece);
 
             foreach($entities  as $key => $entity){
+
                 $rowspan[$entity->getCodegrad()->getCodecorp()->getCodecorp()][$key]=$entity->getCodegrad()->getCodecorp()->getCodecorp();
             }
         }

@@ -116,6 +116,7 @@ class InfrastructureEquipementCategorieController extends Controller {
      */
     public function listAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('infrastructureequipementcategorie_list');
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
@@ -135,10 +136,14 @@ class InfrastructureEquipementCategorieController extends Controller {
             $entities = $em->getRepository('SiseCoreBundle:InfrastructureEquipementCategorie')->getInfrastructureEquipement($codeetab, $codetypeetab,$annescol,$coderece);
 
 
+            foreach($entities  as $key => $entity){
+                $rowspan[$entity->getCodeequi()->getCodecateequi()->getCodecateequi()][$key]=$entity->getCodeequi()->getCodecateequi()->getCodecateequi();
+            }
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_equipement_categorie');
         return $this->render('SiseCoreBundle:Infrastructure:list.infrastructure_equipement_categorie.html.twig', array(
             'entities' => @$entities,
+            'rowspan'=>@$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'nameclass'=>$nameclass
