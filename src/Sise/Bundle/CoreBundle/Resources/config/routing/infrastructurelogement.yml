@@ -1,0 +1,17 @@
+infrastructurelogement_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:InfrastructureLogement:edit" }
+
+infrastructurelogement_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:InfrastructureLogement:list" }
+
+infrastructurelogement_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:InfrastructureLogement:update" }
+    requirements: { _method: post|put }
+
+infrastructurelogement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:InfrastructureLogement:delete" }
+    requirements: { _method: post|delete }

@@ -59,7 +59,7 @@ class InfrastructureEquipementCategorie
 
 
     /**
-     * @ORM\OneToOne(targetEntity="NomenclatureEquipement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureEquipement")
      * @ORM\JoinColumn(name="CodeEqui", referencedColumnName="CodeEqui")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

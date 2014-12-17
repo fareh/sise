@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfrastructureLogement
  *
  * @ORM\Table(name="infrastructure_logement", indexes={@ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_ProprieteBatiment", columns={"CodePropBati"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_SituationCompteurEauEl28", columns={"CodeSituCompEau"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_SituationCompteurEauEl29", columns={"CodeSituCompElec"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_StatusHabitant", columns={"CodeStatHabi"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_TypeLogement", columns={"CodeTypeLoge"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureLogementRepository")
  */
 class InfrastructureLogement
 {
@@ -57,12 +57,22 @@ class InfrastructureLogement
      */
     private $numeloge;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="CodeTypeLoge", type="string", length=50, nullable=false)
      */
+   // private $codetypeloge;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypelogement")
+     * @ORM\JoinColumn(name="CodeTypeLoge", referencedColumnName="CodeTypeLoge")
+     */
     private $codetypeloge;
+
+
 
     /**
      * @var float
@@ -75,6 +85,14 @@ class InfrastructureLogement
      * @var string
      *
      * @ORM\Column(name="CodePropBati", type="string", length=50, nullable=false)
+     */
+   // private $codepropbati;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureProprietebatiment")
+     * @ORM\JoinColumn(name="CodePropBati", referencedColumnName="CodePropBati")
      */
     private $codepropbati;
 
@@ -97,19 +115,46 @@ class InfrastructureLogement
      *
      * @ORM\Column(name="CodeStatHabi", type="string", length=50, nullable=false)
      */
+   // private $codestathabi;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureStatushabitant")
+     * @ORM\JoinColumn(name="CodeStatHabi", referencedColumnName="CodeStatHabi")
+     */
     private $codestathabi;
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="CodeSituCompEau", type="string", length=50, nullable=false)
      */
+  //  private $codesitucompeau;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureSituationcompteureauelectricite")
+     * @ORM\JoinColumn(name="CodeSituCompEau", referencedColumnName="CodeSituComp")
+     */
     private $codesitucompeau;
+
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="CodeSituCompElec", type="string", length=50, nullable=false)
+     */
+  //  private $codesitucompelec;
+
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureSituationcompteureauelectricite")
+     * @ORM\JoinColumn(name="CodeSituCompElec", referencedColumnName="CodeSituComp")
      */
     private $codesitucompelec;
 
@@ -207,6 +252,8 @@ class InfrastructureLogement
         return $this->coderece;
     }
 
+
+
     /**
      * Set numeloge
      *
@@ -231,29 +278,6 @@ class InfrastructureLogement
     }
 
     /**
-     * Set codetypeloge
-     *
-     * @param string $codetypeloge
-     * @return InfrastructureLogement
-     */
-    public function setCodetypeloge($codetypeloge)
-    {
-        $this->codetypeloge = $codetypeloge;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypeloge
-     *
-     * @return string 
-     */
-    public function getCodetypeloge()
-    {
-        return $this->codetypeloge;
-    }
-
-    /**
      * Set surfcouv
      *
      * @param float $surfcouv
@@ -274,29 +298,6 @@ class InfrastructureLogement
     public function getSurfcouv()
     {
         return $this->surfcouv;
-    }
-
-    /**
-     * Set codepropbati
-     *
-     * @param string $codepropbati
-     * @return InfrastructureLogement
-     */
-    public function setCodepropbati($codepropbati)
-    {
-        $this->codepropbati = $codepropbati;
-
-        return $this;
-    }
-
-    /**
-     * Get codepropbati
-     *
-     * @return string 
-     */
-    public function getCodepropbati()
-    {
-        return $this->codepropbati;
     }
 
     /**
@@ -346,12 +347,58 @@ class InfrastructureLogement
     }
 
     /**
-     * Set codestathabi
+     * Set codetypeloge
      *
-     * @param string $codestathabi
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypelogement $codetypeloge
      * @return InfrastructureLogement
      */
-    public function setCodestathabi($codestathabi)
+    public function setCodetypeloge(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypelogement $codetypeloge = null)
+    {
+        $this->codetypeloge = $codetypeloge;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeloge
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypelogement 
+     */
+    public function getCodetypeloge()
+    {
+        return $this->codetypeloge;
+    }
+
+    /**
+     * Set codepropbati
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment $codepropbati
+     * @return InfrastructureLogement
+     */
+    public function setCodepropbati(\Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment $codepropbati = null)
+    {
+        $this->codepropbati = $codepropbati;
+
+        return $this;
+    }
+
+    /**
+     * Get codepropbati
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment 
+     */
+    public function getCodepropbati()
+    {
+        return $this->codepropbati;
+    }
+
+    /**
+     * Set codestathabi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureStatushabitant $codestathabi
+     * @return InfrastructureLogement
+     */
+    public function setCodestathabi(\Sise\Bundle\CoreBundle\Entity\NomenclatureStatushabitant $codestathabi = null)
     {
         $this->codestathabi = $codestathabi;
 
@@ -361,7 +408,7 @@ class InfrastructureLogement
     /**
      * Get codestathabi
      *
-     * @return string 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureStatushabitant 
      */
     public function getCodestathabi()
     {
@@ -371,10 +418,10 @@ class InfrastructureLogement
     /**
      * Set codesitucompeau
      *
-     * @param string $codesitucompeau
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite $codesitucompeau
      * @return InfrastructureLogement
      */
-    public function setCodesitucompeau($codesitucompeau)
+    public function setCodesitucompeau(\Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite $codesitucompeau = null)
     {
         $this->codesitucompeau = $codesitucompeau;
 
@@ -384,7 +431,7 @@ class InfrastructureLogement
     /**
      * Get codesitucompeau
      *
-     * @return string 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite 
      */
     public function getCodesitucompeau()
     {
@@ -394,10 +441,10 @@ class InfrastructureLogement
     /**
      * Set codesitucompelec
      *
-     * @param string $codesitucompelec
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite $codesitucompelec
      * @return InfrastructureLogement
      */
-    public function setCodesitucompelec($codesitucompelec)
+    public function setCodesitucompelec(\Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite $codesitucompelec = null)
     {
         $this->codesitucompelec = $codesitucompelec;
 
@@ -407,7 +454,7 @@ class InfrastructureLogement
     /**
      * Get codesitucompelec
      *
-     * @return string 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite 
      */
     public function getCodesitucompelec()
     {
