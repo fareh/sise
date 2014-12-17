@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_upGridView">
+
+
+            <div>
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <td align="center" colspan="5"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف الحدث</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الحدث</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">العدد</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+                    </tr>
+                    {% for key , entity in entities %}
+                        <tr>
+
+                            <td>{{ entity.codeacti.codecateacti.libecateactiar }}</td>
+                            <td>{{ entity.codeacti.libeactiar }}</td>
+                            <td>{{ entity.nombacti }}</td>
+                            <td>{{ entity.obse }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </center>
+
+{% endblock %}

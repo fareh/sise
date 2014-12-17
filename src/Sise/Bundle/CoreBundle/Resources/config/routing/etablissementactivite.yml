@@ -1,0 +1,17 @@
+etablissementactivite_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EtablissementActivite:edit" }
+
+etablissementactivite_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EtablissementActivite:list" }
+
+etablissementactivite_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EtablissementActivite:update" }
+    requirements: { _method: post|put }
+
+etablissementactivite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EtablissementActivite:delete" }
+    requirements: { _method: post|delete }

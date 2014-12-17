@@ -40,7 +40,14 @@ class NomenclatureActivite
      *
      * @ORM\Column(name="CodeCateActi", type="string", length=50, nullable=false)
      */
-    private $codecateacti;
+   // private $codecateacti;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieactivite", inversedBy="codeacti")
+     * @ORM\JoinColumn(name="CodeCateActi", referencedColumnName="CodeCateActi")
+     */
+    protected $codecateacti;
 
     /**
      * @var integer
@@ -147,29 +154,6 @@ class NomenclatureActivite
     public function getLibeactifr()
     {
         return $this->libeactifr;
-    }
-
-    /**
-     * Set codecateacti
-     *
-     * @param string $codecateacti
-     * @return NomenclatureActivite
-     */
-    public function setCodecateacti($codecateacti)
-    {
-        $this->codecateacti = $codecateacti;
-
-        return $this;
-    }
-
-    /**
-     * Get codecateacti
-     *
-     * @return string 
-     */
-    public function getCodecateacti()
-    {
-        return $this->codecateacti;
     }
 
     /**
@@ -331,5 +315,28 @@ class NomenclatureActivite
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Set codecateacti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite $codecateacti
+     * @return NomenclatureActivite
+     */
+    public function setCodecateacti(\Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite $codecateacti = null)
+    {
+        $this->codecateacti = $codecateacti;
+
+        return $this;
+    }
+
+    /**
+     * Get codecateacti
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite 
+     */
+    public function getCodecateacti()
+    {
+        return $this->codecateacti;
     }
 }

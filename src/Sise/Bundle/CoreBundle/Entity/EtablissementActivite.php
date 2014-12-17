@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EtablissementActivite
  *
  * @ORM\Table(name="etablissement_activite", indexes={@ORM\Index(name="FK_Etablissement_Activite_Nomenclature_Activite", columns={"CodeActi"}), @ORM\Index(name="FK_Etablissement_Activite_Nomenclature_Recensement", columns={"CodeRece"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EtablissementActiviteRepository")
  */
 class EtablissementActivite
 {
@@ -55,7 +55,18 @@ class EtablissementActivite
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
+   // private $codeacti;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureActivite")
+     * @ORM\JoinColumn(name="CodeActi", referencedColumnName="CodeActi")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
     private $codeacti;
+
+
 
     /**
      * @var integer
@@ -165,28 +176,7 @@ class EtablissementActivite
         return $this->coderece;
     }
 
-    /**
-     * Set codeacti
-     *
-     * @param string $codeacti
-     * @return EtablissementActivite
-     */
-    public function setCodeacti($codeacti)
-    {
-        $this->codeacti = $codeacti;
 
-        return $this;
-    }
-
-    /**
-     * Get codeacti
-     *
-     * @return string 
-     */
-    public function getCodeacti()
-    {
-        return $this->codeacti;
-    }
 
     /**
      * Set nombacti
@@ -232,5 +222,28 @@ class EtablissementActivite
     public function getObse()
     {
         return $this->obse;
+    }
+
+    /**
+     * Set codeacti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureActivite $codeacti
+     * @return EtablissementActivite
+     */
+    public function setCodeacti(\Sise\Bundle\CoreBundle\Entity\NomenclatureActivite $codeacti)
+    {
+        $this->codeacti = $codeacti;
+
+        return $this;
+    }
+
+    /**
+     * Get codeacti
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureActivite 
+     */
+    public function getCodeacti()
+    {
+        return $this->codeacti;
     }
 }

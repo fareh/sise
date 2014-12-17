@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * NomenclatureCategorieactivite
@@ -20,6 +21,18 @@ class NomenclatureCategorieactivite
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecateacti;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureActivite", mappedBy="codecateacti")
+     */
+    protected $codeacti;
+
+    public function __construct()
+    {
+        $this->codeacti = new ArrayCollection();
+    }
+
 
     /**
      * @var string
@@ -301,5 +314,38 @@ class NomenclatureCategorieactivite
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Add codeacti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureActivite $codeacti
+     * @return NomenclatureCategorieactivite
+     */
+    public function addCodeacti(\Sise\Bundle\CoreBundle\Entity\NomenclatureActivite $codeacti)
+    {
+        $this->codeacti[] = $codeacti;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeacti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureActivite $codeacti
+     */
+    public function removeCodeacti(\Sise\Bundle\CoreBundle\Entity\NomenclatureActivite $codeacti)
+    {
+        $this->codeacti->removeElement($codeacti);
+    }
+
+    /**
+     * Get codeacti
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeacti()
+    {
+        return $this->codeacti;
     }
 }
