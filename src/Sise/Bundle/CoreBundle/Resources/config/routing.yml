@@ -134,8 +134,11 @@ Siseblog_EffectiveenseignentGradediscipline:
     resource: "routing/effectiveenseignentgradediscipline.yml"
     prefix: /EffectiveenseignentGradediscipline
 Siseblog_EffectiveenseignentListeenseignentTypeenseignement:
-    resource: "routing/effectiveenseignentListeenseignenttypeenseignement.yml"
+    resource: "routing/effectiveenseignentlisteenseignenttypeenseignement.yml"
     prefix: /EffectiveenseignentListeenseignentTypeenseignement
 Siseblog_EffectiveenseignentHeureenseignent:
-    resource: "routing/EffectiveenseignentHeureenseignent.yml"
+    resource: "routing/effectiveenseignentheureenseignent.yml"
     prefix: /EffectiveenseignentHeureenseignent
+Siseblog_EffectiveenseignentListeenseignentheureautreetablissement:
+    resource: "routing/effectiveenseignentlisteenseignentheureautreetablissement.yml"
+    prefix: /EffectiveenseignentListeenseignentheureautreetablissement
