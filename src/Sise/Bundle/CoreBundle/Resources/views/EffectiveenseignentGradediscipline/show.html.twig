@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>EffectiveenseignentGradediscipline</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeetab</th>
+                <td>{{ entity.codeetab }}</td>
+            </tr>
+            <tr>
+                <th>Codetypeetab</th>
+                <td>{{ entity.codetypeetab }}</td>
+            </tr>
+            <tr>
+                <th>Annescol</th>
+                <td>{{ entity.annescol }}</td>
+            </tr>
+            <tr>
+                <th>Nombensetunimasc</th>
+                <td>{{ entity.nombensetunimasc }}</td>
+            </tr>
+            <tr>
+                <th>Nombensetunifemi</th>
+                <td>{{ entity.nombensetunifemi }}</td>
+            </tr>
+            <tr>
+                <th>Nombenseetramasc</th>
+                <td>{{ entity.nombenseetramasc }}</td>
+            </tr>
+            <tr>
+                <th>Nombenseetrafemi</th>
+                <td>{{ entity.nombenseetrafemi }}</td>
+            </tr>
+            <tr>
+                <th>Nombtotaense</th>
+                <td>{{ entity.nombtotaense }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('effectiveenseignentgradediscipline') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('effectiveenseignentgradediscipline_edit', { 'id': entity.codeetab }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

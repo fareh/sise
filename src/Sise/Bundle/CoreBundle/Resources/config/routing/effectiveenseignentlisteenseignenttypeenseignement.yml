@@ -1,0 +1,30 @@
+effectiveenseignentlisteenseignenttypeenseignement_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:index" }
+
+effectiveenseignentlisteenseignenttypeenseignement_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:show" }
+
+effectiveenseignentlisteenseignenttypeenseignement_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:new" }
+
+effectiveenseignentlisteenseignenttypeenseignement_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:create" }
+    requirements: { _method: post }
+
+effectiveenseignentlisteenseignenttypeenseignement_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:edit" }
+
+effectiveenseignentlisteenseignenttypeenseignement_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentlisteenseignenttypeenseignement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:delete" }
+    requirements: { _method: post|delete }

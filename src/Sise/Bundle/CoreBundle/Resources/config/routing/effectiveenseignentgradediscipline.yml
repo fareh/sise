@@ -1,0 +1,30 @@
+effectiveenseignentgradediscipline_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:index" }
+
+effectiveenseignentgradediscipline_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:show" }
+
+effectiveenseignentgradediscipline_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:new" }
+
+effectiveenseignentgradediscipline_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:create" }
+    requirements: { _method: post }
+
+effectiveenseignentgradediscipline_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:edit" }
+
+effectiveenseignentgradediscipline_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentgradediscipline_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradediscipline:delete" }
+    requirements: { _method: post|delete }

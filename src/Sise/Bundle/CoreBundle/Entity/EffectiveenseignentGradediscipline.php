@@ -49,20 +49,26 @@ class EffectiveenseignentGradediscipline
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureDiscipline
      *
-     * @ORM\Column(name="CodeDisci", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureDiscipline")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDisci", referencedColumnName="CodeDisci")
+     * })
      */
     private $codedisci;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGrad", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegrad;
 
