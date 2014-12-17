@@ -40,10 +40,10 @@
                 <td>{{ entity.codespec.libespecar }}</td>
                 <td>
                     {#{% if entity.codegenr = 'M' %}#}
-                    <input type="checkbox" {{ entity.gradactu ? 'checked="checked"' :'' }} disabled="disabled">
+                    <input type="checkbox" {{ not entity.gradactu ? 'checked="checked"' :'' }} disabled="disabled">
                 </td>
                 <td>
-                    <input type="checkbox" {{ not entity.gradactu ? 'checked="checked"' :'' }} disabled="disabled">
+                    <input type="checkbox" {{ entity.gradactu ? 'checked="checked"' :'' }} disabled="disabled">
                     {#{% endif %}#}
                 </td>
                 <td>{{ entity.codetypetrav.libetypetravar }}</td>

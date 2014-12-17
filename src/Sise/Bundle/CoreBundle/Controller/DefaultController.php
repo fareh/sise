@@ -160,17 +160,23 @@ class DefaultController extends Controller
         if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
 
 
-        if (strpos($PageContext, 'Ques') + strlen('Ques') === strlen($PageContext)) {
+        if (   strpos($PageContext, 'Ques') !== false  ) {
+
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
-            //- codepack -??
-            //- path('statElev', {'codepack':'StatElev'})
+
             $em = $this->getDoctrine()->getManager();
             $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByRouteclass($RouteAction);
 
             if ($TdRetour == true) {
                 $RouteRetour = 'statElev';
-                $RouteRetourParams = array('codepack' => $nameclass->getCodepack());
+               if ($nameclass===null){
+                   $RouteRetourParams = array('codepack' => '');
+                }else{
+                    $RouteRetourParams = array('codepack' => $nameclass->getCodepack());
+                }
+
+
             }
             if ($TdCloturer == true) {
                 $RouteCloturer = $RouteAction . '';
@@ -180,7 +186,11 @@ class DefaultController extends Controller
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
 
-            if ($TdRetour == true) $RouteRetour = $RouteAction . '';
+            if ($TdRetour == true){
+                $RouteRetour = $RouteAction . '';
+                $RouteRetourParams = array('codepack' => '');
+            }
+
             if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
         }
 

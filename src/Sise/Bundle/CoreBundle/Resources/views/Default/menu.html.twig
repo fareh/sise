@@ -76,9 +76,17 @@
             {% endif %}
             {% if TdRetour == true and  Route.Retour|routeExists==1 %}
                 <td id="TdRetour" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path(Route.Retour, RouteParams.Retour) }}"
-                       style="background-color:Transparent;border-style:None; display: block">
-                        <img src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"/> </a>
+                    {% if RouteParams.Retour=='' %}
+                        <a href="{{ path(Route.Retour ) }}"
+                           style="background-color:Transparent;border-style:None; display: block">
+                            <img src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"/> </a>
+
+                    {% else %}
+                        <a href="{{ path(Route.Retour, RouteParams.Retour) }}"
+                           style="background-color:Transparent;border-style:None; display: block">
+                            <img src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"/> </a>
+                    {% endif %}
+
                 </td>
             {% endif %}
             {% if TdAnnuler == true and  Route.Annuler|routeExists==1 %}
@@ -145,9 +153,16 @@
             {% endif %}
             {% if TdRetour == true and  Route.Retour|routeExists==1 %}
                 <td id="TdRetour2" align="center" style="background-color: #00AEEF; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Retour, RouteParams.Retour ) }}"
-                       style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
-                    </a>
+                    {% if RouteParams.Retour=='' %}
+                        <a href="{{ path( Route.Retour  ) }}"
+                           style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
+                        </a>
+
+                    {% else %}
+                        <a href="{{ path( Route.Retour, RouteParams.Retour ) }}"
+                           style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
+                        </a>
+                    {% endif %}
 
                 </td>
             {% endif %}
