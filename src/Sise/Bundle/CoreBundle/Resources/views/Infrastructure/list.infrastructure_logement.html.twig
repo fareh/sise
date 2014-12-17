@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructurelogement' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_UP">
+
+
+            <div>
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:2px;border-style:solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <td align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                        <td align="center" colspan="4" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            مواصفـــــــات المســـكن
+                        </td>
+                        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            الســــــــــاكن
+                        </td>
+                        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            العدادات
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">العدد</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع المسكن</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المساحة المغطاة
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملكية</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">إسم
+                            الســــــــــاكن
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صفــة
+                            الســــــــــاكن
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عداد الماء</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عداد الكهرباء</th>
+                    </tr>
+                    {% for key , entity in entities %}
+                        <td>{{ entity.numeloge}}</td>
+                        <td align="right">{{ entity.codetypeloge.libetypelogear}}</td>
+                        <td align="right">{{ entity.surfcouv}}</td>
+                        <td align="right">{{ entity.codepropbati.libepropbatiar}}</td>
+                        <td align="right">{{ entity.obse}}</td>
+                        <td align="right">{{ entity.nomprenhabi}}</td>
+                        <td align="right">{{ entity.codestathabi.libestathabiar}}</td>
+                        <td align="right">{{ entity.codesitucompeau.libesitucompar}}</td>
+                        <td align="right">{{ entity.codesitucompelec.libesitucompar}}</td>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </center>
+
+{% endblock %}

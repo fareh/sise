@@ -59,7 +59,7 @@ class InfrastructureTypecategorieespace
 
 
     /**
-     * @ORM\OneToOne(targetEntity="NomenclatureTypeespace")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeespace")
      * @ORM\JoinColumn(name="CodeTypeEspa", referencedColumnName="CodeTypeEspa")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
