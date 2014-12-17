@@ -82,6 +82,9 @@ SiseCoreBundle_infrastructuretypecategorieespace:
 SiseCoreBundle_infrastructureequipementcategorie:
     resource: "routing/infrastructureequipementcategorie.yml"
     prefix:   /stat/infrastructureequipementcategorie
+SiseCoreBundle_infrastructurelogement:
+    resource: "routing/infrastructurelogement.yml"
+    prefix:   /stat/infrastructurelogement
 Coreblog_NomenclatureEtablissement:
     resource: "routing/nomenclatureetablissement.yml"
     prefix: /NomenclatureEtablissement
