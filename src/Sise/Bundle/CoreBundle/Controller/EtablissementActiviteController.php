@@ -108,6 +108,7 @@ class EtablissementActiviteController extends Controller
      */
     public function listAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('etablissementactivite_list');
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
@@ -124,10 +125,18 @@ class EtablissementActiviteController extends Controller
         if ($codeetab && $codetypeetab) {
           //  $entities = $em->getRepository('SiseCoreBundle:EtablissementActivite')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
             $entities = $em->getRepository('SiseCoreBundle:EtablissementActivite')->getEtablissementActivite($codeetab, $codetypeetab,$annescol,$coderece);
+            foreach($entities  as $key => $entity){
+
+                $rowspan[$entity->getCodeacti()->getCodecateacti()->getCodecateacti()][$key]=$entity->getCodeacti()->getCodecateacti()->getCodecateacti();
+            }
+
+
+
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('etablissement_activite');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.etablissement_activite.html.twig', array(
             'entities' => @$entities,
+            'rowspan'=>@$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'nameclass'=>$nameclass

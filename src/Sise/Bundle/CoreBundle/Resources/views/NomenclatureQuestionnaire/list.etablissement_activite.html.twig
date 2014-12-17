@@ -24,10 +24,13 @@
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">العدد</th>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
                     </tr>
+                   {% set testRepeat = 0  %}
                     {% for key , entity in entities %}
                         <tr>
-
-                            <td>{{ entity.codeacti.codecateacti.libecateactiar }}</td>
+                          {% if entity.codeacti.codecateacti.codecateacti!=testRepeat %}
+                            <td style="background: #ffffff" rowspan="{{rowspan[entity.codeacti.codecateacti.codecateacti]|length  }}">{{ entity.codeacti.codecateacti.libecateactiar }}</td>
+                            {% endif  %}
+                            {% set testRepeat = entity.codeacti.codecateacti.codecateacti %}
                             <td>{{ entity.codeacti.libeactiar }}</td>
                             <td>{{ entity.nombacti }}</td>
                             <td>{{ entity.obse }}</td>

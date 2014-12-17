@@ -32,9 +32,14 @@
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
                     </tr>
 
-                  {% for key , entity in entities  %}
+
+                    {% set testRepeat = 0  %}
+                    {% for key , entity in entities %}
                     <tr>
-                 <td>{{ entity.codegrad.codecorp.libecorpar }}</td>
+                        {% if entity.codegrad.codecorp.codecorp!=testRepeat %}
+                            <td style="background: #ffffff" rowspan="{{rowspan[entity.codegrad.codecorp.codecorp]|length  }}">{{ entity.codegrad.codecorp.libecorpar }}</td>
+                        {% endif  %}
+                        {% set testRepeat = entity.codegrad.codecorp.codecorp %}
                     <td>{{ entity.codegrad.libegradar}}</td>
                     <td>{{ entity.nombpersmasc}}</td>
                     <td>{{ entity.nombpersfemi}}</td>

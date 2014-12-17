@@ -117,6 +117,7 @@ class EffectivepersonelPersonelGradeController extends Controller {
      */
     public function listAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectivepersonelpersonelgrade_list');
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
@@ -135,11 +136,14 @@ class EffectivepersonelPersonelGradeController extends Controller {
 
             $entities = $em->getRepository('SiseCoreBundle:EffectivepersonelPersonelGrade')->getEffectivepersonel($codeetab, $codetypeetab,$annescol,$coderece);
 
-
+            foreach($entities  as $key => $entity){
+                $rowspan[$entity->getCodegrad()->getCodecorp()->getCodecorp()][$key]=$entity->getCodegrad()->getCodecorp()->getCodecorp();
+            }
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectivepersonel_personel_grade');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectivepersonel_personel_grade.html.twig', array(
             'entities' => @$entities,
+            'rowspan'=>@$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'nameclass'=>$nameclass
