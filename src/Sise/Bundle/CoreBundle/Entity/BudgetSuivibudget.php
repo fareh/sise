@@ -55,7 +55,18 @@ class BudgetSuivibudget
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
+   // private $coderubrbudg;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BudgetRubriquebudgetaire")
+     * @ORM\JoinColumn(name="CodeRubrBudg", referencedColumnName="CodeRubrBudg")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
     private $coderubrbudg;
+
+
 
     /**
      * @var float
@@ -207,28 +218,6 @@ class BudgetSuivibudget
         return $this->coderece;
     }
 
-    /**
-     * Set coderubrbudg
-     *
-     * @param string $coderubrbudg
-     * @return BudgetSuivibudget
-     */
-    public function setCoderubrbudg($coderubrbudg)
-    {
-        $this->coderubrbudg = $coderubrbudg;
-
-        return $this;
-    }
-
-    /**
-     * Get coderubrbudg
-     *
-     * @return string 
-     */
-    public function getCoderubrbudg()
-    {
-        return $this->coderubrbudg;
-    }
 
     /**
      * Set credouve
@@ -412,5 +401,28 @@ class BudgetSuivibudget
     public function getPourpaye()
     {
         return $this->pourpaye;
+    }
+
+    /**
+     * Set coderubrbudg
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\BudgetRubriquebudgetaire $coderubrbudg
+     * @return BudgetSuivibudget
+     */
+    public function setCoderubrbudg(\Sise\Bundle\CoreBundle\Entity\BudgetRubriquebudgetaire $coderubrbudg)
+    {
+        $this->coderubrbudg = $coderubrbudg;
+
+        return $this;
+    }
+
+    /**
+     * Get coderubrbudg
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\BudgetRubriquebudgetaire 
+     */
+    public function getCoderubrbudg()
+    {
+        return $this->coderubrbudg;
     }
 }

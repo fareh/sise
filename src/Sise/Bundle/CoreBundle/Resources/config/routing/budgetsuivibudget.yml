@@ -1,0 +1,17 @@
+budgetsuivibudget_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:BudgetSuivibudget:edit" }
+
+budgetsuivibudget_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:BudgetSuivibudget:list" }
+
+budgetsuivibudget_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:BudgetSuivibudget:update" }
+    requirements: { _method: post|put }
+
+budgetsuivibudget_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:BudgetSuivibudget:delete" }
+    requirements: { _method: post|delete }

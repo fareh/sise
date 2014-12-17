@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_upGridView">
+
+            <div>
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الالرمز</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">البيان</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإعتماد المفتوح
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التنقيح</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة التعهدات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي التعهّد</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة الدفوعات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي الدفوعات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة التعهّد %</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة الدفوعات %
+                        </th>
+                    </tr>
+                    {% for key , entity in entities %}
+                        <tr>
+                            <td>{{ entity.coderubrbudg.coderubrbudg }}</td>
+                            <td>{{ entity.coderubrbudg.liberubrbudgar }}</td>
+                            <td>{{ entity.credouve }}</td>
+                            <td>{{ entity.corrcred }}</td>
+                            <td>{{ entity.totaenga }}</td>
+                            <td>{{ entity.restenga }}</td>
+                            <td>{{ entity.totapaye }}</td>
+                            <td>{{ entity.restpaye }}</td>
+                            <td>{{ entity.pourenga }}</td>
+                            <td>{{ entity.pourpaye }}</td>
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </center>
+
+{% endblock %}
