@@ -35,15 +35,15 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-         // $entities = $em->getRepository('SiseCoreBundle:MouvementeleveRecapmouvmenteleve')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            // $entities = $em->getRepository('SiseCoreBundle:MouvementeleveRecapmouvmenteleve')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
             $query = $em->createQuery(
                 'SELECT M
              FROM SiseCoreBundle:MouvementeleveRecapmouvmenteleve M
              WHERE M.codeetab=:codeetab and M.codetypeetab=:codetypeetab and M.annescol=:annescol and M.coderece=:coderece
-             ORDER BY M.codegenr DESC')->setParameter('codeetab',$codeetab)
-                                  ->setParameter('codetypeetab',$codetypeetab)
-                                  ->setParameter('annescol',$annescol)
-                                  ->setParameter('coderece',$coderece);
+             ORDER BY M.codegenr DESC')->setParameter('codeetab', $codeetab)
+                ->setParameter('codetypeetab', $codetypeetab)
+                ->setParameter('annescol', $annescol)
+                ->setParameter('coderece', $coderece);
             $entities = $query->execute();
         }
 
@@ -54,6 +54,7 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
             'pathfilter' => $url,
         ));
     }
+
     /**
      * Creates a new MouvementeleveRecapmouvmenteleve entity.
      *
@@ -74,7 +75,7 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
 
         return $this->render('SiseCoreBundle:MouvementeleveRecapmouvmenteleve:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -104,11 +105,11 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
     public function newAction()
     {
         $entity = new MouvementeleveRecapmouvmenteleve();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:MouvementeleveRecapmouvmenteleve:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -129,7 +130,7 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:MouvementeleveRecapmouvmenteleve:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -149,22 +150,22 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-     //   $deleteForm = $this->createDeleteForm($id);
+        //   $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:MouvementeleveRecapmouvmenteleve:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-        //    'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //    'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a MouvementeleveRecapmouvmenteleve entity.
-    *
-    * @param MouvementeleveRecapmouvmenteleve $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a MouvementeleveRecapmouvmenteleve entity.
+     *
+     * @param MouvementeleveRecapmouvmenteleve $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(MouvementeleveRecapmouvmenteleve $entity)
     {
         $form = $this->createForm(new MouvementeleveRecapmouvmenteleveType(), $entity, array(
@@ -176,6 +177,7 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing MouvementeleveRecapmouvmenteleve entity.
      *
@@ -201,11 +203,12 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
         }
 
         return $this->render('SiseCoreBundle:MouvementeleveRecapmouvmenteleve:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a MouvementeleveRecapmouvmenteleve entity.
      *
@@ -243,7 +246,6 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
             ->setAction($this->generateUrl('mouvementeleverecapmouvmenteleve_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

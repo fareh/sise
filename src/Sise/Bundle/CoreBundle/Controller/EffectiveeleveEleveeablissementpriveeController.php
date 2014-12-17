@@ -19,8 +19,8 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * EffectiveeleveEleveeablissementprivee controller.
  *
  */
-
-class EffectiveeleveEleveeablissementpriveeController extends Controller {
+class EffectiveeleveEleveeablissementpriveeController extends Controller
+{
 
 
     /**
@@ -46,12 +46,12 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('effectiveeleveeleveeablissementprivee_edit');
-        $pathUpdate = $this->generateUrl('effectiveeleveeleveeablissementprivee_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('effectiveeleveeleveeablissementprivee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_eleveeablissementprivee');
 
@@ -60,7 +60,7 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -80,8 +80,8 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectiveeleveeleveeablissementprivee_edit');
-        $pathUpdate = $this->generateUrl('effectiveeleveeleveeablissementprivee_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+        $pathUpdate = $this->generateUrl('effectiveeleveeleveeablissementprivee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
@@ -100,7 +100,7 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -113,12 +113,14 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveeleveeleveeablissementprivee_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -157,7 +159,7 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
 
 
                 if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire')) {
-                    $codenivescol[$item->getCodecyclense()] [$item->getCodenivescol()]= $item;
+                    $codenivescol[$item->getCodecyclense()] [$item->getCodenivescol()] = $item;
                 }
 
 
@@ -168,10 +170,7 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
             }
 
 
-
-
-
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
 
         }
 
@@ -183,7 +182,7 @@ class EffectiveeleveEleveeablissementpriveeController extends Controller {
             'cycleenseignement' => @$cycleenseignement,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 

@@ -23,19 +23,21 @@ class EffectifeleveListeeleveexeclusController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifelevelisteeleveexeclus_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveListeeleveexeclus')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveListeeleveexeclus')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
 
         return $this->render('SiseCoreBundle:EffectifeleveListeeleveexeclus:index.html.twig', array(
@@ -44,6 +46,7 @@ class EffectifeleveListeeleveexeclusController extends Controller
             'pathfilter' => $url,
         ));
     }
+
     /**
      * Creates a new EffectifeleveListeeleveexeclus entity.
      *
@@ -64,7 +67,7 @@ class EffectifeleveListeeleveexeclusController extends Controller
 
         return $this->render('SiseCoreBundle:EffectifeleveListeeleveexeclus:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -94,11 +97,11 @@ class EffectifeleveListeeleveexeclusController extends Controller
     public function newAction()
     {
         $entity = new EffectifeleveListeeleveexeclus();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:EffectifeleveListeeleveexeclus:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -116,11 +119,11 @@ class EffectifeleveListeeleveexeclusController extends Controller
             throw $this->createNotFoundException('Unable to find EffectifeleveListeeleveexeclus entity.');
         }
 
-      //  $deleteForm = $this->createDeleteForm($id);
+        //  $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectifeleveListeeleveexeclus:show.html.twig', array(
-            'entity'      => $entity,
-      //      'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            //      'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -142,19 +145,19 @@ class EffectifeleveListeeleveexeclusController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectifeleveListeeleveexeclus:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a EffectifeleveListeeleveexeclus entity.
-    *
-    * @param EffectifeleveListeeleveexeclus $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a EffectifeleveListeeleveexeclus entity.
+     *
+     * @param EffectifeleveListeeleveexeclus $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(EffectifeleveListeeleveexeclus $entity)
     {
         $form = $this->createForm(new EffectifeleveListeeleveexeclusType(), $entity, array(
@@ -166,6 +169,7 @@ class EffectifeleveListeeleveexeclusController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing EffectifeleveListeeleveexeclus entity.
      *
@@ -191,11 +195,12 @@ class EffectifeleveListeeleveexeclusController extends Controller
         }
 
         return $this->render('SiseCoreBundle:EffectifeleveListeeleveexeclus:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a EffectifeleveListeeleveexeclus entity.
      *
@@ -233,7 +238,6 @@ class EffectifeleveListeeleveexeclusController extends Controller
             ->setAction($this->generateUrl('effectifelevelisteeleveexeclus_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

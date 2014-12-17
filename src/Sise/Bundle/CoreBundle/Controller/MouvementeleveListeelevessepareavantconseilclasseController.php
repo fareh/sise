@@ -35,7 +35,7 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-        $entities = $em->getRepository('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:index.html.twig', array(
@@ -44,6 +44,7 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
             'pathfilter' => $url,
         ));
     }
+
     /**
      * Creates a new MouvementeleveListeelevessepareavantconseilclasse entity.
      *
@@ -64,7 +65,7 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -94,11 +95,11 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
     public function newAction()
     {
         $entity = new MouvementeleveListeelevessepareavantconseilclasse();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -119,7 +120,7 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -139,22 +140,22 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
         }
 
         $editForm = $this->createEditForm($entity);
-       // $deleteForm = $this->createDeleteForm($id);
+        // $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-        //    'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //    'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a MouvementeleveListeelevessepareavantconseilclasse entity.
-    *
-    * @param MouvementeleveListeelevessepareavantconseilclasse $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a MouvementeleveListeelevessepareavantconseilclasse entity.
+     *
+     * @param MouvementeleveListeelevessepareavantconseilclasse $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(MouvementeleveListeelevessepareavantconseilclasse $entity)
     {
         $form = $this->createForm(new MouvementeleveListeelevessepareavantconseilclasseType(), $entity, array(
@@ -166,6 +167,7 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
 
         return $form;
     }
+
     /**
      * Edits an existing MouvementeleveListeelevessepareavantconseilclasse entity.
      *
@@ -191,11 +193,12 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
         }
 
         return $this->render('SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a MouvementeleveListeelevessepareavantconseilclasse entity.
      *
@@ -233,7 +236,6 @@ class MouvementeleveListeelevessepareavantconseilclasseController extends Contro
             ->setAction($this->generateUrl('mouvementelevelisteelevessepareavantconseilclasse_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

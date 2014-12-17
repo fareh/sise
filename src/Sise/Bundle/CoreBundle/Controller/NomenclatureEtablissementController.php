@@ -28,18 +28,30 @@ class NomenclatureEtablissementController extends Controller
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchetab->getName());
-            $FiltreArray =array();
+            $FiltreArray = array();
 
-            if($params['NomenclatureCirconscriptionregional']!=''){$FiltreArray['codecircregi']= $params['NomenclatureCirconscriptionregional'];}
-            if($params['NomenclatureDelegation']!=''){$FiltreArray['codedele']= $params['NomenclatureDelegation'];}
-            if($params['NomenclatureCirconscription']!=''){$FiltreArray['codecirc']= $params['NomenclatureCirconscription'];}
-            if($params['NomenclatureTypeetablissement']!=''){$FiltreArray['codetypeetab']= $params['NomenclatureTypeetablissement'];}
-            if($params['NomenclatureSecteur']!=''){$FiltreArray['codesect']= $params['NomenclatureSecteur'];}
-            if($params['NomenclatureZone']!=''){$FiltreArray['codezone']= $params['NomenclatureZone'];}
+            if ($params['NomenclatureCirconscriptionregional'] != '') {
+                $FiltreArray['codecircregi'] = $params['NomenclatureCirconscriptionregional'];
+            }
+            if ($params['NomenclatureDelegation'] != '') {
+                $FiltreArray['codedele'] = $params['NomenclatureDelegation'];
+            }
+            if ($params['NomenclatureCirconscription'] != '') {
+                $FiltreArray['codecirc'] = $params['NomenclatureCirconscription'];
+            }
+            if ($params['NomenclatureTypeetablissement'] != '') {
+                $FiltreArray['codetypeetab'] = $params['NomenclatureTypeetablissement'];
+            }
+            if ($params['NomenclatureSecteur'] != '') {
+                $FiltreArray['codesect'] = $params['NomenclatureSecteur'];
+            }
+            if ($params['NomenclatureZone'] != '') {
+                $FiltreArray['codezone'] = $params['NomenclatureZone'];
+            }
             $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy($FiltreArray);
 
 
-         //  var_dump($params); die ;
+            //  var_dump($params); die ;
         }
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:index.html.twig', array(
             'entities' => $entities,
@@ -47,6 +59,7 @@ class NomenclatureEtablissementController extends Controller
             'pathfilter' => ''
         ));
     }
+
     /**
      * Creates a new NomenclatureEtablissement entity.
      *
@@ -67,7 +80,7 @@ class NomenclatureEtablissementController extends Controller
 
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -97,11 +110,11 @@ class NomenclatureEtablissementController extends Controller
     public function newAction()
     {
         $entity = new NomenclatureEtablissement();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -109,7 +122,7 @@ class NomenclatureEtablissementController extends Controller
      * Finds and displays a NomenclatureEtablissement entity.
      *
      */
-    public function showAction($codetypeetab,$codeetab)
+    public function showAction($codetypeetab, $codeetab)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -121,7 +134,7 @@ class NomenclatureEtablissementController extends Controller
         $deleteForm = $this->createDeleteForm($codeetab);
 
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -130,7 +143,7 @@ class NomenclatureEtablissementController extends Controller
      * Displays a form to edit an existing NomenclatureEtablissement entity.
      *
      */
-    public function editAction($codetypeetab,$codeetab)
+    public function editAction($codetypeetab, $codeetab)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -140,38 +153,39 @@ class NomenclatureEtablissementController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-   //   $deleteForm = $this->createDeleteForm($codeetab);
+        //   $deleteForm = $this->createDeleteForm($codeetab);
 
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-        //  'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //  'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a NomenclatureEtablissement entity.
-    *
-    * @param NomenclatureEtablissement $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a NomenclatureEtablissement entity.
+     *
+     * @param NomenclatureEtablissement $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(NomenclatureEtablissement $entity)
     {
         $form = $this->createForm(new NomenclatureEtablissementType(), $entity, array(
-            'action' => $this->generateUrl('nomenclatureetablissement_update', array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab())),
+            'action' => $this->generateUrl('nomenclatureetablissement_update', array('codetypeetab' => $entity->getCodetypeetab(), 'codeetab' => $entity->getCodeetab())),
             'method' => 'PUT',
         ));
 
-     //   $form->add('submit', 'submit', array('label' => 'Update'));
+        //   $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
+
     /**
      * Edits an existing NomenclatureEtablissement entity.
      *
      */
-    public function updateAction(Request $request, $codetypeetab,$codeetab)
+    public function updateAction(Request $request, $codetypeetab, $codeetab)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -181,7 +195,7 @@ class NomenclatureEtablissementController extends Controller
             throw $this->createNotFoundException('Unable to find NomenclatureEtablissement entity.');
         }
 
-     //   $deleteForm = $this->createDeleteForm($codeetab);
+        //   $deleteForm = $this->createDeleteForm($codeetab);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -189,15 +203,16 @@ class NomenclatureEtablissementController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nomenclatureetablissement_edit', array('codetypeetab'=> $entity->getCodetypeetab(), 'codeetab'=> $entity->getCodeetab())));
+            return $this->redirect($this->generateUrl('nomenclatureetablissement_edit', array('codetypeetab' => $entity->getCodetypeetab(), 'codeetab' => $entity->getCodeetab())));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-          //  'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //  'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a NomenclatureEtablissement entity.
      *
@@ -235,7 +250,6 @@ class NomenclatureEtablissementController extends Controller
             ->setAction($this->generateUrl('nomenclatureetablissement_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

@@ -23,19 +23,21 @@ class EffectiveenseignentGradedisciplineController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveenseignentgradediscipline_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentGradediscipline')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentGradediscipline')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         return $this->render('SiseCoreBundle:EffectiveenseignentGradediscipline:index.html.twig', array(
             'entities' => @$entities,
@@ -43,6 +45,7 @@ class EffectiveenseignentGradedisciplineController extends Controller
             'pathfilter' => $url,
         ));
     }
+
     /**
      * Creates a new EffectiveenseignentGradediscipline entity.
      *
@@ -63,7 +66,7 @@ class EffectiveenseignentGradedisciplineController extends Controller
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradediscipline:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -93,11 +96,11 @@ class EffectiveenseignentGradedisciplineController extends Controller
     public function newAction()
     {
         $entity = new EffectiveenseignentGradediscipline();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradediscipline:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -118,7 +121,7 @@ class EffectiveenseignentGradedisciplineController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradediscipline:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -138,22 +141,22 @@ class EffectiveenseignentGradedisciplineController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-       // $deleteForm = $this->createDeleteForm($id);
+        // $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradediscipline:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-          //  'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //  'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a EffectiveenseignentGradediscipline entity.
-    *
-    * @param EffectiveenseignentGradediscipline $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a EffectiveenseignentGradediscipline entity.
+     *
+     * @param EffectiveenseignentGradediscipline $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(EffectiveenseignentGradediscipline $entity)
     {
         $form = $this->createForm(new EffectiveenseignentGradedisciplineType(), $entity, array(
@@ -165,6 +168,7 @@ class EffectiveenseignentGradedisciplineController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing EffectiveenseignentGradediscipline entity.
      *
@@ -190,11 +194,12 @@ class EffectiveenseignentGradedisciplineController extends Controller
         }
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradediscipline:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a EffectiveenseignentGradediscipline entity.
      *
@@ -232,7 +237,6 @@ class EffectiveenseignentGradedisciplineController extends Controller
             ->setAction($this->generateUrl('effectiveenseignentgradediscipline_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

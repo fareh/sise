@@ -23,19 +23,21 @@ class EffectiveenseignentGradeheuretravailController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveenseignentgradeheuretravail_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentGradeheuretravail')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentGradeheuretravail')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
             $query = $em->createQuery(
                 'SELECT H
              FROM SiseCoreBundle:NomenclatureHeureenseignement H
@@ -49,6 +51,7 @@ class EffectiveenseignentGradeheuretravailController extends Controller
             'entitiesHeurensei' => @$entitiesHeurensei,
         ));
     }
+
     /**
      * Creates a new EffectiveenseignentGradeheuretravail entity.
      *
@@ -69,7 +72,7 @@ class EffectiveenseignentGradeheuretravailController extends Controller
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradeheuretravail:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -99,11 +102,11 @@ class EffectiveenseignentGradeheuretravailController extends Controller
     public function newAction()
     {
         $entity = new EffectiveenseignentGradeheuretravail();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradeheuretravail:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -124,7 +127,7 @@ class EffectiveenseignentGradeheuretravailController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradeheuretravail:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -147,19 +150,19 @@ class EffectiveenseignentGradeheuretravailController extends Controller
         //$deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradeheuretravail:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-          //  'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //  'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a EffectiveenseignentGradeheuretravail entity.
-    *
-    * @param EffectiveenseignentGradeheuretravail $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a EffectiveenseignentGradeheuretravail entity.
+     *
+     * @param EffectiveenseignentGradeheuretravail $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(EffectiveenseignentGradeheuretravail $entity)
     {
         $form = $this->createForm(new EffectiveenseignentGradeheuretravailType(), $entity, array(
@@ -171,6 +174,7 @@ class EffectiveenseignentGradeheuretravailController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing EffectiveenseignentGradeheuretravail entity.
      *
@@ -196,11 +200,12 @@ class EffectiveenseignentGradeheuretravailController extends Controller
         }
 
         return $this->render('SiseCoreBundle:EffectiveenseignentGradeheuretravail:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a EffectiveenseignentGradeheuretravail entity.
      *
@@ -238,7 +243,6 @@ class EffectiveenseignentGradeheuretravailController extends Controller
             ->setAction($this->generateUrl('effectiveenseignentgradeheuretravail_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

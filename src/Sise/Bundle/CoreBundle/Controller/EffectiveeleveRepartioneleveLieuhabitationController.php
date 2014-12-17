@@ -57,7 +57,7 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -100,7 +100,7 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -112,12 +112,14 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveeleverepartionelevelieuhabitation_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -134,7 +136,7 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 

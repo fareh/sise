@@ -18,8 +18,8 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * EffectivepersonelPersonelGrade controller.
  *
  */
-
-class EffectivepersonelPersonelGradeController extends Controller {
+class EffectivepersonelPersonelGradeController extends Controller
+{
 
     /**
      * Displays a form to edit an existing EffectivepersonelPersonelGrade entity.
@@ -54,10 +54,9 @@ class EffectivepersonelPersonelGradeController extends Controller {
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
-
 
 
     /**
@@ -68,7 +67,7 @@ class EffectivepersonelPersonelGradeController extends Controller {
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectivepersonelpersonelgrade_edit');
-        $pathUpdate = $this->generateUrl('effectivepersonelpersonelgrade_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('effectivepersonelpersonelgrade_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
         if ($session->has('features')) {
@@ -106,7 +105,7 @@ class EffectivepersonelPersonelGradeController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -120,38 +119,38 @@ class EffectivepersonelPersonelGradeController extends Controller {
         $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectivepersonelpersonelgrade_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-           // $entities = $em->getRepository('SiseCoreBundle:EffectivepersonelPersonelGrade')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            // $entities = $em->getRepository('SiseCoreBundle:EffectivepersonelPersonelGrade')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
 
-            $entities = $em->getRepository('SiseCoreBundle:EffectivepersonelPersonelGrade')->getEffectivepersonel($codeetab, $codetypeetab,$annescol,$coderece);
+            $entities = $em->getRepository('SiseCoreBundle:EffectivepersonelPersonelGrade')->getEffectivepersonel($codeetab, $codetypeetab, $annescol, $coderece);
 
-            foreach($entities  as $key => $entity){
+            foreach ($entities as $key => $entity) {
 
-                $rowspan[$entity->getCodegrad()->getCodecorp()->getCodecorp()][$key]=$entity->getCodegrad()->getCodecorp()->getCodecorp();
+                $rowspan[$entity->getCodegrad()->getCodecorp()->getCodecorp()][$key] = $entity->getCodegrad()->getCodecorp()->getCodecorp();
             }
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectivepersonel_personel_grade');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectivepersonel_personel_grade.html.twig', array(
             'entities' => @$entities,
-            'rowspan'=>@$rowspan,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
-
-
 
 
 }

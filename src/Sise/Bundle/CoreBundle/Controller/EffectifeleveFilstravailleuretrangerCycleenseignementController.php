@@ -19,8 +19,8 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * EffectifeleveFilstravailleuretrangerCycleenseignement controller.
  *
  */
-
-class EffectifeleveFilstravailleuretrangerCycleenseignementController extends controller {
+class EffectifeleveFilstravailleuretrangerCycleenseignementController extends controller
+{
 
 
     /**
@@ -46,12 +46,12 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_edit');
-        $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_filstravailleuretranger_cycleenseignement');
 
@@ -60,7 +60,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -80,8 +80,8 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_edit');
-        $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+        $pathUpdate = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
@@ -100,7 +100,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -112,19 +112,21 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifelevefilstravailleuretrangercycleenseignement_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
 
 
@@ -133,7 +135,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignementController extends co
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 

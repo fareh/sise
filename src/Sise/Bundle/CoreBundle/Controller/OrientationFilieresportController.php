@@ -23,27 +23,29 @@ class OrientationFilieresportController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('orientationfilieresport_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
-           // $entitiesfili= $em->getRepository('SiseCoreBundle:NomenclatureFiliere')->findAll();
+            $entities = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            // $entitiesfili= $em->getRepository('SiseCoreBundle:NomenclatureFiliere')->findAll();
             $query = $em->createQuery(
                 'SELECT F
              FROM SiseCoreBundle:NomenclatureFiliere F
              INNER JOIN SiseCoreBundle:NomenclatureFiliereniveauscolaire P  WITH  P.codefili=F.codefili
              WHERE P.codenivescol=:codefilitc Or P.codenivescol=:codefili2s
-             ORDER BY F.ordraffi DESC')->setParameter('codefilitc','C')
-                                       ->setParameter('codefili2s','2S');
+             ORDER BY F.ordraffi DESC')->setParameter('codefilitc', 'C')
+                ->setParameter('codefili2s', '2S');
             $entitiesfili = $query->execute();
         }
         return $this->render('SiseCoreBundle:OrientationFilieresport:index.html.twig', array(
@@ -53,6 +55,7 @@ class OrientationFilieresportController extends Controller
             'entitiesfili' => @$entitiesfili,
         ));
     }
+
     /**
      * Creates a new OrientationFilieresport entity.
      *
@@ -73,7 +76,7 @@ class OrientationFilieresportController extends Controller
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -103,11 +106,11 @@ class OrientationFilieresportController extends Controller
     public function newAction()
     {
         $entity = new OrientationFilieresport();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -128,7 +131,7 @@ class OrientationFilieresportController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -148,22 +151,22 @@ class OrientationFilieresportController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-       // $deleteForm = $this->createDeleteForm($id);
+        // $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-          //  'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //  'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a OrientationFilieresport entity.
-    *
-    * @param OrientationFilieresport $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a OrientationFilieresport entity.
+     *
+     * @param OrientationFilieresport $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(OrientationFilieresport $entity)
     {
         $form = $this->createForm(new OrientationFilieresportType(), $entity, array(
@@ -175,6 +178,7 @@ class OrientationFilieresportController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing OrientationFilieresport entity.
      *
@@ -200,11 +204,12 @@ class OrientationFilieresportController extends Controller
         }
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a OrientationFilieresport entity.
      *
@@ -242,7 +247,6 @@ class OrientationFilieresportController extends Controller
             ->setAction($this->generateUrl('orientationfilieresport_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

@@ -56,14 +56,14 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $questionnaires = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findAll();
 
-        foreach ($questionnaires as $questionnaire){
+        foreach ($questionnaires as $questionnaire) {
 
-            $questionnaire->setRouteclass(strtolower(str_replace('_', '',$questionnaire->getNameclass() )) );
+            $questionnaire->setRouteclass(strtolower(str_replace('_', '', $questionnaire->getNameclass())));
             $em->persist($questionnaire);
             $em->flush();
         }
 
-die;
+        die;
 
     }
 
@@ -71,11 +71,10 @@ die;
     {
 
 
-        $usr= $this->get('security.context')->getToken()->getUser();
+        $usr = $this->get('security.context')->getToken()->getUser();
 
         return $this->render('SiseCoreBundle:Default:index.html.twig');
     }
-
 
 
     /**
@@ -161,7 +160,7 @@ die;
         if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
 
 
-        if (strpos($PageContext, 'Ques') + strlen('Ques') === strlen($PageContext)){
+        if (strpos($PageContext, 'Ques') + strlen('Ques') === strlen($PageContext)) {
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
             //- codepack -??
@@ -169,14 +168,14 @@ die;
             $em = $this->getDoctrine()->getManager();
             $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByRouteclass($RouteAction);
 
-            if ($TdRetour == true){
+            if ($TdRetour == true) {
                 $RouteRetour = 'statElev';
-                $RouteRetourParams =array('codepack' => $nameclass->getCodepack());
+                $RouteRetourParams = array('codepack' => $nameclass->getCodepack());
             }
             if ($TdCloturer == true) {
                 $RouteCloturer = $RouteAction . '';
             }
-        }else{
+        } else {
 
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
@@ -197,23 +196,23 @@ die;
                 'TdRechercher' => $TdRechercher,
                 'TdCloturer' => $TdCloturer,
                 'Route' => array('Exporter' => $RouteExporter,
-                                'Nouveau' => $RouteNouveau,
-                                'Rechercher' => $RouteRechercher,
-                                'Retour' => $RouteRetour,
-                                'Editer' => $RouteEditer,
-                                'Annuler' => $RouteAnnuler,
-                                'Supprimer' => $RouteSupprimer,
-                                'Valider' => $RouteValider,
-                                'Cloturer' => $RouteCloturer),
+                    'Nouveau' => $RouteNouveau,
+                    'Rechercher' => $RouteRechercher,
+                    'Retour' => $RouteRetour,
+                    'Editer' => $RouteEditer,
+                    'Annuler' => $RouteAnnuler,
+                    'Supprimer' => $RouteSupprimer,
+                    'Valider' => $RouteValider,
+                    'Cloturer' => $RouteCloturer),
                 'RouteParams' => array('Exporter' => $RouteExporterParams,
-                                        'Nouveau' => $RouteNouveauParams,
-                                        'Rechercher' => $RouteRechercherParams,
-                                        'Retour' => $RouteRetourParams,
-                                        'Editer' => $RouteEditerParams,
-                                        'Annuler' => $RouteAnnulerParams,
-                                        'Supprimer' => $RouteSupprimerParams,
-                                        'Valider' => $RouteValiderParams,
-                                        'Cloturer' => $RouteCloturerParams)
+                    'Nouveau' => $RouteNouveauParams,
+                    'Rechercher' => $RouteRechercherParams,
+                    'Retour' => $RouteRetourParams,
+                    'Editer' => $RouteEditerParams,
+                    'Annuler' => $RouteAnnulerParams,
+                    'Supprimer' => $RouteSupprimerParams,
+                    'Valider' => $RouteValiderParams,
+                    'Cloturer' => $RouteCloturerParams)
             ));
 
 
@@ -230,6 +229,7 @@ die;
             'form' => $form->createView(),
         ));
     }
+
     public function searchetabAction()
     {
         // Generation of the form
@@ -280,8 +280,8 @@ die;
                     }
                     $session->set("codedele", $codegouv);
                 } elseif ($entity == 'NomenclatureEtablissement') {
-                   // $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findByCodetypeetab($codegouv);
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array("codetypeetab"=>$codegouv, "codedele"=>$session->get("codedele")));
+                    // $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findByCodetypeetab($codegouv);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array("codetypeetab" => $codegouv, "codedele" => $session->get("codedele")));
                     $json = array();
                     $json[0]['code'] = '';
                     $json[0]['libelle'] = '-- اختيار --';
@@ -289,7 +289,7 @@ die;
                     foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
                     {
                         $json[$i]['code'] = $nomenclatureDelegation->getCodeetab();
-                        $json[$i]['libelle'] =$nomenclatureDelegation->getCodeetab().' | '.$nomenclatureDelegation->getLibeetabar();
+                        $json[$i]['libelle'] = $nomenclatureDelegation->getCodeetab() . ' | ' . $nomenclatureDelegation->getLibeetabar();
                         $i++;
                     }
                     $session->set("codetypeetab", $codegouv);

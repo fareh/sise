@@ -18,8 +18,8 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * EffectiveeleveListeelevehandicap controller.
  *
  */
-
-class EffectiveeleveListeelevehandicapController extends Controller {
+class EffectiveeleveListeelevehandicapController extends Controller
+{
 
 
     /**
@@ -45,12 +45,12 @@ class EffectiveeleveListeelevehandicapController extends Controller {
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('effectiveelevelisteelevehandicap_edit');
-        $pathUpdate = $this->generateUrl('effectiveelevelisteelevehandicap_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+        $pathUpdate = $this->generateUrl('effectiveelevelisteelevehandicap_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
 
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_listeelevehandicap');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_listeelevehandicap.html.twig', array(
@@ -58,7 +58,7 @@ class EffectiveeleveListeelevehandicapController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -78,9 +78,9 @@ class EffectiveeleveListeelevehandicapController extends Controller {
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectiveelevelisteelevehandicap_edit');
-        $pathUpdate = $this->generateUrl('effectiveelevelisteelevehandicap_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('effectiveelevelisteelevehandicap_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findOneBy($items);
@@ -100,7 +100,7 @@ class EffectiveeleveListeelevehandicapController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -112,26 +112,28 @@ class EffectiveeleveListeelevehandicapController extends Controller {
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveelevelisteelevehandicap_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_listeelevehandicap');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveeleve_listeelevehandicap.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 

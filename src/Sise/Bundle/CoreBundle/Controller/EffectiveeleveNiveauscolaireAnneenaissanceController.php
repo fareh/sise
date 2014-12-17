@@ -19,7 +19,7 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * EffectiveeleveNiveauscolaireAnneenaissance controller.
  *
  */
-class EffectiveeleveNiveauscolaireAnneenaissanceController  extends Controller
+class EffectiveeleveNiveauscolaireAnneenaissanceController extends Controller
 {
 
 
@@ -27,7 +27,7 @@ class EffectiveeleveNiveauscolaireAnneenaissanceController  extends Controller
      * Displays a form to edit an existing NomenclatureQuestionnaire entity.
      *
      */
-    public function editAction( Request $request)
+    public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifelevedemiresidant_edit');
@@ -154,7 +154,7 @@ class EffectiveeleveNiveauscolaireAnneenaissanceController  extends Controller
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -166,18 +166,17 @@ class EffectiveeleveNiveauscolaireAnneenaissanceController  extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
+        $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $url = $this->generateUrl('effectiveeleveniveauscolaireanneenaissance_edit');
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_niveauscolaire_anneenaissance');
-        $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -329,7 +328,7 @@ class EffectiveeleveNiveauscolaireAnneenaissanceController  extends Controller
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
             'html' => @$html,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -459,14 +458,14 @@ class EffectiveeleveNiveauscolaireAnneenaissanceController  extends Controller
                 'pathfilter' => $url,
                 'pathUpdate' => @$pathUpdate,
                 'html' => $html,
-                'nameclass'=>$nameclass
+                'nameclass' => $nameclass
             ));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveeleve_niveauscolaire_anneenaissance.html.twig', array(
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 } 

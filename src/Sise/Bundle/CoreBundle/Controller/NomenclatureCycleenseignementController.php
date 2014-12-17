@@ -29,6 +29,7 @@ class NomenclatureCycleenseignementController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new NomenclatureCycleenseignement entity.
      *
@@ -49,7 +50,7 @@ class NomenclatureCycleenseignementController extends Controller
 
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -79,11 +80,11 @@ class NomenclatureCycleenseignementController extends Controller
     public function newAction()
     {
         $entity = new NomenclatureCycleenseignement();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -104,7 +105,7 @@ class NomenclatureCycleenseignementController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -127,19 +128,19 @@ class NomenclatureCycleenseignementController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a NomenclatureCycleenseignement entity.
-    *
-    * @param NomenclatureCycleenseignement $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a NomenclatureCycleenseignement entity.
+     *
+     * @param NomenclatureCycleenseignement $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(NomenclatureCycleenseignement $entity)
     {
         $form = $this->createForm(new NomenclatureCycleenseignementType(), $entity, array(
@@ -151,6 +152,7 @@ class NomenclatureCycleenseignementController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing NomenclatureCycleenseignement entity.
      *
@@ -176,11 +178,12 @@ class NomenclatureCycleenseignementController extends Controller
         }
 
         return $this->render('SiseSiseBundle:NomenclatureCycleenseignement:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a NomenclatureCycleenseignement entity.
      *
@@ -218,7 +221,6 @@ class NomenclatureCycleenseignementController extends Controller
             ->setAction($this->generateUrl('nomenclaturecycleenseignement_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

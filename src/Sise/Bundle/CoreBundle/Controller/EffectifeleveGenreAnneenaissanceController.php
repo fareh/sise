@@ -19,8 +19,8 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * EffectifeleveGenreAnneenaissance controller.
  *
  */
-
-class EffectifeleveGenreAnneenaissanceController extends Controller {
+class EffectifeleveGenreAnneenaissanceController extends Controller
+{
 
     /**
      * Displays a form to edit an existing NomenclatureQuestionnaire entity.
@@ -45,12 +45,12 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('effectifelevegenreanneenaissance_edit');
-        $pathUpdate = $this->generateUrl('effectifelevegenreanneenaissance_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('effectifelevegenreanneenaissance_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
 
         if ($codeetab && $codetypeetab) {
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_genre_anneenaissance');
 
@@ -59,7 +59,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -79,8 +79,8 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectifelevegenreanneenaissance_edit');
-        $pathUpdate = $this->generateUrl('effectifelevegenreanneenaissance_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
+        $pathUpdate = $this->generateUrl('effectifelevegenreanneenaissance_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
@@ -99,7 +99,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -111,12 +111,14 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifelevegenreanneenaissance_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -149,7 +151,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
                 }
 
                 if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance')) {
-                    $anneenaissance[$key-1]= $item;
+                    $anneenaissance[$key - 1] = $item;
                 }
 
             }
@@ -162,7 +164,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller {
             'anneenaissance' => @$anneenaissance,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 

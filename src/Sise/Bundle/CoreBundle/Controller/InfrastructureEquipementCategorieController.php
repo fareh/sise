@@ -19,7 +19,8 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
  * InfrastructureEquipementCategorie controller.
  *
  */
-class InfrastructureEquipementCategorieController extends Controller {
+class InfrastructureEquipementCategorieController extends Controller
+{
     /**
      * Displays a form to edit an existing InfrastructureEquipementCategorie entity.
      *
@@ -53,10 +54,9 @@ class InfrastructureEquipementCategorieController extends Controller {
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
-
 
 
     /**
@@ -67,7 +67,7 @@ class InfrastructureEquipementCategorieController extends Controller {
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('infrastructureequipementcategorie_edit');
-        $pathUpdate = $this->generateUrl('infrastructureequipementcategorie_update', array( 'codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $pathUpdate = $this->generateUrl('infrastructureequipementcategorie_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
         if ($session->has('features')) {
@@ -105,7 +105,7 @@ class InfrastructureEquipementCategorieController extends Controller {
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 
@@ -133,20 +133,20 @@ class InfrastructureEquipementCategorieController extends Controller {
         if ($codeetab && $codetypeetab) {
             //     $entities = $em->getRepository('SiseCoreBundle:InfrastructureEquipementCategorie')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol'=>$annescol, 'coderece'=>$coderece));
 
-            $entities = $em->getRepository('SiseCoreBundle:InfrastructureEquipementCategorie')->getInfrastructureEquipement($codeetab, $codetypeetab,$annescol,$coderece);
+            $entities = $em->getRepository('SiseCoreBundle:InfrastructureEquipementCategorie')->getInfrastructureEquipement($codeetab, $codetypeetab, $annescol, $coderece);
 
 
-            foreach($entities  as $key => $entity){
-                $rowspan[$entity->getCodeequi()->getCodecateequi()->getCodecateequi()][$key]=$entity->getCodeequi()->getCodecateequi()->getCodecateequi();
+            foreach ($entities as $key => $entity) {
+                $rowspan[$entity->getCodeequi()->getCodecateequi()->getCodecateequi()][$key] = $entity->getCodeequi()->getCodecateequi()->getCodecateequi();
             }
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_equipement_categorie');
         return $this->render('SiseCoreBundle:Infrastructure:list.infrastructure_equipement_categorie.html.twig', array(
             'entities' => @$entities,
-            'rowspan'=>@$rowspan,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass'=>$nameclass
+            'nameclass' => $nameclass
         ));
     }
 

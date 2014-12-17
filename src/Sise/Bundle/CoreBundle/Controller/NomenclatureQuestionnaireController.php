@@ -39,10 +39,11 @@ class NomenclatureQuestionnaireController extends Controller
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+
         $entitiestypeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneByCodetypeetab($codetypeetab);
         //var_dump($entitiestypeetab); die;
         if ($entitiestypeetab) {
