@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+   {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'الساعات الفعلية للمدرسين', 'RouteAction' : 'effectiveenseignentheureenseignent' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+<br>
+{% if entities is defined  and entities|length > 0 %}
+    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+        <thead>
+        <tr>
+            <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">ساعات التدريس</td>
+        </tr><tr>
+            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة ساعات التدريس</th>
+            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة الساعات الإضافية</th>
+            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة الساعات التكميلية</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.totaheurense }}</td>
+                <td>{{ entity.totaheurensesupp }}</td>
+                <td>{{ entity.totaheurensecomp }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+    {% endblock %}

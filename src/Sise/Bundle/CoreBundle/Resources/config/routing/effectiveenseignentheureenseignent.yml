@@ -1,0 +1,30 @@
+effectiveenseignentheureenseignent_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:index" }
+
+effectiveenseignentheureenseignent_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:show" }
+
+effectiveenseignentheureenseignent_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:new" }
+
+effectiveenseignentheureenseignent_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:create" }
+    requirements: { _method: post }
+
+effectiveenseignentheureenseignent_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:edit" }
+
+effectiveenseignentheureenseignent_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentheureenseignent_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentHeureenseignent:delete" }
+    requirements: { _method: post|delete }
