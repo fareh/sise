@@ -49,11 +49,14 @@ class EffectiveenseignentListeremplacementprovisoire
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureCauseremplacementprovisoire
      *
-     * @ORM\Column(name="CodeCausRempProv", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCauseremplacementprovisoire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeCausRempProv", referencedColumnName="CodeCausRempProv")
+     * })
      */
     private $codecausrempprov;
 

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'مدرسو التعليم العام (خاصّ بالمدارس الإبتدائية)', 'RouteAction' : 'effectiveenseignentlisteenseignenttypeenseignement' })) }}
+     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'مدرسون يتممون توقيتهم بمؤسسات تربويّةأخرى', 'RouteAction' : 'effectiveenseignentlisteenseignentheureautreetablissement' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 <br>
 {% if entities is defined  and entities|length > 0 %}

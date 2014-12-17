@@ -1,0 +1,30 @@
+effectiveenseignentgradeheuretravail_list:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:index" }
+
+effectiveenseignentgradeheuretravail_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:show" }
+
+effectiveenseignentgradeheuretravail_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:new" }
+
+effectiveenseignentgradeheuretravail_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:create" }
+    requirements: { _method: post }
+
+effectiveenseignentgradeheuretravail_edit:
+    path:    /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:edit" }
+
+effectiveenseignentgradeheuretravail_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentgradeheuretravail_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentGradeheuretravail:delete" }
+    requirements: { _method: post|delete }

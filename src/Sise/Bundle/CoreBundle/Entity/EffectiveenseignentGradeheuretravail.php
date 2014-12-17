@@ -49,20 +49,26 @@ class EffectiveenseignentGradeheuretravail
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureHeureenseignement
      *
-     * @ORM\Column(name="CodeHeurEnse", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureHeureenseignement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeHeurEnse", referencedColumnName="CodeHeurEnse")
+     * })
      */
     private $codeheurense;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGrad", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegrad;
 

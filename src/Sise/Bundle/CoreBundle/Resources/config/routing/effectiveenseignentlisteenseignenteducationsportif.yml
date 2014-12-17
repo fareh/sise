@@ -1,0 +1,30 @@
+effectiveenseignentlisteenseignenteducationsportif_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:index" }
+
+effectiveenseignentlisteenseignenteducationsportif_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:show" }
+
+effectiveenseignentlisteenseignenteducationsportif_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:new" }
+
+effectiveenseignentlisteenseignenteducationsportif_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:create" }
+    requirements: { _method: post }
+
+effectiveenseignentlisteenseignenteducationsportif_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:edit" }
+
+effectiveenseignentlisteenseignenteducationsportif_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentlisteenseignenteducationsportif_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:delete" }
+    requirements: { _method: post|delete }

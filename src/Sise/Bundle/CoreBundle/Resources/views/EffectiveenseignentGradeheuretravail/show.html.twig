@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>EffectiveenseignentGradeheuretravail</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Annescol</th>
+                <td>{{ entity.annescol }}</td>
+            </tr>
+            <tr>
+                <th>Nombensemasc</th>
+                <td>{{ entity.nombensemasc }}</td>
+            </tr>
+            <tr>
+                <th>Nombensefemi</th>
+                <td>{{ entity.nombensefemi }}</td>
+            </tr>
+            <tr>
+                <th>Nombtotaense</th>
+                <td>{{ entity.nombtotaense }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('effectiveenseignentgradeheuretravail') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('effectiveenseignentgradeheuretravail_edit', { 'id': entity.annescol }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

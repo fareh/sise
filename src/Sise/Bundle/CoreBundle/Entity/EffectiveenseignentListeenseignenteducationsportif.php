@@ -58,16 +58,25 @@ class EffectiveenseignentListeenseignenteducationsportif
     private $nompren;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGrad", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegrad;
 
     /**
-     * @var string
+     * @var \NomenclatureGenre
      *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 
