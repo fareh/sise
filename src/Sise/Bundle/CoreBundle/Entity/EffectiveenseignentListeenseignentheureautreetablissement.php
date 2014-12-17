@@ -49,20 +49,25 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     private $coderece;
 
     /**
-     * @var string
+     * @var \NomenclatureEtablissement
      *
-     * @ORM\Column(name="CodeEtabAutr", type="string", length=50, nullable=false)
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtabAutr", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codeetabautr;
 
     /**
-     * @var string
+     * @var \NomenclatureTypeetablissement
      *
-     * @ORM\Column(name="CodeTypeEtabAutr", type="string", length=50, nullable=false)
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codetypeetabautr;
 
@@ -99,9 +104,14 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     private $idenuniqense;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGrad", type="string", length=50, nullable=true)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegrad;
 

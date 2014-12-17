@@ -139,3 +139,6 @@ Siseblog_EffectiveenseignentListeenseignentTypeenseignement:
 Siseblog_EffectiveenseignentHeureenseignent:
     resource: "routing/EffectiveenseignentHeureenseignent.yml"
     prefix: /EffectiveenseignentHeureenseignent
+Siseblog_EffectiveenseignentListeenseignentheureautreetablissement:
+    resource: "routing/EffectiveenseignentListeenseignentheureautreetablissement.yml"
+    prefix: /EffectiveenseignentListeenseignentheureautreetablissement
