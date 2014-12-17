@@ -151,3 +151,12 @@ Siseblog_EffectiveenseignentHeureenseignent:
 Siseblog_EffectiveenseignentListeenseignentheureautreetablissement:
     resource: "routing/effectiveenseignentlisteenseignentheureautreetablissement.yml"
     prefix: /EffectiveenseignentListeenseignentheureautreetablissement
+Siseblog_EffectiveenseignentListeenseignenteducationsportif:
+    resource: "routing/effectiveenseignentlisteenseignenteducationsportif.yml"
+    prefix: /EffectiveenseignentListeenseignenteducationsportif
+Siseblog_EffectiveenseignentListeremplacementprovisoire:
+    resource: "routing/effectiveenseignentlisteremplacementprovisoire.yml"
+    prefix: /EffectiveenseignentListeremplacementprovisoire
+Siseblog_EffectiveenseignentGradeheuretravail:
+    resource: "routing/effectiveenseignentgradeheuretravail.yml"
+    prefix: /EffectiveenseignentGradeheuretravail

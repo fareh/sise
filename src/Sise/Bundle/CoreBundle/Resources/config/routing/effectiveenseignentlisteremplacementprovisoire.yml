@@ -1,0 +1,30 @@
+effectiveenseignentlisteremplacementprovisoire_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:index" }
+
+effectiveenseignentlisteremplacementprovisoire_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:show" }
+
+effectiveenseignentlisteremplacementprovisoire_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:new" }
+
+effectiveenseignentlisteremplacementprovisoire_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:create" }
+    requirements: { _method: post }
+
+effectiveenseignentlisteremplacementprovisoire_edit:
+    path:     /edit
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:edit" }
+
+effectiveenseignentlisteremplacementprovisoire_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:update" }
+    requirements: { _method: post|put }
+
+effectiveenseignentlisteremplacementprovisoire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+   {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'توزيع مدرسين حســب ســاعات التدريس وساعات التنشيط الفعلية و الرتبة', 'RouteAction' : 'effectiveenseignentgradeheuretravail' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+<br>
+{% if entities is defined  and entities|length > 0 %}
+    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+        <thead>
+        <tr>
+            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+            <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">عدد المدرسين</td>
+            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"> </td>
+        </tr><tr>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ساعات التدريس</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
+            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+        </tr><tr>
+        </thead>
+        <tbody>
+            {% for entityHeurensei in entitiesHeurensei %}
+        <tr>
+                {% set codeHeurenseiprec='' %}
+                {% for entity in entities %}
+                    {% if entity.codeheurense.codeheurense == entityHeurensei.codeheurense %}
+        <tr>
+
+            {% if codeHeurenseiprec!=entity.codeheurense.codeheurense %}
+                {% set  codeHeurenseiprec=entity.codeheurense.codeheurense %}
+                {% set rowspan= 0 %}
+                {% for key, entity2 in entities %}
+                    {% if entity2.codeheurense.codeheurense==codeHeurenseiprec %}
+                        {% set rowspan=rowspan+ 1 %}
+                    {% endif %}
+                {% endfor %}
+                <td rowspan="{{ rowspan }}"> {{ entityHeurensei.libeheurensear }}</td>
+            {% endif %}
+                        <td>{{ entity.codegrad.libegradar }}</td>
+                        <td>{{ entity.nombensemasc }}</td>
+                        <td>{{ entity.nombensefemi }}</td>
+                        <td>{{ entity.nombtotaense }}</td>
+        </tr>
+                    {% endif %}
+            {% endfor %}
+        </tr>{% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+    {% endblock %}

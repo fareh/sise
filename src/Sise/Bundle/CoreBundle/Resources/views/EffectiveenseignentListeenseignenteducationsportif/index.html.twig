@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'قـائمـة مدرسي التربيـة البدنيـة', 'RouteAction' : 'effectiveenseignentlisteenseignenteducationsportif' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+<br>
+{% if entities is defined  and entities|length > 0 %}
+    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+        <thead>
+        <tr>
+            <td align="center" colspan="5" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+        </tr><tr>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإسم و اللقب</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الساعات الأسبوعية</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">النوع</th>
+            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+        </tr><tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.nompren }}</td>
+                <td>{{ entity.nombheursema }}</td>
+                <td>{{ entity.codegrad.libegradar }}</td>
+                <td>{{ entity.codegenr.libegenrar }}</td>
+                <td>{{ entity.obse }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+    {% endblock %}
