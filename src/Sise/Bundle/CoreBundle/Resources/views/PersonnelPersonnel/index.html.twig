@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :'قائمة اسمية بالموارد البشرية', 'RouteAction' : 'personnelpersonnel' })) }}
+<br>
+    <table cellspacing="0" cellpadding="4" id="CPHMain_GV" style="color:#333333;width:100%;border-collapse:collapse;">
+        <thead>
+        <tr style="color:White;background-color:#507CD1;font-weight:bold;">
+            <th scope="col">المعرف الوحيد</th>
+            <th scope="col">الاسم و اللقب</th>
+            <th scope="col">النوع الاجتماعي</th>
+            <th scope="col">تاريخ الولادة</th>
+            <th scope="col">السلك</th>
+            <th scope="col">الرتبة</th>
+            <th scope="col">مادّة التدريس</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('personnelpersonnel_edit', { 'id': entity.idenuniq }) }}">{{ entity.idenuniq }}</a></td>
+                <td>{{ entity.nom }}{{ " " }}{{ entity.pren }}</td>
+                <td>{{ entity.codegenr.libegenrar }}</td>
+                <td>{% if entity.datenais %}{{ entity.datenais|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.codecorp.libecorpar }}</td>
+                <td>{{ entity.codegrad.libegradar }}</td>
+                <td>{{ entity.codedisci.libedisciar }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

@@ -409,4 +409,8 @@ class NomenclatureCorps
     {
         return $this->codegrad;
     }
+    public function __toString()
+    {
+        return $this->codecorp;
+    }
 }

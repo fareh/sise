@@ -169,3 +169,6 @@ Siseblog_EffectiveenseignentTypetravail:
 Siseblog_EffectiveenseignentListeenseignentEducationtechnique:
     resource: "routing/effectiveenseignentlisteenseignenteducationtechnique.yml"
     prefix: /EffectiveenseignentListeenseignentEducationtechnique
+Siseblog_PersonnelPersonnel:
+    resource: "routing/personnelpersonnel.yml"
+    prefix: /PersonnelPersonnel

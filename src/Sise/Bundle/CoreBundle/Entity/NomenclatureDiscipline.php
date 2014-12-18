@@ -362,4 +362,8 @@ class NomenclatureDiscipline
     {
         return $this->matiopti;
     }
+    public function __toString()
+    {
+        return $this->codedisci;
+    }
 }

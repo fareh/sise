@@ -302,4 +302,8 @@ class NomenclatureFonction
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codefonc;
+    }
 }

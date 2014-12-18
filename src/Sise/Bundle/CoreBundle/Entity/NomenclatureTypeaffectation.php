@@ -152,4 +152,8 @@ class NomenclatureTypeaffectation
     {
         return $this->acti;
     }
+    public function __toString()
+    {
+        return $this->codetypeaffe;
+    }
 }

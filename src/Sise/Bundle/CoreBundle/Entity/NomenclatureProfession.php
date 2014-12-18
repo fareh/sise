@@ -152,4 +152,8 @@ class NomenclatureProfession
     {
         return $this->acti;
     }
+    public function __toString()
+    {
+        return $this->codeprof;
+    }
 }

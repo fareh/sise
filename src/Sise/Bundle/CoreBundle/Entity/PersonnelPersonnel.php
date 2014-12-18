@@ -43,9 +43,12 @@ class PersonnelPersonnel
     private $nomjeunfille;
 
     /**
-     * @var string
+     * @var \NomenclatureGenre
      *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
+     * })
      */
     private $codegenr;
 
@@ -84,10 +87,14 @@ class PersonnelPersonnel
      */
     private $natituni;
 
+
     /**
-     * @var string
+     * @var \NomenclatureNationalite
      *
-     * @ORM\Column(name="CodeNati", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureNationalite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNati", referencedColumnName="CodeNati")
+     * })
      */
     private $codenati;
 
@@ -169,9 +176,12 @@ class PersonnelPersonnel
     private $adreelec;
 
     /**
-     * @var string
+     * @var \NomenclatureSituationfamiliale
      *
-     * @ORM\Column(name="CodeSituFami", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSituationfamiliale")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSituFami", referencedColumnName="CodeSituFami")
+     * })
      */
     private $codesitufami;
 
@@ -224,17 +234,24 @@ class PersonnelPersonnel
      */
     private $idenuniqconj;
 
+
     /**
-     * @var string
+     * @var \NomenclatureProfession
      *
-     * @ORM\Column(name="CodeProfConj", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureProfession")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeProfConj", referencedColumnName="CodeProf")
+     * })
      */
     private $codeprofconj;
 
     /**
-     * @var string
+     * @var \NomenclatureCorps
      *
-     * @ORM\Column(name="CodeCorp", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureCorps")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeCorp", referencedColumnName="CodeCorp")
+     * })
      */
     private $codecorp;
 
@@ -260,16 +277,25 @@ class PersonnelPersonnel
     private $datetitu;
 
     /**
-     * @var string
+     * @var \NomenclatureEtablissement
      *
-     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codeetab;
 
     /**
-     * @var string
+     * @var \NomenclatureTypeetablissement
      *
-     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codetypeetab;
 
@@ -281,16 +307,22 @@ class PersonnelPersonnel
     private $dateaffeetabactu;
 
     /**
-     * @var string
+     * @var \NomenclatureTypeaffectation
      *
-     * @ORM\Column(name="CodeTypeAffe", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeaffectation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeAffe", referencedColumnName="CodeTypeAffe")
+     * })
      */
     private $codetypeaffe;
 
     /**
-     * @var string
+     * @var \NomenclatureGrade
      *
-     * @ORM\Column(name="CodeGrad", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureGrade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
+     * })
      */
     private $codegrad;
 
@@ -309,9 +341,12 @@ class PersonnelPersonnel
     private $dateconfgradactu;
 
     /**
-     * @var string
+     * @var \NomenclatureFonction
      *
-     * @ORM\Column(name="CodeFonc", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureFonction")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeFonc", referencedColumnName="CodeFonc")
+     * })
      */
     private $codefonc;
 
@@ -323,16 +358,22 @@ class PersonnelPersonnel
     private $datefonc;
 
     /**
-     * @var string
+     * @var \NomenclatureQualite
      *
-     * @ORM\Column(name="CodeQual", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureQualite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeQual", referencedColumnName="CodeQual")
+     * })
      */
     private $codequal;
 
     /**
-     * @var string
+     * @var \NomenclatureSoussituationadministrative
      *
-     * @ORM\Column(name="CodeSousSituAdmi", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSoussituationadministrative")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSousSituAdmi", referencedColumnName="CodeSousSituAdmi")
+     * })
      */
     private $codesoussituadmi;
 
@@ -351,9 +392,12 @@ class PersonnelPersonnel
     private $datesoussituadmi;
 
     /**
-     * @var string
+     * @var \NomenclatureTache
      *
-     * @ORM\Column(name="CodeTach", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureTache")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTach", referencedColumnName="CodeTach")
+     * })
      */
     private $codetach;
 
@@ -379,23 +423,32 @@ class PersonnelPersonnel
     private $datefinroul;
 
     /**
-     * @var string
+     * @var \NomenclatureNiveauetude
      *
-     * @ORM\Column(name="CodeNiveEtud", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauetude")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveEtud", referencedColumnName="CodeNiveEtud")
+     * })
      */
     private $codeniveetud;
 
     /**
-     * @var string
+     * @var \NomenclatureDiplome
      *
-     * @ORM\Column(name="CodeDipl", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureDiplome")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDipl", referencedColumnName="CodeDipl")
+     * })
      */
     private $codedipl;
 
     /**
-     * @var string
+     * @var \NomenclatureSpecialite
      *
-     * @ORM\Column(name="CodeSpec", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSpecialite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSpec", referencedColumnName="CodeSpec")
+     * })
      */
     private $codespec;
 
@@ -407,9 +460,12 @@ class PersonnelPersonnel
     private $dipltuni;
 
     /**
-     * @var string
+     * @var \NomenclatureDiscipline
      *
-     * @ORM\Column(name="CodeDisci", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureDiscipline")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDisci", referencedColumnName="CodeDisci")
+     * })
      */
     private $codedisci;
 
@@ -442,9 +498,12 @@ class PersonnelPersonnel
     private $ensecourpart;
 
     /**
-     * @var string
+     * @var \NomenclatureLangueenseignement
      *
-     * @ORM\Column(name="CodeLangEnse", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureLangueenseignement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeLangEnse", referencedColumnName="CodeLangEnse")
+     * })
      */
     private $codelangense;
 
@@ -2161,5 +2220,40 @@ class PersonnelPersonnel
     public function getDatefincont()
     {
         return $this->datefincont;
+    }
+
+    public function __construct()
+    {
+        $this->datenais = new \DateTime();
+        $this->datecin = new \DateTime();
+        $this->dateentrfoncpubl = new \DateTime();
+        $this->daterecrme = new \DateTime();
+        $this->datetitu = new \DateTime();
+        $this->dategradactu = new \DateTime();
+        $this->dateconfgradactu = new \DateTime();
+        $this->datefonc = new \DateTime();
+        $this->datedeburoul = new \DateTime();
+        $this->datefinroul = new \DateTime();
+        $this->datedebucont = new \DateTime();
+        $this->datefincont = new \DateTime();
+        $this->dateaffeetabactu = new \DateTime();
+    }
+    public function __toString()
+    {
+        return $this->idenuniq;
+    }
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        $date = new \DateTime('now');
+        if ($date instanceof \DateTime) {
+            if ($this->getDatecreabd() == null) {
+                $this->setDatecreabd($date);
+            }
+        }
     }
 }

@@ -36,9 +36,12 @@ class NomenclatureSoussituationadministrative
     private $libesoussituadmifr;
 
     /**
-     * @var string
+     * @var \NomenclatureSituationadministrative
      *
-     * @ORM\Column(name="CodeSituAdmi", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSituationadministrative")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSituAdmi", referencedColumnName="CodeSituAdmi")
+     * })
      */
     private $codesituadmi;
 
@@ -331,5 +334,9 @@ class NomenclatureSoussituationadministrative
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function __toString()
+    {
+        return $this->codesoussituadmi;
     }
 }

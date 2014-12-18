@@ -1,0 +1,355 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <form action="{{ path('personnelpersonnel_update', { 'id': entity.idenuniq }) }}"
+          method="post" {{ form_enctype(edit_form) }}>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :'بطاقة الموظف', 'RouteAction' : 'personnelpersonnel' })) }}
+
+    <div id="CPHMain_upmain">
+
+
+    <input type="hidden" name="_method" value="PUT"/>
+    {{ form_errors(edit_form) }}
+
+
+
+
+
+    <div id="accordion">
+    <h3>
+        معلومات عامة</h3>
+    <div>
+        <div class="Row">
+            <span id="CPHMain_Label1" style="display:inline-block;height:28px;width:25%;">المعرف الوحيد</span>
+            {{ form_widget(edit_form.idenuniq) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label2" style="display:inline-block;height:28px;width:25%;">الاسم</span>
+            {{ form_widget(edit_form.nom) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label3" style="display:inline-block;height:28px;width:25%;">اللقب</span>
+            {{ form_widget(edit_form.pren) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label4" style="display:inline-block;height:28px;width:25%;">اللقب قبل الزواج</span>
+            {{ form_widget(edit_form.nomjeunfille) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label5" style="display:inline-block;height:28px;width:25%;">النوع الاجتماعي</span>
+            {{ form_widget(edit_form.codegenr) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label6" style="display:inline-block;height:28px;width:25%;">تاريخ الولادة</span>
+            {{ form_widget(edit_form.datenais) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label7" style="display:inline-block;height:28px;width:25%;">مكان الولادة</span>
+            {{ form_widget(edit_form.lieunais) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label8" style="display:inline-block;height:28px;width:25%;">رقم ب.ت.و</span>
+            {{ form_widget(edit_form.numecin) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label9" style="display:inline-block;height:28px;width:25%;">تاريخ ب.ت.و</span>
+            {{ form_widget(edit_form.datecin) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span id="CPHMain_Label10" style="display:inline-block;height:28px;width:25%;">جنسية التونسية (نعم / لا)</span>
+            نعم {{ form_widget(edit_form.natituni.children['0']) }}
+            لا   {{ form_widget(edit_form.natituni.children['1']) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label11" style="display:inline-block;height:28px;width:25%;">الجنسية</span>
+            {{ form_widget(edit_form.codenati) }}
+        </div>
+    </div>
+
+    <h3>
+        الاتصال بالموظف</h3>
+    <div>
+        <div class="Row">
+            <span id="CPHMain_Label12" style="display:inline-block;height:28px;width:25%;">العنوان</span>
+            {{ form_widget(edit_form.adre) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label13" style="display:inline-block;height:28px;width:25%;">العنوان الإضافي</span>
+            {{ form_widget(edit_form.compadre) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label14" style="display:inline-block;height:28px;width:25%;">المدينة</span>
+            {{ form_widget(edit_form.ville) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label15" style="display:inline-block;height:28px;width:25%;">الترقيم البريدي</span>
+            {{ form_widget(edit_form.codepost) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label16" style="display:inline-block;height:28px;width:25%;">العنوان (ثانوي)</span>
+            {{ form_widget(edit_form.adreseco) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label17" style="display:inline-block;height:28px;width:25%;">العنوان الإضافي (ثانوي)</span>
+            {{ form_widget(edit_form.compadreseco) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label18" style="display:inline-block;height:28px;width:25%;">المدينة (ثانوي)</span>
+            {{ form_widget(edit_form.villeseco) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label19" style="display:inline-block;height:28px;width:25%;">الترقيم البريدي (ثانوي)</span>
+            {{ form_widget(edit_form.codepostseco) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label20" style="display:inline-block;height:28px;width:25%;">الهاتف القار</span>
+            {{ form_widget(edit_form.telefixe) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label21" style="display:inline-block;height:28px;width:25%;">الهاتف المحمول</span>
+            {{ form_widget(edit_form.telemobi) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label22" style="display:inline-block;height:28px;width:25%;">البريد الإلكتروني</span>
+            {{ form_widget(edit_form.adreelec) }}
+        </div>
+    </div>
+
+    <h3>
+        الوضعية العائلية</h3>
+    <div>
+        <div class="Row">
+            <span id="CPHMain_Label23" style="display:inline-block;height:28px;width:25%;">الوضعية العائلية</span>
+            {{ form_widget(edit_form.codesitufami) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label24" style="display:inline-block;height:28px;width:25%;">عدد الأطفال</span>
+            {{ form_widget(edit_form.nombenfa) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label25" style="display:inline-block;height:28px;width:25%;">عدد الأطفال في الكفالة</span>
+            {{ form_widget(edit_form.nombenfachar) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label26" style="display:inline-block;height:28px;width:25%;">عدد الأطفال ذوي الاحتياجات الخصوصية</span>
+            {{ form_widget(edit_form.nombenfabesospec) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label27" style="display:inline-block;height:28px;width:25%;">الاسم الكامل للقرين</span>
+            {{ form_widget(edit_form.nomprenconj) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse"  class="Row">
+            <span id="CPHMain_Label28" style="display:inline-block;height:28px;width:25%;">القرين يعمل في وزارة التربية والتعليم (نعم / لا)</span>
+            نعم  {{ form_widget(edit_form.conjtravme.children['0']) }}
+            لا    {{ form_widget(edit_form.conjtravme.children['1']) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse"  class="Row">
+            <span id="CPHMain_Label29" style="display:inline-block;height:28px;width:25%;"> القرين يعمل في القطاع العام (نعم / لا)</span>
+            نعم    {{ form_widget(edit_form.conjtravfp.children['0']) }}
+            لا      {{ form_widget(edit_form.conjtravfp.children['1']) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label30" style="display:inline-block;height:28px;width:25%;">المعرف الوحيد للقرين</span>
+            {{ form_widget(edit_form.idenuniqconj) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label31" style="display:inline-block;height:28px;width:25%;">وظيفة القرين</span>
+            {{ form_widget(edit_form.codeprofconj) }}
+        </div>
+    </div>
+
+    <h3>
+        الوضعية الإدارية</h3>
+    <div>
+        <div class="Row">
+            <span id="CPHMain_Label32" style="display:inline-block;height:28px;width:25%;">السلك</span>
+            {{ form_widget(edit_form.codecorp) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label33" style="display:inline-block;height:28px;width:25%;">تاريخ الالتحاق بالوظيفة العمومية</span>
+            {{ form_widget(edit_form.dateentrfoncpubl) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label34" style="display:inline-block;height:28px;width:25%;">تاريخ الالتحاق بوزارة التربية </span>
+            {{ form_widget(edit_form.daterecrme) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label35" style="display:inline-block;height:28px;width:25%;">تاريخ الترسيم</span>
+            {{ form_widget(edit_form.datetitu) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label37" style="display:inline-block;height:28px;width:25%;">نوع المؤسسة</span>
+            {{ form_widget(edit_form.codetypeetab) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label36" style="display:inline-block;height:28px;width:25%;">المؤسسة</span>
+            {{ form_widget(edit_form.codeetab) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label38" style="display:inline-block;height:28px;width:25%;">تاريخ التعيين في المؤسسة الحالية</span>
+            {{ form_widget(edit_form.dateaffeetabactu) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label39" style="display:inline-block;height:28px;width:25%;">نوع التعيين</span>
+            {{ form_widget(edit_form.codetypeaffe)}}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label40" style="display:inline-block;height:28px;width:25%;">الرتبة</span>
+            {{ form_widget(edit_form.codegrad) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label41" style="display:inline-block;height:28px;width:25%;">تاريخ الرتبة الحالية</span>
+            {{ form_widget(edit_form.dategradactu) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label42" style="display:inline-block;height:28px;width:25%;">تاريخ تأكيد الرتبة الحالية</span>
+            {{ form_widget(edit_form.dateconfgradactu)}}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label43" style="display:inline-block;height:28px;width:25%;">الخطة الوظيفية</span>
+            {{ form_widget(edit_form.codefonc) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label44" style="display:inline-block;height:28px;width:25%;">تاريخ الوظيفة</span>
+            {{ form_widget(edit_form.datefonc) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label45" style="display:inline-block;height:28px;width:25%;">الصفة</span>
+            {{ form_widget(edit_form.codequal) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_L45" style="display:inline-block;height:28px;width:25%;">الوضع الإداري</span>
+            {{ form_widget(edit_form.codesoussituadmi.codesituadmi) }}
+        </div>
+
+        <div class="Row">
+            <span id="CPHMain_Label46" style="display:inline-block;height:28px;width:25%;">الوضع الإداري الفرعي</span>
+            {{ form_widget(edit_form.codesoussituadmi.codesoussituadmi)}}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label47" style="display:inline-block;height:28px;width:25%;">تاريخ الوضع الاداري</span>
+            {{ form_widget(edit_form.datesituadmi) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label48" style="display:inline-block;height:28px;width:25%;">تاريخ الوضع الاداري الفرعي</span>
+            {{ form_widget(edit_form.datesoussituadmi) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label49" style="display:inline-block;height:28px;width:25%;">المهام</span>
+            {{ form_widget(edit_form.codetach) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span id="CPHMain_Label50" style="display:inline-block;height:28px;width:25%;">التداول</span>
+            نعم  {{ form_widget(edit_form.roul.children['0']) }}
+            لا    {{ form_widget(edit_form.roul.children['1']) }}
+        </div>
+        <div class="Row">
+            <span id="CPHMain_Label51" style="display:inline-block;height:28px;width:25%;">تاريخ بدء التداول</span>
+            {{ form_widget(edit_form.datedeburoul) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">تاريخ انتهاء التداول</span>
+            {{ form_widget(edit_form.datefinroul) }}
+        </div>
+    </div>
+
+    <h3>
+        التكوين</h3>
+    <div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">مستوى الدراسة</span>
+            {{ form_widget(edit_form.codeniveetud) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">الشهادة</span>
+            {{ form_widget(edit_form.codedipl) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">الاختصاص</span>
+            {{ form_widget(edit_form.codespec) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">الشهادة تونسية (نعم/لا)</span>
+            نعم   {{ form_widget(edit_form.dipltuni.children['0']) }}
+            لا    {{ form_widget(edit_form.dipltuni.children['1']) }}
+        </div>
+    </div>
+
+    <h3 >
+        معلومات إضافية</h3>
+    <div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">مادّة التدريس</span>
+            {{ form_widget(edit_form.codedisci) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">مختص (نعم / لا)</span>
+            نعم    {{ form_widget(edit_form.spec.children['0']) }}
+            لا   {{ form_widget(edit_form.spec.children['1']) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">يقدم دروس خصوصية (نعم/لا)</span>
+            نعم   {{ form_widget(edit_form.ensecourpriv.children['0']) }}
+            لا   {{ form_widget(edit_form.ensecourpriv.children['1']) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">عدد ساعات الدروس خصوصية</span>
+            {{ form_widget(edit_form.charhoracourpriv) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">يقدم دروس بالمؤسسات الخاصة</span>
+            نعم   {{ form_widget(edit_form.ensecourpart.children['0']) }}
+            لا     {{ form_widget(edit_form.ensecourpart.children['1']) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">لغة التدريس</span>
+            {{ form_widget(edit_form.codelangense) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">الأقدمية في الادارة</span>
+            {{ form_widget(edit_form.anciadmi) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">الأقدمية في التعليم</span>
+            {{ form_widget(edit_form.anciense) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">الأقدمية في المركز الحالي</span>
+            {{ form_widget(edit_form.ancicentactu) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">عدد ساعات التدريس الفعلية</span>
+            {{ form_widget(edit_form.nombheurensereel) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">عدد ساعات التدريس المطالب بها</span>
+            {{ form_widget(edit_form.nombheurenserequ) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">عدد ساعات التدريس الإضافية</span>
+            {{ form_widget(edit_form.nombheurensesupp) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">عدد ساعات التدريس التكميلية</span>
+            {{ form_widget(edit_form.nombheurensecomp) }}
+        </div>
+        <div id="CPHMain_CBCyclEnse" class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">متعاقد (نعم/ لا)</span>
+            نعم   {{ form_widget(edit_form.cont.children['0']) }}
+            لا     {{ form_widget(edit_form.cont.children['1']) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">تاريخ بداية العقد</span>
+            {{ form_widget(edit_form.datedebucont) }}
+        </div>
+        <div class="Row">
+            <span style="display:inline-block;height:28px;width:25%;">تاريخ نهاية العقد</span>
+            {{ form_widget(edit_form.datefincont) }}
+        </div>
+    </div>
+    </div>
+    </div>
+    {{ form_rest(edit_form) }}
+    </form>
+{% endblock %}

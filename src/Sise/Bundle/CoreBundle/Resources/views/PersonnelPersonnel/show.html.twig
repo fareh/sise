@@ -1,0 +1,240 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>PersonnelPersonnel</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idenuniq</th>
+                <td>{{ entity.idenuniq }}</td>
+            </tr>
+            <tr>
+                <th>Pren</th>
+                <td>{{ entity.pren }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Nomjeunfille</th>
+                <td>{{ entity.nomjeunfille }}</td>
+            </tr>
+            <tr>
+                <th>Datenais</th>
+                <td>{{ entity.datenais|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Lieunais</th>
+                <td>{{ entity.lieunais }}</td>
+            </tr>
+            <tr>
+                <th>Numecin</th>
+                <td>{{ entity.numecin }}</td>
+            </tr>
+            <tr>
+                <th>Datecin</th>
+                <td>{{ entity.datecin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Natituni</th>
+                <td>{{ entity.natituni }}</td>
+            </tr>
+            <tr>
+                <th>Adre</th>
+                <td>{{ entity.adre }}</td>
+            </tr>
+            <tr>
+                <th>Compadre</th>
+                <td>{{ entity.compadre }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ entity.ville }}</td>
+            </tr>
+            <tr>
+                <th>Codepost</th>
+                <td>{{ entity.codepost }}</td>
+            </tr>
+            <tr>
+                <th>Adreseco</th>
+                <td>{{ entity.adreseco }}</td>
+            </tr>
+            <tr>
+                <th>Compadreseco</th>
+                <td>{{ entity.compadreseco }}</td>
+            </tr>
+            <tr>
+                <th>Villeseco</th>
+                <td>{{ entity.villeseco }}</td>
+            </tr>
+            <tr>
+                <th>Codepostseco</th>
+                <td>{{ entity.codepostseco }}</td>
+            </tr>
+            <tr>
+                <th>Telefixe</th>
+                <td>{{ entity.telefixe }}</td>
+            </tr>
+            <tr>
+                <th>Telemobi</th>
+                <td>{{ entity.telemobi }}</td>
+            </tr>
+            <tr>
+                <th>Adreelec</th>
+                <td>{{ entity.adreelec }}</td>
+            </tr>
+            <tr>
+                <th>Nombenfa</th>
+                <td>{{ entity.nombenfa }}</td>
+            </tr>
+            <tr>
+                <th>Nombenfachar</th>
+                <td>{{ entity.nombenfachar }}</td>
+            </tr>
+            <tr>
+                <th>Nombenfabesospec</th>
+                <td>{{ entity.nombenfabesospec }}</td>
+            </tr>
+            <tr>
+                <th>Nomprenconj</th>
+                <td>{{ entity.nomprenconj }}</td>
+            </tr>
+            <tr>
+                <th>Conjtravme</th>
+                <td>{{ entity.conjtravme }}</td>
+            </tr>
+            <tr>
+                <th>Conjtravfp</th>
+                <td>{{ entity.conjtravfp }}</td>
+            </tr>
+            <tr>
+                <th>Idenuniqconj</th>
+                <td>{{ entity.idenuniqconj }}</td>
+            </tr>
+            <tr>
+                <th>Dateentrfoncpubl</th>
+                <td>{{ entity.dateentrfoncpubl|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Daterecrme</th>
+                <td>{{ entity.daterecrme|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datetitu</th>
+                <td>{{ entity.datetitu }}</td>
+            </tr>
+            <tr>
+                <th>Dateaffeetabactu</th>
+                <td>{{ entity.dateaffeetabactu|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Dategradactu</th>
+                <td>{{ entity.dategradactu|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Dateconfgradactu</th>
+                <td>{{ entity.dateconfgradactu|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datefonc</th>
+                <td>{{ entity.datefonc }}</td>
+            </tr>
+            <tr>
+                <th>Datesituadmi</th>
+                <td>{{ entity.datesituadmi|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datesoussituadmi</th>
+                <td>{{ entity.datesoussituadmi|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Roul</th>
+                <td>{{ entity.roul }}</td>
+            </tr>
+            <tr>
+                <th>Datedeburoul</th>
+                <td>{{ entity.datedeburoul|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datefinroul</th>
+                <td>{{ entity.datefinroul|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Dipltuni</th>
+                <td>{{ entity.dipltuni }}</td>
+            </tr>
+            <tr>
+                <th>Spec</th>
+                <td>{{ entity.spec }}</td>
+            </tr>
+            <tr>
+                <th>Ensecourpriv</th>
+                <td>{{ entity.ensecourpriv }}</td>
+            </tr>
+            <tr>
+                <th>Charhoracourpriv</th>
+                <td>{{ entity.charhoracourpriv }}</td>
+            </tr>
+            <tr>
+                <th>Ensecourpart</th>
+                <td>{{ entity.ensecourpart }}</td>
+            </tr>
+            <tr>
+                <th>Anciadmi</th>
+                <td>{{ entity.anciadmi }}</td>
+            </tr>
+            <tr>
+                <th>Anciense</th>
+                <td>{{ entity.anciense }}</td>
+            </tr>
+            <tr>
+                <th>Ancicentactu</th>
+                <td>{{ entity.ancicentactu }}</td>
+            </tr>
+            <tr>
+                <th>Nombheurensereel</th>
+                <td>{{ entity.nombheurensereel }}</td>
+            </tr>
+            <tr>
+                <th>Nombheurenserequ</th>
+                <td>{{ entity.nombheurenserequ }}</td>
+            </tr>
+            <tr>
+                <th>Nombheurensesupp</th>
+                <td>{{ entity.nombheurensesupp }}</td>
+            </tr>
+            <tr>
+                <th>Nombheurensecomp</th>
+                <td>{{ entity.nombheurensecomp }}</td>
+            </tr>
+            <tr>
+                <th>Cont</th>
+                <td>{{ entity.cont }}</td>
+            </tr>
+            <tr>
+                <th>Datedebucont</th>
+                <td>{{ entity.datedebucont|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datefincont</th>
+                <td>{{ entity.datefincont|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('personnelpersonnel') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('personnelpersonnel_edit', { 'id': entity.idenuniq }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

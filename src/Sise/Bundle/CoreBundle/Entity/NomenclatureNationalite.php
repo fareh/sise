@@ -332,4 +332,8 @@ class NomenclatureNationalite
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codenati;
+    }
 }

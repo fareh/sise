@@ -152,4 +152,8 @@ class NomenclatureSituationfamiliale
     {
         return $this->acti;
     }
+    public function __toString()
+    {
+        return $this->codesitufami;
+    }
 }

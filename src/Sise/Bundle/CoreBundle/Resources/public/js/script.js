@@ -81,6 +81,20 @@ $(function () {
     $("#sise_corebundle_nomenclatureetablissement_datecrea").datepicker();
     $("#sise_sisebundle_nomenclaturerecensement_dateclot").datepicker();
     $("#sise_sisebundle_nomenclaturerecensement_dateouve").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datenais").datepicker();
+    $("#sise_corebundle_personnelpersonnel_dateentrfoncpubl").datepicker();
+    $("#sise_corebundle_personnelpersonnel_daterecrme").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datetitu").datepicker();
+    $("#sise_corebundle_personnelpersonnel_dategradactu").datepicker();
+    $("#sise_corebundle_personnelpersonnel_dateconfgradactu").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datefonc").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datesituadmi").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datedeburoul").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datefinroul").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datedebucont").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datefincont").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datesituadmi").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datecin").datepicker();
 });
 
 $(function () {

@@ -1,0 +1,33 @@
+personnelpersonnel:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:index" }
+
+personnelpersonnel_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:show" }
+
+personnelpersonnel_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:new" }
+
+personnelpersonnel_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:create" }
+    requirements: { _method: post }
+
+personnelpersonnel_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:edit" }
+
+personnelpersonnel_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:update" }
+    requirements: { _method: post|put }
+
+personnelpersonnel_delete1:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:delete" }
+    requirements: { _method: post|delete }
+personnelpersonnel_export:
+    path:     /_export
+    defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:export" }

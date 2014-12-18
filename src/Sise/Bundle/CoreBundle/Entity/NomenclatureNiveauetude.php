@@ -302,4 +302,8 @@ class NomenclatureNiveauetude
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codeniveetud;
+    }
 }
