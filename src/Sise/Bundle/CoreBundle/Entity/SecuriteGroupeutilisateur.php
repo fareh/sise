@@ -21,6 +21,20 @@ class SecuriteGroupeutilisateur
      */
     private $codegrouutil;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="\Sise\Bundle\CoreBundle\Entity\SecuriteProfil", mappedBy="codegrouutil")
+     */
+    protected $codeprof;
+
+    public function __construct()
+    {
+        $this->codeprof = new ArrayCollection();
+    }
+
+
+
+
     /**
      * @var string
      *
@@ -121,5 +135,42 @@ class SecuriteGroupeutilisateur
     public function getObse()
     {
         return $this->obse;
+    }
+
+    /**
+     * Add codeprof
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
+     * @return SecuriteGroupeutilisateur
+     */
+    public function addCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
+    {
+        $this->codeprof[] = $codeprof;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeprof
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
+     */
+    public function removeCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
+    {
+        $this->codeprof->removeElement($codeprof);
+    }
+
+    /**
+     * Get codeprof
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeprof()
+    {
+        return $this->codeprof;
+    }
+
+    public  function __toString(){
+        return ($this->getLibegrouutilar())?$this->getLibegrouutilar():"";
     }
 }

@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * SecuriteNiveauhierarchique
@@ -20,6 +21,16 @@ class SecuriteNiveauhierarchique
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codenivehier;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Sise\Bundle\UserBundle\Entity\User", mappedBy="codenivehier")
+     */
+    protected $user;
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
 
 
     /**
@@ -127,5 +138,38 @@ class SecuriteNiveauhierarchique
 
     public function __toString() {
         return $this->getLibenivehierar();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \Sise\Bundle\UserBundle\Entity\User $user
+     * @return SecuriteNiveauhierarchique
+     */
+    public function addUser(\Sise\Bundle\UserBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \Sise\Bundle\UserBundle\Entity\User $user
+     */
+    public function removeUser(\Sise\Bundle\UserBundle\Entity\User $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

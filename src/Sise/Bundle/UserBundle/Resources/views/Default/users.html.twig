@@ -1,7 +1,8 @@
 {% extends '::base.html.twig' %}
-
 {% block body %}
-<br>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : 'المستخدمين', 'RouteAction' : 'fos_user_register' })) }}
+
+    <br>
     <div id="CPHMain_upGridView">
     <div>
     <table cellspacing="0" cellpadding="4" id="CPHMain_GV" style="color:#333333;width:100%;border-collapse:collapse;">
@@ -24,13 +25,11 @@
                 <a href="{{ path('fos_user_profile_edit') }}">{{ user.id|e }}</a>
 
             </td>
-            <td>{{ user.username|e }}</td>
-            <td>{{ user.givenName|e }} {{ user.familyName|e }} </td>
+            <td>{{ user.nomprenutil|e }}</td>
+            <td>{{ user.codenivehier.libenivehierar|e }}</td>
             <td>
 
-                {% for group in user.groups %}
-                    {{ group.name|e }}
-                {% endfor %}
+                {{ user.codeprof.libeprofar }}
 
                </td>
             <td>{{ user.lastLogin|date() }}</td>
@@ -43,5 +42,6 @@
 
 
     </div>
+
 {% endblock %}
 

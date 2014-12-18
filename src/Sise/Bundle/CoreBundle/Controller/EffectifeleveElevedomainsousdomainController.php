@@ -132,7 +132,7 @@ class EffectifeleveElevedomainsousdomainController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_elevedomainsousdomain.html.twig', array(

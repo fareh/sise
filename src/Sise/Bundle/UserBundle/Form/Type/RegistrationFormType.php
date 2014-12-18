@@ -55,73 +55,102 @@ class RegistrationFormType extends AbstractType
                     )),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
-            ->add('givenName', null, array(
-                'label' => 'الاسم',
+
+            ->add('matr', null, array(
+                'label' => 'المعرف الوحيد',
                 'translation_domain' => 'FOSUserBundle',
                 'attr' => array(
-                    'placeholder' => 'الاسم',
-                ),
-                'label_attr' => array(
-                    'class' => 'sr-only',
-                )))
-            ->add('familyName', null, array(
-                'label' => 'اللقب',
-                'translation_domain' => 'FOSUserBundle',
-                'attr' => array(
-                    'placeholder' => 'اللقب',
+                    'placeholder' => 'المعرف الوحيد',
                 ),
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
 
-
-            ->add('phoneNumber', null, array(
-                'label' => 'رقم الهاتف',
+            ->add('nomprenutil', null, array(
+                'label' => 'الاسم و اللقب',
                 'translation_domain' => 'FOSUserBundle',
                 'attr' => array(
-                    'placeholder' => 'رقم الهاتف',
+                    'placeholder' => 'الاسم و اللقب',
+                ),
+                'label_attr' => array(
+                    'class' => 'sr-only',
+                )))
+            ->add('codegrouutil', 'entity', array(
+                'label' => 'مجموعة المستخدمين',
+                'class' => 'SiseCoreBundle:SecuriteGroupeutilisateur',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'مجموعة المستخدمين',
+                ),
+                'label_attr' => array(
+                    'class' => 'sr-only',
+                )))
+            ->add('codeprof', null, array(
+                'label' => 'صلاحيات',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'صلاحيات',
                 ),
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
 
 
-            ->add('mobileNumber', null, array(
-                'label' => 'رقم الهاتف المحمول',
+            ->add('codenivehier', null, array(
+                'label' => 'المستوى الإداري',
                 'translation_domain' => 'FOSUserBundle',
                 'attr' => array(
-                    'placeholder' => 'رقم الهاتف المحمول',
+                    'placeholder' => 'المستوى الإداري',
                 ),
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
-            ->add('roles', 'collection',
-                array('label' => 'صلاحيات',
-                    'attr' => array(
-                        'placeholder' => 'رقم الهاتف المحمول',
-                    ),
-                    'label_attr' => array(
-                        'class' => 'sr-only',
-                    ),
-                    'type' => 'choice', 'options' =>
-                    array( 'choices' => array('ROLE_USER' => 'user', 'ROLE_ADMIN' => 'admin') ) ))
+            ->add('codecircregi', 'entity', array(
+                'label' => 'المندوبية الجهوية ',
+                'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
+                'property' => 'libecircregiar',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'لمندوبية الجهوية ',
+                ),
+                'label_attr' => array(
+                    'class' => 'sr-only',
+                )))
 
-            ->add('groups', 'entity', array(
-                'label'=>'مجموعة المستخدمين',
-                'class' => 'SiseUserBundle:Group',
-                'property' => 'name',
-                'multiple'=>true,
-                'expanded' => true
-            ))
-            ->add('niveauhierarchique', 'entity', array(
-                'label'=>'Niveau hierarchique',
-                'class' => 'SiseCoreBundle:SecuriteNiveauhierarchique',
-                'property' => 'libenivehierar',
-                'multiple'=>true,
-                'expanded' => true
-            ))
+            ->add('codedele', 'entity', array(
+                'label' => 'المعتمدية',
+                'class' => 'SiseCoreBundle:NomenclatureDelegation',
+                'property' => 'libedelear',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'المعتمدية',
+                ),
+                'label_attr' => array(
+                    'class' => 'sr-only',
+                )))
 
-
+            ->add('codetypeetab', 'entity', array(
+                'label' => 'نوع المؤسسة',
+                'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
+                'property' => 'libetypeetabar',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'نوع المؤسسة',
+                ),
+                'label_attr' => array(
+                    'class' => 'sr-only',
+                )))
+            ->add('codeetab', 'entity', array(
+                'label' => 'المؤسسة',
+                'class' => 'SiseCoreBundle:NomenclatureEtablissement',
+                'property' => 'libeetabar',
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'المؤسسة',
+                ),
+                'label_attr' => array(
+                    'class' => 'sr-only',
+                )))
         ;
 
     }

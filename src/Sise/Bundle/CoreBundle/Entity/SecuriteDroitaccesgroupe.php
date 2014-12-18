@@ -13,22 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class SecuriteDroitaccesgroupe
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeProf", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\SecuriteProfil" , inversedBy="codeprof")
+     * @ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codeprof;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CODEGROUUTIL", type="string", length=100, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codegrouutil;
+     **/
+      protected $codeprof;
 
     /**
      * @var string
@@ -69,28 +59,6 @@ class SecuriteDroitaccesgroupe
 
 
 
-    /**
-     * Set codeprof
-     *
-     * @param string $codeprof
-     * @return SecuriteDroitaccesgroupe
-     */
-    public function setCodeprof($codeprof)
-    {
-        $this->codeprof = $codeprof;
-
-        return $this;
-    }
-
-    /**
-     * Get codeprof
-     *
-     * @return string 
-     */
-    public function getCodeprof()
-    {
-        return $this->codeprof;
-    }
 
     /**
      * Set codegrouutil
@@ -228,5 +196,28 @@ class SecuriteDroitaccesgroupe
     public function getDroidele()
     {
         return $this->droidele;
+    }
+
+    /**
+     * Set codeprof
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
+     * @return SecuriteDroitaccesgroupe
+     */
+    public function setCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
+    {
+        $this->codeprof = $codeprof;
+
+        return $this;
+    }
+
+    /**
+     * Get codeprof
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil 
+     */
+    public function getCodeprof()
+    {
+        return $this->codeprof;
     }
 }

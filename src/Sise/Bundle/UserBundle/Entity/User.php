@@ -25,85 +25,6 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Sise\Bundle\UserBundle\Entity\Group")
-     * @ORM\JoinTable(name="fos_user_user_group",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
-     * )
-     */
-    protected $groups;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique")
-     * @ORM\JoinTable(name="fos_user_securite_niveauhierarchique",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="securite_niveauhierarchique_id", referencedColumnName="codenivehier")}
-     * )
-     */
-    protected $niveauhierarchique;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
-     * @Assert\Length(
-     *     min=3,
-     *     max="255",
-     *     minMessage="The name is too short.",
-     *     maxMessage="The name is too long.",
-     *     groups={"Registration", "Profile"}
-     * )
-     */
-
-    protected $givenName;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
-     * @Assert\Length(
-     *     min=3,
-     *     max="255",
-     *     minMessage="The name is too short.",
-     *     maxMessage="The name is too long.",
-     *     groups={"Registration", "Profile"}
-     * )
-     */
-
-    protected $familyName;
-
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
-     * @Assert\Length(
-     *     min=3,
-     *     max="255",
-     *     minMessage="The name is too short.",
-     *     maxMessage="The name is too long.",
-     *     groups={"Registration", "Profile"}
-     * )
-     */
-
-    protected $phoneNumber;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
-     * @Assert\Length(
-     *     min=3,
-     *     max="255",
-     *     minMessage="The name is too short.",
-     *     maxMessage="The name is too long.",
-     *     groups={"Registration", "Profile"}
-     * )
-     */
-
-    protected $mobileNumber;
-
 
     /**
      * Constructor
@@ -111,15 +32,114 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-       // $this->groups = new ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->niveauhierarchique =  new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MATR", type="string", length=100, nullable=true)
+     */
+    private $matr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOMPRENUTIL", type="string", length=100, nullable=true)
+     */
+    private $nomprenutil;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\SecuriteProfil" , inversedBy="user")
+     * @ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf")
+     **/
+    protected $codeprof;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique"  , inversedBy="user")
+     * @ORM\JoinColumn(name="codenivehier", referencedColumnName="codenivehier")
+     **/
+    protected $codenivehier;
+
+
+
+    protected $codegrouutil;
+
+    /**
+     * @return mixed
+     */
+    public function getCodegrouutil()
+    {
+        return $this->codegrouutil;
+    }
+
+    /**
+     * @param mixed $codegrouutil
+     */
+    public function setCodegrouutil($codegrouutil)
+    {
+        $this->codegrouutil = $codegrouutil;
+    }
+
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DATEMAJ", type="datetime", nullable=true)
+     */
+    private $datemaj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=true)
+     */
+    private $codeetab;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=true)
+     */
+    private $codetypeetab;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeCircRegi", type="string", length=50, nullable=true)
+     */
+    private $codecircregi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeDele", type="string", length=50, nullable=true)
+     */
+    private $codedele;
+
+
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+
+        $date = new \DateTime('now');
+        if ($date instanceof \DateTime) {
+
+            if ($this->getDatemaj() == null) {
+                $this->setDatemaj($date);
+            }
+        }
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -127,186 +147,209 @@ class User extends BaseUser
     }
 
     /**
-     * Set name
+     * Set matr
      *
-     * @param string $name
+     * @param string $matr
      * @return User
      */
-    public function setName($name)
+    public function setMatr($matr)
     {
-        $this->name = $name;
+        $this->matr = $matr;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get matr
      *
-     * @return string
+     * @return string 
      */
-    public function getName()
+    public function getMatr()
     {
-        return $this->name;
+        return $this->matr;
     }
 
-
     /**
-     * Set givenName
+     * Set nomprenutil
      *
-     * @param string $givenName
+     * @param string $nomprenutil
      * @return User
      */
-    public function setGivenName($givenName)
+    public function setNomprenutil($nomprenutil)
     {
-        $this->givenName = $givenName;
+        $this->nomprenutil = $nomprenutil;
 
         return $this;
     }
 
     /**
-     * Get givenName
+     * Get nomprenutil
      *
-     * @return string
+     * @return string 
      */
-    public function getGivenName()
+    public function getNomprenutil()
     {
-        return $this->givenName;
+        return $this->nomprenutil;
     }
 
     /**
-     * Set familyName
+     * Set datemaj
      *
-     * @param string $familyName
+     * @param \DateTime $datemaj
      * @return User
      */
-    public function setFamilyName($familyName)
+    public function setDatemaj($datemaj)
     {
-        $this->familyName = $familyName;
+        $this->datemaj = $datemaj;
 
         return $this;
     }
 
     /**
-     * Get familyName
+     * Get datemaj
      *
-     * @return string
+     * @return \DateTime 
      */
-    public function getFamilyName()
+    public function getDatemaj()
     {
-        return $this->familyName;
+        return $this->datemaj;
     }
 
     /**
-     * Set phoneNumber
+     * Set codeetab
      *
-     * @param string $phoneNumber
+     * @param string $codeetab
      * @return User
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setCodeetab($codeetab)
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->codeetab = $codeetab;
 
         return $this;
     }
 
     /**
-     * Get phoneNumber
+     * Get codeetab
      *
-     * @return string
+     * @return string 
      */
-    public function getPhoneNumber()
+    public function getCodeetab()
     {
-        return $this->phoneNumber;
+        return $this->codeetab;
     }
 
     /**
-     * Set mobileNumber
+     * Set codetypeetab
      *
-     * @param string $mobileNumber
+     * @param string $codetypeetab
      * @return User
      */
-    public function setMobileNumber($mobileNumber)
+    public function setCodetypeetab($codetypeetab)
     {
-        $this->mobileNumber = $mobileNumber;
+        $this->codetypeetab = $codetypeetab;
 
         return $this;
     }
 
     /**
-     * Get mobileNumber
+     * Get codetypeetab
      *
-     * @return string
+     * @return string 
      */
-    public function getMobileNumber()
+    public function getCodetypeetab()
     {
-        return $this->mobileNumber;
-    }
-    
-
-    /**
-     * Add groups
-     *
-     * @param \Sise\Bundle\UserBundle\Entity\Group $groups
-     * @return User
-     */
-   /* public function addGroup(\Sise\Bundle\UserBundle\Entity\Group $groups)
-    {
-        $this->groups[] = $groups;
-
-        return $this;
-    }*/
-
-    /**
-     * Remove groups
-     *
-     * @param \Sise\Bundle\UserBundle\Entity\Group $groups
-     */
-  /*  public function removeGroup(\Sise\Bundle\UserBundle\Entity\Group $groups)
-    {
-        $this->groups->removeElement($groups);
-    }*/
-
-    /**
-     * Get groups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGroups()
-    {
-        return $this->groups;
+        return $this->codetypeetab;
     }
 
-
     /**
-     * Add niveauhierarchique
+     * Set codecircregi
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique
+     * @param string $codecircregi
      * @return User
      */
-    public function addNiveauhierarchique(\Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique)
+    public function setCodecircregi($codecircregi)
     {
-        $this->niveauhierarchique[] = $niveauhierarchique;
+        $this->codecircregi = $codecircregi;
 
         return $this;
     }
 
     /**
-     * Remove niveauhierarchique
+     * Get codecircregi
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique
+     * @return string 
      */
-    public function removeNiveauhierarchique(\Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $niveauhierarchique)
+    public function getCodecircregi()
     {
-        $this->niveauhierarchique->removeElement($niveauhierarchique);
+        return $this->codecircregi;
     }
 
     /**
-     * Get niveauhierarchique
+     * Set codedele
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param string $codedele
+     * @return User
      */
-    public function getNiveauhierarchique()
+    public function setCodedele($codedele)
     {
-        return $this->niveauhierarchique;
+        $this->codedele = $codedele;
+
+        return $this;
+    }
+
+    /**
+     * Get codedele
+     *
+     * @return string 
+     */
+    public function getCodedele()
+    {
+        return $this->codedele;
+    }
+
+    /**
+     * Set codeprof
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
+     * @return User
+     */
+    public function setCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof = null)
+    {
+        $this->codeprof = $codeprof;
+
+        return $this;
+    }
+
+    /**
+     * Get codeprof
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil 
+     */
+    public function getCodeprof()
+    {
+        return $this->codeprof;
+    }
+
+    /**
+     * Set codenivehier
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $codenivehier
+     * @return User
+     */
+    public function setCodenivehier(\Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique $codenivehier = null)
+    {
+        $this->codenivehier = $codenivehier;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivehier
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique 
+     */
+    public function getCodenivehier()
+    {
+        return $this->codenivehier;
     }
 }
