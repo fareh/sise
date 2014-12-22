@@ -90,6 +90,15 @@ class User extends BaseUser
      */
     private $datemaj;
 
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_activity", type="datetime", nullable=true)
+     */
+    private $lastActivity;
+
     /**
      * @var string
      *
@@ -351,5 +360,28 @@ class User extends BaseUser
     public function getCodenivehier()
     {
         return $this->codenivehier;
+    }
+
+    /**
+     * Set lastActivity
+     *
+     * @param \DateTime $lastActivity
+     * @return User
+     */
+    public function setLastActivity($lastActivity)
+    {
+        $this->lastActivity = $lastActivity;
+
+        return $this;
+    }
+
+    /**
+     * Get lastActivity
+     *
+     * @return \DateTime 
+     */
+    public function getLastActivity()
+    {
+        return $this->lastActivity;
     }
 }

@@ -57,6 +57,25 @@ function getListeMulti(codegouv, entity1, entity2, previous_select1, previous_se
         }
     });
 }
+
+
+$(document).ready(function () {
+    $('#fos_user_registration_form_codecircregi').change(function(){
+        $('#fos_user_registration_form_codedele option:gt(0)').remove();
+        if($(this).val()){
+            $.ajax({
+                type: "GET",
+                data: "codecircregi=" + $(this).val(),
+                url: "/app.php" + Routing.generate('fos_user_registration_register'),
+                success: function(data){
+                    $('#fos_user_registration_form_codedele').append(data);
+                }
+            });
+        }
+    });
+});
+
+
 jQuery(function ($) {
     $.datepicker.regional['ar-TN'] = {
         "Name": "ar-TN",
