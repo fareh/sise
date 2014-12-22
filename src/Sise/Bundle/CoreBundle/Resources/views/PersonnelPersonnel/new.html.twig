@@ -2,15 +2,14 @@
 
 {% block body -%}
 
-<form action="{{ path('personnelpersonnel_create') }}"
-      method="post" {{ form_enctype(form) }}>
+<form action="{{ path('personnelpersonnel_create') }}" method="post" {{ form_enctype(form) }}>
 {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :'بطاقة الموظف', 'RouteAction' : 'personnelpersonnel' })) }}
 
 <div id="CPHMain_upmain">
 
 
-<input type="hidden" name="_method" value="PUT"/>
-{{ form_errors(form) }}
+<input type="hidden" name="_method" value="POST"/>
+{#{{ form_errors(form) }}#}
 
 
 
@@ -220,12 +219,12 @@
     </div>
     <div class="Row">
         <span id="CPHMain_L45" style="display:inline-block;height:28px;width:25%;">الوضع الإداري</span>
-        {{ form_widget(form.codesoussituadmi.codesituadmi) }}
+        {{ form_widget(formpers.codesituadmi) }}
     </div>
 
     <div class="Row">
         <span id="CPHMain_Label46" style="display:inline-block;height:28px;width:25%;">الوضع الإداري الفرعي</span>
-        {{ form_widget(form.codesoussituadmi.codesoussituadmi)}}
+        {{ form_widget(form.codesoussituadmi)}}
     </div>
     <div class="Row">
         <span id="CPHMain_Label47" style="display:inline-block;height:28px;width:25%;">تاريخ الوضع الاداري</span>

@@ -23,14 +23,6 @@ class NomenclatureSoussituationadministrativeType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codesoussituadmi','entity', array(
-                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSoussituationadministrative',
-                'property' => 'libesoussituadmiar',
-                'expanded' => false,
-                'multiple' => false,
-                'required' => true,
-                'empty_value' => "-- اختيار --"
-            ))
         ;
     }
     

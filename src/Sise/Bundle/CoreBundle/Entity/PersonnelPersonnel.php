@@ -3,11 +3,12 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DoctrineCommonCollectionsArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * PersonnelPersonnel
  *
- * @ORM\Table(name="personnel_personnel", indexes={@ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Genre", columns={"CodeGenr"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_SituationFamiliale", columns={"CodeSituFami"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Profession", columns={"CodeProfConj"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_TypeAffectation", columns={"CodeTypeAffe"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Fonction", columns={"CodeFonc"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Qualite", columns={"CodeQual"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_NiveauEtude", columns={"CodeNiveEtud"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_LangueEnseignement", columns={"CodeLangEnse"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Diplome", columns={"CodeDipl"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Specialite", columns={"CodeSpec"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Discipline", columns={"CodeDisci"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_SousSituationAdministrative", columns={"CodeSousSituAdmi"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Grade", columns={"CodeGrad"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Tache", columns={"CodeTach"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Etablissement", columns={"CodeEtab", "CodeTypeEtab"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Corps", columns={"CodeCorp"}), @ORM\Index(name="FK_Personnel_Personnel_Nomenclature_Nationalite", columns={"CodeNati"})})
+ * @ORM\Table(name="personnel_personnel")
  * @ORM\Entity
  */
 class PersonnelPersonnel
@@ -17,10 +18,17 @@ class PersonnelPersonnel
      *
      * @ORM\Column(name="IdenUniq", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $idenuniq;
 
+    /**
+     * @param string $idenuniq
+     */
+    public function setIdenuniq($idenuniq)
+    {
+        $this->idenuniq = $idenuniq;
+    }
     /**
      * @var string
      *
@@ -51,6 +59,22 @@ class PersonnelPersonnel
      * })
      */
     private $codegenr;
+
+    /**
+     * @return \NomenclatureGenre
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
+    }
+
+    /**
+     * @param \NomenclatureGenre $codegenr
+     */
+    public function setCodegenr($codegenr)
+    {
+        $this->codegenr = $codegenr;
+    }
 
     /**
      * @var \DateTime
@@ -270,9 +294,9 @@ class PersonnelPersonnel
     private $daterecrme;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="DateTitu", type="string", length=10, nullable=true)
+     * @ORM\Column(name="DateTitu", type="datetime", nullable=true)
      */
     private $datetitu;
 
@@ -351,9 +375,9 @@ class PersonnelPersonnel
     private $codefonc;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="DateFonc", type="string", length=50, nullable=true)
+     * @ORM\Column(name="DateFonc", type="datetime", nullable=true)
      */
     private $datefonc;
 
@@ -376,6 +400,23 @@ class PersonnelPersonnel
      * })
      */
     private $codesoussituadmi;
+
+    /**
+     * @return \NomenclatureSoussituationadministrative
+     */
+    public function getCodesoussituadmi()
+    {
+        return $this->codesoussituadmi;
+    }
+
+    /**
+     * @param \NomenclatureSoussituationadministrative $codesoussituadmi
+     */
+    public function setCodesoussituadmi($codesoussituadmi)
+    {
+        $this->codesoussituadmi = $codesoussituadmi;
+    }
+
 
     /**
      * @var \DateTime
@@ -577,18 +618,6 @@ class PersonnelPersonnel
      */
     private $datefincont;
 
-
-
-    /**
-     * Get idenuniq
-     *
-     * @return string 
-     */
-    public function getIdenuniq()
-    {
-        return $this->idenuniq;
-    }
-
     /**
      * Set pren
      *
@@ -656,29 +685,6 @@ class PersonnelPersonnel
     public function getNomjeunfille()
     {
         return $this->nomjeunfille;
-    }
-
-    /**
-     * Set codegenr
-     *
-     * @param string $codegenr
-     * @return PersonnelPersonnel
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-
-        return $this;
-    }
-
-    /**
-     * Get codegenr
-     *
-     * @return string 
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
     }
 
     /**
@@ -1602,29 +1608,6 @@ class PersonnelPersonnel
     }
 
     /**
-     * Set codesoussituadmi
-     *
-     * @param string $codesoussituadmi
-     * @return PersonnelPersonnel
-     */
-    public function setCodesoussituadmi($codesoussituadmi)
-    {
-        $this->codesoussituadmi = $codesoussituadmi;
-
-        return $this;
-    }
-
-    /**
-     * Get codesoussituadmi
-     *
-     * @return string 
-     */
-    public function getCodesoussituadmi()
-    {
-        return $this->codesoussituadmi;
-    }
-
-    /**
      * Set datesituadmi
      *
      * @param \DateTime $datesituadmi
@@ -2242,18 +2225,53 @@ class PersonnelPersonnel
     {
         return $this->idenuniq;
     }
+//    /**
+//     * @var \NomenclatureSoussituationadministrative
+//     *
+//     * @ORM\ManyToOne(targetEntity="NomenclatureSoussituationadministrative",cascade={"persist"})
+//     * @ORM\JoinColumns({
+//     *   @ORM\JoinColumn(name="CodeSousSituAdmi", referencedColumnName="CodeSousSituAdmi")
+//     * })
+//     */
+//    private $codesituadmi;
+//
+//    /**
+//     * @return \NomenclatureSoussituationadministrative
+//     */
+//    public function getCodesituadmi()
+//    {
+//        return $this->codesituadmi;
+//    }
+//
+//    /**
+//     * @param \NomenclatureSoussituationadministrative $codesituadmi
+//     */
+//    public function setCodesituadmi($codesituadmi)
+//    {
+//        $this->codesituadmi = $codesituadmi;
+//    }
+//    /**
+//     *
+//     * @ORM\PrePersist
+//     * @ORM\PreUpdate
+//     */
+//    public function updatedTimestamps()
+//    {
+//        $date = new \DateTime('now');
+//        if ($date instanceof \DateTime) {
+//            if ($this->getDatecreabd() == null) {
+//                $this->setDatecreabd($date);
+//            }
+//        }
+//    }
+
     /**
+     * Get idenuniq
      *
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+     * @return string 
      */
-    public function updatedTimestamps()
+    public function getIdenuniq()
     {
-        $date = new \DateTime('now');
-        if ($date instanceof \DateTime) {
-            if ($this->getDatecreabd() == null) {
-                $this->setDatecreabd($date);
-            }
-        }
+        return $this->idenuniq;
     }
 }

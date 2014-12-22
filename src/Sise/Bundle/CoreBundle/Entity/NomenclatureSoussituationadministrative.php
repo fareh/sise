@@ -99,7 +99,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get codesoussituadmi
      *
-     * @return string 
+     * @return string
      */
     public function getCodesoussituadmi()
     {
@@ -122,7 +122,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get libesoussituadmiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesoussituadmiar()
     {
@@ -145,7 +145,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get libesoussituadmifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesoussituadmifr()
     {
@@ -168,7 +168,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get codesituadmi
      *
-     * @return string 
+     * @return string
      */
     public function getCodesituadmi()
     {
@@ -191,7 +191,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -214,7 +214,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -237,7 +237,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -260,7 +260,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -283,7 +283,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -306,7 +306,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -329,7 +329,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
