@@ -162,6 +162,142 @@ class EtablissementInfrastructure
     private $codesituelecatel;
 
 
+    /**
+     * @var \NomenclatureDisposition
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureDisposition")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeDisp", referencedColumnName="CodeTypeDisp")
+     * })
+     */
+    private $codetypedisp;
+
+    /**
+     * @return \NomenclatureDisposition
+     */
+    public function getCodetypedisp()
+    {
+        return $this->codetypedisp;
+    }
+
+    /**
+     * @param \NomenclatureDisposition $codetypedisp
+     */
+    public function setCodetypedisp($codetypedisp)
+    {
+        $this->codetypedisp = $codetypedisp;
+    }
+ /**
+  * @var boolean
+  *
+  * @ORM\Column(name="UtilLocaLouePret", type="boolean", nullable=true)
+  */
+      private $utillocalouepret;
+
+    /**
+     * @return int
+     */
+    public function getNomblocalouesejo()
+    {
+        return $this->nomblocalouesejo;
+    }
+
+    /**
+     * @param int $nomblocalouesejo
+     */
+    public function setNomblocalouesejo($NombLocaLoueSejo)
+    {
+        $this->NombLocaLoueSejo = $NombLocaLoueSejo;
+    }
+  /**
+   * @var integer
+   *
+   * @ORM\Column(name="NombLocaLoueEnse", type="integer", nullable=true)
+   */
+        private $nomblocaloueense;
+
+    /**
+     * @return boolean
+     */
+    public function getUtillocalouepret()
+    {
+        return $this->utillocalouepret;
+    }
+
+    /**
+     * @param boolean $UtilLocaLouePret
+     */
+    public function setUtillocalouepret($UtilLocaLouePret)
+    {
+        $this->utillocalouepret = $UtilLocaLouePret;
+    }
+	  /**
+       * @var integer
+       *
+       * @ORM\Column(name="NombLocaLoueSejo", type="integer", nullable=true)
+       */
+        private $nomblocalouesejo;
+
+    /**
+     * @return int
+     */
+    public function getNomblocaloueense()
+    {
+        return $this->nomblocaloueense;
+    }
+
+    /**
+     * @param int $nomblocaloueense
+     */
+    public function setNomblocaloueense($nomblocaloueense)
+    {
+        $this->nomblocaloueense = $nomblocaloueense;
+    }
+			  /**
+               * @var integer
+               *
+               * @ORM\Column(name="NombLocaPretEnse", type="integer", nullable=true)
+               */
+       private $nomblocapretense;
+
+    /**
+     * @return int
+     */
+    public function getNomblocapretense()
+    {
+        return $this->nomblocapretense;
+    }
+
+    /**
+     * @param int $nomblocapretense
+     */
+    public function setNomblocapretense($nomblocapretense)
+    {
+        $this->nomblocapretense = $nomblocapretense;
+    }
+		  /**
+           * @var integer
+           *
+           * @ORM\Column(name="NombLocaPretSejo", type="integer", nullable=true)
+           */
+
+	   private $nomblocapretsejo;
+
+    /**
+     * @return int
+     */
+    public function getNomblocapretsejo()
+    {
+        return $this->nomblocapretsejo;
+    }
+
+    /**
+     * @param int $nomblocapretsejo
+     */
+    public function setNomblocapretsejo($nomblocapretsejo)
+    {
+        $this->nomblocapretsejo = $nomblocapretsejo;
+    }
 
     /**
      * Set codeetab

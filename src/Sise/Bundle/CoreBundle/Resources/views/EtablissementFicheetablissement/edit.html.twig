@@ -103,6 +103,17 @@
 
             </div>
             <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label19">تعمل مؤسستكم بنظام إقامة</span>
+                نعم      {{ form_widget(edit_form.etabtravpens.children[0]) }}
+                لا             {{ form_widget(edit_form.etabtravpens.children[1]) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label19">تعمل مؤسستكم بنظام نصف إقامة فقط</span>
+                نعم      {{ form_widget(edit_form.etabtravdemipens.children[0]) }}
+                لا             {{ form_widget(edit_form.etabtravdemipens.children[1]) }}
+
+            </div>
+            <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label20">تدمج تلاميذ ذوي إحتياجات خاصة</span>
                 نعم       {{ form_widget(edit_form.etabintehand.children['0']) }}
                 لا    {{ form_widget(edit_form.etabintehand.children['1']) }}
@@ -193,6 +204,29 @@
             <div>
                 <span id="CPHMain_Label2">الوضعية العقارية</span>
                 {{ form_widget(edit_form.infr.codesitufonc) }}
+            </div>
+            <div>
+                <span id="CPHMain_Label2">وجه التصرف</span>
+                {{ form_widget(edit_form.infr.codetypedisp) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label2">تستعمل مؤسستكم محلات مكتراة أو مستعارة</span>
+                نعم       {{ form_widget(edit_form.infr.utillocalouepret.children['0']) }}
+                لا        {{ form_widget(edit_form.infr.utillocalouepret.children['1']) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label37">عدد المحلات المكتراة </span>
+                للتدريس
+                {{ form_widget(edit_form.infr.nomblocaloueense) }}
+                للمبيت
+                {{ form_widget(edit_form.infr.nomblocalouesejo) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse" >
+                <span id="CPHMain_Label37">عدد المحلات المستعارة </span>
+                للتدريس
+                {{ form_widget(edit_form.infr.nomblocapretense) }}
+                للمبيت
+                {{ form_widget(edit_form.infr.nomblocapretsejo) }}
             </div>
             <div>
                 <span id="CPHMain_Label37">مساحة الأرض الجملية  (بالمتر المربع)</span>

@@ -122,6 +122,52 @@ class EtablissementFicheetablissement
     private $exisanneprepintehand;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="EtabTravPens", type="boolean", nullable=true)
+     */
+    private $etabtravpens;
+
+    /**
+     * @return boolean
+     */
+    public function getEtabtravdemipens()
+    {
+        return $this->etabtravdemipens;
+    }
+
+    /**
+     * @param boolean $etabtravdemipens
+     */
+    public function setEtabtravdemipens($etabtravDemipens)
+    {
+        $this->etabtravdemipens = $etabtravDemipens;
+    }
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="EtabTravDemiPens", type="boolean", nullable=true)
+     */
+    private $etabtravdemipens;
+
+    /**
+     * @return boolean
+     */
+    public function getEtabtravpens()
+    {
+        return $this->etabtravpens;
+    }
+
+    /**
+     * @param boolean $etabtravpens
+     */
+    public function setEtabtravpens($etabtravpens)
+    {
+        $this->etabtravpens = $etabtravpens;
+    }
+
+    /**
      * @return string
      */
     public function getCodeetab()
