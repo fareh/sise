@@ -9,16 +9,16 @@ use Doctrine\ORM\EntityManager;
 
 class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
 {
-    private $codeetab ;
+    private $codeetab;
     private $codetypeetab;
 
     /** @var \Doctrine\ORM\EntityManager */
     private $em;
 
-    public function __construct($codeetab , $codetypeetab,  EntityManager $entityManager)
+    public function __construct($codeetab, $codetypeetab, EntityManager $entityManager)
     {
         $this->codeetab = $codeetab;
-        $this->em= $entityManager;
+        $this->em = $entityManager;
         $this->codetypeetab = $codetypeetab;
 
     }
@@ -31,27 +31,29 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
     {
 
 
-
         $builder
-              ->add('codedele', 'entity', array(
-                 'class' => 'SiseCoreBundle:NomenclatureDelegation',
-                 'property' => 'libedelear',
-                  'choices'=>$this->getAllCoDedele()
-             ))
+            ->add('codedele', 'entity', array(
+                'class' => 'SiseCoreBundle:NomenclatureDelegation',
+                'property' => 'libedelear',
+                'choices' => $this->getAllCoDedele()
+            ))
             ->add('lieu')
             ->add('nombelev')
-            ->add('dist')
-        ;
+        ->add('dist', 'choice', array(
+        'choices'   => $this->getAllDistance(),
+        'required'  => false,
+    ))
+
+            ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\Bundle\CoreBundle\Entity\EffectiveeleveRepartioneleveLieuhabitation',
-            'fareh' => 'Sise\Bundle\CoreBundle\Entity\EffectiveeleveRepartioneleveLieuhabitation'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\EffectiveeleveRepartioneleveLieuhabitation'
         ));
     }
 
@@ -59,8 +61,22 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
     private function getAllCoDedele()
     {
 
-        $children = $this->em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab'=>$this->codeetab, 'codetypeetab'=>$this->codetypeetab));
+        $children = $this->em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab' => $this->codeetab, 'codetypeetab' => $this->codetypeetab));
         return $children->getCodedele();
+    }
+
+    private function getAllDistance()
+    {
+        $dist = array();
+        $distances = $this->em->getRepository('SiseCoreBundle:NomenclatureDistance')->findAll();
+
+        foreach ($distances as $distance) {
+
+            $dist[$distance->getLibedistar()] = $distance->getLibedistar();
+
+        }
+
+        return $dist;
     }
 
     /**

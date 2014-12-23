@@ -79,7 +79,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * @var float
      *
-     * @ORM\Column(name="Dist", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="Dist", type="string", length=50, nullable=false)
      */
     private $dist;
 

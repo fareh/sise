@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EtablissementInfrastructure
  *
- * @ORM\Table(name="etablissement_infrastructure", indexes={@ORM\Index(name="FK_Etablissement_Infrastructure_Nomenclature_SituationReseauEl69", columns={"CodeSituElecAtel"}), @ORM\Index(name="FK_Etablissement_Infrastructure_Nomenclature_TypeCloture", columns={"CodeTypeClot"}), @ORM\Index(name="FK_Etablissement_Infrastructure_Nomenclature_TypeConnxionInter70", columns={"CodeTypeConnInte"}), @ORM\Index(name="FK_Etablissement_Infrastructure_Nomenclature_Zone", columns={"CodeZone"})})
+ * @ORM\Table(name="etablissement_infrastructure")
  * @ORM\Entity
  */
 class EtablissementInfrastructure
@@ -166,9 +166,7 @@ class EtablissementInfrastructure
      * @var \NomenclatureDisposition
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureDisposition")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeTypeDisp", referencedColumnName="CodeTypeDisp")
-     * })
+     * @ORM\JoinColumn(name="CodeTypeDisp", referencedColumnName="CodeTypeDisp")
      */
     private $codetypedisp;
 
