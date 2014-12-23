@@ -8,62 +8,60 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveRepartioneleveLieuhabitation
  *
  * @ORM\Table(name="effectiveeleve_repartioneleve_lieuhabitation", indexes={@ORM\Index(name="FK_EffectiveEleve_RepartionEleve_LieuHabitation_Nomenclature_D54", columns={"CodeDele"}), @ORM\Index(name="FK_EffectiveEleve_RepartionEleve_LieuHabitation_Nomenclature_R55", columns={"CodeRece"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveRepartioneleveLieuhabitationRepository")
  */
 class EffectiveeleveRepartioneleveLieuhabitation
 {
 
     /**
+     * @var integer
+     * @ORM\Column(name="repartioneleve_lieuhabitation_id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
+     * @var EtablissementRecensement
+     *
+     * @ORM\ManyToOne(targetEntity="EtablissementRecensement", inversedBy="lieuhabitation")
+     * @ORM\JoinColumn(name="etablissement_recensement_id", referencedColumnName="etablissement_recensement_id")
+     */
+    protected $etablissement_recensement;
+
+
+        /**
+    * @ORM\ManyToOne(targetEntity="NomenclatureDelegation")
+    * @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
+    **/
+    private $codedele;
+    /**
      * @var string
      *
-     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=true)
      */
     private $codeetab;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=true)
      */
     private $codetypeetab;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="AnneScol", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="AnneScol", type="integer", nullable=true)
      */
     private $annescol;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CodeRece", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="CodeRece", type="string", length=50, nullable=true)
      */
     private $coderece;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeDele", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codedele;
 
     /**
      * @var string
@@ -85,17 +83,15 @@ class EffectiveeleveRepartioneleveLieuhabitation
      */
     private $dist;
 
-
-
     /**
      * Set codeetab
      *
      * @param string $codeetab
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setCodeetab($codeetab)
+    public function setCodeetab()
     {
-        $this->codeetab = $codeetab;
+        $this->codeetab = ($this->getEtablissementRecensement()->getCodeetab())?$this->getEtablissementRecensement()->getCodeetab():null;
 
         return $this;
     }
@@ -116,9 +112,10 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param string $codetypeetab
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setCodetypeetab($codetypeetab)
+    public function setCodetypeetab()
     {
-        $this->codetypeetab = $codetypeetab;
+        $this->codetypeetab = ($this->getEtablissementRecensement()->getCodetypeetab())?$this->getEtablissementRecensement()->getCodetypeetab():null;
+
 
         return $this;
     }
@@ -139,9 +136,9 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param integer $annescol
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setAnnescol($annescol)
+    public function setAnnescol()
     {
-        $this->annescol = $annescol;
+        $this->annescol = ($this->getEtablissementRecensement()->getAnnescol())?$this->getEtablissementRecensement()->getAnnescol():null;
 
         return $this;
     }
@@ -162,9 +159,10 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param string $coderece
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setCoderece($coderece)
+    public function setCoderece()
     {
-        $this->coderece = $coderece;
+
+        $this->coderece =($this->getEtablissementRecensement()->getCoderece())?$this->getEtablissementRecensement()->getCoderece():null;
 
         return $this;
     }
@@ -177,29 +175,6 @@ class EffectiveeleveRepartioneleveLieuhabitation
     public function getCoderece()
     {
         return $this->coderece;
-    }
-
-    /**
-     * Set codedele
-     *
-     * @param string $codedele
-     * @return EffectiveeleveRepartioneleveLieuhabitation
-     */
-    public function setCodedele($codedele)
-    {
-        $this->codedele = $codedele;
-
-        return $this;
-    }
-
-    /**
-     * Get codedele
-     *
-     * @return string 
-     */
-    public function getCodedele()
-    {
-        return $this->codedele;
     }
 
     /**
@@ -292,5 +267,61 @@ class EffectiveeleveRepartioneleveLieuhabitation
     public function getId()
     {
         return $this->id;
+    }
+
+
+
+
+    /*public function addEtablissementRecensement(\Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement)
+    {
+        if (!$this->etablissement_recensement->contains($etablissementRecensement)) {
+            $this->etablissement_recensement->add($etablissementRecensement);
+        }
+    }*/
+
+    /**
+     * Set etablissement_recensement
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement
+     * @return EffectiveeleveRepartioneleveLieuhabitation
+     */
+    public function setEtablissementRecensement(\Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement = null)
+    {
+        $this->etablissement_recensement = $etablissementRecensement;
+
+        return $this;
+    }
+
+    /**
+     * Get etablissement_recensement
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\EtablissementRecensement 
+     */
+    public function getEtablissementRecensement()
+    {
+        return $this->etablissement_recensement;
+    }
+
+    /**
+     * Set codedele
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele
+     * @return EffectiveeleveRepartioneleveLieuhabitation
+     */
+    public function setCodedele(\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele = null)
+    {
+        $this->codedele = $codedele;
+
+        return $this;
+    }
+
+    /**
+     * Get codedele
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation 
+     */
+    public function getCodedele()
+    {
+        return $this->codedele;
     }
 }

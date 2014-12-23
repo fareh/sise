@@ -92,3 +92,15 @@ form.fos_user_registration_register {
 
 
 /* fin formulaire d'enregistrement */
+
+/* prototype css */
+
+.tags > li {
+    width: 100%;
+    list-style-type: none;
+}
+
+.tags div {
+    float: right;
+}
+/* fin prototype css */

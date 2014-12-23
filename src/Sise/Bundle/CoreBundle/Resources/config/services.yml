@@ -11,3 +11,9 @@ services:
               - @session
         tags:
             - { name: form.type}
+    sise_sise.repartioneleveLieuhabitation.form.type:
+      class: Sise\Bundle\CoreBundle\Form\EffectiveeleveRepartioneleveLieuhabitationType
+      arguments: [@doctrine.orm.entity_manager]
+    sise_sise.etablissementRecensement.form.type:
+      class: Sise\Bundle\CoreBundle\Form\EtablissementRecensementType
+      arguments: [@doctrine.orm.entity_manager]

@@ -79,6 +79,14 @@ class NomenclatureQuestionnairerecensement
     private $etatdirecent;
 
 
+    public function __construct($codeetab, $codetypeetab, $annescol, $coderece)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece=$coderece;
+    }
+
 
     /**
      * Set codeques

@@ -316,7 +316,7 @@ class NomenclatureDelegation
 
     public function __toString()
     {
-        return $this->codedele;
+        return ($this->getLibedelear())?$this->getLibedelear():null;
     }
 
     /**
