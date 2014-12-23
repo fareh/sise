@@ -381,20 +381,20 @@ class NomenclatureEtablissement
 
 
 
-    /**
-     *
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function updatedTimestamps()
-    {
-        $date = new \DateTime('now');
-        if ($date instanceof \DateTime) {
-            if ($this->getDatecreabd() == null) {
-                $this->setDatecreabd($date);
-            }
-        }
-    }
+//    /**
+//     *
+//     * @ORM\PrePersist
+//     * @ORM\PreUpdate
+//     */
+//    public function updatedTimestamps()
+//    {
+//        $date = new \DateTime('now');
+//        if ($date instanceof \DateTime) {
+//            if ($this->getDatecreabd() == null) {
+//                $this->setDatecreabd($date);
+//            }
+//        }
+//    }
 
 
 

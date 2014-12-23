@@ -23,12 +23,30 @@ class EtablissementInfrastructureType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --",
             ))
+            ->add('codetypedisp','entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDisposition',
+                'property' => 'libetypedispar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+                'empty_value' => "-- اختيار --",
+            ))
+
             ->add('surftotaterr')
             ->add('surfcons')
             ->add('surfcouv')
             ->add('distroutgoud')
             ->add('distdele')
+            ->add('nomblocaloueense')
+            ->add('nomblocalouesejo')
+            ->add('nomblocapretense')
+            ->add('nomblocapretsejo')
             ->add('possexteetab','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('utillocalouepret','choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,

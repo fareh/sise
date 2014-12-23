@@ -18,6 +18,16 @@ class EtablissementFicheetablissementType extends AbstractType
             ->add('adreetab')
             ->add('codepost')
             ->add('telefixe')
+            ->add('etabtravpens','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('etabtravdemipens','choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('fax')
             ->add('mail','email',array('required' => false))
             ->add('siteweb')

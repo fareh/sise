@@ -250,7 +250,16 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+    public function searchpersonnelAction()
+    {
+        // Generation of the form
+        $form = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType())->getForm();
 
+        // return the form view
+        return $this->render('SiseCoreBundle:Default:searchPersonnel.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
     public function getListAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();

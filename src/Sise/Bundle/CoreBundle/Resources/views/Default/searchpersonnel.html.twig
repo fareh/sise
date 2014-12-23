@@ -1,0 +1,80 @@
+<center>
+    <style type="text/css">
+
+        select{
+            height: 28px;
+            width: 100%;
+
+        }
+        td {
+            padding-right: 5px;
+        }
+    </style>
+    <form action="{{ pathfilter }}" method="post" {{ form_enctype(form) }} class="well form-search">
+        <div id="CPHMain_EtabFiltre1_upfiltre">
+
+            <br>
+            <div id="Filter">
+                <div id="CPHMain_upfiltre">
+                    <table style="font-size :14pt; background-color:#EEEEEE; padding :10px;" width="100%">
+                        <tbody>
+                        <tr style="background-color:#EEEEEE;">
+                            <td style="padding-right:5px; " width="15%">
+                                نوع المؤسسة
+                            </td>
+
+                            <td style="padding-right:5px; " width="15%">
+                                المؤسسة
+                            </td>
+
+                            <td style="padding-right:5px; " width="15%">
+                                الجنسية
+                            </td>
+
+                            <td style="padding-right:5px; " width="15%">
+
+                                الوضع الإداري الفرعي
+                            </td>
+                            <td style="padding-right:5px; " width="15%">
+                                السلك
+                            </td>
+                            <td style="padding-right:5px; " width="15%">
+
+                                الصفة
+
+                            </td>
+                            <td width="15%">
+
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td id="CPHMain_divCodeCircRegi2" width="15%" > {{ form_widget(form.NomenclatureTypeetablissement) }}</td>
+                            <td id="CPHMain_divCodeCircRegi2" width="15%"> {{ form_widget(form.NomenclatureEtablissement) }}</td>
+                            <td id="CPHMain_divCodeCircRegi2" width="15%" >  {{ form_widget(form.NomenclatureNationalite) }}</td>
+                            <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureSoussituationadministrative)}}</td>
+                            <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureCorps)}}</td>
+                            <td id="CPHMain_divCodeCircRegi2" width="15%">  {{ form_widget(form.NomenclatureQualite)}}</td>
+                            <td width="15%" align="center">
+                                <input type="submit" name="ctl00$CPHMain$BtnRechercher" value="بحث" id="CPHMain_BtnRechercher" class="BtnRecherche">
+
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <br>
+    </form>
+</center>
+
+
+
+

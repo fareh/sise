@@ -3,47 +3,38 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * NomenclatureSoussituationadministrative
+ * NomenclatureDisposition
  *
- * @ORM\Table(name="nomenclature_soussituationadministrative", indexes={@ORM\Index(name="FK_Nomenclature_SousSituationAdministrative_Nomenclature_Situa33", columns={"CodeSituAdmi"})})
+ * @ORM\Table(name="nomenclature_disposition")
  * @ORM\Entity
  */
-class NomenclatureSoussituationadministrative
+class NomenclatureDisposition
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="CodeSousSituAdmi", type="string", length=50, nullable=false)
+     * @ORM\Column(name="CodeTypeDisp", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codesoussituadmi;
+    private $codetypedisp;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="LibeSousSituAdmiAr", type="string", length=50, nullable=true)
+     * @ORM\Column(name="LibeCateActiAr", type="string", length=50, nullable=true)
      */
-    private $libesoussituadmiar;
+    private $libetypedispar;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="LibeSousSituAdmiFr", type="string", length=50, nullable=true)
+     * @ORM\Column(name="LibeCateActiFr", type="string", length=50, nullable=true)
      */
-    private $libesoussituadmifr;
-
-    /**
-     * @var \NomenclatureSituationadministrative
-     *
-     * @ORM\ManyToOne(targetEntity="NomenclatureSituationadministrative")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeSituAdmi", referencedColumnName="CodeSituAdmi")
-     * })
-     */
-    private $codesituadmi;
+    private $libetypedispfr;
 
     /**
      * @var integer
@@ -95,91 +86,67 @@ class NomenclatureSoussituationadministrative
     private $colltech;
 
 
-
     /**
-     * Get codesoussituadmi
+     * Get codetypedisp
      *
-     * @return string
+     * @return string 
      */
-    public function getCodesoussituadmi()
+    public function getCodetypedisp()
     {
-        return $this->codesoussituadmi;
+        return $this->codetypedisp;
     }
 
     /**
-     * Set libesoussituadmiar
+     * Set libetypedispar
      *
-     * @param string $libesoussituadmiar
-     * @return NomenclatureSoussituationadministrative
+     * @param string $libetypedispar
+     * @return NomenclatureDisposition
      */
-    public function setLibesoussituadmiar($libesoussituadmiar)
+    public function setLibetypedispar($libetypedispar)
     {
-        $this->libesoussituadmiar = $libesoussituadmiar;
+        $this->libetypedispar = $libetypedispar;
 
         return $this;
     }
 
     /**
-     * Get libesoussituadmiar
+     * Get libetypedispar
      *
-     * @return string
+     * @return string 
      */
-    public function getLibesoussituadmiar()
+    public function getLibetypedispar()
     {
-        return $this->libesoussituadmiar;
+        return $this->libetypedispar;
     }
 
     /**
-     * Set libesoussituadmifr
+     * Set libetypedispfr
      *
-     * @param string $libesoussituadmifr
-     * @return NomenclatureSoussituationadministrative
+     * @param string $libetypedispfr
+     * @return NomenclatureDisposition
      */
-    public function setLibesoussituadmifr($libesoussituadmifr)
+    public function setLibetypedispfr($libetypedispfr)
     {
-        $this->libesoussituadmifr = $libesoussituadmifr;
+        $this->libetypedispfr = $libetypedispfr;
 
         return $this;
     }
 
     /**
-     * Get libesoussituadmifr
+     * Get libetypedispfr
      *
-     * @return string
+     * @return string 
      */
-    public function getLibesoussituadmifr()
+    public function getLibetypedispfr()
     {
-        return $this->libesoussituadmifr;
-    }
-
-    /**
-     * Set codesituadmi
-     *
-     * @param string $codesituadmi
-     * @return NomenclatureSoussituationadministrative
-     */
-    public function setCodesituadmi($codesituadmi)
-    {
-        $this->codesituadmi = $codesituadmi;
-
-        return $this;
-    }
-
-    /**
-     * Get codesituadmi
-     *
-     * @return string
-     */
-    public function getCodesituadmi()
-    {
-        return $this->codesituadmi;
+        return $this->libetypedispfr;
     }
 
     /**
      * Set ordraffi
      *
      * @param integer $ordraffi
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setOrdraffi($ordraffi)
     {
@@ -191,7 +158,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get ordraffi
      *
-     * @return integer
+     * @return integer 
      */
     public function getOrdraffi()
     {
@@ -202,7 +169,7 @@ class NomenclatureSoussituationadministrative
      * Set acti
      *
      * @param boolean $acti
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setActi($acti)
     {
@@ -214,7 +181,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get acti
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getActi()
     {
@@ -225,7 +192,7 @@ class NomenclatureSoussituationadministrative
      * Set prep
      *
      * @param boolean $prep
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setPrep($prep)
     {
@@ -237,7 +204,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get prep
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getPrep()
     {
@@ -248,7 +215,7 @@ class NomenclatureSoussituationadministrative
      * Set prim
      *
      * @param boolean $prim
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setPrim($prim)
     {
@@ -260,7 +227,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get prim
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getPrim()
     {
@@ -271,7 +238,7 @@ class NomenclatureSoussituationadministrative
      * Set collgene
      *
      * @param boolean $collgene
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setCollgene($collgene)
     {
@@ -283,7 +250,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get collgene
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getCollgene()
     {
@@ -294,7 +261,7 @@ class NomenclatureSoussituationadministrative
      * Set lyce
      *
      * @param boolean $lyce
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setLyce($lyce)
     {
@@ -306,7 +273,7 @@ class NomenclatureSoussituationadministrative
     /**
      * Get lyce
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getLyce()
     {
@@ -317,7 +284,7 @@ class NomenclatureSoussituationadministrative
      * Set colltech
      *
      * @param boolean $colltech
-     * @return NomenclatureSoussituationadministrative
+     * @return NomenclatureDisposition
      */
     public function setColltech($colltech)
     {
@@ -329,14 +296,10 @@ class NomenclatureSoussituationadministrative
     /**
      * Get colltech
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getColltech()
     {
         return $this->colltech;
-    }
-    public function __toString()
-    {
-        return $this->codesoussituadmi;
     }
 }

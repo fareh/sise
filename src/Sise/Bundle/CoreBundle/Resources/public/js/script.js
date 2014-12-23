@@ -171,6 +171,7 @@ $(function () {
     $("#sise_corebundle_personnelpersonnel_datefincont").datepicker();
     $("#sise_corebundle_personnelpersonnel_datesituadmi").datepicker();
     $("#sise_corebundle_personnelpersonnel_datecin").datepicker();
+    $("#sise_corebundle_personnelpersonnel_datesoussituadmi").datepicker();
 });
 
 $(function () {
