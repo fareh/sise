@@ -18,13 +18,10 @@ class NomenclatureNiveauscolaire
      * @var string
      *
      * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
-     * @ORM\ManyToOne(targetEntity="EffectiveeleveNiveauscolaireAnneenaissance, EffectiveeleveNiveauscolaire", inversedBy="codenivescol")
-     * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codenivescol;
-
 
     /**
      * @var string
@@ -45,10 +42,14 @@ class NomenclatureNiveauscolaire
      *
      * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
      */
-    private $codecyclense;
+   // private $codecyclense;
 
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement", inversedBy="codenivescol")
+     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
+     */
+    protected $codecyclense;
 
     /**
      * @var string
@@ -106,11 +107,6 @@ class NomenclatureNiveauscolaire
      */
     private $colltech;
 
-
-
-
-
-
     /**
      * Set libenivescolar
      *
@@ -155,52 +151,6 @@ class NomenclatureNiveauscolaire
     public function getLibenivescolfr()
     {
         return $this->libenivescolfr;
-    }
-
-    /**
-     * Set codecyclense
-     *
-     * @param string $codecyclense
-     * @return NomenclatureNiveauscolaire
-     */
-    public function setCodecyclense($codecyclense)
-    {
-        $this->codecyclense = $codecyclense;
-
-        return $this;
-    }
-
-    /**
-     * Get codecyclense
-     *
-     * @return string 
-     */
-    public function getCodecyclense()
-    {
-        return $this->codecyclense;
-    }
-
-    /**
-     * Set codenivescolsuiv
-     *
-     * @param string $codenivescolsuiv
-     * @return NomenclatureNiveauscolaire
-     */
-    public function setCodenivescolsuiv($codenivescolsuiv)
-    {
-        $this->codenivescolsuiv = $codenivescolsuiv;
-
-        return $this;
-    }
-
-    /**
-     * Get codenivescolsuiv
-     *
-     * @return string 
-     */
-    public function getCodenivescolsuiv()
-    {
-        return $this->codenivescolsuiv;
     }
 
     /**
@@ -364,31 +314,6 @@ class NomenclatureNiveauscolaire
         return $this->colltech;
     }
 
-
-
-    /**
-     * Set effectiveeleve_niveauscolaire_anneenaissance
-     *
-     * @param \Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance $effectiveeleveNiveauscolaireAnneenaissance
-     * @return NomenclatureNiveauscolaire
-     */
-    public function setEffectiveeleveNiveauscolaireAnneenaissance(\Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance $effectiveeleveNiveauscolaireAnneenaissance = null)
-    {
-        $this->effectiveeleve_niveauscolaire_anneenaissance = $effectiveeleveNiveauscolaireAnneenaissance;
-
-        return $this;
-    }
-
-    /**
-     * Get effectiveeleve_niveauscolaire_anneenaissance
-     *
-     * @return \Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance 
-     */
-    public function getEffectiveeleveNiveauscolaireAnneenaissance()
-    {
-        return $this->effectiveeleve_niveauscolaire_anneenaissance;
-    }
-
     /**
      * Get codenivescol
      *
@@ -397,5 +322,56 @@ class NomenclatureNiveauscolaire
     public function getCodenivescol()
     {
         return $this->codenivescol;
+    }
+
+    /**
+     * Set codecyclense
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense
+     * @return NomenclatureNiveauscolaire
+     */
+    public function setCodecyclense(\Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense = null)
+    {
+        $this->codecyclense = $codecyclense;
+
+        return $this;
+    }
+
+    /**
+     * Get codecyclense
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     */
+    public function getCodecyclense()
+    {
+        return $this->codecyclense;
+    }
+
+
+    /**
+     * Set codenivescolsuiv
+     *
+     * @param string $codenivescolsuiv
+     * @return NomenclatureNiveauscolaire
+     */
+    public function setCodenivescolsuiv($codenivescolsuiv)
+    {
+        $this->codenivescolsuiv = $codenivescolsuiv;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivescolsuiv
+     *
+     * @return string 
+     */
+    public function getCodenivescolsuiv()
+    {
+        return $this->codenivescolsuiv;
+    }
+
+    public function __toString(){
+        return ($this->getLibenivescolar())?$this->getLibenivescolar():null;
     }
 }

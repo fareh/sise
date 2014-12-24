@@ -99,12 +99,18 @@ class NomenclatureCycleenseignement
     private $codeprof;
 
     /**
+     * @ORM\OneToMany(targetEntity="NomenclatureNiveauscolaire", mappedBy="codecyclense")
+     */
+    protected $codenivescol;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->codeetab = new \Doctrine\Common\Collections\ArrayCollection();
         $this->codeprof = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codenivescol =  new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -389,5 +395,38 @@ class NomenclatureCycleenseignement
     public function getCodeprof()
     {
         return $this->codeprof;
+    }
+
+    /**
+     * Add codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return NomenclatureCycleenseignement
+     */
+    public function addCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol[] = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Remove codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     */
+    public function removeCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol->removeElement($codenivescol);
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
     }
 }

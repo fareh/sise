@@ -3,81 +3,54 @@
 {% block body %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifeleveresultatconcoureducationbase' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-{% if entities is defined  and entities|length > 0 %}
-    <center>
-        <br>
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
 
-        <div id="CPHMain_upGridView">
+            <div id="CPHMain_upGridView">
 
-            <table width="100%">
-                <tbody>
-                <tr style="background-color: #4F81BD; color: White;" align="center">
-                    <td colspan="2">
-                        موجهون من السابعة أساسي إلى الثامنة تقنــي
-                    </td>
-                    <td colspan="2">
-                        موجهون من الثامنة أساسي إلى الثامنة تقني
-                    </td>
-                    <td colspan="3">
-                        الجملة
-                    </td>
-                </tr>
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <td align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                        <td align="center" colspan="3"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                            متقدمون
+                        </td>
+                        <td align="center" colspan="3"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                            ناجحون
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المجال</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                    </tr>
+                    {% for key , entity in entities %}
 
-
-                <tr style="background-color: #92B3CF; color: White;" align="center">
-                    <td>
-                        <span id="CPHMain_Label4" style="display:inline-block;width:98%;">ذكر</span>
-                    </td>
-                    <td>
-                        <span id="CPHMain_Label5" style="display:inline-block;width:98%;">أنثى</span>
-                    </td>
-                    <td>
-                        <span id="CPHMain_Label7" style="display:inline-block;width:98%;">ذكر</span>
-                    </td>
-                    <td>
-                        <span id="CPHMain_Label8" style="display:inline-block;width:98%;">أنثى</span>
-                    </td>
-                    <td>
-                        <span id="CPHMain_Label6" style="display:inline-block;width:98%;">ذكر</span>
-                    </td>
-                    <td>
-                        <span id="CPHMain_Label9" style="display:inline-block;width:98%;">أنثى</span>
-                    </td>
-                    <td>
-                        <span id="CPHMain_Label1" style="display:inline-block;width:98%;">جملة</span>
-                    </td>
-                </tr>
-                {% for entity in entities %}
-                <tr style="background-color: white; color: black;">
-                    <td style="text-align: center;">
-                        <span id="CPHMain_lblNombElevMascVenaSept">{{ entity.nombelevmascvenasept }}</span>
-                    </td>
-                    <td style="text-align: center;">
-                        <span id="CPHMain_lblNombElevFemiVenaSept">{{ entity.nombelevfemivenasept }}</span>
-                    </td>
-                    <td style="text-align: center;">
-                        <span id="CPHMain_lblNombElevMascVenaHuit">{{ entity.nombelevmascvenahuit }}</span>
-                    </td>
-                    <td style="text-align: center;">
-                        <span id="CPHMain_lblNombElevFemiVenaHuit">{{ entity.nombelevfemivenahuit }}</span>
-                    </td>
-                    <td style="background-color:#EEEEEE;  text-align: center;">
-                        <span id="CPHMain_lblNombTotaElevVenaSept">{{ entity.nombtotaelevvenasept }}</span>
-                    </td>
-                    <td style="background-color:#EEEEEE;  text-align: center;">
-                        <span id="CPHMain_lblNombTotaElevVenaHuit">{{ entity.nombtotaelevvenahuit }}</span>
-                    </td>
-                    <td style="background-color:#EEEEEE;  text-align: center;">
-                        <span id="CPHMain_lblNombTotaElev">{{ entity.nombtotaelevvenasept + entity.nombtotaelevvenahuit }}</span>
-                    </td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                        <tr>
+                            <td>{{ entity.codedoma.libedomaar }}</td>
+                            <td align="right">{{ entity.nombelevinscmasc }}</td>
+                            <td align="right">{{ entity.nombelevinscfemi }}</td>
+                            <td align="right">{{ entity.nombtotainscelev }}</td>
+                            <td align="right">{{ entity.nombelevreusmasc }}</td>
+                            <td align="right">{{ entity.nombelevreusfemi }}</td>
+                            <td align="right">{{ entity.nombtotareuselev }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
 
-        </div>
-    </center>
-{% endif %}
+            </div>
+        </center>
+    {% endif %}
 
 {% endblock %}

@@ -48,19 +48,9 @@ class EffectifeleveReussifin9technique
      */
     private $coderece;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeDoma", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-   // private $codedoma;
-
-
 
     /**
-     * @ORM\OneToOne(targetEntity="NomenclatureDomaine")
+     * @ORM\ManyToOne(targetEntity="NomenclatureDomaine")
      * @ORM\JoinColumn(name="CodeDoma", referencedColumnName="CodeDoma")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -286,6 +276,10 @@ class EffectifeleveReussifin9technique
         return $this;
     }
 
+
+
+
+
     /**
      * Get nombelevreusmasc
      *
@@ -308,6 +302,8 @@ class EffectifeleveReussifin9technique
 
         return $this;
     }
+
+
 
     /**
      * Get nombelevreusfemi
@@ -341,6 +337,8 @@ class EffectifeleveReussifin9technique
     {
         return $this->nombtotareuselev;
     }
+
+
 
     /**
      * Set codedoma

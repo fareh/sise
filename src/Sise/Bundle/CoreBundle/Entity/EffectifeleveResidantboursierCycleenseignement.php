@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectifeleveResidantboursierCycleenseignement
  *
  * @ORM\Table(name="effectifeleve_residantboursier_cycleenseignement", indexes={@ORM\Index(name="FK_EffectifEleve_ResidantBoursier_CycleEnseignement_Nomenclatu18", columns={"CodeCyclEnse"}), @ORM\Index(name="FK_EffectifEleve_ResidantBoursier_CycleEnseignement_Nomenclatu19", columns={"CodeRece"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveResidantboursierCycleenseignementRepository")
  */
 class EffectifeleveResidantboursierCycleenseignement
 {
@@ -49,19 +49,8 @@ class EffectifeleveResidantboursierCycleenseignement
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-   // private $codecyclense;
-
-
-
-    /**
-     * @ORM\OneToOne(targetEntity="NomenclatureCycleenseignement")
-     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement")
+     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse", onDelete="CASCADE")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */

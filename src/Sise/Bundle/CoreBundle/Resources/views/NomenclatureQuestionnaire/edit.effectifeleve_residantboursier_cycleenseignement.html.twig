@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : 'effective eleve demi residant', 'RouteAction' : 'etablissementficheetablissement' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifeleveresidantboursiercycleenseignement' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
     {% if entities is defined  and entities|length > 0 %}
@@ -11,7 +11,7 @@
             <div id="CPHMain_upGridView">
 
                 <div>
-                    <form action="{{ pathUpdate }}" method="post" class="well form-search">
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
                         <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
                                style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                             <tbody>
@@ -44,107 +44,52 @@
                             {% for key, entity in entities %}
                                 <tr>
                                     <td align="center">
-                                <span id="CPHMain_GridView_Edit_LibeCyclEnse_{{ key }}" class="#Niveau Scolaire"
-                                      style="display:inline-block;width:98%;"> {{ entity.codecyclense.libecyclensear }}</span>
+                                        {{ entity.codecyclense.libecyclensear }}
 
                                         <input type="hidden" name="val_{{ key }}"
-                                               value="{{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}"/>
+                                               value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codecyclense.codecyclense }}"/>
 
 
                                         <input type="hidden" name="key_{{ key }}"
-                                               value="codeetab_codetypeetab_annescol_coderece"/>
-
-
+                                               value="codeetab|codetypeetab|annescol|coderece|codecyclense"/>
                                     </td>
                                     <td align="right">
-                                        <div id="CPHMain_GridView_Edit_nemn_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevResiMasc_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                            <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
-                                                   type="text"
-                                                   value="{{ entity.nombelevresimasc }}"
-                                                   id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
-                                                   onchange="javascript:txtChanged(this);"
-                                                   style="border-style:None;width:98%;">
-
-                                        </div>
+                                        <input name="nombelevresimasc{{ key }}" type="text"
+                                               value="{{ entity.nombelevresimasc }}" id="nombelevresimasc{{ key }}"
+                                               onchange="javascript:txtChanged(this);">
                                     </td>
                                     <td align="left">
-                                        <div id="CPHMain_GridView_Edit_nefn_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevResiFemi_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                            <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
-                                                   type="text"
-                                                   value="{{ entity.nombelevresifemi }}"
-                                                   id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
-                                                   onchange="javascript:txtChanged(this);"
-                                                   style="border-style:None;width:98%;">
-
-                                        </div>
+                                        <input name="nombelevresifemi{{ key }}" type="text"
+                                               value="{{ entity.nombelevresifemi }}" id="nombelevresifemi{{ key }}"
+                                               onchange="javascript:txtChanged(this);">
                                     </td>
                                     <td align="center" style="background-color:#EEEEEE;">
-                                <span id="CPHMain_GridView_Edit_NombTotaResiElev_{{ key }}" class="أنصاف المقيمين"
-                                      style="display:inline-block;width:98%;">{{ entity.nombtotaresielev }}</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}"
-                                               type="hidden"
-                                               value="{{ entity.nombtotaresielev }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}">
+                                        <input name="nombtotaresielev{{ key }}" type="hidden"
+                                               value="{{ entity.nombtotaresielev }}" id="nombtotaresielev{{ key }}">
                                     </td>
                                     <td align="right">
-                                        <div id="CPHMain_GridView_Edit_nemr_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevBourMasc_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                            <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourMasc" type="text"
-                                                   value="{{ entity.nombelevbourmasc }}"
-                                                   id="CPHMain_GridView_Edit_NombElevBourMasc_{{ key }}"
-                                                   onchange="javascript:txtChanged(this);"
-                                                   style="border-style:None;width:98%;">
-
-                                        </div>
+                                        <input name="nombelevbourmasc{{ key }}" type="text" value="{{ entity.nombelevbourmasc }}"
+                                               id="nombelevbourmasc{{ key }}"
+                                               onchange="javascript:txtChanged(this);">
                                     </td>
                                     <td align="left">
-                                        <div id="CPHMain_GridView_Edit_nefr_{{ key }}">
 
-                                    <span id="CPHMain_GridView_Edit_RVNombElevBourFemi_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                            <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
-                                                   type="text"
-                                                   value="{{ entity.nombelevbourfemi }}"
-                                                   id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
-                                                   onchange="javascript:txtChanged(this);"
-                                                   style="border-style:None;width:98%;">
+                                        <input name="nombelevbourfemi{{ key }}" type="text"
+                                               value="{{ entity.nombelevbourfemi }}" id="nombelevbourfemi{{ key }}"
+                                               onchange="javascript:txtChanged(this);">
 
-                                        </div>
                                     </td>
                                     <td align="center" style="background-color:#EEEEEE;">
-                                <span id="CPHMain_GridView_Edit_NombTotaBourElev_{{ key }}" class="الممنوحون"
-                                      style="display:inline-block;width:98%;">{{ entity.nombtotabourelev }}</span>
+                                        {{ entity.nombtotabourelev }}
                                     </td>
                                     <td align="right">
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
-                                               type="text" value="{{ entity.nombbour }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
-                                               class=" "
-                                               style="border-style:None;width:30px;">
-                                    <span id="CPHMain_GridView_Edit_RVNombBour_{{ key }}" class=" "
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-
+                                        <input name="nombbour{{ key }}" type="text" value="{{ entity.nombbour }}"
+                                               id="nombbour{{ key }}" class=" ">
                                     </td>
                                 </tr>
                             {% endfor %}
 
-
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <td colspan="8"><input type="submit" value="Envoyer"></td>
-
-                            </tr>
-
-                            </tfoot>
                         </table>
                     </form>
                 </div>

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveEleveeablissementprivee
  *
  * @ORM\Table(name="effectiveeleve_eleveeablissementprivee", indexes={@ORM\Index(name="FK_EffectiveEleve_EleveEablissementPrivee_Nomenclature_NiveauS62", columns={"CodeNiveScol"}), @ORM\Index(name="FK_EffectiveEleve_EleveEablissementPrivee_Nomenclature_Recense63", columns={"CodeRece"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveEleveeablissementpriveeRepository")
  */
 class EffectiveeleveEleveeablissementprivee
 {
@@ -55,7 +55,16 @@ class EffectiveeleveEleveeablissementprivee
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $codenivescol;
+    //private $codenivescol;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+        private $codenivescol;
 
     /**
      * @var integer
@@ -201,29 +210,6 @@ class EffectiveeleveEleveeablissementprivee
     }
 
     /**
-     * Set codenivescol
-     *
-     * @param string $codenivescol
-     * @return EffectiveeleveEleveeablissementprivee
-     */
-    public function setCodenivescol($codenivescol)
-    {
-        $this->codenivescol = $codenivescol;
-
-        return $this;
-    }
-
-    /**
-     * Get codenivescol
-     *
-     * @return string 
-     */
-    public function getCodenivescol()
-    {
-        return $this->codenivescol;
-    }
-
-    /**
      * Set nombelevmascnouv
      *
      * @param integer $nombelevmascnouv
@@ -282,6 +268,7 @@ class EffectiveeleveEleveeablissementprivee
         return $this;
     }
 
+
     /**
      * Get nombelevmascredo
      *
@@ -304,6 +291,8 @@ class EffectiveeleveEleveeablissementprivee
 
         return $this;
     }
+
+
 
     /**
      * Get nombelevfemiredo
@@ -374,6 +363,7 @@ class EffectiveeleveEleveeablissementprivee
         return $this;
     }
 
+
     /**
      * Get nombtotaelev
      *
@@ -382,5 +372,28 @@ class EffectiveeleveEleveeablissementprivee
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return EffectiveeleveEleveeablissementprivee
+     */
+    public function setCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
     }
 }
