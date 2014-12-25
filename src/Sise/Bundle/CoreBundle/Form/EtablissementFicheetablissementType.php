@@ -53,6 +53,7 @@ class EtablissementFicheetablissementType extends AbstractType
             'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('resp',new EtablissementResponsableType())
             ->add('infr',new EtablissementInfrastructureType())
+            ->add('sejo','collection', array('type' => new EtablissementSejourType(),'allow_add'    => true,));
         ;
     }
     

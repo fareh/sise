@@ -35,11 +35,11 @@
                 <span id="CPHMain_Label4">إسم المؤسسة بالفرنسية</span>
                 {{ edit_form.vars.value.nomeetab.libeetabfr }}
             </div>
-            <div>
+            <div style="display: none">
                 <span id="CPHMain_Label5">الإسم القصير بالعربية</span>
                 {{ edit_form.vars.value.nomeetab.libecourar }}
             </div>
-            <div>
+            <div style="display: none">
                 <span id="CPHMain_Label6">الإسم القصير بالفرنسية</span>
                 {{ edit_form.vars.value.nomeetab.libecourfr }}
             </div>
@@ -57,8 +57,12 @@
             </div>
             <div>
                 <span id="CPHMain_Label10">الدائرة</span>
-                {{ edit_form.vars.value.nomeetab.codecirc.libecircar }}
-            </div>
+                {% if edit_form.vars.value.nomeetab.codecirc==null %}
+                {% else  %}
+                    {{ edit_form.vars.value.nomeetab.codecirc.libecircar }}
+                {% endif %}
+
+        </div>
             <div>
                 <span id="CPHMain_Label16">تاريخ التسجيل</span>
                 {{ edit_form.vars.value.nomeetab.datecreabd|date("d-m-Y") }}
@@ -111,7 +115,154 @@
                 <span id="CPHMain_Label19">تعمل مؤسستكم بنظام نصف إقامة فقط</span>
                 نعم      {{ form_widget(edit_form.etabtravdemipens.children[0]) }}
                 لا             {{ form_widget(edit_form.etabtravdemipens.children[1]) }}
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label23">ينتفع تلاميذ من مؤسسات أخرى بخدمات مبيت مؤسستكم (إقامة/نصف إقامة) </span>
+                نعم        <input type="radio" name="autretab" value="oui" id="verif" checked="checked">
+                لا           <input type="radio" name="autretab" value="non" id="nonverif" >
+            </div>
 
+            {#{% if edit_form.sejo.elevetab %}#}
+            {#<div>#}
+                {#<span id="CPHMain_Label18">موقــع الواب</span>#}
+                {#{{ form_widget(edit_form.siteweb) }}#}
+            {#</div>#}
+            {#{% endif %}#}
+
+
+
+
+
+
+            <div id="CPHMain_CBCyclEnse">
+                {#{% set verif=0 %}#}
+                {#{% set verifdemi=0 %}#}
+                {#{% set verifautr=0 %}#}
+                {#{% set verifdemiautr=0 %}#}
+                <table cellspacing="0" id="display_toggle_table"
+                       style="background-color:#EFF3FB;border-width:2px;width:100%;">
+                    {#{% for tag in edit_form.sejo %}#}
+                    {#{% if tag.vars.value.penscomp and not tag.vars.value.elevetab%}#}
+                    {#{% set verif=1 %}#}
+                    {#{% endif %}#}
+                        {#{% if not tag.vars.value.penscomp and not tag.vars.value.elevetab%}#}
+                            {#{% set verifdemi=1 %}#}
+                            {#{% endif %}#}
+                        {#{% if tag.vars.value.penscomp and tag.vars.value.elevetab%}#}
+                            {#{% set verifdemiautr=1 %}#}
+                        {#{% endif %}#}
+                        {#{% if not tag.vars.value.penscomp and tag.vars.value.elevetab%}#}
+                            {#{% set verifdemiautr=1 %}#}
+                        {#{% endif %}#}
+                    {#{% endfor %}#}
+
+             <tr>  <td rowspan="2" style="width:20%"> <span id="CPHMain_Label18">إقامة كاملة</span></td>
+                {% for tag in edit_form.sejo %}
+                    {% if tag.vars.value.penscomp and tag.vars.value.numesequ==1 and not tag.vars.value.elevetab%}
+                        <td>
+                        رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                           </td><td>
+                        عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                 </td><td>
+                        عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                 </td>
+                    {% endif %}
+                    {% if tag.vars.value.penscomp and tag.vars.value.numesequ==2 and not tag.vars.value.elevetab%}
+                      <tr>
+                        <td>
+                            رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                        </td><td>
+                        عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                    </td><td>
+                        عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                    </td></tr>
+                    {% endif %}
+                {% endfor %}
+             </tr>
+                    <tr>  <td rowspan="2" style="width:20%"> <span id="CPHMain_Label18">نصف إقامة</span></td>
+                        {% for tag in edit_form.sejo %}
+                        {% if not tag.vars.value.penscomp and tag.vars.value.numesequ==1 and not tag.vars.value.elevetab%}
+                            <td>
+                                رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                            </td><td>
+                            عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                        </td><td>
+                            عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                        </td>
+                        {% endif %}
+                        {% if not tag.vars.value.penscomp and tag.vars.value.numesequ==2 and not tag.vars.value.elevetab%}
+                    <tr>
+                        <td>
+                            رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                        </td><td>
+                            عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                        </td><td>
+                            عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                        </td></tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tr>
+
+            </table>
+            </div>
+
+            <div id="CPHMain_CBCyclEnse">
+                <span id="CPHMain_Label23">ينتفع تلاميذ مؤسستكم بخدمات مبيتات (إقامة/نصف إقامة) تابعة لمؤسسات أخرى</span>
+                نعم        <input type="radio" name="etab" value="oui" id="verifautr" checked="checked">
+                لا           <input type="radio" name="etab" value="non" id="nonverifautr"  >
+            </div>
+            <div id="CPHMain_CBCyclEnse">
+                <table cellspacing="0" id="display_toggle_table_autr"
+                       style="background-color:#EFF3FB;border-width:2px;width:100%;">
+
+                    <tr>  <td rowspan="2" style="width:20%"> <span id="CPHMain_Label18">إقامة كاملة</span></td>
+                        {% for tag in edit_form.sejo %}
+                        {% if tag.vars.value.penscomp and tag.vars.value.numesequ==1 and tag.vars.value.elevetab%}
+                            <td>
+                                رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                            </td><td>
+                            عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                        </td><td>
+                            عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                        </td>
+                        {% endif %}
+                        {% if tag.vars.value.penscomp and tag.vars.value.numesequ==2 and tag.vars.value.elevetab%}
+                    <tr>
+                        <td>
+                            رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                        </td><td>
+                            عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                        </td><td>
+                            عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                        </td></tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tr>
+                    <tr>  <td rowspan="2" style="width:20%"> <span id="CPHMain_Label18">نصف إقامة</span></td>
+                        {% for tag in edit_form.sejo %}
+                        {% if not tag.vars.value.penscomp and tag.vars.value.numesequ==1 and tag.vars.value.elevetab%}
+                            <td>
+                                رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                            </td><td>
+                            عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                        </td><td>
+                            عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                        </td>
+                        {% endif %}
+                        {% if not tag.vars.value.penscomp and tag.vars.value.numesequ==2 and tag.vars.value.elevetab%}
+                    <tr>
+                        <td>
+                            رمز المؤسسة     {{  form_widget(tag.codeetabsejo) }}
+                        </td><td>
+                            عدد التلاميذ ذكور      {{  form_widget(tag.nombelevmasc) }}
+                        </td><td>
+                            عدد التلاميذ إناث         {{  form_widget(tag.nombelevfemi) }}
+                        </td></tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tr>
+
+                </table>
             </div>
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label20">تدمج تلاميذ ذوي إحتياجات خاصة</span>
@@ -203,9 +354,9 @@
         <div>
             <div>
                 <span id="CPHMain_Label2">الوضعية العقارية</span>
-                {{ form_widget(edit_form.infr.codesitufonc) }}
+                {{ form_widget(edit_form.infr.codesitufonc, {'attr': {'onChange': 'getListe("sise_corebundle_etablissementficheetablissement_infr_codesitufonc","NomenclatureDisposition", "sise_corebundle_etablissementficheetablissement_infr_codetypedisp" );', 'onChange':'genderSelectHandler(this)'} }) }}
             </div>
-            <div>
+            <div id="infrcodetypedisp">
                 <span id="CPHMain_Label2">وجه التصرف</span>
                 {{ form_widget(edit_form.infr.codetypedisp) }}
             </div>
@@ -214,6 +365,7 @@
                 نعم       {{ form_widget(edit_form.infr.utillocalouepret.children['0']) }}
                 لا        {{ form_widget(edit_form.infr.utillocalouepret.children['1']) }}
             </div>
+            <div id="infrnomblocalloue">
             <div id="CPHMain_CBCyclEnse">
                 <span id="CPHMain_Label37">عدد المحلات المكتراة </span>
                 للتدريس
@@ -227,7 +379,7 @@
                 {{ form_widget(edit_form.infr.nomblocapretense) }}
                 للمبيت
                 {{ form_widget(edit_form.infr.nomblocapretsejo) }}
-            </div>
+            </div> </div>
             <div>
                 <span id="CPHMain_Label37">مساحة الأرض الجملية  (بالمتر المربع)</span>
                 {{ form_widget(edit_form.infr.surftotaterr) }}

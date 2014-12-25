@@ -166,7 +166,9 @@ class EtablissementInfrastructure
      * @var \NomenclatureDisposition
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureDisposition")
-     * @ORM\JoinColumn(name="CodeTypeDisp", referencedColumnName="CodeTypeDisp")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeDisp", referencedColumnName="CodeTypeDisp")
+     * })
      */
     private $codetypedisp;
 
@@ -185,34 +187,19 @@ class EtablissementInfrastructure
     {
         $this->codetypedisp = $codetypedisp;
     }
- /**
-  * @var boolean
-  *
-  * @ORM\Column(name="UtilLocaLouePret", type="boolean", nullable=true)
-  */
-      private $utillocalouepret;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="UtilLocaLouePret", type="boolean", nullable=true)
+     */
+    private $utillocalouepret;
 
     /**
-     * @return int
+     * @var integer
+     *
+     * @ORM\Column(name="NombLocaLoueEnse", type="integer", nullable=true)
      */
-    public function getNomblocalouesejo()
-    {
-        return $this->nomblocalouesejo;
-    }
-
-    /**
-     * @param int $nomblocalouesejo
-     */
-    public function setNomblocalouesejo($NombLocaLoueSejo)
-    {
-        $this->NombLocaLoueSejo = $NombLocaLoueSejo;
-    }
-  /**
-   * @var integer
-   *
-   * @ORM\Column(name="NombLocaLoueEnse", type="integer", nullable=true)
-   */
-        private $nomblocaloueense;
+    private $nomblocaloueense;
 
     /**
      * @return boolean
@@ -229,12 +216,28 @@ class EtablissementInfrastructure
     {
         $this->utillocalouepret = $UtilLocaLouePret;
     }
-	  /**
-       * @var integer
-       *
-       * @ORM\Column(name="NombLocaLoueSejo", type="integer", nullable=true)
-       */
-        private $nomblocalouesejo;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombLocaLoueSejo", type="integer", nullable=true)
+     */
+    private $nomblocalouesejo;
+
+    /**
+     * @return int
+     */
+    public function getNomblocalouesejo()
+    {
+        return $this->nomblocalouesejo;
+    }
+
+    /**
+     * @param int $nomblocalouesejo
+     */
+    public function setNomblocalouesejo($nomblocalouesejo)
+    {
+        $this->nomblocalouesejo = $nomblocalouesejo;
+    }
 
     /**
      * @return int
@@ -251,12 +254,12 @@ class EtablissementInfrastructure
     {
         $this->nomblocaloueense = $nomblocaloueense;
     }
-			  /**
-               * @var integer
-               *
-               * @ORM\Column(name="NombLocaPretEnse", type="integer", nullable=true)
-               */
-       private $nomblocapretense;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombLocaPretEnse", type="integer", nullable=true)
+     */
+    private $nomblocapretense;
 
     /**
      * @return int
@@ -273,13 +276,13 @@ class EtablissementInfrastructure
     {
         $this->nomblocapretense = $nomblocapretense;
     }
-		  /**
-           * @var integer
-           *
-           * @ORM\Column(name="NombLocaPretSejo", type="integer", nullable=true)
-           */
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombLocaPretSejo", type="integer", nullable=true)
+     */
 
-	   private $nomblocapretsejo;
+    private $nomblocapretsejo;
 
     /**
      * @return int
@@ -313,7 +316,7 @@ class EtablissementInfrastructure
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -336,7 +339,7 @@ class EtablissementInfrastructure
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -359,7 +362,7 @@ class EtablissementInfrastructure
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -382,7 +385,7 @@ class EtablissementInfrastructure
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -405,7 +408,7 @@ class EtablissementInfrastructure
     /**
      * Get codesitufonc
      *
-     * @return string 
+     * @return string
      */
     public function getCodesitufonc()
     {
@@ -428,7 +431,7 @@ class EtablissementInfrastructure
     /**
      * Get surftotaterr
      *
-     * @return float 
+     * @return float
      */
     public function getSurftotaterr()
     {
@@ -451,7 +454,7 @@ class EtablissementInfrastructure
     /**
      * Get surfcons
      *
-     * @return float 
+     * @return float
      */
     public function getSurfcons()
     {
@@ -474,7 +477,7 @@ class EtablissementInfrastructure
     /**
      * Get surfcouv
      *
-     * @return float 
+     * @return float
      */
     public function getSurfcouv()
     {
@@ -497,7 +500,7 @@ class EtablissementInfrastructure
     /**
      * Get distroutgoud
      *
-     * @return float 
+     * @return float
      */
     public function getDistroutgoud()
     {
@@ -520,7 +523,7 @@ class EtablissementInfrastructure
     /**
      * Get distdele
      *
-     * @return float 
+     * @return float
      */
     public function getDistdele()
     {
@@ -543,7 +546,7 @@ class EtablissementInfrastructure
     /**
      * Get codezone
      *
-     * @return string 
+     * @return string
      */
     public function getCodezone()
     {
@@ -566,7 +569,7 @@ class EtablissementInfrastructure
     /**
      * Get possexteetab
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPossexteetab()
     {
@@ -589,7 +592,7 @@ class EtablissementInfrastructure
     /**
      * Get nombsallexte
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombsallexte()
     {
@@ -612,7 +615,7 @@ class EtablissementInfrastructure
     /**
      * Get codetypeclot
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeclot()
     {
@@ -635,7 +638,7 @@ class EtablissementInfrastructure
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -658,7 +661,7 @@ class EtablissementInfrastructure
     /**
      * Get exisconninte
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getExisconninte()
     {
@@ -681,7 +684,7 @@ class EtablissementInfrastructure
     /**
      * Get codetypeconninte
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeconninte()
     {
@@ -704,7 +707,7 @@ class EtablissementInfrastructure
     /**
      * Get codesituelecatel
      *
-     * @return string 
+     * @return string
      */
     public function getCodesituelecatel()
     {

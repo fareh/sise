@@ -20,7 +20,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'property' => 'libepropbatiar',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
             ->add('codetypedisp','entity', array(
@@ -28,7 +28,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'property' => 'libetypedispar',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
 
@@ -63,7 +63,7 @@ class EtablissementInfrastructureType extends AbstractType
                   'property' => 'libesituelecatelar',
                   'expanded' => false,
                    'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
     ))
             ->add('codetypeclot','entity', array(
@@ -71,7 +71,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'property' => 'libetypeclotar',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
             ->add('codetypeconninte','entity', array(
@@ -79,7 +79,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'property' => 'libetypeconnintear',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
             ->add('codezone','entity', array(
@@ -87,7 +87,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'property' => 'libezonear',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
         ;

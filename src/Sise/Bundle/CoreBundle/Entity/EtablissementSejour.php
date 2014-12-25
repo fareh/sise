@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DoctrineCommonCollectionsArrayCollection;
 /**
  * EtablissementSejour
  *
@@ -52,6 +52,7 @@ class EtablissementSejour
      * @var boolean
      *
      * @ORM\Column(name="ElevEtab", type="boolean", nullable=true)
+     * @ORM\Id
      */
     private $elevetab;
 
@@ -59,6 +60,7 @@ class EtablissementSejour
      * @var boolean
      *
      * @ORM\Column(name="PensComp", type="boolean", nullable=true)
+     * @ORM\Id
      */
     private $penscomp;
 
@@ -67,15 +69,33 @@ class EtablissementSejour
      * @var integer
      *
      * @ORM\Column(name="NumeSequ", type="integer", nullable=true)
+     * @ORM\Id
      */
     private $numesequ;
 
-     /**
+    /**
      * @var string
      *
-     * @ORM\Column(name="CodeEtabSejo", type="string", length=50, nullable=true)
+     * @ORM\Column(name="CodeEtabSejo", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetabsejo;
+
+    /**
+     * @return string
+     */
+    public function getCodeetabsejo()
+    {
+        return $this->codeetabsejo;
+    }
+
+    /**
+     * @param string $codeetabsejo
+     */
+    public function setCodeetabsejo($codeetabsejo)
+    {
+        $this->codeetabsejo = $codeetabsejo;
+    }
 
    /**
      * @var integer
@@ -93,6 +113,9 @@ class EtablissementSejour
 
     public function __toString()
     {
+        if(is_null($this->codeetab)) {
+            return 'NULL';
+        }
         return $this->codeetab;
     }
 
@@ -258,29 +281,6 @@ class EtablissementSejour
     }
 
     /**
-     * Set codeetabsejo
-     *
-     * @param string $codeetabsejo
-     * @return EtablissementSejour
-     */
-    public function setCodeetabsejo($codeetabsejo)
-    {
-        $this->codeetabsejo = $codeetabsejo;
-
-        return $this;
-    }
-
-    /**
-     * Get codeetabsejo
-     *
-     * @return string 
-     */
-    public function getCodeetabsejo()
-    {
-        return $this->codeetabsejo;
-    }
-
-    /**
      * Set nombelevmasc
      *
      * @param integer $nombelevmasc
@@ -324,5 +324,34 @@ class EtablissementSejour
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+    /**
+     * @var \EtablissementFicheetablissement
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="EtablissementFicheetablissement",inversedBy="sejo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
+     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="AnneScol"),
+     *   @ORM\JoinColumn(name="CodeRece", referencedColumnName="CodeRece"),
+     * })
+     */
+    private $fichetabsejo;
+
+    /**
+     * @return \EtablissementFicheetablissement
+     */
+    public function getFichetabsejo()
+    {
+        return $this->fichetabsejo;
+    }
+
+    /**
+     * @param \EtablissementFicheetablissement $fichetabsejo
+     */
+    public function setFichetabsejo($fichetabsejo)
+    {
+        $this->fichetabsejo = $fichetabsejo;
     }
 }

@@ -174,6 +174,101 @@ $(function () {
     $("#sise_corebundle_personnelpersonnel_datesoussituadmi").datepicker();
 });
 
+$(document).ready(function() {
+    $('input[type="radio"]').click(function() {
+        if($(this).attr('id') == 'verif') {
+            $('#display_toggle_table').show();
+        }
+        else if($(this).attr('id') == 'nonverif') {
+            $('#display_toggle_table').hide();
+            obj=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_codeetabsejo");
+            obj1=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_codeetabsejo");
+            obj2=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_codeetabsejo");
+            obj3=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_codeetabsejo");
+            obj.value="";
+            obj1.value="";
+            obj2.value="";
+            obj3.value="";
+            obj4=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_nombelevmasc");
+            obj5=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_nombelevmasc");
+            obj6=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_nombelevmasc");
+            obj7=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_nombelevmasc");
+            obj4.value=0;
+            obj5.value=0;
+            obj6.value=0;
+            obj7.value=0;
+            obj8=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_nombelevfemi");
+            obj9=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_nombelevfemi");
+            obj10=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_nombelevfemi");
+            obj11=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_nombelevfemi");
+            obj8.value=0;
+            obj9.value=0;
+            obj10.value=0;
+            obj11.value=0;
+
+        }
+        if($(this).attr('id') == 'verifautr') {
+            $('#display_toggle_table_autr').show();
+        }
+        else if($(this).attr('id') == 'nonverifautr') {
+            $('#display_toggle_table_autr').hide();
+            obj=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_codeetabsejo");
+            obj1=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_codeetabsejo");
+            obj2=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_codeetabsejo");
+            obj3=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_codeetabsejo");
+            obj.value="";
+            obj1.value="";
+            obj2.value="";
+            obj3.value="";
+            obj4=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_nombelevmasc");
+            obj5=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_nombelevmasc");
+            obj6=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_nombelevmasc");
+            obj7=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_nombelevmasc");
+            obj4.value=0;
+            obj5.value=0;
+            obj6.value=0;
+            obj7.value=0;
+            obj8=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_nombelevfemi");
+            obj9=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_nombelevfemi");
+            obj10=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_nombelevfemi");
+            obj11=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_nombelevfemi");
+            obj8.value=0;
+            obj9.value=0;
+            obj10.value=0;
+            obj11.value=0;
+        }
+        if($(this).attr('id') == 'sise_corebundle_etablissementficheetablissement_infr_utillocalouepret_0') {
+            $('#infrnomblocalloue').show();
+        }
+        else if($(this).attr('id') == 'sise_corebundle_etablissementficheetablissement_infr_utillocalouepret_1') {
+            $('#infrnomblocalloue').hide();
+            obj=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocaloueense");
+            obj1=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocalouesejo");
+            obj2=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocapretense");
+            obj3=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocapretsejo");
+            obj.value=0;
+            obj1.value=0;
+            obj2.value=0;
+            obj3.value=0;
+        }
+    });
+});
+
+function hide(){
+    $('#infrcodetypedisp').hide();
+}
+
+function show(){
+    $('#infrcodetypedisp').show();
+}
+function genderSelectHandler(select){
+    if(select.value == '2'){
+        show();
+    }else if(select.value == '1'){
+        hide();
+    }}
+
+
 $(function () {
     $("#accordion").accordion({
         collapsible: true,

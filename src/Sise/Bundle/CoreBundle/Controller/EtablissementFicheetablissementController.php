@@ -39,7 +39,8 @@ class EtablissementFicheetablissementController extends Controller
         $session = $request->getSession();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
-
+        ini_set('memory_limit', '256M');
+        set_time_limit(0);
         $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findBy(array('annescol' => $annescol, 'coderece' => $coderece));
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
         if ($request->isMethod('POST')) {
@@ -179,11 +180,9 @@ class EtablissementFicheetablissementController extends Controller
         $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
         //$entityresp = $em->getRepository('SiseCoreBundle:EtablissementResponsable')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
         //  $entityinfras = $em->getRepository('SiseCoreBundle:EtablissementInfrastructure')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EtablissementFicheetablissement entity.');
         }
-
         $editForm = $this->createEditForm($entity);
         //  $deleteForm = $this->createDeleteForm($id);
 
@@ -224,15 +223,13 @@ class EtablissementFicheetablissementController extends Controller
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
-
+       // var_dump($entity);die;
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EtablissementFicheetablissement entity.');
         }
-
         // $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-
         if ($editForm->isValid()) {
             $em->flush();
 

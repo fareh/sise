@@ -555,4 +555,59 @@ class EtablissementFicheetablissement
     {
         $this->nomeetab = $nomeetab;
     }
+    /**
+     * @var \EtablissementResponsable
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToMany(targetEntity="EtablissementSejour",mappedBy="fichetabsejo",cascade={"persist"})
+     */
+    private $sejo;
+
+    /**
+     * @return \EtablissementResponsable
+     */
+    public function getSejo()
+    {
+        return $this->sejo;
+    }
+
+    /**
+     * @param \EtablissementResponsable $sejo
+     */
+    public function setSejo($sejo)
+    {
+        $this->sejo = $sejo;
+    }
+    public function __construct()
+    {
+        $this->sejo = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    /**
+     * Add sejo
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo
+     * @return EtablissementFicheetablissement
+     */
+    public function addSejo(\Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo)
+    {
+        $this->sejo[] = $fichetabsejo;
+
+        return $this;
+    }
+    /**
+     * Remove sejo
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo
+     */
+    public function removeCodecyclense(\Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo)
+    {
+        $this->sejo->removeElement($fichetabsejo);
+    }
+    public function __toString()
+    {
+        if(is_null($this->codeetab)) {
+            return 'NULL';
+        }
+        return $this->codeetab;
+    }
 }

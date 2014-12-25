@@ -18,7 +18,7 @@ class NomenclatureDisposition
      *
      * @ORM\Column(name="CodeTypeDisp", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codetypedisp;
 
@@ -35,6 +35,32 @@ class NomenclatureDisposition
      * @ORM\Column(name="LibeCateActiFr", type="string", length=50, nullable=true)
      */
     private $libetypedispfr;
+
+    /**
+     * @var \NomenclatureProprietebatiment
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureProprietebatiment")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodePropBati", referencedColumnName="CodePropBati")
+     * })
+     */
+    private $codesitufonc;
+
+    /**
+     * @return \NomenclatureProprietebatiment
+     */
+    public function getCodesitufonc()
+    {
+        return $this->codesitufonc;
+    }
+
+    /**
+     * @param \NomenclatureProprietebatiment $codesitufonc
+     */
+    public function setCodesitufonc($codesitufonc)
+    {
+        $this->codesitufonc = $codesitufonc;
+    }
 
     /**
      * @var integer
@@ -89,7 +115,7 @@ class NomenclatureDisposition
     /**
      * Get codetypedisp
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypedisp()
     {
@@ -112,7 +138,7 @@ class NomenclatureDisposition
     /**
      * Get libetypedispar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypedispar()
     {
@@ -135,7 +161,7 @@ class NomenclatureDisposition
     /**
      * Get libetypedispfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypedispfr()
     {
@@ -158,7 +184,7 @@ class NomenclatureDisposition
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +207,7 @@ class NomenclatureDisposition
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +230,7 @@ class NomenclatureDisposition
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +253,7 @@ class NomenclatureDisposition
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +276,7 @@ class NomenclatureDisposition
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +299,7 @@ class NomenclatureDisposition
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +322,7 @@ class NomenclatureDisposition
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

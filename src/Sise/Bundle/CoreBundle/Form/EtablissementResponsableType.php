@@ -32,7 +32,7 @@ class EtablissementResponsableType extends AbstractType
                 'property' => 'libegradar',
                 'expanded' => false,
                 'multiple' => false,
-                'required' => true,
+                'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
             ->add('codegraddireadjo','entity', array(
@@ -40,7 +40,7 @@ class EtablissementResponsableType extends AbstractType
         'property' => 'libegradar',
         'expanded' => false,
         'multiple' => false,
-        'required' => true,
+        'required' => false,
         'empty_value' => "-- اختيار --",
     ))
         ;

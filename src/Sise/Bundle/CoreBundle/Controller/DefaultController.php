@@ -324,7 +324,22 @@ class DefaultController extends Controller
                         $json[$i]['libelle'] = $nomenclatureDelegation->getLibecircar();
                         $i++;
                     }
-                } elseif ($entity == 'CodeEtab') {
+                }
+
+                elseif ($entity == 'NomenclatureDisposition') {
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDisposition')->findByCodesitufonc($codegouv);
+                    $json = array();
+                    $json[0]['code'] = '';
+                    $json[0]['libelle'] = '-- اختيار --';
+                    $i = 1;
+                    foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                    {
+                        $json[$i]['code'] = $nomenclatureDelegation->getCodetypedisp();
+                        $json[$i]['libelle'] = $nomenclatureDelegation->getLibetypedispar();
+                        $i++;
+                    }
+                }
+                elseif ($entity == 'CodeEtab') {
                     $nomenclatureDelegation = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneByCodeetab($codegouv);;
                     $json = array();
                     $json['code'] = $nomenclatureDelegation->getCodeetab();
