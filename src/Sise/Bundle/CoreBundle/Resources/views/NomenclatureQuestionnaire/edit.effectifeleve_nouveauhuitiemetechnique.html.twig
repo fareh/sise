@@ -1,171 +1,101 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : 'effective eleve demi residant', 'RouteAction' : 'etablissementficheetablissement' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' :  nameclass.libequesar, 'RouteAction' : 'effectifelevenouveauhuitiemetechnique' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
-{#
-    {% if editForms|length > 0 %}
-        {% for editForm in editForms %}
-            {{ form(editForm) }}
-        {% endfor %}
-    {% endif %}
-
-
-
-    {% if features|length > 0 %}
-        {% for key,  feature in features %}
-            {{ key }}
-            {{ feature }}
-        {% endfor %}
-    {% endif %} #}
-    {% if entities is defined  and entities|length > 0%}
+    {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
 
             <div id="CPHMain_upGridView">
+                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
 
-                <div>
-                    <form action="{{ pathUpdate }}" method="post"  class="well form-search">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <table width="100%">
                         <tbody>
-                        <tr>
-                            <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                أنصاف المقيمين
+                        <tr style="background-color: #4F81BD; color: White;" align="center">
+                            <td colspan="2">
+                                موجهون من السابعة أساسي إلى الثامنة تقنــي
                             </td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                الممنوحون
+                            <td colspan="2">
+                                موجهون من الثامنة أساسي إلى الثامنة تقني
                             </td>
-                            <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                        </tr>
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد المنح</th>
+                            <td colspan="3">
+                                الجملة
+                            </td>
                         </tr>
 
 
+                        <tr style="background-color: #92B3CF; color: White;" align="center">
+                            <td>
+                                <span id="CPHMain_Label4" style="display:inline-block;width:98%;">ذكر</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label5" style="display:inline-block;width:98%;">أنثى</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label7" style="display:inline-block;width:98%;">ذكر</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label8" style="display:inline-block;width:98%;">أنثى</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label6" style="display:inline-block;width:98%;">ذكر</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label9" style="display:inline-block;width:98%;">أنثى</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label1" style="display:inline-block;width:98%;">جملة</span>
+                            </td>
+                        </tr>
                         {% for key, entity in entities %}
-                            <tr>
-                                <td align="center">
-                                <span id="CPHMain_GridView_Edit_LibeCyclEnse_{{ key }}" class="#Niveau Scolaire"
-                                      style="display:inline-block;width:98%;"> {{ entity.codecyclense.libecyclensear }}</span>
-
-                                    <input type="hidden" name="val_{{ key }}" value="{{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}"/>
-
-
-                                    <input type="hidden" name="key_{{ key }}" value="codeetab_codetypeetab_annescol_coderece"/>
+                            <tr style="background-color: white; color: black;">
+                                <td style="text-align: center;">
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}"/>
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece"/>
 
 
-
-
+                                    <input name="nombelevmascvenasept{{ key }}" type="text"
+                                           value="{{ entity.nombelevmascvenasept }}" id="nombelevmascvenasept{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="right">
-                                    <div id="CPHMain_GridView_Edit_nemn_{{ key }}">
+                                <td style="text-align: center;">
 
-                                    <span id="CPHMain_GridView_Edit_RVNombElevResiMasc_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
-                                               type="text"
-                                               value="{{ entity.nombelevresimasc }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
 
-                                    </div>
+                                    <input name="nombelevfemivenasept{{ key }}" type="text"
+                                           value="{{ entity.nombelevfemivenasept }}" id="nombelevfemivenasept{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="left">
-                                    <div id="CPHMain_GridView_Edit_nefn_{{ key }}">
+                                <td style="text-align: center;">
 
-                                    <span id="CPHMain_GridView_Edit_RVNombElevResiFemi_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
-                                               type="text"
-                                               value="{{ entity.nombelevresifemi }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
 
-                                    </div>
+                                    <input name="nombelevmascvenahuit{{ key }}" type="text"
+                                           value="{{ entity.nombelevmascvenahuit }}" id="nombelevmascvenahuit{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="center" style="background-color:#EEEEEE;">
-                                <span id="CPHMain_GridView_Edit_NombTotaResiElev_{{ key }}" class="أنصاف المقيمين"
-                                      style="display:inline-block;width:98%;">{{ entity.nombtotaresielev }}</span>
-                                    <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}"
-                                           type="hidden"
-                                           value="{{ entity.nombtotaresielev }}"
-                                           id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}">
+                                <td style="text-align: center;">
+                                    <input name="nombelevfemivenahuit{{ key }}" type="text"
+                                           value="{{ entity.nombelevfemivenahuit }}" id="nombelevfemivenahuit{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="right">
-                                    <div id="CPHMain_GridView_Edit_nemr_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevBourMasc_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourMasc" type="text"
-                                               value="{{ entity.nombelevbourmasc }}"
-                                               id="CPHMain_GridView_Edit_NombElevBourMasc_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
-
-                                    </div>
+                                <td style="background-color:#EEEEEE;  text-align: center;">
+                                    {{ entity.nombtotaelevvenasept }}
                                 </td>
-                                <td align="left">
-                                    <div id="CPHMain_GridView_Edit_nefr_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevBourFemi_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
-                                               type="text"
-                                               value="{{ entity.nombelevbourfemi }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
-
-                                    </div>
+                                <td style="background-color:#EEEEEE;  text-align: center;">
+                                    {{ entity.nombtotaelevvenahuit }}
                                 </td>
-                                <td align="center" style="background-color:#EEEEEE;">
-                                <span id="CPHMain_GridView_Edit_NombTotaBourElev_{{ key }}" class="الممنوحون"
-                                      style="display:inline-block;width:98%;">{{ entity.nombtotabourelev }}</span>
-                                </td>
-                                <td align="right">
-                                    <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
-                                           type="text" value="{{ entity.nombbour }}"
-                                           id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
-                                           class=" "
-                                           style="border-style:None;width:30px;">
-                                    <span id="CPHMain_GridView_Edit_RVNombBour_{{ key }}" class=" "
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-
+                                <td style="background-color:#EEEEEE;  text-align: center;">
+                                    {{ entity.nombtotaelevvenasept + entity.nombtotaelevvenahuit }}
                                 </td>
                             </tr>
                         {% endfor %}
-
-
-
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <td colspan="8"><input type="submit" value="Envoyer"></td>
-
-                        </tr>
-
-                        </tfoot>
                     </table>
-                    </form>
-                </div>
 
+                </form>
             </div>
         </center>
     {% endif %}

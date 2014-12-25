@@ -28,16 +28,14 @@ class EffectifeleveNouveauhuitiemetechniqueController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -70,11 +68,8 @@ class EffectifeleveNouveauhuitiemetechniqueController extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectifelevenouveauhuitiemetechnique_edit');
@@ -83,10 +78,24 @@ class EffectifeleveNouveauhuitiemetechniqueController extends Controller
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
+                $nombelevmascvenasept = $request->request->get('nombelevmascvenasept' . $i);
+                $nombelevfemivenasept = $request->request->get('nombelevfemivenasept' . $i);
+                $nombtotaelevvenasept = $nombelevmascvenasept + $nombelevfemivenasept;
+
+                $nombelevmascvenahuit = $request->request->get('nombelevmascvenahuit' . $i);
+                $nombelevfemivenahuit = $request->request->get('nombelevfemivenahuit' . $i);
+                $nombtotaelevvenahuit = $nombelevfemivenahuit + $nombelevmascvenahuit;
+
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique')->findOneBy($items);
-                $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
-                $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
-                $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
+
+
+                $item->setNombelevmascvenasept($nombelevmascvenasept);
+                $item->setNombelevfemivenasept($nombelevfemivenasept);
+                $item->setNombtotaelevvenasept($nombtotaelevvenasept);
+
+                $item->setNombelevmascvenahuit($nombelevmascvenahuit);
+                $item->setNombelevfemivenahuit($nombelevfemivenahuit);
+                $item->setNombtotaelevvenahuit($nombtotaelevvenahuit);
                 $em->persist($item);
                 $em->flush();
             }
@@ -126,8 +135,6 @@ class EffectifeleveNouveauhuitiemetechniqueController extends Controller
         if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
-
-
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveauhuitiemetechnique');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_nouveauhuitiemetechnique.html.twig', array(
             'entities' => @$entities,
