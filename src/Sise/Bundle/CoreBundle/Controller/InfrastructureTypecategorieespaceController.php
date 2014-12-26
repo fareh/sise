@@ -74,17 +74,31 @@ class InfrastructureTypecategorieespaceController extends Controller
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:InfrastructureTypecategorieespace')->findOneBy($items);
-                $nombespanonutil = $request->request->get('nombespanonutil' . $i);
+
+
                 $nombespautil = $request->request->get('nombespautil' . $i);
+                $capaaccuespautil = $request->request->get('capaaccuespautil' . $i);
+                $nombespanonutil = $request->request->get('nombespanonutil' . $i);
+                $capaaccuespanonutil = $request->request->get('capaaccuespanonutil' . $i);
+                $nombespaencoamen = $request->request->get('nombespaencoamen' . $i);
+                $capaaccuespaencoamen = $request->request->get('capaaccuespaencoamen' . $i);
+                $nombespaencocons = $request->request->get('nombespaencocons' . $i);
+                $capaaccuespaencocons = $request->request->get('capaaccuespaencocons' . $i);
                 $obse = $request->request->get('obse' . $i);
 
-                $item->setNombespanonutil($nombespanonutil);
                 $item->setNombespautil($nombespautil);
+                $item->setCapaaccuespautil($capaaccuespautil);
+                $item->setNombespanonutil($nombespanonutil);
+                $item->setCapaaccuespanonutil($capaaccuespanonutil);
+                $item->setNombespaencoamen($nombespaencoamen);
+                $item->setCapaaccuespaencoamen($capaaccuespaencoamen);
+                $item->setNombespaencocons($nombespaencocons);
+                $item->setCapaaccuespaencocons($capaaccuespaencocons);
                 $item->setObse($obse);
                 $em->persist($item);
                 $em->flush();
             }
-            return $this->redirect($this->generateUrl('infrastructureequipementcategorie_edit'));
+            return $this->redirect($this->generateUrl('infrastructuretypecategorieespace_edit'));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_typecategorieespace');
         return $this->render('SiseCoreBundle:Infrastructure:edit.infrastructure_typecategorieespace.html.twig', array(

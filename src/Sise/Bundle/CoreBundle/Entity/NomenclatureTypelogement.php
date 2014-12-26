@@ -302,4 +302,10 @@ class NomenclatureTypelogement
     {
         return $this->colltech;
     }
+
+    public function  __toString(){
+
+
+        return ($this->getLibetypelogear())?$this->getLibetypelogear():"";
+    }
 }

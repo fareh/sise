@@ -1,0 +1,69 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructurelogement' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_UP">
+
+
+            <div>
+                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:2px;border-style:solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <td align="center" colspan="1"
+                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                        <td align="center" colspan="4" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            مواصفـــــــات المســـكن
+                        </td>
+                        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            الســــــــــاكن
+                        </td>
+                        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            العدادات
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">العدد</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع المسكن</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المساحة المغطاة
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملكية</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">إسم
+                            الســــــــــاكن
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صفــة
+                            الســــــــــاكن
+                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عداد الماء</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عداد الكهرباء</th>
+                    </tr>
+                    {% for key , entity in entities %}
+<tr>
+                       <td>
+                           {{ form_widget(editForms[key].maCle) }} {{ entity.numeloge }}</td>
+                        <td align="right">{{ form_widget(editForms[key].codetypeloge) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].surfcouv) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].codepropbati) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].obse) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].nomprenhabi) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].codestathabi) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].codesitucompeau) }}</td>
+                        <td align="right">{{ form_widget(editForms[key].codesitucompelec) }}</td>
+</tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                    </form>
+            </div>
+
+        </div>
+    </center>
+
+{% endblock %}

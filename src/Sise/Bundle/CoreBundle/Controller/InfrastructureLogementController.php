@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Sise\Bundle\CoreBundle\Entity\InfrastructureLogement;
 use Sise\Bundle\CoreBundle\Form\search\SearchType;
+use Sise\Bundle\CoreBundle\Form\InfrastructureLogementType;
 
 /**
  * InfrastructureLogement controller.
@@ -29,33 +30,42 @@ class InfrastructureLogementController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('infrastructurelogement_edit');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $params = $request->request->get($search->getName());
-            $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            foreach ($entities as $key => $item) {
+                $editForms[$key] = $this->createEditForm($item, $key)->createView();
+            }
+            $pathUpdate = $this->generateUrl('infrastructurelogement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_logement');
         return $this->render('SiseCoreBundle:Infrastructure:edit.infrastructure_logement.html.twig', array(
             'entities' => @$entities,
+            'editForms' => $editForms,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate,
             'nameclass' => $nameclass
         ));
+    }
+
+
+    private function createEditForm(InfrastructureLogement $entity, $key)
+    {
+        $form = $this->createForm(new InfrastructureLogementType($key), $entity);
+        return $form;
     }
 
 
@@ -66,35 +76,39 @@ class InfrastructureLogementController extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('infrastructurelogement_edit');
-        $pathUpdate = $this->generateUrl('infrastructurelogement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+
         $session = $request->getSession();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
-        if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-            for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
-
+        $url = $this->generateUrl('infrastructurelogement_edit');
+        $pathUpdate = $this->generateUrl('infrastructurelogement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
+            foreach ($request->request as $parameters) {
+                echo (string)$parameters['maCle'];
+                $items = array_combine(explode("|", 'codeetab|codetypeetab|annescol|coderece|numeloge'), explode("|", $parameters['maCle']));
                 $item = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->findOneBy($items);
-
-                if (!$item) {
-                    throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
-                }
-                $subdomains = $item->getCodedoma()->getCodesousdoma();
-                $item->setNombclass($request->request->get('nombclass' . $i));
-                $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
-                $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
-                $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
+                $codetypeloge = $parameters['codetypeloge'];
+                $surfcouv = $parameters['surfcouv'];
+                $codepropbati = $parameters['codepropbati'];
+                $obse = $parameters['obse'];
+                $nomprenhabi = $parameters['nomprenhabi'];
+                $codestathabi = $parameters['codestathabi'];
+                $codesitucompeau = $parameters['codesitucompeau'];
+                $codesitucompelec = $parameters['codesitucompelec'];
+                $item->setCodetypeloge($em->getRepository('SiseCoreBundle:NomenclatureTypelogement')->find($codetypeloge));
+                $item->setSurfcouv($surfcouv);
+                $item->setCodepropbati($em->getRepository('SiseCoreBundle:NomenclatureProprietebatiment')->find($codepropbati));
+                $item->setObse($obse);
+                $item->setNomprenhabi($nomprenhabi);
+                $item->setCodestathabi($em->getRepository('SiseCoreBundle:NomenclatureStatushabitant')->find($codestathabi));
+                $item->setCodesitucompeau($em->getRepository('SiseCoreBundle:NomenclatureSituationcompteureauelectricite')->find($codesitucompeau));
+                $item->setCodesitucompelec($em->getRepository('SiseCoreBundle:NomenclatureSituationcompteureauelectricite')->find($codesitucompelec));
                 $em->persist($item);
-                foreach ($subdomains as $subdomain) {
-                    $subdomain->setOrdraffi($request->request->get('codesousdoma_ordraffi_' . $subdomain->getCodesousdoma() . '_' . $i));
-                    $em->persist($subdomain);
-                }
-
                 $em->flush();
             }
+            return $this->redirect($this->generateUrl('infrastructurelogement_edit'));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_logement');
         return $this->render('SiseCoreBundle:Infrastructure:edit.infrastructure_logement.html.twig', array(
@@ -130,10 +144,6 @@ class InfrastructureLogementController extends Controller
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
-
-            // $entities = $em->getRepository('SiseCoreBundle:InfrastructureLogement')->getInfrastructureLogement($codeetab, $codetypeetab,$annescol,$coderece);
-
-
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_logement');
         return $this->render('SiseCoreBundle:Infrastructure:list.infrastructure_logement.html.twig', array(

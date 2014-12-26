@@ -57,22 +57,11 @@ class InfrastructureLogement
      */
     private $numeloge;
 
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeTypeLoge", type="string", length=50, nullable=false)
-     */
-   // private $codetypeloge;
-
-
     /**
      * @ORM\ManyToOne(targetEntity="NomenclatureTypelogement")
      * @ORM\JoinColumn(name="CodeTypeLoge", referencedColumnName="CodeTypeLoge")
      */
     private $codetypeloge;
-
-
 
     /**
      * @var float
@@ -80,15 +69,6 @@ class InfrastructureLogement
      * @ORM\Column(name="SurfCouv", type="float", precision=10, scale=0, nullable=true)
      */
     private $surfcouv;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodePropBati", type="string", length=50, nullable=false)
-     */
-   // private $codepropbati;
-
-
 
     /**
      * @ORM\ManyToOne(targetEntity="NomenclatureProprietebatiment")
@@ -111,28 +91,10 @@ class InfrastructureLogement
     private $nomprenhabi;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeStatHabi", type="string", length=50, nullable=false)
-     */
-   // private $codestathabi;
-
-
-    /**
      * @ORM\ManyToOne(targetEntity="NomenclatureStatushabitant")
      * @ORM\JoinColumn(name="CodeStatHabi", referencedColumnName="CodeStatHabi")
      */
     private $codestathabi;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeSituCompEau", type="string", length=50, nullable=false)
-     */
-  //  private $codesitucompeau;
-
-
 
     /**
      * @ORM\ManyToOne(targetEntity="NomenclatureSituationcompteureauelectricite")
@@ -141,23 +103,22 @@ class InfrastructureLogement
     private $codesitucompeau;
 
 
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeSituCompElec", type="string", length=50, nullable=false)
-     */
-  //  private $codesitucompelec;
-
-
-
-
     /**
      * @ORM\ManyToOne(targetEntity="NomenclatureSituationcompteureauelectricite")
      * @ORM\JoinColumn(name="CodeSituCompElec", referencedColumnName="CodeSituComp")
      */
     private $codesitucompelec;
 
+
+     private $maCle ;
+
+    /**
+     * @return mixed
+     */
+    public function getMaCle()
+    {
+        return $this->codeetab."|".$this->codetypeetab."|".$this->annescol."|".$this->coderece."|".$this->numeloge;
+    }
 
 
     /**

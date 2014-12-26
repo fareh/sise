@@ -302,4 +302,11 @@ class NomenclatureSituationcompteureauelectricite
     {
         return $this->colltech;
     }
+
+
+    public function __toString(){
+
+
+        return ($this->getLibesitucompar())?$this->getLibesitucompar():"";
+    }
 }

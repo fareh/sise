@@ -1,157 +1,131 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : 'effective eleve demi residant', 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter, 'features' : features}) }}
+    <center>
+        <br>
 
-    {% if entities is defined  and entities|length > 0%}
-        <center>
-            <br>
+        <div id="CPHMain_upGridView">
 
-            <div id="CPHMain_upGridView">
-
-                <div>
-                    <form action="{{ pathUpdate }}" method="post"  class="well form-search">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
+            <div>
+                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
                            style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                         <tbody>
                         <tr>
-                            <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                أنصاف المقيمين
+                            <td class="headerCellfusion" align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td class="headerCellfusion" align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">مستغلّة
                             </td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                الممنوحون
+                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">غير مستغلّة
                             </td>
-                            <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">بصدد التهيئة
+                            </td>
+                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">بصدد البناء
+                            </td>
+                            <td class="headerCellfusion" align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
                         </tr>
                         <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد المنح</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف فضاء</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع فضاء</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
                         </tr>
-
-
-                        {% for key, entity in entities %}
+                        {% set codecateespa = 0 %}
+                        {% for key , entity in entities %}
                             <tr>
-                                <td align="center">
-                                <span id="CPHMain_GridView_Edit_LibeCyclEnse_{{ key }}" class="#Niveau Scolaire"
-                                      style="display:inline-block;width:98%;"> {{ entity.codecyclense.libecyclensear }}</span>
+                                {% if(codecateespa==entity.codetypeespa.codecateespa.codecateespa) %}
+                                {% else %}
+                                    <td rowspan="{{ entity.codetypeespa.codecateespa.codetypeespa|length }}"
+                                        style="background: #ffffff">
+                                        {{ entity.codetypeespa.codecateespa.libecateespaar }}
+                                    </td>
+                                {% endif %}
+                                {% set  codecateespa =  entity.codetypeespa.codecateespa.codecateespa %}
 
-                                    <input type="hidden" name="val_{{ key }}" value="{{ entity.codeetab }}_{{ entity.codetypeetab }}_{{ entity.annescol }}_{{ entity.coderece }}"/>
+                                <td>{{ entity.codetypeespa.libetypeespaar }}
+
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codetypeespa.codetypeespa }}"/>
+
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece|codetypeespa"/>
 
 
-                                    <input type="hidden" name="key_{{ key }}" value="codeetab_codetypeetab_annescol_coderece"/>
+                                </td>
 
 
-
-
+                                <td align="right">
+                                    <input name="nombespautil{{ key }}" type="text"
+                                           value="{{ entity.nombespautil }}" id="nombespautil{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
                                 <td align="right">
-                                    <div id="CPHMain_GridView_Edit_nemn_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevResiMasc_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
-                                               type="text"
-                                               value="{{ entity.nombelevresimasc }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresimasc_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
-
-                                    </div>
-                                </td>
-                                <td align="left">
-                                    <div id="CPHMain_GridView_Edit_nefn_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevResiFemi_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
-                                               type="text"
-                                               value="{{ entity.nombelevresifemi }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevresifemi_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
-
-                                    </div>
-                                </td>
-                                <td align="center" style="background-color:#EEEEEE;">
-                                <span id="CPHMain_GridView_Edit_NombTotaResiElev_{{ key }}" class="أنصاف المقيمين"
-                                      style="display:inline-block;width:98%;">{{ entity.nombtotaresielev }}</span>
-                                    <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}"
-                                           type="hidden"
-                                           value="{{ entity.nombtotaresielev }}"
-                                           id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotaresielev_{{ key }}">
+                                    <input name="capaaccuespautil{{ key }}" type="text"
+                                           value="{{ entity.capaaccuespautil }}" id="capaaccuespautil{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
                                 <td align="right">
-                                    <div id="CPHMain_GridView_Edit_nemr_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevBourMasc_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="ctl00$CPHMain$GridView_Edit$ctl02$NombElevBourMasc" type="text"
-                                               value="{{ entity.nombelevbourmasc }}"
-                                               id="CPHMain_GridView_Edit_NombElevBourMasc_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
-
-                                    </div>
-                                </td>
-                                <td align="left">
-                                    <div id="CPHMain_GridView_Edit_nefr_{{ key }}">
-
-                                    <span id="CPHMain_GridView_Edit_RVNombElevBourFemi_{{ key }}" class="tooltips"
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-                                        <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
-                                               type="text"
-                                               value="{{ entity.nombelevbourfemi }}"
-                                               id="sise_bundle_corebundle_effectifelevedemiresidant_nombelevbourfemi_{{ key }}"
-                                               onchange="javascript:txtChanged(this);"
-                                               style="border-style:None;width:98%;">
-
-                                    </div>
-                                </td>
-                                <td align="center" style="background-color:#EEEEEE;">
-                                <span id="CPHMain_GridView_Edit_NombTotaBourElev_{{ key }}" class="الممنوحون"
-                                      style="display:inline-block;width:98%;">{{ entity.nombtotabourelev }}</span>
+                                    <input name="nombespanonutil{{ key }}" type="text"
+                                           value="{{ entity.nombespanonutil }}" id="nombespanonutil{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
                                 <td align="right">
-                                    <input name="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
-                                           type="text" value="{{ entity.nombbour }}"
-                                           id="sise_bundle_corebundle_effectifelevedemiresidant_nombtotabourelev_{{ key }}"
-                                           class=" "
-                                           style="border-style:None;width:30px;">
-                                    <span id="CPHMain_GridView_Edit_RVNombBour_{{ key }}" class=" "
-                                          style="visibility:hidden;">يجب أن يكون هذا الحقل عدد صحيح</span>
-
+                                    <input name="capaaccuespanonutil{{ key }}" type="text"
+                                           value="{{ entity.capaaccuespanonutil }}" id="capaaccuespanonutil{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
                                 </td>
+                                <td align="right">
+                                    <input name="nombespaencoamen{{ key }}" type="text"
+                                           value="{{ entity.nombespaencoamen }}" id="nombespaencoamen{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+                                </td>
+                                <td align="right">
+                                    <input name="capaaccuespaencoamen{{ key }}" type="text"
+                                           value="{{ entity.capaaccuespaencoamen }}" id="capaaccuespaencoamen{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+                                </td>
+                                <td align="right">
+                                    <input name="nombespaencocons{{ key }}" type="text"
+                                           value="{{ entity.nombespaencocons }}" id="nombespaencocons{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+                                </td>
+                                <td align="right">
+                                    <input name="capaaccuespaencocons{{ key }}" type="text"
+                                           value="{{ entity.capaaccuespaencocons }}" id="capaaccuespaencocons{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+                                </td>
+                                <td align="right">
+                                    <input name="obse{{ key }}" type="text"
+                                           value="{{ entity.obse }}" id="obse{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+                                </td>
+
+
                             </tr>
                         {% endfor %}
-
-
-
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <td colspan="8"><input type="submit" value="Envoyer"></td>
-
-                        </tr>
-
-                        </tfoot>
                     </table>
-                    </form>
-                </div>
-
+                </form>
             </div>
-        </center>
-    {% endif %}
+
+        </div>
+    </center>
+
 {% endblock %}

@@ -302,4 +302,11 @@ class NomenclatureStatushabitant
     {
         return $this->colltech;
     }
+
+
+    public  function __toString(){
+
+
+        return ($this->getLibestathabiar())?$this->getLibestathabiar():"";
+    }
 }

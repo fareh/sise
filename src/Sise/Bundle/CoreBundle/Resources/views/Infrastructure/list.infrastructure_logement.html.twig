@@ -44,6 +44,7 @@
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عداد الكهرباء</th>
                     </tr>
                     {% for key , entity in entities %}
+                        <tr>
                         <td>{{ entity.numeloge}}</td>
                         <td align="right">{{ entity.codetypeloge.libetypelogear}}</td>
                         <td align="right">{{ entity.surfcouv}}</td>
@@ -53,6 +54,7 @@
                         <td align="right">{{ entity.codestathabi.libestathabiar}}</td>
                         <td align="right">{{ entity.codesitucompeau.libesitucompar}}</td>
                         <td align="right">{{ entity.codesitucompelec.libesitucompar}}</td>
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>
