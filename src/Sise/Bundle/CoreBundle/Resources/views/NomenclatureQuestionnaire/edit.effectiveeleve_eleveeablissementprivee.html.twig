@@ -10,97 +10,101 @@
             <div id="CPHMain_upGridView">
 
                 <div>
-                    <form action="{{ pathUpdate }}" method="post"  class="well form-search" id="id_with_js">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <tbody>
-                        <tr>
-                            <td align="center" colspan="2"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                            <td align="center" colspan="2"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;">الجدد
-                            </td>
-                            <td align="center" colspan="2"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;">الراسبون
-                            </td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;">الجملة
-                            </td>
-                        </tr>
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">مرحلة التعليم
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
-                                الدراسي
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                        </tr>
-                        {% set testRepeat = 9999 %}
-                        {% for key , entity in entities %}
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
                             <tr>
-
-                                {% if entity.codenivescol.codecyclense.codecyclense!=testRepeat %}
-                                    <td style="background: #ffffff"
-                                        rowspan="{{ rowspan[entity.codenivescol.codecyclense.codecyclense]|length }}">{{ entity.codenivescol.codecyclense.libecyclensear }}</td>
-                                {% endif %}
-                                {% set testRepeat = entity.codenivescol.codecyclense.codecyclense %}
-                                <td>
-                                    {{ entity.codenivescol.libenivescolar }}
-
-                                    <input type="hidden" name="val_{{ key }}"
-                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codenivescol.codenivescol }}">
-                                    <input type="hidden" name="key_{{ key }}"
-                                           value="codeetab|codetypeetab|annescol|coderece|codenivescol">
+                                <td align="center" colspan="2"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                                <td align="center" colspan="2"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">الجدد
                                 </td>
-                                <td align="right">
-                                    <input type="text" name="nombelevmascnouv{{ key }}" value="{{ entity.nombelevmascnouv }}" id="nombelevmascnouv{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );">
+                                <td align="center" colspan="2"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">الراسبون
                                 </td>
-                                <td align="right">
-                                    <input type="text" name="nombelevfeminouv{{ key }}"
-                                           value="{{ entity.nombelevfeminouv }} "
-                                           id="nombelevfeminouv{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );">
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">الجملة
                                 </td>
-                                <td align="right">
-                                    <input type="text" name="nombelevmascredo{{ key }}"
-                                           value="{{ entity.nombelevmascredo }} "
-                                           id="nombelevmascredo{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );">
-                                </td>
-                                <td align="right">
-                                    <input type="text" name="nombelevfemiredo{{ key }}"
-                                           value="{{ entity.nombelevfemiredo }} "
-                                           id="nombelevfemiredo{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );">
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-
-                                    <input type="text" name="nombtotaelevmasc{{ key }}"
-                                           value="{{ entity.nombtotaelevmasc }} "
-                                           id="nombtotaelevmasc{{ key }}"
-                                           onchange="javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
-
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-                                    <input type="text" name="nombtotaelevfemi{{ key }}"  value="{{ entity.nombtotaelevfemi }} " id="nombtotaelevfemi{{ key }}"
-                                           onchange="javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-                                    <input type="text" name="nombtotaelev{{ key }}" value="{{ entity.nombtotaelev }} "  id="nombtotaelev{{ key }}" >
-                                </td>
-
                             </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                        </form>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">مرحلة
+                                    التعليم
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
+                                    الدراسي
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            </tr>
+                            {% set testRepeat = 9999 %}
+                            {% for key , entity in entities %}
+                                <tr>
+
+                                    {% if entity.codenivescol.codecyclense.codecyclense!=testRepeat %}
+                                        <td style="background: #ffffff"
+                                            rowspan="{{ rowspan[entity.codenivescol.codecyclense.codecyclense]|length }}">{{ entity.codenivescol.codecyclense.libecyclensear }}</td>
+                                    {% endif %}
+                                    {% set testRepeat = entity.codenivescol.codecyclense.codecyclense %}
+                                    <td>
+                                        {{ entity.codenivescol.libenivescolar }}
+
+                                        <input type="hidden" name="val_{{ key }}"
+                                               value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codenivescol.codenivescol }}">
+                                        <input type="hidden" name="key_{{ key }}"
+                                               value="codeetab|codetypeetab|annescol|coderece|codenivescol">
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" name="nombelevmascnouv{{ key }}"
+                                               value="{{ entity.nombelevmascnouv }}" id="nombelevmascnouv{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );">
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" name="nombelevfeminouv{{ key }}"
+                                               value="{{ entity.nombelevfeminouv }} "
+                                               id="nombelevfeminouv{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );">
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" name="nombelevmascredo{{ key }}"
+                                               value="{{ entity.nombelevmascredo }} "
+                                               id="nombelevmascredo{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );">
+                                    </td>
+                                    <td align="right">
+                                        <input type="text" name="nombelevfemiredo{{ key }}"
+                                               value="{{ entity.nombelevfemiredo }} "
+                                               id="nombelevfemiredo{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );">
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+
+                                        <input type="text" name="nombtotaelevmasc{{ key }}"
+                                               value="{{ entity.nombtotaelevmasc }} "
+                                               id="nombtotaelevmasc{{ key }}"
+                                               onchange="javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
+
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+                                        <input type="text" name="nombtotaelevfemi{{ key }}"
+                                               value="{{ entity.nombtotaelevfemi }} " id="nombtotaelevfemi{{ key }}"
+                                               onchange="javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );">
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+                                        <input type="text" name="nombtotaelev{{ key }}"
+                                               value="{{ entity.nombtotaelev }} " id="nombtotaelev{{ key }}">
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
 
             </div>

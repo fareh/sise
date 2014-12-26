@@ -56,7 +56,6 @@ class EtablissementRessourceelectricite
     private $coderesselec;
 
 
-
     /**
      * Set codeetab
      *
@@ -73,7 +72,7 @@ class EtablissementRessourceelectricite
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -96,7 +95,7 @@ class EtablissementRessourceelectricite
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -119,7 +118,7 @@ class EtablissementRessourceelectricite
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -142,7 +141,7 @@ class EtablissementRessourceelectricite
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -165,7 +164,7 @@ class EtablissementRessourceelectricite
     /**
      * Get coderesselec
      *
-     * @return string 
+     * @return string
      */
     public function getCoderesselec()
     {

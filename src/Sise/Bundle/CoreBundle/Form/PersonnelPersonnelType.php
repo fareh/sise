@@ -19,8 +19,8 @@ class PersonnelPersonnelType extends AbstractType
             ->add('pren')
             ->add('nom')
             ->add('nomjeunfille')
-            ->add('datenais','datetime',array(
-                'input'  => 'datetime',
+            ->add('datenais', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
@@ -28,14 +28,14 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => true))
             ->add('lieunais')
             ->add('numecin')
-            ->add('datecin','datetime',array(
-                'input'  => 'datetime',
+            ->add('datecin', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('natituni','choice',
+            ->add('natituni', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
@@ -55,108 +55,108 @@ class PersonnelPersonnelType extends AbstractType
             ->add('nombenfachar')
             ->add('nombenfabesospec')
             ->add('nomprenconj')
-            ->add('conjtravme','choice',
+            ->add('conjtravme', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('conjtravfp','choice',
+            ->add('conjtravfp', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('idenuniqconj')
-            ->add('dateentrfoncpubl','datetime',array(
-                'input'  => 'datetime',
+            ->add('dateentrfoncpubl', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('daterecrme','datetime',array(
-                'input'  => 'datetime',
+            ->add('daterecrme', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('datetitu','datetime',array(
-                'input'  => 'datetime',
+            ->add('datetitu', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('dateaffeetabactu','datetime',array(
-                'input'  => 'datetime',
+            ->add('dateaffeetabactu', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('dategradactu','datetime',array(
-                'input'  => 'datetime',
+            ->add('dategradactu', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('dateconfgradactu','datetime',array(
-                'input'  => 'datetime',
+            ->add('dateconfgradactu', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('datefonc','datetime',array(
-                'input'  => 'datetime',
+            ->add('datefonc', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('datesituadmi','datetime',array(
-                'input'  => 'datetime',
+            ->add('datesituadmi', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('roul','choice',
+            ->add('roul', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('datedeburoul','datetime',array(
+            ->add('datedeburoul', 'datetime', array(
                 'data' => new \DateTime(),
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => false,
                 'format' => 'dd-MM-yyyy'))
-            ->add('datefinroul','datetime',array(
-                'input'  => 'datetime',
+            ->add('datefinroul', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('dipltuni','choice',
+            ->add('dipltuni', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('spec','choice',
+            ->add('spec', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('ensecourpriv','choice',
+            ->add('ensecourpriv', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('charhoracourpriv')
-            ->add('ensecourpart','choice',
+            ->add('ensecourpart', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
@@ -168,33 +168,33 @@ class PersonnelPersonnelType extends AbstractType
             ->add('nombheurenserequ')
             ->add('nombheurensesupp')
             ->add('nombheurensecomp')
-            ->add('cont','choice',
+            ->add('cont', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('datedebucont','datetime',array(
-                'input'  => 'datetime',
+            ->add('datedebucont', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('datesoussituadmi','datetime',array(
-                'input'  => 'datetime',
+            ->add('datesoussituadmi', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('datefincont','datetime',array(
-                'input'  => 'datetime',
+            ->add('datefincont', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('codecorp','entity', array(
+            ->add('codecorp', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCorps',
                 'property' => 'libecorpar',
                 'expanded' => false,
@@ -202,7 +202,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codedipl','entity', array(
+            ->add('codedipl', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDiplome',
                 'property' => 'libediplar',
                 'expanded' => false,
@@ -210,7 +210,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codedisci','entity', array(
+            ->add('codedisci', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDiscipline',
                 'property' => 'libedisciar',
                 'expanded' => false,
@@ -218,7 +218,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codeetab','entity', array(
+            ->add('codeetab', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement',
                 'property' => 'libeetabar',
                 'expanded' => false,
@@ -226,7 +226,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codetypeetab','entity', array(
+            ->add('codetypeetab', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement',
                 'property' => 'libetypeetabar',
                 'expanded' => false,
@@ -234,7 +234,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codefonc','entity', array(
+            ->add('codefonc', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureFonction',
                 'property' => 'libefoncar',
                 'expanded' => false,
@@ -242,7 +242,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codegenr','entity', array(
+            ->add('codegenr', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGenre',
                 'property' => 'libegenrar',
                 'expanded' => false,
@@ -250,7 +250,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codegrad','entity', array(
+            ->add('codegrad', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
                 'property' => 'libegradar',
                 'expanded' => false,
@@ -258,7 +258,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codelangense','entity', array(
+            ->add('codelangense', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureLangueenseignement',
                 'property' => 'libelangensear',
                 'expanded' => false,
@@ -266,7 +266,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codenati','entity', array(
+            ->add('codenati', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite',
                 'property' => 'libenatiar',
                 'expanded' => false,
@@ -274,7 +274,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codeniveetud','entity', array(
+            ->add('codeniveetud', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauetude',
                 'property' => 'libeniveetudar',
                 'expanded' => false,
@@ -282,7 +282,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codeprofconj','entity', array(
+            ->add('codeprofconj', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureProfession',
                 'property' => 'libeprofar',
                 'expanded' => false,
@@ -290,7 +290,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codequal','entity', array(
+            ->add('codequal', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureQualite',
                 'property' => 'libequalar',
                 'expanded' => false,
@@ -298,7 +298,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codesitufami','entity', array(
+            ->add('codesitufami', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationfamiliale',
                 'property' => 'libesitufamiar',
                 'expanded' => false,
@@ -306,7 +306,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codesoussituadmi','entity', array(
+            ->add('codesoussituadmi', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSoussituationadministrative',
                 'property' => 'libesoussituadmiar',
                 'expanded' => false,
@@ -321,7 +321,7 @@ class PersonnelPersonnelType extends AbstractType
 //                'multiple' => false,
 //                'required' => false,
 //                'empty_value' => "-- اختيار --"))
-            ->add('codespec','entity', array(
+            ->add('codespec', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSpecialite',
                 'property' => 'libespecar',
                 'expanded' => false,
@@ -329,7 +329,7 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codetach','entity', array(
+            ->add('codetach', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTache',
                 'property' => 'libetachar',
                 'expanded' => false,
@@ -337,15 +337,14 @@ class PersonnelPersonnelType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codetypeaffe','entity', array(
+            ->add('codetypeaffe', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTypeaffectation',
                 'property' => 'libetypeaffear',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => false,
                 'empty_value' => "-- اختيار --"
-            ))
-        ;
+            ));
     }
 
     /**

@@ -134,6 +134,7 @@ class EtablissementFicheetablissementController extends Controller
             'form' => $form->createView(),
         ));
     }
+
     /**
      * Displays a form to edit an existing EtablissementFicheetablissement entity.
      *
@@ -191,7 +192,7 @@ class EtablissementFicheetablissementController extends Controller
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
-       // var_dump($entity);die;
+        // var_dump($entity);die;
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find EtablissementFicheetablissement entity.');
         }

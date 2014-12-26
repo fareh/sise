@@ -56,7 +56,6 @@ class NomenclatureOrientationfiliere
     private $etat;
 
 
-
     /**
      * Set codefili
      *
@@ -73,7 +72,7 @@ class NomenclatureOrientationfiliere
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -96,7 +95,7 @@ class NomenclatureOrientationfiliere
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -119,7 +118,7 @@ class NomenclatureOrientationfiliere
     /**
      * Get codefilisuiv
      *
-     * @return string 
+     * @return string
      */
     public function getCodefilisuiv()
     {
@@ -142,7 +141,7 @@ class NomenclatureOrientationfiliere
     /**
      * Get codenivescolsuiv
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescolsuiv()
     {
@@ -165,7 +164,7 @@ class NomenclatureOrientationfiliere
     /**
      * Get etat
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEtat()
     {

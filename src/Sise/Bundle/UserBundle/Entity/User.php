@@ -8,7 +8,7 @@
 
 namespace Sise\Bundle\UserBundle\Entity;
 
-use FOS\UserBundle\Model\User  as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -62,7 +62,6 @@ class User extends BaseUser
     protected $codenivehier;
 
 
-
     protected $codegrouutil;
 
     /**
@@ -82,14 +81,12 @@ class User extends BaseUser
     }
 
 
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DATEMAJ", type="datetime", nullable=true)
      */
     private $datemaj;
-
 
 
     /**
@@ -148,7 +145,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -171,7 +168,7 @@ class User extends BaseUser
     /**
      * Get matr
      *
-     * @return string 
+     * @return string
      */
     public function getMatr()
     {
@@ -194,7 +191,7 @@ class User extends BaseUser
     /**
      * Get nomprenutil
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenutil()
     {
@@ -217,7 +214,7 @@ class User extends BaseUser
     /**
      * Get datemaj
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatemaj()
     {
@@ -240,7 +237,7 @@ class User extends BaseUser
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -263,7 +260,7 @@ class User extends BaseUser
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -286,7 +283,7 @@ class User extends BaseUser
     /**
      * Get codecircregi
      *
-     * @return string 
+     * @return string
      */
     public function getCodecircregi()
     {
@@ -309,7 +306,7 @@ class User extends BaseUser
     /**
      * Get codedele
      *
-     * @return string 
+     * @return string
      */
     public function getCodedele()
     {
@@ -332,7 +329,7 @@ class User extends BaseUser
     /**
      * Get codeprof
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil 
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil
      */
     public function getCodeprof()
     {
@@ -355,7 +352,7 @@ class User extends BaseUser
     /**
      * Get codenivehier
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique 
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique
      */
     public function getCodenivehier()
     {
@@ -378,7 +375,7 @@ class User extends BaseUser
     /**
      * Get lastActivity
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLastActivity()
     {

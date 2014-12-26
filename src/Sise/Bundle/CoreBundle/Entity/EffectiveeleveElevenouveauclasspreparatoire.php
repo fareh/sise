@@ -54,7 +54,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-     private $codesourprov;
+    private $codesourprov;
 
 
     /**
@@ -79,7 +79,6 @@ class EffectiveeleveElevenouveauclasspreparatoire
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -96,7 +95,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -119,7 +118,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -142,7 +141,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -165,7 +164,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -189,7 +188,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -212,7 +211,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -235,7 +234,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
@@ -259,7 +258,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     /**
      * Get codesourprov
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSourceprovonance 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSourceprovonance
      */
     public function getCodesourprov()
     {

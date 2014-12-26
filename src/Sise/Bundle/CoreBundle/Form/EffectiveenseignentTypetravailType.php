@@ -22,10 +22,9 @@ class EffectiveenseignentTypetravailType extends AbstractType
             ->add('nombensefemi')
             ->add('nombtotaense')
             ->add('coderece')
-            ->add('codetypetrav')
-        ;
+            ->add('codetypetrav');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

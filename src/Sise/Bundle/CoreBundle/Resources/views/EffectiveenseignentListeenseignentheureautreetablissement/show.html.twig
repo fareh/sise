@@ -5,60 +5,60 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeetab</th>
-                <td>{{ entity.codeetab }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetab</th>
-                <td>{{ entity.codetypeetab }}</td>
-            </tr>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Codeetabautr</th>
-                <td>{{ entity.codeetabautr }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetabautr</th>
-                <td>{{ entity.codetypeetabautr }}</td>
-            </tr>
-            <tr>
-                <th>Annescolautr</th>
-                <td>{{ entity.annescolautr }}</td>
-            </tr>
-            <tr>
-                <th>Numeense</th>
-                <td>{{ entity.numeense }}</td>
-            </tr>
-            <tr>
-                <th>Nompren</th>
-                <td>{{ entity.nompren }}</td>
-            </tr>
-            <tr>
-                <th>Idenuniqense</th>
-                <td>{{ entity.idenuniqense }}</td>
-            </tr>
-            <tr>
-                <th>Nombheur</th>
-                <td>{{ entity.nombheur }}</td>
-            </tr>
+        <tr>
+            <th>Codeetab</th>
+            <td>{{ entity.codeetab }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetab</th>
+            <td>{{ entity.codetypeetab }}</td>
+        </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Codeetabautr</th>
+            <td>{{ entity.codeetabautr }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetabautr</th>
+            <td>{{ entity.codetypeetabautr }}</td>
+        </tr>
+        <tr>
+            <th>Annescolautr</th>
+            <td>{{ entity.annescolautr }}</td>
+        </tr>
+        <tr>
+            <th>Numeense</th>
+            <td>{{ entity.numeense }}</td>
+        </tr>
+        <tr>
+            <th>Nompren</th>
+            <td>{{ entity.nompren }}</td>
+        </tr>
+        <tr>
+            <th>Idenuniqense</th>
+            <td>{{ entity.idenuniqense }}</td>
+        </tr>
+        <tr>
+            <th>Nombheur</th>
+            <td>{{ entity.nombheur }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('effectiveenseignentlisteenseignentheureautreetablissement') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('effectiveenseignentlisteenseignentheureautreetablissement_edit', { 'id': entity.codeetab }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('effectiveenseignentlisteenseignentheureautreetablissement') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('effectiveenseignentlisteenseignentheureautreetablissement_edit', { 'id': entity.codeetab }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

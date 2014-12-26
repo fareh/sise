@@ -5,11 +5,12 @@ namespace Sise\Bundle\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * EffectifeleveElevedomainsousdomain
  *
  * @ORM\Table(name="effectifeleve_elevedomainsousdomain", indexes={@ORM\Index(name="FK_EffectifEleve_EleveDomainSousDomain_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectifEleve_EleveDomainSousDomain_Nomenclature_SousDomaine", columns={"CodeSousDoma"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveElevedomainsousdomainRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveElevedomainsousdomainRepository")
  */
 class EffectifeleveElevedomainsousdomain
 {
@@ -93,7 +94,6 @@ class EffectifeleveElevedomainsousdomain
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -110,7 +110,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -133,7 +133,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -156,7 +156,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -179,7 +179,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -202,7 +202,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get nombclass
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombclass()
     {
@@ -225,7 +225,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get nombgrou
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombgrou()
     {
@@ -248,7 +248,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -271,7 +271,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -294,13 +294,12 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
     }
-
 
 
     /**
@@ -319,7 +318,7 @@ class EffectifeleveElevedomainsousdomain
     /**
      * Get codesousdoma
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine
      */
     public function getCodesousdoma()
     {

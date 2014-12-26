@@ -11,60 +11,69 @@
 
             <div>
                 <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
-                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                    <tbody>
-                    <tr>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الالرمز</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">البيان</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإعتماد المفتوح
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التنقيح</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة التعهدات</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي التعهّد</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة الدفوعات</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي الدفوعات</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة التعهّد %</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة الدفوعات %
-                        </th>
-                    </tr>
-                    {% for key , entity in entities %}
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
                         <tr>
-                            <td>{{ entity.coderubrbudg.coderubrbudg }}</td>
-                            <td>{{ entity.coderubrbudg.liberubrbudgar }}
-                                <input type="hidden" name="val_{{ key }}"
-                                       value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.coderubrbudg.coderubrbudg }}"/>
-                                <input type="hidden" name="key_{{ key }}"
-                                       value="codeetab|codetypeetab|annescol|coderece|coderubrbudg"/>
-                            </td>
-                            <td><input name="credouve{{ key }}" type="text" value="{{ entity.credouve }}" id="credouve{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="corrcred{{ key }}" type="text" value="{{ entity.corrcred }}" id="corrcred{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="totaenga{{ key }}" type="text"
-                                       value="{{ entity.totaenga }}" id="totaenga{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="restenga{{ key }}" type="text"
-                                       value="{{ entity.restenga }}" id="restenga{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="totapaye{{ key }}" type="text"
-                                       value="{{ entity.totapaye }}" id="totapaye{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="restpaye{{ key }}" type="text"
-                                       value="{{ entity.restpaye }}" id="restpaye{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="pourenga{{ key }}" type="text"
-                                       value="{{ entity.pourenga }}" id="pourenga{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
-                            <td><input name="pourpaye{{ key }}" type="text"
-                                       value="{{ entity.pourpaye }}" id="pourpaye{{ key }}"
-                                       onchange="javascript:txtChanged(this);"></td>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الالرمز</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">البيان</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإعتماد
+                                المفتوح
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التنقيح</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة التعهدات
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي التعهّد
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة الدفوعات
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي الدفوعات
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة التعهّد
+                                %
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة الدفوعات %
+                            </th>
                         </tr>
+                        {% for key , entity in entities %}
+                            <tr>
+                                <td>{{ entity.coderubrbudg.coderubrbudg }}</td>
+                                <td>{{ entity.coderubrbudg.liberubrbudgar }}
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.coderubrbudg.coderubrbudg }}"/>
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece|coderubrbudg"/>
+                                </td>
+                                <td><input name="credouve{{ key }}" type="text" value="{{ entity.credouve }}"
+                                           id="credouve{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="corrcred{{ key }}" type="text" value="{{ entity.corrcred }}"
+                                           id="corrcred{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="totaenga{{ key }}" type="text"
+                                           value="{{ entity.totaenga }}" id="totaenga{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="restenga{{ key }}" type="text"
+                                           value="{{ entity.restenga }}" id="restenga{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="totapaye{{ key }}" type="text"
+                                           value="{{ entity.totapaye }}" id="totapaye{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="restpaye{{ key }}" type="text"
+                                           value="{{ entity.restpaye }}" id="restpaye{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="pourenga{{ key }}" type="text"
+                                           value="{{ entity.pourenga }}" id="pourenga{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="pourpaye{{ key }}" type="text"
+                                           value="{{ entity.pourpaye }}" id="pourpaye{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                            </tr>
 
-                    {% endfor %}
-                    </tbody>
-                </table>
-                    </form>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
             </div>
 
         </div>

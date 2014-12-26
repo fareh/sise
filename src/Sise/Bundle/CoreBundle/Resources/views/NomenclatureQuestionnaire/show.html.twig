@@ -5,84 +5,84 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeques</th>
-                <td>{{ entity.codeques }}</td>
-            </tr>
-            <tr>
-                <th>Libequesfr</th>
-                <td>{{ entity.libequesfr }}</td>
-            </tr>
-            <tr>
-                <th>Libequesar</th>
-                <td>{{ entity.libequesar }}</td>
-            </tr>
-            <tr>
-                <th>Nameclass</th>
-                <td>{{ entity.nameclass }}</td>
-            </tr>
-            <tr>
-                <th>Spbrowse</th>
-                <td>{{ entity.spBrowse }}</td>
-            </tr>
-            <tr>
-                <th>Spinsert</th>
-                <td>{{ entity.spInsert }}</td>
-            </tr>
-            <tr>
-                <th>Spedit</th>
-                <td>{{ entity.spEdit }}</td>
-            </tr>
-            <tr>
-                <th>Spinit</th>
-                <td>{{ entity.spInit }}</td>
-            </tr>
-            <tr>
-                <th>Ordrexec</th>
-                <td>{{ entity.ordrexec }}</td>
-            </tr>
-            <tr>
-                <th>Codepack</th>
-                <td>{{ entity.codepack }}</td>
-            </tr>
-            <tr>
-                <th>Prep</th>
-                <td>{{ entity.prep }}</td>
-            </tr>
-            <tr>
-                <th>Prim</th>
-                <td>{{ entity.prim }}</td>
-            </tr>
-            <tr>
-                <th>Collgene</th>
-                <td>{{ entity.collgene }}</td>
-            </tr>
-            <tr>
-                <th>Lyce</th>
-                <td>{{ entity.lyce }}</td>
-            </tr>
-            <tr>
-                <th>Colltech</th>
-                <td>{{ entity.colltech }}</td>
-            </tr>
-            <tr>
-                <th>Codeenti</th>
-                <td>{{ entity.codeenti }}</td>
-            </tr>
+        <tr>
+            <th>Codeques</th>
+            <td>{{ entity.codeques }}</td>
+        </tr>
+        <tr>
+            <th>Libequesfr</th>
+            <td>{{ entity.libequesfr }}</td>
+        </tr>
+        <tr>
+            <th>Libequesar</th>
+            <td>{{ entity.libequesar }}</td>
+        </tr>
+        <tr>
+            <th>Nameclass</th>
+            <td>{{ entity.nameclass }}</td>
+        </tr>
+        <tr>
+            <th>Spbrowse</th>
+            <td>{{ entity.spBrowse }}</td>
+        </tr>
+        <tr>
+            <th>Spinsert</th>
+            <td>{{ entity.spInsert }}</td>
+        </tr>
+        <tr>
+            <th>Spedit</th>
+            <td>{{ entity.spEdit }}</td>
+        </tr>
+        <tr>
+            <th>Spinit</th>
+            <td>{{ entity.spInit }}</td>
+        </tr>
+        <tr>
+            <th>Ordrexec</th>
+            <td>{{ entity.ordrexec }}</td>
+        </tr>
+        <tr>
+            <th>Codepack</th>
+            <td>{{ entity.codepack }}</td>
+        </tr>
+        <tr>
+            <th>Prep</th>
+            <td>{{ entity.prep }}</td>
+        </tr>
+        <tr>
+            <th>Prim</th>
+            <td>{{ entity.prim }}</td>
+        </tr>
+        <tr>
+            <th>Collgene</th>
+            <td>{{ entity.collgene }}</td>
+        </tr>
+        <tr>
+            <th>Lyce</th>
+            <td>{{ entity.lyce }}</td>
+        </tr>
+        <tr>
+            <th>Colltech</th>
+            <td>{{ entity.colltech }}</td>
+        </tr>
+        <tr>
+            <th>Codeenti</th>
+            <td>{{ entity.codeenti }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('StatEleve') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('StatEleve_edit', { 'id': entity.codeques }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('StatEleve') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('StatEleve_edit', { 'id': entity.codeques }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

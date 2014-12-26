@@ -85,11 +85,10 @@ class NomenclatureSituationadministrative
     private $colltech;
 
 
-
     /**
      * Get codesituadmi
      *
-     * @return string 
+     * @return string
      */
     public function getCodesituadmi()
     {
@@ -112,7 +111,7 @@ class NomenclatureSituationadministrative
     /**
      * Get libesituadmiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesituadmiar()
     {
@@ -135,7 +134,7 @@ class NomenclatureSituationadministrative
     /**
      * Get libesituadmifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesituadmifr()
     {
@@ -158,7 +157,7 @@ class NomenclatureSituationadministrative
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureSituationadministrative
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureSituationadministrative
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureSituationadministrative
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureSituationadministrative
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureSituationadministrative
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureSituationadministrative
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codesituadmi;

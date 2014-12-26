@@ -3,9 +3,9 @@
 {% block body -%}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :nameclass.libequesar, 'RouteAction' : 'etablissementficheetablissement' })) }}
     {{ include('SiseCoreBundle:Default:searchetab.html.twig', {'form': searchetab, 'pathfilter' : pathfilter}) }}
-  {% if entities is defined  and entities|length > 0 %}
-    <table class="records_list">
-        <thead>
+    {% if entities is defined  and entities|length > 0 %}
+        <table class="records_list">
+            <thead>
             <tr>
                 <th>السنة دراسية</th>
                 <th>إسم المؤسسة بالعربية</th>
@@ -16,28 +16,30 @@
                 <th>المعتمدية</th>
                 <th>قطاع التعليم</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
+            </thead>
+            <tbody>
+            {% for entity in entities %}
 
 
-            {% if entity.annescol is defined %}
-                <tr>
-                    <td>{{ entity.annescol }}</td>
-                    <td><a href="{{ path('etablissementficheetablissement_edit',  { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab}) }}">{{entity.nomeetab.libeetabar }}</a></td>
-                    <td>{{ entity.nomeetab.libeetabfr }}</td>
-                    <td>{{ entity.nomeetab.libecourar }}</td>
-                    <td>{{ entity.nomeetab.libecourfr }}</td>
-                    <td> {{ entity.nomeetab.codetypeetab.libetypeetabar }}</td>
-                    <td>{{ entity.nomeetab.codedele.libedelear }}</td>
-                    <td>{{ entity.nomeetab.codesect.libesectar }}</td>
-                    <td>
-                    </td>
-                </tr>
-            {% endif %}
+                {% if entity.annescol is defined %}
+                    <tr>
+                        <td>{{ entity.annescol }}</td>
+                        <td>
+                            <a href="{{ path('etablissementficheetablissement_edit',  { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab}) }}">{{ entity.nomeetab.libeetabar }}</a>
+                        </td>
+                        <td>{{ entity.nomeetab.libeetabfr }}</td>
+                        <td>{{ entity.nomeetab.libecourar }}</td>
+                        <td>{{ entity.nomeetab.libecourfr }}</td>
+                        <td> {{ entity.nomeetab.codetypeetab.libetypeetabar }}</td>
+                        <td>{{ entity.nomeetab.codedele.libedelear }}</td>
+                        <td>{{ entity.nomeetab.codesect.libesectar }}</td>
+                        <td>
+                        </td>
+                    </tr>
+                {% endif %}
 
-        {% endfor %}
-        </tbody>
-    </table>
-  {% endif %}
-    {% endblock %}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

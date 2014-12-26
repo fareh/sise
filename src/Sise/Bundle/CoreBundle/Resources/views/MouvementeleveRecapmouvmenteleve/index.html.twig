@@ -74,14 +74,14 @@
             {% set Totalnombtotaelev=0 %}
 
             {% for key, entity in entities %}
-                {% set Totalnombelev16octobre=Totalnombelev16octobre+entity.nombelev16octobre  %}
+                {% set Totalnombelev16octobre=Totalnombelev16octobre+entity.nombelev16octobre %}
                 {% set Totalnombelevvenaautretab=Totalnombelevvenaautretab+ entity.nombelevvenaautretab %}
-                {% set Totalnombelevdeplautretab=Totalnombelevdeplautretab+entity.nombelevdeplautretab  %}
-                {% set Totalnombelevsepa=Totalnombelevsepa+entity.nombelevsepa  %}
+                {% set Totalnombelevdeplautretab=Totalnombelevdeplautretab+entity.nombelevdeplautretab %}
+                {% set Totalnombelevsepa=Totalnombelevsepa+entity.nombelevsepa %}
                 {% set Totalnombelevexcl=Totalnombelevexcl+entity.nombelevexcl %}
                 {% set Totalnombelev30juin=Totalnombelev30juin+entity.nombelev30juin %}
-                {% set Totalnombelevreus=Totalnombelevreus+entity.nombelevreus  %}
-                {% set Totalnombelevredo=Totalnombelevredo+entity.nombelevredo  %}
+                {% set Totalnombelevreus=Totalnombelevreus+entity.nombelevreus %}
+                {% set Totalnombelevredo=Totalnombelevredo+entity.nombelevredo %}
                 {% set Totalnombelevexcl30juin=Totalnombelevexcl30juin+entity.nombelevexcl30juin %}
                 {% set Totalnombtotaelev=Totalnombtotaelev+entity.nombtotaelev %}
 
@@ -146,7 +146,8 @@
                 </tr>
             {% endfor %}
             <tr></tr>
-            <tr align="center" style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+            <tr align="center"
+                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
                 <td>الجملة:</td>
                 <td></td>
                 <td>{{ Totalnombelev16octobre }}  </td>

@@ -85,11 +85,10 @@ class NomenclatureProprietebatiment
     private $colltech;
 
 
-
     /**
      * Get codepropbati
      *
-     * @return string 
+     * @return string
      */
     public function getCodepropbati()
     {
@@ -112,7 +111,7 @@ class NomenclatureProprietebatiment
     /**
      * Get libepropbatiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibepropbatiar()
     {
@@ -135,7 +134,7 @@ class NomenclatureProprietebatiment
     /**
      * Get libepropbatifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibepropbatifr()
     {
@@ -158,7 +157,7 @@ class NomenclatureProprietebatiment
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureProprietebatiment
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureProprietebatiment
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureProprietebatiment
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureProprietebatiment
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureProprietebatiment
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureProprietebatiment
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codepropbati;

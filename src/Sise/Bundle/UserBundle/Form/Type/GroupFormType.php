@@ -18,7 +18,7 @@ class GroupFormType extends AbstractType
     {
         // add your custom field
         $transformer = new StringToArrayTransformer();
-           $builder->add('name');
+        $builder->add('name');
 
         $builder->add($builder->create('roles', 'choice', array(
             'label' => 'I am:',
@@ -29,10 +29,7 @@ class GroupFormType extends AbstractType
                 'ROLE_NORMAL' => 'Standard',
                 'ROLE_VIP' => 'VIP',
             )
-        ))->addModelTransformer($transformer));
-
-
-        ;
+        ))->addModelTransformer($transformer));;
 
     }
 

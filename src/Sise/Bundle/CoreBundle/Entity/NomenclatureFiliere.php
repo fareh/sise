@@ -85,11 +85,10 @@ class NomenclatureFiliere
     private $colltech;
 
 
-
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -112,7 +111,7 @@ class NomenclatureFiliere
     /**
      * Get libefiliar
      *
-     * @return string 
+     * @return string
      */
     public function getLibefiliar()
     {
@@ -135,7 +134,7 @@ class NomenclatureFiliere
     /**
      * Get libefilifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibefilifr()
     {
@@ -158,7 +157,7 @@ class NomenclatureFiliere
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureFiliere
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureFiliere
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureFiliere
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureFiliere
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureFiliere
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureFiliere
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codefili;

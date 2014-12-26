@@ -78,7 +78,6 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -95,7 +94,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -118,7 +117,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -141,7 +140,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -164,7 +163,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -188,7 +187,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -211,7 +210,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -234,7 +233,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
@@ -257,7 +256,7 @@ class EffectifeleveFilstravailleuretrangerCycleenseignement
     /**
      * Get codecyclense
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement
      */
     public function getCodecyclense()
     {

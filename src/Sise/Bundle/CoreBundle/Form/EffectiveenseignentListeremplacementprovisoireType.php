@@ -21,10 +21,9 @@ class EffectiveenseignentListeremplacementprovisoireType extends AbstractType
             ->add('nomprenense')
             ->add('nombheur')
             ->add('codecausrempprov')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

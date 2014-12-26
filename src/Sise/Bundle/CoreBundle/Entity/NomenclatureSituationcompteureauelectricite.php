@@ -85,11 +85,10 @@ class NomenclatureSituationcompteureauelectricite
     private $colltech;
 
 
-
     /**
      * Get codesitucomp
      *
-     * @return string 
+     * @return string
      */
     public function getCodesitucomp()
     {
@@ -112,7 +111,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get libesitucompar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesitucompar()
     {
@@ -135,7 +134,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get libesitucompfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesitucompfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureSituationcompteureauelectricite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -304,9 +303,10 @@ class NomenclatureSituationcompteureauelectricite
     }
 
 
-    public function __toString(){
+    public function __toString()
+    {
 
 
-        return ($this->getLibesitucompar())?$this->getLibesitucompar():"";
+        return ($this->getLibesitucompar()) ? $this->getLibesitucompar() : "";
     }
 }

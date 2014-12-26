@@ -43,11 +43,10 @@ class ParametreReglegestion
     private $obse;
 
 
-
     /**
      * Get codereglgest
      *
-     * @return string 
+     * @return string
      */
     public function getCodereglgest()
     {
@@ -70,7 +69,7 @@ class ParametreReglegestion
     /**
      * Get libereglgestar
      *
-     * @return string 
+     * @return string
      */
     public function getLibereglgestar()
     {
@@ -93,7 +92,7 @@ class ParametreReglegestion
     /**
      * Get libereglgestfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibereglgestfr()
     {
@@ -116,7 +115,7 @@ class ParametreReglegestion
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * NomenclatureCategorieequipement
  *
@@ -95,11 +96,10 @@ class NomenclatureCategorieequipement
     private $colltech;
 
 
-
     /**
      * Get codecateequi
      *
-     * @return string 
+     * @return string
      */
     public function getCodecateequi()
     {
@@ -122,7 +122,7 @@ class NomenclatureCategorieequipement
     /**
      * Get libecateequiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateequiar()
     {
@@ -145,7 +145,7 @@ class NomenclatureCategorieequipement
     /**
      * Get libecateequifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateequifr()
     {
@@ -168,7 +168,7 @@ class NomenclatureCategorieequipement
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -191,7 +191,7 @@ class NomenclatureCategorieequipement
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -214,7 +214,7 @@ class NomenclatureCategorieequipement
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -237,7 +237,7 @@ class NomenclatureCategorieequipement
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -260,7 +260,7 @@ class NomenclatureCategorieequipement
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -283,7 +283,7 @@ class NomenclatureCategorieequipement
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -306,7 +306,7 @@ class NomenclatureCategorieequipement
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -339,7 +339,7 @@ class NomenclatureCategorieequipement
     /**
      * Get codeequi
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodeequi()
     {

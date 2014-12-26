@@ -70,7 +70,6 @@ class EffectifeleveVenant9emetechnique
     private $nombtota;
 
 
-
     /**
      * Set codeetab
      *
@@ -87,7 +86,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -110,7 +109,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -133,7 +132,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -156,7 +155,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -179,7 +178,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -202,7 +201,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -225,7 +224,7 @@ class EffectifeleveVenant9emetechnique
     /**
      * Get nombtota
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtota()
     {

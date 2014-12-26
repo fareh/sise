@@ -75,7 +75,7 @@ class EffectifeleveVenant9emetechniqueController extends Controller
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             $entity->setNombelevmasc($request->request->get('nombelevmasc'));
             $entity->setNombelevfemi($request->request->get('nombelevfemi'));
-            $entity->setNombtota($request->request->get('nombelevmasc')+$request->request->get('nombelevfemi'));
+            $entity->setNombtota($request->request->get('nombelevmasc') + $request->request->get('nombelevfemi'));
             $em->persist($entity);
             $em->flush();
             return $this->redirect($this->generateUrl('effectifelevevenant9emetechnique_edit'));

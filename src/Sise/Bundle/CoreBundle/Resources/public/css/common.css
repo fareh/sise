@@ -1,9 +1,9 @@
-input, select, textarea
-{
+input, select, textarea {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
 .BtnRecherche {
     width: 100px;
     border-Left-style: solid;
@@ -23,16 +23,17 @@ input, select, textarea
     padding-right: 15px;
     width: 50%;
 }
+
 #CPHMain_upmain textarea {
-   height:56px;
-   width : 50%;
-   line-height: 28px;
-   margin-top: 10px;
-   padding-right: 15px;
+    height: 56px;
+    width: 50%;
+    line-height: 28px;
+    margin-top: 10px;
+    padding-right: 15px;
 }
 
 #CPHMain_CBCyclEnse input {
-   width: auto;
+    width: auto;
 }
 
 table#CPHMain_CBCyclEnse tr {
@@ -57,10 +58,9 @@ table#CPHMain_CBCyclEnse {
 
 }
 
-
 /* formulaire d'enregistrement */
 
-#fos_user_registration_form input , #fos_user_registration_form select {
+#fos_user_registration_form input, #fos_user_registration_form select {
     font-style: oblique;
     height: 28px;
     padding-right: 10px;
@@ -85,9 +85,9 @@ form.fos_user_registration_register {
     font-size: 14pt;
     padding-right: 10px;
     padding-top: 10px;
-    background-color:#EEEEEE;
-    border-color:#EEEEEE;
-    border-style:None;
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+    border-style: None;
 }
 
 #id_with_js input {
@@ -109,4 +109,5 @@ form.fos_user_registration_register {
 .tags div {
     float: right;
 }
+
 /* fin prototype css */

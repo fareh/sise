@@ -33,7 +33,6 @@ class NomenclatureDomaine
     }
 
 
-
     /**
      * @var string
      *
@@ -98,9 +97,6 @@ class NomenclatureDomaine
     private $colltech;
 
 
-
-
-
     /**
      * Set libedomaar
      *
@@ -117,7 +113,7 @@ class NomenclatureDomaine
     /**
      * Get libedomaar
      *
-     * @return string 
+     * @return string
      */
     public function getLibedomaar()
     {
@@ -140,7 +136,7 @@ class NomenclatureDomaine
     /**
      * Get libedomafr
      *
-     * @return string 
+     * @return string
      */
     public function getLibedomafr()
     {
@@ -163,7 +159,7 @@ class NomenclatureDomaine
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -186,7 +182,7 @@ class NomenclatureDomaine
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -209,7 +205,7 @@ class NomenclatureDomaine
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -232,7 +228,7 @@ class NomenclatureDomaine
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -255,7 +251,7 @@ class NomenclatureDomaine
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -278,7 +274,7 @@ class NomenclatureDomaine
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -301,7 +297,7 @@ class NomenclatureDomaine
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -311,7 +307,7 @@ class NomenclatureDomaine
     /**
      * Get codedoma
      *
-     * @return string 
+     * @return string
      */
     public function getCodedoma()
     {
@@ -344,7 +340,7 @@ class NomenclatureDomaine
     /**
      * Get codesousdoma
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodesousdoma()
     {

@@ -9,7 +9,9 @@
 namespace Sise\Bundle\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-class NomenclatureTypeetablissementRepository  extends  EntityRepository{
+
+class NomenclatureTypeetablissementRepository extends EntityRepository
+{
 
     public function findNomenclatureTypeetablissement($NomenclatureTypeetablissement)
     {

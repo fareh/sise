@@ -24,10 +24,9 @@ class EffectifeleveListeeleveexeclusType extends AbstractType
             ->add('dateret')
             ->add('coderece')
             ->add('codefili')
-            ->add('codegenr')
-        ;
+            ->add('codegenr');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

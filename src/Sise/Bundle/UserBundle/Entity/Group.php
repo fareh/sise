@@ -28,7 +28,7 @@ class Group extends BaseGroup
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -36,9 +36,10 @@ class Group extends BaseGroup
     }
 
 
-public  function __toString(){
+    public function __toString()
+    {
 
 
-    return ($this->name)?$this->getName():"";
-}
+        return ($this->name) ? $this->getName() : "";
+    }
 }

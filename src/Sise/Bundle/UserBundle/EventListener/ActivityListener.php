@@ -20,7 +20,7 @@ class ActivityListener
     protected $securityContext;
     protected $em;
 
-    public function __construct(SecurityContextInterface  $securityContext,  EntityManager $entityManager)
+    public function __construct(SecurityContextInterface $securityContext, EntityManager $entityManager)
     {
         $this->securityContext = $securityContext;
         $this->em = $entityManager;

@@ -106,7 +106,6 @@ class NomenclatureAnneenaissance
     private $colltech;
 
 
-
     /**
      * Set libeannenaisar
      *
@@ -123,7 +122,7 @@ class NomenclatureAnneenaissance
     /**
      * Get libeannenaisar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeannenaisar()
     {
@@ -146,7 +145,7 @@ class NomenclatureAnneenaissance
     /**
      * Get libeannenaisfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeannenaisfr()
     {
@@ -169,7 +168,7 @@ class NomenclatureAnneenaissance
     /**
      * Get codeannescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodeannescol()
     {
@@ -192,7 +191,7 @@ class NomenclatureAnneenaissance
     /**
      * Get codecyclense
      *
-     * @return string 
+     * @return string
      */
     public function getCodecyclense()
     {
@@ -215,7 +214,7 @@ class NomenclatureAnneenaissance
     /**
      * Get annenais
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnenais()
     {
@@ -238,7 +237,7 @@ class NomenclatureAnneenaissance
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -261,7 +260,7 @@ class NomenclatureAnneenaissance
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -284,7 +283,7 @@ class NomenclatureAnneenaissance
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -307,7 +306,7 @@ class NomenclatureAnneenaissance
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -330,7 +329,7 @@ class NomenclatureAnneenaissance
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -353,7 +352,7 @@ class NomenclatureAnneenaissance
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -376,13 +375,12 @@ class NomenclatureAnneenaissance
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
-
 
 
     /**
@@ -401,7 +399,7 @@ class NomenclatureAnneenaissance
     /**
      * Get effectiveeleve_niveauscolaire_anneenaissance
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance 
+     * @return \Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaireAnneenaissance
      */
     public function getEffectiveeleveNiveauscolaireAnneenaissance()
     {
@@ -411,7 +409,7 @@ class NomenclatureAnneenaissance
     /**
      * Get codeannenais
      *
-     * @return string 
+     * @return string
      */
     public function getCodeannenais()
     {

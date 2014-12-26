@@ -5,44 +5,44 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeetab</th>
-                <td>{{ entity.codeetab }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetab</th>
-                <td>{{ entity.codetypeetab }}</td>
-            </tr>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Totaheurense</th>
-                <td>{{ entity.totaheurense }}</td>
-            </tr>
-            <tr>
-                <th>Totaheurensesupp</th>
-                <td>{{ entity.totaheurensesupp }}</td>
-            </tr>
-            <tr>
-                <th>Totaheurensecomp</th>
-                <td>{{ entity.totaheurensecomp }}</td>
-            </tr>
+        <tr>
+            <th>Codeetab</th>
+            <td>{{ entity.codeetab }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetab</th>
+            <td>{{ entity.codetypeetab }}</td>
+        </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Totaheurense</th>
+            <td>{{ entity.totaheurense }}</td>
+        </tr>
+        <tr>
+            <th>Totaheurensesupp</th>
+            <td>{{ entity.totaheurensesupp }}</td>
+        </tr>
+        <tr>
+            <th>Totaheurensecomp</th>
+            <td>{{ entity.totaheurensecomp }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('effectiveenseignentheureenseignent') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('effectiveenseignentheureenseignent_edit', { 'id': entity.codeetab }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('effectiveenseignentheureenseignent') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('effectiveenseignentheureenseignent_edit', { 'id': entity.codeetab }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

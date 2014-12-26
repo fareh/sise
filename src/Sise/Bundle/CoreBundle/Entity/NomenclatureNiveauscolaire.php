@@ -42,7 +42,7 @@ class NomenclatureNiveauscolaire
      *
      * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
      */
-   // private $codecyclense;
+    // private $codecyclense;
 
 
     /**
@@ -123,7 +123,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get libenivescolar
      *
-     * @return string 
+     * @return string
      */
     public function getLibenivescolar()
     {
@@ -146,7 +146,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get libenivescolfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibenivescolfr()
     {
@@ -169,7 +169,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -192,7 +192,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -215,7 +215,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -238,7 +238,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -261,7 +261,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -284,7 +284,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -307,7 +307,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -317,7 +317,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -340,7 +340,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get codecyclense
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement
      */
     public function getCodecyclense()
     {
@@ -364,14 +364,15 @@ class NomenclatureNiveauscolaire
     /**
      * Get codenivescolsuiv
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescolsuiv()
     {
         return $this->codenivescolsuiv;
     }
 
-    public function __toString(){
-        return ($this->getLibenivescolar())?$this->getLibenivescolar():null;
+    public function __toString()
+    {
+        return ($this->getLibenivescolar()) ? $this->getLibenivescolar() : null;
     }
 }

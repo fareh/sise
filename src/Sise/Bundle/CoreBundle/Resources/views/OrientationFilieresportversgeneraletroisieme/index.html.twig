@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <tr>
-               <td>مرتقون من السنة الثانية رياضة إلى السنة الثالثة</td>
+                <td>مرتقون من السنة الثانية رياضة إلى السنة الثالثة</td>
                 {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
@@ -59,7 +59,7 @@
                 {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
-                        {% if entity.anne ==3 and not entity.redo  %}
+                        {% if entity.anne ==3 and not entity.redo %}
                             {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
                                 <td>{{ entity.nombelevmasc }}</td>
                                 <td>{{ entity.nombelevfemi }}</td>
@@ -78,11 +78,11 @@
             </tr>
 
             <tr>
-               <td>راسبون بالسنة الثالثة رياضة</td>
+                <td>راسبون بالسنة الثالثة رياضة</td>
                 {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
-                        {% if entity.anne ==3 and entity.redo%}
+                        {% if entity.anne ==3 and entity.redo %}
                             {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
                                 <td>{{ entity.nombelevmasc }}</td>
                                 <td>{{ entity.nombelevfemi }}</td>
@@ -100,11 +100,11 @@
                 {% endfor %}
             </tr>
             <tr>
-               <td>راسبون بالسنة الرابعة رياضة</td>
+                <td>راسبون بالسنة الرابعة رياضة</td>
                 {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
-                        {% if entity.anne ==4 and entity.redo%}
+                        {% if entity.anne ==4 and entity.redo %}
                             {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
                                 <td>{{ entity.nombelevmasc }}</td>
                                 <td>{{ entity.nombelevfemi }}</td>
@@ -124,4 +124,4 @@
             </tbody>
         </table>
     {% endif %}
-    {% endblock %}
+{% endblock %}

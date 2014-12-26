@@ -99,11 +99,10 @@ class SecuriteUtilisateur
     private $codedele;
 
 
-
     /**
      * Get codeutil
      *
-     * @return string 
+     * @return string
      */
     public function getCodeutil()
     {
@@ -126,7 +125,7 @@ class SecuriteUtilisateur
     /**
      * Get motpassutil
      *
-     * @return string 
+     * @return string
      */
     public function getMotpassutil()
     {
@@ -149,7 +148,7 @@ class SecuriteUtilisateur
     /**
      * Get matr
      *
-     * @return string 
+     * @return string
      */
     public function getMatr()
     {
@@ -172,7 +171,7 @@ class SecuriteUtilisateur
     /**
      * Get nomprenutil
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenutil()
     {
@@ -195,7 +194,7 @@ class SecuriteUtilisateur
     /**
      * Get codeprof
      *
-     * @return string 
+     * @return string
      */
     public function getCodeprof()
     {
@@ -218,7 +217,7 @@ class SecuriteUtilisateur
     /**
      * Get codegrouutil
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrouutil()
     {
@@ -241,7 +240,7 @@ class SecuriteUtilisateur
     /**
      * Get codenivehier
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivehier()
     {
@@ -264,7 +263,7 @@ class SecuriteUtilisateur
     /**
      * Get datemaj
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatemaj()
     {
@@ -287,7 +286,7 @@ class SecuriteUtilisateur
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -310,7 +309,7 @@ class SecuriteUtilisateur
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -333,7 +332,7 @@ class SecuriteUtilisateur
     /**
      * Get codecircregi
      *
-     * @return string 
+     * @return string
      */
     public function getCodecircregi()
     {
@@ -356,7 +355,7 @@ class SecuriteUtilisateur
     /**
      * Get codedele
      *
-     * @return string 
+     * @return string
      */
     public function getCodedele()
     {

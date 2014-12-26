@@ -91,7 +91,7 @@ class OrientationFilieresportversgeneraledeuxieme
      * @ORM\Column(name="NombElevFemi", type="integer", nullable=true)
      */
     private $nombelevfemi;
-    
+
     /**
      * @var integer
      *
@@ -116,7 +116,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -139,7 +139,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -162,7 +162,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -185,12 +185,13 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
     }
+
     /**
      * Set redo
      *
@@ -207,7 +208,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get redo
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRedo()
     {
@@ -230,7 +231,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get anne
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnne()
     {
@@ -253,7 +254,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -276,7 +277,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -299,7 +300,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get codefiliorig
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere
      */
     public function getCodefiliorig()
     {
@@ -322,7 +323,7 @@ class OrientationFilieresportversgeneraledeuxieme
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {

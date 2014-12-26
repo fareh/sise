@@ -15,7 +15,7 @@ class NomenclatureEtablissementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab','text')
+            ->add('codeetab', 'text')
             ->add('codetypeetab', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement',
                 'property' => 'libetypeetabar',
@@ -28,7 +28,7 @@ class NomenclatureEtablissementType extends AbstractType
             ->add('libeetabfr')
             ->add('libecourar')
             ->add('libecourfr')
-            ->add('codecircregi','entity', array(
+            ->add('codecircregi', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional',
                 'property' => 'libecircregiar',
                 'expanded' => false,
@@ -36,7 +36,7 @@ class NomenclatureEtablissementType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codedele','entity', array(
+            ->add('codedele', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation',
                 'property' => 'libedelear',
                 'expanded' => false,
@@ -44,16 +44,16 @@ class NomenclatureEtablissementType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codesect','entity', array(
+            ->add('codesect', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSecteur',
                 'property' => 'libesectar',
-                 'expanded' => false,
-                 'multiple' => false,
-                 'required' => true,
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
                 'empty_value' => "-- اختيار --"
-                  ))
+            ))
             ->add('sect')
-            ->add('codecirc','entity', array(
+            ->add('codecirc', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscription',
                 'property' => 'libecircar',
                 'expanded' => false,
@@ -61,7 +61,7 @@ class NomenclatureEtablissementType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codezone','entity', array(
+            ->add('codezone', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureZone',
                 'property' => 'libezonear',
                 'expanded' => false,
@@ -69,25 +69,24 @@ class NomenclatureEtablissementType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('datecons','datetime',array(
-                'input'  => 'datetime',
+            ->add('datecons', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('datecrea','datetime',array(
-                'input'  => 'datetime',
+            ->add('datecrea', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-           // ->add('datecreabd','datetime')
+            // ->add('datecreabd','datetime')
 
 
-
-         //   ->add("gouv", "choice", array("class" => "SiseCoreBundle:NomenclatureGouvernorat", "property" => "libegouvar"))
+            //   ->add("gouv", "choice", array("class" => "SiseCoreBundle:NomenclatureGouvernorat", "property" => "libegouvar"))
 //            ->add('codedele', 'entity', array(
 //                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation',
 //                'property' => 'libedelear',
@@ -102,10 +101,9 @@ class NomenclatureEtablissementType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'required' => true
-            ))
-        ;
+            ));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

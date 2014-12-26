@@ -1,12 +1,14 @@
 <?php
 namespace Sise\Bundle\CoreBundle\Twig\Extension;
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
+
 class SiseExtension extends \Twig_Extension
 {
 
     private $container;
 
-    public function __construct(ContainerInterface $container = null )
+    public function __construct(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
@@ -34,13 +36,13 @@ class SiseExtension extends \Twig_Extension
         // I assume that you have a link to the container in your twig extension class
         $router = $this->container->get('router');
         $res = (null === $router->getRouteCollection()->get($name)) ? 0 : 1;
-        return $res ;
+        return $res;
 
     }
 
 
-
-    public function jsonDecode($str) {
+    public function jsonDecode($str)
+    {
         return json_decode($str);
     }
 

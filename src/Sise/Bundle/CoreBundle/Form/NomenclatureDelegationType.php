@@ -24,16 +24,15 @@ class NomenclatureDelegationType extends AbstractType
 //            ->add('collgene')
 //            ->add('lyce')
 //            ->add('colltech')
-            ->add('codegouv','entity', array(
-        'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat',
-        'property' => 'libegouvar',
-        'expanded' => false,
-        'multiple' => false,
-        'required' => true
-    ))
-        ;
+            ->add('codegouv', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat',
+                'property' => 'libegouvar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true
+            ));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

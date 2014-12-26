@@ -107,7 +107,6 @@ class EffectifeleveDemiresidant
     private $nombbour;
 
 
-
     /**
      * Set codeetab
      *
@@ -124,7 +123,7 @@ class EffectifeleveDemiresidant
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -147,7 +146,7 @@ class EffectifeleveDemiresidant
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -170,7 +169,7 @@ class EffectifeleveDemiresidant
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -193,7 +192,7 @@ class EffectifeleveDemiresidant
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -216,7 +215,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombelevresimasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevresimasc()
     {
@@ -239,7 +238,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombelevresifemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevresifemi()
     {
@@ -262,7 +261,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombtotaresielev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaresielev()
     {
@@ -285,7 +284,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombelevbourmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevbourmasc()
     {
@@ -308,7 +307,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombelevbourfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevbourfemi()
     {
@@ -331,7 +330,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombtotabourelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotabourelev()
     {
@@ -354,7 +353,7 @@ class EffectifeleveDemiresidant
     /**
      * Get nombbour
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombbour()
     {
@@ -378,7 +377,7 @@ class EffectifeleveDemiresidant
     /**
      * Get codecyclense
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement
      */
     public function getCodecyclense()
     {

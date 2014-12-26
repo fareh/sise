@@ -108,7 +108,6 @@ class EffectiveenseignentGradediscipline
     private $nombtotaense;
 
 
-
     /**
      * Set codeetab
      *
@@ -125,7 +124,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -148,7 +147,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -171,7 +170,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -194,7 +193,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -217,7 +216,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get codedisci
      *
-     * @return string 
+     * @return string
      */
     public function getCodedisci()
     {
@@ -240,7 +239,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get codegrad
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrad()
     {
@@ -263,7 +262,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get nombensetunimasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombensetunimasc()
     {
@@ -286,7 +285,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get nombensetunifemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombensetunifemi()
     {
@@ -309,7 +308,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get nombenseetramasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombenseetramasc()
     {
@@ -332,7 +331,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get nombenseetrafemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombenseetrafemi()
     {
@@ -355,7 +354,7 @@ class EffectiveenseignentGradediscipline
     /**
      * Get nombtotaense
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaense()
     {

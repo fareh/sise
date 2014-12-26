@@ -71,11 +71,10 @@ class SecuriteTraceutilisateur
     private $pkenti;
 
 
-
     /**
      * Get numetrac
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumetrac()
     {
@@ -98,7 +97,7 @@ class SecuriteTraceutilisateur
     /**
      * Get libetrac
      *
-     * @return string 
+     * @return string
      */
     public function getLibetrac()
     {
@@ -121,7 +120,7 @@ class SecuriteTraceutilisateur
     /**
      * Get linktrac
      *
-     * @return string 
+     * @return string
      */
     public function getLinktrac()
     {
@@ -144,7 +143,7 @@ class SecuriteTraceutilisateur
     /**
      * Get codeutil
      *
-     * @return string 
+     * @return string
      */
     public function getCodeutil()
     {
@@ -167,7 +166,7 @@ class SecuriteTraceutilisateur
     /**
      * Get datetrac
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatetrac()
     {
@@ -190,7 +189,7 @@ class SecuriteTraceutilisateur
     /**
      * Get codetypeoper
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeoper()
     {
@@ -213,7 +212,7 @@ class SecuriteTraceutilisateur
     /**
      * Get codeenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodeenti()
     {
@@ -236,7 +235,7 @@ class SecuriteTraceutilisateur
     /**
      * Get pkenti
      *
-     * @return string 
+     * @return string
      */
     public function getPkenti()
     {

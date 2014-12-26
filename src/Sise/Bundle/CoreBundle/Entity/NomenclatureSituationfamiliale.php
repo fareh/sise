@@ -50,11 +50,10 @@ class NomenclatureSituationfamiliale
     private $acti;
 
 
-
     /**
      * Get codesitufami
      *
-     * @return string 
+     * @return string
      */
     public function getCodesitufami()
     {
@@ -77,7 +76,7 @@ class NomenclatureSituationfamiliale
     /**
      * Get libesitufamiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesitufamiar()
     {
@@ -100,7 +99,7 @@ class NomenclatureSituationfamiliale
     /**
      * Get libesitufamifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesitufamifr()
     {
@@ -123,7 +122,7 @@ class NomenclatureSituationfamiliale
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -146,12 +145,13 @@ class NomenclatureSituationfamiliale
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
         return $this->acti;
     }
+
     public function __toString()
     {
         return $this->codesitufami;

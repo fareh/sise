@@ -10,78 +10,82 @@
             <div id="CPHMain_upGridView">
 
                 <div>
-                    <form action="{{ pathUpdate }}" method="post"  class="well form-search" id="id_with_js">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <tbody>
-                        <tr>
-                            <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                المسجلون بتاريخ 15 نوفمبر
-                            </td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                المرتقون في جوان
-                            </td>
-                        </tr>
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المجال</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                        </tr>
-                        {% for key , entity in entities %}
-
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
                             <tr>
-                                <td>{{ entity.codedoma.libedomaar }}
-
-
-                                    <input type="hidden" name="val_{{ key }}"
-                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codedoma.codedoma }}">
-                                    <input type="hidden" name="key_{{ key }}"
-                                           value="codeetab|codetypeetab|annescol|coderece|codedoma">
+                                <td align="center" colspan="1"
+                                    style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                    المسجلون بتاريخ 15 نوفمبر
                                 </td>
-
-                                <td align="right" style="background-color:#EEEEEE;">
-
-                                    <input type="text" name="nombelevinscmasc{{ key }}"
-                                           value="{{ entity.nombelevinscmasc }} "
-                                           id="nombelevinscmasc{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', 'nombtotainscelev{{ key }}' );">
-
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-                                    <input type="text" name="nombelevinscfemi{{ key }}"  value="{{ entity.nombelevinscfemi }} " id="nombelevinscfemi{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevinscfemi{{ key }}','nombelevinscmasc{{ key }}', 'nombtotainscelev{{ key }}' );">
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-                                    <input type="text" name="nombtotainscelev{{ key }}" value="{{ entity.nombtotainscelev }} "  id="nombtotainscelev{{ key }}" >
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-
-                                    <input type="text" name="nombelevreusmasc{{ key }}"
-                                           value="{{ entity.nombelevreusmasc }} "
-                                           id="nombelevreusmasc{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombtotareuselev{{ key }}' );">
-
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-                                    <input type="text" name="nombelevreusfemi{{ key }}"  value="{{ entity.nombelevreusfemi }} " id="nombelevreusfemi{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevreusfemi{{ key }}','nombelevreusmasc{{ key }}', 'nombtotareuselev{{ key }}' );">
-                                </td>
-                                <td align="right" style="background-color:#EEEEEE;">
-                                    <input type="text" name="nombtotareuselev{{ key }}" value="{{ entity.nombtotareuselev }} "  id="nombtotareuselev{{ key }}" >
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
+                                    المرتقون في جوان
                                 </td>
                             </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                        </form>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المجال</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            </tr>
+                            {% for key , entity in entities %}
+
+                                <tr>
+                                    <td>{{ entity.codedoma.libedomaar }}
+
+
+                                        <input type="hidden" name="val_{{ key }}"
+                                               value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codedoma.codedoma }}">
+                                        <input type="hidden" name="key_{{ key }}"
+                                               value="codeetab|codetypeetab|annescol|coderece|codedoma">
+                                    </td>
+
+                                    <td align="right" style="background-color:#EEEEEE;">
+
+                                        <input type="text" name="nombelevinscmasc{{ key }}"
+                                               value="{{ entity.nombelevinscmasc }} "
+                                               id="nombelevinscmasc{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', 'nombtotainscelev{{ key }}' );">
+
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+                                        <input type="text" name="nombelevinscfemi{{ key }}"
+                                               value="{{ entity.nombelevinscfemi }} " id="nombelevinscfemi{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevinscfemi{{ key }}','nombelevinscmasc{{ key }}', 'nombtotainscelev{{ key }}' );">
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+                                        <input type="text" name="nombtotainscelev{{ key }}"
+                                               value="{{ entity.nombtotainscelev }} " id="nombtotainscelev{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+
+                                        <input type="text" name="nombelevreusmasc{{ key }}"
+                                               value="{{ entity.nombelevreusmasc }} "
+                                               id="nombelevreusmasc{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombtotareuselev{{ key }}' );">
+
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+                                        <input type="text" name="nombelevreusfemi{{ key }}"
+                                               value="{{ entity.nombelevreusfemi }} " id="nombelevreusfemi{{ key }}"
+                                               onchange="javascript:txtChanged('nombelevreusfemi{{ key }}','nombelevreusmasc{{ key }}', 'nombtotareuselev{{ key }}' );">
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;">
+                                        <input type="text" name="nombtotareuselev{{ key }}"
+                                               value="{{ entity.nombtotareuselev }} " id="nombtotareuselev{{ key }}">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
 
             </div>

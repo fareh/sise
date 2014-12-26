@@ -1,9 +1,11 @@
 <?php
 
 namespace Sise\Bundle\CoreBundle\Entity;
+
 use DoctrineCommonCollectionsArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * EtablissementFicheetablissement
  *
@@ -222,7 +224,7 @@ class EtablissementFicheetablissement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -245,7 +247,7 @@ class EtablissementFicheetablissement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -268,7 +270,7 @@ class EtablissementFicheetablissement
     /**
      * Get adreetab
      *
-     * @return string 
+     * @return string
      */
     public function getAdreetab()
     {
@@ -291,7 +293,7 @@ class EtablissementFicheetablissement
     /**
      * Get codepost
      *
-     * @return string 
+     * @return string
      */
     public function getCodepost()
     {
@@ -314,7 +316,7 @@ class EtablissementFicheetablissement
     /**
      * Get telefixe
      *
-     * @return string 
+     * @return string
      */
     public function getTelefixe()
     {
@@ -337,7 +339,7 @@ class EtablissementFicheetablissement
     /**
      * Get fax
      *
-     * @return string 
+     * @return string
      */
     public function getFax()
     {
@@ -360,7 +362,7 @@ class EtablissementFicheetablissement
     /**
      * Get mail
      *
-     * @return string 
+     * @return string
      */
     public function getMail()
     {
@@ -383,7 +385,7 @@ class EtablissementFicheetablissement
     /**
      * Get siteweb
      *
-     * @return string 
+     * @return string
      */
     public function getSiteweb()
     {
@@ -406,7 +408,7 @@ class EtablissementFicheetablissement
     /**
      * Get educprio
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEducprio()
     {
@@ -429,7 +431,7 @@ class EtablissementFicheetablissement
     /**
      * Get etabintehand
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEtabintehand()
     {
@@ -452,7 +454,7 @@ class EtablissementFicheetablissement
     /**
      * Get exisanneprep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getExisanneprep()
     {
@@ -475,12 +477,13 @@ class EtablissementFicheetablissement
     /**
      * Get exisanneprepintehand
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getExisanneprepintehand()
     {
         return $this->exisanneprepintehand;
     }
+
     /**
      * @var \EtablissementResponsable
      *
@@ -504,6 +507,7 @@ class EtablissementFicheetablissement
     {
         $this->resp = $resp;
     }
+
     /**
      * @var \EtablissementInfrastructure
      *
@@ -555,6 +559,7 @@ class EtablissementFicheetablissement
     {
         $this->nomeetab = $nomeetab;
     }
+
     /**
      * @var \EtablissementSejour
      *
@@ -578,10 +583,12 @@ class EtablissementFicheetablissement
     {
         $this->sejo = $sejo;
     }
+
     public function __construct()
     {
         $this->sejo = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     /**
      * Add sejo
      *
@@ -594,6 +601,7 @@ class EtablissementFicheetablissement
 
         return $this;
     }
+
     /**
      * Remove sejo
      *
@@ -603,9 +611,10 @@ class EtablissementFicheetablissement
     {
         $this->sejo->removeElement($fichetabsejo);
     }
+
     public function __toString()
     {
-        if(is_null($this->codeetab)) {
+        if (is_null($this->codeetab)) {
             return 'NULL';
         }
         return $this->codeetab;

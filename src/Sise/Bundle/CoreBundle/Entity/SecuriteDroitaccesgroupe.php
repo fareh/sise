@@ -18,7 +18,7 @@ class SecuriteDroitaccesgroupe
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      **/
-      protected $codeprof;
+    protected $codeprof;
 
     /**
      * @var string
@@ -58,8 +58,6 @@ class SecuriteDroitaccesgroupe
     private $droidele;
 
 
-
-
     /**
      * Set codegrouutil
      *
@@ -76,7 +74,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get codegrouutil
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrouutil()
     {
@@ -99,7 +97,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get codeenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodeenti()
     {
@@ -122,7 +120,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droisele
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroisele()
     {
@@ -145,7 +143,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droiinse
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroiinse()
     {
@@ -168,7 +166,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droiupda
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroiupda()
     {
@@ -191,7 +189,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droidele
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroidele()
     {
@@ -214,7 +212,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get codeprof
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil 
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil
      */
     public function getCodeprof()
     {

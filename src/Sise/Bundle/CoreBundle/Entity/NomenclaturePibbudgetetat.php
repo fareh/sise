@@ -36,11 +36,10 @@ class NomenclaturePibbudgetetat
     private $budgetetat;
 
 
-
     /**
      * Get anne
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnne()
     {
@@ -63,7 +62,7 @@ class NomenclaturePibbudgetetat
     /**
      * Get pibmd
      *
-     * @return float 
+     * @return float
      */
     public function getPibmd()
     {
@@ -86,7 +85,7 @@ class NomenclaturePibbudgetetat
     /**
      * Get budgetetat
      *
-     * @return float 
+     * @return float
      */
     public function getBudgetetat()
     {

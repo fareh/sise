@@ -117,7 +117,6 @@ class OrientationFilieresportversgenerale
     private $nombelevfeme;
 
 
-
     /**
      * Set codeetab
      *
@@ -134,7 +133,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -157,7 +156,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -180,7 +179,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -203,7 +202,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -226,7 +225,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get annefiliorig
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnefiliorig()
     {
@@ -249,7 +248,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get redofiliorig
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRedofiliorig()
     {
@@ -272,7 +271,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get codefiliorig
      *
-     * @return string 
+     * @return string
      */
     public function getCodefiliorig()
     {
@@ -295,7 +294,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get annefilireorie
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnefilireorie()
     {
@@ -318,7 +317,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get redofilireorie
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRedofilireorie()
     {
@@ -341,7 +340,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get codefilireorie
      *
-     * @return string 
+     * @return string
      */
     public function getCodefilireorie()
     {
@@ -364,7 +363,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -387,7 +386,7 @@ class OrientationFilieresportversgenerale
     /**
      * Get nombelevfeme
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfeme()
     {

@@ -112,6 +112,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
      * })
      */
     private $codefili;
+
     /**
      * Set codeetab
      *
@@ -128,7 +129,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -151,7 +152,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -174,7 +175,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -197,7 +198,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -220,7 +221,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get nomprenelev
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenelev()
     {
@@ -243,7 +244,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -266,7 +267,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get datesepa
      *
-     * @return string 
+     * @return string
      */
     public function getDatesepa()
     {
@@ -289,7 +290,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codetypesepa
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypesepa()
     {
@@ -312,7 +313,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -335,7 +336,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -358,7 +359,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get numeleve
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeleve()
     {

@@ -10,16 +10,16 @@ use Doctrine\ORM\EntityManager;
 class EtablissementRecensementType extends AbstractType
 {
 
-    private $codeetab ;
-    private $codetypeetab ;
+    private $codeetab;
+    private $codetypeetab;
 
     /** @var \Doctrine\ORM\EntityManager */
     private $em;
 
-    public function __construct($codeetab, $codetypeetab,  EntityManager $entityManager)
+    public function __construct($codeetab, $codetypeetab, EntityManager $entityManager)
     {
         $this->codeetab = $codeetab;
-        $this->em= $entityManager;
+        $this->em = $entityManager;
         $this->codetypeetab = $codetypeetab;
 
     }
@@ -31,18 +31,17 @@ class EtablissementRecensementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-             $builder->add('lieuhabitation', 'collection', array(
-                 'type' => new EffectiveeleveRepartioneleveLieuhabitationType($this->codeetab, $this->codetypeetab, $this->em),
-                 'allow_add' => true,
-                 'by_reference' => false,
-                 'allow_delete' => true,
+        $builder->add('lieuhabitation', 'collection', array(
+                'type' => new EffectiveeleveRepartioneleveLieuhabitationType($this->codeetab, $this->codetypeetab, $this->em),
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => true,
 
-                 )
+            )
 
-             )
-        ;
+        );
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

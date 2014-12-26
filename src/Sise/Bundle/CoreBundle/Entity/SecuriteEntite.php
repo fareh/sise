@@ -57,11 +57,10 @@ class SecuriteEntite
     private $mainpage;
 
 
-
     /**
      * Get codeenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodeenti()
     {
@@ -84,7 +83,7 @@ class SecuriteEntite
     /**
      * Get libeentifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeentifr()
     {
@@ -107,7 +106,7 @@ class SecuriteEntite
     /**
      * Get libeentiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeentiar()
     {
@@ -130,7 +129,7 @@ class SecuriteEntite
     /**
      * Get codepack
      *
-     * @return string 
+     * @return string
      */
     public function getCodepack()
     {
@@ -153,7 +152,7 @@ class SecuriteEntite
     /**
      * Get coderangmenu
      *
-     * @return integer 
+     * @return integer
      */
     public function getCoderangmenu()
     {
@@ -176,7 +175,7 @@ class SecuriteEntite
     /**
      * Get mainpage
      *
-     * @return string 
+     * @return string
      */
     public function getMainpage()
     {

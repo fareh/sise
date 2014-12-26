@@ -85,11 +85,10 @@ class NomenclatureGenre
     private $colltech;
 
 
-
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -112,7 +111,7 @@ class NomenclatureGenre
     /**
      * Get libegenrar
      *
-     * @return string 
+     * @return string
      */
     public function getLibegenrar()
     {
@@ -135,7 +134,7 @@ class NomenclatureGenre
     /**
      * Get libegenrfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibegenrfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureGenre
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureGenre
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureGenre
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureGenre
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureGenre
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureGenre
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureGenre
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codegenr;

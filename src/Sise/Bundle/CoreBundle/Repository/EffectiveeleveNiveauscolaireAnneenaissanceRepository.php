@@ -7,7 +7,9 @@
  */
 
 namespace Sise\Bundle\CoreBundle\Repository;
+
 use Doctrine\ORM\EntityRepository;
+
 class EffectiveeleveNiveauscolaireAnneenaissanceRepository extends EntityRepository
 {
 
@@ -29,9 +31,10 @@ class EffectiveeleveNiveauscolaireAnneenaissanceRepository extends EntityReposit
             ->getQuery()->getResult();
     }
 
-    public function getListAnnenais($items){
+    public function getListAnnenais($items)
+    {
         $codeannenais = array();
-       $rlts =  $this->createQueryBuilder('p')
+        $rlts = $this->createQueryBuilder('p')
             ->leftJoin('p.codenivescol', 'c')
             ->leftJoin('p.codeannenais', 'r')
             ->where('p.codeetab = :codeetab')
@@ -42,13 +45,13 @@ class EffectiveeleveNiveauscolaireAnneenaissanceRepository extends EntityReposit
             ->setParameter('codetypeetab', $items['codetypeetab'])
             ->setParameter('annescol', $items['annescol'])
             ->setParameter('coderece', $items['coderece'])
-           ->orderBy('c.codenivescol', 'ASC')
-           ->addOrderBy('r.codeannenais', 'DESC')
+            ->orderBy('c.codenivescol', 'ASC')
+            ->addOrderBy('r.codeannenais', 'DESC')
             ->groupBy('r.codeannenais')
             ->getQuery()->getResult();
 
-        foreach ($rlts as $key => $rlt){
-            $codeannenais[$key]=  $rlt->getCodeannenais()->getLibeannenaisar();
+        foreach ($rlts as $key => $rlt) {
+            $codeannenais[$key] = $rlt->getCodeannenais()->getLibeannenaisar();
 
         }
 

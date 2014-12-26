@@ -5,11 +5,11 @@ var collectionHolder = $('ul.tags');
 var $addTagLink = $('<a href="#" class="add_tag_link"><input type="image" name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png"></a>');
 var $newLinkLi = $('<li></li>').append($addTagLink);
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
 
     // ajoute un lien de suppression à tous les éléments li de
     // formulaires de tag existants
-    collectionHolder.find('li').each(function() {
+    collectionHolder.find('li').each(function () {
         addTagFormDeleteLink($(this));
     });
 
@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
     // ajoute l'ancre « ajouter un tag » et li à la balise ul
     collectionHolder.append($newLinkLi);
 
-    $addTagLink.on('click', function(e) {
+    $addTagLink.on('click', function (e) {
         // empêche le lien de créer un « # » dans l'URL
         e.preventDefault();
 
@@ -46,7 +46,7 @@ function addTagFormDeleteLink($tagFormLi) {
     var $removeFormA = $('<a href="#"><input type="image" name="sise_delete_line" id="sise_delete_line" src="/bundles/sisecore/images/16x16/cancel_16.png"></a>');
     $tagFormLi.append($removeFormA);
 
-    $removeFormA.on('click', function(e) {
+    $removeFormA.on('click', function (e) {
         // empêche le lien de créer un « # » dans l'URL
         e.preventDefault();
 
@@ -57,9 +57,11 @@ function addTagFormDeleteLink($tagFormLi) {
 
 $("a.getcoderecen").colorbox({
     href: "/app.php" + Routing.generate('sise_core_selectCodeRec'),
-    onClosed:function(){ location.reload(true); },
-   onComplete:function(){
-       $('#btnCancel').unbind().click($.colorbox.close);
+    onClosed: function () {
+        location.reload(true);
+    },
+    onComplete: function () {
+        $('#btnCancel').unbind().click($.colorbox.close);
     }
 });
 function getListe(codegouv, entity, previous_select) {
@@ -117,14 +119,14 @@ function getListeMulti(codegouv, entity1, entity2, previous_select1, previous_se
 
 
 $(document).ready(function () {
-    $('#fos_user_registration_form_codecircregi').change(function(){
+    $('#fos_user_registration_form_codecircregi').change(function () {
         $('#fos_user_registration_form_codedele option:gt(0)').remove();
-        if($(this).val()){
+        if ($(this).val()) {
             $.ajax({
                 type: "GET",
                 data: "codecircregi=" + $(this).val(),
                 url: "/app.php" + Routing.generate('fos_user_registration_register'),
-                success: function(data){
+                success: function (data) {
                     $('#fos_user_registration_form_codedele').append(data);
                 }
             });
@@ -174,106 +176,108 @@ $(function () {
     $("#sise_corebundle_personnelpersonnel_datesoussituadmi").datepicker();
 });
 
-$(document).ready(function() {
-    $('input[type="radio"]').click(function() {
-        if($(this).attr('id') == 'verif') {
+$(document).ready(function () {
+    $('input[type="radio"]').click(function () {
+        if ($(this).attr('id') == 'verif') {
             $('#display_toggle_table').show();
         }
-        else if($(this).attr('id') == 'nonverif') {
+        else if ($(this).attr('id') == 'nonverif') {
             $('#display_toggle_table').hide();
-            obj=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_codeetabsejo");
-            obj1=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_codeetabsejo");
-            obj2=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_codeetabsejo");
-            obj3=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_codeetabsejo");
-            obj.value="";
-            obj1.value="";
-            obj2.value="";
-            obj3.value="";
-            obj4=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_nombelevmasc");
-            obj5=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_nombelevmasc");
-            obj6=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_nombelevmasc");
-            obj7=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_nombelevmasc");
-            obj4.value=0;
-            obj5.value=0;
-            obj6.value=0;
-            obj7.value=0;
-            obj8=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_nombelevfemi");
-            obj9=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_nombelevfemi");
-            obj10=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_nombelevfemi");
-            obj11=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_nombelevfemi");
-            obj8.value=0;
-            obj9.value=0;
-            obj10.value=0;
-            obj11.value=0;
+            obj = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_codeetabsejo");
+            obj1 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_codeetabsejo");
+            obj2 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_codeetabsejo");
+            obj3 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_codeetabsejo");
+            obj.value = "";
+            obj1.value = "";
+            obj2.value = "";
+            obj3.value = "";
+            obj4 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_nombelevmasc");
+            obj5 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_nombelevmasc");
+            obj6 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_nombelevmasc");
+            obj7 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_nombelevmasc");
+            obj4.value = 0;
+            obj5.value = 0;
+            obj6.value = 0;
+            obj7.value = 0;
+            obj8 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_2_nombelevfemi");
+            obj9 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_3_nombelevfemi");
+            obj10 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_0_nombelevfemi");
+            obj11 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_1_nombelevfemi");
+            obj8.value = 0;
+            obj9.value = 0;
+            obj10.value = 0;
+            obj11.value = 0;
 
         }
-        if($(this).attr('id') == 'verifautr') {
+        if ($(this).attr('id') == 'verifautr') {
             $('#display_toggle_table_autr').show();
         }
-        else if($(this).attr('id') == 'nonverifautr') {
+        else if ($(this).attr('id') == 'nonverifautr') {
             $('#display_toggle_table_autr').hide();
-            obj=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_codeetabsejo");
-            obj1=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_codeetabsejo");
-            obj2=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_codeetabsejo");
-            obj3=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_codeetabsejo");
-            obj.value="";
-            obj1.value="";
-            obj2.value="";
-            obj3.value="";
-            obj4=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_nombelevmasc");
-            obj5=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_nombelevmasc");
-            obj6=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_nombelevmasc");
-            obj7=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_nombelevmasc");
-            obj4.value=0;
-            obj5.value=0;
-            obj6.value=0;
-            obj7.value=0;
-            obj8=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_nombelevfemi");
-            obj9=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_nombelevfemi");
-            obj10=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_nombelevfemi");
-            obj11=document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_nombelevfemi");
-            obj8.value=0;
-            obj9.value=0;
-            obj10.value=0;
-            obj11.value=0;
+            obj = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_codeetabsejo");
+            obj1 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_codeetabsejo");
+            obj2 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_codeetabsejo");
+            obj3 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_codeetabsejo");
+            obj.value = "";
+            obj1.value = "";
+            obj2.value = "";
+            obj3.value = "";
+            obj4 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_nombelevmasc");
+            obj5 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_nombelevmasc");
+            obj6 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_nombelevmasc");
+            obj7 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_nombelevmasc");
+            obj4.value = 0;
+            obj5.value = 0;
+            obj6.value = 0;
+            obj7.value = 0;
+            obj8 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_6_nombelevfemi");
+            obj9 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_7_nombelevfemi");
+            obj10 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_4_nombelevfemi");
+            obj11 = document.getElementById("sise_corebundle_etablissementficheetablissement_sejo_5_nombelevfemi");
+            obj8.value = 0;
+            obj9.value = 0;
+            obj10.value = 0;
+            obj11.value = 0;
         }
-        if($(this).attr('id') == 'sise_corebundle_etablissementficheetablissement_infr_utillocalouepret_0') {
+        if ($(this).attr('id') == 'sise_corebundle_etablissementficheetablissement_infr_utillocalouepret_0') {
             $('#infrnomblocalloue').show();
         }
-        else if($(this).attr('id') == 'sise_corebundle_etablissementficheetablissement_infr_utillocalouepret_1') {
+        else if ($(this).attr('id') == 'sise_corebundle_etablissementficheetablissement_infr_utillocalouepret_1') {
             $('#infrnomblocalloue').hide();
-            obj=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocaloueense");
-            obj1=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocalouesejo");
-            obj2=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocapretense");
-            obj3=document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocapretsejo");
-            obj.value=0;
-            obj1.value=0;
-            obj2.value=0;
-            obj3.value=0;
+            obj = document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocaloueense");
+            obj1 = document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocalouesejo");
+            obj2 = document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocapretense");
+            obj3 = document.getElementById("sise_corebundle_etablissementficheetablissement_infr_nomblocapretsejo");
+            obj.value = 0;
+            obj1.value = 0;
+            obj2.value = 0;
+            obj3.value = 0;
         }
     });
 });
 
-function hide(){
+function hide() {
     $('#infrcodetypedisp').hide();
 }
 
-function show(){
+function show() {
     $('#infrcodetypedisp').show();
 }
-function genderSelectHandler(select){
-    if(select.value == '2'){
+function genderSelectHandler(select) {
+    if (select.value == '2') {
         show();
-    }else if(select.value == '1'){
+    } else if (select.value == '1') {
         hide();
-    }}
+    }
+}
 
 
 $(function () {
     $("#accordion").accordion({
         collapsible: true,
         active: true,
-        heightStyle: "content" });
+        heightStyle: "content"
+    });
 });
 
 function txtChanged(v1, v2, v3) {
@@ -333,6 +337,7 @@ jQuery(document).ready(function () {
     function EndRequestHandler(sender, args) {
         SetUI();
     }
+
     function SetUI() {
         $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
             step: 0.1,
@@ -374,9 +379,10 @@ jQuery(document).ready(function () {
 
         $("#accordion").accordion({
             collapsible: true,
-            active: true ,
+            active: true,
             heightStyle: "content"
         });
     }
+
     SetUI();
 });

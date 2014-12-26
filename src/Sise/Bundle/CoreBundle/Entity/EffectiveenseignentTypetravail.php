@@ -82,7 +82,6 @@ class EffectiveenseignentTypetravail
     private $nombtotaense;
 
 
-
     /**
      * Set codeetab
      *
@@ -99,7 +98,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -122,7 +121,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -145,7 +144,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -168,7 +167,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -191,7 +190,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get codetypetrav
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypetrav()
     {
@@ -214,7 +213,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get nombensemasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombensemasc()
     {
@@ -237,7 +236,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get nombensefemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombensefemi()
     {
@@ -260,7 +259,7 @@ class EffectiveenseignentTypetravail
     /**
      * Get nombtotaense
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaense()
     {

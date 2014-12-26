@@ -85,11 +85,10 @@ class NomenclatureHeureenseignement
     private $colltech;
 
 
-
     /**
      * Get codeheurense
      *
-     * @return string 
+     * @return string
      */
     public function getCodeheurense()
     {
@@ -112,7 +111,7 @@ class NomenclatureHeureenseignement
     /**
      * Get libeheurensear
      *
-     * @return string 
+     * @return string
      */
     public function getLibeheurensear()
     {
@@ -135,7 +134,7 @@ class NomenclatureHeureenseignement
     /**
      * Get libeheurensefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeheurensefr()
     {
@@ -158,7 +157,7 @@ class NomenclatureHeureenseignement
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureHeureenseignement
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureHeureenseignement
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureHeureenseignement
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureHeureenseignement
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureHeureenseignement
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureHeureenseignement
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

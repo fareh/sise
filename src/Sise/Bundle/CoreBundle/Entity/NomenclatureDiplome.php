@@ -85,11 +85,10 @@ class NomenclatureDiplome
     private $colltech;
 
 
-
     /**
      * Get codedipl
      *
-     * @return string 
+     * @return string
      */
     public function getCodedipl()
     {
@@ -112,7 +111,7 @@ class NomenclatureDiplome
     /**
      * Get libediplar
      *
-     * @return string 
+     * @return string
      */
     public function getLibediplar()
     {
@@ -135,7 +134,7 @@ class NomenclatureDiplome
     /**
      * Get libediplfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibediplfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureDiplome
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureDiplome
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureDiplome
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureDiplome
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureDiplome
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureDiplome
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureDiplome
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codedipl;

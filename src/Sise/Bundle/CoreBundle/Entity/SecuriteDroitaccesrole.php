@@ -59,7 +59,6 @@ class SecuriteDroitaccesrole
     private $droidele;
 
 
-
     /**
      * Set coderole
      *
@@ -76,7 +75,7 @@ class SecuriteDroitaccesrole
     /**
      * Get coderole
      *
-     * @return string 
+     * @return string
      */
     public function getCoderole()
     {
@@ -99,7 +98,7 @@ class SecuriteDroitaccesrole
     /**
      * Get codeenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodeenti()
     {
@@ -122,7 +121,7 @@ class SecuriteDroitaccesrole
     /**
      * Get droisele
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroisele()
     {
@@ -145,7 +144,7 @@ class SecuriteDroitaccesrole
     /**
      * Get droiinse
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroiinse()
     {
@@ -168,7 +167,7 @@ class SecuriteDroitaccesrole
     /**
      * Get droiupda
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroiupda()
     {
@@ -191,7 +190,7 @@ class SecuriteDroitaccesrole
     /**
      * Get droidele
      *
-     * @return integer 
+     * @return integer
      */
     public function getDroidele()
     {

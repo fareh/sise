@@ -19,6 +19,7 @@
     <div id="accordion">
     <h3>
         معلومات عامة</h3>
+
     <div>
         <div class="Row">
             <span id="CPHMain_Label1" style="display:inline-block;height:28px;width:25%;">المعرف الوحيد</span>
@@ -57,7 +58,8 @@
             {{ form_widget(edit_form.datecin) }}
         </div>
         <div id="CPHMain_CBCyclEnse" class="Row">
-            <span id="CPHMain_Label10" style="display:inline-block;height:28px;width:25%;">جنسية التونسية (نعم / لا)</span>
+            <span id="CPHMain_Label10"
+                  style="display:inline-block;height:28px;width:25%;">جنسية التونسية (نعم / لا)</span>
             نعم {{ form_widget(edit_form.natituni.children['0']) }}
             لا   {{ form_widget(edit_form.natituni.children['1']) }}
         </div>
@@ -69,6 +71,7 @@
 
     <h3>
         الاتصال بالموظف</h3>
+
     <div>
         <div class="Row">
             <span id="CPHMain_Label12" style="display:inline-block;height:28px;width:25%;">العنوان</span>
@@ -91,7 +94,8 @@
             {{ form_widget(edit_form.adreseco) }}
         </div>
         <div class="Row">
-            <span id="CPHMain_Label17" style="display:inline-block;height:28px;width:25%;">العنوان الإضافي (ثانوي)</span>
+            <span id="CPHMain_Label17"
+                  style="display:inline-block;height:28px;width:25%;">العنوان الإضافي (ثانوي)</span>
             {{ form_widget(edit_form.compadreseco) }}
         </div>
         <div class="Row">
@@ -99,7 +103,8 @@
             {{ form_widget(edit_form.villeseco) }}
         </div>
         <div class="Row">
-            <span id="CPHMain_Label19" style="display:inline-block;height:28px;width:25%;">الترقيم البريدي (ثانوي)</span>
+            <span id="CPHMain_Label19"
+                  style="display:inline-block;height:28px;width:25%;">الترقيم البريدي (ثانوي)</span>
             {{ form_widget(edit_form.codepostseco) }}
         </div>
         <div class="Row">
@@ -118,6 +123,7 @@
 
     <h3>
         الوضعية العائلية</h3>
+
     <div>
         <div class="Row">
             <span id="CPHMain_Label23" style="display:inline-block;height:28px;width:25%;">الوضعية العائلية</span>
@@ -139,12 +145,12 @@
             <span id="CPHMain_Label27" style="display:inline-block;height:28px;width:25%;">الاسم الكامل للقرين</span>
             {{ form_widget(edit_form.nomprenconj) }}
         </div>
-        <div id="CPHMain_CBCyclEnse"  class="Row">
+        <div id="CPHMain_CBCyclEnse" class="Row">
             <span id="CPHMain_Label28" style="display:inline-block;height:28px;width:25%;">القرين يعمل في وزارة التربية والتعليم (نعم / لا)</span>
             نعم  {{ form_widget(edit_form.conjtravme.children['0']) }}
             لا    {{ form_widget(edit_form.conjtravme.children['1']) }}
         </div>
-        <div id="CPHMain_CBCyclEnse"  class="Row">
+        <div id="CPHMain_CBCyclEnse" class="Row">
             <span id="CPHMain_Label29" style="display:inline-block;height:28px;width:25%;"> القرين يعمل في القطاع العام (نعم / لا)</span>
             نعم    {{ form_widget(edit_form.conjtravfp.children['0']) }}
             لا      {{ form_widget(edit_form.conjtravfp.children['1']) }}
@@ -161,6 +167,7 @@
 
     <h3>
         الوضعية الإدارية</h3>
+
     <div>
         <div class="Row">
             <span id="CPHMain_Label32" style="display:inline-block;height:28px;width:25%;">السلك</span>
@@ -171,7 +178,8 @@
             {{ form_widget(edit_form.dateentrfoncpubl) }}
         </div>
         <div class="Row">
-            <span id="CPHMain_Label34" style="display:inline-block;height:28px;width:25%;">تاريخ الالتحاق بوزارة التربية </span>
+            <span id="CPHMain_Label34"
+                  style="display:inline-block;height:28px;width:25%;">تاريخ الالتحاق بوزارة التربية </span>
             {{ form_widget(edit_form.daterecrme) }}
         </div>
         <div class="Row">
@@ -192,7 +200,7 @@
         </div>
         <div class="Row">
             <span id="CPHMain_Label39" style="display:inline-block;height:28px;width:25%;">نوع التعيين</span>
-            {{ form_widget(edit_form.codetypeaffe)}}
+            {{ form_widget(edit_form.codetypeaffe) }}
         </div>
         <div class="Row">
             <span id="CPHMain_Label40" style="display:inline-block;height:28px;width:25%;">الرتبة</span>
@@ -203,8 +211,9 @@
             {{ form_widget(edit_form.dategradactu) }}
         </div>
         <div class="Row">
-            <span id="CPHMain_Label42" style="display:inline-block;height:28px;width:25%;">تاريخ تأكيد الرتبة الحالية</span>
-            {{ form_widget(edit_form.dateconfgradactu)}}
+            <span id="CPHMain_Label42"
+                  style="display:inline-block;height:28px;width:25%;">تاريخ تأكيد الرتبة الحالية</span>
+            {{ form_widget(edit_form.dateconfgradactu) }}
         </div>
         <div class="Row">
             <span id="CPHMain_Label43" style="display:inline-block;height:28px;width:25%;">الخطة الوظيفية</span>
@@ -225,14 +234,15 @@
 
         <div class="Row">
             <span id="CPHMain_Label46" style="display:inline-block;height:28px;width:25%;">الوضع الإداري الفرعي</span>
-            {{ form_widget(edit_form.codesoussituadmi)}}
+            {{ form_widget(edit_form.codesoussituadmi) }}
         </div>
         <div class="Row">
             <span id="CPHMain_Label47" style="display:inline-block;height:28px;width:25%;">تاريخ الوضع الاداري</span>
             {{ form_widget(edit_form.datesituadmi) }}
         </div>
         <div class="Row">
-            <span id="CPHMain_Label48" style="display:inline-block;height:28px;width:25%;">تاريخ الوضع الاداري الفرعي</span>
+            <span id="CPHMain_Label48"
+                  style="display:inline-block;height:28px;width:25%;">تاريخ الوضع الاداري الفرعي</span>
             {{ form_widget(edit_form.datesoussituadmi) }}
         </div>
         <div class="Row">
@@ -256,6 +266,7 @@
 
     <h3>
         التكوين</h3>
+
     <div>
         <div class="Row">
             <span style="display:inline-block;height:28px;width:25%;">مستوى الدراسة</span>
@@ -276,8 +287,9 @@
         </div>
     </div>
 
-    <h3 >
+    <h3>
         معلومات إضافية</h3>
+
     <div>
         <div class="Row">
             <span style="display:inline-block;height:28px;width:25%;">مادّة التدريس</span>

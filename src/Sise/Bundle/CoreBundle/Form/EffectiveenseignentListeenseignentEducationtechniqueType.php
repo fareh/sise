@@ -27,10 +27,9 @@ class EffectiveenseignentListeenseignentEducationtechniqueType extends AbstractT
             ->add('codedipl')
             ->add('codegenr')
             ->add('codespec')
-            ->add('codetypetrav')
-        ;
+            ->add('codetypetrav');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

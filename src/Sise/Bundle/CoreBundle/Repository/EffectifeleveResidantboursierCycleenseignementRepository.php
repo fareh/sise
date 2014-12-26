@@ -7,6 +7,7 @@
  */
 
 namespace Sise\Bundle\CoreBundle\Repository;
+
 use Doctrine\ORM\EntityRepository;
 
 class EffectifeleveResidantboursierCycleenseignementRepository extends EntityRepository

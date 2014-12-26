@@ -92,11 +92,10 @@ class NomenclatureTache
     private $colltech;
 
 
-
     /**
      * Get codetach
      *
-     * @return string 
+     * @return string
      */
     public function getCodetach()
     {
@@ -119,7 +118,7 @@ class NomenclatureTache
     /**
      * Get libetachar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetachar()
     {
@@ -142,7 +141,7 @@ class NomenclatureTache
     /**
      * Get libetachfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetachfr()
     {
@@ -165,7 +164,7 @@ class NomenclatureTache
     /**
      * Get codecorp
      *
-     * @return string 
+     * @return string
      */
     public function getCodecorp()
     {
@@ -188,7 +187,7 @@ class NomenclatureTache
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +210,7 @@ class NomenclatureTache
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +233,7 @@ class NomenclatureTache
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +256,7 @@ class NomenclatureTache
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +279,7 @@ class NomenclatureTache
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +302,7 @@ class NomenclatureTache
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,12 +325,13 @@ class NomenclatureTache
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codetach;

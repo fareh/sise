@@ -86,7 +86,7 @@ class SecuriteProfil
     /**
      * Get libeproffr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeproffr()
     {
@@ -109,7 +109,7 @@ class SecuriteProfil
     /**
      * Get libeprofar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeprofar()
     {
@@ -132,7 +132,7 @@ class SecuriteProfil
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -142,7 +142,7 @@ class SecuriteProfil
     /**
      * Get codeprof
      *
-     * @return string 
+     * @return string
      */
     public function getCodeprof()
     {
@@ -175,7 +175,7 @@ class SecuriteProfil
     /**
      * Get user
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUser()
     {
@@ -198,7 +198,7 @@ class SecuriteProfil
     /**
      * Get codegrouutil
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteGroupeutilisateur 
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteGroupeutilisateur
      */
     public function getCodegrouutil()
     {
@@ -231,7 +231,7 @@ class SecuriteProfil
     /**
      * Get codeprof_codecyclense
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodeprofCodecyclense()
     {
@@ -239,7 +239,8 @@ class SecuriteProfil
     }
 
 
-    public  function __toString(){
-        return ($this->getLibeprofar())?$this->getLibeprofar():"";
+    public function __toString()
+    {
+        return ($this->getLibeprofar()) ? $this->getLibeprofar() : "";
     }
 }

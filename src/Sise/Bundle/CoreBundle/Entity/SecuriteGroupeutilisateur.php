@@ -33,8 +33,6 @@ class SecuriteGroupeutilisateur
     }
 
 
-
-
     /**
      * @var string
      *
@@ -57,11 +55,10 @@ class SecuriteGroupeutilisateur
     private $obse;
 
 
-
     /**
      * Get codegrouutil
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrouutil()
     {
@@ -84,7 +81,7 @@ class SecuriteGroupeutilisateur
     /**
      * Get libegrouutilfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibegrouutilfr()
     {
@@ -107,7 +104,7 @@ class SecuriteGroupeutilisateur
     /**
      * Get libegrouutilar
      *
-     * @return string 
+     * @return string
      */
     public function getLibegrouutilar()
     {
@@ -130,7 +127,7 @@ class SecuriteGroupeutilisateur
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -163,14 +160,15 @@ class SecuriteGroupeutilisateur
     /**
      * Get codeprof
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodeprof()
     {
         return $this->codeprof;
     }
 
-    public  function __toString(){
-        return ($this->getLibegrouutilar())?$this->getLibegrouutilar():"";
+    public function __toString()
+    {
+        return ($this->getLibegrouutilar()) ? $this->getLibegrouutilar() : "";
     }
 }

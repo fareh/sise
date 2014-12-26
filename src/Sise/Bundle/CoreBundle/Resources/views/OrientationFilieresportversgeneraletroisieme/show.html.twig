@@ -5,48 +5,48 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeetab</th>
-                <td>{{ entity.codeetab }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetab</th>
-                <td>{{ entity.codetypeetab }}</td>
-            </tr>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Redo</th>
-                <td>{{ entity.redo }}</td>
-            </tr>
-            <tr>
-                <th>Anne</th>
-                <td>{{ entity.anne }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevmasc</th>
-                <td>{{ entity.nombelevmasc }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevfemi</th>
-                <td>{{ entity.nombelevfemi }}</td>
-            </tr>
+        <tr>
+            <th>Codeetab</th>
+            <td>{{ entity.codeetab }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetab</th>
+            <td>{{ entity.codetypeetab }}</td>
+        </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Redo</th>
+            <td>{{ entity.redo }}</td>
+        </tr>
+        <tr>
+            <th>Anne</th>
+            <td>{{ entity.anne }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevmasc</th>
+            <td>{{ entity.nombelevmasc }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevfemi</th>
+            <td>{{ entity.nombelevfemi }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('orientationfilieresportversgeneraletroisieme') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('orientationfilieresportversgeneraletroisieme_edit', { 'id': entity.codeetab }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('orientationfilieresportversgeneraletroisieme') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('orientationfilieresportversgeneraletroisieme_edit', { 'id': entity.codeetab }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

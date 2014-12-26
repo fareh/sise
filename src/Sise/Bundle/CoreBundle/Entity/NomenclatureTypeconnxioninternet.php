@@ -85,11 +85,10 @@ class NomenclatureTypeconnxioninternet
     private $colltech;
 
 
-
     /**
      * Get codetypeconninte
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeconninte()
     {
@@ -112,7 +111,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get libetypeconnintear
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeconnintear()
     {
@@ -135,7 +134,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get libetypeconnintefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeconnintefr()
     {
@@ -158,7 +157,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureTypeconnxioninternet
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

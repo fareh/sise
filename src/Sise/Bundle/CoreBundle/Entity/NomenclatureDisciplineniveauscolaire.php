@@ -31,7 +31,6 @@ class NomenclatureDisciplineniveauscolaire
     private $codedisci;
 
 
-
     /**
      * Set codenivescol
      *
@@ -48,7 +47,7 @@ class NomenclatureDisciplineniveauscolaire
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -71,7 +70,7 @@ class NomenclatureDisciplineniveauscolaire
     /**
      * Get codedisci
      *
-     * @return string 
+     * @return string
      */
     public function getCodedisci()
     {

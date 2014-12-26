@@ -1,49 +1,56 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :' توزيع المدرسين المباشرين حسب الرتبة و النوع ومادة التدريس', 'RouteAction' : 'effectiveenseignentgradediscipline' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :' توزيع المدرسين المباشرين حسب الرتبة و النوع ومادة التدريس', 'RouteAction' : 'effectiveenseignentgradediscipline' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-<br>
-{% if entities is defined  and entities|length > 0 %}
+    <br>
+    {% if entities is defined  and entities|length > 0 %}
 
-    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-        <tbody><tr>
-            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-            <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">مدرسون تونسيون</td>
-            <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">مدرسون أجانب</td>
-            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"> </td>
-        </tr><tr>
-            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">مادة التدريس</th>
-            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-        </tr>
-            {% set codedisciprec='' %}
-        {% for entity in entities %}
+        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+            <tbody>
             <tr>
-                {% if codedisciprec!=entity.codedisci.codedisci %}
-                {% set  codedisciprec=entity.codedisci.codedisci %}
-                {% set rowspan= 0 %}
-                {% for key, entity2 in entities %}
-                    {% if entity2.codedisci.codedisci==codedisciprec %}
-                        {% set rowspan=rowspan+ 1 %}
-                    {% endif %}
-                {% endfor %}
-                <td rowspan="{{ rowspan }}"> {{ entity.codedisci.libedisciar }}</td>
-                {% endif %}
-                <td>{{ entity.codegrad.libegradar }}</td>
-                <td>{{ entity.nombensetunimasc }}</td>
-                <td>{{ entity.nombensetunifemi }}</td>
-                <td>{{ entity.nombenseetramasc }}</td>
-                <td>{{ entity.nombenseetrafemi }}</td>
-                <td>{{ entity.nombtotaense }}</td>
+                <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">مدرسون
+                    تونسيون
+                </td>
+                <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">مدرسون
+                    أجانب
+                </td>
+                <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% endif %}
-    {% endblock %}
+            <tr>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">مادة التدريس</th>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+            </tr>
+            {% set codedisciprec='' %}
+            {% for entity in entities %}
+                <tr>
+                    {% if codedisciprec!=entity.codedisci.codedisci %}
+                        {% set  codedisciprec=entity.codedisci.codedisci %}
+                        {% set rowspan= 0 %}
+                        {% for key, entity2 in entities %}
+                            {% if entity2.codedisci.codedisci==codedisciprec %}
+                                {% set rowspan=rowspan+ 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        <td rowspan="{{ rowspan }}"> {{ entity.codedisci.libedisciar }}</td>
+                    {% endif %}
+                    <td>{{ entity.codegrad.libegradar }}</td>
+                    <td>{{ entity.nombensetunimasc }}</td>
+                    <td>{{ entity.nombensetunifemi }}</td>
+                    <td>{{ entity.nombenseetramasc }}</td>
+                    <td>{{ entity.nombenseetrafemi }}</td>
+                    <td>{{ entity.nombtotaense }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

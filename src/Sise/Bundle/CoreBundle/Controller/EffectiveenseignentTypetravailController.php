@@ -35,7 +35,7 @@ class EffectiveenseignentTypetravailController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentTypetravail')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentTypetravail')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
 
         return $this->render('SiseCoreBundle:EffectiveenseignentTypetravail:index.html.twig', array(
@@ -44,6 +44,7 @@ class EffectiveenseignentTypetravailController extends Controller
             'pathfilter' => $url,
         ));
     }
+
     /**
      * Creates a new EffectiveenseignentTypetravail entity.
      *
@@ -64,7 +65,7 @@ class EffectiveenseignentTypetravailController extends Controller
 
         return $this->render('SiseCoreBundle:EffectiveenseignentTypetravail:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -94,11 +95,11 @@ class EffectiveenseignentTypetravailController extends Controller
     public function newAction()
     {
         $entity = new EffectiveenseignentTypetravail();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentTypetravail:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -119,7 +120,7 @@ class EffectiveenseignentTypetravailController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentTypetravail:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -139,22 +140,22 @@ class EffectiveenseignentTypetravailController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-    //    $deleteForm = $this->createDeleteForm($id);
+        //    $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentTypetravail:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-      //      'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //      'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a EffectiveenseignentTypetravail entity.
-    *
-    * @param EffectiveenseignentTypetravail $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a EffectiveenseignentTypetravail entity.
+     *
+     * @param EffectiveenseignentTypetravail $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(EffectiveenseignentTypetravail $entity)
     {
         $form = $this->createForm(new EffectiveenseignentTypetravailType(), $entity, array(
@@ -166,6 +167,7 @@ class EffectiveenseignentTypetravailController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing EffectiveenseignentTypetravail entity.
      *
@@ -191,11 +193,12 @@ class EffectiveenseignentTypetravailController extends Controller
         }
 
         return $this->render('SiseCoreBundle:EffectiveenseignentTypetravail:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a EffectiveenseignentTypetravail entity.
      *
@@ -233,7 +236,6 @@ class EffectiveenseignentTypetravailController extends Controller
             ->setAction($this->generateUrl('effectiveenseignenttypetravail_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

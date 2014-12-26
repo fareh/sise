@@ -75,7 +75,6 @@ class ParametreReglegestionquestionnaire
     private $messageerreur;
 
 
-
     /**
      * Set codereglgest
      *
@@ -92,7 +91,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get codereglgest
      *
-     * @return string 
+     * @return string
      */
     public function getCodereglgest()
     {
@@ -115,7 +114,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get codeques
      *
-     * @return string 
+     * @return string
      */
     public function getCodeques()
     {
@@ -138,7 +137,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get nume
      *
-     * @return integer 
+     * @return integer
      */
     public function getNume()
     {
@@ -161,7 +160,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get descregl
      *
-     * @return string 
+     * @return string
      */
     public function getDescregl()
     {
@@ -184,7 +183,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -207,7 +206,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get valeurcomparaison
      *
-     * @return float 
+     * @return float
      */
     public function getValeurcomparaison()
     {
@@ -230,7 +229,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get sqlcomparaison
      *
-     * @return string 
+     * @return string
      */
     public function getSqlcomparaison()
     {
@@ -253,7 +252,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get messageerreur
      *
-     * @return string 
+     * @return string
      */
     public function getMessageerreur()
     {

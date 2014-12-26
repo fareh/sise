@@ -52,7 +52,6 @@ class NomenclatureParametrespindicateur
     private $codeparaexog;
 
 
-
     /**
      * Set codeindi
      *
@@ -69,7 +68,7 @@ class NomenclatureParametrespindicateur
     /**
      * Get codeindi
      *
-     * @return string 
+     * @return string
      */
     public function getCodeindi()
     {
@@ -92,7 +91,7 @@ class NomenclatureParametrespindicateur
     /**
      * Get codeparaindi
      *
-     * @return integer 
+     * @return integer
      */
     public function getCodeparaindi()
     {
@@ -115,7 +114,7 @@ class NomenclatureParametrespindicateur
     /**
      * Get nompara
      *
-     * @return string 
+     * @return string
      */
     public function getNompara()
     {
@@ -138,7 +137,7 @@ class NomenclatureParametrespindicateur
     /**
      * Get valepara
      *
-     * @return string 
+     * @return string
      */
     public function getValepara()
     {
@@ -161,7 +160,7 @@ class NomenclatureParametrespindicateur
     /**
      * Get codeparaexog
      *
-     * @return string 
+     * @return string
      */
     public function getCodeparaexog()
     {

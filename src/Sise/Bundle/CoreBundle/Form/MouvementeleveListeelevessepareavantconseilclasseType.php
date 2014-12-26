@@ -25,10 +25,9 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
             ->add('coderece')
             ->add('codefili')
             ->add('codegenr')
-            ->add('codetypesepa')
-        ;
+            ->add('codetypesepa');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

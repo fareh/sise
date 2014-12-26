@@ -10,38 +10,41 @@
             <div id="CPHMain_upGridView">
 
                 <div>
-                    <form action="{{ pathUpdate }}" method="post"  class="well form-search" id="id_with_js">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <thead>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <thead>
 
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكور</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">إناث</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة</th>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكور</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">إناث</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة</th>
 
-                        </tr>
+                            </tr>
 
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
 
                             <tr>
 
                                 <td align="right">
-                                    <input type="text" name="nombelevmasc"  value="{{ entity.nombelevmasc }}" id="nombelevmasc"
+                                    <input type="text" name="nombelevmasc" value="{{ entity.nombelevmasc }}"
+                                           id="nombelevmasc"
                                            onchange="javascript:txtChanged('nombelevmascv','nombelevfemi', 'nombtota' );">
                                 </td>
                                 <td align="right">
-                                    <input type="text" name="nombelevfemi"  value="{{ entity.nombelevfemi }}" id="nombelevfeminouv"
+                                    <input type="text" name="nombelevfemi" value="{{ entity.nombelevfemi }}"
+                                           id="nombelevfeminouv"
                                            onchange="javascript:txtChanged('nombelevfemi','nombelevmasc', 'nombtota' );">
                                 </td>
                                 <td align="right">
-                                    <input type="text" name="nombtota"  value="{{ entity.nombtota }}" id="nombtota">
+                                    <input type="text" name="nombtota" value="{{ entity.nombtota }}" id="nombtota">
                                 </td>
 
                             </tr>
-                        </tbody></table>
-                        </form>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
             </div>
         </center>

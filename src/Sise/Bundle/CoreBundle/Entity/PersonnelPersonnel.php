@@ -5,6 +5,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * PersonnelPersonnel
  *
@@ -29,6 +30,7 @@ class PersonnelPersonnel
     {
         $this->idenuniq = $idenuniq;
     }
+
     /**
      * @var string
      *
@@ -634,7 +636,7 @@ class PersonnelPersonnel
     /**
      * Get pren
      *
-     * @return string 
+     * @return string
      */
     public function getPren()
     {
@@ -657,7 +659,7 @@ class PersonnelPersonnel
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -680,7 +682,7 @@ class PersonnelPersonnel
     /**
      * Get nomjeunfille
      *
-     * @return string 
+     * @return string
      */
     public function getNomjeunfille()
     {
@@ -703,7 +705,7 @@ class PersonnelPersonnel
     /**
      * Get datenais
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatenais()
     {
@@ -726,7 +728,7 @@ class PersonnelPersonnel
     /**
      * Get lieunais
      *
-     * @return string 
+     * @return string
      */
     public function getLieunais()
     {
@@ -749,7 +751,7 @@ class PersonnelPersonnel
     /**
      * Get numecin
      *
-     * @return string 
+     * @return string
      */
     public function getNumecin()
     {
@@ -772,7 +774,7 @@ class PersonnelPersonnel
     /**
      * Get datecin
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatecin()
     {
@@ -795,7 +797,7 @@ class PersonnelPersonnel
     /**
      * Get natituni
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getNatituni()
     {
@@ -818,7 +820,7 @@ class PersonnelPersonnel
     /**
      * Get codenati
      *
-     * @return string 
+     * @return string
      */
     public function getCodenati()
     {
@@ -841,7 +843,7 @@ class PersonnelPersonnel
     /**
      * Get adre
      *
-     * @return string 
+     * @return string
      */
     public function getAdre()
     {
@@ -864,7 +866,7 @@ class PersonnelPersonnel
     /**
      * Get compadre
      *
-     * @return string 
+     * @return string
      */
     public function getCompadre()
     {
@@ -887,7 +889,7 @@ class PersonnelPersonnel
     /**
      * Get ville
      *
-     * @return string 
+     * @return string
      */
     public function getVille()
     {
@@ -910,7 +912,7 @@ class PersonnelPersonnel
     /**
      * Get codepost
      *
-     * @return string 
+     * @return string
      */
     public function getCodepost()
     {
@@ -933,7 +935,7 @@ class PersonnelPersonnel
     /**
      * Get adreseco
      *
-     * @return string 
+     * @return string
      */
     public function getAdreseco()
     {
@@ -956,7 +958,7 @@ class PersonnelPersonnel
     /**
      * Get compadreseco
      *
-     * @return string 
+     * @return string
      */
     public function getCompadreseco()
     {
@@ -979,7 +981,7 @@ class PersonnelPersonnel
     /**
      * Get villeseco
      *
-     * @return string 
+     * @return string
      */
     public function getVilleseco()
     {
@@ -1002,7 +1004,7 @@ class PersonnelPersonnel
     /**
      * Get codepostseco
      *
-     * @return string 
+     * @return string
      */
     public function getCodepostseco()
     {
@@ -1025,7 +1027,7 @@ class PersonnelPersonnel
     /**
      * Get telefixe
      *
-     * @return string 
+     * @return string
      */
     public function getTelefixe()
     {
@@ -1048,7 +1050,7 @@ class PersonnelPersonnel
     /**
      * Get telemobi
      *
-     * @return string 
+     * @return string
      */
     public function getTelemobi()
     {
@@ -1071,7 +1073,7 @@ class PersonnelPersonnel
     /**
      * Get adreelec
      *
-     * @return string 
+     * @return string
      */
     public function getAdreelec()
     {
@@ -1094,7 +1096,7 @@ class PersonnelPersonnel
     /**
      * Get codesitufami
      *
-     * @return string 
+     * @return string
      */
     public function getCodesitufami()
     {
@@ -1117,7 +1119,7 @@ class PersonnelPersonnel
     /**
      * Get nombenfa
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombenfa()
     {
@@ -1140,7 +1142,7 @@ class PersonnelPersonnel
     /**
      * Get nombenfachar
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombenfachar()
     {
@@ -1163,7 +1165,7 @@ class PersonnelPersonnel
     /**
      * Get nombenfabesospec
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombenfabesospec()
     {
@@ -1186,7 +1188,7 @@ class PersonnelPersonnel
     /**
      * Get nomprenconj
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenconj()
     {
@@ -1209,7 +1211,7 @@ class PersonnelPersonnel
     /**
      * Get conjtravme
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getConjtravme()
     {
@@ -1232,7 +1234,7 @@ class PersonnelPersonnel
     /**
      * Get conjtravfp
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getConjtravfp()
     {
@@ -1255,7 +1257,7 @@ class PersonnelPersonnel
     /**
      * Get idenuniqconj
      *
-     * @return string 
+     * @return string
      */
     public function getIdenuniqconj()
     {
@@ -1278,7 +1280,7 @@ class PersonnelPersonnel
     /**
      * Get codeprofconj
      *
-     * @return string 
+     * @return string
      */
     public function getCodeprofconj()
     {
@@ -1301,7 +1303,7 @@ class PersonnelPersonnel
     /**
      * Get codecorp
      *
-     * @return string 
+     * @return string
      */
     public function getCodecorp()
     {
@@ -1324,7 +1326,7 @@ class PersonnelPersonnel
     /**
      * Get dateentrfoncpubl
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateentrfoncpubl()
     {
@@ -1347,7 +1349,7 @@ class PersonnelPersonnel
     /**
      * Get daterecrme
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDaterecrme()
     {
@@ -1370,7 +1372,7 @@ class PersonnelPersonnel
     /**
      * Get datetitu
      *
-     * @return string 
+     * @return string
      */
     public function getDatetitu()
     {
@@ -1393,7 +1395,7 @@ class PersonnelPersonnel
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -1416,7 +1418,7 @@ class PersonnelPersonnel
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -1439,7 +1441,7 @@ class PersonnelPersonnel
     /**
      * Get dateaffeetabactu
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateaffeetabactu()
     {
@@ -1462,7 +1464,7 @@ class PersonnelPersonnel
     /**
      * Get codetypeaffe
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeaffe()
     {
@@ -1485,7 +1487,7 @@ class PersonnelPersonnel
     /**
      * Get codegrad
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrad()
     {
@@ -1508,7 +1510,7 @@ class PersonnelPersonnel
     /**
      * Get dategradactu
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDategradactu()
     {
@@ -1531,7 +1533,7 @@ class PersonnelPersonnel
     /**
      * Get dateconfgradactu
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateconfgradactu()
     {
@@ -1554,7 +1556,7 @@ class PersonnelPersonnel
     /**
      * Get codefonc
      *
-     * @return string 
+     * @return string
      */
     public function getCodefonc()
     {
@@ -1577,7 +1579,7 @@ class PersonnelPersonnel
     /**
      * Get datefonc
      *
-     * @return string 
+     * @return string
      */
     public function getDatefonc()
     {
@@ -1600,7 +1602,7 @@ class PersonnelPersonnel
     /**
      * Get codequal
      *
-     * @return string 
+     * @return string
      */
     public function getCodequal()
     {
@@ -1623,7 +1625,7 @@ class PersonnelPersonnel
     /**
      * Get datesituadmi
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatesituadmi()
     {
@@ -1646,7 +1648,7 @@ class PersonnelPersonnel
     /**
      * Get datesoussituadmi
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatesoussituadmi()
     {
@@ -1669,7 +1671,7 @@ class PersonnelPersonnel
     /**
      * Get codetach
      *
-     * @return string 
+     * @return string
      */
     public function getCodetach()
     {
@@ -1692,7 +1694,7 @@ class PersonnelPersonnel
     /**
      * Get roul
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRoul()
     {
@@ -1715,7 +1717,7 @@ class PersonnelPersonnel
     /**
      * Get datedeburoul
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatedeburoul()
     {
@@ -1738,7 +1740,7 @@ class PersonnelPersonnel
     /**
      * Get datefinroul
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatefinroul()
     {
@@ -1761,7 +1763,7 @@ class PersonnelPersonnel
     /**
      * Get codeniveetud
      *
-     * @return string 
+     * @return string
      */
     public function getCodeniveetud()
     {
@@ -1784,7 +1786,7 @@ class PersonnelPersonnel
     /**
      * Get codedipl
      *
-     * @return string 
+     * @return string
      */
     public function getCodedipl()
     {
@@ -1807,7 +1809,7 @@ class PersonnelPersonnel
     /**
      * Get codespec
      *
-     * @return string 
+     * @return string
      */
     public function getCodespec()
     {
@@ -1830,7 +1832,7 @@ class PersonnelPersonnel
     /**
      * Get dipltuni
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getDipltuni()
     {
@@ -1853,7 +1855,7 @@ class PersonnelPersonnel
     /**
      * Get codedisci
      *
-     * @return string 
+     * @return string
      */
     public function getCodedisci()
     {
@@ -1876,7 +1878,7 @@ class PersonnelPersonnel
     /**
      * Get spec
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getSpec()
     {
@@ -1899,7 +1901,7 @@ class PersonnelPersonnel
     /**
      * Get ensecourpriv
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnsecourpriv()
     {
@@ -1922,7 +1924,7 @@ class PersonnelPersonnel
     /**
      * Get charhoracourpriv
      *
-     * @return float 
+     * @return float
      */
     public function getCharhoracourpriv()
     {
@@ -1945,7 +1947,7 @@ class PersonnelPersonnel
     /**
      * Get ensecourpart
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnsecourpart()
     {
@@ -1968,7 +1970,7 @@ class PersonnelPersonnel
     /**
      * Get codelangense
      *
-     * @return string 
+     * @return string
      */
     public function getCodelangense()
     {
@@ -1991,7 +1993,7 @@ class PersonnelPersonnel
     /**
      * Get anciadmi
      *
-     * @return float 
+     * @return float
      */
     public function getAnciadmi()
     {
@@ -2014,7 +2016,7 @@ class PersonnelPersonnel
     /**
      * Get anciense
      *
-     * @return float 
+     * @return float
      */
     public function getAnciense()
     {
@@ -2037,7 +2039,7 @@ class PersonnelPersonnel
     /**
      * Get ancicentactu
      *
-     * @return float 
+     * @return float
      */
     public function getAncicentactu()
     {
@@ -2060,7 +2062,7 @@ class PersonnelPersonnel
     /**
      * Get nombheurensereel
      *
-     * @return float 
+     * @return float
      */
     public function getNombheurensereel()
     {
@@ -2083,7 +2085,7 @@ class PersonnelPersonnel
     /**
      * Get nombheurenserequ
      *
-     * @return float 
+     * @return float
      */
     public function getNombheurenserequ()
     {
@@ -2106,7 +2108,7 @@ class PersonnelPersonnel
     /**
      * Get nombheurensesupp
      *
-     * @return float 
+     * @return float
      */
     public function getNombheurensesupp()
     {
@@ -2129,7 +2131,7 @@ class PersonnelPersonnel
     /**
      * Get nombheurensecomp
      *
-     * @return float 
+     * @return float
      */
     public function getNombheurensecomp()
     {
@@ -2152,7 +2154,7 @@ class PersonnelPersonnel
     /**
      * Get cont
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCont()
     {
@@ -2175,7 +2177,7 @@ class PersonnelPersonnel
     /**
      * Get datedebucont
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatedebucont()
     {
@@ -2198,7 +2200,7 @@ class PersonnelPersonnel
     /**
      * Get datefincont
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatefincont()
     {
@@ -2221,6 +2223,7 @@ class PersonnelPersonnel
         $this->datefincont = new \DateTime();
         $this->dateaffeetabactu = new \DateTime();
     }
+
     public function __toString()
     {
         return $this->idenuniq;
@@ -2268,7 +2271,7 @@ class PersonnelPersonnel
     /**
      * Get idenuniq
      *
-     * @return string 
+     * @return string
      */
     public function getIdenuniq()
     {

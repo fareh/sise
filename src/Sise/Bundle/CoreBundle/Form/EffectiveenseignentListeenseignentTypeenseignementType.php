@@ -22,10 +22,9 @@ class EffectiveenseignentListeenseignentTypeenseignementType extends AbstractTyp
             ->add('nompren')
             ->add('enseangl')
             ->add('ensetechinfo')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

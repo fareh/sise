@@ -1,42 +1,48 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'مدرسون يتممون توقيتهم بمؤسسات تربويّةأخرى', 'RouteAction' : 'effectiveenseignentlisteenseignentheureautreetablissement' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'مدرسون يتممون توقيتهم بمؤسسات تربويّةأخرى', 'RouteAction' : 'effectiveenseignentlisteenseignentheureautreetablissement' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-<br>
-{% if entities is defined  and entities|length > 0 %}
+    <br>
+    {% if entities is defined  and entities|length > 0 %}
 
-    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-        <thead>
-        <tr>
-            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-            <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-            <td align="center" colspan="4" style="color:White;background-color:#4F81BD;font-weight:bold;">المدرسة الأخرى</td>
-        </tr><tr>
-            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع/ ر</th><th align="center" scope="col" style="color:White;background-color:#4F81BD;">الاسم واللقب</th>
-            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المعرف الوحيد</th>
-            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبــة</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">نوع المؤسسة</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">المؤسسة</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">المعتمــديـة</th>
-            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">عدد الساعات</th>
-        </tr><tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
+        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+            <thead>
             <tr>
-                <td>{{ entity.numeense }}</td>
-                <td>{{ entity.nompren }}</td>
-                <td>{{ entity.idenuniqense }}</td>
-                <td>{{ entity.codegrad.libegradar }}</td>
-                <td>{{ entity.codetypeetabautr.libetypeetabar }}</td>
-                <td>{{ entity.codeetabautr.libeetabar }}</td>
-                <td>{{ entity.codeetabautr.codedele.libedelear }}</td>
-                <td>{{ entity.nombheur }}</td>
+                <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                <td align="center" colspan="4" style="color:White;background-color:#4F81BD;font-weight:bold;">المدرسة
+                    الأخرى
+                </td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% endif %}
-    {% endblock %}
+            <tr>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع/ ر</th>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الاسم واللقب</th>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المعرف الوحيد</th>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبــة</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">نوع المؤسسة</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">المؤسسة</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">المعتمــديـة</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">عدد الساعات</th>
+            </tr>
+            <tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.numeense }}</td>
+                    <td>{{ entity.nompren }}</td>
+                    <td>{{ entity.idenuniqense }}</td>
+                    <td>{{ entity.codegrad.libegradar }}</td>
+                    <td>{{ entity.codetypeetabautr.libetypeetabar }}</td>
+                    <td>{{ entity.codeetabautr.libeetabar }}</td>
+                    <td>{{ entity.codeetabautr.codedele.libedelear }}</td>
+                    <td>{{ entity.nombheur }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

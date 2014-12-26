@@ -85,11 +85,10 @@ class NomenclatureTypelogement
     private $colltech;
 
 
-
     /**
      * Get codetypeloge
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeloge()
     {
@@ -112,7 +111,7 @@ class NomenclatureTypelogement
     /**
      * Get libetypelogear
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypelogear()
     {
@@ -135,7 +134,7 @@ class NomenclatureTypelogement
     /**
      * Get libetypelogefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypelogefr()
     {
@@ -158,7 +157,7 @@ class NomenclatureTypelogement
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureTypelogement
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureTypelogement
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureTypelogement
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureTypelogement
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureTypelogement
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,16 +295,17 @@ class NomenclatureTypelogement
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
 
-    public function  __toString(){
+    public function  __toString()
+    {
 
 
-        return ($this->getLibetypelogear())?$this->getLibetypelogear():"";
+        return ($this->getLibetypelogear()) ? $this->getLibetypelogear() : "";
     }
 }

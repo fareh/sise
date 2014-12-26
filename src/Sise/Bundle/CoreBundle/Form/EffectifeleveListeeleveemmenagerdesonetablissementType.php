@@ -25,10 +25,9 @@ class EffectifeleveListeeleveemmenagerdesonetablissementType extends AbstractTyp
             ->add('codeetabautr')
             ->add('codefili')
             ->add('codegenr')
-            ->add('codetypeetabautr')
-        ;
+            ->add('codetypeetabautr');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

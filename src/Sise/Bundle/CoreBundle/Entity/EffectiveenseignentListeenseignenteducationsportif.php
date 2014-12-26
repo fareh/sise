@@ -95,7 +95,6 @@ class EffectiveenseignentListeenseignenteducationsportif
     private $obse;
 
 
-
     /**
      * Set codeetab
      *
@@ -112,7 +111,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -135,7 +134,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -158,7 +157,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -181,7 +180,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -204,7 +203,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get nompren
      *
-     * @return string 
+     * @return string
      */
     public function getNompren()
     {
@@ -227,7 +226,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get codegrad
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrad()
     {
@@ -250,7 +249,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -273,7 +272,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get nombheursema
      *
-     * @return float 
+     * @return float
      */
     public function getNombheursema()
     {
@@ -296,7 +295,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

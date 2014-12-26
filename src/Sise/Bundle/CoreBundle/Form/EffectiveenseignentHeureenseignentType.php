@@ -21,10 +21,9 @@ class EffectiveenseignentHeureenseignentType extends AbstractType
             ->add('totaheurense')
             ->add('totaheurensesupp')
             ->add('totaheurensecomp')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

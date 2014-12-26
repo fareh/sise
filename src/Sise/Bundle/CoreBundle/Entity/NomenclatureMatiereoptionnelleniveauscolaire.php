@@ -31,7 +31,6 @@ class NomenclatureMatiereoptionnelleniveauscolaire
     private $codenivescol;
 
 
-
     /**
      * Set codematiopti
      *
@@ -48,7 +47,7 @@ class NomenclatureMatiereoptionnelleniveauscolaire
     /**
      * Get codematiopti
      *
-     * @return string 
+     * @return string
      */
     public function getCodematiopti()
     {
@@ -71,7 +70,7 @@ class NomenclatureMatiereoptionnelleniveauscolaire
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {

@@ -64,11 +64,10 @@ class ParametreRapportstatistique
     private $xmlfile;
 
 
-
     /**
      * Get coderappstat
      *
-     * @return string 
+     * @return string
      */
     public function getCoderappstat()
     {
@@ -91,7 +90,7 @@ class ParametreRapportstatistique
     /**
      * Get liberappstatar
      *
-     * @return string 
+     * @return string
      */
     public function getLiberappstatar()
     {
@@ -114,7 +113,7 @@ class ParametreRapportstatistique
     /**
      * Get liberappstatfr
      *
-     * @return string 
+     * @return string
      */
     public function getLiberappstatfr()
     {
@@ -137,7 +136,7 @@ class ParametreRapportstatistique
     /**
      * Get codecyclense
      *
-     * @return string 
+     * @return string
      */
     public function getCodecyclense()
     {
@@ -160,7 +159,7 @@ class ParametreRapportstatistique
     /**
      * Get sqlquery
      *
-     * @return string 
+     * @return string
      */
     public function getSqlquery()
     {
@@ -183,7 +182,7 @@ class ParametreRapportstatistique
     /**
      * Get typesql
      *
-     * @return string 
+     * @return string
      */
     public function getTypesql()
     {
@@ -206,7 +205,7 @@ class ParametreRapportstatistique
     /**
      * Get xmlfile
      *
-     * @return string 
+     * @return string
      */
     public function getXmlfile()
     {

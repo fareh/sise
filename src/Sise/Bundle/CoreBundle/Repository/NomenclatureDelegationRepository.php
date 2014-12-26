@@ -12,7 +12,8 @@ namespace Sise\Bundle\CoreBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 
-class NomenclatureDelegationRepository extends EntityRepository {
+class NomenclatureDelegationRepository extends EntityRepository
+{
 
 
     public function findNomenclatureDelegation($NomenclatureDelegation)

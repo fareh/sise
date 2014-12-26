@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * NomenclatureDelegation
  *
  * @ORM\Table(name="nomenclature_delegation")
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureDelegationRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureDelegationRepository")
  */
 class NomenclatureDelegation
 {
@@ -93,7 +93,6 @@ class NomenclatureDelegation
      * })
      */
     private $codecircregi;
-
 
 
     /**
@@ -316,7 +315,7 @@ class NomenclatureDelegation
 
     public function __toString()
     {
-        return ($this->getLibedelear())?$this->getLibedelear():null;
+        return ($this->getLibedelear()) ? $this->getLibedelear() : null;
     }
 
     /**
@@ -335,7 +334,7 @@ class NomenclatureDelegation
     /**
      * Get codecircregi
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional
      */
     public function getCodecircregi()
     {

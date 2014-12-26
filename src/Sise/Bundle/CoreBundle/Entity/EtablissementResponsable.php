@@ -1,6 +1,7 @@
 <?php
 
 namespace Sise\Bundle\CoreBundle\Entity;
+
 use DoctrineCommonCollectionsArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -153,7 +154,6 @@ class EtablissementResponsable
     private $maildireadjo;
 
 
-
     /**
      * Set codeetab
      *
@@ -193,7 +193,7 @@ class EtablissementResponsable
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -216,7 +216,7 @@ class EtablissementResponsable
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -239,7 +239,7 @@ class EtablissementResponsable
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -262,7 +262,7 @@ class EtablissementResponsable
     /**
      * Get idenuniqdire
      *
-     * @return string 
+     * @return string
      */
     public function getIdenuniqdire()
     {
@@ -285,7 +285,7 @@ class EtablissementResponsable
     /**
      * Get nomprendire
      *
-     * @return string 
+     * @return string
      */
     public function getNomprendire()
     {
@@ -308,7 +308,7 @@ class EtablissementResponsable
     /**
      * Get codegraddire
      *
-     * @return string 
+     * @return string
      */
     public function getCodegraddire()
     {
@@ -331,7 +331,7 @@ class EtablissementResponsable
     /**
      * Get ancidireense
      *
-     * @return float 
+     * @return float
      */
     public function getAncidireense()
     {
@@ -354,7 +354,7 @@ class EtablissementResponsable
     /**
      * Get ancidireadmi
      *
-     * @return float 
+     * @return float
      */
     public function getAncidireadmi()
     {
@@ -377,7 +377,7 @@ class EtablissementResponsable
     /**
      * Get telemobidire
      *
-     * @return string 
+     * @return string
      */
     public function getTelemobidire()
     {
@@ -400,7 +400,7 @@ class EtablissementResponsable
     /**
      * Get maildire
      *
-     * @return string 
+     * @return string
      */
     public function getMaildire()
     {
@@ -423,7 +423,7 @@ class EtablissementResponsable
     /**
      * Get idenuniqdireadjo
      *
-     * @return string 
+     * @return string
      */
     public function getIdenuniqdireadjo()
     {
@@ -446,7 +446,7 @@ class EtablissementResponsable
     /**
      * Get nomprendireadjo
      *
-     * @return string 
+     * @return string
      */
     public function getNomprendireadjo()
     {
@@ -469,7 +469,7 @@ class EtablissementResponsable
     /**
      * Get codegraddireadjo
      *
-     * @return string 
+     * @return string
      */
     public function getCodegraddireadjo()
     {
@@ -492,7 +492,7 @@ class EtablissementResponsable
     /**
      * Get ancidireadjoense
      *
-     * @return float 
+     * @return float
      */
     public function getAncidireadjoense()
     {
@@ -515,7 +515,7 @@ class EtablissementResponsable
     /**
      * Get ancidireadjoadmi
      *
-     * @return float 
+     * @return float
      */
     public function getAncidireadjoadmi()
     {
@@ -538,7 +538,7 @@ class EtablissementResponsable
     /**
      * Get telemobidireadjo
      *
-     * @return string 
+     * @return string
      */
     public function getTelemobidireadjo()
     {
@@ -561,12 +561,13 @@ class EtablissementResponsable
     /**
      * Get maildireadjo
      *
-     * @return string 
+     * @return string
      */
     public function getMaildireadjo()
     {
         return $this->maildireadjo;
     }
+
     /**
      * @var \EtablissementFicheetablissement
      *

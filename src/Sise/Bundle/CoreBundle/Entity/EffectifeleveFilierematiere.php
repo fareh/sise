@@ -81,7 +81,6 @@ class EffectifeleveFilierematiere
     private $nombgrou;
 
 
-
     /**
      * Set codeetab
      *
@@ -98,7 +97,7 @@ class EffectifeleveFilierematiere
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -121,7 +120,7 @@ class EffectifeleveFilierematiere
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -144,7 +143,7 @@ class EffectifeleveFilierematiere
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -167,7 +166,7 @@ class EffectifeleveFilierematiere
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -190,7 +189,7 @@ class EffectifeleveFilierematiere
     /**
      * Get codematiopti
      *
-     * @return string 
+     * @return string
      */
     public function getCodematiopti()
     {
@@ -213,7 +212,7 @@ class EffectifeleveFilierematiere
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -236,7 +235,7 @@ class EffectifeleveFilierematiere
     /**
      * Get nombelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelev()
     {
@@ -259,7 +258,7 @@ class EffectifeleveFilierematiere
     /**
      * Get nombgrou
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombgrou()
     {

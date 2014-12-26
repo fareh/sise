@@ -50,11 +50,10 @@ class NomenclatureCategorieentite
     private $acti;
 
 
-
     /**
      * Get codecateenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodecateenti()
     {
@@ -77,7 +76,7 @@ class NomenclatureCategorieentite
     /**
      * Get libecateentiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateentiar()
     {
@@ -100,7 +99,7 @@ class NomenclatureCategorieentite
     /**
      * Get libecateentifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateentifr()
     {
@@ -123,7 +122,7 @@ class NomenclatureCategorieentite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -146,7 +145,7 @@ class NomenclatureCategorieentite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {

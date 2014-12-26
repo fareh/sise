@@ -73,7 +73,6 @@ class ParametreDetailrapportstatistique
     private $columnfromdb;
 
 
-
     /**
      * Set coderappstat
      *
@@ -90,7 +89,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get coderappstat
      *
-     * @return string 
+     * @return string
      */
     public function getCoderappstat()
     {
@@ -113,7 +112,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get numefiel
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumefiel()
     {
@@ -136,7 +135,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get fieldname
      *
-     * @return string 
+     * @return string
      */
     public function getFieldname()
     {
@@ -159,7 +158,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get captionar
      *
-     * @return string 
+     * @return string
      */
     public function getCaptionar()
     {
@@ -182,7 +181,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get captionfr
      *
-     * @return string 
+     * @return string
      */
     public function getCaptionfr()
     {
@@ -205,7 +204,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get cssclass
      *
-     * @return string 
+     * @return string
      */
     public function getCssclass()
     {
@@ -228,7 +227,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get itemwidth
      *
-     * @return integer 
+     * @return integer
      */
     public function getItemwidth()
     {
@@ -251,7 +250,7 @@ class ParametreDetailrapportstatistique
     /**
      * Get columnfromdb
      *
-     * @return string 
+     * @return string
      */
     public function getColumnfromdb()
     {

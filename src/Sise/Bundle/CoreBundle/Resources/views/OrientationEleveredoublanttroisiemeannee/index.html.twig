@@ -42,7 +42,7 @@
                 {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
-                        {% if entity.codefiliorig.codefili == entityfilier.codefili and entity.codefilireorie.codefili ==entityfilier2.codefili  %}
+                        {% if entity.codefiliorig.codefili == entityfilier.codefili and entity.codefilireorie.codefili ==entityfilier2.codefili %}
                             <td>{{ entity.nombelevmasc }}</td>
                             <td>{{ entity.nombelevfemi }}</td>
                             <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
@@ -60,4 +60,4 @@
             </tbody>
         </table>
     {% endif %}
-    {% endblock %}
+{% endblock %}

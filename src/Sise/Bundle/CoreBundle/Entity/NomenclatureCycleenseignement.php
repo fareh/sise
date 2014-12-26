@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
+
 /**
  * NomenclatureCycleenseignement
  *
@@ -110,7 +111,7 @@ class NomenclatureCycleenseignement
     {
         $this->codeetab = new \Doctrine\Common\Collections\ArrayCollection();
         $this->codeprof = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->codenivescol =  new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -423,7 +424,7 @@ class NomenclatureCycleenseignement
     /**
      * Get codenivescol
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodenivescol()
     {

@@ -39,12 +39,10 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
             ))
             ->add('lieu')
             ->add('nombelev')
-        ->add('dist', 'choice', array(
-        'choices'   => $this->getAllDistance(),
-        'required'  => false,
-    ))
-
-            ;
+            ->add('dist', 'choice', array(
+                'choices' => $this->getAllDistance(),
+                'required' => false,
+            ));
     }
 
     /**

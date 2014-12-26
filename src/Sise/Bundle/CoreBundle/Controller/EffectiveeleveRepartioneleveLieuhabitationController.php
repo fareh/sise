@@ -79,7 +79,6 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
     }
 
 
-
     /**
      * Displays a form to edit an existing NomenclatureQuestionnaire entity.
      *
@@ -117,7 +116,7 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             foreach ($entity->getLieuhabitation() as $lieuhabitation) {
                 $originalTags->add($lieuhabitation);
             }
-            $editForm = $this->createForm(new EtablissementRecensementType($entity->getCodeetab(),$entity->getCodetypeetab(), $em), $entity);
+            $editForm = $this->createForm(new EtablissementRecensementType($entity->getCodeetab(), $entity->getCodetypeetab(), $em), $entity);
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_repartioneleve_lieuhabitation');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_repartioneleve_lieuhabitation.html.twig', array(
@@ -154,10 +153,10 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
             foreach ($entity->getLieuhabitation() as $lieuhabitation) {
                 $originalTags->add($lieuhabitation);
             }
-            $editForm = $this->createForm(new EtablissementRecensementType($entity->getCodeetab(),$entity->getCodetypeetab(), $em), $entity);
+            $editForm = $this->createForm(new EtablissementRecensementType($entity->getCodeetab(), $entity->getCodetypeetab(), $em), $entity);
             if ($request->isMethod('POST')) {
 
-                foreach($entity->getLieuhabitation() as $lieuhabitation){
+                foreach ($entity->getLieuhabitation() as $lieuhabitation) {
                     $entity->removeLieuhabitation($lieuhabitation);
                     $em->persist($entity);
                 }
@@ -165,18 +164,18 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
                 /*  $postData = $request->request->get($editForm->getName());
                 var_dump($postData);
                  die;*/
-             foreach ($originalTags as $lieuhabitation) {
+                foreach ($originalTags as $lieuhabitation) {
                     if ($entity->getLieuhabitation()->contains($lieuhabitation) == false) {
                         $lieuhabitation->getEtablissementRecensement()->removeLieuhabitation($lieuhabitation);
                         $em->persist($lieuhabitation);
                     }
                 }
-                foreach  ($entity->getLieuhabitation() as  $lieuhabitation){
+                foreach ($entity->getLieuhabitation() as $lieuhabitation) {
                     $lieuhabitation->setEtablissementRecensement($entity);
                     $lieuhabitation->setCodeetab($entity->getCodeetab());
                     $lieuhabitation->setCodetypeetab($entity->getCodetypeetab());
                     $lieuhabitation->setAnnescol($entity->getAnnescol());
-                     $lieuhabitation->setCoderece($entity->getCoderece());
+                    $lieuhabitation->setCoderece($entity->getCoderece());
                 }
                 $em->persist($entity);
                 $em->flush();
@@ -230,5 +229,4 @@ class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
     }
 
 
-
-} 
+}

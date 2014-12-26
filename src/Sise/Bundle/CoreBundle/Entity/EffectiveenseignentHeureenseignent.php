@@ -70,7 +70,6 @@ class EffectiveenseignentHeureenseignent
     private $totaheurensecomp;
 
 
-
     /**
      * Set codeetab
      *
@@ -87,7 +86,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -110,7 +109,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -133,7 +132,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -156,7 +155,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -179,7 +178,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get totaheurense
      *
-     * @return float 
+     * @return float
      */
     public function getTotaheurense()
     {
@@ -202,7 +201,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get totaheurensesupp
      *
-     * @return float 
+     * @return float
      */
     public function getTotaheurensesupp()
     {
@@ -225,7 +224,7 @@ class EffectiveenseignentHeureenseignent
     /**
      * Get totaheurensecomp
      *
-     * @return float 
+     * @return float
      */
     public function getTotaheurensecomp()
     {

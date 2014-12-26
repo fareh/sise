@@ -64,11 +64,10 @@ class SecuritePackage
     private $ordeaffi;
 
 
-
     /**
      * Get codepack
      *
-     * @return string 
+     * @return string
      */
     public function getCodepack()
     {
@@ -91,7 +90,7 @@ class SecuritePackage
     /**
      * Get libepackfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibepackfr()
     {
@@ -114,7 +113,7 @@ class SecuritePackage
     /**
      * Get libepackar
      *
-     * @return string 
+     * @return string
      */
     public function getLibepackar()
     {
@@ -137,7 +136,7 @@ class SecuritePackage
     /**
      * Get isvisi
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsvisi()
     {
@@ -160,7 +159,7 @@ class SecuritePackage
     /**
      * Get mainpage
      *
-     * @return string 
+     * @return string
      */
     public function getMainpage()
     {
@@ -183,7 +182,7 @@ class SecuritePackage
     /**
      * Get backcolor
      *
-     * @return string 
+     * @return string
      */
     public function getBackcolor()
     {
@@ -206,7 +205,7 @@ class SecuritePackage
     /**
      * Get ordeaffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdeaffi()
     {

@@ -85,11 +85,10 @@ class NomenclatureTypehandicap
     private $colltech;
 
 
-
     /**
      * Get codetypehand
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypehand()
     {
@@ -112,7 +111,7 @@ class NomenclatureTypehandicap
     /**
      * Get libetypehandar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypehandar()
     {
@@ -135,7 +134,7 @@ class NomenclatureTypehandicap
     /**
      * Get libetypehandfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypehandfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureTypehandicap
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureTypehandicap
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureTypehandicap
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureTypehandicap
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureTypehandicap
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureTypehandicap
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureTypehandicap
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

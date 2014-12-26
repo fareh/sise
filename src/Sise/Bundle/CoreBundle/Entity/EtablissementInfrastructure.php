@@ -187,6 +187,7 @@ class EtablissementInfrastructure
     {
         $this->codetypedisp = $codetypedisp;
     }
+
     /**
      * @var boolean
      *
@@ -216,6 +217,7 @@ class EtablissementInfrastructure
     {
         $this->utillocalouepret = $UtilLocaLouePret;
     }
+
     /**
      * @var integer
      *
@@ -254,6 +256,7 @@ class EtablissementInfrastructure
     {
         $this->nomblocaloueense = $nomblocaloueense;
     }
+
     /**
      * @var integer
      *
@@ -276,6 +279,7 @@ class EtablissementInfrastructure
     {
         $this->nomblocapretense = $nomblocapretense;
     }
+
     /**
      * @var integer
      *
@@ -713,6 +717,7 @@ class EtablissementInfrastructure
     {
         return $this->codesituelecatel;
     }
+
     /**
      * @var \EtablissementFicheetablissement
      *
@@ -742,7 +747,6 @@ class EtablissementInfrastructure
     {
         $this->fichetabinfr = $fichetabinfr;
     }
-
 
 
     public function __toString()

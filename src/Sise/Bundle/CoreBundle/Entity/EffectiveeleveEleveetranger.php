@@ -49,7 +49,6 @@ class EffectiveeleveEleveetranger
     private $coderece;
 
 
-
     /**
      * @var NomenclatureCycleenseignement
      * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement")
@@ -60,7 +59,6 @@ class EffectiveeleveEleveetranger
     private $codecyclense;
 
 
-
     /**
      * @var NomenclatureNationalite
      * @ORM\ManyToOne(targetEntity="NomenclatureNationalite")
@@ -69,7 +67,6 @@ class EffectiveeleveEleveetranger
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codenati;
-
 
 
     /**
@@ -94,7 +91,6 @@ class EffectiveeleveEleveetranger
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -111,7 +107,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -134,7 +130,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -157,7 +153,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -180,13 +176,12 @@ class EffectiveeleveEleveetranger
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
     }
-
 
 
     /**
@@ -205,7 +200,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -228,7 +223,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -251,7 +246,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
@@ -274,7 +269,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get codecyclense
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement
      */
     public function getCodecyclense()
     {
@@ -297,7 +292,7 @@ class EffectiveeleveEleveetranger
     /**
      * Get codenati
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite
      */
     public function getCodenati()
     {

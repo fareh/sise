@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * NomenclatureCirconscriptionregional
  *
  * @ORM\Table(name="nomenclature_circonscriptionregional")
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureCirconscriptionregionalRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureCirconscriptionregionalRepository")
  */
 class NomenclatureCirconscriptionregional
 {
@@ -57,11 +57,10 @@ class NomenclatureCirconscriptionregional
     private $acti;
 
 
-
     /**
      * Get codecircregi
      *
-     * @return string 
+     * @return string
      */
     public function getCodecircregi()
     {
@@ -84,7 +83,7 @@ class NomenclatureCirconscriptionregional
     /**
      * Get libecircregiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecircregiar()
     {
@@ -107,7 +106,7 @@ class NomenclatureCirconscriptionregional
     /**
      * Get libecircregifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecircregifr()
     {
@@ -130,7 +129,7 @@ class NomenclatureCirconscriptionregional
     /**
      * Get codegouv
      *
-     * @return string 
+     * @return string
      */
     public function getCodegouv()
     {
@@ -153,7 +152,7 @@ class NomenclatureCirconscriptionregional
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -176,12 +175,13 @@ class NomenclatureCirconscriptionregional
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
         return $this->acti;
     }
+
     public function __toString()
     {
         return $this->codecircregi;

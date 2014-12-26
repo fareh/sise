@@ -11,47 +11,49 @@
 
                 <div>
                     <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <tbody>
-                        <tr>
-                            <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                            <td align="center" colspan="3"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;">المرحلة ثانية من التعليم
-                                الأساسي
-                            </td>
-                        </tr>
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجنسية</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
-                        </tr>
-                        {% for key , entity in entities  %}
-
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
                             <tr>
-                                <td>{{ entity.codenati.libenatiar }}
-
-                                    <input type="hidden" name="val_{{ key }}"
-                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codenati.codenati }}|{{ entity.codecyclense.codecyclense }}"/>
-                                    <input type="hidden" name="key_{{ key }}"
-                                           value="codeetab|codetypeetab|annescol|coderece|codenati|codecyclense"/>
+                                <td align="center" colspan="1"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">المرحلة ثانية من
+                                    التعليم
+                                    الأساسي
                                 </td>
-                                <td align="right">
-                                    <input name="nombelevmasc{{ key }}" type="text"
-                                           value="{{ entity.nombelevmasc }}" id="nombelevmasc{{ key }}"
-                                           onchange="javascript:txtChanged(this);"></td>
-                                <td align="right">
-
-                                    <input name="nombelevfemi{{ key }}" type="text"
-                                           value="{{ entity.nombelevfemi }}" id="nombelevfemi{{ key }}"
-                                           onchange="javascript:txtChanged(this);"></td>
-                                <td align="right" style="background-color:#EEEEEE;">{{ entity.nombtotaelev }}</td>
                             </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجنسية
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            </tr>
+                            {% for key , entity in entities %}
+
+                                <tr>
+                                    <td>{{ entity.codenati.libenatiar }}
+
+                                        <input type="hidden" name="val_{{ key }}"
+                                               value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codenati.codenati }}|{{ entity.codecyclense.codecyclense }}"/>
+                                        <input type="hidden" name="key_{{ key }}"
+                                               value="codeetab|codetypeetab|annescol|coderece|codenati|codecyclense"/>
+                                    </td>
+                                    <td align="right">
+                                        <input name="nombelevmasc{{ key }}" type="text"
+                                               value="{{ entity.nombelevmasc }}" id="nombelevmasc{{ key }}"
+                                               onchange="javascript:txtChanged(this);"></td>
+                                    <td align="right">
+
+                                        <input name="nombelevfemi{{ key }}" type="text"
+                                               value="{{ entity.nombelevfemi }}" id="nombelevfemi{{ key }}"
+                                               onchange="javascript:txtChanged(this);"></td>
+                                    <td align="right" style="background-color:#EEEEEE;">{{ entity.nombtotaelev }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                         <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
                 </div>
 

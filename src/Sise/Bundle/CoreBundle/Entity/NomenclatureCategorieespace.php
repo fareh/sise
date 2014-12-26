@@ -99,11 +99,10 @@ class NomenclatureCategorieespace
     private $colltech;
 
 
-
     /**
      * Get codecateespa
      *
-     * @return string 
+     * @return string
      */
     public function getCodecateespa()
     {
@@ -126,7 +125,7 @@ class NomenclatureCategorieespace
     /**
      * Get libecateespaar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateespaar()
     {
@@ -149,7 +148,7 @@ class NomenclatureCategorieespace
     /**
      * Get libecateespafr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateespafr()
     {
@@ -172,7 +171,7 @@ class NomenclatureCategorieespace
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -195,7 +194,7 @@ class NomenclatureCategorieespace
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -218,7 +217,7 @@ class NomenclatureCategorieespace
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -241,7 +240,7 @@ class NomenclatureCategorieespace
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -264,7 +263,7 @@ class NomenclatureCategorieespace
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -287,7 +286,7 @@ class NomenclatureCategorieespace
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -310,7 +309,7 @@ class NomenclatureCategorieespace
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -343,7 +342,7 @@ class NomenclatureCategorieespace
     /**
      * Get codetypeespa
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodetypeespa()
     {

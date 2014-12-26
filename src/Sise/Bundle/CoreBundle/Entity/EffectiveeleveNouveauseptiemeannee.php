@@ -88,7 +88,6 @@ class EffectiveeleveNouveauseptiemeannee
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -105,7 +104,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -128,7 +127,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -151,7 +150,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -174,7 +173,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -197,7 +196,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get codeetabsour
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetabsour()
     {
@@ -220,7 +219,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get codetypeetabsour
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetabsour()
     {
@@ -243,7 +242,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -266,7 +265,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -289,7 +288,7 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {

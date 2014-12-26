@@ -50,11 +50,10 @@ class NomenclatureProfession
     private $acti;
 
 
-
     /**
      * Get codeprof
      *
-     * @return string 
+     * @return string
      */
     public function getCodeprof()
     {
@@ -77,7 +76,7 @@ class NomenclatureProfession
     /**
      * Get libeprofar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeprofar()
     {
@@ -100,7 +99,7 @@ class NomenclatureProfession
     /**
      * Get libeproffr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeproffr()
     {
@@ -123,7 +122,7 @@ class NomenclatureProfession
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -146,12 +145,13 @@ class NomenclatureProfession
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
         return $this->acti;
     }
+
     public function __toString()
     {
         return $this->codeprof;

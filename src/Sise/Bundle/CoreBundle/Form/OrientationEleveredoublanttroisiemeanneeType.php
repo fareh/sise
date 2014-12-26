@@ -22,10 +22,9 @@ class OrientationEleveredoublanttroisiemeanneeType extends AbstractType
             ->add('codefiliorig')
             ->add('codefilireorie')
             ->add('nombelevmasc')
-            ->add('nombelevfemi')
-        ;
+            ->add('nombelevfemi');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

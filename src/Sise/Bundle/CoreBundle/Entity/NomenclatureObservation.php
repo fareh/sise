@@ -92,11 +92,10 @@ class NomenclatureObservation
     private $colltech;
 
 
-
     /**
      * Get codeobse
      *
-     * @return string 
+     * @return string
      */
     public function getCodeobse()
     {
@@ -119,7 +118,7 @@ class NomenclatureObservation
     /**
      * Get libeobsear
      *
-     * @return string 
+     * @return string
      */
     public function getLibeobsear()
     {
@@ -142,7 +141,7 @@ class NomenclatureObservation
     /**
      * Get libeobsefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeobsefr()
     {
@@ -165,7 +164,7 @@ class NomenclatureObservation
     /**
      * Get codecateenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodecateenti()
     {
@@ -188,7 +187,7 @@ class NomenclatureObservation
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +210,7 @@ class NomenclatureObservation
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +233,7 @@ class NomenclatureObservation
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +256,7 @@ class NomenclatureObservation
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +279,7 @@ class NomenclatureObservation
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +302,7 @@ class NomenclatureObservation
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,7 +325,7 @@ class NomenclatureObservation
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

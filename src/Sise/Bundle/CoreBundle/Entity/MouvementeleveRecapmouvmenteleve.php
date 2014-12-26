@@ -50,7 +50,7 @@ class MouvementeleveRecapmouvmenteleve
 
     /**
      * @var \NomenclatureFiliere
-     *@ORM\Id
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
      * @ORM\JoinColumns({
@@ -61,7 +61,7 @@ class MouvementeleveRecapmouvmenteleve
 
     /**
      * @var \NomenclatureNiveauscolaire
-     *@ORM\Id
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
      * @ORM\JoinColumns({
@@ -72,7 +72,7 @@ class MouvementeleveRecapmouvmenteleve
 
     /**
      * @var \NomenclatureGenre
-     *@ORM\Id
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
      * @ORM\JoinColumns({
@@ -152,7 +152,6 @@ class MouvementeleveRecapmouvmenteleve
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -169,7 +168,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -192,7 +191,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -215,7 +214,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -238,7 +237,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -261,7 +260,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -284,7 +283,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -307,7 +306,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -330,7 +329,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelev16octobre
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelev16octobre()
     {
@@ -353,7 +352,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevvenaautretab
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevvenaautretab()
     {
@@ -376,7 +375,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevdeplautretab
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevdeplautretab()
     {
@@ -399,7 +398,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevsepa
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevsepa()
     {
@@ -422,7 +421,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevexcl
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevexcl()
     {
@@ -445,7 +444,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelev30juin
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelev30juin()
     {
@@ -468,7 +467,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevreus
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevreus()
     {
@@ -491,7 +490,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevredo()
     {
@@ -514,7 +513,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombelevexcl30juin
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevexcl30juin()
     {
@@ -537,7 +536,7 @@ class MouvementeleveRecapmouvmenteleve
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {

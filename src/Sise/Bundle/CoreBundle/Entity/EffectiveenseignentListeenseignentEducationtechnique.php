@@ -126,7 +126,6 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $obse;
 
 
-
     /**
      * Set codeetab
      *
@@ -143,7 +142,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -166,7 +165,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -189,7 +188,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -212,7 +211,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -235,7 +234,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get numeense
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeense()
     {
@@ -258,7 +257,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get nompren
      *
-     * @return string 
+     * @return string
      */
     public function getNompren()
     {
@@ -281,7 +280,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -304,7 +303,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codedipl
      *
-     * @return string 
+     * @return string
      */
     public function getCodedipl()
     {
@@ -327,7 +326,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codespec
      *
-     * @return string 
+     * @return string
      */
     public function getCodespec()
     {
@@ -350,7 +349,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get gradactu
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getGradactu()
     {
@@ -373,7 +372,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codetypetrav
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypetrav()
     {
@@ -396,7 +395,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get nombheursema
      *
-     * @return float 
+     * @return float
      */
     public function getNombheursema()
     {
@@ -419,7 +418,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

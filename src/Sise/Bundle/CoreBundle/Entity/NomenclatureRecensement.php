@@ -99,7 +99,6 @@ class NomenclatureRecensement
     private $dureperi;
 
 
-
     /**
      * Get coderece
      *

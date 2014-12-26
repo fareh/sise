@@ -85,11 +85,10 @@ class NomenclatureCauseremplacementprovisoire
     private $colltech;
 
 
-
     /**
      * Get codecausrempprov
      *
-     * @return string 
+     * @return string
      */
     public function getCodecausrempprov()
     {
@@ -112,7 +111,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get libecausrempprovar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecausrempprovar()
     {
@@ -135,7 +134,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get libecausrempprovfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecausrempprovfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureCauseremplacementprovisoire
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

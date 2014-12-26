@@ -45,7 +45,7 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
         // On récupère la liste des rôles d'un utilisateur
         $roles = $this->security->getToken()->getRoles();
         // On transforme le tableau d'instance en tableau simple
-        $rolesTab = array_map(function($role){
+        $rolesTab = array_map(function ($role) {
             return $role->getRole();
         }, $roles);
         // Si c'est un commercial, admin ou un super admin on redirige vers la page de login. Ici nous utilisons la route de FOSUserBundle.

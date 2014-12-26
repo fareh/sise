@@ -85,11 +85,10 @@ class NomenclatureQualite
     private $colltech;
 
 
-
     /**
      * Get codequal
      *
-     * @return string 
+     * @return string
      */
     public function getCodequal()
     {
@@ -112,7 +111,7 @@ class NomenclatureQualite
     /**
      * Get libequalar
      *
-     * @return string 
+     * @return string
      */
     public function getLibequalar()
     {
@@ -135,7 +134,7 @@ class NomenclatureQualite
     /**
      * Get libequalfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibequalfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureQualite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureQualite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureQualite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureQualite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureQualite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureQualite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureQualite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codequal;

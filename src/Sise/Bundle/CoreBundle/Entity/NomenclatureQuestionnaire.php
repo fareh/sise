@@ -134,11 +134,10 @@ class NomenclatureQuestionnaire
     private $codeenti;
 
 
-
     /**
      * Get codeques
      *
-     * @return string 
+     * @return string
      */
     public function getCodeques()
     {
@@ -161,7 +160,7 @@ class NomenclatureQuestionnaire
     /**
      * Get libequesfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibequesfr()
     {
@@ -184,7 +183,7 @@ class NomenclatureQuestionnaire
     /**
      * Get libequesar
      *
-     * @return string 
+     * @return string
      */
     public function getLibequesar()
     {
@@ -207,7 +206,7 @@ class NomenclatureQuestionnaire
     /**
      * Get nameclass
      *
-     * @return string 
+     * @return string
      */
     public function getNameclass()
     {
@@ -230,7 +229,7 @@ class NomenclatureQuestionnaire
     /**
      * Get spBrowse
      *
-     * @return string 
+     * @return string
      */
     public function getSpBrowse()
     {
@@ -253,7 +252,7 @@ class NomenclatureQuestionnaire
     /**
      * Get spInsert
      *
-     * @return string 
+     * @return string
      */
     public function getSpInsert()
     {
@@ -276,7 +275,7 @@ class NomenclatureQuestionnaire
     /**
      * Get spEdit
      *
-     * @return string 
+     * @return string
      */
     public function getSpEdit()
     {
@@ -299,7 +298,7 @@ class NomenclatureQuestionnaire
     /**
      * Get spInit
      *
-     * @return string 
+     * @return string
      */
     public function getSpInit()
     {
@@ -322,7 +321,7 @@ class NomenclatureQuestionnaire
     /**
      * Get ordrexec
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdrexec()
     {
@@ -345,7 +344,7 @@ class NomenclatureQuestionnaire
     /**
      * Get codepack
      *
-     * @return string 
+     * @return string
      */
     public function getCodepack()
     {
@@ -368,7 +367,7 @@ class NomenclatureQuestionnaire
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -391,7 +390,7 @@ class NomenclatureQuestionnaire
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -414,7 +413,7 @@ class NomenclatureQuestionnaire
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -437,7 +436,7 @@ class NomenclatureQuestionnaire
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -460,7 +459,7 @@ class NomenclatureQuestionnaire
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -483,7 +482,7 @@ class NomenclatureQuestionnaire
     /**
      * Get codeenti
      *
-     * @return string 
+     * @return string
      */
     public function getCodeenti()
     {
@@ -506,7 +505,7 @@ class NomenclatureQuestionnaire
     /**
      * Get routeclass
      *
-     * @return string 
+     * @return string
      */
     public function getRouteclass()
     {

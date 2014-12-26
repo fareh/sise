@@ -20,10 +20,8 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
-
 use Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional;
-
 
 
 class RegistrationFormType extends AbstractType
@@ -70,7 +68,6 @@ class RegistrationFormType extends AbstractType
                     )),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
-
             ->add('matr', null, array(
                 'label' => 'المعرف الوحيد',
                 'translation_domain' => 'FOSUserBundle',
@@ -80,7 +77,6 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
-
             ->add('nomprenutil', null, array(
                 'label' => 'الاسم و اللقب',
                 'translation_domain' => 'FOSUserBundle',
@@ -109,8 +105,6 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
-
-
             ->add('codenivehier', null, array(
                 'label' => 'المستوى الإداري',
                 'translation_domain' => 'FOSUserBundle',
@@ -120,7 +114,7 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
-           ->add('codecircregi', 'entity', array(
+            ->add('codecircregi', 'entity', array(
                 'label' => 'المندوبية الجهوية ',
                 'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
                 'property' => 'libecircregiar',
@@ -132,16 +126,16 @@ class RegistrationFormType extends AbstractType
                     'class' => 'sr-only',
                 )));
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent  $event) use ($builder) {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder) {
 
             $codecircregi = $event->getData();
 
             $form = $event->getForm();
             $data = $event->getData();
-            if(! $data instanceof User || !$data->getCodecircregi())
+            if (!$data instanceof User || !$data->getCodecircregi())
                 return;
-            if($data instanceof User){
-                $codecircregi = ($data->getCodecircregi()) ? $data->getCodecircregi() : null ;
+            if ($data instanceof User) {
+                $codecircregi = ($data->getCodecircregi()) ? $data->getCodecircregi() : null;
             }
 
             $builder->addEventListener(FormEvents::PRE_BIND, function (FormEvent $event) use ($builder) {
@@ -152,15 +146,15 @@ class RegistrationFormType extends AbstractType
                 var_dump($data);
 
                 if (array_key_exists('country', $data)) {
-                   // $refreshStates($form, $data['country']);
+                    // $refreshStates($form, $data['country']);
                 }
             });
 
-            $event->getForm()->add($builder->getFormFactory()->createNamed('codedele', 'entity',null, array(
+            $event->getForm()->add($builder->getFormFactory()->createNamed('codedele', 'entity', null, array(
                 'auto_initialize' => false,
                 'label' => 'المعتمدية',
                 'class' => 'SiseCoreBundle:NomenclatureDelegation',
-                'query_builder' => function(EntityRepository $er){
+                'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('c')
                         ->where('c.codecircregi = :codecircregi')
                         ->setParameter('codecircregi', '11');
@@ -173,7 +167,7 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => array(
                     'class' => 'sr-only',
                 ),
-                'query_builder' => function(EntityRepository $er){
+                'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('c')
                         ->where('c.codecircregi = :codecircregi')
                         ->setParameter('codecircregi', '11');
@@ -181,7 +175,7 @@ class RegistrationFormType extends AbstractType
             )));
 
 
-            $event->getForm()->add($builder->getFormFactory()->createNamed('codetypeetab', 'entity',null, array(
+            $event->getForm()->add($builder->getFormFactory()->createNamed('codetypeetab', 'entity', null, array(
                 'auto_initialize' => false,
                 'label' => 'نوع المؤسسة',
                 'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
@@ -192,15 +186,14 @@ class RegistrationFormType extends AbstractType
                 ),
                 'label_attr' => array(
                     'class' => 'sr-only',
-                ) ,
-                'query_builder' => function(EntityRepository $er){
-                    return $er->createQueryBuilder('c')
-                   ;
+                ),
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('c');
                 }
             )));
 
 
-            $event->getForm()->add($builder->getFormFactory()->createNamed('codeetab', 'entity',null, array(
+            $event->getForm()->add($builder->getFormFactory()->createNamed('codeetab', 'entity', null, array(
                 'auto_initialize' => false,
                 'label' => 'المؤسسة',
                 'class' => 'SiseCoreBundle:NomenclatureEtablissement',
@@ -211,25 +204,14 @@ class RegistrationFormType extends AbstractType
                 ),
                 'label_attr' => array(
                     'class' => 'sr-only',
-                ) ,
-                'query_builder' => function(EntityRepository $er){
+                ),
+                'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('c')
                         ->where('c.codetypeetab = :codetypeetab')
                         ->setParameter('codetypeetab', '10');
                 }
             )));
-        });
-
-
-
-
-
-
-
-
-
-
-        /*  $builder  ->add('codedele', 'entity', array(
+        });/*  $builder  ->add('codedele', 'entity', array(
                   'label' => 'المعتمدية',
                   'class' => 'SiseCoreBundle:NomenclatureDelegation',
                'query_builder' => function(EntityRepository $er){
@@ -272,9 +254,7 @@ class RegistrationFormType extends AbstractType
                   ),
                   'label_attr' => array(
                       'class' => 'sr-only',
-                  ))) */
-        ;
-
+                  ))) */;
 
 
     }

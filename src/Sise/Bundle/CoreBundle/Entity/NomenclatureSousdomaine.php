@@ -91,11 +91,10 @@ class NomenclatureSousdomaine
     private $colltech;
 
 
-
     /**
      * Get codesousdoma
      *
-     * @return string 
+     * @return string
      */
     public function getCodesousdoma()
     {
@@ -118,7 +117,7 @@ class NomenclatureSousdomaine
     /**
      * Get libesousdomaar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesousdomaar()
     {
@@ -141,12 +140,13 @@ class NomenclatureSousdomaine
     /**
      * Get libesousdomafr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesousdomafr()
     {
         return $this->libesousdomafr;
     }
+
     /**
      * Set ordraffi
      *
@@ -163,7 +163,7 @@ class NomenclatureSousdomaine
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -186,7 +186,7 @@ class NomenclatureSousdomaine
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -209,7 +209,7 @@ class NomenclatureSousdomaine
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -232,7 +232,7 @@ class NomenclatureSousdomaine
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -255,7 +255,7 @@ class NomenclatureSousdomaine
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -278,7 +278,7 @@ class NomenclatureSousdomaine
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -301,13 +301,12 @@ class NomenclatureSousdomaine
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
-
 
 
     /**
@@ -326,7 +325,7 @@ class NomenclatureSousdomaine
     /**
      * Get codedoma
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine
      */
     public function getCodedoma()
     {

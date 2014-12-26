@@ -5,40 +5,40 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeetab</th>
-                <td>{{ entity.codeetab }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetab</th>
-                <td>{{ entity.codetypeetab }}</td>
-            </tr>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Nomprenense</th>
-                <td>{{ entity.nomprenense }}</td>
-            </tr>
-            <tr>
-                <th>Nombheur</th>
-                <td>{{ entity.nombheur }}</td>
-            </tr>
+        <tr>
+            <th>Codeetab</th>
+            <td>{{ entity.codeetab }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetab</th>
+            <td>{{ entity.codetypeetab }}</td>
+        </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Nomprenense</th>
+            <td>{{ entity.nomprenense }}</td>
+        </tr>
+        <tr>
+            <th>Nombheur</th>
+            <td>{{ entity.nombheur }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('effectiveenseignentlisteremplacementprovisoire') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('effectiveenseignentlisteremplacementprovisoire_edit', { 'id': entity.codeetab }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('effectiveenseignentlisteremplacementprovisoire') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('effectiveenseignentlisteremplacementprovisoire_edit', { 'id': entity.codeetab }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

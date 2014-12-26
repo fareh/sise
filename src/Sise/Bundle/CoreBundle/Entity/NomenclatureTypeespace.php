@@ -42,7 +42,6 @@ class NomenclatureTypeespace
     protected $codecateespa;
 
 
-
     /**
      * @var integer
      *
@@ -93,11 +92,10 @@ class NomenclatureTypeespace
     private $colltech;
 
 
-
     /**
      * Get codetypeespa
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeespa()
     {
@@ -120,7 +118,7 @@ class NomenclatureTypeespace
     /**
      * Get libetypeespaar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeespaar()
     {
@@ -143,13 +141,12 @@ class NomenclatureTypeespace
     /**
      * Get libetypeespafr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeespafr()
     {
         return $this->libetypeespafr;
     }
-
 
 
     /**
@@ -168,7 +165,7 @@ class NomenclatureTypeespace
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -191,7 +188,7 @@ class NomenclatureTypeespace
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -214,7 +211,7 @@ class NomenclatureTypeespace
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -237,7 +234,7 @@ class NomenclatureTypeespace
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -260,7 +257,7 @@ class NomenclatureTypeespace
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -283,7 +280,7 @@ class NomenclatureTypeespace
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -306,7 +303,7 @@ class NomenclatureTypeespace
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -329,7 +326,7 @@ class NomenclatureTypeespace
     /**
      * Get codecateespa
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace
      */
     public function getCodecateespa()
     {

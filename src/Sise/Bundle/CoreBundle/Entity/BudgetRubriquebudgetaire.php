@@ -57,11 +57,10 @@ class BudgetRubriquebudgetaire
     private $acti;
 
 
-
     /**
      * Get coderubrbudg
      *
-     * @return string 
+     * @return string
      */
     public function getCoderubrbudg()
     {
@@ -84,7 +83,7 @@ class BudgetRubriquebudgetaire
     /**
      * Get liberubrbudgar
      *
-     * @return string 
+     * @return string
      */
     public function getLiberubrbudgar()
     {
@@ -107,7 +106,7 @@ class BudgetRubriquebudgetaire
     /**
      * Get liberubrbudgfr
      *
-     * @return string 
+     * @return string
      */
     public function getLiberubrbudgfr()
     {
@@ -130,7 +129,7 @@ class BudgetRubriquebudgetaire
     /**
      * Get codetyperubrbudg
      *
-     * @return string 
+     * @return string
      */
     public function getCodetyperubrbudg()
     {
@@ -153,7 +152,7 @@ class BudgetRubriquebudgetaire
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -176,7 +175,7 @@ class BudgetRubriquebudgetaire
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {

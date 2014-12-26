@@ -36,11 +36,10 @@ class ParametreStatuseleve
     private $libestatar;
 
 
-
     /**
      * Get codestat
      *
-     * @return string 
+     * @return string
      */
     public function getCodestat()
     {
@@ -63,7 +62,7 @@ class ParametreStatuseleve
     /**
      * Get libestatfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibestatfr()
     {
@@ -86,7 +85,7 @@ class ParametreStatuseleve
     /**
      * Get libestatar
      *
-     * @return string 
+     * @return string
      */
     public function getLibestatar()
     {

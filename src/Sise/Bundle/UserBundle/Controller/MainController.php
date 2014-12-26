@@ -12,16 +12,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
- class MainController extends Controller
+class MainController extends Controller
 {
     public function updateAction($id)
     {
     }
 
 
-     public function registerAction(Request $request)
-     {
+    public function registerAction(Request $request)
+    {
 
-         die;
-     }
+        die;
+    }
 }

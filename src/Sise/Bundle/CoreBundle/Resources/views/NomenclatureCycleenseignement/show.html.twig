@@ -5,60 +5,60 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codecyclense</th>
-                <td>{{ entity.codecyclense }}</td>
-            </tr>
-            <tr>
-                <th>Libecyclensear</th>
-                <td>{{ entity.libecyclensear }}</td>
-            </tr>
-            <tr>
-                <th>Libecyclensefr</th>
-                <td>{{ entity.libecyclensefr }}</td>
-            </tr>
-            <tr>
-                <th>Ordraffi</th>
-                <td>{{ entity.ordraffi }}</td>
-            </tr>
-            <tr>
-                <th>Acti</th>
-                <td>{{ entity.acti }}</td>
-            </tr>
-            <tr>
-                <th>Prep</th>
-                <td>{{ entity.prep }}</td>
-            </tr>
-            <tr>
-                <th>Prim</th>
-                <td>{{ entity.prim }}</td>
-            </tr>
-            <tr>
-                <th>Collgene</th>
-                <td>{{ entity.collgene }}</td>
-            </tr>
-            <tr>
-                <th>Lyce</th>
-                <td>{{ entity.lyce }}</td>
-            </tr>
-            <tr>
-                <th>Colltech</th>
-                <td>{{ entity.colltech }}</td>
-            </tr>
+        <tr>
+            <th>Codecyclense</th>
+            <td>{{ entity.codecyclense }}</td>
+        </tr>
+        <tr>
+            <th>Libecyclensear</th>
+            <td>{{ entity.libecyclensear }}</td>
+        </tr>
+        <tr>
+            <th>Libecyclensefr</th>
+            <td>{{ entity.libecyclensefr }}</td>
+        </tr>
+        <tr>
+            <th>Ordraffi</th>
+            <td>{{ entity.ordraffi }}</td>
+        </tr>
+        <tr>
+            <th>Acti</th>
+            <td>{{ entity.acti }}</td>
+        </tr>
+        <tr>
+            <th>Prep</th>
+            <td>{{ entity.prep }}</td>
+        </tr>
+        <tr>
+            <th>Prim</th>
+            <td>{{ entity.prim }}</td>
+        </tr>
+        <tr>
+            <th>Collgene</th>
+            <td>{{ entity.collgene }}</td>
+        </tr>
+        <tr>
+            <th>Lyce</th>
+            <td>{{ entity.lyce }}</td>
+        </tr>
+        <tr>
+            <th>Colltech</th>
+            <td>{{ entity.colltech }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('nomenclaturecycleenseignement') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('nomenclaturecycleenseignement_edit', { 'id': entity.codecyclense }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('nomenclaturecycleenseignement') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('nomenclaturecycleenseignement_edit', { 'id': entity.codecyclense }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

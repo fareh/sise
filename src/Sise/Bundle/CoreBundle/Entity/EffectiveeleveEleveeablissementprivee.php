@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveEleveeablissementprivee
  *
  * @ORM\Table(name="effectiveeleve_eleveeablissementprivee", indexes={@ORM\Index(name="FK_EffectiveEleve_EleveEablissementPrivee_Nomenclature_NiveauS62", columns={"CodeNiveScol"}), @ORM\Index(name="FK_EffectiveEleve_EleveEablissementPrivee_Nomenclature_Recense63", columns={"CodeRece"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveEleveeablissementpriveeRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveEleveeablissementpriveeRepository")
  */
 class EffectiveeleveEleveeablissementprivee
 {
@@ -64,7 +64,7 @@ class EffectiveeleveEleveeablissementprivee
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-        private $codenivescol;
+    private $codenivescol;
 
     /**
      * @var integer
@@ -116,7 +116,6 @@ class EffectiveeleveEleveeablissementprivee
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -133,7 +132,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -156,7 +155,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -179,7 +178,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -202,7 +201,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -225,7 +224,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get nombelevmascnouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascnouv()
     {
@@ -248,7 +247,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get nombelevfeminouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfeminouv()
     {
@@ -272,7 +271,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get nombelevmascredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascredo()
     {
@@ -293,11 +292,10 @@ class EffectiveeleveEleveeablissementprivee
     }
 
 
-
     /**
      * Get nombelevfemiredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemiredo()
     {
@@ -320,7 +318,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get nombtotaelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevmasc()
     {
@@ -343,7 +341,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get nombtotaelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevfemi()
     {
@@ -367,7 +365,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
@@ -390,7 +388,7 @@ class EffectiveeleveEleveeablissementprivee
     /**
      * Get codenivescol
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire
      */
     public function getCodenivescol()
     {

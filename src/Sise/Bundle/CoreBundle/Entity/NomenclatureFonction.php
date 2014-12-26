@@ -85,11 +85,10 @@ class NomenclatureFonction
     private $colltech;
 
 
-
     /**
      * Get codefonc
      *
-     * @return string 
+     * @return string
      */
     public function getCodefonc()
     {
@@ -112,7 +111,7 @@ class NomenclatureFonction
     /**
      * Get libefoncar
      *
-     * @return string 
+     * @return string
      */
     public function getLibefoncar()
     {
@@ -135,7 +134,7 @@ class NomenclatureFonction
     /**
      * Get libefoncfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibefoncfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureFonction
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureFonction
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureFonction
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureFonction
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureFonction
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureFonction
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureFonction
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codefonc;

@@ -5,83 +5,83 @@
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
     <center>
-    <br>
+        <br>
 
-    <div id="CPHMain_UP">
+        <div id="CPHMain_UP">
 
 
-    <table style="font: 8pt verdana; width: 100%" dir="rtl">
-        <tbody>
-        <tr>
-            <th style="border-bottom: 1px solid #3768BC; text-align: right;
+            <table style="font: 8pt verdana; width: 100%" dir="rtl">
+                <tbody>
+                <tr>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 1%; background-color: #4F81BD">
-                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                        <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
 
                                     </span></strong>
-            </th>
-            <th style="border-bottom: 1px solid #3768BC; text-align: right;
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 35%; background-color: #4F81BD">
-                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                        <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
                                         المكــان
                                     </span></strong>
-            </th>
-            <th style="border-bottom: 1px solid #3768BC; text-align: right;
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 15%; background-color: #4F81BD">
-                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                        <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
                                         عــدد التـلاميــذ</span></strong>
-            </th>
-            <th style="border-bottom: 1px solid #3768BC; text-align: right;
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 15%; background-color: #4F81BD">
-                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                        <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
                                         المعتمــديـة</span></strong>
-            </th>
-            <th style="border-bottom: 1px solid #3768BC; text-align: right;
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 14%; background-color: #4F81BD">
-                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                        <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
                                         المســافة</span></strong>
-            </th>
-            <th style="border-bottom: 1px solid #3768BC; text-align: right;
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 5%; background-color: #4F81BD">
-                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                        <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
 
                                     </span></strong>
-            </th>
-        </tr>
-        </tbody>
-    </table>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
 
 
-    <table style="font: 12pt verdana; width: 100%">
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-        <td style="border-bottom: black 1px solid; width: 1%; vertical-align: top; color: white">
-            {{ entity.id }}
-        </td>
-        <td style="border-bottom: black 1px solid; width: 35%; vertical-align: top">
-            {{ entity.lieu }}
-        </td>
-        <td style="border-bottom: black 1px solid; width: 15%; vertical-align: top">
-            {{ entity.nombelev }}
-        </td>
-        <td style="border-bottom: black 1px solid; width: 15%; vertical-align: top">
-            {{ entity.codedele}}
-        </td>
+            <table style="font: 12pt verdana; width: 100%">
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td style="border-bottom: black 1px solid; width: 1%; vertical-align: top; color: white">
+                            {{ entity.id }}
+                        </td>
+                        <td style="border-bottom: black 1px solid; width: 35%; vertical-align: top">
+                            {{ entity.lieu }}
+                        </td>
+                        <td style="border-bottom: black 1px solid; width: 15%; vertical-align: top">
+                            {{ entity.nombelev }}
+                        </td>
+                        <td style="border-bottom: black 1px solid; width: 15%; vertical-align: top">
+                            {{ entity.codedele }}
+                        </td>
 
-        <td style="border-bottom: black 1px solid; width: 14%; vertical-align: top">
-            {{ entity.dist }}
-        </td>
-        <td style="border-bottom: black 1px solid; width: 5%; vertical-align: top">
+                        <td style="border-bottom: black 1px solid; width: 14%; vertical-align: top">
+                            {{ entity.dist }}
+                        </td>
+                        <td style="border-bottom: black 1px solid; width: 5%; vertical-align: top">
 
-        </td>
-        </tr>
+                        </td>
+                    </tr>
 
-    {% endfor %}
-    </tbody>
-    </table>
+                {% endfor %}
+                </tbody>
+            </table>
 
 
-    </div>
+        </div>
     </center>
 
 {% endblock %}

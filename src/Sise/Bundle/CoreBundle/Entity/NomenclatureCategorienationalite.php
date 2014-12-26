@@ -85,11 +85,10 @@ class NomenclatureCategorienationalite
     private $colltech;
 
 
-
     /**
      * Get codecatenati
      *
-     * @return string 
+     * @return string
      */
     public function getCodecatenati()
     {
@@ -112,7 +111,7 @@ class NomenclatureCategorienationalite
     /**
      * Get libecatenatiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecatenatiar()
     {
@@ -135,7 +134,7 @@ class NomenclatureCategorienationalite
     /**
      * Get libecatenatifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecatenatifr()
     {
@@ -158,7 +157,7 @@ class NomenclatureCategorienationalite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureCategorienationalite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureCategorienationalite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureCategorienationalite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureCategorienationalite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureCategorienationalite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureCategorienationalite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

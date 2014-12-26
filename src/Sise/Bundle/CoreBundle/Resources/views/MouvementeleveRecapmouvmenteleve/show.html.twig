@@ -5,64 +5,64 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Nombelev16octobre</th>
-                <td>{{ entity.nombelev16octobre }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevvenaautretab</th>
-                <td>{{ entity.nombelevvenaautretab }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevdeplautretab</th>
-                <td>{{ entity.nombelevdeplautretab }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevsepa</th>
-                <td>{{ entity.nombelevsepa }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevexcl</th>
-                <td>{{ entity.nombelevexcl }}</td>
-            </tr>
-            <tr>
-                <th>Nombelev30juin</th>
-                <td>{{ entity.nombelev30juin }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevreus</th>
-                <td>{{ entity.nombelevreus }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevredo</th>
-                <td>{{ entity.nombelevredo }}</td>
-            </tr>
-            <tr>
-                <th>Nombelevexcl30juin</th>
-                <td>{{ entity.nombelevexcl30juin }}</td>
-            </tr>
-            <tr>
-                <th>Nombtotaelev</th>
-                <td>{{ entity.nombtotaelev }}</td>
-            </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Nombelev16octobre</th>
+            <td>{{ entity.nombelev16octobre }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevvenaautretab</th>
+            <td>{{ entity.nombelevvenaautretab }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevdeplautretab</th>
+            <td>{{ entity.nombelevdeplautretab }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevsepa</th>
+            <td>{{ entity.nombelevsepa }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevexcl</th>
+            <td>{{ entity.nombelevexcl }}</td>
+        </tr>
+        <tr>
+            <th>Nombelev30juin</th>
+            <td>{{ entity.nombelev30juin }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevreus</th>
+            <td>{{ entity.nombelevreus }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevredo</th>
+            <td>{{ entity.nombelevredo }}</td>
+        </tr>
+        <tr>
+            <th>Nombelevexcl30juin</th>
+            <td>{{ entity.nombelevexcl30juin }}</td>
+        </tr>
+        <tr>
+            <th>Nombtotaelev</th>
+            <td>{{ entity.nombtotaelev }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('mouvementeleverecapmouvmenteleve') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('mouvementeleverecapmouvmenteleve_edit', { 'id': entity.annescol }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('mouvementeleverecapmouvmenteleve') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('mouvementeleverecapmouvmenteleve_edit', { 'id': entity.annescol }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

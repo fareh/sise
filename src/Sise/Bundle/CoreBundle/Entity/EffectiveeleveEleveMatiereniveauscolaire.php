@@ -114,7 +114,6 @@ class EffectiveeleveEleveMatiereniveauscolaire
     private $nombtotaelevredo;
 
 
-
     /**
      * Set codeetab
      *
@@ -131,7 +130,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -154,7 +153,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -177,7 +176,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -200,7 +199,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -223,7 +222,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get codematiopti
      *
-     * @return string 
+     * @return string
      */
     public function getCodematiopti()
     {
@@ -246,7 +245,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombgrou
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombgrou()
     {
@@ -269,7 +268,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
@@ -292,7 +291,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombelevmascnouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascnouv()
     {
@@ -315,7 +314,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombelevmascredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascredo()
     {
@@ -338,7 +337,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombelevfeminouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfeminouv()
     {
@@ -361,7 +360,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombelevfemiredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemiredo()
     {
@@ -384,7 +383,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombtotaelevnouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevnouv()
     {
@@ -407,7 +406,7 @@ class EffectiveeleveEleveMatiereniveauscolaire
     /**
      * Get nombtotaelevredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevredo()
     {

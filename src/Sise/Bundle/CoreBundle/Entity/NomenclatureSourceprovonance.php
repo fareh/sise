@@ -85,11 +85,10 @@ class NomenclatureSourceprovonance
     private $colltech;
 
 
-
     /**
      * Get codesourprov
      *
-     * @return string 
+     * @return string
      */
     public function getCodesourprov()
     {
@@ -112,7 +111,7 @@ class NomenclatureSourceprovonance
     /**
      * Get libesourprovar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesourprovar()
     {
@@ -135,7 +134,7 @@ class NomenclatureSourceprovonance
     /**
      * Get libesourprovfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesourprovfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureSourceprovonance
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureSourceprovonance
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureSourceprovonance
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureSourceprovonance
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureSourceprovonance
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureSourceprovonance
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureSourceprovonance
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

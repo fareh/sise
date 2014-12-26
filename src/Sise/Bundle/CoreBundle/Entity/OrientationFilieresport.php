@@ -4,11 +4,12 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
+
 /**
  * OrientationFilieresport
  *
  * @ORM\Table(name="orientation_filieresport")
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\OrientationFilieresportRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\OrientationFilieresportRepository")
  */
 class OrientationFilieresport
 {
@@ -84,7 +85,6 @@ class OrientationFilieresport
     private $nombelevfemi;
 
 
-
     /**
      * @var integer
      *
@@ -109,7 +109,7 @@ class OrientationFilieresport
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -132,7 +132,7 @@ class OrientationFilieresport
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -155,7 +155,7 @@ class OrientationFilieresport
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -178,7 +178,7 @@ class OrientationFilieresport
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -202,7 +202,7 @@ class OrientationFilieresport
     /**
      * Get anne
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnne()
     {
@@ -225,7 +225,7 @@ class OrientationFilieresport
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -248,7 +248,7 @@ class OrientationFilieresport
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -271,7 +271,7 @@ class OrientationFilieresport
     /**
      * Get codefiliorig
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere
      */
     public function getCodefiliorig()
     {
@@ -294,7 +294,7 @@ class OrientationFilieresport
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {

@@ -22,10 +22,9 @@ class EffectiveenseignentGradeheuretravailType extends AbstractType
             ->add('codeetab')
             ->add('codegrad')
             ->add('codeheurense')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

@@ -23,7 +23,7 @@ class PersonnelPersonnelController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-    //    $session = $request->getSession();
+        //    $session = $request->getSession();
         $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType())->getForm();
         $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->findAll();
         if ($request->isMethod('POST')) {
@@ -59,6 +59,7 @@ class PersonnelPersonnelController extends Controller
             'pathfilter' => '',
         ));
     }
+
     /**
      * Creates a new PersonnelPersonnel entity.
      *
@@ -79,7 +80,7 @@ class PersonnelPersonnelController extends Controller
 
         return $this->render('SiseCoreBundle:PersonnelPersonnel:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -97,7 +98,7 @@ class PersonnelPersonnelController extends Controller
             'method' => 'POST',
         ));
 
-       // $form->add('submit', 'submit', array('label' => 'Create'));
+        // $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -109,12 +110,12 @@ class PersonnelPersonnelController extends Controller
     public function newAction()
     {
         $entity = new PersonnelPersonnel();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
         $formpers = $this->container->get('form.factory')->createBuilder(new NomenclatureSoussituationadministrativeType())->getForm();
         return $this->render('SiseCoreBundle:PersonnelPersonnel:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
-            'formpers'   => $formpers->createView(),
+            'form' => $form->createView(),
+            'formpers' => $formpers->createView(),
         ));
     }
 
@@ -135,7 +136,7 @@ class PersonnelPersonnelController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:PersonnelPersonnel:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -158,20 +159,20 @@ class PersonnelPersonnelController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:PersonnelPersonnel:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'formpers'   => $formpers->createView(),
+            'formpers' => $formpers->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a PersonnelPersonnel entity.
-    *
-    * @param PersonnelPersonnel $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a PersonnelPersonnel entity.
+     *
+     * @param PersonnelPersonnel $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(PersonnelPersonnel $entity)
     {
         $form = $this->createForm(new PersonnelPersonnelType(), $entity, array(
@@ -179,10 +180,11 @@ class PersonnelPersonnelController extends Controller
             'method' => 'PUT',
         ));
 
-       // $form->add('submit', 'submit', array('label' => 'Update'));
+        // $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
+
     /**
      * Edits an existing PersonnelPersonnel entity.
      *
@@ -208,11 +210,12 @@ class PersonnelPersonnelController extends Controller
         }
 
         return $this->render('SiseCoreBundle:PersonnelPersonnel:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a PersonnelPersonnel entity.
      *
@@ -249,8 +252,7 @@ class PersonnelPersonnelController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('personnelpersonnel_delete1', array('id' => $id)))
             ->setMethod('DELETE')
-         //   ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            //   ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm();
     }
 }

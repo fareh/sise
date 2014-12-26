@@ -5,24 +5,26 @@
 
     <table class="records_list">
         <thead>
-            <tr>
-                <th>Codecyclense</th>
-                <th>Libecyclensear</th>
-                <th>Libecyclensefr</th>
-                <th>Ordraffi</th>
-                <th>Acti</th>
-                <th>Prep</th>
-                <th>Prim</th>
-                <th>Collgene</th>
-                <th>Lyce</th>
-                <th>Colltech</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Codecyclense</th>
+            <th>Libecyclensear</th>
+            <th>Libecyclensefr</th>
+            <th>Ordraffi</th>
+            <th>Acti</th>
+            <th>Prep</th>
+            <th>Prim</th>
+            <th>Collgene</th>
+            <th>Lyce</th>
+            <th>Colltech</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('nomenclaturecycleenseignement_show', { 'id': entity.codecyclense }) }}">{{ entity.codecyclense }}</a></td>
+                <td>
+                    <a href="{{ path('nomenclaturecycleenseignement_show', { 'id': entity.codecyclense }) }}">{{ entity.codecyclense }}</a>
+                </td>
                 <td>{{ entity.libecyclensear }}</td>
                 <td>{{ entity.libecyclensefr }}</td>
                 <td>{{ entity.ordraffi }}</td>
@@ -33,25 +35,25 @@
                 <td>{{ entity.lyce }}</td>
                 <td>{{ entity.colltech }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('nomenclaturecycleenseignement_show', { 'id': entity.codecyclense }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('nomenclaturecycleenseignement_edit', { 'id': entity.codecyclense }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('nomenclaturecycleenseignement_show', { 'id': entity.codecyclense }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('nomenclaturecycleenseignement_edit', { 'id': entity.codecyclense }) }}">edit</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
+    <ul>
         <li>
             <a href="{{ path('nomenclaturecycleenseignement_new') }}">
                 Create a new entry
             </a>
         </li>
     </ul>
-    {% endblock %}
+{% endblock %}

@@ -92,11 +92,10 @@ class NomenclatureCirconscription
     private $colltech;
 
 
-
     /**
      * Get codecirc
      *
-     * @return string 
+     * @return string
      */
     public function getCodecirc()
     {
@@ -119,7 +118,7 @@ class NomenclatureCirconscription
     /**
      * Get libecircar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecircar()
     {
@@ -142,7 +141,7 @@ class NomenclatureCirconscription
     /**
      * Get libecircfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecircfr()
     {
@@ -165,7 +164,7 @@ class NomenclatureCirconscription
     /**
      * Get codegouv
      *
-     * @return string 
+     * @return string
      */
     public function getCodegouv()
     {
@@ -188,7 +187,7 @@ class NomenclatureCirconscription
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +210,7 @@ class NomenclatureCirconscription
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +233,7 @@ class NomenclatureCirconscription
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +256,7 @@ class NomenclatureCirconscription
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +279,7 @@ class NomenclatureCirconscription
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +302,7 @@ class NomenclatureCirconscription
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,12 +325,13 @@ class NomenclatureCirconscription
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->libecircar;

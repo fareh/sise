@@ -61,6 +61,7 @@ class OrientationFilieresportController extends Controller
             'nameclass' => $nameclass
         ));
     }
+
     /**
      * Displays a form to edit an existing OrientationFilieresport entity.
      *
@@ -107,6 +108,7 @@ class OrientationFilieresportController extends Controller
 
 
     }
+
     /**
      * Edits an existing OrientationFilieresport entity.
      *
@@ -121,7 +123,8 @@ class OrientationFilieresportController extends Controller
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
-      var_dump($codeetab);die;
+        var_dump($codeetab);
+        die;
         $entities = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->findBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
@@ -139,10 +142,8 @@ class OrientationFilieresportController extends Controller
 
             return $this->redirect($this->generateUrl('orientationfilieresport_edit'));
         }
-    //    $deleteForm = $this->createDeleteForm($id);
-    //    $editForm = $this->createEditForm($entity);
-
-
+        //    $deleteForm = $this->createDeleteForm($id);
+        //    $editForm = $this->createEditForm($entity);
 
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:edit.html.twig', array(

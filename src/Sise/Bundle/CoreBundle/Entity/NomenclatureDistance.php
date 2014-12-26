@@ -39,7 +39,7 @@ class NomenclatureDistance
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +62,7 @@ class NomenclatureDistance
     /**
      * Get libedistar
      *
-     * @return string 
+     * @return string
      */
     public function getLibedistar()
     {
@@ -85,7 +85,7 @@ class NomenclatureDistance
     /**
      * Get libedistfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibedistfr()
     {

@@ -30,10 +30,9 @@ class MouvementeleveRecapmouvmenteleveType extends AbstractType
             ->add('codefili')
             ->add('codegenr')
             ->add('codenivescol')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

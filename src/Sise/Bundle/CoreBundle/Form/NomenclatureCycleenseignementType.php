@@ -24,10 +24,9 @@ class NomenclatureCycleenseignementType extends AbstractType
             ->add('prim')
             ->add('collgene')
             ->add('lyce')
-            ->add('colltech')
-        ;
+            ->add('colltech');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

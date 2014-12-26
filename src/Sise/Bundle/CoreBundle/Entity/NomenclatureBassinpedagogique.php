@@ -92,11 +92,10 @@ class NomenclatureBassinpedagogique
     private $colltech;
 
 
-
     /**
      * Get codebasspeda
      *
-     * @return string 
+     * @return string
      */
     public function getCodebasspeda()
     {
@@ -119,7 +118,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get libebasspedaar
      *
-     * @return string 
+     * @return string
      */
     public function getLibebasspedaar()
     {
@@ -142,7 +141,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get libebasspedafr
      *
-     * @return string 
+     * @return string
      */
     public function getLibebasspedafr()
     {
@@ -165,7 +164,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get codedele
      *
-     * @return string 
+     * @return string
      */
     public function getCodedele()
     {
@@ -188,7 +187,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +210,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +233,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +256,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +279,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +302,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,7 +325,7 @@ class NomenclatureBassinpedagogique
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

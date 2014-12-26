@@ -26,7 +26,7 @@
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                             <td align="center" colspan="1"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                          <td align="center" colspan="2"
+                            <td align="center" colspan="2"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
                                 الجدد
                             </td>
@@ -66,24 +66,24 @@
                         {% set nombtotaelevmasc = 0 %}
                         {% set nombtotaelevfemi = 0 %}
                         {% set nombtotaelev = 0 %}
-                  {% for key , entity in entities %}
+                        {% for key , entity in entities %}
 
-                        <tr>
-                      <td>{{ entity.codenivescol.libenivescolar }}</td>
-                            <td align="right">{{ entity.nombclasselev }} {% set nombclasselev = nombclasselev + entity.nombclasselev %}</td>
-                            <td align="right">{{ entity.nombelevmascnouv }} {% set nombelevmascnouv = nombelevmascnouv + entity.nombelevmascnouv %}</td>
-                            <td align="right">{{ entity.nombelevfeminouv }} {% set nombelevfeminouv = nombelevfeminouv + entity.nombelevfeminouv %}</td>
-                            <td align="right">{{ entity.nombelevmascredo }} {% set nombelevmascredo = nombelevmascredo + entity.nombelevmascredo %}</td>
-                            <td align="right">{{ entity.nombelevfemiredo }} {% set nombelevfemiredo = nombelevfemiredo + entity.nombelevfemiredo %}</td>
-                            <td align="right">{{ entity.nombtotaelevmasc }} {% set nombtotaelevmasc = nombtotaelevmasc + entity.nombtotaelevmasc %} </td>
-                            <td align="right">{{ entity.nombtotaelevfemi }} {% set nombtotaelevfemi = nombtotaelevfemi + entity.nombtotaelevfemi %}</td>
-                            <td align="right">{{ entity.nombtotaelev }} {% set nombtotaelev = nombtotaelev + entity.nombtotaelev %}</td>
-                            <td align="right">
-                                {% if entity.nombclasselev >0  %}
-                                {{ entity.nombtotaelev / entity.nombclasselev}}
-                            {% endif %}
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ entity.codenivescol.libenivescolar }}</td>
+                                <td align="right">{{ entity.nombclasselev }} {% set nombclasselev = nombclasselev + entity.nombclasselev %}</td>
+                                <td align="right">{{ entity.nombelevmascnouv }} {% set nombelevmascnouv = nombelevmascnouv + entity.nombelevmascnouv %}</td>
+                                <td align="right">{{ entity.nombelevfeminouv }} {% set nombelevfeminouv = nombelevfeminouv + entity.nombelevfeminouv %}</td>
+                                <td align="right">{{ entity.nombelevmascredo }} {% set nombelevmascredo = nombelevmascredo + entity.nombelevmascredo %}</td>
+                                <td align="right">{{ entity.nombelevfemiredo }} {% set nombelevfemiredo = nombelevfemiredo + entity.nombelevfemiredo %}</td>
+                                <td align="right">{{ entity.nombtotaelevmasc }} {% set nombtotaelevmasc = nombtotaelevmasc + entity.nombtotaelevmasc %} </td>
+                                <td align="right">{{ entity.nombtotaelevfemi }} {% set nombtotaelevfemi = nombtotaelevfemi + entity.nombtotaelevfemi %}</td>
+                                <td align="right">{{ entity.nombtotaelev }} {% set nombtotaelev = nombtotaelev + entity.nombtotaelev %}</td>
+                                <td align="right">
+                                    {% if entity.nombclasselev >0 %}
+                                        {{ entity.nombtotaelev / entity.nombclasselev }}
+                                    {% endif %}
+                                </td>
+                            </tr>
                         {% endfor %}
                         <tr align="center"
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
@@ -96,10 +96,10 @@
                             <td>{{ nombtotaelevmasc }}</td>
                             <td>{{ nombtotaelevfemi }}</td>
                             <td>{{ nombtotaelev }}</td>
-                           <td> {% if nombclasselev >0  %}
+                            <td> {% if nombclasselev >0 %}
 
-                                   {{ nombtotaelev / nombclasselev}}
-                               {% endif %}</td>
+                                    {{ nombtotaelev / nombclasselev }}
+                                {% endif %}</td>
                         </tr>
                         </tbody>
                     </table>

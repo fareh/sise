@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveNiveauscolaireAnneenaissance
  *
  * @ORM\Table(name="effectiveeleve_niveauscolaire_anneenaissance")
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveNiveauscolaireAnneenaissanceRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveNiveauscolaireAnneenaissanceRepository")
  */
 class EffectiveeleveNiveauscolaireAnneenaissance
 {
@@ -89,7 +89,6 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -106,7 +105,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -129,7 +128,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -152,7 +151,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -175,7 +174,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -199,7 +198,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -222,7 +221,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -245,7 +244,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
@@ -268,7 +267,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get codenivescol
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire
      */
     public function getCodenivescol()
     {
@@ -291,7 +290,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get codeannenais
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance
      */
     public function getCodeannenais()
     {

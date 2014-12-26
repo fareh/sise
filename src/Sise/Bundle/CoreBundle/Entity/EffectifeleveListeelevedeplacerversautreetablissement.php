@@ -118,7 +118,6 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     private $codetypeetabautr;
 
 
-
     /**
      * Set codeetab
      *
@@ -135,7 +134,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -158,7 +157,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -181,7 +180,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -204,7 +203,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -227,7 +226,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get numeelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeelev()
     {
@@ -250,7 +249,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get nomprenelev
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenelev()
     {
@@ -273,7 +272,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -296,7 +295,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -319,7 +318,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -342,7 +341,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codeetabautr
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetabautr()
     {
@@ -365,7 +364,7 @@ class EffectifeleveListeelevedeplacerversautreetablissement
     /**
      * Get codetypeetabautr
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetabautr()
     {

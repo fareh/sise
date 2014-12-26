@@ -18,8 +18,9 @@
                         <td align="center" colspan="1"
                             style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
                         {% for key,  annenai in annenais %}
-                        <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">
-                            {{ annenai }}
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">
+                                {{ annenai }}
                             </td>
                         {% endfor %}
                         <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">
@@ -30,40 +31,41 @@
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي
                         </th>
                         {% for key,  annenai in annenais %}
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
                         {% endfor %}
                         <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
                         <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
                         <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
                     </tr>
-                    {% set codenivescol = 99999  %}
+                    {% set codenivescol = 99999 %}
                     {% set nombelevmasc = 0 %}
                     {% set  nombelevfemi =  0 %}
-                {% for parent,  entity in entities %}
+                    {% for parent,  entity in entities %}
 
-                    <tr>
-                     {% if entity.codenivescol.codenivescol != codenivescol %}
-                         {% set  nombelevmasc =  0 %}
-                         {% set  nombelevfemi = 0 %}
+                        <tr>
+                            {% if entity.codenivescol.codenivescol != codenivescol %}
+                                {% set  nombelevmasc =  0 %}
+                                {% set  nombelevfemi = 0 %}
 
-                   <td>{{ entity.codenivescol.libenivescolfr }}</td>
-                        {% for key,  annenai in annenais %}
-                        <td align="right">{{ entities[key+parent].nombelevmasc }}</td>
-                        <td align="right">{{ entities[key+parent].nombelevfemi}}</td>
-                        <td align="right" style="background-color:#EEEEEE;">{{ entities[key+parent].nombtotaelev}}</td>
-                         {% set  nombelevmasc =  entities[key+parent].nombelevmasc + nombelevmasc %}
-                            {% set  nombelevfemi = entities[key+parent].nombelevfemi + nombelevfemi %}
-                         {% endfor %}
-                        <td style="background-color:#EEEEEE;">{{  nombelevmasc}}</td>
-                        <td style="background-color:#EEEEEE;">{{ nombelevfemi }}</td>
-                        <td style="background-color:#EEEEEE;">{{ nombelevmasc + nombelevfemi}}</td>
-                        {% endif %}
-                        {% set nombelevmasc = 0 %}
-                        {% set  nombelevfemi =  0 %}
-                        {% set codenivescol = entity.codenivescol.codenivescol  %}
-                    </tr>
+                                <td>{{ entity.codenivescol.libenivescolfr }}</td>
+                                {% for key,  annenai in annenais %}
+                                    <td align="right">{{ entities[key+parent].nombelevmasc }}</td>
+                                    <td align="right">{{ entities[key+parent].nombelevfemi }}</td>
+                                    <td align="right"
+                                        style="background-color:#EEEEEE;">{{ entities[key+parent].nombtotaelev }}</td>
+                                    {% set  nombelevmasc =  entities[key+parent].nombelevmasc + nombelevmasc %}
+                                    {% set  nombelevfemi = entities[key+parent].nombelevfemi + nombelevfemi %}
+                                {% endfor %}
+                                <td style="background-color:#EEEEEE;">{{ nombelevmasc }}</td>
+                                <td style="background-color:#EEEEEE;">{{ nombelevfemi }}</td>
+                                <td style="background-color:#EEEEEE;">{{ nombelevmasc + nombelevfemi }}</td>
+                            {% endif %}
+                            {% set nombelevmasc = 0 %}
+                            {% set  nombelevfemi =  0 %}
+                            {% set codenivescol = entity.codenivescol.codenivescol %}
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>

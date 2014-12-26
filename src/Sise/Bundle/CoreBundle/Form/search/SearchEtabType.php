@@ -1,6 +1,7 @@
 <?php
 
 namespace Sise\Bundle\CoreBundle\Form\search;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -20,15 +21,14 @@ class SearchEtabType extends AbstractType
                 'data' => 'codecircregi',
                 'required' => false
             ))
-
             ->add('NomenclatureDelegation', 'choice', array(
                 'empty_value' => "-- اختيار --",
                 'required' => false
             ))
             ->add('NomenclatureCirconscription', 'choice', array(
                 'empty_value' => "-- اختيار --",
-                 'required' => false
-                 ))
+                'required' => false
+            ))
             ->add('NomenclatureTypeetablissement', 'entity', array(
                 'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
                 'property' => 'libetypeetabar',
@@ -41,7 +41,7 @@ class SearchEtabType extends AbstractType
                 'property' => 'libesectar',
                 'empty_value' => "-- اختيار --",
                 'data' => 'codesect',
-                 'required' => false
+                'required' => false
             ))
             ->add('NomenclatureZone', 'entity', array(
                 'class' => 'SiseCoreBundle:NomenclatureZone',
@@ -49,11 +49,9 @@ class SearchEtabType extends AbstractType
                 'empty_value' => "-- اختيار --",
                 'data' => 'codezone',
                 'required' => false
-            ))
-      ;
+            ));
 
     }
-
 
 
     /**

@@ -85,11 +85,10 @@ class NomenclatureTypematiere
     private $colltech;
 
 
-
     /**
      * Get codetypemati
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypemati()
     {
@@ -112,7 +111,7 @@ class NomenclatureTypematiere
     /**
      * Get libetypematiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypematiar()
     {
@@ -135,7 +134,7 @@ class NomenclatureTypematiere
     /**
      * Get libetypematifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypematifr()
     {
@@ -158,7 +157,7 @@ class NomenclatureTypematiere
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureTypematiere
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureTypematiere
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureTypematiere
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureTypematiere
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureTypematiere
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureTypematiere
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EtablissementActivite
  *
  * @ORM\Table(name="etablissement_activite", indexes={@ORM\Index(name="FK_Etablissement_Activite_Nomenclature_Activite", columns={"CodeActi"}), @ORM\Index(name="FK_Etablissement_Activite_Nomenclature_Recensement", columns={"CodeRece"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EtablissementActiviteRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EtablissementActiviteRepository")
  */
 class EtablissementActivite
 {
@@ -55,7 +55,7 @@ class EtablissementActivite
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-   // private $codeacti;
+    // private $codeacti;
 
 
     /**
@@ -65,7 +65,6 @@ class EtablissementActivite
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeacti;
-
 
 
     /**
@@ -81,7 +80,6 @@ class EtablissementActivite
      * @ORM\Column(name="Obse", type="text", nullable=true)
      */
     private $obse;
-
 
 
     /**
@@ -100,7 +98,7 @@ class EtablissementActivite
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -123,7 +121,7 @@ class EtablissementActivite
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -146,7 +144,7 @@ class EtablissementActivite
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -169,13 +167,12 @@ class EtablissementActivite
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
     }
-
 
 
     /**
@@ -194,7 +191,7 @@ class EtablissementActivite
     /**
      * Get nombacti
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombacti()
     {
@@ -217,7 +214,7 @@ class EtablissementActivite
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -240,7 +237,7 @@ class EtablissementActivite
     /**
      * Get codeacti
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureActivite 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureActivite
      */
     public function getCodeacti()
     {

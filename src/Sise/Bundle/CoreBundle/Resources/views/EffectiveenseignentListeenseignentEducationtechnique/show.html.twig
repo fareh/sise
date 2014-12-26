@@ -5,52 +5,52 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeetab</th>
-                <td>{{ entity.codeetab }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetab</th>
-                <td>{{ entity.codetypeetab }}</td>
-            </tr>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Numeense</th>
-                <td>{{ entity.numeense }}</td>
-            </tr>
-            <tr>
-                <th>Nompren</th>
-                <td>{{ entity.nompren }}</td>
-            </tr>
-            <tr>
-                <th>Gradactu</th>
-                <td>{{ entity.gradactu }}</td>
-            </tr>
-            <tr>
-                <th>Nombheursema</th>
-                <td>{{ entity.nombheursema }}</td>
-            </tr>
-            <tr>
-                <th>Obse</th>
-                <td>{{ entity.obse }}</td>
-            </tr>
+        <tr>
+            <th>Codeetab</th>
+            <td>{{ entity.codeetab }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetab</th>
+            <td>{{ entity.codetypeetab }}</td>
+        </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Numeense</th>
+            <td>{{ entity.numeense }}</td>
+        </tr>
+        <tr>
+            <th>Nompren</th>
+            <td>{{ entity.nompren }}</td>
+        </tr>
+        <tr>
+            <th>Gradactu</th>
+            <td>{{ entity.gradactu }}</td>
+        </tr>
+        <tr>
+            <th>Nombheursema</th>
+            <td>{{ entity.nombheursema }}</td>
+        </tr>
+        <tr>
+            <th>Obse</th>
+            <td>{{ entity.obse }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('effectiveenseignentlisteenseignenteducationtechnique') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('effectiveenseignentlisteenseignenteducationtechnique_edit', { 'id': entity.codeetab }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('effectiveenseignentlisteenseignenteducationtechnique') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('effectiveenseignentlisteenseignenteducationtechnique_edit', { 'id': entity.codeetab }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

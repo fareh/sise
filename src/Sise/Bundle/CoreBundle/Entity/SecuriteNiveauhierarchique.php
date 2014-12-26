@@ -55,7 +55,6 @@ class SecuriteNiveauhierarchique
     private $obse;
 
 
-
     /**
      * Get codenivehier
      *
@@ -136,7 +135,8 @@ class SecuriteNiveauhierarchique
     }
 
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->getLibenivehierar();
     }
 
@@ -166,7 +166,7 @@ class SecuriteNiveauhierarchique
     /**
      * Get user
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUser()
     {

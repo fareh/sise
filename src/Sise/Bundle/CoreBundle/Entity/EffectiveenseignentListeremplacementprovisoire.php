@@ -77,7 +77,6 @@ class EffectiveenseignentListeremplacementprovisoire
     private $nombheur;
 
 
-
     /**
      * Set codeetab
      *
@@ -94,7 +93,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -117,7 +116,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -140,7 +139,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -163,7 +162,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -186,7 +185,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get codecausrempprov
      *
-     * @return string 
+     * @return string
      */
     public function getCodecausrempprov()
     {
@@ -209,7 +208,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get nomprenense
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenense()
     {
@@ -232,7 +231,7 @@ class EffectiveenseignentListeremplacementprovisoire
     /**
      * Get nombheur
      *
-     * @return float 
+     * @return float
      */
     public function getNombheur()
     {

@@ -79,7 +79,6 @@ class EffectiveenseignentListeenseignentTypeenseignement
     private $ensetechinfo;
 
 
-
     /**
      * Set codeetab
      *
@@ -96,7 +95,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -119,7 +118,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -142,7 +141,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -165,7 +164,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -188,7 +187,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get idenuniqense
      *
-     * @return string 
+     * @return string
      */
     public function getIdenuniqense()
     {
@@ -211,7 +210,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get nompren
      *
-     * @return string 
+     * @return string
      */
     public function getNompren()
     {
@@ -234,7 +233,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get enseangl
      *
-     * @return float 
+     * @return float
      */
     public function getEnseangl()
     {
@@ -257,7 +256,7 @@ class EffectiveenseignentListeenseignentTypeenseignement
     /**
      * Get ensetechinfo
      *
-     * @return float 
+     * @return float
      */
     public function getEnsetechinfo()
     {

@@ -85,11 +85,10 @@ class NomenclaturePeriodesuivibudget
     private $colltech;
 
 
-
     /**
      * Get codeperisuivbudg
      *
-     * @return string 
+     * @return string
      */
     public function getCodeperisuivbudg()
     {
@@ -112,7 +111,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get libeperisuivbudgar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeperisuivbudgar()
     {
@@ -135,7 +134,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get libeperisuivbudgfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeperisuivbudgfr()
     {
@@ -158,7 +157,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclaturePeriodesuivibudget
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

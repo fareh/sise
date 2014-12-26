@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectivepersonelPersonelGrade
  *
  * @ORM\Table(name="effectivepersonel_personel_grade", indexes={@ORM\Index(name="FK_EffectivePersonel_Personel_Grade_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectivePersonel_Personel_Grade_Nomenclature_Grade", columns={"CodeGrad"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectivepersonelPersonelGradeRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectivepersonelPersonelGradeRepository")
  */
 class EffectivepersonelPersonelGrade
 {
@@ -55,7 +55,7 @@ class EffectivepersonelPersonelGrade
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-   // private $codegrad;
+    // private $codegrad;
 
 
     /**
@@ -89,7 +89,6 @@ class EffectivepersonelPersonelGrade
     private $nombtotapers;
 
 
-
     /**
      * Set codeetab
      *
@@ -106,7 +105,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -129,7 +128,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -152,7 +151,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -175,7 +174,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -199,7 +198,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get nombpersmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombpersmasc()
     {
@@ -222,7 +221,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get nombpersfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombpersfemi()
     {
@@ -245,7 +244,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get nombtotapers
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotapers()
     {
@@ -268,7 +267,7 @@ class EffectivepersonelPersonelGrade
     /**
      * Get codegrad
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade
      */
     public function getCodegrad()
     {

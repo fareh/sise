@@ -99,7 +99,6 @@ class EffectifeleveResultatconcoureducationbase
     private $nombtotareuselev;
 
 
-
     /**
      * Set codeetab
      *
@@ -116,7 +115,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -139,7 +138,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -162,7 +161,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -185,12 +184,13 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
     }
+
     /**
      * Set nombelevinscmasc
      *
@@ -207,7 +207,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get nombelevinscmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevinscmasc()
     {
@@ -230,7 +230,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get nombelevinscfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevinscfemi()
     {
@@ -253,7 +253,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get nombtotainscelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotainscelev()
     {
@@ -276,7 +276,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get nombelevreusmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevreusmasc()
     {
@@ -299,7 +299,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get nombelevreusfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevreusfemi()
     {
@@ -322,7 +322,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get nombtotareuselev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotareuselev()
     {
@@ -345,7 +345,7 @@ class EffectifeleveResultatconcoureducationbase
     /**
      * Get codedoma
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine
      */
     public function getCodedoma()
     {

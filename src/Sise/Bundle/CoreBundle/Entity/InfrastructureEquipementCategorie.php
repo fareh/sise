@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfrastructureEquipementCategorie
  *
  * @ORM\Table(name="infrastructure_equipement_categorie")
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureEquipementCategorieRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureEquipementCategorieRepository")
  */
 class InfrastructureEquipementCategorie
 {
@@ -101,7 +101,6 @@ class InfrastructureEquipementCategorie
     private $obse;
 
 
-
     /**
      * Set codeetab
      *
@@ -118,7 +117,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -141,7 +140,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -164,7 +163,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -187,7 +186,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -211,7 +210,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get nombespautil
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombespautil()
     {
@@ -234,7 +233,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get capaaccuespautil
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapaaccuespautil()
     {
@@ -257,7 +256,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get nombespanonutil
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombespanonutil()
     {
@@ -280,7 +279,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get capaaccuespanonutil
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapaaccuespanonutil()
     {
@@ -303,7 +302,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -326,7 +325,7 @@ class InfrastructureEquipementCategorie
     /**
      * Get codeequi
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement
      */
     public function getCodeequi()
     {

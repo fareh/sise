@@ -18,45 +18,44 @@ class EtablissementFicheetablissementType extends AbstractType
             ->add('adreetab')
             ->add('codepost')
             ->add('telefixe')
-            ->add('etabtravpens','choice',
+            ->add('etabtravpens', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('etabtravdemipens','choice',
+            ->add('etabtravdemipens', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('fax')
-            ->add('mail','email',array('required' => false))
+            ->add('mail', 'email', array('required' => false))
             ->add('siteweb')
-            ->add('educprio','choice',
+            ->add('educprio', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('etabintehand','choice',
+            ->add('etabintehand', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('exisanneprep','choice',
-        array('required' => 'false',
-            'expanded' => true,
-            'multiple' => false,
-            'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('exisanneprepintehand','choice',
-        array('required' => 'false',
-            'expanded' => true,
-            'multiple' => false,
-            'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('resp',new EtablissementResponsableType())
-            ->add('infr',new EtablissementInfrastructureType())
-            ->add('sejo','collection', array('type' => new EtablissementSejourType(),'allow_add'    => true,));
-        ;
+            ->add('exisanneprep', 'choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('exisanneprepintehand', 'choice',
+                array('required' => 'false',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('1' => 'نعم', '0' => 'لا')))
+            ->add('resp', new EtablissementResponsableType())
+            ->add('infr', new EtablissementInfrastructureType())
+            ->add('sejo', 'collection', array('type' => new EtablissementSejourType(), 'allow_add' => true,));;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

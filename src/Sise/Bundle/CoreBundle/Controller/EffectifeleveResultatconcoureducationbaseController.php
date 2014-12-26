@@ -77,10 +77,10 @@ class EffectifeleveResultatconcoureducationbaseController extends Controller
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveResultatconcoureducationbase')->findOneBy($items);
                 $nombelevinscmasc = $request->request->get('nombelevinscmasc' . $i);
                 $nombelevinscfemi = $request->request->get('nombelevinscfemi' . $i);
-                $nombtotainscelev = $nombelevinscfemi+$nombelevinscmasc;
+                $nombtotainscelev = $nombelevinscfemi + $nombelevinscmasc;
                 $nombelevreusmasc = $request->request->get('nombelevreusmasc' . $i);
                 $nombelevreusfemi = $request->request->get('nombelevreusfemi' . $i);
-                $nombtotareuselev = $nombelevreusmasc+$nombelevreusfemi;
+                $nombtotareuselev = $nombelevreusmasc + $nombelevreusfemi;
 
 
                 $item->setNombelevinscmasc($nombelevinscmasc);
@@ -91,7 +91,6 @@ class EffectifeleveResultatconcoureducationbaseController extends Controller
                 $item->setNombelevreusmasc($nombelevreusmasc);
                 $item->setNombelevreusfemi($nombelevreusfemi);
                 $item->setNombtotareuselev($nombtotareuselev);
-
 
 
                 $em->persist($item);

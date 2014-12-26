@@ -50,11 +50,10 @@ class NomenclatureTypeaffectation
     private $acti;
 
 
-
     /**
      * Get codetypeaffe
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeaffe()
     {
@@ -77,7 +76,7 @@ class NomenclatureTypeaffectation
     /**
      * Get libetypeaffear
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeaffear()
     {
@@ -100,7 +99,7 @@ class NomenclatureTypeaffectation
     /**
      * Get libetypeaffefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeaffefr()
     {
@@ -123,7 +122,7 @@ class NomenclatureTypeaffectation
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -146,12 +145,13 @@ class NomenclatureTypeaffectation
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
         return $this->acti;
     }
+
     public function __toString()
     {
         return $this->codetypeaffe;

@@ -93,7 +93,6 @@ class OrientationFilieresportversgeneraletroisieme
     private $nombelevfemi;
 
 
-
     /**
      * Set codeetab
      *
@@ -110,7 +109,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -133,7 +132,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -156,7 +155,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -179,7 +178,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -202,7 +201,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get codefiliorig
      *
-     * @return string 
+     * @return string
      */
     public function getCodefiliorig()
     {
@@ -225,7 +224,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get redo
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRedo()
     {
@@ -248,7 +247,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get anne
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnne()
     {
@@ -271,7 +270,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -294,7 +293,7 @@ class OrientationFilieresportversgeneraletroisieme
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {

@@ -89,13 +89,11 @@ class CityType extends AbstractType
     }
 
 
-
-
     public static function getSubscribedEvents()
     {
         return array(
             FormEvents::PRE_SET_DATA => 'onPreSetData',
-            FormEvents::PRE_SUBMIT   => 'onPreSubmit',
+            FormEvents::PRE_SUBMIT => 'onPreSubmit',
         );
     }
 
@@ -116,7 +114,7 @@ class CityType extends AbstractType
     {
         $user = $event->getData();
         $form = $event->getForm();
-      var_dump($user);
+        var_dump($user);
     }
 
     public function getDefaultOptions(array $options)

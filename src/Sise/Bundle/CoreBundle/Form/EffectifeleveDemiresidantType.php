@@ -26,10 +26,9 @@ class EffectifeleveDemiresidantType extends AbstractType
             ->add('nombelevbourmasc')
             ->add('nombelevbourfemi')
             ->add('nombtotabourelev')
-            ->add('nombbour')
-        ;
+            ->add('nombbour');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

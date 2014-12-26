@@ -85,11 +85,10 @@ class NomenclatureTypeseparation
     private $colltech;
 
 
-
     /**
      * Get codetypesepa
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypesepa()
     {
@@ -112,7 +111,7 @@ class NomenclatureTypeseparation
     /**
      * Get libetypesepaar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypesepaar()
     {
@@ -135,7 +134,7 @@ class NomenclatureTypeseparation
     /**
      * Get libetypesepafr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypesepafr()
     {
@@ -158,7 +157,7 @@ class NomenclatureTypeseparation
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureTypeseparation
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureTypeseparation
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureTypeseparation
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureTypeseparation
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureTypeseparation
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureTypeseparation
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codetypesepa;

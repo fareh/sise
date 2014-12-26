@@ -85,11 +85,10 @@ class NomenclatureLangueenseignement
     private $colltech;
 
 
-
     /**
      * Get codelangense
      *
-     * @return string 
+     * @return string
      */
     public function getCodelangense()
     {
@@ -112,7 +111,7 @@ class NomenclatureLangueenseignement
     /**
      * Get libelangensear
      *
-     * @return string 
+     * @return string
      */
     public function getLibelangensear()
     {
@@ -135,7 +134,7 @@ class NomenclatureLangueenseignement
     /**
      * Get libelangensefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibelangensefr()
     {
@@ -158,7 +157,7 @@ class NomenclatureLangueenseignement
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureLangueenseignement
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureLangueenseignement
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureLangueenseignement
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureLangueenseignement
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureLangueenseignement
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,12 +295,13 @@ class NomenclatureLangueenseignement
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codelangense;

@@ -85,11 +85,10 @@ class NomenclatureStatushabitant
     private $colltech;
 
 
-
     /**
      * Get codestathabi
      *
-     * @return string 
+     * @return string
      */
     public function getCodestathabi()
     {
@@ -112,7 +111,7 @@ class NomenclatureStatushabitant
     /**
      * Get libestathabiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibestathabiar()
     {
@@ -135,7 +134,7 @@ class NomenclatureStatushabitant
     /**
      * Get libestathabifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibestathabifr()
     {
@@ -158,7 +157,7 @@ class NomenclatureStatushabitant
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureStatushabitant
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureStatushabitant
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureStatushabitant
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureStatushabitant
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureStatushabitant
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureStatushabitant
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -304,9 +303,10 @@ class NomenclatureStatushabitant
     }
 
 
-    public  function __toString(){
+    public function __toString()
+    {
 
 
-        return ($this->getLibestathabiar())?$this->getLibestathabiar():"";
+        return ($this->getLibestathabiar()) ? $this->getLibestathabiar() : "";
     }
 }

@@ -80,13 +80,13 @@ class EffectifeleveResidantboursierCycleenseignementController extends Controlle
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement')->findOneBy($items);
-                $nombelevresimasc = $request->request->get('nombelevresimasc'. $i);
-                $nombelevresifemi = $request->request->get('nombelevresifemi'. $i);
-                $nombtotaresielev = $nombelevresimasc+$nombelevresifemi;
+                $nombelevresimasc = $request->request->get('nombelevresimasc' . $i);
+                $nombelevresifemi = $request->request->get('nombelevresifemi' . $i);
+                $nombtotaresielev = $nombelevresimasc + $nombelevresifemi;
 
-                $nombelevbourmasc = $request->request->get('nombelevbourmasc'. $i);
-                $nombelevbourfemi = $request->request->get('nombelevbourfemi'. $i);
-                $nombtotabourelev = $nombelevbourmasc+$nombelevbourfemi;
+                $nombelevbourmasc = $request->request->get('nombelevbourmasc' . $i);
+                $nombelevbourfemi = $request->request->get('nombelevbourfemi' . $i);
+                $nombtotabourelev = $nombelevbourmasc + $nombelevbourfemi;
 
                 $nombbour = $request->request->get('nombbour' . $i);
                 $item->setNombelevresimasc($nombelevresimasc);

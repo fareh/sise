@@ -91,7 +91,6 @@ class EffectifeleveNouveauhuitiemetechnique
     private $nombtotaelevvenahuit;
 
 
-
     /**
      * Set codeetab
      *
@@ -108,7 +107,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -131,7 +130,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -154,7 +153,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -177,7 +176,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -200,7 +199,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get nombelevmascvenasept
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascvenasept()
     {
@@ -223,7 +222,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get nombelevfemivenasept
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemivenasept()
     {
@@ -246,7 +245,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get nombtotaelevvenasept
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevvenasept()
     {
@@ -267,11 +266,10 @@ class EffectifeleveNouveauhuitiemetechnique
     }
 
 
-
     /**
      * Get nombelevmascvenahuit
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascvenahuit()
     {
@@ -294,7 +292,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get nombelevfemivenahuit
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemivenahuit()
     {
@@ -317,7 +315,7 @@ class EffectifeleveNouveauhuitiemetechnique
     /**
      * Get nombtotaelevvenahuit
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevvenahuit()
     {

@@ -6,6 +6,7 @@
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
+
             <div id="CPHMain_upGridView">
 
 
@@ -30,15 +31,16 @@
                         {% set nombtota = 0 %}
 
                         {% for key ,  genre in entities %}
-                        <tr>
-                           <td>{{ genre.codeannenais.libeannenaisar }} </td>
-                            <td align="right">{{ genre.nombelevmasc }}    {% set nombelevmasc = genre.nombelevmasc + nombelevmasc %}  </td>
-                            <td align="right">{{ genre.nombelevfemi }}
+                            <tr>
+                                <td>{{ genre.codeannenais.libeannenaisar }} </td>
+                                <td align="right">{{ genre.nombelevmasc }}    {% set nombelevmasc = genre.nombelevmasc + nombelevmasc %}  </td>
+                                <td align="right">{{ genre.nombelevfemi }}
 
-                                {% set nombelevfemi = genre.nombelevfemi + nombelevfemi %}
-                            </td>
-                            <td align="right" style="background-color:#EEEEEE;">{{ genre.nombtota }}    {% set nombtota = genre.nombtota + nombtota %}</td>
-                        </tr>
+                                    {% set nombelevfemi = genre.nombelevfemi + nombelevfemi %}
+                                </td>
+                                <td align="right"
+                                    style="background-color:#EEEEEE;">{{ genre.nombtota }}    {% set nombtota = genre.nombtota + nombtota %}</td>
+                            </tr>
                         {% endfor %}
                         <tr align="center"
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">

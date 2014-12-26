@@ -23,10 +23,9 @@ class OrientationFilieresportversgeneraletroisiemeType extends AbstractType
             ->add('nombelevmasc')
             ->add('nombelevfemi')
             ->add('codefiliorig')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

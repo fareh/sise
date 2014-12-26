@@ -17,10 +17,9 @@ class EffectifeleveDemiresidantCollectionType extends AbstractType
     {
         $builder->add('collectionDemiresidant', 'collection', array(
             'type' => new EffectifeleveDemiresidantType()
-        ));
-        ;
+        ));;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

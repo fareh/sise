@@ -43,11 +43,10 @@ class SecuriteRole
     private $obse;
 
 
-
     /**
      * Get coderole
      *
-     * @return string 
+     * @return string
      */
     public function getCoderole()
     {
@@ -70,7 +69,7 @@ class SecuriteRole
     /**
      * Get liberolear
      *
-     * @return string 
+     * @return string
      */
     public function getLiberolear()
     {
@@ -93,7 +92,7 @@ class SecuriteRole
     /**
      * Get liberolefr
      *
-     * @return string 
+     * @return string
      */
     public function getLiberolefr()
     {
@@ -116,7 +115,7 @@ class SecuriteRole
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

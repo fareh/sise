@@ -215,7 +215,6 @@ class EffectiveeleveNiveauscolaire
     }
 
 
-
     /**
      * Set nombclasselev
      *
@@ -300,7 +299,6 @@ class EffectiveeleveNiveauscolaire
     }
 
 
-
     /**
      * Get nombelevmascredo
      *
@@ -349,7 +347,6 @@ class EffectiveeleveNiveauscolaire
     }
 
 
-
     /**
      * Get nombtotaelevmasc
      *
@@ -372,7 +369,6 @@ class EffectiveeleveNiveauscolaire
 
         return $this;
     }
-
 
 
     /**
@@ -425,7 +421,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get codefili
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere
      */
     public function getCodefili()
     {
@@ -448,7 +444,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get codenivescol
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire
      */
     public function getCodenivescol()
     {

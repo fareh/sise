@@ -105,7 +105,6 @@ class EffectifeleveListeeleveexeclus
     private $dateret;
 
 
-
     /**
      * Set codeetab
      *
@@ -122,7 +121,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -145,7 +144,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -168,7 +167,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -191,7 +190,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -214,7 +213,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get numeelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeelev()
     {
@@ -237,7 +236,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get nomprenelev
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenelev()
     {
@@ -260,7 +259,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -283,7 +282,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -306,7 +305,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -329,7 +328,7 @@ class EffectifeleveListeeleveexeclus
     /**
      * Get dateret
      *
-     * @return string 
+     * @return string
      */
     public function getDateret()
     {

@@ -6,24 +6,37 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OrientationFilieresportversgeneraledeuxiemeType extends AbstractType
+class InfrastructureLogementType extends AbstractType
 {
+
+
+    private $keyVal;
+
+
+    public function __construct($keyVal)
+    {
+        $this->keyVal = $keyVal;
+
+
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
-            ->add('redo')
-            ->add('anne')
-            ->add('nombelevmasc')
-            ->add('nombelevfemi')
-            ->add('codefiliorig')
-            ->add('coderece');
+            ->add('maCle', 'hidden')
+            ->add('surfcouv')
+            ->add('obse')
+            ->add('nomprenhabi')
+            ->add('codetypeloge')
+            ->add('codepropbati')
+            ->add('codestathabi')
+            ->add('codesitucompeau')
+            ->add('codesitucompelec');
     }
 
     /**
@@ -32,7 +45,7 @@ class OrientationFilieresportversgeneraledeuxiemeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\Bundle\CoreBundle\Entity\OrientationFilieresportversgeneraledeuxieme'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\InfrastructureLogement'
         ));
     }
 
@@ -41,6 +54,6 @@ class OrientationFilieresportversgeneraledeuxiemeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_orientationfilieresportversgeneraledeuxieme';
+        return $this->keyVal;
     }
 }

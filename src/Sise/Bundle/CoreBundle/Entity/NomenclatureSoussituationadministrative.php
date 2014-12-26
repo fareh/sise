@@ -95,7 +95,6 @@ class NomenclatureSoussituationadministrative
     private $colltech;
 
 
-
     /**
      * Get codesoussituadmi
      *
@@ -335,6 +334,7 @@ class NomenclatureSoussituationadministrative
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codesoussituadmi;

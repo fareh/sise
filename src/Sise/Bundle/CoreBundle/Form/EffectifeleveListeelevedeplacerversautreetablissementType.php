@@ -24,16 +24,15 @@ class EffectifeleveListeelevedeplacerversautreetablissementType extends Abstract
             ->add('coderece')
             ->add('codeetabautr')
             ->add('codefili')
-            ->add('codegenr','choice',
+            ->add('codegenr', 'choice',
                 array('required' => 'false',
-                'expanded' => true,
-                'multiple' => false,
-                'choices' => array('M' => 'Masculin', 'F' => 'Féminin')
-            ))
-            ->add('codetypeetabautr')
-        ;
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array('M' => 'Masculin', 'F' => 'Féminin')
+                ))
+            ->add('codetypeetabautr');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

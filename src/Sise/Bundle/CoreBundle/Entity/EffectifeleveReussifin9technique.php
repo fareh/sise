@@ -100,7 +100,6 @@ class EffectifeleveReussifin9technique
     private $nombtotareuselev;
 
 
-
     /**
      * Set codeetab
      *
@@ -117,7 +116,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -140,7 +139,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -163,7 +162,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -186,7 +185,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -210,7 +209,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get nombelevinscmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevinscmasc()
     {
@@ -233,7 +232,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get nombelevinscfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevinscfemi()
     {
@@ -256,7 +255,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get nombtotainscelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotainscelev()
     {
@@ -277,13 +276,10 @@ class EffectifeleveReussifin9technique
     }
 
 
-
-
-
     /**
      * Get nombelevreusmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevreusmasc()
     {
@@ -304,11 +300,10 @@ class EffectifeleveReussifin9technique
     }
 
 
-
     /**
      * Get nombelevreusfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevreusfemi()
     {
@@ -331,13 +326,12 @@ class EffectifeleveReussifin9technique
     /**
      * Get nombtotareuselev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotareuselev()
     {
         return $this->nombtotareuselev;
     }
-
 
 
     /**
@@ -356,7 +350,7 @@ class EffectifeleveReussifin9technique
     /**
      * Get codedoma
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine
      */
     public function getCodedoma()
     {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * NomenclatureTypeetablissement
  *
  * @ORM\Table(name="nomenclature_typeetablissement")
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureTypeetablissementRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureTypeetablissementRepository")
  */
 class NomenclatureTypeetablissement
 {
@@ -92,11 +92,10 @@ class NomenclatureTypeetablissement
     private $concrece;
 
 
-
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -119,7 +118,7 @@ class NomenclatureTypeetablissement
     /**
      * Get libetypeetabar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeetabar()
     {
@@ -142,7 +141,7 @@ class NomenclatureTypeetablissement
     /**
      * Get libetypeetabfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeetabfr()
     {
@@ -165,7 +164,7 @@ class NomenclatureTypeetablissement
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -188,7 +187,7 @@ class NomenclatureTypeetablissement
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -211,7 +210,7 @@ class NomenclatureTypeetablissement
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -234,7 +233,7 @@ class NomenclatureTypeetablissement
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -257,7 +256,7 @@ class NomenclatureTypeetablissement
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -280,7 +279,7 @@ class NomenclatureTypeetablissement
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -303,7 +302,7 @@ class NomenclatureTypeetablissement
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -326,12 +325,13 @@ class NomenclatureTypeetablissement
     /**
      * Get concrece
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getConcrece()
     {
         return $this->concrece;
     }
+
     public function __toString()
     {
         return $this->codetypeetab;

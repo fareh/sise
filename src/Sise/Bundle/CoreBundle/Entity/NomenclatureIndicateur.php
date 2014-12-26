@@ -64,11 +64,10 @@ class NomenclatureIndicateur
     private $ordraffi;
 
 
-
     /**
      * Get codeindi
      *
-     * @return string 
+     * @return string
      */
     public function getCodeindi()
     {
@@ -91,7 +90,7 @@ class NomenclatureIndicateur
     /**
      * Get libeindifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeindifr()
     {
@@ -114,7 +113,7 @@ class NomenclatureIndicateur
     /**
      * Get libeindiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeindiar()
     {
@@ -137,7 +136,7 @@ class NomenclatureIndicateur
     /**
      * Get definition
      *
-     * @return string 
+     * @return string
      */
     public function getDefinition()
     {
@@ -160,7 +159,7 @@ class NomenclatureIndicateur
     /**
      * Get spindicateur
      *
-     * @return string 
+     * @return string
      */
     public function getSpindicateur()
     {
@@ -183,7 +182,7 @@ class NomenclatureIndicateur
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -206,7 +205,7 @@ class NomenclatureIndicateur
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {

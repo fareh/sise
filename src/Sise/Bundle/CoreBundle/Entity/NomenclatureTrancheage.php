@@ -59,7 +59,6 @@ class NomenclatureTrancheage
     private $valesupe;
 
 
-
     /**
      * Set codetranage
      *
@@ -76,7 +75,7 @@ class NomenclatureTrancheage
     /**
      * Get codetranage
      *
-     * @return string 
+     * @return string
      */
     public function getCodetranage()
     {
@@ -99,7 +98,7 @@ class NomenclatureTrancheage
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -122,7 +121,7 @@ class NomenclatureTrancheage
     /**
      * Get libetranagear
      *
-     * @return string 
+     * @return string
      */
     public function getLibetranagear()
     {
@@ -145,7 +144,7 @@ class NomenclatureTrancheage
     /**
      * Get libetranagefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetranagefr()
     {
@@ -168,7 +167,7 @@ class NomenclatureTrancheage
     /**
      * Get valeinfe
      *
-     * @return float 
+     * @return float
      */
     public function getValeinfe()
     {
@@ -191,7 +190,7 @@ class NomenclatureTrancheage
     /**
      * Get valesupe
      *
-     * @return float 
+     * @return float
      */
     public function getValesupe()
     {

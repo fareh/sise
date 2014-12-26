@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfrastructureTypecategorieespace
  *
  * @ORM\Table(name="infrastructure_typecategorieespace", indexes={@ORM\Index(name="FK_Infrastructure_TypeCategorieEspace_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_Infrastructure_TypeCategorieEspace_Nomenclature_TypeEspace", columns={"CodeTypeEspa"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureTypecategorieespaceRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureTypecategorieespaceRepository")
  */
 class InfrastructureTypecategorieespace
 {
@@ -55,7 +55,7 @@ class InfrastructureTypecategorieespace
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-  //  private $codetypeespa;
+    //  private $codetypeespa;
 
 
     /**
@@ -130,7 +130,6 @@ class InfrastructureTypecategorieespace
     private $obse;
 
 
-
     /**
      * Set codeetab
      *
@@ -147,7 +146,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -170,7 +169,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -193,7 +192,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -216,7 +215,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -240,7 +239,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get nombespautil
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombespautil()
     {
@@ -263,7 +262,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get capaaccuespautil
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapaaccuespautil()
     {
@@ -286,7 +285,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get nombespanonutil
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombespanonutil()
     {
@@ -309,7 +308,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get capaaccuespanonutil
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapaaccuespanonutil()
     {
@@ -332,7 +331,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get nombespaencoamen
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombespaencoamen()
     {
@@ -355,7 +354,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get capaaccuespaencoamen
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapaaccuespaencoamen()
     {
@@ -378,7 +377,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get nombespaencocons
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombespaencocons()
     {
@@ -401,7 +400,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get capaaccuespaencocons
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapaaccuespaencocons()
     {
@@ -424,14 +423,13 @@ class InfrastructureTypecategorieespace
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
         return $this->obse;
     }
 
-    
 
     /**
      * Set codetypeespa
@@ -449,7 +447,7 @@ class InfrastructureTypecategorieespace
     /**
      * Get codetypeespa
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace
      */
     public function getCodetypeespa()
     {

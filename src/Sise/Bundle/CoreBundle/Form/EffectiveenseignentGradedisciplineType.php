@@ -25,10 +25,9 @@ class EffectiveenseignentGradedisciplineType extends AbstractType
             ->add('nombtotaense')
             ->add('codedisci')
             ->add('codegrad')
-            ->add('coderece')
-        ;
+            ->add('coderece');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

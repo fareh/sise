@@ -3,34 +3,34 @@
 {% block body -%}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'قائمة المؤسسات التربوية', 'RouteAction' : 'nomenclatureetablissement' })) }}
     {{ include('SiseCoreBundle:Default:searchetab.html.twig', {'form': searchetab, 'pathfilter' : pathfilter}) }}
-  {% if entities is defined  and entities|length > 0 %}
-    <table class="records_list">
-        <thead>
-        <tr>
-            <th>إسم المؤسسة بالعربية</th>
-            <th>إسم المؤسسة بالفرنسية</th>
-            <th>الإسم القصير بالعربية</th>
-            <th>الإسم القصير بالفرنسية</th>
-            <th>نوع المؤسسة</th>
-            <th>المعتمدية</th>
-            <th>قطاع التعليم</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
+    {% if entities is defined  and entities|length > 0 %}
+        <table class="records_list">
+            <thead>
             <tr>
-                <td>
-                    <a href="{{ path('nomenclatureetablissement_edit', { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab }) }}">{{ entity.libeetabar }}</a>
-                </td>
-                <td>{{ entity.libeetabfr }}</td>
-                <td>{{ entity.libecourar }}</td>
-                <td>{{ entity.libecourfr }}</td>
-                <td> {{ entity.codetypeetab.libetypeetabar }}</td>
-                <td>{{ entity.codedele.libedelear }}</td>
-                <td>{{ entity.codesect.libesectar }}</td>
+                <th>إسم المؤسسة بالعربية</th>
+                <th>إسم المؤسسة بالفرنسية</th>
+                <th>الإسم القصير بالعربية</th>
+                <th>الإسم القصير بالفرنسية</th>
+                <th>نوع المؤسسة</th>
+                <th>المعتمدية</th>
+                <th>قطاع التعليم</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-  {% endif %}
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>
+                        <a href="{{ path('nomenclatureetablissement_edit', { 'codetypeetab': entity.codetypeetab.codetypeetab , 'codeetab': entity.codeetab }) }}">{{ entity.libeetabar }}</a>
+                    </td>
+                    <td>{{ entity.libeetabfr }}</td>
+                    <td>{{ entity.libecourar }}</td>
+                    <td>{{ entity.libecourfr }}</td>
+                    <td> {{ entity.codetypeetab.libetypeetabar }}</td>
+                    <td>{{ entity.codedele.libedelear }}</td>
+                    <td>{{ entity.codesect.libesectar }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 {% endblock %}

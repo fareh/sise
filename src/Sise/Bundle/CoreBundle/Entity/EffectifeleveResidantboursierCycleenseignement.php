@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectifeleveResidantboursierCycleenseignement
  *
  * @ORM\Table(name="effectifeleve_residantboursier_cycleenseignement", indexes={@ORM\Index(name="FK_EffectifEleve_ResidantBoursier_CycleEnseignement_Nomenclatu18", columns={"CodeCyclEnse"}), @ORM\Index(name="FK_EffectifEleve_ResidantBoursier_CycleEnseignement_Nomenclatu19", columns={"CodeRece"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveResidantboursierCycleenseignementRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveResidantboursierCycleenseignementRepository")
  */
 class EffectifeleveResidantboursierCycleenseignement
 {
@@ -107,7 +107,6 @@ class EffectifeleveResidantboursierCycleenseignement
     private $nombbour;
 
 
-
     /**
      * Set codeetab
      *
@@ -124,7 +123,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -147,7 +146,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -170,7 +169,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -193,7 +192,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -217,7 +216,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombelevresimasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevresimasc()
     {
@@ -240,7 +239,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombelevresifemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevresifemi()
     {
@@ -263,7 +262,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombtotaresielev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaresielev()
     {
@@ -286,7 +285,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombelevbourmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevbourmasc()
     {
@@ -309,7 +308,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombelevbourfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevbourfemi()
     {
@@ -332,7 +331,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombtotabourelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotabourelev()
     {
@@ -355,7 +354,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get nombbour
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombbour()
     {
@@ -378,7 +377,7 @@ class EffectifeleveResidantboursierCycleenseignement
     /**
      * Get codecyclense
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement
      */
     public function getCodecyclense()
     {

@@ -85,11 +85,10 @@ class NomenclatureTypecloture
     private $colltech;
 
 
-
     /**
      * Get codetypeclot
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeclot()
     {
@@ -112,7 +111,7 @@ class NomenclatureTypecloture
     /**
      * Get libetypeclotar
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeclotar()
     {
@@ -135,7 +134,7 @@ class NomenclatureTypecloture
     /**
      * Get libetypeclotfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeclotfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureTypecloture
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureTypecloture
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureTypecloture
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureTypecloture
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureTypecloture
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureTypecloture
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureTypecloture
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

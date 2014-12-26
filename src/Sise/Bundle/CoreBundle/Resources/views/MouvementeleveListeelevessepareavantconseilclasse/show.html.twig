@@ -5,48 +5,48 @@
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Codeetab</th>
-                <td>{{ entity.codeetab }}</td>
-            </tr>
-            <tr>
-                <th>Codetypeetab</th>
-                <td>{{ entity.codetypeetab }}</td>
-            </tr>
-            <tr>
-                <th>Annescol</th>
-                <td>{{ entity.annescol }}</td>
-            </tr>
-            <tr>
-                <th>Nomprenelev</th>
-                <td>{{ entity.nomprenelev }}</td>
-            </tr>
-            <tr>
-                <th>Datesepa</th>
-                <td>{{ entity.datesepa }}</td>
-            </tr>
-            <tr>
-                <th>Codenivescol</th>
-                <td>{{ entity.codenivescol }}</td>
-            </tr>
-            <tr>
-                <th>Numeleve</th>
-                <td>{{ entity.numeleve }}</td>
-            </tr>
+        <tr>
+            <th>Codeetab</th>
+            <td>{{ entity.codeetab }}</td>
+        </tr>
+        <tr>
+            <th>Codetypeetab</th>
+            <td>{{ entity.codetypeetab }}</td>
+        </tr>
+        <tr>
+            <th>Annescol</th>
+            <td>{{ entity.annescol }}</td>
+        </tr>
+        <tr>
+            <th>Nomprenelev</th>
+            <td>{{ entity.nomprenelev }}</td>
+        </tr>
+        <tr>
+            <th>Datesepa</th>
+            <td>{{ entity.datesepa }}</td>
+        </tr>
+        <tr>
+            <th>Codenivescol</th>
+            <td>{{ entity.codenivescol }}</td>
+        </tr>
+        <tr>
+            <th>Numeleve</th>
+            <td>{{ entity.numeleve }}</td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('mouvementelevelisteelevessepareavantconseilclasse') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('mouvementelevelisteelevessepareavantconseilclasse_edit', { 'id': entity.codeetab }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('mouvementelevelisteelevessepareavantconseilclasse') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('mouvementelevelisteelevessepareavantconseilclasse_edit', { 'id': entity.codeetab }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

@@ -12,64 +12,66 @@
 
             <div>
                 <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
-                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                    <tbody>
-                    <tr>
-                        <td align="center" colspan="2"
-                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                    </tr>
-                    <tr>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف التجهيزات</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التجهيزات</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">قابلة للاستعمال
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">بغير قابلة
-                            للاستعمال
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
-                    </tr>
-                    {% set testRepeat = 0  %}
-                    {% for key , entity in entities %}
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
                         <tr>
-                            {% if entity.codeequi.codecateequi.codecateequi!=testRepeat %}
-                                <td style="background: #ffffff" rowspan="{{rowspan[entity.codeequi.codecateequi.codecateequi]|length  }}">{{ entity.codeequi.codecateequi.libecateequiar }}</td>
-                            {% endif  %}
-                            {% set testRepeat = entity.codeequi.codecateequi.codecateequi %}
-                            <td>{{ entity.codeequi.libeequiar }}
-
-                                <input type="hidden" name="val_{{ key }}"
-                                       value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codeequi.codeequi }}"/>
-
-                                <input type="hidden" name="key_{{ key }}"
-                                       value="codeetab|codetypeetab|annescol|coderece|codeequi"/>
-
-                            </td>
-                            <td align="right">
-                                <input name="nombespautil{{ key }}" type="text"
-                                       value="{{ entity.nombespautil }}" id="nombespautil{{ key }}"
-                                       onchange="javascript:txtChanged(this);">
-                            </td>
-                            <td align="right">
-                                <input name="nombespanonutil{{ key }}" type="text"
-                                       value="{{ entity.nombespanonutil }}" id="nombespanonutil{{ key }}"
-                                       onchange="javascript:txtChanged(this);">
-
-                            </td>
-                            <td align="right">      <input name="obse{{ key }}" type="text"
-                                                           value="{{ entity.obse }}" id="obse{{ key }}"
-                                                           onchange="javascript:txtChanged(this);"></td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                    </form>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف التجهيزات
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التجهيزات</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">قابلة للاستعمال
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">بغير قابلة
+                                للاستعمال
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
+                        </tr>
+                        {% set testRepeat = 0 %}
+                        {% for key , entity in entities %}
+                            <tr>
+                                {% if entity.codeequi.codecateequi.codecateequi!=testRepeat %}
+                                    <td style="background: #ffffff"
+                                        rowspan="{{ rowspan[entity.codeequi.codecateequi.codecateequi]|length }}">{{ entity.codeequi.codecateequi.libecateequiar }}</td>
+                                {% endif %}
+                                {% set testRepeat = entity.codeequi.codecateequi.codecateequi %}
+                                <td>{{ entity.codeequi.libeequiar }}
+
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codeequi.codeequi }}"/>
+
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece|codeequi"/>
+
+                                </td>
+                                <td align="right">
+                                    <input name="nombespautil{{ key }}" type="text"
+                                           value="{{ entity.nombespautil }}" id="nombespautil{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+                                </td>
+                                <td align="right">
+                                    <input name="nombespanonutil{{ key }}" type="text"
+                                           value="{{ entity.nombespanonutil }}" id="nombespanonutil{{ key }}"
+                                           onchange="javascript:txtChanged(this);">
+
+                                </td>
+                                <td align="right"><input name="obse{{ key }}" type="text"
+                                                         value="{{ entity.obse }}" id="obse{{ key }}"
+                                                         onchange="javascript:txtChanged(this);"></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
             </div>
 
 

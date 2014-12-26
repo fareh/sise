@@ -5,11 +5,12 @@ namespace Sise\Bundle\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * NomenclatureEtablissement
  *
  * @ORM\Table(name="nomenclature_etablissement", indexes={@ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Circonscription", columns={"CodeCirc"}),@ORM\Index(name="IDX_nomenclature_etablissement_nomenclature_zone", columns={"CodeZone"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_CirconscriptionRegi45", columns={"codecircregi"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Delegation", columns={"CodeDele"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_Secteur", columns={"CodeSect"}), @ORM\Index(name="FK_Nomenclature_Etablissement_Nomenclature_TypeEtablissement", columns={"CodeTypeEtab"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureEtablissementRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\NomenclatureEtablissementRepository")
  */
 class NomenclatureEtablissement
 {
@@ -397,7 +398,6 @@ class NomenclatureEtablissement
 //    }
 
 
-
     /**
      * Get datecreabd
      *
@@ -611,6 +611,7 @@ class NomenclatureEtablissement
     {
         return $this->codebasspeda;
     }
+
     public function __toString()
     {
         return $this->codeetab;

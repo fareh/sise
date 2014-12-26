@@ -1,0 +1,71 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectivepersonelpersonelgrade' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+
+        <div id="CPHMain_upGridView">
+
+            <div>
+                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">
+                                الموارد البشريّة الغير مدرّسة
+                            </td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">السلك</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                        </tr>
+
+
+                        {% set testRepeat = 0 %}
+                        {% for key , entity in entities %}
+                            <tr>
+                                {% if entity.codegrad.codecorp.codecorp!=testRepeat %}
+                                    <td style="background: #ffffff"
+                                        rowspan="{{ rowspan[entity.codegrad.codecorp.codecorp]|length }}">{{ entity.codegrad.codecorp.libecorpar }}</td>
+                                {% endif %}
+                                {% set testRepeat = entity.codegrad.codecorp.codecorp %}
+                                <td>{{ entity.codegrad.libegradar }}
+
+                                    <input type="hidden" name="val_{{ key }}"
+                                           value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codegrad.codegrad }}"/>
+                                    <input type="hidden" name="key_{{ key }}"
+                                           value="codeetab|codetypeetab|annescol|coderece|codegrad"/>
+
+                                </td>
+                                <td><input name="nombpersmasc{{ key }}" type="text" value="{{ entity.nombpersmasc }}"
+                                           id="nombpersmasc{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td><input name="nombpersfemi{{ key }}" type="text" value="{{ entity.nombpersfemi }}"
+                                           id="nombpersfemi{{ key }}"
+                                           onchange="javascript:txtChanged(this);"></td>
+                                <td class="nombtotapers">{{ entity.nombtotapers }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+        </div>
+    </center>
+
+{% endblock %}

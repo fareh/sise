@@ -6,54 +6,55 @@
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
+
             <div id="CPHMain_upGridView">
 
 
                 <div>
                     <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <tbody>
-                        <tr>
-                            <td align="center" colspan="4"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></td>
-                        </tr>
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">سنـــة
-                                الــولادة
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
-                        </tr>
-
-
-                        {% for key ,  genre in entities %}
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
                             <tr>
-                                <td>{{ genre.codeannenais.libeannenaisar }}
-                                    <input type="hidden" name="val_{{ key }}"
-                                           value="{{ genre.codeetab }}|{{ genre.codetypeetab }}|{{ genre.annescol }}|{{ genre.coderece }}|{{ genre.codeannenais.codeannenais }}"/>
-
-
-                                    <input type="hidden" name="key_{{ key }}"
-                                           value="codeetab|codetypeetab|annescol|coderece|codeannenais"/>
-                                </td>
-                                <td align="right">
-                                    <input name="nombelevmasc{{ key }}" type="text"
-                                           value="{{ genre.nombelevmasc }}" id="nombelevmasc{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
-                                </td>
-                                <td align="right">
-                                    <input name="nombelevfemi{{ key }}" type="text"
-                                           value="{{ genre.nombelevfemi }}" id="nombelevfemi{{ key }}"
-                                           onchange="javascript:txtChanged(this);"></td>
-                                <td align="right" style="background-color:#EEEEEE;">{{ genre.nombtota }}</td>
+                                <td align="center" colspan="4"
+                                    style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"></td>
                             </tr>
-                        {% endfor %}
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">سنـــة
+                                    الــولادة
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                            </tr>
 
-                        </tbody>
-                    </table>
-                        </form>
+
+                            {% for key ,  genre in entities %}
+                                <tr>
+                                    <td>{{ genre.codeannenais.libeannenaisar }}
+                                        <input type="hidden" name="val_{{ key }}"
+                                               value="{{ genre.codeetab }}|{{ genre.codetypeetab }}|{{ genre.annescol }}|{{ genre.coderece }}|{{ genre.codeannenais.codeannenais }}"/>
+
+
+                                        <input type="hidden" name="key_{{ key }}"
+                                               value="codeetab|codetypeetab|annescol|coderece|codeannenais"/>
+                                    </td>
+                                    <td align="right">
+                                        <input name="nombelevmasc{{ key }}" type="text"
+                                               value="{{ genre.nombelevmasc }}" id="nombelevmasc{{ key }}"
+                                               onchange="javascript:txtChanged(this);">
+                                    </td>
+                                    <td align="right">
+                                        <input name="nombelevfemi{{ key }}" type="text"
+                                               value="{{ genre.nombelevfemi }}" id="nombelevfemi{{ key }}"
+                                               onchange="javascript:txtChanged(this);"></td>
+                                    <td align="right" style="background-color:#EEEEEE;">{{ genre.nombtota }}</td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
 
 

@@ -84,7 +84,7 @@ class NomenclatureQuestionnairerecensement
         $this->codeetab = $codeetab;
         $this->codetypeetab = $codetypeetab;
         $this->annescol = $annescol;
-        $this->coderece=$coderece;
+        $this->coderece = $coderece;
     }
 
 
@@ -104,7 +104,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get codeques
      *
-     * @return string 
+     * @return string
      */
     public function getCodeques()
     {
@@ -127,7 +127,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -150,7 +150,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -173,7 +173,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -196,7 +196,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -219,7 +219,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get etat
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEtat()
     {
@@ -242,7 +242,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get etatdireregi
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEtatdireregi()
     {
@@ -265,7 +265,7 @@ class NomenclatureQuestionnairerecensement
     /**
      * Get etatdirecent
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEtatdirecent()
     {

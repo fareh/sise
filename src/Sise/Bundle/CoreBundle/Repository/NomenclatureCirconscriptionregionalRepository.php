@@ -10,7 +10,8 @@ namespace Sise\Bundle\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-class NomenclatureCirconscriptionregionalRepository extends  EntityRepository{
+class NomenclatureCirconscriptionregionalRepository extends EntityRepository
+{
 
     public function findNomenclatureCirconscriptionregional($NomenclatureCirconscriptionregional)
     {

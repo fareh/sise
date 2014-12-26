@@ -16,10 +16,9 @@ class OrientationFiliereSportType extends AbstractType
     {
         $builder
             ->add('nombelevmasc')
-            ->add('nombelevfemi')
-        ;
+            ->add('nombelevfemi');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

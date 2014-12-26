@@ -15,7 +15,7 @@ class EtablissementInfrastructureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codesitufonc','entity', array(
+            ->add('codesitufonc', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment',
                 'property' => 'libepropbatiar',
                 'expanded' => false,
@@ -23,7 +23,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
-            ->add('codetypedisp','entity', array(
+            ->add('codetypedisp', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDisposition',
                 'property' => 'libetypedispar',
                 'expanded' => false,
@@ -31,7 +31,6 @@ class EtablissementInfrastructureType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
-
             ->add('surftotaterr')
             ->add('surfcons')
             ->add('surfcouv')
@@ -41,32 +40,32 @@ class EtablissementInfrastructureType extends AbstractType
             ->add('nomblocalouesejo')
             ->add('nomblocapretense')
             ->add('nomblocapretsejo')
-            ->add('possexteetab','choice',
+            ->add('possexteetab', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('utillocalouepret','choice',
+            ->add('utillocalouepret', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('nombsallexte')
-            ->add('obse','text',array('required' => false))
-            ->add('exisconninte','choice',
+            ->add('obse', 'text', array('required' => false))
+            ->add('exisconninte', 'choice',
                 array('required' => 'false',
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('codesituelecatel','entity', array(
-                  'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationreseauelectriqueatelier',
-                  'property' => 'libesituelecatelar',
-                  'expanded' => false,
-                   'multiple' => false,
+            ->add('codesituelecatel', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationreseauelectriqueatelier',
+                'property' => 'libesituelecatelar',
+                'expanded' => false,
+                'multiple' => false,
                 'required' => false,
                 'empty_value' => "-- اختيار --",
-    ))
-            ->add('codetypeclot','entity', array(
+            ))
+            ->add('codetypeclot', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTypecloture',
                 'property' => 'libetypeclotar',
                 'expanded' => false,
@@ -74,7 +73,7 @@ class EtablissementInfrastructureType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
-            ->add('codetypeconninte','entity', array(
+            ->add('codetypeconninte', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTypeconnxioninternet',
                 'property' => 'libetypeconnintear',
                 'expanded' => false,
@@ -82,17 +81,16 @@ class EtablissementInfrastructureType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
-            ->add('codezone','entity', array(
+            ->add('codezone', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureZone',
                 'property' => 'libezonear',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => false,
                 'empty_value' => "-- اختيار --",
-            ))
-        ;
+            ));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

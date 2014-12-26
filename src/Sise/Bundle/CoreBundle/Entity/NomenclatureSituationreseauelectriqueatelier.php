@@ -85,11 +85,10 @@ class NomenclatureSituationreseauelectriqueatelier
     private $colltech;
 
 
-
     /**
      * Get codesituelecatel
      *
-     * @return string 
+     * @return string
      */
     public function getCodesituelecatel()
     {
@@ -112,7 +111,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get libesituelecatelar
      *
-     * @return string 
+     * @return string
      */
     public function getLibesituelecatelar()
     {
@@ -135,7 +134,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get libesituelecatelfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibesituelecatelfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureSituationreseauelectriqueatelier
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

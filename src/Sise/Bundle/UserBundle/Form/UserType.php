@@ -23,10 +23,9 @@ class UserType extends AbstractType
             ->add('codecircregi')
             ->add('codedele')
             ->add('codeprof')
-            ->add('codenivehier')
-        ;
+            ->add('codenivehier');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

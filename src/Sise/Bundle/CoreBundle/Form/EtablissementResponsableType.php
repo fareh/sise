@@ -20,14 +20,14 @@ class EtablissementResponsableType extends AbstractType
             ->add('ancidireense')
             ->add('ancidireadmi')
             ->add('telemobidire')
-            ->add('maildire','email',array('required' => false))
+            ->add('maildire', 'email', array('required' => false))
             ->add('idenuniqdireadjo')
             ->add('nomprendireadjo')
             ->add('ancidireadjoense')
             ->add('ancidireadjoadmi')
             ->add('telemobidireadjo')
-            ->add('maildireadjo','email',array('required' => false))
-            ->add('codegraddire','entity', array(
+            ->add('maildireadjo', 'email', array('required' => false))
+            ->add('codegraddire', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
                 'property' => 'libegradar',
                 'expanded' => false,
@@ -35,17 +35,16 @@ class EtablissementResponsableType extends AbstractType
                 'required' => false,
                 'empty_value' => "-- اختيار --",
             ))
-            ->add('codegraddireadjo','entity', array(
-        'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
-        'property' => 'libegradar',
-        'expanded' => false,
-        'multiple' => false,
-        'required' => false,
-        'empty_value' => "-- اختيار --",
-    ))
-        ;
+            ->add('codegraddireadjo', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGrade',
+                'property' => 'libegradar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => false,
+                'empty_value' => "-- اختيار --",
+            ));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

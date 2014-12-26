@@ -128,7 +128,6 @@ class EffectiveeleveListeelevehandicap
     private $suivcentspec;
 
 
-
     /**
      * Set codeetab
      *
@@ -145,7 +144,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -168,7 +167,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -191,7 +190,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -214,7 +213,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -237,7 +236,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get numeelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeelev()
     {
@@ -260,7 +259,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get nompren
      *
-     * @return string 
+     * @return string
      */
     public function getNompren()
     {
@@ -283,7 +282,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get codegenr
      *
-     * @return string 
+     * @return string
      */
     public function getCodegenr()
     {
@@ -306,7 +305,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get annenais
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnenais()
     {
@@ -329,7 +328,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -352,7 +351,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get redo
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRedo()
     {
@@ -375,7 +374,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get codetypehand
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypehand()
     {
@@ -398,7 +397,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get codedegrhand
      *
-     * @return string 
+     * @return string
      */
     public function getCodedegrhand()
     {
@@ -421,7 +420,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get intefaci
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIntefaci()
     {
@@ -444,7 +443,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get intedefi
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIntedefi()
     {
@@ -467,7 +466,7 @@ class EffectiveeleveListeelevehandicap
     /**
      * Get suivcentspec
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getSuivcentspec()
     {

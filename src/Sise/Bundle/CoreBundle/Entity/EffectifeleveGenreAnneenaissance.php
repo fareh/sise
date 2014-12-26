@@ -57,7 +57,6 @@ class EffectifeleveGenreAnneenaissance
     private $codeannenais;
 
 
-
     /**
      * @var integer
      *
@@ -80,7 +79,6 @@ class EffectifeleveGenreAnneenaissance
     private $nombtota;
 
 
-
     /**
      * Set codeetab
      *
@@ -97,7 +95,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -120,7 +118,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -143,7 +141,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -166,7 +164,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -189,7 +187,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -212,7 +210,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
@@ -235,7 +233,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get nombtota
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtota()
     {
@@ -258,7 +256,7 @@ class EffectifeleveGenreAnneenaissance
     /**
      * Get codeannenais
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance
      */
     public function getCodeannenais()
     {

@@ -40,7 +40,7 @@ class NomenclatureGrade
      *
      * @ORM\Column(name="CodeCorp", type="string", length=50, nullable=true)
      */
-   // private $codecorp;
+    // private $codecorp;
 
 
     /**
@@ -48,7 +48,6 @@ class NomenclatureGrade
      * @ORM\JoinColumn(name="CodeCorp", referencedColumnName="CodeCorp")
      */
     protected $codecorp;
-
 
 
     /**
@@ -101,11 +100,10 @@ class NomenclatureGrade
     private $colltech;
 
 
-
     /**
      * Get codegrad
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrad()
     {
@@ -128,7 +126,7 @@ class NomenclatureGrade
     /**
      * Get libegradar
      *
-     * @return string 
+     * @return string
      */
     public function getLibegradar()
     {
@@ -151,7 +149,7 @@ class NomenclatureGrade
     /**
      * Get libegradfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibegradfr()
     {
@@ -174,7 +172,7 @@ class NomenclatureGrade
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -197,7 +195,7 @@ class NomenclatureGrade
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -220,7 +218,7 @@ class NomenclatureGrade
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -243,7 +241,7 @@ class NomenclatureGrade
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -266,7 +264,7 @@ class NomenclatureGrade
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -289,7 +287,7 @@ class NomenclatureGrade
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -312,12 +310,13 @@ class NomenclatureGrade
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codegrad;
@@ -339,7 +338,7 @@ class NomenclatureGrade
     /**
      * Get codecorp
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCorps 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCorps
      */
     public function getCodecorp()
     {

@@ -31,7 +31,6 @@ class NomenclatureFiliereniveauscolaire
     private $codenivescol;
 
 
-
     /**
      * Set codefili
      *
@@ -48,7 +47,7 @@ class NomenclatureFiliereniveauscolaire
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -71,7 +70,7 @@ class NomenclatureFiliereniveauscolaire
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {

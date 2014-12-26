@@ -85,7 +85,6 @@ class NomenclatureGouvernorat
     private $colltech = '0';
 
 
-
     /**
      * Get codegouv
      *
@@ -302,6 +301,7 @@ class NomenclatureGouvernorat
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->libegouvar;

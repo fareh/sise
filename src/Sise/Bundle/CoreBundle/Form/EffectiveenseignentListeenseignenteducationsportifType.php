@@ -23,10 +23,9 @@ class EffectiveenseignentListeenseignenteducationsportifType extends AbstractTyp
             ->add('obse')
             ->add('coderece')
             ->add('codegrad')
-            ->add('codegenr')
-        ;
+            ->add('codegenr');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

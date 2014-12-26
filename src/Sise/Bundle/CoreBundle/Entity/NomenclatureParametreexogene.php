@@ -59,7 +59,6 @@ class NomenclatureParametreexogene
     private $valeindi;
 
 
-
     /**
      * Set codeparaexog
      *
@@ -76,7 +75,7 @@ class NomenclatureParametreexogene
     /**
      * Get codeparaexog
      *
-     * @return string 
+     * @return string
      */
     public function getCodeparaexog()
     {
@@ -99,7 +98,7 @@ class NomenclatureParametreexogene
     /**
      * Get codefk
      *
-     * @return string 
+     * @return string
      */
     public function getCodefk()
     {
@@ -122,7 +121,7 @@ class NomenclatureParametreexogene
     /**
      * Get tablnamefk
      *
-     * @return string 
+     * @return string
      */
     public function getTablnamefk()
     {
@@ -145,7 +144,7 @@ class NomenclatureParametreexogene
     /**
      * Get libeparaexogar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeparaexogar()
     {
@@ -168,7 +167,7 @@ class NomenclatureParametreexogene
     /**
      * Get libeparaexogfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeparaexogfr()
     {
@@ -191,7 +190,7 @@ class NomenclatureParametreexogene
     /**
      * Get valeindi
      *
-     * @return string 
+     * @return string
      */
     public function getValeindi()
     {

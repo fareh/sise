@@ -43,11 +43,10 @@ class NomenclatureEtatrecensement
     private $obse;
 
 
-
     /**
      * Get codeetatrece
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetatrece()
     {
@@ -70,7 +69,7 @@ class NomenclatureEtatrecensement
     /**
      * Get libeetatrecear
      *
-     * @return string 
+     * @return string
      */
     public function getLibeetatrecear()
     {
@@ -93,7 +92,7 @@ class NomenclatureEtatrecensement
     /**
      * Get libeetatrecefr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeetatrecefr()
     {
@@ -116,7 +115,7 @@ class NomenclatureEtatrecensement
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

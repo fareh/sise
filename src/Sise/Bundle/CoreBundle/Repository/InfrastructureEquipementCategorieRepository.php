@@ -9,9 +9,11 @@
 namespace Sise\Bundle\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-class InfrastructureEquipementCategorieRepository extends  EntityRepository{
 
-    public function getInfrastructureEquipement($codeetab,  $codetypeetab, $annescol, $coderece)
+class InfrastructureEquipementCategorieRepository extends EntityRepository
+{
+
+    public function getInfrastructureEquipement($codeetab, $codetypeetab, $annescol, $coderece)
     {
         return $this->createQueryBuilder('p')
             ->leftJoin('p.codeequi', 'c')
@@ -20,10 +22,10 @@ class InfrastructureEquipementCategorieRepository extends  EntityRepository{
             ->andWhere('p.codetypeetab = :codetypeetab')
             ->andWhere('p.annescol = :annescol')
             ->andWhere('p.coderece = :coderece')
-            ->setParameter('codeetab' , $codeetab)
-            ->setParameter('codetypeetab' , $codetypeetab)
-            ->setParameter('annescol',$annescol)
-            ->setParameter('coderece',$coderece)
+            ->setParameter('codeetab', $codeetab)
+            ->setParameter('codetypeetab', $codetypeetab)
+            ->setParameter('annescol', $annescol)
+            ->setParameter('coderece', $coderece)
             ->orderBy('r.codecateequi', 'ASC')
             /* ->groupBy('r.codecateespa')*/
             ->getQuery()->getResult();

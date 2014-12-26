@@ -85,11 +85,10 @@ class NomenclatureRessourceelectricite
     private $colltech;
 
 
-
     /**
      * Get coderesselec
      *
-     * @return string 
+     * @return string
      */
     public function getCoderesselec()
     {
@@ -112,7 +111,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get liberesselecar
      *
-     * @return string 
+     * @return string
      */
     public function getLiberesselecar()
     {
@@ -135,7 +134,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get liberesselecfr
      *
-     * @return string 
+     * @return string
      */
     public function getLiberesselecfr()
     {
@@ -158,7 +157,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -181,7 +180,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -204,7 +203,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -227,7 +226,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -250,7 +249,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -273,7 +272,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -296,7 +295,7 @@ class NomenclatureRessourceelectricite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

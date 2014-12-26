@@ -98,11 +98,10 @@ class NomenclatureCategorieactivite
     private $colltech;
 
 
-
     /**
      * Get codecateacti
      *
-     * @return string 
+     * @return string
      */
     public function getCodecateacti()
     {
@@ -125,7 +124,7 @@ class NomenclatureCategorieactivite
     /**
      * Get libecateactiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateactiar()
     {
@@ -148,7 +147,7 @@ class NomenclatureCategorieactivite
     /**
      * Get libecateactifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecateactifr()
     {
@@ -171,7 +170,7 @@ class NomenclatureCategorieactivite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -194,7 +193,7 @@ class NomenclatureCategorieactivite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -217,7 +216,7 @@ class NomenclatureCategorieactivite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -240,7 +239,7 @@ class NomenclatureCategorieactivite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -263,7 +262,7 @@ class NomenclatureCategorieactivite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -286,7 +285,7 @@ class NomenclatureCategorieactivite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -309,7 +308,7 @@ class NomenclatureCategorieactivite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -342,7 +341,7 @@ class NomenclatureCategorieactivite
     /**
      * Get codeacti
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodeacti()
     {

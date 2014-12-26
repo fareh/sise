@@ -29,10 +29,9 @@ class NomenclatureQuestionnaireType extends AbstractType
             ->add('collgene')
             ->add('lyce')
             ->add('colltech')
-            ->add('codeenti')
-        ;
+            ->add('codeenti');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

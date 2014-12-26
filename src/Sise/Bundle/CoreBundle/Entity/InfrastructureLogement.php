@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfrastructureLogement
  *
  * @ORM\Table(name="infrastructure_logement", indexes={@ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_ProprieteBatiment", columns={"CodePropBati"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_SituationCompteurEauEl28", columns={"CodeSituCompEau"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_SituationCompteurEauEl29", columns={"CodeSituCompElec"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_StatusHabitant", columns={"CodeStatHabi"}), @ORM\Index(name="FK_Infrastructure_Logement_Nomenclature_TypeLogement", columns={"CodeTypeLoge"})})
- *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureLogementRepository")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\InfrastructureLogementRepository")
  */
 class InfrastructureLogement
 {
@@ -110,14 +110,14 @@ class InfrastructureLogement
     private $codesitucompelec;
 
 
-     private $maCle ;
+    private $maCle;
 
     /**
      * @return mixed
      */
     public function getMaCle()
     {
-        return $this->codeetab."|".$this->codetypeetab."|".$this->annescol."|".$this->coderece."|".$this->numeloge;
+        return $this->codeetab . "|" . $this->codetypeetab . "|" . $this->annescol . "|" . $this->coderece . "|" . $this->numeloge;
     }
 
 
@@ -137,7 +137,7 @@ class InfrastructureLogement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -160,7 +160,7 @@ class InfrastructureLogement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -183,7 +183,7 @@ class InfrastructureLogement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -206,13 +206,12 @@ class InfrastructureLogement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
     }
-
 
 
     /**
@@ -231,7 +230,7 @@ class InfrastructureLogement
     /**
      * Get numeloge
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeloge()
     {
@@ -254,7 +253,7 @@ class InfrastructureLogement
     /**
      * Get surfcouv
      *
-     * @return float 
+     * @return float
      */
     public function getSurfcouv()
     {
@@ -277,7 +276,7 @@ class InfrastructureLogement
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -300,7 +299,7 @@ class InfrastructureLogement
     /**
      * Get nomprenhabi
      *
-     * @return string 
+     * @return string
      */
     public function getNomprenhabi()
     {
@@ -323,7 +322,7 @@ class InfrastructureLogement
     /**
      * Get codetypeloge
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypelogement 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypelogement
      */
     public function getCodetypeloge()
     {
@@ -346,7 +345,7 @@ class InfrastructureLogement
     /**
      * Get codepropbati
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureProprietebatiment
      */
     public function getCodepropbati()
     {
@@ -369,7 +368,7 @@ class InfrastructureLogement
     /**
      * Get codestathabi
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureStatushabitant 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureStatushabitant
      */
     public function getCodestathabi()
     {
@@ -392,7 +391,7 @@ class InfrastructureLogement
     /**
      * Get codesitucompeau
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite
      */
     public function getCodesitucompeau()
     {
@@ -415,7 +414,7 @@ class InfrastructureLogement
     /**
      * Get codesitucompelec
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSituationcompteureauelectricite
      */
     public function getCodesitucompelec()
     {

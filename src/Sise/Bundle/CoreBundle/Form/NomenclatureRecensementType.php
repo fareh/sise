@@ -18,22 +18,22 @@ class NomenclatureRecensementType extends AbstractType
             ->add('coderece')
             ->add('liberecear')
             ->add('liberecefr')
-            ->add('annescol','entity', array(
+            ->add('annescol', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire',
                 'property' => 'libeannescolar',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
                 'empty_value' => "-- اختيار --"))
-            ->add('dateouve','datetime',array(
-                'input'  => 'datetime',
+            ->add('dateouve', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('dateclot','datetime',array(
-                'input'  => 'datetime',
+            ->add('dateclot', 'datetime', array(
+                'input' => 'datetime',
                 'widget' => 'single_text',
                 'max_length' => 100,
                 'required' => true,
@@ -42,7 +42,7 @@ class NomenclatureRecensementType extends AbstractType
             ->add('codeperisuivbudg')
             ->add('initques')
             ->add('obse')
-            ->add('codeperi','entity', array(
+            ->add('codeperi', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\ParametrePeriodicite',
                 'property' => 'libeperiar',
                 'expanded' => false,
@@ -50,14 +50,13 @@ class NomenclatureRecensementType extends AbstractType
                 'required' => true,
                 'empty_value' => "-- اختيار --"))
             ->add('dureperi')
-            ->add('codeetatrece','entity', array(
+            ->add('codeetatrece', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtatrecensement',
                 'property' => 'libeetatrecear',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
-                'empty_value' => "-- اختيار --"))
-        ;
+                'empty_value' => "-- اختيار --"));
     }
 
     /**

@@ -160,7 +160,7 @@ class DefaultController extends Controller
         if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
 
 
-        if (   strpos($PageContext, 'Ques') !== false  ) {
+        if (strpos($PageContext, 'Ques') !== false) {
 
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
@@ -170,9 +170,9 @@ class DefaultController extends Controller
 
             if ($TdRetour == true) {
                 $RouteRetour = 'statElev';
-               if ($nameclass===null){
-                   $RouteRetourParams = array('codepack' => '');
-                }else{
+                if ($nameclass === null) {
+                    $RouteRetourParams = array('codepack' => '');
+                } else {
                     $RouteRetourParams = array('codepack' => $nameclass->getCodepack());
                 }
 
@@ -186,7 +186,7 @@ class DefaultController extends Controller
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
 
-            if ($TdRetour == true){
+            if ($TdRetour == true) {
                 $RouteRetour = $RouteAction . '';
                 $RouteRetourParams = array('codepack' => '');
             }
@@ -250,6 +250,7 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+
     public function searchpersonnelAction()
     {
         // Generation of the form
@@ -260,6 +261,7 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+
     public function getListAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -324,9 +326,7 @@ class DefaultController extends Controller
                         $json[$i]['libelle'] = $nomenclatureDelegation->getLibecircar();
                         $i++;
                     }
-                }
-
-                elseif ($entity == 'NomenclatureDisposition') {
+                } elseif ($entity == 'NomenclatureDisposition') {
                     $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureDisposition')->findByCodesitufonc($codegouv);
                     $json = array();
                     $json[0]['code'] = '';
@@ -338,8 +338,7 @@ class DefaultController extends Controller
                         $json[$i]['libelle'] = $nomenclatureDelegation->getLibetypedispar();
                         $i++;
                     }
-                }
-                elseif ($entity == 'CodeEtab') {
+                } elseif ($entity == 'CodeEtab') {
                     $nomenclatureDelegation = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneByCodeetab($codegouv);;
                     $json = array();
                     $json['code'] = $nomenclatureDelegation->getCodeetab();

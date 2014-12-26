@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
+
 /**
  * EtablissementSejour
  *
@@ -48,7 +49,7 @@ class EtablissementSejour
      */
     private $coderece;
 
-  /**
+    /**
      * @var boolean
      *
      * @ORM\Column(name="ElevEtab", type="boolean", nullable=true)
@@ -56,7 +57,7 @@ class EtablissementSejour
      */
     private $elevetab;
 
- /**
+    /**
      * @var boolean
      *
      * @ORM\Column(name="PensComp", type="boolean", nullable=true)
@@ -64,7 +65,7 @@ class EtablissementSejour
      */
     private $penscomp;
 
-   
+
     /**
      * @var integer
      *
@@ -97,14 +98,14 @@ class EtablissementSejour
         $this->codeetabsejo = $codeetabsejo;
     }
 
-   /**
+    /**
      * @var integer
      *
      * @ORM\Column(name="NombElevMasc", type="integer", nullable=true)
      */
     private $nombelevmasc;
 
-  /**
+    /**
      * @var integer
      *
      * @ORM\Column(name="NombElevFemi", type="integer", nullable=true)
@@ -113,7 +114,7 @@ class EtablissementSejour
 
     public function __toString()
     {
-        if(is_null($this->codeetab)) {
+        if (is_null($this->codeetab)) {
             return 'NULL';
         }
         return $this->codeetab;
@@ -135,7 +136,7 @@ class EtablissementSejour
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -158,7 +159,7 @@ class EtablissementSejour
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -181,7 +182,7 @@ class EtablissementSejour
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -204,7 +205,7 @@ class EtablissementSejour
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -227,7 +228,7 @@ class EtablissementSejour
     /**
      * Get elevetab
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getElevetab()
     {
@@ -250,7 +251,7 @@ class EtablissementSejour
     /**
      * Get penscomp
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPenscomp()
     {
@@ -273,7 +274,7 @@ class EtablissementSejour
     /**
      * Get numesequ
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumesequ()
     {
@@ -296,7 +297,7 @@ class EtablissementSejour
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -319,12 +320,13 @@ class EtablissementSejour
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
     }
+
     /**
      * @var \EtablissementFicheetablissement
      *

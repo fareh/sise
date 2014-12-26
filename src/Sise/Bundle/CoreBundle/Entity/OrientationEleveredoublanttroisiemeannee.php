@@ -87,7 +87,6 @@ class OrientationEleveredoublanttroisiemeannee
     private $nombelevfemi;
 
 
-
     /**
      * Set codeetab
      *
@@ -104,7 +103,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -127,7 +126,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -150,7 +149,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -173,7 +172,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -196,7 +195,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get codefiliorig
      *
-     * @return string 
+     * @return string
      */
     public function getCodefiliorig()
     {
@@ -219,7 +218,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get codefilireorie
      *
-     * @return string 
+     * @return string
      */
     public function getCodefilireorie()
     {
@@ -242,7 +241,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get nombelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmasc()
     {
@@ -265,7 +264,7 @@ class OrientationEleveredoublanttroisiemeannee
     /**
      * Get nombelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemi()
     {

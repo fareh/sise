@@ -26,33 +26,36 @@ class EtablissementActiviteController extends Controller
      */
     public function editAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('etablissementactivite_edit');
-        $pathUpdate = $this->generateUrl('etablissementactivite_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-
         if ($codeetab && $codetypeetab) {
-            $params = $request->request->get($search->getName());
-            $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EtablissementActivite')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EtablissementActivite')->getEtablissementActivite($codeetab, $codetypeetab, $annescol, $coderece);
+            foreach ($entities as $key => $entity) {
+
+                $rowspan[$entity->getCodeacti()->getCodecateacti()->getCodecateacti()][$key] = $entity->getCodeacti()->getCodecateacti()->getCodecateacti();
+            }
+
+            $pathUpdate = $this->generateUrl('etablissementactivite_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('etablissement_activite');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.etablissement_activite.html.twig', array(
             'entities' => @$entities,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
@@ -68,33 +71,35 @@ class EtablissementActiviteController extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('etablissementactivite_edit');
         $pathUpdate = $this->generateUrl('etablissementactivite_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EtablissementActivite')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
-            for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
-                $item = $em->getRepository('SiseCoreBundle:EtablissementActivite')->findOneBy($items);
-                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_etablissementactivite_nombelevresimasc_' . $i));
-                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_etablissementactivite_nombelevresifemi_' . $i));
-                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_etablissementactivite_nombtotaresielev_' . $i));
-                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_etablissementactivite_nombelevbourfemi_' . $i));
-                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_etablissementactivite_nombtotabourelev_' . $i));
-                $em->persist($item);
+        $entities = $em->getRepository('SiseCoreBundle:EtablissementActivite')->getEtablissementActivite($codeetab, $codetypeetab, $annescol, $coderece);
+        foreach ($entities as $key => $entity) {
 
+            $rowspan[$entity->getCodeacti()->getCodecateacti()->getCodecateacti()][$key] = $entity->getCodeacti()->getCodecateacti()->getCodecateacti();
+        }
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
+            for ($i = 0; $i < count($entities); $i++) {
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
+                $item = $em->getRepository('SiseCoreBundle:EtablissementActivite')->findOneBy($items);
+                $nombacti = $request->request->get('nombacti' . $i);
+                $obse = $request->request->get('obse' . $i);
+                $item->setNombacti($nombacti);
+                $item->setObse($obse);
+                $em->persist($item);
                 $em->flush();
             }
+            return $this->redirect($this->generateUrl('etablissementactivite_update'));
         }
+
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('etablissement_activite');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.etablissement_activite.html.twig', array(
             'entities' => @$entities,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,

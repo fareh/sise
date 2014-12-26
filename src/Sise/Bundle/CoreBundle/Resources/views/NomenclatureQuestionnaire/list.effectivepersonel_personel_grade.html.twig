@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructurelogement' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectivepersonelpersonelgrade' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
     <center>
@@ -33,17 +33,18 @@
                     </tr>
 
 
-                    {% set testRepeat = 0  %}
+                    {% set testRepeat = 0 %}
                     {% for key , entity in entities %}
-                    <tr>
-                        {% if entity.codegrad.codecorp.codecorp!=testRepeat %}
-                            <td style="background: #ffffff" rowspan="{{rowspan[entity.codegrad.codecorp.codecorp]|length  }}">{{ entity.codegrad.codecorp.libecorpar }}</td>
-                        {% endif  %}
-                        {% set testRepeat = entity.codegrad.codecorp.codecorp %}
-                    <td>{{ entity.codegrad.libegradar}}</td>
-                    <td>{{ entity.nombpersmasc}}</td>
-                    <td>{{ entity.nombpersfemi}}</td>
-                    <td>{{ entity.nombtotapers}}</td>
+                        <tr>
+                            {% if entity.codegrad.codecorp.codecorp!=testRepeat %}
+                                <td style="background: #ffffff"
+                                    rowspan="{{ rowspan[entity.codegrad.codecorp.codecorp]|length }}">{{ entity.codegrad.codecorp.libecorpar }}</td>
+                            {% endif %}
+                            {% set testRepeat = entity.codegrad.codecorp.codecorp %}
+                            <td>{{ entity.codegrad.libegradar }}</td>
+                            <td>{{ entity.nombpersmasc }}</td>
+                            <td>{{ entity.nombpersfemi }}</td>
+                            <td>{{ entity.nombtotapers }}</td>
                         </tr>
                     {% endfor %}
 

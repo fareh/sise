@@ -91,7 +91,6 @@ class EffectiveeleveEleveetablissementtechnique
     private $nombtotaelevfemi;
 
 
-
     /**
      * Set codeetab
      *
@@ -108,7 +107,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -131,7 +130,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -154,7 +153,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -177,7 +176,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -200,7 +199,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get nombelevmascnouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascnouv()
     {
@@ -223,7 +222,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get nombelevfeminouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfeminouv()
     {
@@ -246,7 +245,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get nombelevmascredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascredo()
     {
@@ -269,7 +268,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get nombelevfemiredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemiredo()
     {
@@ -292,7 +291,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get nombtotaelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevmasc()
     {
@@ -315,7 +314,7 @@ class EffectiveeleveEleveetablissementtechnique
     /**
      * Get nombtotaelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevfemi()
     {

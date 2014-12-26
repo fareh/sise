@@ -18,12 +18,11 @@ class EtablissementSejourType extends AbstractType
 //            ->add('elevetab')
 //            ->add('penscomp')
 //            ->add('numesequ')
-            ->add('codeetabsejo','text',array('required' => false))
-            ->add('nombelevmasc','text',array('required' => false))
-            ->add('nombelevfemi','text',array('required' => false))
-        ;
+            ->add('codeetabsejo', 'text', array('required' => false))
+            ->add('nombelevmasc', 'text', array('required' => false))
+            ->add('nombelevfemi', 'text', array('required' => false));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

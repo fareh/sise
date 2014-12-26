@@ -23,19 +23,20 @@
 
                         </thead>
                         <tbody>
-                      {% for key, entity in entities %}
-                          <tr>
-                            <td>{{ entity.nombelevmasc }}</td>
-                              <td>{{ entity.nombelevfemi }}</td>
-                              <td>{{ entity.nombtota }}</td>
+                        {% for key, entity in entities %}
+                            <tr>
+                                <td>{{ entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombelevfemi }}</td>
+                                <td>{{ entity.nombtota }}</td>
 
 
-                          </tr>
-                      {% endfor %}
+                            </tr>
+                        {% endfor %}
 
-                        </tbody></table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
         </center>
     {% endif %}
 

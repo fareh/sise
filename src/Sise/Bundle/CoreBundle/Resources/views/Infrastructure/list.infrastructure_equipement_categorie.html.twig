@@ -34,13 +34,14 @@
                         </th>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الملاحظات</th>
                     </tr>
-                    {% set testRepeat = 0  %}
+                    {% set testRepeat = 0 %}
                     {% for key , entity in entities %}
-                    <tr>
-                        {% if entity.codeequi.codecateequi.codecateequi!=testRepeat %}
-                            <td style="background: #ffffff" rowspan="{{rowspan[entity.codeequi.codecateequi.codecateequi]|length  }}">{{ entity.codeequi.codecateequi.libecateequiar }}</td>
-                        {% endif  %}
-                        {% set testRepeat = entity.codeequi.codecateequi.codecateequi %}
+                        <tr>
+                            {% if entity.codeequi.codecateequi.codecateequi!=testRepeat %}
+                                <td style="background: #ffffff"
+                                    rowspan="{{ rowspan[entity.codeequi.codecateequi.codecateequi]|length }}">{{ entity.codeequi.codecateequi.libecateequiar }}</td>
+                            {% endif %}
+                            {% set testRepeat = entity.codeequi.codecateequi.codecateequi %}
                             <td>{{ entity.codeequi.libeequiar }}</td>
                             <td align="right">{{ entity.nombespautil }}</td>
                             <td align="right">{{ entity.nombespanonutil }}</td>

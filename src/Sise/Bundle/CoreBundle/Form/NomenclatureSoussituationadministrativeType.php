@@ -15,17 +15,16 @@ class NomenclatureSoussituationadministrativeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codesituadmi','entity', array(
+            ->add('codesituadmi', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationadministrative',
                 'property' => 'libesituadmiar',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
                 'empty_value' => "-- اختيار --"
-            ))
-        ;
+            ));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

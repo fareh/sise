@@ -6,26 +6,28 @@
  * Time: 10:51
  */
 namespace Sise\Bundle\CoreBundle\Repository;
+
 use Doctrine\ORM\EntityRepository;
-class OrientationFilieresportRepository extends  EntityRepository
+
+class OrientationFilieresportRepository extends EntityRepository
 {
 
 
-        public function getOrientationFilieresport($items)
-        {
-            return $this->createQueryBuilder('p')
-                ->leftJoin('p.codefiliorig', 'c')
-                ->where('p.codeetab = :codeetab')
-                ->andWhere('p.codetypeetab = :codetypeetab')
-                ->andWhere('p.annescol = :annescol')
-                ->andWhere('p.coderece = :coderece')
-                ->setParameter('codeetab', $items['codeetab'])
-                ->setParameter('codetypeetab', $items['codetypeetab'])
-                ->setParameter('annescol', $items['annescol'])
-                ->setParameter('coderece', $items['coderece'])
-                ->orderBy('c.ordraffi', 'DESC')
-                ->getQuery()->getResult();
-        }
-
-
+    public function getOrientationFilieresport($items)
+    {
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.codefiliorig', 'c')
+            ->where('p.codeetab = :codeetab')
+            ->andWhere('p.codetypeetab = :codetypeetab')
+            ->andWhere('p.annescol = :annescol')
+            ->andWhere('p.coderece = :coderece')
+            ->setParameter('codeetab', $items['codeetab'])
+            ->setParameter('codetypeetab', $items['codetypeetab'])
+            ->setParameter('annescol', $items['annescol'])
+            ->setParameter('coderece', $items['coderece'])
+            ->orderBy('c.ordraffi', 'DESC')
+            ->getQuery()->getResult();
     }
+
+
+}

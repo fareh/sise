@@ -123,7 +123,6 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     private $nombheur;
 
 
-
     /**
      * Set codeetab
      *
@@ -140,7 +139,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -163,7 +162,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -186,7 +185,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -209,7 +208,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -232,7 +231,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codeetabautr
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetabautr()
     {
@@ -255,7 +254,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codetypeetabautr
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetabautr()
     {
@@ -278,7 +277,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get annescolautr
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescolautr()
     {
@@ -301,7 +300,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get numeense
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumeense()
     {
@@ -324,7 +323,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get nompren
      *
-     * @return string 
+     * @return string
      */
     public function getNompren()
     {
@@ -347,7 +346,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get idenuniqense
      *
-     * @return string 
+     * @return string
      */
     public function getIdenuniqense()
     {
@@ -370,7 +369,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codegrad
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrad()
     {
@@ -393,7 +392,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get nombheur
      *
-     * @return float 
+     * @return float
      */
     public function getNombheur()
     {

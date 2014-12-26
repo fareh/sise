@@ -36,13 +36,13 @@
 
                 <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
                 {% for entityfilier in entitiesfili %}
-                    <tr>
-                    <td>
-                        {{ entityfilier.libefiliar }}</td>
-                   {% for entityfilier2 in entitiesfili %}
+            <tr>
+                <td>
+                    {{ entityfilier.libefiliar }}</td>
+                {% for entityfilier2 in entitiesfili %}
                     {% set isadded = false %}
                     {% for entity in entities %}
-                        {% if entity.codefiliorig.codefili == entityfilier.codefili and entity.codefilireorie.codefili ==entityfilier2.codefili  %}
+                        {% if entity.codefiliorig.codefili == entityfilier.codefili and entity.codefilireorie.codefili ==entityfilier2.codefili %}
                             <td>{{ entity.nombelevmasc }}</td>
                             <td>{{ entity.nombelevfemi }}</td>
                             <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
@@ -56,8 +56,8 @@
                         <td style="background-color: #EEEEEE"></td>
                     {% endif %}
                 {% endfor %}
-                </tr>{% endfor %}
+            </tr>{% endfor %}
             </tbody>
         </table>
     {% endif %}
-    {% endblock %}
+{% endblock %}

@@ -58,7 +58,6 @@ class BudgetSuivibudget
     private $coderubrbudg;
 
 
-
     /**
      * @var float
      *
@@ -116,7 +115,6 @@ class BudgetSuivibudget
     private $pourpaye;
 
 
-
     /**
      * Set codeetab
      *
@@ -133,7 +131,7 @@ class BudgetSuivibudget
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -156,7 +154,7 @@ class BudgetSuivibudget
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -179,7 +177,7 @@ class BudgetSuivibudget
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -202,7 +200,7 @@ class BudgetSuivibudget
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -226,7 +224,7 @@ class BudgetSuivibudget
     /**
      * Get credouve
      *
-     * @return float 
+     * @return float
      */
     public function getCredouve()
     {
@@ -249,7 +247,7 @@ class BudgetSuivibudget
     /**
      * Get corrcred
      *
-     * @return float 
+     * @return float
      */
     public function getCorrcred()
     {
@@ -272,7 +270,7 @@ class BudgetSuivibudget
     /**
      * Get totaenga
      *
-     * @return float 
+     * @return float
      */
     public function getTotaenga()
     {
@@ -295,7 +293,7 @@ class BudgetSuivibudget
     /**
      * Get restenga
      *
-     * @return float 
+     * @return float
      */
     public function getRestenga()
     {
@@ -318,7 +316,7 @@ class BudgetSuivibudget
     /**
      * Get totapaye
      *
-     * @return float 
+     * @return float
      */
     public function getTotapaye()
     {
@@ -341,7 +339,7 @@ class BudgetSuivibudget
     /**
      * Get restpaye
      *
-     * @return float 
+     * @return float
      */
     public function getRestpaye()
     {
@@ -364,7 +362,7 @@ class BudgetSuivibudget
     /**
      * Get pourenga
      *
-     * @return float 
+     * @return float
      */
     public function getPourenga()
     {
@@ -387,7 +385,7 @@ class BudgetSuivibudget
     /**
      * Get pourpaye
      *
-     * @return float 
+     * @return float
      */
     public function getPourpaye()
     {
@@ -410,7 +408,7 @@ class BudgetSuivibudget
     /**
      * Get coderubrbudg
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\BudgetRubriquebudgetaire 
+     * @return \Sise\Bundle\CoreBundle\Entity\BudgetRubriquebudgetaire
      */
     public function getCoderubrbudg()
     {

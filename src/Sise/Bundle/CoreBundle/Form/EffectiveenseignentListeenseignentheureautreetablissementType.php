@@ -26,10 +26,9 @@ class EffectiveenseignentListeenseignentheureautreetablissementType extends Abst
             ->add('idenuniqense')
             ->add('nombheur')
             ->add('coderece')
-            ->add('codegrad')
-        ;
+            ->add('codegrad');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

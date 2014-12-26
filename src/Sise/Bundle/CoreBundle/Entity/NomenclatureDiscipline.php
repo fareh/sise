@@ -99,11 +99,10 @@ class NomenclatureDiscipline
     private $matiopti;
 
 
-
     /**
      * Get codedisci
      *
-     * @return string 
+     * @return string
      */
     public function getCodedisci()
     {
@@ -126,7 +125,7 @@ class NomenclatureDiscipline
     /**
      * Get libedisciar
      *
-     * @return string 
+     * @return string
      */
     public function getLibedisciar()
     {
@@ -149,7 +148,7 @@ class NomenclatureDiscipline
     /**
      * Get libediscifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibediscifr()
     {
@@ -172,7 +171,7 @@ class NomenclatureDiscipline
     /**
      * Get codecyclense
      *
-     * @return string 
+     * @return string
      */
     public function getCodecyclense()
     {
@@ -195,7 +194,7 @@ class NomenclatureDiscipline
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -218,7 +217,7 @@ class NomenclatureDiscipline
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -241,7 +240,7 @@ class NomenclatureDiscipline
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -264,7 +263,7 @@ class NomenclatureDiscipline
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -287,7 +286,7 @@ class NomenclatureDiscipline
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -310,7 +309,7 @@ class NomenclatureDiscipline
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -333,7 +332,7 @@ class NomenclatureDiscipline
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -356,12 +355,13 @@ class NomenclatureDiscipline
     /**
      * Get matiopti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getMatiopti()
     {
         return $this->matiopti;
     }
+
     public function __toString()
     {
         return $this->codedisci;

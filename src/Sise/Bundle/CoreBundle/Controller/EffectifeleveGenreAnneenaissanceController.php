@@ -80,7 +80,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
 
                 $nombelevmasc = $request->request->get('nombelevmasc' . $i);
                 $nombelevfemi = $request->request->get('nombelevfemi' . $i);
-                $nombtota = $nombelevfemi+$nombelevmasc;
+                $nombtota = $nombelevfemi + $nombelevmasc;
 
                 $item->setNombelevmasc($nombelevmasc);
                 $item->setNombelevfemi($nombelevfemi);

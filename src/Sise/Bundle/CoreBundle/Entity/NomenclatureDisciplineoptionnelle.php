@@ -47,7 +47,6 @@ class NomenclatureDisciplineoptionnelle
     private $matiopti;
 
 
-
     /**
      * Set codenivescol
      *
@@ -64,7 +63,7 @@ class NomenclatureDisciplineoptionnelle
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return string
      */
     public function getCodenivescol()
     {
@@ -87,7 +86,7 @@ class NomenclatureDisciplineoptionnelle
     /**
      * Get codedisci
      *
-     * @return string 
+     * @return string
      */
     public function getCodedisci()
     {
@@ -110,7 +109,7 @@ class NomenclatureDisciplineoptionnelle
     /**
      * Get codefili
      *
-     * @return string 
+     * @return string
      */
     public function getCodefili()
     {
@@ -133,7 +132,7 @@ class NomenclatureDisciplineoptionnelle
     /**
      * Get matiopti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getMatiopti()
     {

@@ -92,11 +92,10 @@ class NomenclatureNationalite
     private $colltech;
 
 
-
     /**
      * Get codenati
      *
-     * @return string 
+     * @return string
      */
     public function getCodenati()
     {
@@ -119,7 +118,7 @@ class NomenclatureNationalite
     /**
      * Get libenatiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibenatiar()
     {
@@ -142,7 +141,7 @@ class NomenclatureNationalite
     /**
      * Get libenatifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibenatifr()
     {
@@ -165,7 +164,7 @@ class NomenclatureNationalite
     /**
      * Get codecatenati
      *
-     * @return string 
+     * @return string
      */
     public function getCodecatenati()
     {
@@ -188,7 +187,7 @@ class NomenclatureNationalite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +210,7 @@ class NomenclatureNationalite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +233,7 @@ class NomenclatureNationalite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +256,7 @@ class NomenclatureNationalite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +279,7 @@ class NomenclatureNationalite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +302,7 @@ class NomenclatureNationalite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,12 +325,13 @@ class NomenclatureNationalite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
         return $this->colltech;
     }
+
     public function __toString()
     {
         return $this->codenati;

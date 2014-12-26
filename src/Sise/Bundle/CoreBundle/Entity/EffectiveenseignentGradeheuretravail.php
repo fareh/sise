@@ -94,7 +94,6 @@ class EffectiveenseignentGradeheuretravail
     private $nombtotaense;
 
 
-
     /**
      * Set codeetab
      *
@@ -111,7 +110,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -134,7 +133,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -157,7 +156,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -180,7 +179,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -203,7 +202,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get codeheurense
      *
-     * @return string 
+     * @return string
      */
     public function getCodeheurense()
     {
@@ -226,7 +225,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get codegrad
      *
-     * @return string 
+     * @return string
      */
     public function getCodegrad()
     {
@@ -249,7 +248,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get nombensemasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombensemasc()
     {
@@ -272,7 +271,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get nombensefemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombensefemi()
     {
@@ -295,7 +294,7 @@ class EffectiveenseignentGradeheuretravail
     /**
      * Get nombtotaense
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaense()
     {

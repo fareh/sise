@@ -26,7 +26,6 @@ class EtablissementRecensement
      * @var string
      *
      * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=false)
-
      */
     private $codeetab;
 
@@ -81,7 +80,7 @@ class EtablissementRecensement
     /**
      * Get id
      *
-     * @return string 
+     * @return string
      */
     public function getId()
     {
@@ -104,7 +103,7 @@ class EtablissementRecensement
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -127,7 +126,7 @@ class EtablissementRecensement
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -150,7 +149,7 @@ class EtablissementRecensement
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -173,7 +172,7 @@ class EtablissementRecensement
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
@@ -206,7 +205,7 @@ class EtablissementRecensement
     /**
      * Get lieuhabitation
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getLieuhabitation()
     {
@@ -224,7 +223,8 @@ class EtablissementRecensement
     }
 */
 
-    public function __toString(){
-        return ($this->getId())?$this->getId():null ;
+    public function __toString()
+    {
+        return ($this->getId()) ? $this->getId() : null;
     }
 }

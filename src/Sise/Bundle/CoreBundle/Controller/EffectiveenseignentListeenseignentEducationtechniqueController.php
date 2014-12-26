@@ -35,7 +35,7 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab,'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
 
         return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:index.html.twig', array(
@@ -44,6 +44,7 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
             'pathfilter' => $url,
         ));
     }
+
     /**
      * Creates a new EffectiveenseignentListeenseignentEducationtechnique entity.
      *
@@ -64,7 +65,7 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
 
         return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -94,11 +95,11 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
     public function newAction()
     {
         $entity = new EffectiveenseignentListeenseignentEducationtechnique();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -119,7 +120,7 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -139,22 +140,22 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
         }
 
         $editForm = $this->createEditForm($entity);
-       // $deleteForm = $this->createDeleteForm($id);
+        // $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-          //  'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            //  'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a EffectiveenseignentListeenseignentEducationtechnique entity.
-    *
-    * @param EffectiveenseignentListeenseignentEducationtechnique $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a EffectiveenseignentListeenseignentEducationtechnique entity.
+     *
+     * @param EffectiveenseignentListeenseignentEducationtechnique $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(EffectiveenseignentListeenseignentEducationtechnique $entity)
     {
         $form = $this->createForm(new EffectiveenseignentListeenseignentEducationtechniqueType(), $entity, array(
@@ -166,6 +167,7 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
 
         return $form;
     }
+
     /**
      * Edits an existing EffectiveenseignentListeenseignentEducationtechnique entity.
      *
@@ -191,11 +193,12 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
         }
 
         return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a EffectiveenseignentListeenseignentEducationtechnique entity.
      *
@@ -233,7 +236,6 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
             ->setAction($this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

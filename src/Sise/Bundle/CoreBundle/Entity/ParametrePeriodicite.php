@@ -92,11 +92,10 @@ class ParametrePeriodicite
     private $colltech;
 
 
-
     /**
      * Get codeperi
      *
-     * @return string 
+     * @return string
      */
     public function getCodeperi()
     {
@@ -119,7 +118,7 @@ class ParametrePeriodicite
     /**
      * Get libeperiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeperiar()
     {
@@ -142,7 +141,7 @@ class ParametrePeriodicite
     /**
      * Get libeperifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeperifr()
     {
@@ -165,7 +164,7 @@ class ParametrePeriodicite
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {
@@ -188,7 +187,7 @@ class ParametrePeriodicite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -211,7 +210,7 @@ class ParametrePeriodicite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -234,7 +233,7 @@ class ParametrePeriodicite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -257,7 +256,7 @@ class ParametrePeriodicite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -280,7 +279,7 @@ class ParametrePeriodicite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -303,7 +302,7 @@ class ParametrePeriodicite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -326,7 +325,7 @@ class ParametrePeriodicite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {

@@ -100,7 +100,6 @@ class NomenclatureCorps
     private $colltech;
 
 
-
     /**
      * @ORM\OneToMany(targetEntity="NomenclatureGrade", mappedBy="codecorp")
      */
@@ -112,12 +111,10 @@ class NomenclatureCorps
     }
 
 
-
-
     /**
      * Get codecorp
      *
-     * @return string 
+     * @return string
      */
     public function getCodecorp()
     {
@@ -140,7 +137,7 @@ class NomenclatureCorps
     /**
      * Get libecorpar
      *
-     * @return string 
+     * @return string
      */
     public function getLibecorpar()
     {
@@ -163,7 +160,7 @@ class NomenclatureCorps
     /**
      * Get libecorpfr
      *
-     * @return string 
+     * @return string
      */
     public function getLibecorpfr()
     {
@@ -186,7 +183,7 @@ class NomenclatureCorps
     /**
      * Get codecyclense
      *
-     * @return string 
+     * @return string
      */
     public function getCodecyclense()
     {
@@ -209,7 +206,7 @@ class NomenclatureCorps
     /**
      * Get corpense
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCorpense()
     {
@@ -232,7 +229,7 @@ class NomenclatureCorps
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -255,7 +252,7 @@ class NomenclatureCorps
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -278,7 +275,7 @@ class NomenclatureCorps
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -301,7 +298,7 @@ class NomenclatureCorps
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -324,7 +321,7 @@ class NomenclatureCorps
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -347,7 +344,7 @@ class NomenclatureCorps
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -370,7 +367,7 @@ class NomenclatureCorps
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -403,12 +400,13 @@ class NomenclatureCorps
     /**
      * Get codegrad
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodegrad()
     {
         return $this->codegrad;
     }
+
     public function __toString()
     {
         return $this->codecorp;

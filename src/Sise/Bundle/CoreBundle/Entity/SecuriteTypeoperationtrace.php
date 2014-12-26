@@ -36,11 +36,10 @@ class SecuriteTypeoperationtrace
     private $obse;
 
 
-
     /**
      * Get codetypeopertrac
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeopertrac()
     {
@@ -63,7 +62,7 @@ class SecuriteTypeoperationtrace
     /**
      * Get libetypeopertrac
      *
-     * @return string 
+     * @return string
      */
     public function getLibetypeopertrac()
     {
@@ -86,7 +85,7 @@ class SecuriteTypeoperationtrace
     /**
      * Get obse
      *
-     * @return string 
+     * @return string
      */
     public function getObse()
     {

@@ -40,7 +40,7 @@ class NomenclatureActivite
      *
      * @ORM\Column(name="CodeCateActi", type="string", length=50, nullable=false)
      */
-   // private $codecateacti;
+    // private $codecateacti;
 
 
     /**
@@ -99,11 +99,10 @@ class NomenclatureActivite
     private $colltech;
 
 
-
     /**
      * Get codeacti
      *
-     * @return string 
+     * @return string
      */
     public function getCodeacti()
     {
@@ -126,7 +125,7 @@ class NomenclatureActivite
     /**
      * Get libeactiar
      *
-     * @return string 
+     * @return string
      */
     public function getLibeactiar()
     {
@@ -149,7 +148,7 @@ class NomenclatureActivite
     /**
      * Get libeactifr
      *
-     * @return string 
+     * @return string
      */
     public function getLibeactifr()
     {
@@ -172,7 +171,7 @@ class NomenclatureActivite
     /**
      * Get ordraffi
      *
-     * @return integer 
+     * @return integer
      */
     public function getOrdraffi()
     {
@@ -195,7 +194,7 @@ class NomenclatureActivite
     /**
      * Get acti
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActi()
     {
@@ -218,7 +217,7 @@ class NomenclatureActivite
     /**
      * Get prep
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrep()
     {
@@ -241,7 +240,7 @@ class NomenclatureActivite
     /**
      * Get prim
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPrim()
     {
@@ -264,7 +263,7 @@ class NomenclatureActivite
     /**
      * Get collgene
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCollgene()
     {
@@ -287,7 +286,7 @@ class NomenclatureActivite
     /**
      * Get lyce
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLyce()
     {
@@ -310,7 +309,7 @@ class NomenclatureActivite
     /**
      * Get colltech
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getColltech()
     {
@@ -333,7 +332,7 @@ class NomenclatureActivite
     /**
      * Get codecateacti
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite
      */
     public function getCodecateacti()
     {
