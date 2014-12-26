@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :' إعادة توجيه المرتقين إلى السنة الرابعة ثانوي', 'RouteAction' : 'orientationelevereussitroisiemeannee' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'orientationelevereussitroisiemeannee' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <br>
     {% if entities is defined  and entities|length > 0 %}

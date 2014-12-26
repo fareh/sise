@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrientationEleveredoublantdeuxiemeannee
  *
- * @ORM\Table(name="orientation_eleveredoublantdeuxiemeannee", indexes={@ORM\Index(name="FK_Orientation_EleveRedoublantDeuxiemeAnnee_Nomenclature_Filiere", columns={"CodeFiliOrig"}), @ORM\Index(name="FK_Orientation_EleveRedoublantDeuxiemeAnnee_Nomenclature_Filie30", columns={"CodeFiliReOrie"}), @ORM\Index(name="FK_Orientation_EleveRedoublantDeuxiemeAnnee_Nomenclature_Recen31", columns={"CodeRece"})})
+ * @ORM\Table(name="orientation_eleveredoublantdeuxiemeannee")
  * @ORM\Entity
  */
 class OrientationEleveredoublantdeuxiemeannee
@@ -85,8 +85,12 @@ class OrientationEleveredoublantdeuxiemeannee
      * @ORM\Column(name="NombElevFemi", type="integer", nullable=true)
      */
     private $nombelevfemi;
-
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
+     */
+    private $nombtotaelev;
 
     /**
      * Set codeetab
@@ -181,52 +185,6 @@ class OrientationEleveredoublantdeuxiemeannee
     }
 
     /**
-     * Set codefiliorig
-     *
-     * @param string $codefiliorig
-     * @return OrientationEleveredoublantdeuxiemeannee
-     */
-    public function setCodefiliorig($codefiliorig)
-    {
-        $this->codefiliorig = $codefiliorig;
-
-        return $this;
-    }
-
-    /**
-     * Get codefiliorig
-     *
-     * @return string 
-     */
-    public function getCodefiliorig()
-    {
-        return $this->codefiliorig;
-    }
-
-    /**
-     * Set codefilireorie
-     *
-     * @param string $codefilireorie
-     * @return OrientationEleveredoublantdeuxiemeannee
-     */
-    public function setCodefilireorie($codefilireorie)
-    {
-        $this->codefilireorie = $codefilireorie;
-
-        return $this;
-    }
-
-    /**
-     * Get codefilireorie
-     *
-     * @return string 
-     */
-    public function getCodefilireorie()
-    {
-        return $this->codefilireorie;
-    }
-
-    /**
      * Set nombelevmasc
      *
      * @param integer $nombelevmasc
@@ -270,5 +228,74 @@ class OrientationEleveredoublantdeuxiemeannee
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+
+    /**
+     * Set nombtotaelev
+     *
+     * @param integer $nombtotaelev
+     * @return OrientationEleveredoublantdeuxiemeannee
+     */
+    public function setNombtotaelev($nombtotaelev)
+    {
+        $this->nombtotaelev = $nombtotaelev;
+
+        return $this;
+    }
+
+    /**
+     * Get nombtotaelev
+     *
+     * @return integer 
+     */
+    public function getNombtotaelev()
+    {
+        return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codefiliorig
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig
+     * @return OrientationEleveredoublantdeuxiemeannee
+     */
+    public function setCodefiliorig(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig)
+    {
+        $this->codefiliorig = $codefiliorig;
+
+        return $this;
+    }
+
+    /**
+     * Get codefiliorig
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefiliorig()
+    {
+        return $this->codefiliorig;
+    }
+
+    /**
+     * Set codefilireorie
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefilireorie
+     * @return OrientationEleveredoublantdeuxiemeannee
+     */
+    public function setCodefilireorie(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefilireorie)
+    {
+        $this->codefilireorie = $codefilireorie;
+
+        return $this;
+    }
+
+    /**
+     * Get codefilireorie
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefilireorie()
+    {
+        return $this->codefilireorie;
     }
 }

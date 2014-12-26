@@ -2,10 +2,6 @@ orientationfilieresport_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:index" }
 
-orientationfilieresport_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:show" }
-
 orientationfilieresport_edit:
     path:     /edit
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:edit" }

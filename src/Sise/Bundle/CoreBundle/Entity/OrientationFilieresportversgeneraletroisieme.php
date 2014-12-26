@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrientationFilieresportversgeneraletroisieme
  *
- * @ORM\Table(name="orientation_filieresportversgeneraletroisieme", indexes={@ORM\Index(name="FK_Orientation_FiliereSportVersGeneraleTroisieme_Nomenclature_4", columns={"CodeFiliOrig"}), @ORM\Index(name="FK_Orientation_FiliereSportVersGeneraleTroisieme_Nomenclature_5", columns={"CodeRece"})})
+ * @ORM\Table(name="orientation_filieresportversgeneraletroisieme")
  * @ORM\Entity
  */
 class OrientationFilieresportversgeneraletroisieme
@@ -92,7 +92,12 @@ class OrientationFilieresportversgeneraletroisieme
      */
     private $nombelevfemi;
 
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
+     */
+    private $nombtotaelev;
 
     /**
      * Set codeetab
@@ -187,29 +192,6 @@ class OrientationFilieresportversgeneraletroisieme
     }
 
     /**
-     * Set codefiliorig
-     *
-     * @param string $codefiliorig
-     * @return OrientationFilieresportversgeneraletroisieme
-     */
-    public function setCodefiliorig($codefiliorig)
-    {
-        $this->codefiliorig = $codefiliorig;
-
-        return $this;
-    }
-
-    /**
-     * Get codefiliorig
-     *
-     * @return string 
-     */
-    public function getCodefiliorig()
-    {
-        return $this->codefiliorig;
-    }
-
-    /**
      * Set redo
      *
      * @param boolean $redo
@@ -299,5 +281,51 @@ class OrientationFilieresportversgeneraletroisieme
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+
+    /**
+     * Set nombtotaelev
+     *
+     * @param integer $nombtotaelev
+     * @return OrientationFilieresportversgeneraletroisieme
+     */
+    public function setNombtotaelev($nombtotaelev)
+    {
+        $this->nombtotaelev = $nombtotaelev;
+
+        return $this;
+    }
+
+    /**
+     * Get nombtotaelev
+     *
+     * @return integer 
+     */
+    public function getNombtotaelev()
+    {
+        return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codefiliorig
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig
+     * @return OrientationFilieresportversgeneraletroisieme
+     */
+    public function setCodefiliorig(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig)
+    {
+        $this->codefiliorig = $codefiliorig;
+
+        return $this;
+    }
+
+    /**
+     * Get codefiliorig
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefiliorig()
+    {
+        return $this->codefiliorig;
     }
 }

@@ -1,16 +1,85 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>OrientationEleveredoublanttroisiemeannee edit</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'orientationeleveredoublanttroisiemeannee' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {{ form(edit_form) }}
+    {% if entities is defined  and entities|length > 0 %}
+<center>
+    <br>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('orientationeleveredoublanttroisiemeannee') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div id="CPHMain_upGridView">
+
+
+        <div>
+            <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+            <thead>
+            <tr>
+                <th align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></th>
+                {% for entityfilier in entitiesfili %}
+                    <th align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                        {{ entityfilier.libefiliar }}
+                    </th>
+                {% endfor %}
+
+            </tr>
+            <tr>
+                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المسلك الاصلي</th>
+                {% for entityfilier in entitiesfili %}
+
+                    <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                    <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                    <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+
+                {% endfor %}
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                {% for entityfilier in entitiesfili %}
+            <tr>
+                <td>
+                    {{ entityfilier.libefiliar }}</td>
+                {% for entityfilier2 in entitiesfili %}
+                    {% set isadded = false %}
+                    {% for key, entity in entities %}
+                        <input type="hidden" name="val_{{ key }}"
+                               value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codefiliorig.codefili }}|{{ entity.codefilireorie.codefili }}">
+                        <input type="hidden" name="key_{{ key }}"
+                               value="codeetab|codetypeetab|annescol|coderece|codefiliorig|codefilireorie">
+                        {% if entity.codefiliorig.codefili == entityfilier.codefili and entity.codefilireorie.codefili ==entityfilier2.codefili  %}
+                            <td align="right" style="background-color: #EFF3FB">
+                                <input type="text" name="nombelevmasc{{ key }}" value="{{ entity.nombelevmasc }} "
+                                       id="nombelevmasc{{ key }}">
+                            </td>
+                            <td align="right" style="background-color: #EFF3FB">
+                                <input type="text" name="nombelevfemi{{ key }}"
+                                       value="{{ entity.nombelevfemi }} "
+                                       id="nombelevfemi{{ key }}">
+                            </td>
+                            <td>{{ entity.nombtotaelev }}</td>
+                            {% set isadded = true %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not isadded %}
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                        <td style="background-color: #EEEEEE"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>{% endfor %}
+            </tbody>
+        </table>
+            </form>
+        </div>
+    </div>
+</center>
+  {% endif %}
 {% endblock %}

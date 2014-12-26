@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrientationElevereussitroisiemeannee
  *
- * @ORM\Table(name="orientation_elevereussitroisiemeannee", indexes={@ORM\Index(name="FK_Orientation_EleveReussiTroisiemeAnnee_Nomenclature_Filiere", columns={"CodeFiliOrig"}), @ORM\Index(name="FK_Orientation_EleveReussiTroisiemeAnnee_Nomenclature_Filiere1", columns={"CodeFiliReOrie"}), @ORM\Index(name="FK_Orientation_EleveReussiTroisiemeAnnee_Nomenclature_Recensem41", columns={"CodeRece"})})
+ * @ORM\Table(name="orientation_elevereussitroisiemeannee")
  * @ORM\Entity
  */
 class OrientationElevereussitroisiemeannee
@@ -86,7 +86,12 @@ class OrientationElevereussitroisiemeannee
      */
     private $nombelevfemi;
 
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
+     */
+    private $nombtotaelev;
 
     /**
      * Set codeetab
@@ -181,52 +186,6 @@ class OrientationElevereussitroisiemeannee
     }
 
     /**
-     * Set codefiliorig
-     *
-     * @param string $codefiliorig
-     * @return OrientationElevereussitroisiemeannee
-     */
-    public function setCodefiliorig($codefiliorig)
-    {
-        $this->codefiliorig = $codefiliorig;
-
-        return $this;
-    }
-
-    /**
-     * Get codefiliorig
-     *
-     * @return string 
-     */
-    public function getCodefiliorig()
-    {
-        return $this->codefiliorig;
-    }
-
-    /**
-     * Set codefilireorie
-     *
-     * @param string $codefilireorie
-     * @return OrientationElevereussitroisiemeannee
-     */
-    public function setCodefilireorie($codefilireorie)
-    {
-        $this->codefilireorie = $codefilireorie;
-
-        return $this;
-    }
-
-    /**
-     * Get codefilireorie
-     *
-     * @return string 
-     */
-    public function getCodefilireorie()
-    {
-        return $this->codefilireorie;
-    }
-
-    /**
      * Set nombelevmasc
      *
      * @param integer $nombelevmasc
@@ -270,5 +229,74 @@ class OrientationElevereussitroisiemeannee
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+
+    /**
+     * Set nombtotaelev
+     *
+     * @param integer $nombtotaelev
+     * @return OrientationElevereussitroisiemeannee
+     */
+    public function setNombtotaelev($nombtotaelev)
+    {
+        $this->nombtotaelev = $nombtotaelev;
+
+        return $this;
+    }
+
+    /**
+     * Get nombtotaelev
+     *
+     * @return integer 
+     */
+    public function getNombtotaelev()
+    {
+        return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codefiliorig
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig
+     * @return OrientationElevereussitroisiemeannee
+     */
+    public function setCodefiliorig(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig)
+    {
+        $this->codefiliorig = $codefiliorig;
+
+        return $this;
+    }
+
+    /**
+     * Get codefiliorig
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefiliorig()
+    {
+        return $this->codefiliorig;
+    }
+
+    /**
+     * Set codefilireorie
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefilireorie
+     * @return OrientationElevereussitroisiemeannee
+     */
+    public function setCodefilireorie(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefilireorie)
+    {
+        $this->codefilireorie = $codefilireorie;
+
+        return $this;
+    }
+
+    /**
+     * Get codefilireorie
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefilireorie()
+    {
+        return $this->codefilireorie;
     }
 }

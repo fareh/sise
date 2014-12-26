@@ -2,29 +2,15 @@ orientationfilieresportversgeneraletroisieme_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:index" }
 
-orientationfilieresportversgeneraletroisieme_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:show" }
-
 orientationfilieresportversgeneraletroisieme_new:
     path:     /new
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:new" }
-
-orientationfilieresportversgeneraletroisieme_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:create" }
-    requirements: { _method: post }
 
 orientationfilieresportversgeneraletroisieme_edit:
     path:     /edit
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:edit" }
 
 orientationfilieresportversgeneraletroisieme_update:
-    path:     /{id}/update
+    path:     /update
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:update" }
     requirements: { _method: post|put }
-
-orientationfilieresportversgeneraletroisieme_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraletroisieme:delete" }
-    requirements: { _method: post|delete }

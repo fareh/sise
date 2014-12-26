@@ -47,92 +47,13 @@ class OrientationEleveredoublantdeuxiemeanneeController extends Controller
              ORDER BY F.ordraffi DESC')->setParameter('codenive2s', '2S');
             $entitiesfili = $query->execute();
         }
-
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('orientation_eleveredoublantdeuxiemeannee');
         return $this->render('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:index.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'entitiesfili' => @$entitiesfili,
-        ));
-    }
-
-    /**
-     * Creates a new OrientationEleveredoublantdeuxiemeannee entity.
-     *
-     */
-    public function createAction(Request $request)
-    {
-        $entity = new OrientationEleveredoublantdeuxiemeannee();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('orientationeleveredoublantdeuxiemeannee_show', array('id' => $entity->getId())));
-        }
-
-        return $this->render('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Creates a form to create a OrientationEleveredoublantdeuxiemeannee entity.
-     *
-     * @param OrientationEleveredoublantdeuxiemeannee $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(OrientationEleveredoublantdeuxiemeannee $entity)
-    {
-        $form = $this->createForm(new OrientationEleveredoublantdeuxiemeanneeType(), $entity, array(
-            'action' => $this->generateUrl('orientationeleveredoublantdeuxiemeannee_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-
-    /**
-     * Displays a form to create a new OrientationEleveredoublantdeuxiemeannee entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new OrientationEleveredoublantdeuxiemeannee();
-        $form = $this->createCreateForm($entity);
-
-        return $this->render('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a OrientationEleveredoublantdeuxiemeannee entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find OrientationEleveredoublantdeuxiemeannee entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:show.html.twig', array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'nameclass' => $nameclass
         ));
     }
 
@@ -140,113 +61,80 @@ class OrientationEleveredoublantdeuxiemeanneeController extends Controller
      * Displays a form to edit an existing OrientationEleveredoublantdeuxiemeannee entity.
      *
      */
-    public function editAction()
+    public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee');//->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find OrientationEleveredoublantdeuxiemeannee entity.');
+        $url = $this->generateUrl('orientationeleveredoublantdeuxiemeannee_list');
+        $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        if ($request->isMethod('POST')) {
+            $params = $request->request->get($search->getName());
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
-
-        $editForm = $this->createEditForm($entity);
-        //  $deleteForm = $this->createDeleteForm($id);
-
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
+        $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        if ($codeetab && $codetypeetab) {
+            $entities = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            $query = $em->createQuery(
+                'SELECT F
+             FROM SiseCoreBundle:NomenclatureFiliere F
+             INNER JOIN SiseCoreBundle:NomenclatureFiliereniveauscolaire P  WITH  P.codefili=F.codefili
+             WHERE P.codenivescol=:codenive2s
+             ORDER BY F.ordraffi DESC')->setParameter('codenive2s', '2S');
+            $entitiesfili = $query->execute();
+            $pathUpdate = $this->generateUrl('orientationeleveredoublantdeuxiemeannee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('orientation_eleveredoublantdeuxiemeannee');
         return $this->render('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            //  'delete_form' => $deleteForm->createView(),
+            'entities' => @$entities,
+            'entitiesfili' => @$entitiesfili,
+            'search' => $search->createView(),
+            'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate,
+            'nameclass' => $nameclass
         ));
-    }
-
-    /**
-     * Creates a form to edit a OrientationEleveredoublantdeuxiemeannee entity.
-     *
-     * @param OrientationEleveredoublantdeuxiemeannee $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(OrientationEleveredoublantdeuxiemeannee $entity)
-    {
-        $form = $this->createForm(new OrientationEleveredoublantdeuxiemeanneeType(), $entity, array(
-            'action' => $this->generateUrl('orientationeleveredoublantdeuxiemeannee_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
     }
 
     /**
      * Edits an existing OrientationEleveredoublantdeuxiemeannee entity.
      *
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find OrientationEleveredoublantdeuxiemeannee entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('orientationeleveredoublantdeuxiemeannee_edit', array('id' => $id)));
+        $url = $this->generateUrl('orientationeleveredoublantdeuxiemeannee_list');
+        $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
+        $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        $entities = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee')->findBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
+            for ($i = 0; $i < count($entities); $i++) {
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
+                $item = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee')->findOneBy($items);
+                $nombelevmasc = $request->request->get('nombelevmasc' . $i);
+                $nombelevfemi = $request->request->get('nombelevfemi' . $i);
+                $nombtotaelev = $nombelevmasc + $nombelevfemi;
+                $item->setNombelevmasc($nombelevmasc);
+                $item->setNombelevfemi($nombelevfemi);
+                $item->setNombtotaelev($nombtotaelev);
+                $em->persist($item);
+                $em->flush();
+            }
+            return $this->redirect($this->generateUrl('orientationeleveredoublantdeuxiemeannee_edit'));
         }
 
         return $this->render('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'search' => $search->createView(),
+            'entities' => @$entities,
+            'pathfilter' => $url,
         ));
-    }
-
-    /**
-     * Deletes a OrientationEleveredoublantdeuxiemeannee entity.
-     *
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find OrientationEleveredoublantdeuxiemeannee entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('orientationeleveredoublantdeuxiemeannee'));
-    }
-
-    /**
-     * Creates a form to delete a OrientationEleveredoublantdeuxiemeannee entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('orientationeleveredoublantdeuxiemeannee_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm();
     }
 }

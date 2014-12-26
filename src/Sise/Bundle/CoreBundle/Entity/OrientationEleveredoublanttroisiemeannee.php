@@ -86,6 +86,12 @@ class OrientationEleveredoublanttroisiemeannee
      */
     private $nombelevfemi;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
+     */
+    private $nombtotaelev;
 
 
     /**
@@ -181,52 +187,6 @@ class OrientationEleveredoublanttroisiemeannee
     }
 
     /**
-     * Set codefiliorig
-     *
-     * @param string $codefiliorig
-     * @return OrientationEleveredoublanttroisiemeannee
-     */
-    public function setCodefiliorig($codefiliorig)
-    {
-        $this->codefiliorig = $codefiliorig;
-
-        return $this;
-    }
-
-    /**
-     * Get codefiliorig
-     *
-     * @return string 
-     */
-    public function getCodefiliorig()
-    {
-        return $this->codefiliorig;
-    }
-
-    /**
-     * Set codefilireorie
-     *
-     * @param string $codefilireorie
-     * @return OrientationEleveredoublanttroisiemeannee
-     */
-    public function setCodefilireorie($codefilireorie)
-    {
-        $this->codefilireorie = $codefilireorie;
-
-        return $this;
-    }
-
-    /**
-     * Get codefilireorie
-     *
-     * @return string 
-     */
-    public function getCodefilireorie()
-    {
-        return $this->codefilireorie;
-    }
-
-    /**
      * Set nombelevmasc
      *
      * @param integer $nombelevmasc
@@ -270,5 +230,74 @@ class OrientationEleveredoublanttroisiemeannee
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+
+    /**
+     * Set nombtotaelev
+     *
+     * @param integer $nombtotaelev
+     * @return OrientationEleveredoublanttroisiemeannee
+     */
+    public function setNombtotaelev($nombtotaelev)
+    {
+        $this->nombtotaelev = $nombtotaelev;
+
+        return $this;
+    }
+
+    /**
+     * Get nombtotaelev
+     *
+     * @return integer 
+     */
+    public function getNombtotaelev()
+    {
+        return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codefiliorig
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig
+     * @return OrientationEleveredoublanttroisiemeannee
+     */
+    public function setCodefiliorig(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig)
+    {
+        $this->codefiliorig = $codefiliorig;
+
+        return $this;
+    }
+
+    /**
+     * Get codefiliorig
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefiliorig()
+    {
+        return $this->codefiliorig;
+    }
+
+    /**
+     * Set codefilireorie
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefilireorie
+     * @return OrientationEleveredoublanttroisiemeannee
+     */
+    public function setCodefilireorie(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefilireorie)
+    {
+        $this->codefilireorie = $codefilireorie;
+
+        return $this;
+    }
+
+    /**
+     * Get codefilireorie
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefilireorie()
+    {
+        return $this->codefilireorie;
     }
 }
