@@ -556,7 +556,7 @@ class EtablissementFicheetablissement
         $this->nomeetab = $nomeetab;
     }
     /**
-     * @var \EtablissementResponsable
+     * @var \EtablissementSejour
      *
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToMany(targetEntity="EtablissementSejour",mappedBy="fichetabsejo",cascade={"persist"})
@@ -564,7 +564,7 @@ class EtablissementFicheetablissement
     private $sejo;
 
     /**
-     * @return \EtablissementResponsable
+     * @return \EtablissementSejour
      */
     public function getSejo()
     {
@@ -572,7 +572,7 @@ class EtablissementFicheetablissement
     }
 
     /**
-     * @param \EtablissementResponsable $sejo
+     * @param \EtablissementSejour $sejo
      */
     public function setSejo($sejo)
     {
@@ -581,6 +581,7 @@ class EtablissementFicheetablissement
     public function __construct()
     {
         $this->sejo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->oriefilispor = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Add sejo
@@ -609,5 +610,40 @@ class EtablissementFicheetablissement
             return 'NULL';
         }
         return $this->codeetab;
+    }
+    /**
+     * @var \OrientationFilieresport
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToMany(targetEntity="OrientationFilieresport",mappedBy="fichetaboriefilispor",cascade={"persist"})
+     */
+    private $oriefilispor;
+
+    /**
+     * @return \OrientationFilieresport
+     */
+    public function getOriefilispor()
+    {
+        return $this->oriefilispor;
+    }
+
+    /**
+     * @param \OrientationFilieresport $oriefilispor
+     */
+    public function setOriefilispor($oriefilispor)
+    {
+        $this->oriefilispor = $oriefilispor;
+    }
+    /**
+     * Add oriefilispor
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\OrientationFilieresport fichetaboriefilispor
+     * @return EtablissementFicheetablissement
+     */
+    public function addOriefilispor(\Sise\Bundle\CoreBundle\Entity\OrientationFilieresport $fichetaboriefilispor)
+    {
+        $this->oriefilispor[] = $fichetaboriefilispor;
+
+        return $this;
     }
 }

@@ -31,6 +31,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
 
 
         /**
+    * @var NomenclatureDelegation
     * @ORM\ManyToOne(targetEntity="NomenclatureDelegation")
     * @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
     **/

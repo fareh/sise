@@ -3,11 +3,11 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DoctrineCommonCollectionsArrayCollection;
 /**
  * OrientationFilieresport
  *
- * @ORM\Table(name="orientation_filieresport", indexes={@ORM\Index(name="FK_Orientation_FiliereSport_Nomenclature_Filiere2", columns={"CodeFiliOrig"}), @ORM\Index(name="FK_Orientation_FiliereSport_Nomenclature_Recensement", columns={"CodeRece"})})
+ * @ORM\Table(name="orientation_filieresport")
  * @ORM\Entity
  */
 class OrientationFilieresport
@@ -267,5 +267,38 @@ class OrientationFilieresport
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+    /**
+     * @var \EtablissementFicheetablissement
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="EtablissementFicheetablissement",inversedBy="oriefilispor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
+     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="AnneScol"),
+     *   @ORM\JoinColumn(name="CodeRece", referencedColumnName="CodeRece"),
+     * })
+     */
+    private $fichetaboriefilispor;
+
+    /**
+     * @return \EtablissementFicheetablissement
+     */
+    public function getFichetaboriefilispor()
+    {
+        return $this->fichetaboriefilispor;
+    }
+
+    /**
+     * @param \EtablissementFicheetablissement $fichetaboriefilispor
+     */
+    public function setFichetaboriefilispor($fichetaboriefilispor)
+    {
+        $this->fichetaboriefilispor = $fichetaboriefilispor;
+    }
+    public function __toString()
+    {
+        return $this->codeetab;
     }
 }

@@ -5,8 +5,7 @@ namespace Sise\Bundle\CoreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
-class OrientationFiliereSportType extends AbstractType
+class EtablissementOrientationFilieresportType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +14,7 @@ class OrientationFiliereSportType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombelevmasc')
-            ->add('nombelevfemi')
+            ->add('oriefilispor','collection', array('type' => new OrientationFiliereSportType(),'allow_add'=> true,));
         ;
     }
     
@@ -26,7 +24,7 @@ class OrientationFiliereSportType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\Bundle\CoreBundle\Entity\OrientationFilieresport'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\EtablissementFicheetablissement'
         ));
     }
 
@@ -35,6 +33,6 @@ class OrientationFiliereSportType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_orientationfilieresport';
+        return 'sise_corebundle_etablissementficheetablissement';
     }
 }

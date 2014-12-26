@@ -1,16 +1,83 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>OrientationFilieresport edit</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' :'التوجيه إلى شعبة الرياضة', 'RouteAction' : 'orientationfilieresport' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {{ form(edit_form) }}
+    {% if entity is defined  and entity|length > 0 %}
+        <form action="{{ path('orientationfilieresport_update') }}" method="post"  class="well form-search" id="id_with_js" {{ form_enctype(edit_form) }}>
+        <br>
+            <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                   style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                <thead>
+                <tr>
+                    <th align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></th>
+                    {% for entityfilier in entitiesfili %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('orientationfilieresport') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                        <th align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">
+                            {{ entityfilier.libefiliar }}
+                        </th>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                    <th align="center" scope="col" style="color:White;background-color:#4F81BD;">السنة</th>
+                    {% for entityfilier in entitiesfili %}
+
+                        <th align="center" colspan="1" style="color:White;background-color:#92B3CF;">ذكر</th>
+                        <th align="center" colspan="1" style="color:White;background-color:#92B3CF;">أنثى</th>
+
+                    {% endfor %}
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>سنة أولى رياضة</td>
+                    {% for entityfilier2 in entitiesfili %}
+                        {% set isadded = false %}
+                        {% for tag in edit_form.oriefilispor %}
+                            {% if tag.vars.value.anne ==1 %}
+                                {% if tag.vars.value.codefiliorig.codefili == entityfilier2.codefili %}
+                                    <td>{{ form_widget(tag.nombelevmasc) }}</td>
+                                    <td>{{ form_widget(tag.nombelevfemi) }}</td>
+                                    {% set isadded = true %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if not isadded %}
+                            <td style="background-color: #EEEEEE"></td>
+                            <td style="background-color: #EEEEEE"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <td>سنة ثانية رياضة</td>
+                    {% for entityfilier2 in entitiesfili %}
+                        {% set isadded = false %}
+                        {% for tag in edit_form.oriefilispor %}
+                            {% if tag.vars.value.anne ==2 %}
+                                {% if tag.vars.value.codefiliorig.codefili == entityfilier2.codefili %}
+                                    <td>{{  form_widget(tag.nombelevmasc) }}</td>
+                                    <td>{{ form_widget(tag.nombelevfemi) }}</td>
+                                    {% set isadded = true %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if not isadded %}
+                            <td style="background-color: #EEEEEE"></td>
+                            <td style="background-color: #EEEEEE"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+
+                </tbody>
+            </table>
+    {{ form_rest(edit_form) }}
+    </form>
+    {% endif %}
 {% endblock %}

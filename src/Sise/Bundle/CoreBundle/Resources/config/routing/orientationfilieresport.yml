@@ -20,7 +20,7 @@ orientationfilieresport_edit:
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:edit" }
 
 orientationfilieresport_update:
-    path:     /{id}/update
+    path:     /update
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresport:update" }
     requirements: { _method: post|put }
 
