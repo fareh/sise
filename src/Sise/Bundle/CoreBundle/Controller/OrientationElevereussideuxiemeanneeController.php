@@ -116,6 +116,7 @@ class OrientationElevereussideuxiemeanneeController extends Controller
             'pathUpdate' => @$pathUpdate,
         ));
     }
+
     /**
      * Edits an existing OrientationElevereussideuxiemeannee entity.
      *
