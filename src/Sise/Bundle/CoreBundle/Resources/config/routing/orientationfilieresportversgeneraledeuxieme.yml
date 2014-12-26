@@ -2,10 +2,6 @@ orientationfilieresportversgeneraledeuxieme_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:index" }
 
-orientationfilieresportversgeneraledeuxieme_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:new" }
-
 orientationfilieresportversgeneraledeuxieme_edit:
     path:     /edit
     defaults: { _controller: "SiseCoreBundle:OrientationFilieresportversgeneraledeuxieme:edit" }

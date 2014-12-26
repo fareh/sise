@@ -2,29 +2,12 @@ orientationelevereussitroisiemeannee_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:index" }
 
-orientationelevereussitroisiemeannee_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:show" }
-
-orientationelevereussitroisiemeannee_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:new" }
-
-orientationelevereussitroisiemeannee_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:create" }
-    requirements: { _method: post }
-
 orientationelevereussitroisiemeannee_edit:
     path:     /edit
     defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:edit" }
 
 orientationelevereussitroisiemeannee_update:
-    path:     /{id}/update
+    path:     /update
     defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:update" }
     requirements: { _method: post|put }
 
-orientationelevereussitroisiemeannee_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:OrientationElevereussitroisiemeannee:delete" }
-    requirements: { _method: post|delete }

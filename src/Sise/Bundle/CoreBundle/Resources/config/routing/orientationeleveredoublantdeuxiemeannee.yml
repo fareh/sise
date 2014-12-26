@@ -2,29 +2,12 @@ orientationeleveredoublantdeuxiemeannee_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:index" }
 
-orientationeleveredoublantdeuxiemeannee_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:show" }
-
-orientationeleveredoublantdeuxiemeannee_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:new" }
-
-orientationeleveredoublantdeuxiemeannee_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:create" }
-    requirements: { _method: post }
-
 orientationeleveredoublantdeuxiemeannee_edit:
     path:     /edit
     defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:edit" }
 
 orientationeleveredoublantdeuxiemeannee_update:
-    path:     /{id}/update
+    path:     /update
     defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:update" }
     requirements: { _method: post|put }
 
-orientationeleveredoublantdeuxiemeannee_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:OrientationEleveredoublantdeuxiemeannee:delete" }
-    requirements: { _method: post|delete }
