@@ -27,34 +27,38 @@ class EffectifeleveElevedomainsousdomainController extends Controller
      */
     public function editAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectifeleveelevedomainsousdomain_edit');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        $url = $this->generateUrl('effectifeleveelevedomainsousdomain_edit');
+        $pathUpdate = $this->generateUrl('effectifeleveelevedomainsousdomain_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         if ($codeetab && $codetypeetab) {
-            $params = $request->request->get($search->getName());
-            $session->set("features", $params);
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->getElevedomainsousdomain(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            foreach ($entities as $key => $entity) {
+
+                $rowspan[$entity->getCodesousdoma()->getCodedoma()->getCodedoma()][$key] = $entity->getCodesousdoma()->getCodedoma()->getCodedoma();
+            }
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_elevedomainsousdomain.html.twig', array(
             'entities' => @$entities,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
-            'nameclass' => $nameclass
+            'nameclass' => $nameclass,
+            'pathUpdate' => @$pathUpdate,
         ));
     }
 
@@ -68,36 +72,32 @@ class EffectifeleveElevedomainsousdomainController extends Controller
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifeleveelevedomainsousdomain_edit');
         $pathUpdate = $this->generateUrl('effectifeleveelevedomainsousdomain_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
+        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->getElevedomainsousdomain(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
             for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
-
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findOneBy($items);
-
                 if (!$item) {
                     throw $this->createNotFoundException('Unable to find SiseCoreBundle entity.');
                 }
-                $subdomains = $item->getCodedoma()->getCodesousdoma();
-                $item->setNombclass($request->request->get('nombclass' . $i));
-                $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
-                $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
-                $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
+                $nombclass = $request->request->get('nombclass' . $i);
+                $nombgrou = $request->request->get('nombgrou' . $i);
+                $nombelevmasc = $request->request->get('nombelevmasc' . $i);
+                $nombelevfemi = $request->request->get('nombelevfemi' . $i);
+                $nombtotaelev = $nombelevmasc + $nombelevfemi;
+                $item->setNombclass($nombclass);
+                $item->setNombgrou($nombgrou);
+                $item->setNombelevmasc($nombelevmasc);
+                $item->setNombelevfemi($nombelevfemi);
+                $item->setNombtotaelev($nombtotaelev);
                 $em->persist($item);
-                foreach ($subdomains as $subdomain) {
-                    $subdomain->setOrdraffi($request->request->get('codesousdoma_ordraffi_' . $subdomain->getCodesousdoma() . '_' . $i));
-                    $em->persist($subdomain);
-                }
-
                 $em->flush();
             }
+            return $this->redirect($this->generateUrl('effectifeleveelevedomainsousdomain_edit'));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_elevedomainsousdomain.html.twig', array(
@@ -116,6 +116,7 @@ class EffectifeleveElevedomainsousdomainController extends Controller
      */
     public function listAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifeleveelevedomainsousdomain_list');
         $session = $request->getSession();
@@ -132,14 +133,21 @@ class EffectifeleveElevedomainsousdomainController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveElevedomainsousdomain')->getElevedomainsousdomain(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            foreach ($entities as $key => $entity) {
+
+                $rowspan[$entity->getCodesousdoma()->getCodedoma()->getCodedoma()][$key] = $entity->getCodesousdoma()->getCodedoma()->getCodedoma();
+            }
+
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_elevedomainsousdomain');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_elevedomainsousdomain.html.twig', array(
             'entities' => @$entities,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'nameclass' => $nameclass
+
         ));
     }
 

@@ -48,27 +48,22 @@ class EffectiveeleveEleveetranger
      */
     private $coderece;
 
+
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=false)
+     * @var NomenclatureCycleenseignement
+     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement")
+     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codecyclense;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeNati", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-   // private $codenati;
 
 
     /**
-     * @ORM\OneToOne(targetEntity="NomenclatureNationalite")
+     * @var NomenclatureNationalite
+     * @ORM\ManyToOne(targetEntity="NomenclatureNationalite")
      * @ORM\JoinColumn(name="CodeNati", referencedColumnName="CodeNati")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -192,29 +187,6 @@ class EffectiveeleveEleveetranger
         return $this->coderece;
     }
 
-    /**
-     * Set codecyclense
-     *
-     * @param string $codecyclense
-     * @return EffectiveeleveEleveetranger
-     */
-    public function setCodecyclense($codecyclense)
-    {
-        $this->codecyclense = $codecyclense;
-
-        return $this;
-    }
-
-    /**
-     * Get codecyclense
-     *
-     * @return string 
-     */
-    public function getCodecyclense()
-    {
-        return $this->codecyclense;
-    }
-
 
 
     /**
@@ -284,6 +256,29 @@ class EffectiveeleveEleveetranger
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codecyclense
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense
+     * @return EffectiveeleveEleveetranger
+     */
+    public function setCodecyclense(\Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense)
+    {
+        $this->codecyclense = $codecyclense;
+
+        return $this;
+    }
+
+    /**
+     * Get codecyclense
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement 
+     */
+    public function getCodecyclense()
+    {
+        return $this->codecyclense;
     }
 
     /**

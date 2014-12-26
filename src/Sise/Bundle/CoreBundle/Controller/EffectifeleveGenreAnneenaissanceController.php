@@ -29,16 +29,14 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -46,14 +44,10 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('effectifelevegenreanneenaissance_edit');
         $pathUpdate = $this->generateUrl('effectifelevegenreanneenaissance_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-
         if ($codeetab && $codetypeetab) {
-            $params = $request->request->get($search->getName());
-            $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_genre_anneenaissance');
-
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_genre_anneenaissance.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
@@ -71,11 +65,8 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectifelevegenreanneenaissance_edit');
@@ -85,9 +76,15 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findOneBy($items);
-                $item->setNombelevmasc($request->request->get('nombelevmasc' . $i));
-                $item->setNombelevfemi($request->request->get('nombelevfemi' . $i));
-                $item->setNombtotaelev($request->request->get('nombtotaelev' . $i));
+
+
+                $nombelevmasc = $request->request->get('nombelevmasc' . $i);
+                $nombelevfemi = $request->request->get('nombelevfemi' . $i);
+                $nombtota = $nombelevfemi+$nombelevmasc;
+
+                $item->setNombelevmasc($nombelevmasc);
+                $item->setNombelevfemi($nombelevfemi);
+                $item->setNombtotaelev($nombtota);
                 $em->persist($item);
                 $em->flush();
             }
@@ -125,43 +122,11 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            // $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveeablissementprivee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-            $query = $em->createQuery(
-                '      	 SELECT P ,  F2
-		   FROM SiseCoreBundle:EffectifeleveGenreAnneenaissance P
-		   INNER JOIN SiseCoreBundle:NomenclatureAnneenaissance F2 WITH P.codeannenais = F2.codeannenais
-		   WHERE
-				P.codeetab= :CodeEtab
-				and P.codetypeetab= :CodeTypeEtab
-				and P.annescol= :AnneScol and P.coderece= :CodeRece
-		   GROUP BY P.codeannenais
-                    '
-            )
-                ->setParameter('CodeEtab', $codeetab)
-                ->setParameter('CodeTypeEtab', $codetypeetab)
-                ->setParameter('AnneScol', $annescol)
-                ->setParameter('CodeRece', $coderece);
-
-            $items = $query->getResult();
-            $genreAnneenaissance = array();
-            $anneenaissance = array();
-            foreach ($items as $key => $item) {
-                if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\EffectifeleveGenreAnneenaissance')) {
-                    $genreAnneenaissance[$key] = $item;
-                }
-
-                if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance')) {
-                    $anneenaissance[$key - 1] = $item;
-                }
-
-            }
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveGenreAnneenaissance')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
-
-
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_genre_anneenaissance');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_genre_anneenaissance.html.twig', array(
-            'genreAnneenaissance' => @$genreAnneenaissance,
-            'anneenaissance' => @$anneenaissance,
+            'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'nameclass' => $nameclass

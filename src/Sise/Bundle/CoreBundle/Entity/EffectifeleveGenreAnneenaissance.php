@@ -49,13 +49,14 @@ class EffectifeleveGenreAnneenaissance
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeAnneNais", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureAnneenaissance")
+     * @ORM\JoinColumn(name="CodeAnneNais", referencedColumnName="CodeAnneNais", onDelete="CASCADE")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeannenais;
+
+
 
     /**
      * @var integer
@@ -173,29 +174,6 @@ class EffectifeleveGenreAnneenaissance
     }
 
     /**
-     * Set codeannenais
-     *
-     * @param string $codeannenais
-     * @return EffectifeleveGenreAnneenaissance
-     */
-    public function setCodeannenais($codeannenais)
-    {
-        $this->codeannenais = $codeannenais;
-
-        return $this;
-    }
-
-    /**
-     * Get codeannenais
-     *
-     * @return string 
-     */
-    public function getCodeannenais()
-    {
-        return $this->codeannenais;
-    }
-
-    /**
      * Set nombelevmasc
      *
      * @param integer $nombelevmasc
@@ -262,5 +240,28 @@ class EffectifeleveGenreAnneenaissance
     public function getNombtota()
     {
         return $this->nombtota;
+    }
+
+    /**
+     * Set codeannenais
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance $codeannenais
+     * @return EffectifeleveGenreAnneenaissance
+     */
+    public function setCodeannenais(\Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance $codeannenais)
+    {
+        $this->codeannenais = $codeannenais;
+
+        return $this;
+    }
+
+    /**
+     * Get codeannenais
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance 
+     */
+    public function getCodeannenais()
+    {
+        return $this->codeannenais;
     }
 }

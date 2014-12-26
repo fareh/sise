@@ -49,17 +49,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeSourProv", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-   // private $codesourprov;
-
-
-    /**
-     * @ORM\OneToOne(targetEntity="NomenclatureSourceprovonance")
+     * @ORM\ManyToOne(targetEntity="NomenclatureSourceprovonance")
      * @ORM\JoinColumn(name="CodeSourProv", referencedColumnName="CodeSourProv")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -251,6 +241,7 @@ class EffectiveeleveElevenouveauclasspreparatoire
     {
         return $this->nombtotaelev;
     }
+
 
     /**
      * Set codesourprov

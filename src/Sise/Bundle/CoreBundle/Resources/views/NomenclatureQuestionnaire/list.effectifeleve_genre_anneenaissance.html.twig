@@ -3,10 +3,9 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevegenreanneenaissance' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-    {% if genreAnneenaissance is defined  and genreAnneenaissance|length > 0 %}
+    {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
-
             <div id="CPHMain_upGridView">
 
 
@@ -30,9 +29,9 @@
                         {% set nombelevfemi = 0 %}
                         {% set nombtota = 0 %}
 
-                        {% for key ,  genre in genreAnneenaissance %}
+                        {% for key ,  genre in entities %}
                         <tr>
-                           <td>{{ anneenaissance[key].libeannenaisar }} </td>
+                           <td>{{ genre.codeannenais.libeannenaisar }} </td>
                             <td align="right">{{ genre.nombelevmasc }}    {% set nombelevmasc = genre.nombelevmasc + nombelevmasc %}  </td>
                             <td align="right">{{ genre.nombelevfemi }}
 

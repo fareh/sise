@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveNiveauscolaireAnneenaissance
  *
  * @ORM\Table(name="effectiveeleve_niveauscolaire_anneenaissance")
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveNiveauscolaireAnneenaissanceRepository")
  */
 class EffectiveeleveNiveauscolaireAnneenaissance
 {
@@ -48,34 +48,23 @@ class EffectiveeleveNiveauscolaireAnneenaissance
      */
     private $coderece;
 
-
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
+     * @var NomenclatureNiveauscolaire
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
      * @ORM\Id
-     * @ORM\OneToMany(targetEntity="NomenclatureNiveauscolaire", mappedBy="codenivescol")
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codenivescol;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeAnneNais", type="string", length=50, nullable=false)
+     * @var NomenclatureAnneenaissance
+     * @ORM\ManyToOne(targetEntity="NomenclatureAnneenaissance")
+     * @ORM\JoinColumn(name="CodeAnneNais", referencedColumnName="CodeAnneNais")
      * @ORM\Id
-     * @ORM\OneToMany(targetEntity="NomenclatureAnneenaissance", mappedBy="codeannenais")
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeannenais;
-
-
-
-    public function __construct()
-    {
-        $this->codenivescol = new ArrayCollection();
-        $this->codeannenais = new ArrayCollection();
-    }
 
 
     /**
@@ -262,15 +251,14 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     {
         return $this->nombtotaelev;
     }
-    
 
     /**
      * Set codenivescol
      *
-     * @param string $codenivescol
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
      * @return EffectiveeleveNiveauscolaireAnneenaissance
      */
-    public function setCodenivescol($codenivescol)
+    public function setCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
     {
         $this->codenivescol = $codenivescol;
 
@@ -280,7 +268,7 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get codenivescol
      *
-     * @return string 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
      */
     public function getCodenivescol()
     {
@@ -290,10 +278,10 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Set codeannenais
      *
-     * @param string $codeannenais
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance $codeannenais
      * @return EffectiveeleveNiveauscolaireAnneenaissance
      */
-    public function setCodeannenais($codeannenais)
+    public function setCodeannenais(\Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance $codeannenais)
     {
         $this->codeannenais = $codeannenais;
 
@@ -303,10 +291,12 @@ class EffectiveeleveNiveauscolaireAnneenaissance
     /**
      * Get codeannenais
      *
-     * @return string 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance 
      */
     public function getCodeannenais()
     {
         return $this->codeannenais;
     }
 }
+
+

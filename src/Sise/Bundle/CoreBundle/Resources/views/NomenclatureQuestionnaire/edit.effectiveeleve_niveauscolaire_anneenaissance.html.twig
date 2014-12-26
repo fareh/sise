@@ -1,28 +1,104 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveniveauscolaireanneenaissance' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {#
-    {% if editForms|length > 0 %}
-        {% for editForm in editForms %}
-            {{ form(editForm) }}
-        {% endfor %}
-    {% endif %}#}
 
 
+    <center>
+        <br>
 
-        <center>
-            <br>
-            <div id="CPHMain_upGridView">
+        <div id="CPHMain_upGridView">
+
+            <div>
+                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            {% for key,  annenai in annenais %}
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">
+                                    {{ annenai }}
+                                </td>
+                            {% endfor %}
+                            <td align="center" colspan="3"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">
+                                جملة
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي
+                            </th>
+                            {% for key,  annenai in annenais %}
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            {% endfor %}
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                        </tr>
+                        {% set codenivescol = 99999 %}
+                        {% set nombelevmasc = 0 %}
+                        {% set  nombelevfemi =  0 %}
+                        {% for parent,  entity in entities %}
+                            <input type="hidden"
+                                   name="val_{{ entity.codenivescol.codenivescol }}{{ entity.codeannenais.codeannenais }}"
+                                   value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codenivescol.codenivescol }}|{{ entity.codeannenais.codeannenais }}"/>
 
 
-                <div>
-                    {{ html|raw }}
-                </div>
+                            <input type="hidden"
+                                   name="key_{{ entity.codenivescol.codenivescol }}{{ entity.codeannenais.codeannenais }}"
+                                   value="codeetab|codetypeetab|annescol|coderece|codenivescol|codeannenais"/>
+                            <tr>
+                                {% if entity.codenivescol.codenivescol != codenivescol %}
+                                    {% set  nombelevmasc =  0 %}
+                                    {% set  nombelevfemi = 0 %}
+                                    <td>{{ entity.codenivescol.libenivescolfr }}</td>
+                                    {% for key,  annenai in annenais %}
+                                        <td align="right">
 
+
+                                            <input name="nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}"
+                                                   type="text" style="width: 50%;"
+                                                   value="{{ entities[parent+key].nombelevmasc }}"
+                                                   id="nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}">
+                                        </td>
+                                        <td align="right">
+
+
+                                            <input name="nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}"
+                                                   type="text" style="width: 50%;"
+                                                   value="{{ entities[parent+key].nombelevfemi }}"
+                                                   id="nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}">
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entities[parent+key].nombtotaelev }}
+
+                                        </td>
+                                        {% set  nombelevmasc =  entities[parent+key].nombelevmasc + nombelevmasc %}
+                                        {% set  nombelevfemi = entities[parent+key].nombelevfemi + nombelevfemi %}
+                                    {% endfor %}
+                                    <td style="background-color:#EEEEEE;">{{ nombelevmasc }}</td>
+                                    <td style="background-color:#EEEEEE;">{{ nombelevfemi }}</td>
+                                    <td style="background-color:#EEEEEE;">{{ nombelevmasc + nombelevfemi }}</td>
+                                {% endif %}
+                                {% set nombelevmasc = 0 %}
+                                {% set  nombelevfemi =  0 %}
+                                {% set codenivescol = entity.codenivescol.codenivescol %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
             </div>
-        </center>
+
+        </div>
+    </center>
 
 {% endblock %}

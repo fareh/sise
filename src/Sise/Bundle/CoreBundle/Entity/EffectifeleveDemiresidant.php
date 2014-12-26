@@ -50,7 +50,7 @@ class EffectifeleveDemiresidant
     private $coderece;
 
     /**
-     * @ORM\OneToOne(targetEntity="NomenclatureCycleenseignement")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement")
      * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -360,6 +360,7 @@ class EffectifeleveDemiresidant
     {
         return $this->nombbour;
     }
+
 
     /**
      * Set codecyclense

@@ -90,6 +90,12 @@ form.fos_user_registration_register {
     border-style:None;
 }
 
+#id_with_js input {
+    border-style: none;
+    width: 100%;
+    text-align: center;
+
+}
 
 /* fin formulaire d'enregistrement */
 

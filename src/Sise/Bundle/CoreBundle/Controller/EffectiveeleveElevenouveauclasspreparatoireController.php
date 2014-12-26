@@ -29,16 +29,14 @@ class EffectiveeleveElevenouveauclasspreparatoireController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -70,29 +68,29 @@ class EffectiveeleveElevenouveauclasspreparatoireController extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('effectiveeleveelevenouveauclasspreparatoire_edit');
         $pathUpdate = $this->generateUrl('effectiveeleveelevenouveauclasspreparatoire_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
-            for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
-                $item = $em->getRepository('SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire')->findOneBy($items);
-                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_effectiveeleveelevenouveauclasspreparatoire_nombelevresimasc_' . $i));
-                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_effectiveeleveelevenouveauclasspreparatoire_nombelevresifemi_' . $i));
-                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_effectiveeleveelevenouveauclasspreparatoire_nombtotaresielev_' . $i));
-                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_effectiveeleveelevenouveauclasspreparatoire_nombelevbourfemi_' . $i));
-                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_effectiveeleveelevenouveauclasspreparatoire_nombtotabourelev_' . $i));
-                $em->persist($item);
+        $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
 
+        if ($codeetab && $codetypeetab) {
+            for ($i = 0; $i < count($entities); $i++) {
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
+                $item = $em->getRepository('SiseCoreBundle:EffectiveeleveElevenouveauclasspreparatoire')->findOneBy($items);
+                $nombelevmasc = $request->request->get('nombelevmasc' . $i);
+                $nombelevfemi = $request->request->get('nombelevfemi' . $i);
+                $nombtotaelev = $nombelevmasc + $nombelevfemi;
+                $item->setNombelevmasc($nombelevmasc);
+                $item->setNombelevfemi($nombelevfemi);
+                $item->setNombtotaelev($nombtotaelev);
+                $em->persist($item);
                 $em->flush();
             }
+
+            return $this->redirect($this->generateUrl('effectiveeleveelevenouveauclasspreparatoire_edit'));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_elevenouveauclasspreparatoire');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_elevenouveauclasspreparatoire.html.twig', array(

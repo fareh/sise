@@ -5,13 +5,6 @@
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {#
-    {% if editForms|length > 0 %}
-        {% for editForm in editForms %}
-            {{ form(editForm) }}
-        {% endfor %}
-    {% endif %}#}
-    {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
 
@@ -19,47 +12,168 @@
             <div id="CPHMain_UP">
 
 
-
                 <div>
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse" style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <tbody><tr>
-                            <td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td><td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td><td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">النوع</td><td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td><td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td><td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">الصفة</td><td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td><td align="center" colspan="1" style="color:White;background-color:#4F81BD;font-weight:bold;"></td><td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">عملية الإدماج</td><td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">متابع من طرف مركز مختص</td>
-                        </tr><tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع/ ر</th><th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإسم واللقب</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th><th align="center" scope="col" style="color:White;background-color:#4F81BD;">سنة الولادة</th><th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجدد</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">الراسبون</th><th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع الإعاقة</th><th align="center" scope="col" style="color:White;background-color:#4F81BD;">درجة الإعاقة</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">بسهولة</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">بصعوبة</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">نعم</th><th align="center" scope="col" style="color:White;background-color:#92B3CF;">لا</th>
-                        </tr><tr>
-                            <td>1</td><td align="right">test 1</td><td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrM_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$CodeGenrM" checked="checked" disabled="disabled"></span>
-                            </td><td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrF_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$CodeGenrF" disabled="disabled"></span>
-                            </td><td align="right">2001</td><td>Neuvièmme Année</td><td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoN_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$RedoN" checked="checked" disabled="disabled"></span>
-                            </td><td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoR_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$RedoR" disabled="disabled"></span>
-                            </td><td align="right">ذهنية</td><td align="right">عميقة</td><td align="right"><span class="aspNetDisabled عملية الإدماج"><input id="CPHMain_GridView_Browse_ctl00_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$ctl00" disabled="disabled"></span></td><td align="right"><span class="aspNetDisabled عملية الإدماج"><input id="CPHMain_GridView_Browse_ctl01_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$ctl01" checked="checked" disabled="disabled"></span></td><td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input id="CPHMain_GridView_Browse_SuivCentSpecO_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$SuivCentSpecO" disabled="disabled"></span>
-                            </td><td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input id="CPHMain_GridView_Browse_SuivCentSpecN_0" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl02$SuivCentSpecN" checked="checked" disabled="disabled"></span>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">النوع
                             </td>
-                        </tr><tr>
-                            <td>2</td><td align="right">test 2</td><td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrM_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$CodeGenrM" disabled="disabled"></span>
-                            </td><td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrF_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$CodeGenrF" checked="checked" disabled="disabled"></span>
-                            </td><td align="right">2002</td><td>Huitièmme Année</td><td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoN_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$RedoN" disabled="disabled"></span>
-                            </td><td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoR_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$RedoR" checked="checked" disabled="disabled"></span>
-                            </td><td align="right">عضوية</td><td align="right">متوسطة</td><td align="right"><span class="aspNetDisabled عملية الإدماج"><input id="CPHMain_GridView_Browse_ctl00_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$ctl00" disabled="disabled"></span></td><td align="right"><span class="aspNetDisabled عملية الإدماج"><input id="CPHMain_GridView_Browse_ctl01_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$ctl01" checked="checked" disabled="disabled"></span></td><td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input id="CPHMain_GridView_Browse_SuivCentSpecO_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$SuivCentSpecO" checked="checked" disabled="disabled"></span>
-                            </td><td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input id="CPHMain_GridView_Browse_SuivCentSpecN_1" type="checkbox" name="ctl00$CPHMain$GridView_Browse$ctl03$SuivCentSpecN" disabled="disabled"></span>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">الصفة
+                            </td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">عملية الإدماج
+                            </td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">متابع من طرف مركز مختص
                             </td>
                         </tr>
-                        </tbody></table>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع/ ر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإسم واللقب
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">سنة الولادة
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
+                                الدراسي
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجدد</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الراسبون</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع الإعاقة
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">درجة الإعاقة
+                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">بسهولة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">بصعوبة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">نعم</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">لا</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td align="right">test 1</td>
+                            <td align="right">
+                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrM_0"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$CodeGenrM"
+                                                                          checked="checked" disabled="disabled"></span>
+                            </td>
+                            <td align="right">
+                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrF_0"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$CodeGenrF"
+                                                                          disabled="disabled"></span>
+                            </td>
+                            <td align="right">2001</td>
+                            <td>Neuvièmme Année</td>
+                            <td align="right">
+                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoN_0"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$RedoN"
+                                                                          checked="checked" disabled="disabled"></span>
+                            </td>
+                            <td align="right">
+                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoR_0"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$RedoR"
+                                                                          disabled="disabled"></span>
+                            </td>
+                            <td align="right">ذهنية</td>
+                            <td align="right">عميقة</td>
+                            <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
+                                            id="CPHMain_GridView_Browse_ctl00_0" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl02$ctl00" disabled="disabled"></span>
+                            </td>
+                            <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
+                                            id="CPHMain_GridView_Browse_ctl01_0" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl02$ctl01" checked="checked"
+                                            disabled="disabled"></span></td>
+                            <td align="right">
+                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
+                                            id="CPHMain_GridView_Browse_SuivCentSpecO_0" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl02$SuivCentSpecO"
+                                            disabled="disabled"></span>
+                            </td>
+                            <td align="right">
+                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
+                                            id="CPHMain_GridView_Browse_SuivCentSpecN_0" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl02$SuivCentSpecN" checked="checked"
+                                            disabled="disabled"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td align="right">test 2</td>
+                            <td align="right">
+                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrM_1"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$CodeGenrM"
+                                                                          disabled="disabled"></span>
+                            </td>
+                            <td align="right">
+                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrF_1"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$CodeGenrF"
+                                                                          checked="checked" disabled="disabled"></span>
+                            </td>
+                            <td align="right">2002</td>
+                            <td>Huitièmme Année</td>
+                            <td align="right">
+                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoN_1"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$RedoN"
+                                                                          disabled="disabled"></span>
+                            </td>
+                            <td align="right">
+                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoR_1"
+                                                                          type="checkbox"
+                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$RedoR"
+                                                                          checked="checked" disabled="disabled"></span>
+                            </td>
+                            <td align="right">عضوية</td>
+                            <td align="right">متوسطة</td>
+                            <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
+                                            id="CPHMain_GridView_Browse_ctl00_1" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl03$ctl00" disabled="disabled"></span>
+                            </td>
+                            <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
+                                            id="CPHMain_GridView_Browse_ctl01_1" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl03$ctl01" checked="checked"
+                                            disabled="disabled"></span></td>
+                            <td align="right">
+                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
+                                            id="CPHMain_GridView_Browse_SuivCentSpecO_1" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl03$SuivCentSpecO" checked="checked"
+                                            disabled="disabled"></span>
+                            </td>
+                            <td align="right">
+                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
+                                            id="CPHMain_GridView_Browse_SuivCentSpecN_1" type="checkbox"
+                                            name="ctl00$CPHMain$GridView_Browse$ctl03$SuivCentSpecN"
+                                            disabled="disabled"></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
 
 
             </div>
         </center>
-    {% endif %}
+
 {% endblock %}

@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * EffectifeleveElevedomainsousdomain
  *
  * @ORM\Table(name="effectifeleve_elevedomainsousdomain", indexes={@ORM\Index(name="FK_EffectifEleve_EleveDomainSousDomain_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectifEleve_EleveDomainSousDomain_Nomenclature_SousDomaine", columns={"CodeSousDoma"})})
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveElevedomainsousdomainRepository")
  */
 class EffectifeleveElevedomainsousdomain
 {
@@ -50,21 +50,12 @@ class EffectifeleveElevedomainsousdomain
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeSousDoma", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureSousdomaine")
+     * @ORM\JoinColumn(name="CodeSousDoma", referencedColumnName="CodeSousDoma")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codesousdoma;
-
-
-
-    /**
-     * @ORM\OneToOne(targetEntity="NomenclatureDomaine")
-     * @ORM\JoinColumn(name="CodeDoma", referencedColumnName="CodeDoma")
      **/
-    private $codedoma;
+    private $codesousdoma;
 
     /**
      * @var integer
@@ -196,29 +187,6 @@ class EffectifeleveElevedomainsousdomain
     }
 
     /**
-     * Set codesousdoma
-     *
-     * @param string $codesousdoma
-     * @return EffectifeleveElevedomainsousdomain
-     */
-    public function setCodesousdoma($codesousdoma)
-    {
-        $this->codesousdoma = $codesousdoma;
-
-        return $this;
-    }
-
-    /**
-     * Get codesousdoma
-     *
-     * @return string 
-     */
-    public function getCodesousdoma()
-    {
-        return $this->codesousdoma;
-    }
-
-    /**
      * Set nombclass
      *
      * @param integer $nombclass
@@ -333,26 +301,28 @@ class EffectifeleveElevedomainsousdomain
         return $this->nombtotaelev;
     }
 
+
+
     /**
-     * Set codedoma
+     * Set codesousdoma
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine $codedoma
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine $codesousdoma
      * @return EffectifeleveElevedomainsousdomain
      */
-    public function setCodedoma(\Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine $codedoma = null)
+    public function setCodesousdoma(\Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine $codesousdoma)
     {
-        $this->codedoma = $codedoma;
+        $this->codesousdoma = $codesousdoma;
 
         return $this;
     }
 
     /**
-     * Get codedoma
+     * Get codesousdoma
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDomaine 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSousdomaine 
      */
-    public function getCodedoma()
+    public function getCodesousdoma()
     {
-        return $this->codedoma;
+        return $this->codesousdoma;
     }
 }

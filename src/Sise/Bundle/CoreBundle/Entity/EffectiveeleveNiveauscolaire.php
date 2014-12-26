@@ -49,20 +49,20 @@ class EffectiveeleveNiveauscolaire
     private $coderece;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeFili", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codefili;
+
     /**
-     * @ORM\OneToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
      * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-       private $codenivescol;
+    private $codenivescol;
 
 
     /**
@@ -122,7 +122,6 @@ class EffectiveeleveNiveauscolaire
     private $nombtotaelev;
 
 
-
     /**
      * Set codeetab
      *
@@ -139,7 +138,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -162,7 +161,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -185,7 +184,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -208,35 +207,15 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
     }
 
-    /**
-     * Set codefili
-     *
-     * @param string $codefili
-     * @return EffectiveeleveNiveauscolaire
-     */
-    public function setCodefili($codefili)
-    {
-        $this->codefili = $codefili;
 
-        return $this;
-    }
 
-    /**
-     * Get codefili
-     *
-     * @return string 
-     */
-    public function getCodefili()
-    {
-        return $this->codefili;
-    }
     /**
      * Set nombclasselev
      *
@@ -253,7 +232,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get nombclasselev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombclasselev()
     {
@@ -276,7 +255,7 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get nombelevmascnouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascnouv()
     {
@@ -296,10 +275,11 @@ class EffectiveeleveNiveauscolaire
         return $this;
     }
 
+
     /**
      * Get nombelevfeminouv
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfeminouv()
     {
@@ -319,10 +299,12 @@ class EffectiveeleveNiveauscolaire
         return $this;
     }
 
+
+
     /**
      * Get nombelevmascredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevmascredo()
     {
@@ -342,10 +324,11 @@ class EffectiveeleveNiveauscolaire
         return $this;
     }
 
+
     /**
      * Get nombelevfemiredo
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelevfemiredo()
     {
@@ -365,10 +348,12 @@ class EffectiveeleveNiveauscolaire
         return $this;
     }
 
+
+
     /**
      * Get nombtotaelevmasc
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevmasc()
     {
@@ -388,10 +373,12 @@ class EffectiveeleveNiveauscolaire
         return $this;
     }
 
+
+
     /**
      * Get nombtotaelevfemi
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelevfemi()
     {
@@ -414,11 +401,35 @@ class EffectiveeleveNiveauscolaire
     /**
      * Get nombtotaelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+
+    /**
+     * Set codefili
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili
+     * @return EffectiveeleveNiveauscolaire
+     */
+    public function setCodefili(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili)
+    {
+        $this->codefili = $codefili;
+
+        return $this;
+    }
+
+    /**
+     * Get codefili
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefili()
+    {
+        return $this->codefili;
     }
 
     /**

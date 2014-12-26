@@ -16,13 +16,10 @@ class NomenclatureAnneenaissance
      * @var string
      *
      * @ORM\Column(name="CodeAnneNais", type="string", length=50, nullable=false)
-     * @ORM\ManyToOne(targetEntity="EffectiveeleveNiveauscolaireAnneenaissance", inversedBy="codeannenais")
-     * @ORM\JoinColumn(name="CodeAnneNais", referencedColumnName="CodeAnneNais")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codeannenais;
-
 
     /**
      * @var string
