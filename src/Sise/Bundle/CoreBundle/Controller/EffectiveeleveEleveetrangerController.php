@@ -73,7 +73,7 @@ class EffectiveeleveEleveetrangerController extends Controller
         $url = $this->generateUrl('effectiveeleveeleveetranger_edit');
         $pathUpdate = $this->generateUrl('effectiveeleveeleveetranger_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveetranger')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
-        if ($codeetab && $codetypeetab) {
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
                 $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:EffectiveeleveEleveetranger')->findOneBy($items);

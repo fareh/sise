@@ -8,7 +8,7 @@ use DoctrineCommonCollectionsArrayCollection;
  * OrientationFilieresport
  *
  * @ORM\Table(name="orientation_filieresport")
- * @ORM\Entity
+ *@ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\OrientationFilieresportRepository")
  */
 class OrientationFilieresport
 {
@@ -83,6 +83,14 @@ class OrientationFilieresport
      */
     private $nombelevfemi;
 
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
+     */
+    private $nombtotaelev;
 
 
     /**
@@ -177,28 +185,6 @@ class OrientationFilieresport
         return $this->coderece;
     }
 
-    /**
-     * Set codefiliorig
-     *
-     * @param string $codefiliorig
-     * @return OrientationFilieresport
-     */
-    public function setCodefiliorig($codefiliorig)
-    {
-        $this->codefiliorig = $codefiliorig;
-
-        return $this;
-    }
-
-    /**
-     * Get codefiliorig
-     *
-     * @return string 
-     */
-    public function getCodefiliorig()
-    {
-        return $this->codefiliorig;
-    }
 
     /**
      * Set anne
@@ -268,37 +254,50 @@ class OrientationFilieresport
     {
         return $this->nombelevfemi;
     }
+
     /**
-     * @var \EtablissementFicheetablissement
+     * Set codefiliorig
      *
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\ManyToOne(targetEntity="EtablissementFicheetablissement",inversedBy="oriefilispor")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
-     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab"),
-     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="AnneScol"),
-     *   @ORM\JoinColumn(name="CodeRece", referencedColumnName="CodeRece"),
-     * })
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig
+     * @return OrientationFilieresport
      */
-    private $fichetaboriefilispor;
-
-    /**
-     * @return \EtablissementFicheetablissement
-     */
-    public function getFichetaboriefilispor()
+    public function setCodefiliorig(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig)
     {
-        return $this->fichetaboriefilispor;
+        $this->codefiliorig = $codefiliorig;
+
+        return $this;
     }
 
     /**
-     * @param \EtablissementFicheetablissement $fichetaboriefilispor
+     * Get codefiliorig
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
      */
-    public function setFichetaboriefilispor($fichetaboriefilispor)
+    public function getCodefiliorig()
     {
-        $this->fichetaboriefilispor = $fichetaboriefilispor;
+        return $this->codefiliorig;
     }
-    public function __toString()
+
+    /**
+     * Set nombtotaelev
+     *
+     * @param integer $nombtotaelev
+     * @return OrientationFilieresport
+     */
+    public function setNombtotaelev($nombtotaelev)
     {
-        return $this->codeetab;
+        $this->nombtotaelev = $nombtotaelev;
+
+        return $this;
+    }
+
+    /**
+     * Get nombtotaelev
+     *
+     * @return integer 
+     */
+    public function getNombtotaelev()
+    {
+        return $this->nombtotaelev;
     }
 }

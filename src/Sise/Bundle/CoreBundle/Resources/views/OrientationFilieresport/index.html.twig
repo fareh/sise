@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' :'التوجيه إلى شعبة الرياضة', 'RouteAction' : 'orientationfilieresport' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'orientationfilieresport' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <br>
     {% if entities is defined  and entities|length > 0 %}
@@ -40,7 +40,7 @@
                             {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
                                 <td>{{ entity.nombelevmasc }}</td>
                                 <td>{{ entity.nombelevfemi }}</td>
-                                <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombtotaelev }}</td>
                                 {% set isadded = true %}
                             {% endif %}
                         {% endif %}
@@ -63,7 +63,7 @@
                             {% if entity.codefiliorig.codefili == entityfilier2.codefili %}
                                 <td>{{ entity.nombelevmasc }}</td>
                                 <td>{{ entity.nombelevfemi }}</td>
-                                <td>{{ entity.nombelevfemi+entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombtotaelev }}</td>
                                 {% set isadded = true %}
                             {% endif %}
                         {% endif %}
