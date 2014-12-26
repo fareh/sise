@@ -1,17 +1,17 @@
-infrastructuretypecategorieespace_edit:
+infrastructureequipementcategorie_edit:
     path:     /Modifier
     defaults: { _controller: "SiseCoreBundle:InfrastructureEquipementCategorie:edit" }
 
-infrastructuretypecategorieespace_list:
+infrastructureequipementcategorie_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:InfrastructureEquipementCategorie:list" }
 
-infrastructuretypecategorieespace_update:
+infrastructureequipementcategorie_update:
     path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:InfrastructureEquipementCategorie:update" }
     requirements: { _method: post|put }
 
-infrastructuretypecategorieespace_delete:
+infrastructureequipementcategorie_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:InfrastructureEquipementCategorie:delete" }
     requirements: { _method: post|delete }
