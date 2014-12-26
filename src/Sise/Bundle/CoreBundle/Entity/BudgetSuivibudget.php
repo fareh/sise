@@ -48,15 +48,6 @@ class BudgetSuivibudget
      */
     private $coderece;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeRubrBudg", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-   // private $coderubrbudg;
-
 
     /**
      * @ORM\ManyToOne(targetEntity="BudgetRubriquebudgetaire")

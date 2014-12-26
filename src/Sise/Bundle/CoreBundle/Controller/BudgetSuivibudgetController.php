@@ -28,16 +28,14 @@ class BudgetSuivibudgetController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
-            $session->set("features", $params);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -45,10 +43,7 @@ class BudgetSuivibudgetController extends Controller
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('budgetsuivibudget_edit');
         $pathUpdate = $this->generateUrl('budgetsuivibudget_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-
         if ($codeetab && $codetypeetab) {
-            $params = $request->request->get($search->getName());
-            $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:BudgetSuivibudget')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('budget_suivibudget');
@@ -69,29 +64,48 @@ class BudgetSuivibudgetController extends Controller
     public function updateAction(Request $request, $codeetab, $codetypeetab)
     {
         $em = $this->getDoctrine()->getManager();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
-        if ($session->has('features')) {
-            $features = $session->get('features');
-        }
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $url = $this->generateUrl('budgetsuivibudget_edit');
         $pathUpdate = $this->generateUrl('budgetsuivibudget_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:BudgetSuivibudget')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+        $entities = $em->getRepository('SiseCoreBundle:BudgetSuivibudget')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
-                $items = array_combine(explode("_", $request->request->get('key_' . $i)), explode("_", $request->request->get('val_' . $i)));
+                $items = array_combine(explode("|", $request->request->get('key_' . $i)), explode("|", $request->request->get('val_' . $i)));
                 $item = $em->getRepository('SiseCoreBundle:BudgetSuivibudget')->findOneBy($items);
-                $item->setNombelevresimasc($request->request->get('sise_bundle_corebundle_budgetsuivibudget_nombelevresimasc_' . $i));
-                $item->setNombelevresifemi($request->request->get('sise_bundle_corebundle_budgetsuivibudget_nombelevresifemi_' . $i));
-                $item->setNombtotaresielev($request->request->get('sise_bundle_corebundle_budgetsuivibudget_nombtotaresielev_' . $i));
-                $item->setNombelevbourfemi($request->request->get('sise_bundle_corebundle_budgetsuivibudget_nombelevbourfemi_' . $i));
-                $item->setNombtotabourelev($request->request->get('sise_bundle_corebundle_budgetsuivibudget_nombtotabourelev_' . $i));
-                $em->persist($item);
 
+
+                $credouve = $request->request->get('credouve' . $i);
+                $corrcred = $request->request->get('corrcred' . $i);
+                $totaenga = $request->request->get('totaenga' . $i);
+
+
+                $restenga = $request->request->get('restenga' . $i);
+                $totapaye = $request->request->get('totapaye' . $i);
+                $restpaye = $request->request->get('restpaye' . $i);
+
+
+                $pourenga = $request->request->get('pourenga' . $i);
+                $pourpaye = $request->request->get('pourpaye' . $i);
+
+                $item->setCredouve($credouve);
+                $item->setCorrcred($corrcred);
+                $item->setTotaenga($totaenga);
+
+                $item->setRestenga($restenga);
+                $item->setTotapaye($totapaye);
+                $item->setRestpaye($restpaye);
+
+
+                $item->setPourenga($pourenga);
+                $item->setPourpaye($pourpaye);
+
+                $em->persist($item);
                 $em->flush();
             }
+            return $this->redirect($this->generateUrl('budgetsuivibudget_edit'));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('budget_suivibudget');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.budget_suivibudget.html.twig', array(
