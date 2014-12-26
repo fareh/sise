@@ -8,7 +8,6 @@ use Sise\Bundle\CoreBundle\Form\search\SearchType;
 use Sise\Bundle\CoreBundle\Entity\OrientationFilieresport;
 use Sise\Bundle\CoreBundle\Entity\EtablissementFicheetablissement;
 use Sise\Bundle\CoreBundle\Form\OrientationFiliereSportType;
-use Sise\Bundle\CoreBundle\Form\EtablissementOrientationFilieresportType;
 
 /**
  * OrientationFilieresport controller.
@@ -62,87 +61,6 @@ class OrientationFilieresportController extends Controller
             'nameclass' => $nameclass
         ));
     }
-
-    /**
-     * Creates a new OrientationFilieresport entity.
-     *
-     */
-    public function createAction(Request $request)
-    {
-        $entity = new OrientationFilieresport();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('orientationfilieresport_show', array('id' => $entity->getId())));
-        }
-
-        return $this->render('SiseCoreBundle:OrientationFilieresport:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Creates a form to create a OrientationFilieresport entity.
-     *
-     * @param OrientationFilieresport $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(OrientationFilieresport $entity)
-    {
-        $form = $this->createForm(new OrientationFilieresportType(), $entity, array(
-            'action' => $this->generateUrl('orientationfilieresport_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-
-    /**
-     * Displays a form to create a new OrientationFilieresport entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new OrientationFilieresport();
-        $form = $this->createCreateForm($entity);
-
-        return $this->render('SiseCoreBundle:OrientationFilieresport:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a OrientationFilieresport entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find OrientationFilieresport entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('SiseCoreBundle:OrientationFilieresport:show.html.twig', array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
     /**
      * Displays a form to edit an existing OrientationFilieresport entity.
      *
@@ -164,7 +82,6 @@ class OrientationFilieresportController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         $url = $this->generateUrl('orientationfilieresport_edit');
-        $pathUpdate = $this->generateUrl('orientationfilieresport_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
             $query = $em->createQuery(
@@ -175,12 +92,13 @@ class OrientationFilieresportController extends Controller
              ORDER BY F.ordraffi DESC')->setParameter('codefilitc', 'C')
                 ->setParameter('codefili2s', '2S');
             $entitiesfili = $query->execute();
+            $pathUpdate = $this->generateUrl('orientationfilieresport_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('orientation_filieresport');
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:edit.html.twig', array(
             'entities' => @$entities,
-            'entitiesfili' => $entitiesfili,
+            'entitiesfili' => @$entitiesfili,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
@@ -189,26 +107,6 @@ class OrientationFilieresportController extends Controller
 
 
     }
-
-    /**
-     * Creates a form to edit a OrientationFilieresport entity.
-     *
-     * @param OrientationFilieresport $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(EtablissementFicheetablissement $entity)
-    {
-        $form = $this->createForm(new EtablissementOrientationFilieresportType(), $entity, array(
-            'action' => $this->generateUrl('orientationfilieresport_update', array('codetypeetab' => $entity->getCodetypeetab(), 'codeetab' => $entity->getCodeetab(), 'annescol' => $entity->getAnnescol(), 'coderece' => $entity->getCoderece())),
-            'method' => 'PUT',
-        ));
-
-        //  $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
-
     /**
      * Edits an existing OrientationFilieresport entity.
      *
@@ -223,6 +121,7 @@ class OrientationFilieresportController extends Controller
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+      var_dump($codeetab);die;
         $entities = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->findBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab, 'annescol' => $annescol, 'coderece' => $coderece), array());
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             for ($i = 0; $i < count($entities); $i++) {
@@ -248,50 +147,8 @@ class OrientationFilieresportController extends Controller
 
         return $this->render('SiseCoreBundle:OrientationFilieresport:edit.html.twig', array(
             'search' => $search->createView(),
-            'entity' => @$entity,
+            'entities' => @$entities,
             'pathfilter' => $url,
-            'edit_form' => @$editForm,
-        //   'delete_form' => $deleteForm->createView(),
         ));
-    }
-
-    /**
-     * Deletes a OrientationFilieresport entity.
-     *
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SiseCoreBundle:OrientationFilieresport')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find OrientationFilieresport entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('orientationfilieresport'));
-    }
-
-    /**
-     * Creates a form to delete a OrientationFilieresport entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('orientationfilieresport_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm();
     }
 }

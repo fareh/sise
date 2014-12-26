@@ -91,7 +91,13 @@ class OrientationFilieresportversgeneraledeuxieme
      * @ORM\Column(name="NombElevFemi", type="integer", nullable=true)
      */
     private $nombelevfemi;
-
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
+     */
+    private $nombtotaelev;
 
 
     /**
@@ -185,30 +191,6 @@ class OrientationFilieresportversgeneraledeuxieme
     {
         return $this->coderece;
     }
-
-    /**
-     * Set codefiliorig
-     *
-     * @param string $codefiliorig
-     * @return OrientationFilieresportversgeneraledeuxieme
-     */
-    public function setCodefiliorig($codefiliorig)
-    {
-        $this->codefiliorig = $codefiliorig;
-
-        return $this;
-    }
-
-    /**
-     * Get codefiliorig
-     *
-     * @return string 
-     */
-    public function getCodefiliorig()
-    {
-        return $this->codefiliorig;
-    }
-
     /**
      * Set redo
      *
@@ -299,5 +281,51 @@ class OrientationFilieresportversgeneraledeuxieme
     public function getNombelevfemi()
     {
         return $this->nombelevfemi;
+    }
+
+    /**
+     * Set codefiliorig
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig
+     * @return OrientationFilieresportversgeneraledeuxieme
+     */
+    public function setCodefiliorig(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefiliorig)
+    {
+        $this->codefiliorig = $codefiliorig;
+
+        return $this;
+    }
+
+    /**
+     * Get codefiliorig
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefiliorig()
+    {
+        return $this->codefiliorig;
+    }
+
+    /**
+     * Set nombtotaelev
+     *
+     * @param integer $nombtotaelev
+     * @return OrientationFilieresportversgeneraledeuxieme
+     */
+    public function setNombtotaelev($nombtotaelev)
+    {
+        $this->nombtotaelev = $nombtotaelev;
+
+        return $this;
+    }
+
+    /**
+     * Get nombtotaelev
+     *
+     * @return integer 
+     */
+    public function getNombtotaelev()
+    {
+        return $this->nombtotaelev;
     }
 }

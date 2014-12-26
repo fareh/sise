@@ -23,19 +23,6 @@ class EtablissementFicheetablissementController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-//        $query = $em->createQuery(
-//            'SELECT F,P
-//             FROM SiseCoreBundle:EtablissementFicheetablissement F
-//             INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab');
-//          $entities = $query->getResult();
-//
-//        $items = array();
-//        foreach ($entities as $item) {
-//            if (is_a($item, 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement')) {
-//                $items[$item->getCodeetab()][$item->getCodetypeetab()->getCodetypeetab()] = $item;
-//            }
-//        }
-
         $session = $request->getSession();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -80,8 +67,11 @@ class EtablissementFicheetablissementController extends Controller
             //   die;
 
         }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('etablissement_ficheetablissement');
+
         return $this->render('SiseCoreBundle:EtablissementFicheetablissement:index.html.twig', array(
             'entities' => $entities,
+            'nameclass' => $nameclass,
             'searchetab' => $searchetab->createView(),
             'pathfilter' => ''
         ));
@@ -144,29 +134,6 @@ class EtablissementFicheetablissementController extends Controller
             'form' => $form->createView(),
         ));
     }
-
-    /**
-     * Finds and displays a EtablissementFicheetablissement entity.
-     *
-     */
-    public function showAction($codetypeetab, $codeetab)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EtablissementFicheetablissement entity.');
-        }
-
-        // $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('SiseCoreBundle:EtablissementFicheetablissement:show.html.twig', array(
-            'entity' => $entity,
-            // 'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
     /**
      * Displays a form to edit an existing EtablissementFicheetablissement entity.
      *
@@ -185,9 +152,10 @@ class EtablissementFicheetablissementController extends Controller
         }
         $editForm = $this->createEditForm($entity);
         //  $deleteForm = $this->createDeleteForm($id);
-
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('etablissement_ficheetablissement');
         return $this->render('SiseCoreBundle:EtablissementFicheetablissement:edit.html.twig', array(
             'entity' => $entity,
+            'nameclass' => $nameclass,
             'edit_form' => $editForm->createView(),
             //  'delete_form' => $deleteForm->createView(),
         ));
@@ -241,45 +209,5 @@ class EtablissementFicheetablissementController extends Controller
             'edit_form' => $editForm->createView(),
             //  'delete_form' => $deleteForm->createView(),
         ));
-    }
-
-    /**
-     * Deletes a EtablissementFicheetablissement entity.
-     *
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find EtablissementFicheetablissement entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('etablissementficheetablissement'));
-    }
-
-    /**
-     * Creates a form to delete a EtablissementFicheetablissement entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('etablissementficheetablissement_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm();
     }
 }
