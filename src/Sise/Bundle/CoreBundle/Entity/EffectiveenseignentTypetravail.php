@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveenseignentTypetravail
  *
- * @ORM\Table(name="effectiveenseignent_typetravail", indexes={@ORM\Index(name="FK_EffectiveEnseignent_TypeTravail_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectiveEnseignent_TypeTravail_Nomenclature_TypeTravail", columns={"CodeTypeTrav"})})
+ * @ORM\Table(name="effectiveenseignent_typetravail")
  * @ORM\Entity
  */
 class EffectiveenseignentTypetravail
@@ -175,29 +175,6 @@ class EffectiveenseignentTypetravail
     }
 
     /**
-     * Set codetypetrav
-     *
-     * @param string $codetypetrav
-     * @return EffectiveenseignentTypetravail
-     */
-    public function setCodetypetrav($codetypetrav)
-    {
-        $this->codetypetrav = $codetypetrav;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypetrav
-     *
-     * @return string
-     */
-    public function getCodetypetrav()
-    {
-        return $this->codetypetrav;
-    }
-
-    /**
      * Set nombensemasc
      *
      * @param integer $nombensemasc
@@ -264,5 +241,28 @@ class EffectiveenseignentTypetravail
     public function getNombtotaense()
     {
         return $this->nombtotaense;
+    }
+
+    /**
+     * Set codetypetrav
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail $codetypetrav
+     * @return EffectiveenseignentTypetravail
+     */
+    public function setCodetypetrav(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail $codetypetrav)
+    {
+        $this->codetypetrav = $codetypetrav;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypetrav
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail
+     */
+    public function getCodetypetrav()
+    {
+        return $this->codetypetrav;
     }
 }

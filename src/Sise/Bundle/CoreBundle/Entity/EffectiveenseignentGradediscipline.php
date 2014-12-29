@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveenseignentGradediscipline
  *
- * @ORM\Table(name="effectiveenseignent_gradediscipline", indexes={@ORM\Index(name="FK_EffectiveEnseignent_GradeDiscipline_Nomenclature_Discipline", columns={"CodeDisci"}), @ORM\Index(name="FK_EffectiveEnseignent_GradeDiscipline_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectiveEnseignent_GradeDiscipline_Nomenclature_Grade", columns={"CodeGrad"})})
+ * @ORM\Table(name="effectiveenseignent_gradediscipline")
  * @ORM\Entity
  */
 class EffectiveenseignentGradediscipline
@@ -201,52 +201,6 @@ class EffectiveenseignentGradediscipline
     }
 
     /**
-     * Set codedisci
-     *
-     * @param string $codedisci
-     * @return EffectiveenseignentGradediscipline
-     */
-    public function setCodedisci($codedisci)
-    {
-        $this->codedisci = $codedisci;
-
-        return $this;
-    }
-
-    /**
-     * Get codedisci
-     *
-     * @return string
-     */
-    public function getCodedisci()
-    {
-        return $this->codedisci;
-    }
-
-    /**
-     * Set codegrad
-     *
-     * @param string $codegrad
-     * @return EffectiveenseignentGradediscipline
-     */
-    public function setCodegrad($codegrad)
-    {
-        $this->codegrad = $codegrad;
-
-        return $this;
-    }
-
-    /**
-     * Get codegrad
-     *
-     * @return string
-     */
-    public function getCodegrad()
-    {
-        return $this->codegrad;
-    }
-
-    /**
      * Set nombensetunimasc
      *
      * @param integer $nombensetunimasc
@@ -359,5 +313,51 @@ class EffectiveenseignentGradediscipline
     public function getNombtotaense()
     {
         return $this->nombtotaense;
+    }
+
+    /**
+     * Set codedisci
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDiscipline $codedisci
+     * @return EffectiveenseignentGradediscipline
+     */
+    public function setCodedisci(\Sise\Bundle\CoreBundle\Entity\NomenclatureDiscipline $codedisci)
+    {
+        $this->codedisci = $codedisci;
+
+        return $this;
+    }
+
+    /**
+     * Get codedisci
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDiscipline 
+     */
+    public function getCodedisci()
+    {
+        return $this->codedisci;
+    }
+
+    /**
+     * Set codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     * @return EffectiveenseignentGradediscipline
+     */
+    public function setCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad)
+    {
+        $this->codegrad = $codegrad;
+
+        return $this;
+    }
+
+    /**
+     * Get codegrad
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade 
+     */
+    public function getCodegrad()
+    {
+        return $this->codegrad;
     }
 }

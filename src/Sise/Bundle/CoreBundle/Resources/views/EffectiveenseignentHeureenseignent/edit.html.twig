@@ -1,16 +1,68 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>EffectiveenseignentHeureenseignent edit</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentheureenseignent' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    <br>
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
 
-    {{ form(edit_form) }}
+            <div id="CPHMain_upGridView">
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('effectiveenseignentheureenseignent') }}">
-                Back to the list
-            </a>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
+
+                <div>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <thead>
+                            <tr>
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">ساعات
+                                    التدريس
+                                </td>
+                            </tr>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة ساعات
+                                    التدريس
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة
+                                    الساعات الإضافية
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة
+                                    الساعات التكميلية
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for key, entity in entities %}
+                                <input type="hidden" name="val_{{ key }}"
+                                       value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}">
+                                <input type="hidden" name="key_{{ key }}"
+                                       value="codeetab|codetypeetab|annescol|coderece">
+                                <tr>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="totaheurense{{ key }}"
+                                               value="{{ entity.totaheurense }} "
+                                               id="totaheurense{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="totaheurensesupp{{ key }}"
+                                               value="{{ entity.totaheurensesupp }} "
+                                               id="totaheurensesupp{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="totaheurensecomp{{ key }}"
+                                               value="{{ entity.totaheurensecomp }} "
+                                               id="totaheurensecomp{{ key }}">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </center>
+    {% endif %}
 {% endblock %}

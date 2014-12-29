@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveenseignentGradeheuretravail
  *
- * @ORM\Table(name="effectiveenseignent_gradeheuretravail", indexes={@ORM\Index(name="FK_EffectiveEnseignent_GradeHeureTravail_Nomenclature_HeureEns9", columns={"CodeHeurEnse"}), @ORM\Index(name="FK_EffectiveEnseignent_GradeHeureTravail_Nomenclature_Recensem10", columns={"CodeRece"}), @ORM\Index(name="FK_EffectiveEnseignent_GradeHeureTravail_Nomenclature_Grade", columns={"CodeGrad"})})
+ * @ORM\Table(name="effectiveenseignent_gradeheuretravail")
  * @ORM\Entity
  */
 class EffectiveenseignentGradeheuretravail
@@ -187,52 +187,6 @@ class EffectiveenseignentGradeheuretravail
     }
 
     /**
-     * Set codeheurense
-     *
-     * @param string $codeheurense
-     * @return EffectiveenseignentGradeheuretravail
-     */
-    public function setCodeheurense($codeheurense)
-    {
-        $this->codeheurense = $codeheurense;
-
-        return $this;
-    }
-
-    /**
-     * Get codeheurense
-     *
-     * @return string
-     */
-    public function getCodeheurense()
-    {
-        return $this->codeheurense;
-    }
-
-    /**
-     * Set codegrad
-     *
-     * @param string $codegrad
-     * @return EffectiveenseignentGradeheuretravail
-     */
-    public function setCodegrad($codegrad)
-    {
-        $this->codegrad = $codegrad;
-
-        return $this;
-    }
-
-    /**
-     * Get codegrad
-     *
-     * @return string
-     */
-    public function getCodegrad()
-    {
-        return $this->codegrad;
-    }
-
-    /**
      * Set nombensemasc
      *
      * @param integer $nombensemasc
@@ -299,5 +253,51 @@ class EffectiveenseignentGradeheuretravail
     public function getNombtotaense()
     {
         return $this->nombtotaense;
+    }
+
+    /**
+     * Set codeheurense
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureHeureenseignement $codeheurense
+     * @return EffectiveenseignentGradeheuretravail
+     */
+    public function setCodeheurense(\Sise\Bundle\CoreBundle\Entity\NomenclatureHeureenseignement $codeheurense)
+    {
+        $this->codeheurense = $codeheurense;
+
+        return $this;
+    }
+
+    /**
+     * Get codeheurense
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureHeureenseignement 
+     */
+    public function getCodeheurense()
+    {
+        return $this->codeheurense;
+    }
+
+    /**
+     * Set codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     * @return EffectiveenseignentGradeheuretravail
+     */
+    public function setCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad)
+    {
+        $this->codegrad = $codegrad;
+
+        return $this;
+    }
+
+    /**
+     * Get codegrad
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade 
+     */
+    public function getCodegrad()
+    {
+        return $this->codegrad;
     }
 }

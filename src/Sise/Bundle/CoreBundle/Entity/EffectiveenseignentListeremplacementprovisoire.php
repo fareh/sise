@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveenseignentListeremplacementprovisoire
  *
- * @ORM\Table(name="effectiveenseignent_listeremplacementprovisoire", indexes={@ORM\Index(name="FK_EffectiveEnseignent_ListeRemplacementProvisoire_Nomenclatur26", columns={"CodeCausRempProv"}), @ORM\Index(name="FK_EffectiveEnseignent_ListeRemplacementProvisoire_Nomenclatur27", columns={"CodeRece"})})
+ * @ORM\Table(name="effectiveenseignent_listeremplacementprovisoire")
  * @ORM\Entity
  */
 class EffectiveenseignentListeremplacementprovisoire
@@ -170,29 +170,6 @@ class EffectiveenseignentListeremplacementprovisoire
     }
 
     /**
-     * Set codecausrempprov
-     *
-     * @param string $codecausrempprov
-     * @return EffectiveenseignentListeremplacementprovisoire
-     */
-    public function setCodecausrempprov($codecausrempprov)
-    {
-        $this->codecausrempprov = $codecausrempprov;
-
-        return $this;
-    }
-
-    /**
-     * Get codecausrempprov
-     *
-     * @return string
-     */
-    public function getCodecausrempprov()
-    {
-        return $this->codecausrempprov;
-    }
-
-    /**
      * Set nomprenense
      *
      * @param string $nomprenense
@@ -236,5 +213,28 @@ class EffectiveenseignentListeremplacementprovisoire
     public function getNombheur()
     {
         return $this->nombheur;
+    }
+
+    /**
+     * Set codecausrempprov
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCauseremplacementprovisoire $codecausrempprov
+     * @return EffectiveenseignentListeremplacementprovisoire
+     */
+    public function setCodecausrempprov(\Sise\Bundle\CoreBundle\Entity\NomenclatureCauseremplacementprovisoire $codecausrempprov)
+    {
+        $this->codecausrempprov = $codecausrempprov;
+
+        return $this;
+    }
+
+    /**
+     * Get codecausrempprov
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCauseremplacementprovisoire
+     */
+    public function getCodecausrempprov()
+    {
+        return $this->codecausrempprov;
     }
 }

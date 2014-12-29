@@ -1,16 +1,77 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>EffectiveenseignentTypetravail edit</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignenttypetravail' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {{ form(edit_form) }}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('effectiveenseignenttypetravail') }}">
-                Back to the list
-            </a>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
+            <div id="CPHMain_upGridView">
+
+
+                <div>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <thead>
+                            <tr>
+                                <td align="center" colspan="1"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                                <td align="center" colspan="3"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">عدد
+                                    المدرسين
+                                </td>
+                            </tr>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع
+                                    التكليف
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% set totalnombensemasc = 0 %}
+                            {% set totalnombensefemi = 0 %}
+                            {% set totalnombtotaense = 0 %}
+                            {% for key, entity in entities %}
+                                <input type="hidden" name="val_{{ key }}"
+                                       value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codetypetrav.codetypetrav }}">
+                                <input type="hidden" name="key_{{ key }}"
+                                       value="codeetab|codetypeetab|annescol|coderece|codetypetrav">
+                                {% set totalnombensemasc = totalnombensemasc+entity.nombensemasc %}
+                                {% set totalnombensefemi = totalnombensefemi+entity.nombensefemi %}
+                                {% set totalnombtotaense = totalnombtotaense+entity.nombtotaense %}
+                                <tr>
+                                    <td>{{ entity.codetypetrav.libetypetravar }}</td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="nombensemasc{{ key }}"
+                                               value="{{ entity.nombensemasc }} "
+                                               id="nombensemasc{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="nombensefemi{{ key }}"
+                                               value="{{ entity.nombensefemi }} "
+                                               id="nombensefemi{{ key }}">
+                                    </td>
+                                    <td>{{ entity.nombtotaense }}</td>
+                                </tr>
+                            {% endfor %}
+                            <tr align="center"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                                <td>الجملة:</td>
+                                <td>{{ totalnombensemasc }}</td>
+                                <td>{{ totalnombensefemi }}</td>
+                                <td>{{ totalnombtotaense }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </center>
+    {% endif %}
 {% endblock %}

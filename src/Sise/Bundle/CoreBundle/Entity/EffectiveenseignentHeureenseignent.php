@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveenseignentHeureenseignent
  *
- * @ORM\Table(name="effectiveenseignent_heureenseignent", indexes={@ORM\Index(name="FK_EffectiveEnseignent_HeureEnseignent_Nomenclature_Recensement", columns={"CodeRece"})})
+ * @ORM\Table(name="effectiveenseignent_heureenseignent")
  * @ORM\Entity
  */
 class EffectiveenseignentHeureenseignent

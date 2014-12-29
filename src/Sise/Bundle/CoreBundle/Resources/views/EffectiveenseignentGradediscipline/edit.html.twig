@@ -1,16 +1,94 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>EffectiveenseignentGradediscipline edit</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentgradediscipline' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {{ form(edit_form) }}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('effectiveenseignentgradediscipline') }}">
-                Back to the list
-            </a>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
+            <div id="CPHMain_upGridView">
+
+
+                <div>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
+                            <tr>
+                                <td align="center" colspan="1"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                                <td align="center" colspan="1"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                                <td align="center" colspan="2"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">مدرسون
+                                    تونسيون
+                                </td>
+                                <td align="center" colspan="2"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">مدرسون
+                                    أجانب
+                                </td>
+                                <td align="center" colspan="1"
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            </tr>
+                            <tr>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">مادة
+                                    التدريس
+                                </th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            </tr>
+                            {% set codedisciprec='' %}
+                            {% for key, entity in entities %}
+                                <input type="hidden" name="val_{{ key }}"
+                                       value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codedisci.codedisci }}|{{ entity.codegrad.codegrad }}">
+                                <input type="hidden" name="key_{{ key }}"
+                                       value="codeetab|codetypeetab|annescol|coderece|codedisci|codegrad">
+                                <tr>
+                                    {% if codedisciprec!=entity.codedisci.codedisci %}
+                                        {% set  codedisciprec=entity.codedisci.codedisci %}
+                                        {% set rowspan= 0 %}
+                                        {% for entity2 in entities %}
+                                            {% if entity2.codedisci.codedisci==codedisciprec %}
+                                                {% set rowspan=rowspan+ 1 %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        <td rowspan="{{ rowspan }}"> {{ entity.codedisci.libedisciar }}</td>
+                                    {% endif %}
+                                    <td>{{ entity.codegrad.libegradar }}</td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="nombensetunimasc{{ key }}"
+                                               value="{{ entity.nombensetunimasc }} "
+                                               id="nombensetunimasc{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="nombensetunifemi{{ key }}"
+                                               value="{{ entity.nombensetunifemi }} "
+                                               id="nombensetunifemi{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="nombenseetramasc{{ key }}"
+                                               value="{{ entity.nombenseetramasc }} "
+                                               id="nombenseetramasc{{ key }}">
+                                    </td>
+                                    <td align="right" style="background-color: #EFF3FB">
+                                        <input type="text" name="nombenseetrafemi{{ key }}"
+                                               value="{{ entity.nombenseetrafemi }} "
+                                               id="nombenseetrafemi{{ key }}">
+                                    </td>
+                                    <td>{{ entity.nombtotaense }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </center>
+    {% endif %}
 {% endblock %}
