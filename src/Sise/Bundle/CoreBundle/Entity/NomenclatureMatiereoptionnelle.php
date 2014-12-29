@@ -21,6 +21,21 @@ class NomenclatureMatiereoptionnelle
      */
     private $codematiopti;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codematiopti")
+     * * @ORM\JoinTable(name="nomenclature_matiereoptionnelleniveauscolaire",
+     *      joinColumns={@ORM\JoinColumn(name="CodeMatiOpti", referencedColumnName="CodeMatiOpti")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
+     *      )
+     **/
+    private $codenivescol;
+
+    public function __construct() {
+        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
     /**
      * @var string
      *
@@ -300,5 +315,38 @@ class NomenclatureMatiereoptionnelle
     public function getColltech()
     {
         return $this->colltech;
+    }
+
+    /**
+     * Add codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return NomenclatureMatiereoptionnelle
+     */
+    public function addCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol[] = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Remove codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     */
+    public function removeCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol->removeElement($codenivescol);
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
     }
 }

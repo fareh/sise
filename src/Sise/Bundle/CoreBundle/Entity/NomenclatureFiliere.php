@@ -21,6 +21,21 @@ class NomenclatureFiliere
      */
     private $codefili;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codefili")
+     * * @ORM\JoinTable(name="nomenclature_filiereniveauscolaire",
+     *      joinColumns={@ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
+     *      )
+     **/
+    private $codenivescol;
+
+    public function __construct() {
+        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
     /**
      * @var string
      *
@@ -305,5 +320,38 @@ class NomenclatureFiliere
     public function __toString()
     {
         return $this->codefili;
+    }
+
+    /**
+     * Add codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return NomenclatureFiliere
+     */
+    public function addCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol[] = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Remove codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     */
+    public function removeCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol->removeElement($codenivescol);
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
     }
 }

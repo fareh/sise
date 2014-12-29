@@ -24,6 +24,22 @@ class NomenclatureNiveauscolaire
     private $codenivescol;
 
     /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureFiliere", mappedBy="codenivescol")
+     **/
+    private $codefili;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureMatiereoptionnelle", mappedBy="codenivescol")
+     **/
+    private $codematiopti;
+
+
+    public function __construct() {
+        $this->codefili = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codematiopti = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * @var string
      *
      * @ORM\Column(name="LibeNiveScolAr", type="string", length=50, nullable=true)
@@ -36,13 +52,6 @@ class NomenclatureNiveauscolaire
      * @ORM\Column(name="LibeNiveScolFr", type="string", length=50, nullable=true)
      */
     private $libenivescolfr;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
-     */
-    // private $codecyclense;
 
 
     /**
@@ -374,5 +383,71 @@ class NomenclatureNiveauscolaire
     public function __toString()
     {
         return ($this->getLibenivescolar()) ? $this->getLibenivescolar() : null;
+    }
+
+    /**
+     * Add codefili
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili
+     * @return NomenclatureNiveauscolaire
+     */
+    public function addCodefili(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili)
+    {
+        $this->codefili[] = $codefili;
+
+        return $this;
+    }
+
+    /**
+     * Remove codefili
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili
+     */
+    public function removeCodefili(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili)
+    {
+        $this->codefili->removeElement($codefili);
+    }
+
+    /**
+     * Get codefili
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodefili()
+    {
+        return $this->codefili;
+    }
+
+    /**
+     * Add codematiopti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle $codematiopti
+     * @return NomenclatureNiveauscolaire
+     */
+    public function addCodematiopti(\Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle $codematiopti)
+    {
+        $this->codematiopti[] = $codematiopti;
+
+        return $this;
+    }
+
+    /**
+     * Remove codematiopti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle $codematiopti
+     */
+    public function removeCodematiopti(\Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle $codematiopti)
+    {
+        $this->codematiopti->removeElement($codematiopti);
+    }
+
+    /**
+     * Get codematiopti
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodematiopti()
+    {
+        return $this->codematiopti;
     }
 }

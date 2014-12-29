@@ -48,23 +48,24 @@ class EffectifeleveFilierematiere
      */
     private $coderece;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeMatiOpti", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureMatiereoptionnelle")
+     * @ORM\JoinColumn(name="CodeMatiOpti", referencedColumnName="CodeMatiOpti")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codematiopti;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeFili", type="string", length=50, nullable=false)
+     * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
+     * @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codefili;
+
 
     /**
      * @var integer
@@ -173,51 +174,7 @@ class EffectifeleveFilierematiere
         return $this->coderece;
     }
 
-    /**
-     * Set codematiopti
-     *
-     * @param string $codematiopti
-     * @return EffectifeleveFilierematiere
-     */
-    public function setCodematiopti($codematiopti)
-    {
-        $this->codematiopti = $codematiopti;
 
-        return $this;
-    }
-
-    /**
-     * Get codematiopti
-     *
-     * @return string
-     */
-    public function getCodematiopti()
-    {
-        return $this->codematiopti;
-    }
-
-    /**
-     * Set codefili
-     *
-     * @param string $codefili
-     * @return EffectifeleveFilierematiere
-     */
-    public function setCodefili($codefili)
-    {
-        $this->codefili = $codefili;
-
-        return $this;
-    }
-
-    /**
-     * Get codefili
-     *
-     * @return string
-     */
-    public function getCodefili()
-    {
-        return $this->codefili;
-    }
 
     /**
      * Set nombelev
@@ -263,5 +220,51 @@ class EffectifeleveFilierematiere
     public function getNombgrou()
     {
         return $this->nombgrou;
+    }
+
+    /**
+     * Set codematiopti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle $codematiopti
+     * @return EffectifeleveFilierematiere
+     */
+    public function setCodematiopti(\Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle $codematiopti)
+    {
+        $this->codematiopti = $codematiopti;
+
+        return $this;
+    }
+
+    /**
+     * Get codematiopti
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle 
+     */
+    public function getCodematiopti()
+    {
+        return $this->codematiopti;
+    }
+
+    /**
+     * Set codefili
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili
+     * @return EffectifeleveFilierematiere
+     */
+    public function setCodefili(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili)
+    {
+        $this->codefili = $codefili;
+
+        return $this;
+    }
+
+    /**
+     * Get codefili
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefili()
+    {
+        return $this->codefili;
     }
 }
