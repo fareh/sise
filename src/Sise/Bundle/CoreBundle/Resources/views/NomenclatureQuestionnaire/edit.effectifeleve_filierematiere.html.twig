@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevefilierematiere' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    <br>
+
+    <div id="CPHMain_upnivescol">
+        <form action="{{ pathfilter }}" method="get" {{ form_enctype(form) }} id="form_nivescol">
+            <div style="background-color: #EEEEEE; font-size: 14pt; padding: 10px 10px 5px 5px;">
+                <span id="CPHMain_lblNiveScol"
+                      style="display:inline-block;height:28px;width:10%;">المستوى الدراسي</span>
+                &nbsp;
+
+                {{ form_widget(form.niveauscolaires) }}
+
+            </div>
+        </form>
+    </div>
+
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_upGridView">
+
+
+                <div>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Edit"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الشعبة</th>
+                            {% for listMat in listMats %}
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ listMat }}</th>
+                            {% endfor %}
+                        </tr>
+                        {% for parent,  listFli in listFlis %}
+                            <tr>
+                                <td style="width:9%;">{{ listFli }}</td>
+                                {% for key,  listMat in listMats %}
+                                    <td align="right">
+                                        <input name="nombelev{{parent}}{{key}}"
+                                               type="text"
+                                               value="{{ entities[parent][key].nombelev }}"
+                                               id="nombelev{{parent}}{{key}}">
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                        </form>
+                </div>
+
+
+            </div>
+        </center>
+    {% endif %}
+{% endblock %}

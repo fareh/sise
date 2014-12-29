@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectifeleveFilierematiere
  *
  * @ORM\Table(name="effectifeleve_filierematiere", indexes={@ORM\Index(name="FK_EffectifEleve_FiliereMatiere_Nomenclature_Filiere", columns={"CodeFili"}), @ORM\Index(name="FK_EffectifEleve_FiliereMatiere_Nomenclature_MatiereOptionnelle", columns={"CodeMatiOpti"}), @ORM\Index(name="FK_EffectifEleve_FiliereMatiere_Nomenclature_Recensement", columns={"CodeRece"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectifeleveFilierematiereRepository")
  */
 class EffectifeleveFilierematiere
 {
@@ -50,6 +50,7 @@ class EffectifeleveFilierematiere
 
 
     /**
+     * @var NomenclatureMatiereoptionnelle
      * @ORM\ManyToOne(targetEntity="NomenclatureMatiereoptionnelle")
      * @ORM\JoinColumn(name="CodeMatiOpti", referencedColumnName="CodeMatiOpti")
      * @ORM\Id
@@ -59,6 +60,7 @@ class EffectifeleveFilierematiere
 
 
     /**
+     * @var NomenclatureFiliere
      * @ORM\ManyToOne(targetEntity="NomenclatureFiliere")
      * @ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")
      * @ORM\Id

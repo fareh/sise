@@ -1,3 +1,10 @@
+jQuery(document).ready(function () {
+$('#form_nivescol select').on('change', function() {
+    document.getElementById("form_nivescol").submit();
+});
+
+});
+
 // Récupère le div qui contient la collection de tags
 var collectionHolder = $('ul.tags');
 
