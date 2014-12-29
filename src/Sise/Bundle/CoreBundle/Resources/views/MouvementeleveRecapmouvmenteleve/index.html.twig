@@ -33,9 +33,9 @@
                     <tr>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي
                         </th>
-                        {% if entity.codenivescol.codecyclense == '2' %}
+                        {#{% if entity.codenivescol.codecyclense == '2' %}#}
                             <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الشعبة</th>
-                        {% endif %}
+                        {#{% endif %}#}
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">النوع</th>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد التلاميذ في
                             10/16
@@ -73,7 +73,7 @@
             {% set Totalnombelevexcl30juin=0 %}
             {% set Totalnombtotaelev=0 %}
 
-            {% for key, entity in entities %}
+            {% for entity in entities %}
                 {% set Totalnombelev16octobre=Totalnombelev16octobre+entity.nombelev16octobre %}
                 {% set Totalnombelevvenaautretab=Totalnombelevvenaautretab+ entity.nombelevvenaautretab %}
                 {% set Totalnombelevdeplautretab=Totalnombelevdeplautretab+entity.nombelevdeplautretab %}
@@ -86,37 +86,28 @@
                 {% set Totalnombtotaelev=Totalnombtotaelev+entity.nombtotaelev %}
 
                 <tr>
-                    {#<td>{{ entity.codenivescol.libenivescolar }} </td>#}
+
                     {% if codenivescolprec!=entity.codenivescol.codenivescol %}
                         {% set  codenivescolprec=entity.codenivescol.codenivescol %}
-
-                        {% set rowspan= 1 %}
+                        {% set rowspan= 0 %}
                         {% for key, entity2 in entities %}
                             {% if entity2.codenivescol.codenivescol==codenivescolprec %}
                                 {% set rowspan=rowspan+ 1 %}
                             {% endif %}
                         {% endfor %}
-
-
-                        <td rowspan="{{ rowspan }}">{{ entity.codenivescol.libenivescolar }}  </td>
-
+                        <td rowspan="{{ rowspan }}"> {{ entity.codenivescol.libenivescolar }}</td>
+                    {% endif %}
+                    {% if codefiliprec!=entity.codefili.codefili %}
+                        {% set  codefiliprec=entity.codefili.codefili %}
+                        {#{% set rowspan= 0 %}#}
+                        {#{% for key, entity2 in entities %}#}
+                            {#{% if entity2.codefili.codefili==codefiliprec %}#}
+                                {#{% set rowspan=rowspan+ 1 %}#}
+                            {#{% endif %}#}
+                        {#{% endfor %}#}
+                        <td rowspan="2"> {{ entity.codefili.libefiliar }}</td>
                     {% endif %}
 
-                    {% if entity.codenivescol.codecyclense == '2' %}
-
-                        {% if codefiliprec!=entity.codefili.codefili %}
-                            {% set  codefiliprec=entity.codefili.codefili %}
-
-                            {% set rowspan1= 1 %}
-                            {% for key, entity2 in entities %}
-                                {% if entity2.codefili.codefili==codefiliprec %}
-                                    {% set rowspan1=rowspan1+ 1 %}
-                                {% endif %}
-                            {% endfor %}
-                            <td rowspan="{{ rowspan1 }}">{{ entity.codefili.libefiliar }}</td>
-                        {% endif %}
-
-                    {% endif %}
                     {% if entity.codegenr.codegenr == 'M' %}
                         <td>{{ entity.codegenr.libegenrar }}</td>
                         <td>{{ entity.nombelev16octobre }}</td>

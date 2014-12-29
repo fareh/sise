@@ -39,8 +39,9 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
             $query = $em->createQuery(
                 'SELECT M
              FROM SiseCoreBundle:MouvementeleveRecapmouvmenteleve M
+             INNER JOIN SiseCoreBundle:NomenclatureNiveauscolaire P  WITH  M.codenivescol=P.codenivescol
              WHERE M.codeetab=:codeetab and M.codetypeetab=:codetypeetab and M.annescol=:annescol and M.coderece=:coderece
-             ORDER BY M.codegenr DESC')->setParameter('codeetab', $codeetab)
+             ORDER BY P.ordraffi ASC, M.codefili ASC, M.codegenr DESC')->setParameter('codeetab', $codeetab)
                 ->setParameter('codetypeetab', $codetypeetab)
                 ->setParameter('annescol', $annescol)
                 ->setParameter('coderece', $coderece);

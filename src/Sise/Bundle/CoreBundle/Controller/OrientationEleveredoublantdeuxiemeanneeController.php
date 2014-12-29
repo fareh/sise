@@ -42,7 +42,7 @@ class OrientationEleveredoublantdeuxiemeanneeController extends Controller
             $query = $em->createQuery(
                 'SELECT F
              FROM SiseCoreBundle:NomenclatureFiliere F
-             INNER JOIN SiseCoreBundle:NomenclatureFiliereniveauscolaire P  WITH  P.codefili=F.codefili
+             JOIN  F.codenivescol P
              WHERE P.codenivescol=:codenive2s
              ORDER BY F.ordraffi DESC')->setParameter('codenive2s', '2S');
             $entitiesfili = $query->execute();
@@ -83,7 +83,7 @@ class OrientationEleveredoublantdeuxiemeanneeController extends Controller
             $query = $em->createQuery(
                 'SELECT F
              FROM SiseCoreBundle:NomenclatureFiliere F
-             INNER JOIN SiseCoreBundle:NomenclatureFiliereniveauscolaire P  WITH  P.codefili=F.codefili
+             JOIN  F.codenivescol P
              WHERE P.codenivescol=:codenive2s
              ORDER BY F.ordraffi DESC')->setParameter('codenive2s', '2S');
             $entitiesfili = $query->execute();

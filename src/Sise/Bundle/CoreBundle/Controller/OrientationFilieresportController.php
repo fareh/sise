@@ -43,7 +43,7 @@ class OrientationFilieresportController extends Controller
             $query = $em->createQuery(
                 'SELECT F
              FROM SiseCoreBundle:NomenclatureFiliere F
-             INNER JOIN SiseCoreBundle:NomenclatureFiliereniveauscolaire P  WITH  P.codefili=F.codefili
+             JOIN  F.codenivescol P
              WHERE P.codenivescol=:codefilitc Or P.codenivescol=:codefili2s
              ORDER BY F.ordraffi DESC')
                 ->setParameter('codefilitc', 'C')
@@ -88,7 +88,7 @@ class OrientationFilieresportController extends Controller
             $query = $em->createQuery(
                 'SELECT F
              FROM SiseCoreBundle:NomenclatureFiliere F
-             INNER JOIN SiseCoreBundle:NomenclatureFiliereniveauscolaire P  WITH  P.codefili=F.codefili
+             JOIN  F.codenivescol P
              WHERE P.codenivescol=:codefilitc Or P.codenivescol=:codefili2s
              ORDER BY F.ordraffi DESC')->setParameter('codefilitc', 'C')
                 ->setParameter('codefili2s', '2S');
