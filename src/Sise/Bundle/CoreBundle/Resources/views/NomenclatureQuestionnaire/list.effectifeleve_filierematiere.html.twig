@@ -31,15 +31,15 @@
                         <tbody>
                         <tr>
                             <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الشعبة</th>
-                            {% for listMat in listMats %}
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ listMat }}</th>
+                            {% for keyclass,  listMat in listMats %}
+                            <th class="{{ keyclass }}" align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ listMat }}</th>
                             {% endfor %}
                         </tr>
                         {% for parent,  listFli in listFlis %}
                         <tr>
-                        <td style="width:9%;">{{ listFli }}</td>
+                        <td style="width:9%;" class="{{ parent }}">{{ listFli }}</td>
                             {% for key,  listMat in listMats %}
-                            <td>  {{ entities[parent][key].nombelev}}</td>
+                            <td class="{{ key }}_{{parent }}">  {{ entities[parent][key].nombelev}}</td>
                             {% endfor %}
                         </tr>
                         {% endfor %}

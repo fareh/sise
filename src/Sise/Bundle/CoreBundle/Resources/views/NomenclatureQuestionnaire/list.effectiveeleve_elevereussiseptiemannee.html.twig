@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveelevereussiseptiemannee' })) }}
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_upGridView">
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <thead>
+
+                        <tr>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكور</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">إناث</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة</th>
+
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        {% for key, entity in entities %}
+                            <tr>
+                                <td>{{ entity.nombelevmasc }}</td>
+                                <td>{{ entity.nombelevfemi }}</td>
+                                <td>{{ entity.nombtotaelev }}</td>
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </center>
+    {% endif %}
+
+{% endblock %}

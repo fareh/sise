@@ -1,0 +1,17 @@
+effectiveeleveelevereussiseptiemannee_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevereussiseptiemannee:edit" }
+
+effectiveeleveelevereussiseptiemannee_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevereussiseptiemannee:list" }
+
+effectiveeleveelevereussiseptiemannee_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevereussiseptiemannee:update" }
+    requirements: { _method: post|put }
+
+effectiveeleveelevereussiseptiemannee_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevereussiseptiemannee:delete" }
+    requirements: { _method: post|delete }

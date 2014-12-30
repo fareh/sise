@@ -70,6 +70,9 @@ SiseCoreBundle_effectifelevefilierematiere:
 SiseCoreBundle_effectiveelevenouveauseptiemeannee:
     resource: "routing/effectiveelevenouveauseptiemeannee.yml"
     prefix:   /stat/effectiveelevenouveauseptiemeannee
+SiseCoreBundle_effectiveeleveelevereussiseptiemannee:
+    resource: "routing/effectiveeleveelevereussiseptiemannee.yml"
+    prefix:   /stat/effectiveeleveelevereussiseptiemannee
 SiseCoreBundle_effectifelevereussifin9technique:
     resource: "routing/effectifelevereussifin9technique.yml"
     prefix:   /stat/effectifelevereussifin9technique
