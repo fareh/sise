@@ -430,4 +430,8 @@ class NomenclatureCycleenseignement
     {
         return $this->codenivescol;
     }
+    public function __toString()
+    {
+        return $this->codecyclense;
+    }
 }

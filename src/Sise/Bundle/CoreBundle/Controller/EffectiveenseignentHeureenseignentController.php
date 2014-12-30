@@ -55,7 +55,7 @@ class EffectiveenseignentHeureenseignentController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveenseignentheureenseignent_list');
+        $url = $this->generateUrl('effectiveenseignentheureenseignent_edit');
         $session = $request->getSession();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {

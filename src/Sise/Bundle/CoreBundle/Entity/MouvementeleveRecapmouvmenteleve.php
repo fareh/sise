@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MouvementeleveRecapmouvmenteleve
  *
- * @ORM\Table(name="mouvementeleve_recapmouvmenteleve", indexes={@ORM\Index(name="FK_MouvementEleve_RecapMouvmentEleve_Nomenclature_Filiere", columns={"CodeFili"}), @ORM\Index(name="FK_MouvementEleve_RecapMouvmentEleve_Nomenclature_Genre", columns={"CodeGenr"}), @ORM\Index(name="FK_MouvementEleve_RecapMouvmentEleve_Nomenclature_NiveauScolaire", columns={"CodeNiveScol"}), @ORM\Index(name="FK_MouvementEleve_RecapMouvmentEleve_Nomenclature_Recensement", columns={"CodeRece"})})
+ * @ORM\Table(name="mouvementeleve_recapmouvmenteleve")
  * @ORM\Entity
  */
 class MouvementeleveRecapmouvmenteleve
@@ -245,75 +245,6 @@ class MouvementeleveRecapmouvmenteleve
     }
 
     /**
-     * Set codefili
-     *
-     * @param string $codefili
-     * @return MouvementeleveRecapmouvmenteleve
-     */
-    public function setCodefili($codefili)
-    {
-        $this->codefili = $codefili;
-
-        return $this;
-    }
-
-    /**
-     * Get codefili
-     *
-     * @return string
-     */
-    public function getCodefili()
-    {
-        return $this->codefili;
-    }
-
-    /**
-     * Set codenivescol
-     *
-     * @param string $codenivescol
-     * @return MouvementeleveRecapmouvmenteleve
-     */
-    public function setCodenivescol($codenivescol)
-    {
-        $this->codenivescol = $codenivescol;
-
-        return $this;
-    }
-
-    /**
-     * Get codenivescol
-     *
-     * @return string
-     */
-    public function getCodenivescol()
-    {
-        return $this->codenivescol;
-    }
-
-    /**
-     * Set codegenr
-     *
-     * @param string $codegenr
-     * @return MouvementeleveRecapmouvmenteleve
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-
-        return $this;
-    }
-
-    /**
-     * Get codegenr
-     *
-     * @return string
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
-    }
-
-    /**
      * Set nombelev16octobre
      *
      * @param integer $nombelev16octobre
@@ -541,5 +472,74 @@ class MouvementeleveRecapmouvmenteleve
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set codefili
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili
+     * @return MouvementeleveRecapmouvmenteleve
+     */
+    public function setCodefili(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili)
+    {
+        $this->codefili = $codefili;
+
+        return $this;
+    }
+
+    /**
+     * Get codefili
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere 
+     */
+    public function getCodefili()
+    {
+        return $this->codefili;
+    }
+
+    /**
+     * Set codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return MouvementeleveRecapmouvmenteleve
+     */
+    public function setCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire 
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
+    }
+
+    /**
+     * Set codegenr
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr
+     * @return MouvementeleveRecapmouvmenteleve
+     */
+    public function setCodegenr(\Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr)
+    {
+        $this->codegenr = $codegenr;
+
+        return $this;
+    }
+
+    /**
+     * Get codegenr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre 
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
     }
 }

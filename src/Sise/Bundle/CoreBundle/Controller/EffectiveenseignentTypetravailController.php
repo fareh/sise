@@ -53,7 +53,7 @@ class EffectiveenseignentTypetravailController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveenseignenttypetravail_list');
+        $url = $this->generateUrl('effectiveenseignenttypetravail_edit');
         $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
         if ($request->isMethod('POST')) {

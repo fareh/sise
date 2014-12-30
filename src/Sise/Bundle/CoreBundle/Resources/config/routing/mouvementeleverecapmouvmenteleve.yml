@@ -2,29 +2,11 @@ mouvementeleverecapmouvmenteleve_list:
     path:     /list
     defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:index" }
 
-mouvementeleverecapmouvmenteleve_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:show" }
-
-mouvementeleverecapmouvmenteleve_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:new" }
-
-mouvementeleverecapmouvmenteleve_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:create" }
-    requirements: { _method: post }
-
 mouvementeleverecapmouvmenteleve_edit:
     path:     /edit
     defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:edit" }
 
 mouvementeleverecapmouvmenteleve_update:
-    path:     /{id}/update
+    path:     /update
     defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:update" }
     requirements: { _method: post|put }
-
-mouvementeleverecapmouvmenteleve_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:MouvementeleveRecapmouvmenteleve:delete" }
-    requirements: { _method: post|delete }
