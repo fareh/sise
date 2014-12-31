@@ -55,7 +55,7 @@ class EffectiveenseignentGradedisciplineController extends Controller
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveenseignentgradediscipline_list');
+        $url = $this->generateUrl('effectiveenseignentgradediscipline_edit');
         $session = $request->getSession();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
