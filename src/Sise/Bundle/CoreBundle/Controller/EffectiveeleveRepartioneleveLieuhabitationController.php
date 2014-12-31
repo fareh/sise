@@ -23,60 +23,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class EffectiveeleveRepartioneleveLieuhabitationController extends Controller
 {
 
-    public function editOlddAction($id, Request $request)
-    {
 
-
-        $em = $this->getDoctrine()->getManager();
-        $task = $em->getRepository('AcmeTaskBundle:Task')->find($id);
-
-        if (!$task) {
-            throw $this->createNotFoundException('Aucune tâche trouvée pour cet id : ' . $id);
-        }
-
-        $originalTags = new ArrayCollection();
-
-        // Crée un tableau contenant les objets Tag courants de la
-        // base de données
-        foreach ($task->getTags() as $tag) {
-            $originalTags->add($tag);
-        }
-
-        $editForm = $this->createForm(new TaskType(), $task);
-
-        if ($request->isMethod('POST')) {
-            $editForm->handleRequest($this->getRequest());
-
-            if ($editForm->isValid()) {
-
-                // supprime la relation entre le tag et la « Task »
-                foreach ($originalTags as $tag) {
-                    if ($task->getTags()->contains($tag) == false) {
-                        // supprime la « Task » du Tag
-                        $tag->getTasks()->removeElement($task);
-
-                        // si c'était une relation ManyToOne, vous pourriez supprimer la
-                        // relation comme ceci
-                        // $tag->setTask(null);
-
-                        $em->persist($tag);
-
-                        // si vous souhaitiez supprimer totalement le Tag, vous pourriez
-                        // aussi faire comme cela
-                        // $em->remove($tag);
-                    }
-                }
-
-                $em->persist($task);
-                $em->flush();
-
-                // redirige vers quelconque page d'édition
-                return $this->redirect($this->generateUrl('task_edit', array('id' => $id)));
-            }
-        }
-
-        // affiche un template de formulaire quelconque
-    }
 
 
     /**

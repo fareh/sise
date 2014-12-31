@@ -1,0 +1,22 @@
+effectifelevenouveaupremierannee_edit:
+    path:     /Modifier
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:edit" }
+
+effectifelevenouveaupremierannee_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:list" }
+
+effectifelevenouveaupremierannee_update:
+    path:     /{codeetab}/{codetypeetab}/Modif
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:update" }
+    requirements: { _method: post|put }
+effectifelevenouveaupremierannee_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:item" }
+effectifelevenouveaupremierannee_relatedLists:
+    path:     /relatedLists
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:relatedLists" }
+effectifelevenouveaupremierannee_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:delete" }
+    requirements: { _method: post|delete }

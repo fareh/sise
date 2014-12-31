@@ -7,8 +7,7 @@
 
     <center>
         <br>
-
-
+        {% if entities is defined  and entities|length > 0 %}
         <div id="CPHMain_UP">
 
 
@@ -17,163 +16,79 @@
                        style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                     <tbody>
                     <tr>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="2"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;">النوع
-                        </td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="2"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;">الصفة
-                        </td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="2"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;">عملية الإدماج
-                        </td>
-                        <td align="center" colspan="2"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;">متابع من طرف مركز مختص
-                        </td>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+                                        ع/ ر
+                                      </span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الإسم واللقب</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        النوع</span></strong>
+                        </th>
+
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        سنة الولادة</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        المستوى الدراسي</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الصفة</span></strong>
+                        </th>
+
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        نوع الإعاقة</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        درجة الإعاقة</span></strong>
+                        </th>
+
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:8%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        عملية الإدماج</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:7%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        متابع من طرف مركز مختص</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
+                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+
+                                      </span></strong>
+                        </th>
                     </tr>
+                    {% for entity in entities %}
                     <tr>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع/ ر</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإسم واللقب
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">سنة الولادة
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
-                            الدراسي
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجدد</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الراسبون</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع الإعاقة
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">درجة الإعاقة
-                        </th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">بسهولة</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">بصعوبة</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">نعم</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">لا</th>
+                        <td>{{ entity.numeelev }}</td>
+                        <td align="right">{{ entity.nompren }}</td>
+                        <td align="right">{{ entity.codegenr }}</td>
+                        <td align="right">{{ entity.codegenr }}</td>
+                        <td align="right">   {{ entity.annenais }}</td>
+                        <td> {{ entity.codenivescol }}</td>
+                        <td align="right">{{ entity.redo }} </td>
+                        <td align="right">   {{ entity.codetypehand }}</td>
+                        <td align="right">   {{ entity.codedegrhand }}</td>
+                        <td align="right">{{ entity.intefaci }} </td>
+                        <td align="right">{{ entity.suivcentspec }}</td>
+
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td align="right">test 1</td>
-                        <td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrM_0"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$CodeGenrM"
-                                                                          checked="checked" disabled="disabled"></span>
-                        </td>
-                        <td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrF_0"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$CodeGenrF"
-                                                                          disabled="disabled"></span>
-                        </td>
-                        <td align="right">2001</td>
-                        <td>Neuvièmme Année</td>
-                        <td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoN_0"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$RedoN"
-                                                                          checked="checked" disabled="disabled"></span>
-                        </td>
-                        <td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoR_0"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl02$RedoR"
-                                                                          disabled="disabled"></span>
-                        </td>
-                        <td align="right">ذهنية</td>
-                        <td align="right">عميقة</td>
-                        <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
-                                        id="CPHMain_GridView_Browse_ctl00_0" type="checkbox"
-                                        name="ctl00$CPHMain$GridView_Browse$ctl02$ctl00" disabled="disabled"></span>
-                        </td>
-                        <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
-                                        id="CPHMain_GridView_Browse_ctl01_0" type="checkbox"
-                                        name="ctl00$CPHMain$GridView_Browse$ctl02$ctl01" checked="checked"
-                                        disabled="disabled"></span></td>
-                        <td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
-                                            id="CPHMain_GridView_Browse_SuivCentSpecO_0" type="checkbox"
-                                            name="ctl00$CPHMain$GridView_Browse$ctl02$SuivCentSpecO"
-                                            disabled="disabled"></span>
-                        </td>
-                        <td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
-                                            id="CPHMain_GridView_Browse_SuivCentSpecN_0" type="checkbox"
-                                            name="ctl00$CPHMain$GridView_Browse$ctl02$SuivCentSpecN" checked="checked"
-                                            disabled="disabled"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td align="right">test 2</td>
-                        <td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrM_1"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$CodeGenrM"
-                                                                          disabled="disabled"></span>
-                        </td>
-                        <td align="right">
-                                <span class="aspNetDisabled النوع"><input id="CPHMain_GridView_Browse_CodeGenrF_1"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$CodeGenrF"
-                                                                          checked="checked" disabled="disabled"></span>
-                        </td>
-                        <td align="right">2002</td>
-                        <td>Huitièmme Année</td>
-                        <td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoN_1"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$RedoN"
-                                                                          disabled="disabled"></span>
-                        </td>
-                        <td align="right">
-                                <span class="aspNetDisabled الصفة"><input id="CPHMain_GridView_Browse_RedoR_1"
-                                                                          type="checkbox"
-                                                                          name="ctl00$CPHMain$GridView_Browse$ctl03$RedoR"
-                                                                          checked="checked" disabled="disabled"></span>
-                        </td>
-                        <td align="right">عضوية</td>
-                        <td align="right">متوسطة</td>
-                        <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
-                                        id="CPHMain_GridView_Browse_ctl00_1" type="checkbox"
-                                        name="ctl00$CPHMain$GridView_Browse$ctl03$ctl00" disabled="disabled"></span>
-                        </td>
-                        <td align="right"><span class="aspNetDisabled عملية الإدماج"><input
-                                        id="CPHMain_GridView_Browse_ctl01_1" type="checkbox"
-                                        name="ctl00$CPHMain$GridView_Browse$ctl03$ctl01" checked="checked"
-                                        disabled="disabled"></span></td>
-                        <td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
-                                            id="CPHMain_GridView_Browse_SuivCentSpecO_1" type="checkbox"
-                                            name="ctl00$CPHMain$GridView_Browse$ctl03$SuivCentSpecO" checked="checked"
-                                            disabled="disabled"></span>
-                        </td>
-                        <td align="right">
-                                <span class="aspNetDisabled متابع من طرف مركز مختص"><input
-                                            id="CPHMain_GridView_Browse_SuivCentSpecN_1" type="checkbox"
-                                            name="ctl00$CPHMain$GridView_Browse$ctl03$SuivCentSpecN"
-                                            disabled="disabled"></span>
-                        </td>
-                    </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
 
 
         </div>
+        {% endif %}
     </center>
 
 {% endblock %}

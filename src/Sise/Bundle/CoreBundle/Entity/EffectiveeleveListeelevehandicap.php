@@ -7,11 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveeleveListeelevehandicap
  *
- * @ORM\Table(name="effectiveeleve_listeelevehandicap", indexes={@ORM\Index(name="FK_EffectiveEleve_ListeEleveHandicap_Nomenclature_DegreHandicap", columns={"CodeDegrHand"}), @ORM\Index(name="FK_EffectiveEleve_ListeEleveHandicap_Nomenclature_NiveauScolaire", columns={"CodeNiveScol"}), @ORM\Index(name="FK_EffectiveEleve_ListeEleveHandicap_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectiveEleve_ListeEleveHandicap_Nomenclature_TypeHandicap", columns={"CodeTypeHand"})})
+ * @ORM\Table(name="effectiveeleve_listeelevehandicap")
  * @ORM\Entity
  */
 class EffectiveeleveListeelevehandicap
 {
+
     /**
      * @var string
      *
@@ -20,7 +21,6 @@ class EffectiveeleveListeelevehandicap
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetab;
-
     /**
      * @var string
      *
@@ -29,7 +29,6 @@ class EffectiveeleveListeelevehandicap
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetypeetab;
-
     /**
      * @var integer
      *
@@ -38,7 +37,6 @@ class EffectiveeleveListeelevehandicap
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $annescol;
-
     /**
      * @var string
      *
@@ -47,6 +45,7 @@ class EffectiveeleveListeelevehandicap
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $coderece;
+
 
     /**
      * @var integer
@@ -57,6 +56,16 @@ class EffectiveeleveListeelevehandicap
      */
     private $numeelev;
 
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeelev=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeelev = $numeelev;
+    }
+
     /**
      * @var string
      *
@@ -64,24 +73,25 @@ class EffectiveeleveListeelevehandicap
      */
     private $nompren;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeGenr", type="string", length=50, nullable=true)
+     * @var NomenclatureGenre
+     * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
+     * @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
      */
     private $codegenr;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="AnneNais", type="integer", nullable=true)
+     * @var NomenclatureAnneenaissance
+     * @ORM\ManyToOne(targetEntity="NomenclatureAnneenaissance")
+     * @ORM\JoinColumn(name="CodeAnneNais", referencedColumnName="CodeAnneNais")
      */
     private $annenais;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=true)
+     * @var NomenclatureNiveauscolaire
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")
      */
     private $codenivescol;
 
@@ -92,17 +102,19 @@ class EffectiveeleveListeelevehandicap
      */
     private $redo;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeTypeHand", type="string", length=50, nullable=true)
+     * @var NomenclatureTypehandicap
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypehandicap")
+     * @ORM\JoinColumn(name="CodeTypeHand", referencedColumnName="CodeTypeHand")
      */
     private $codetypehand;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeDegrHand", type="string", length=50, nullable=true)
+     * @var NomenclatureDegrehandicap
+     * @ORM\ManyToOne(targetEntity="NomenclatureDegrehandicap")
+     * @ORM\JoinColumn(name="CodeDegrHand", referencedColumnName="CodeDegrHand")
      */
     private $codedegrhand;
 
@@ -127,6 +139,246 @@ class EffectiveeleveListeelevehandicap
      */
     private $suivcentspec;
 
+
+    /**
+     * Get numeelev
+     *
+     * @return integer
+     */
+    public function getNumeelev()
+    {
+        return $this->numeelev;
+    }
+
+    /**
+     * Set nompren
+     *
+     * @param string $nompren
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setNompren($nompren)
+    {
+        $this->nompren = $nompren;
+
+        return $this;
+    }
+
+    /**
+     * Get nompren
+     *
+     * @return string
+     */
+    public function getNompren()
+    {
+        return $this->nompren;
+    }
+
+    /**
+     * Set redo
+     *
+     * @param boolean $redo
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setRedo($redo)
+    {
+        $this->redo = $redo;
+
+        return $this;
+    }
+
+    /**
+     * Get redo
+     *
+     * @return boolean
+     */
+    public function getRedo()
+    {
+        return $this->redo;
+    }
+
+    /**
+     * Set intefaci
+     *
+     * @param boolean $intefaci
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setIntefaci($intefaci)
+    {
+        $this->intefaci = $intefaci;
+
+        return $this;
+    }
+
+    /**
+     * Get intefaci
+     *
+     * @return boolean
+     */
+    public function getIntefaci()
+    {
+        return $this->intefaci;
+    }
+
+    /**
+     * Set intedefi
+     *
+     * @param boolean $intedefi
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setIntedefi($intedefi)
+    {
+        $this->intedefi = $intedefi;
+
+        return $this;
+    }
+
+    /**
+     * Get intedefi
+     *
+     * @return boolean
+     */
+    public function getIntedefi()
+    {
+        return $this->intedefi;
+    }
+
+    /**
+     * Set suivcentspec
+     *
+     * @param boolean $suivcentspec
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setSuivcentspec($suivcentspec)
+    {
+        $this->suivcentspec = $suivcentspec;
+
+        return $this;
+    }
+
+    /**
+     * Get suivcentspec
+     *
+     * @return boolean
+     */
+    public function getSuivcentspec()
+    {
+        return $this->suivcentspec;
+    }
+
+    /**
+     * Set codegenr
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setCodegenr(\Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr = null)
+    {
+        $this->codegenr = $codegenr;
+
+        return $this;
+    }
+
+    /**
+     * Get codegenr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
+    }
+
+    /**
+     * Set annenais
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance $annenais
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setAnnenais(\Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance $annenais = null)
+    {
+        $this->annenais = $annenais;
+
+        return $this;
+    }
+
+    /**
+     * Get annenais
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance
+     */
+    public function getAnnenais()
+    {
+        return $this->annenais;
+    }
+
+    /**
+     * Set codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol = null)
+    {
+        $this->codenivescol = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
+    }
+
+    /**
+     * Set codetypehand
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypehandicap $codetypehand
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setCodetypehand(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypehandicap $codetypehand = null)
+    {
+        $this->codetypehand = $codetypehand;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypehand
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypehandicap
+     */
+    public function getCodetypehand()
+    {
+        return $this->codetypehand;
+    }
+
+    /**
+     * Set codedegrhand
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDegrehandicap $codedegrhand
+     * @return EffectiveeleveListeelevehandicap
+     */
+    public function setCodedegrhand(\Sise\Bundle\CoreBundle\Entity\NomenclatureDegrehandicap $codedegrhand = null)
+    {
+        $this->codedegrhand = $codedegrhand;
+
+        return $this;
+    }
+
+    /**
+     * Get codedegrhand
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDegrehandicap
+     */
+    public function getCodedegrhand()
+    {
+        return $this->codedegrhand;
+    }
 
     /**
      * Set codeetab
@@ -231,245 +483,5 @@ class EffectiveeleveListeelevehandicap
         $this->numeelev = $numeelev;
 
         return $this;
-    }
-
-    /**
-     * Get numeelev
-     *
-     * @return integer
-     */
-    public function getNumeelev()
-    {
-        return $this->numeelev;
-    }
-
-    /**
-     * Set nompren
-     *
-     * @param string $nompren
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setNompren($nompren)
-    {
-        $this->nompren = $nompren;
-
-        return $this;
-    }
-
-    /**
-     * Get nompren
-     *
-     * @return string
-     */
-    public function getNompren()
-    {
-        return $this->nompren;
-    }
-
-    /**
-     * Set codegenr
-     *
-     * @param string $codegenr
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-
-        return $this;
-    }
-
-    /**
-     * Get codegenr
-     *
-     * @return string
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
-    }
-
-    /**
-     * Set annenais
-     *
-     * @param integer $annenais
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setAnnenais($annenais)
-    {
-        $this->annenais = $annenais;
-
-        return $this;
-    }
-
-    /**
-     * Get annenais
-     *
-     * @return integer
-     */
-    public function getAnnenais()
-    {
-        return $this->annenais;
-    }
-
-    /**
-     * Set codenivescol
-     *
-     * @param string $codenivescol
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setCodenivescol($codenivescol)
-    {
-        $this->codenivescol = $codenivescol;
-
-        return $this;
-    }
-
-    /**
-     * Get codenivescol
-     *
-     * @return string
-     */
-    public function getCodenivescol()
-    {
-        return $this->codenivescol;
-    }
-
-    /**
-     * Set redo
-     *
-     * @param boolean $redo
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setRedo($redo)
-    {
-        $this->redo = $redo;
-
-        return $this;
-    }
-
-    /**
-     * Get redo
-     *
-     * @return boolean
-     */
-    public function getRedo()
-    {
-        return $this->redo;
-    }
-
-    /**
-     * Set codetypehand
-     *
-     * @param string $codetypehand
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setCodetypehand($codetypehand)
-    {
-        $this->codetypehand = $codetypehand;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypehand
-     *
-     * @return string
-     */
-    public function getCodetypehand()
-    {
-        return $this->codetypehand;
-    }
-
-    /**
-     * Set codedegrhand
-     *
-     * @param string $codedegrhand
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setCodedegrhand($codedegrhand)
-    {
-        $this->codedegrhand = $codedegrhand;
-
-        return $this;
-    }
-
-    /**
-     * Get codedegrhand
-     *
-     * @return string
-     */
-    public function getCodedegrhand()
-    {
-        return $this->codedegrhand;
-    }
-
-    /**
-     * Set intefaci
-     *
-     * @param boolean $intefaci
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setIntefaci($intefaci)
-    {
-        $this->intefaci = $intefaci;
-
-        return $this;
-    }
-
-    /**
-     * Get intefaci
-     *
-     * @return boolean
-     */
-    public function getIntefaci()
-    {
-        return $this->intefaci;
-    }
-
-    /**
-     * Set intedefi
-     *
-     * @param boolean $intedefi
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setIntedefi($intedefi)
-    {
-        $this->intedefi = $intedefi;
-
-        return $this;
-    }
-
-    /**
-     * Get intedefi
-     *
-     * @return boolean
-     */
-    public function getIntedefi()
-    {
-        return $this->intedefi;
-    }
-
-    /**
-     * Set suivcentspec
-     *
-     * @param boolean $suivcentspec
-     * @return EffectiveeleveListeelevehandicap
-     */
-    public function setSuivcentspec($suivcentspec)
-    {
-        $this->suivcentspec = $suivcentspec;
-
-        return $this;
-    }
-
-    /**
-     * Get suivcentspec
-     *
-     * @return boolean
-     */
-    public function getSuivcentspec()
-    {
-        return $this->suivcentspec;
     }
 }

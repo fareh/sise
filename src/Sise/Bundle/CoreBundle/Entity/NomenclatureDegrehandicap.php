@@ -301,4 +301,11 @@ class NomenclatureDegrehandicap
     {
         return $this->colltech;
     }
+
+
+    public  function  __toString(){
+
+
+        return ($this->getLibedegrhandar())?$this->getLibedegrhandar():"";
+    }
 }

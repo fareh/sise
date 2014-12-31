@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectifeleveNouveaupremierannee
  *
- * @ORM\Table(name="effectifeleve_nouveaupremierannee", indexes={@ORM\Index(name="FK_EffectifEleve_NouveauPremierAnnee_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectifEleve_NouveauPremierAnnee_Nomenclature_Etablissement", columns={"CodeEtabSour", "CodeTypeEtabSour"})})
+ * @ORM\Table(name="effectifeleve_nouveaupremierannee")
  * @ORM\Entity
  */
 class EffectifeleveNouveaupremierannee
@@ -88,6 +88,54 @@ class EffectifeleveNouveaupremierannee
     private $nombtotaelev;
 
 
+    private $circonscriptionregional ;
+    private $delegation;
+
+    /**
+     * @return mixed
+     */
+    public function getCirconscriptionregional()
+    {
+        return $this->circonscriptionregional;
+    }
+
+    /**
+     * @param mixed $circonscriptionregional
+     */
+    public function setCirconscriptionregional($circonscriptionregional)
+    {
+        $this->circonscriptionregional = $circonscriptionregional;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDelegation()
+    {
+        return $this->delegation;
+    }
+
+    /**
+     * @param mixed $delegation
+     */
+    public function setDelegation($delegation)
+    {
+        $this->delegation = $delegation;
+    }
+
+
+
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $codeetabsour=null, $codetypeetabsour=null )
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->codeetabsour = $codeetabsour;
+        $this->codetypeetabsour = $codetypeetabsour;
+    }
+
     /**
      * Set codeetab
      *
@@ -104,7 +152,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get codeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodeetab()
     {
@@ -127,7 +175,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get codetypeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodetypeetab()
     {
@@ -150,7 +198,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get annescol
      *
-     * @return integer
+     * @return integer 
      */
     public function getAnnescol()
     {
@@ -173,7 +221,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get coderece
      *
-     * @return string
+     * @return string 
      */
     public function getCoderece()
     {
@@ -196,7 +244,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get codeetabsour
      *
-     * @return string
+     * @return string 
      */
     public function getCodeetabsour()
     {
@@ -219,7 +267,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get codetypeetabsour
      *
-     * @return string
+     * @return string 
      */
     public function getCodetypeetabsour()
     {
@@ -242,7 +290,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get nombelevmasc
      *
-     * @return integer
+     * @return integer 
      */
     public function getNombelevmasc()
     {
@@ -265,7 +313,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get nombelevfemi
      *
-     * @return integer
+     * @return integer 
      */
     public function getNombelevfemi()
     {
@@ -288,7 +336,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get nombtotaelev
      *
-     * @return integer
+     * @return integer 
      */
     public function getNombtotaelev()
     {

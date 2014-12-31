@@ -12,26 +12,26 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Sise\Bundle\CoreBundle\Entity\EffectiveeleveNouveauseptiemeannee;
+use Sise\Bundle\CoreBundle\Entity\EffectifeleveNouveaupremierannee;
 use Sise\Bundle\CoreBundle\Form\search\SearchType;
-use Sise\Bundle\CoreBundle\Form\EffectiveeleveNouveauseptiemeanneeType;
+use Sise\Bundle\CoreBundle\Form\EffectifeleveNouveaupremieranneeType;
 
 
 /**
- * EffectiveeleveNouveauseptiemeannee controller.
+ * EffectifeleveNouveaupremierannee controller.
  *
  */
-class EffectiveeleveNouveauseptiemeanneeController extends Controller
+class EffectifeleveNouveaupremieranneeController extends Controller
 {
 
     /**
-     * Displays a form to edit an existing EffectiveeleveNouveauseptiemeannee entity.
+     * Displays a form to edit an existing EffectifeleveNouveaupremierannee entity.
      *
      */
     public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveelevenouveauseptiemeannee_edit');
+        $url = $this->generateUrl('effectifelevenouveaupremierannee_edit');
         $session = $request->getSession();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
@@ -46,19 +46,19 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveNouveaupremierannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
             if (count($entities) > 0) {
                 foreach ($entities as $key => $item) {
                     $editForms[$key] = $this->createEditForm($item, $key)->createView();
                 }
             } else {
-                $editForms[1] = $this->createEditForm(new EffectiveeleveNouveauseptiemeannee(), 1)->createView();
+                $editForms[1] = $this->createEditForm(new EffectifeleveNouveaupremierannee(), 1)->createView();
             }
 
-            $pathUpdate = $this->generateUrl('effectiveelevenouveauseptiemeannee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+            $pathUpdate = $this->generateUrl('effectifelevenouveaupremierannee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_nouveauseptiemeannee');
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_nouveauseptiemeannee.html.twig', array(
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveaupremierannee');
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_nouveaupremierannee.html.twig', array(
             'entities' => @$entities,
             'editForms' => @$editForms,
             'search' => $search->createView(),
@@ -69,9 +69,9 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
     }
 
 
-    private function createEditForm(EffectiveeleveNouveauseptiemeannee $entity, $key)
+    private function createEditForm(EffectifeleveNouveaupremierannee $entity, $key)
     {
-        $form = $this->createForm(new EffectiveeleveNouveauseptiemeanneeType($key), $entity);
+        $form = $this->createForm(new EffectifeleveNouveaupremieranneeType($key), $entity);
         return $form;
     }
 
@@ -83,8 +83,8 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
             $newcompteur = '';
             $newcompteur = $request->get('newcompteur');
             if ($newcompteur != '') {
-                $form = $this->createEditForm(new EffectiveeleveNouveauseptiemeannee(), $newcompteur)->createView();
-                return $this->render('SiseCoreBundle:Default:prototype_nouveauseptiemeannee.html.twig', array(
+                $form = $this->createEditForm(new EffectifeleveNouveaupremierannee(), $newcompteur)->createView();
+                return $this->render('SiseCoreBundle:Default:prototype_nouveaupremierannee.html.twig', array(
                     'form' => @$form,
                 ));
 
@@ -100,7 +100,7 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
 
 
     /**
-     * Edits an existing EffectiveeleveNouveauseptiemeannee entity.
+     * Edits an existing EffectifeleveNouveaupremierannee entity.
      *
      */
     public function updateAction(Request $request, $codeetab, $codetypeetab)
@@ -110,12 +110,12 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
-        $url = $this->generateUrl('effectiveelevenouveauseptiemeannee_edit');
-        $pathUpdate = $this->generateUrl('effectiveelevenouveauseptiemeannee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
-        $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+        $url = $this->generateUrl('effectifelevenouveaupremierannee_edit');
+        $pathUpdate = $this->generateUrl('effectifelevenouveaupremierannee_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectifeleveNouveaupremierannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             foreach ($request->request as $key => $parameters) {
-                $item = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'codeetabsour'=>$parameters['codeetabsour'], 'codetypeetabsour'=>$parameters['codetypeetabsour']));
+                $item = $em->getRepository('SiseCoreBundle:EffectifeleveNouveaupremierannee')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'codeetabsour'=>$parameters['codeetabsour'], 'codetypeetabsour'=>$parameters['codetypeetabsour']));
                 if($item){
                     $item->setNombelevmasc($parameters['nombelevmasc']);
                     $item->setNombelevfemi($parameters['nombelevfemi']);
@@ -123,7 +123,7 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
                     $em->persist($item);
                     $em->flush();
                 }else{
-                    $item = new EffectiveeleveNouveauseptiemeannee($codeetab, $codetypeetab, $annescol, $coderece, $parameters['codeetabsour'], $parameters['codetypeetabsour']);
+                    $item = new EffectifeleveNouveaupremierannee($codeetab, $codetypeetab, $annescol, $coderece, $parameters['codeetabsour'], $parameters['codetypeetabsour']);
                     $item->setNombelevmasc($parameters['nombelevmasc']);
                     $item->setNombelevfemi($parameters['nombelevfemi']);
                     $item->setNombtotaelev($parameters['nombelevfemi']+$parameters['nombelevmasc']);
@@ -133,10 +133,10 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
 
 
             }
-            return $this->redirect($this->generateUrl('effectiveelevenouveauseptiemeannee_edit'));
+            return $this->redirect($this->generateUrl('effectifelevenouveaupremierannee_edit'));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_nouveauseptiemeannee');
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_nouveauseptiemeannee.html.twig', array(
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveaupremierannee');
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectifeleve_nouveaupremierannee.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
@@ -147,13 +147,13 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
 
 
     /**
-     * Displays a form to edit an existing EffectiveeleveNouveauseptiemeannee entity.
+     * Displays a form to edit an existing EffectifeleveNouveaupremierannee entity.
      *
      */
     public function listAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveelevenouveauseptiemeannee_list');
+        $url = $this->generateUrl('effectifelevenouveaupremierannee_list');
         $session = $request->getSession();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
@@ -168,10 +168,10 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
         $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
         if ($codeetab && $codetypeetab) {
-            $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            $entities = $em->getRepository('SiseCoreBundle:EffectifeleveNouveaupremierannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
-        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_nouveauseptiemeannee');
-        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveeleve_nouveauseptiemeannee.html.twig', array(
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectifeleve_nouveaupremierannee');
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectifeleve_nouveaupremierannee.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
@@ -188,42 +188,42 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
         if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
         {
             if ($request->get('_circonscriptionregional') != '') {
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscriptionregional')->find($request->get('_circonscriptionregional'))->getCodedele();
-                    $json = array();
-                    $json[0]['code'] = '';
-                    $json[0]['libelle'] = '-- اختيار --';
-                    $i = 1;
-                    foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
-                    {
-                        $json[$i]['code'] = $nomenclatureDelegation->getCodedele();
-                        $json[$i]['libelle'] = $nomenclatureDelegation->getLibedelear();
-                        $i++;
-                    }
-                } elseif ($request->get('_delegation') != '') {
-                    $nomenclatureetablissements = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->find($request->get('_delegation'))->getCodeetab();
-                    $json = array();
-                    $json[0]['code'] = '';
-                    $json[0]['libelle'] = '-- اختيار --';
-                    $i = 1;
-                    foreach ($nomenclatureetablissements as $nomenclatureetablissement) // pour transformer la réponse à ta requete en tableau qui replira le select2
-                    {
-                        $json[$i]['code'] = $nomenclatureetablissement->getCodeetab();
-                        $json[$i]['libelle'] = $nomenclatureetablissement->getCodeetab() . ' | ' . $nomenclatureetablissement->getLibeetabar();
-                        $i++;
-                    }
+                $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscriptionregional')->find($request->get('_circonscriptionregional'))->getCodedele();
+                $json = array();
+                $json[0]['code'] = '';
+                $json[0]['libelle'] = '-- اختيار --';
+                $i = 1;
+                foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                {
+                    $json[$i]['code'] = $nomenclatureDelegation->getCodedele();
+                    $json[$i]['libelle'] = $nomenclatureDelegation->getLibedelear();
+                    $i++;
                 }
+            } elseif ($request->get('_delegation') != '') {
+                $nomenclatureetablissements = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->find($request->get('_delegation'))->getCodeetab();
+                $json = array();
+                $json[0]['code'] = '';
+                $json[0]['libelle'] = '-- اختيار --';
+                $i = 1;
+                foreach ($nomenclatureetablissements as $nomenclatureetablissement) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                {
+                    $json[$i]['code'] = $nomenclatureetablissement->getCodeetab();
+                    $json[$i]['libelle'] = $nomenclatureetablissement->getCodeetab() . ' | ' . $nomenclatureetablissement->getLibeetabar();
+                    $i++;
+                }
+            }
             elseif ($request->get('_codeetabsour') != '') {
                 $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneByCodeetab($request->get('_codeetabsour'))->getCodetypeetab();
                 $json = array();
                 $json['code'] = $typeetab->getCodetypeetab();
                 $json['libelle'] = $typeetab->getLibetypeetabar();
             }
-                $response = new Response();
-                $data = json_encode($json); // c'est pour formater la réponse de la requete en format que jquery va comprendre
-                $response->headers->set('Content-Type', 'application/json');
-                $response->setContent($data);
-                return $response;
-            }
+            $response = new Response();
+            $data = json_encode($json); // c'est pour formater la réponse de la requete en format que jquery va comprendre
+            $response->headers->set('Content-Type', 'application/json');
+            $response->setContent($data);
+            return $response;
+        }
         return new Response('Erreur');
     }
 

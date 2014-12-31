@@ -334,6 +334,6 @@ class NomenclatureTypeetablissement
 
     public function __toString()
     {
-        return $this->codetypeetab;
+        return ($this->getLibetypeetabar())?$this->getLibetypeetabar():"";
     }
 }

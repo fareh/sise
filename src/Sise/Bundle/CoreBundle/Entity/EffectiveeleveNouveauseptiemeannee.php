@@ -56,7 +56,7 @@ class EffectiveeleveNouveauseptiemeannee
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetabsour;
-
+   
     /**
      * @var string
      *
@@ -86,6 +86,55 @@ class EffectiveeleveNouveauseptiemeannee
      * @ORM\Column(name="NombTotaElev", type="integer", nullable=true)
      */
     private $nombtotaelev;
+
+
+    private $circonscriptionregional ;
+    private $delegation;
+
+
+
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $codeetabsour=null, $codetypeetabsour=null )
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->codeetabsour = $codeetabsour;
+        $this->codetypeetabsour = $codetypeetabsour;
+    }
+    /**
+     * @return mixed
+     */
+    public function getDelegation()
+    {
+        return $this->delegation;
+    }
+
+    /**
+     * @param mixed $delegation
+     */
+    public function setDelegation($delegation)
+    {
+        $this->delegation = $delegation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCirconscriptionregional()
+    {
+        return $this->circonscriptionregional;
+    }
+
+    /**
+     * @param mixed $circonscriptionregional
+     */
+    public function setCirconscriptionregional($circonscriptionregional)
+    {
+        $this->circonscriptionregional = $circonscriptionregional;
+    }
+
 
 
     /**
@@ -180,51 +229,6 @@ class EffectiveeleveNouveauseptiemeannee
         return $this->coderece;
     }
 
-    /**
-     * Set codeetabsour
-     *
-     * @param string $codeetabsour
-     * @return EffectiveeleveNouveauseptiemeannee
-     */
-    public function setCodeetabsour($codeetabsour)
-    {
-        $this->codeetabsour = $codeetabsour;
-
-        return $this;
-    }
-
-    /**
-     * Get codeetabsour
-     *
-     * @return string
-     */
-    public function getCodeetabsour()
-    {
-        return $this->codeetabsour;
-    }
-
-    /**
-     * Set codetypeetabsour
-     *
-     * @param string $codetypeetabsour
-     * @return EffectiveeleveNouveauseptiemeannee
-     */
-    public function setCodetypeetabsour($codetypeetabsour)
-    {
-        $this->codetypeetabsour = $codetypeetabsour;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypeetabsour
-     *
-     * @return string
-     */
-    public function getCodetypeetabsour()
-    {
-        return $this->codetypeetabsour;
-    }
 
     /**
      * Set nombelevmasc
@@ -293,5 +297,55 @@ class EffectiveeleveNouveauseptiemeannee
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+   
+
+    /**
+     * Set codetypeetabsour
+     *
+     * @param string $codetypeetabsour
+     * @return EffectiveeleveNouveauseptiemeannee
+     */
+    public function setCodetypeetabsour($codetypeetabsour)
+    {
+        $this->codetypeetabsour = $codetypeetabsour;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeetabsour
+     *
+     * @return string 
+     */
+    public function getCodetypeetabsour()
+    {
+        return $this->codetypeetabsour;
+    }
+
+
+
+    /**
+     * Set codeetabsour
+     *
+     * @param string $codeetabsour
+     * @return EffectiveeleveNouveauseptiemeannee
+     */
+    public function setCodeetabsour($codeetabsour)
+    {
+        $this->codeetabsour = $codeetabsour;
+
+        return $this;
+    }
+
+    /**
+     * Get codeetabsour
+     *
+     * @return string 
+     */
+    public function getCodeetabsour()
+    {
+        return $this->codeetabsour;
     }
 }

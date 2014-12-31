@@ -5,6 +5,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * NomenclatureEtablissement
@@ -111,7 +112,7 @@ class NomenclatureEtablissement
     /**
      * @var \NomenclatureDelegation
      *
-     * @ORM\ManyToOne(targetEntity="NomenclatureDelegation")
+     * @ORM\ManyToOne(targetEntity="NomenclatureDelegation", inversedBy="codeetab")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
      * })
@@ -614,6 +615,6 @@ class NomenclatureEtablissement
 
     public function __toString()
     {
-        return $this->codeetab;
+        return ($this->getLibeetabar())?$this->getLibeetabar():"";
     }
 }

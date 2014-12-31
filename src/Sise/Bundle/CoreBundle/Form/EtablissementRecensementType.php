@@ -38,7 +38,6 @@ class EtablissementRecensementType extends AbstractType
                 'allow_delete' => true,
 
             )
-
         );
     }
 
@@ -57,6 +56,6 @@ class EtablissementRecensementType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_bundle_corebundle_etablissementrecensement';
+        return 'etablissementrecensement';
     }
 }

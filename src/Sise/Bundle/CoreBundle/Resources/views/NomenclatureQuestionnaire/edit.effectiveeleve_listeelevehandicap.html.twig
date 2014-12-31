@@ -1,0 +1,105 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveelevelisteelevehandicap' })) }}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+        <div id="CPHMain_UP">
+            <div>
+                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                    <tbody>
+                    <tr>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+                                        ع/ ر
+                                      </span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الإسم واللقب</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        النوع</span></strong>
+                        </th>
+
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        سنة الولادة</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        المستوى الدراسي</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الصفة</span></strong>
+                        </th>
+
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        نوع الإعاقة</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        درجة الإعاقة</span></strong>
+                        </th>
+
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:8%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        عملية الإدماج</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:7%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        متابع من طرف مركز مختص</span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
+                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+
+                                      </span></strong>
+                        </th>
+                    </tr>
+                    {% for  form in editForms  %}
+
+                    <tr>
+                        <td>
+                          {{ form.vars.name }}
+                           </td>
+                        <td align="right">{{ form_widget(form.nompren) }}</td>
+                        <td align="right">{{ form_widget(form.codegenr) }}</td>
+                        <td align="right">{{ form_widget(form.annenais) }}</td>
+                        <td>{{ form_widget(form.codenivescol) }}</td>
+                        <td align="right">{{ form_widget(form.redo) }}</td>
+                        <td align="right"> {{ form_widget(form.codetypehand) }}</td>
+                        <td align="right"> {{ form_widget(form.codedegrhand) }}</td>
+                        <td align="right"> {{ form_widget(form.intefaci) }}</td>
+                        <td align="right">{{ form_widget(form.suivcentspec) }}</td>
+                        <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+                            <a class="add_items" style="display: inline-block" rel="effectiveelevelisteelevehandicap_form">
+                                <img name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png">
+
+                            </a>
+                            &nbsp;
+                            <a class="delete_items" style="display: inline-block">
+                                <img name="sise_delete_line" id="sise_delete_line" src="/bundles/sisecore/images/16x16/cancel_16.png">
+                            </a>
+                        </td>
+
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                  </form>
+            </div>
+
+
+        </div>
+    </center>
+
+{% endblock %}

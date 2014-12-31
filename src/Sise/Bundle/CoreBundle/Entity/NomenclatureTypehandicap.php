@@ -301,4 +301,11 @@ class NomenclatureTypehandicap
     {
         return $this->colltech;
     }
+
+
+    public  function  __toString(){
+
+
+        return ($this->getLibetypehandar())?$this->getLibetypehandar():"";
+    }
 }

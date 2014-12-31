@@ -10,7 +10,9 @@ effectiveelevelisteelevehandicap_update:
     path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:update" }
     requirements: { _method: post|put }
-
+effectiveelevelisteelevehandicap_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:item" }
 effectiveelevelisteelevehandicap_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:delete" }

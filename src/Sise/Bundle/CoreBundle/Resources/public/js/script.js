@@ -9,7 +9,7 @@ $('#form_nivescol select').on('change', function() {
 var collectionHolder = $('ul.tags');
 
 // ajoute un lien « add a tag »
-var $addTagLink = $('<a href="#" class="add_tag_link"><input type="image" name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png"></a>');
+var $addTagLink = $('<a href="#" class="add_tag_link"><img name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png"></a>');
 var $newLinkLi = $('<li></li>').append($addTagLink);
 
 jQuery(document).ready(function () {
@@ -50,7 +50,7 @@ function addTagForm(collectionHolder, $newLinkLi) {
 }
 
 function addTagFormDeleteLink($tagFormLi) {
-    var $removeFormA = $('<a href="#"><input type="image" name="sise_delete_line" id="sise_delete_line" src="/bundles/sisecore/images/16x16/cancel_16.png"></a>');
+    var $removeFormA = $('<a href="#"><img name="sise_delete_line" id="sise_delete_line" src="/bundles/sisecore/images/16x16/cancel_16.png"></a>');
     $tagFormLi.append($removeFormA);
 
     $removeFormA.on('click', function (e) {

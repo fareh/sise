@@ -87,13 +87,22 @@ class NomenclatureDelegation
     /**
      * @var \NomenclatureCirconscriptionregional
      *
-     * @ORM\ManyToOne(targetEntity="NomenclatureCirconscriptionregional")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCirconscriptionregional", inversedBy="codedele")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
      * })
      */
     private $codecircregi;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureEtablissement", mappedBy="codedele")
+     **/
+    private $codeetab;
+
+    public function __construct() {
+        $this->codeetab = new ArrayCollection();
+    }
 
     /**
      * Get codedele
@@ -339,5 +348,38 @@ class NomenclatureDelegation
     public function getCodecircregi()
     {
         return $this->codecircregi;
+    }
+
+    /**
+     * Add codeetab
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
+     * @return NomenclatureDelegation
+     */
+    public function addCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab)
+    {
+        $this->codeetab[] = $codeetab;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeetab
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
+     */
+    public function removeCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab)
+    {
+        $this->codeetab->removeElement($codeetab);
+    }
+
+    /**
+     * Get codeetab
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeetab()
+    {
+        return $this->codeetab;
     }
 }

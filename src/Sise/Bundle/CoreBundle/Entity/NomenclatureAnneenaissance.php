@@ -415,4 +415,10 @@ class NomenclatureAnneenaissance
     {
         return $this->codeannenais;
     }
+
+    public function __toString(){
+
+
+        return ($this->getLibeannenaisar())?$this->getLibeannenaisfr():"";
+    }
 }

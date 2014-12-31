@@ -10,7 +10,12 @@ effectiveelevenouveauseptiemeannee_update:
     path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:update" }
     requirements: { _method: post|put }
-
+effectiveelevenouveauseptiemeannee_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:item" }
+effectiveelevenouveauseptiemeannee_relatedLists:
+    path:     /relatedLists
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:relatedLists" }
 effectiveelevenouveauseptiemeannee_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:delete" }

@@ -1,10 +1,7 @@
 <?php
-
 namespace Sise\Bundle\CoreBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * EtablissementRecensement
  *
@@ -19,51 +16,42 @@ class EtablissementRecensement
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=false)
      */
     private $codeetab;
-
     /**
      * @var string
      *
      * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
      */
     private $codetypeetab;
-
     /**
      * @var integer
      *
      * @ORM\Column(name="AnneScol", type="integer", nullable=false)
      */
     private $annescol;
-
     /**
      * @var string
      *
      * @ORM\Column(name="CodeRece", type="string", length=50, nullable=false)
      */
     private $coderece;
-
-
     /**
      * @var EffectiveeleveRepartioneleveLieuhabitation
      *
      * @ORM\OneToMany(targetEntity="EffectiveeleveRepartioneleveLieuhabitation", mappedBy="etablissement_recensement", cascade={"persist", "remove"})
      */
     protected $lieuhabitation;
-
+    
     public function __construct()
     {
         $this->lieuhabitation = new ArrayCollection();
     }
-
-
     /**
      * Set id
      *
@@ -73,10 +61,8 @@ class EtablissementRecensement
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
-
     /**
      * Get id
      *
@@ -86,7 +72,6 @@ class EtablissementRecensement
     {
         return $this->id;
     }
-
     /**
      * Set codeetab
      *
@@ -96,10 +81,8 @@ class EtablissementRecensement
     public function setCodeetab($codeetab)
     {
         $this->codeetab = $codeetab;
-
         return $this;
     }
-
     /**
      * Get codeetab
      *
@@ -109,7 +92,6 @@ class EtablissementRecensement
     {
         return $this->codeetab;
     }
-
     /**
      * Set codetypeetab
      *
@@ -119,10 +101,8 @@ class EtablissementRecensement
     public function setCodetypeetab($codetypeetab)
     {
         $this->codetypeetab = $codetypeetab;
-
         return $this;
     }
-
     /**
      * Get codetypeetab
      *
@@ -132,7 +112,6 @@ class EtablissementRecensement
     {
         return $this->codetypeetab;
     }
-
     /**
      * Set annescol
      *
@@ -142,10 +121,8 @@ class EtablissementRecensement
     public function setAnnescol($annescol)
     {
         $this->annescol = $annescol;
-
         return $this;
     }
-
     /**
      * Get annescol
      *
@@ -155,7 +132,6 @@ class EtablissementRecensement
     {
         return $this->annescol;
     }
-
     /**
      * Set coderece
      *
@@ -165,10 +141,8 @@ class EtablissementRecensement
     public function setCoderece($coderece)
     {
         $this->coderece = $coderece;
-
         return $this;
     }
-
     /**
      * Get coderece
      *
@@ -178,7 +152,6 @@ class EtablissementRecensement
     {
         return $this->coderece;
     }
-
     /**
      * Add lieuhabitation
      *
@@ -188,10 +161,8 @@ class EtablissementRecensement
     public function addLieuhabitation(\Sise\Bundle\CoreBundle\Entity\EffectiveeleveRepartioneleveLieuhabitation $lieuhabitation)
     {
         $this->lieuhabitation[] = $lieuhabitation;
-
         return $this;
     }
-
     /**
      * Remove lieuhabitation
      *
@@ -201,7 +172,6 @@ class EtablissementRecensement
     {
         $this->lieuhabitation->removeElement($lieuhabitation);
     }
-
     /**
      * Get lieuhabitation
      *
@@ -211,18 +181,14 @@ class EtablissementRecensement
     {
         return $this->lieuhabitation;
     }
-
     /*public function setLieuhabitation(ArrayCollection $lieuhabitations)
     {
-
         foreach ($lieuhabitations as $lieuhabitation) {
             $lieuhabitation->addEtablissementRecensement($this);
         }
-
         $this->lieuhabitation = $lieuhabitations;
     }
 */
-
     public function __toString()
     {
         return ($this->getId()) ? $this->getId() : null;

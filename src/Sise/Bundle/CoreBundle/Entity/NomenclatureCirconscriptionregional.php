@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * NomenclatureCirconscriptionregional
@@ -20,6 +21,18 @@ class NomenclatureCirconscriptionregional
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecircregi;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureDelegation", mappedBy="codecircregi")
+     **/
+    private $codedele;
+
+    public function __construct() {
+        $this->codedele = new ArrayCollection();
+    }
+
 
     /**
      * @var string
@@ -185,5 +198,38 @@ class NomenclatureCirconscriptionregional
     public function __toString()
     {
         return $this->codecircregi;
+    }
+
+    /**
+     * Add codedele
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele
+     * @return NomenclatureCirconscriptionregional
+     */
+    public function addCodedele(\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele)
+    {
+        $this->codedele[] = $codedele;
+
+        return $this;
+    }
+
+    /**
+     * Remove codedele
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele
+     */
+    public function removeCodedele(\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele)
+    {
+        $this->codedele->removeElement($codedele);
+    }
+
+    /**
+     * Get codedele
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodedele()
+    {
+        return $this->codedele;
     }
 }
