@@ -17,3 +17,7 @@ effectiveelevelisteelevehandicap_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:delete" }
     requirements: { _method: post|delete }
+effectiveelevelisteelevehandicap_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:deleteItem" }
+    requirements: { _method: post|delete }

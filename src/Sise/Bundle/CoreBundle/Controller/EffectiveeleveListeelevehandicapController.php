@@ -76,6 +76,56 @@ class EffectiveeleveListeelevehandicapController extends Controller
     }
 
 
+    public function deleteItemAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $em = $this->getDoctrine()->getManager();
+            $session = $request->getSession();
+            $codeetab =  $session->get('codeetab') ;
+            $codetypeetab = $session->get('codetypeetab');
+            $annescol = $session->get('AnneScol');
+            $coderece = $session->get('CodeRece');
+            $numeelev = "";
+            $numeelev = $request->get('numeelev');
+            if ($codeetab != '' and  $codetypeetab != '' and  $annescol != '' and  $coderece != '' and  $numeelev != ''  ) {
+                $item = $em->getRepository('SiseCoreBundle:EffectiveeleveListeelevehandicap')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeelev' => $numeelev));
+                if ($item) {
+                $em->remove($item);
+                $em->flush();
+                }
+                $response = new Response();
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent( json_encode(array(
+                    'success' => true,
+                    'data'    => "" // Your data here
+                )));
+                return $response;
+
+
+
+            }else{
+                $response = new Response();
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent( json_encode(array(
+                    'success' => true,
+                    'data'    => "" // Your data here
+                )));
+                return $response;
+
+            }
+
+        }
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $response->setContent( json_encode(array(
+            'success' => false,
+            'data'    => "" // Your data here
+        )));
+        return $response;
+
+    }
+
     public  function itemAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
