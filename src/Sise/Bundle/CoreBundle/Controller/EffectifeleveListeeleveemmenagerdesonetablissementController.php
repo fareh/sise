@@ -166,6 +166,7 @@ class EffectifeleveListeeleveemmenagerdesonetablissementController extends Contr
         $entities = $em->getRepository('SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
             foreach ($request->request as $numeelev => $parameters) {
+
                 $item = $em->getRepository('SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeelev'=>$numeelev));
                 if($item){
                     $editForm =   $this->createEditForm($item, $item->getNumeelev());
