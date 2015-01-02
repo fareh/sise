@@ -42,13 +42,18 @@
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        تاريخ الإنفصال
+                                        نوع المؤسسة
                                         </span></strong>
                                 </th>
-
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        المؤسسة
+                                        </span></strong>
+                                </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-      <a class="add_items" style="display: inline-block" rel="effectifelevelisteeleveexeclus_form">
+      <a class="add_items" style="display: inline-block"
+         rel="effectifelevelisteeleveemmenagerdesonetablissement_form">
           <img name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png">
 
       </a>
@@ -56,7 +61,6 @@
                                 </th>
                             </tr>
                             {% for  form in editForms %}
-
                                 <tr>
                                     <td>
                                         {{ form.vars.name }}
@@ -65,17 +69,21 @@
                                     <td align="right">{{ form_widget(form.codegenr) }}</td>
                                     <td align="right">{{ form_widget(form.codenivescol) }}</td>
                                     <td>{{ form_widget(form.codefili) }}</td>
-                                    <td align="right">{{ form_widget(form.dateret) }}</td>
+                                    <td align="right">{{ form_widget(form.codetypeetabautr) }}</td>
+                                    <td align="right">{{ form_widget(form.codeetabautr) }}</td>
+
+
                                     <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
-                                        <a rel="effectifelevelisteeleveexeclus_deleteItem" class="delete_handicaps"
+                                        <a rel="effectifelevelisteeleveemmenagerdesonetablissement_deleteItem" class="delete_handicaps"
                                            style="display: inline-block">
                                             <img name="sise_delete_line" id="sise_delete_line"
                                                  src="/bundles/sisecore/images/16x16/cancel_16.png">
                                         </a>
                                     </td>
 
-
                                 </tr>
+
+
                             {% endfor %}
                             </tbody>
                         </table>

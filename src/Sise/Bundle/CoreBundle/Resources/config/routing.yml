@@ -90,10 +90,10 @@ SiseCoreBundle_effectifelevelisteeleveexeclus:
     prefix: /stat/effectifelevelisteeleveexeclus
 SiseCoreBundle_effectifelevelisteelevedeplacerversautreetablissement:
     resource: "routing/effectifelevelisteelevedeplacerversautreetablissement.yml"
-    prefix: /effectifelevelisteelevedeplacerversautreetablissement
-SiseCoreBundle_effectifelevelisteelevedeplacerversautreetablissement:
+    prefix: /stat/effectifelevelisteelevedeplacerversautreetablissement
+SiseCoreBundle_effectifelevelisteeleveemmenagerdesonetablissement:
     resource: "routing/effectifelevelisteeleveemmenagerdesonetablissement.yml"
-    prefix: /effectifelevelisteeleveemmenagerdesonetablissement
+    prefix: /stat/effectifelevelisteeleveemmenagerdesonetablissement
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace

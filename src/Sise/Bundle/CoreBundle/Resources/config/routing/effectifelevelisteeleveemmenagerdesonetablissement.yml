@@ -13,10 +13,6 @@ effectifelevelisteeleveemmenagerdesonetablissement_update:
 effectifelevelisteeleveemmenagerdesonetablissement_form:
     path:     /form
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:item" }
-effectifelevelisteeleveemmenagerdesonetablissement_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:delete" }
-    requirements: { _method: post|delete }
 effectifelevelisteeleveemmenagerdesonetablissement_deleteItem:
     path:     /deleteItem
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:deleteItem" }
