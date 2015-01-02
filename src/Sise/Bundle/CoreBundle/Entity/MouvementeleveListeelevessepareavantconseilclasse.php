@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MouvementeleveListeelevessepareavantconseilclasse
  *
- * @ORM\Table(name="mouvementeleve_listeelevessepareavantconseilclasse", indexes={@ORM\Index(name="FK_MouvementEleve_ListeElevesSepareAvantConseilClasse_Nomencla35", columns={"CodeFili"}), @ORM\Index(name="FK_MouvementEleve_ListeElevesSepareAvantConseilClasse_Nomencla36", columns={"CodeGenr"}), @ORM\Index(name="FK_MouvementEleve_ListeElevesSepareAvantConseilClasse_Nomencla37", columns={"CodeRece"}), @ORM\Index(name="FK_MouvementEleve_ListeElevesSepareAvantConseilClasse_Nomencla38", columns={"CodeTypeSepa"})})
+ * @ORM\Table(name="mouvementeleve_listeelevessepareavantconseilclasse")
  * @ORM\Entity
  */
 class MouvementeleveListeelevessepareavantconseilclasse

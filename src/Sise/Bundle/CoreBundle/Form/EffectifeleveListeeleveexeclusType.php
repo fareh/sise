@@ -8,6 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EffectifeleveListeeleveexeclusType extends AbstractType
 {
+    private $keyVal;
+
+
+    public function __construct($keyVal)
+    {
+        $this->keyVal = $keyVal;
+
+
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,14 +25,9 @@ class EffectifeleveListeeleveexeclusType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
-            ->add('numeelev')
             ->add('nomprenelev')
             ->add('codenivescol')
             ->add('dateret')
-            ->add('coderece')
             ->add('codefili')
             ->add('codegenr');
     }
@@ -42,6 +47,6 @@ class EffectifeleveListeeleveexeclusType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_effectifelevelisteeleveexeclus';
+        return $this->keyVal;
     }
 }

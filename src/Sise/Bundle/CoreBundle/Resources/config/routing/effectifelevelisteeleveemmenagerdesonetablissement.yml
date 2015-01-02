@@ -1,30 +1,23 @@
-effectifelevelisteeleveemmenagerdesonetablissement_list:
-    path:     /list
-    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:index" }
-
-effectifelevelisteeleveemmenagerdesonetablissement_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:show" }
-
-effectifelevelisteeleveemmenagerdesonetablissement_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:new" }
-
-effectifelevelisteeleveemmenagerdesonetablissement_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:create" }
-    requirements: { _method: post }
-
 effectifelevelisteeleveemmenagerdesonetablissement_edit:
-    path:     /edit
+    path:     /Modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:edit" }
 
+effectifelevelisteeleveemmenagerdesonetablissement_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:list" }
+
 effectifelevelisteeleveemmenagerdesonetablissement_update:
-    path:     /{id}/update
+    path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:update" }
     requirements: { _method: post|put }
-
+effectifelevelisteeleveemmenagerdesonetablissement_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:item" }
 effectifelevelisteeleveemmenagerdesonetablissement_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:delete" }
+    requirements: { _method: post|delete }
+effectifelevelisteeleveemmenagerdesonetablissement_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveemmenagerdesonetablissement:deleteItem" }
     requirements: { _method: post|delete }

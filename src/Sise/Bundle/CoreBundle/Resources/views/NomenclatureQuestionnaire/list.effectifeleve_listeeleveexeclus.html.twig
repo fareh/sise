@@ -1,0 +1,71 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveelevelisteelevehandicap' })) }}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+        {% if entities is defined  and entities|length > 0 %}
+            <div id="CPHMain_UP">
+
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                                <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+                                        ع/ ر
+                                        </span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الإسم واللقب
+                                        </span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        النوع
+                                        </span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        المستوى الدراسي
+                                        </span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الشعبة
+                                        </span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        تاريخ الإنفصال
+                                        </span></strong>
+                            </th>
+                        </tr>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ entity.numeelev }}</td>
+                                <td align="right">{{ entity.nomprenelev }}</td>
+                                <td align="right">{{ entity.codegenr }}</td>
+                                <td align="right">{{ entity.codenivescol }}</td>
+                                <td align="right">   {{ entity.codefili }}</td>
+                                <td> {{ entity.dateret }}</td>
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        {% endif %}
+    </center>
+
+{% endblock %}

@@ -85,6 +85,15 @@ SiseCoreBundle_effectifelevevenant9emetechnique:
 SiseCoreBundle_effectivepersonelpersonelgrade:
     resource: "routing/effectivepersonelpersonelgrade.yml"
     prefix:   /stat/effectivepersonelpersonelgrade
+SiseCoreBundle_effectifelevelisteeleveexeclus:
+    resource: "routing/effectifelevelisteeleveexeclus.yml"
+    prefix: /stat/effectifelevelisteeleveexeclus
+SiseCoreBundle_effectifelevelisteelevedeplacerversautreetablissement:
+    resource: "routing/effectifelevelisteelevedeplacerversautreetablissement.yml"
+    prefix: /effectifelevelisteelevedeplacerversautreetablissement
+SiseCoreBundle_effectifelevelisteelevedeplacerversautreetablissement:
+    resource: "routing/effectifelevelisteeleveemmenagerdesonetablissement.yml"
+    prefix: /effectifelevelisteeleveemmenagerdesonetablissement
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace
@@ -109,18 +118,9 @@ Coreblog_NomenclatureCycleenseignement:
 Siseblog_EtablissementFicheetablissement:
     resource: "routing/etablissementficheetablissement.yml"
     prefix: /EtablissementFicheetablissement
-Siseblog_EffectifeleveListeelevedeplacerversautreetablissement:
-    resource: "routing/effectifelevelisteelevedeplacerversautreetablissement.yml"
-    prefix: /EffectifeleveListeelevedeplacerversautreetablissement
 Siseblog_NomenclatureRecensement:
     resource: "routing/nomenclaturerecensement.yml"
     prefix: /NomenclatureRecensement
-Siseblog_EffectifeleveListeeleveemmenagerdesonetablissement:
-    resource: "routing/effectifelevelisteeleveemmenagerdesonetablissement.yml"
-    prefix: /EffectifeleveListeeleveemmenagerdesonetablissement
-Siseblog_EffectifeleveListeeleveexeclus:
-    resource: "routing/effectifelevelisteeleveexeclus.yml"
-    prefix: /EffectifeleveListeeleveexeclus
 Siseblog_MouvementeleveListeelevessepareavantconseilclasse:
     resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
     prefix: /MouvementeleveListeelevessepareavantconseilclasse

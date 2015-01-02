@@ -8,6 +8,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EffectifeleveListeelevedeplacerversautreetablissementType extends AbstractType
 {
+    private $keyVal;
+
+
+    public function __construct($keyVal)
+    {
+        $this->keyVal = $keyVal;
+
+
+    }
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,21 +24,11 @@ class EffectifeleveListeelevedeplacerversautreetablissementType extends Abstract
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
-            ->add('numeelev')
             ->add('nomprenelev')
             ->add('codenivescol')
-            ->add('coderece')
             ->add('codeetabautr')
             ->add('codefili')
-            ->add('codegenr', 'choice',
-                array('required' => 'false',
-                    'expanded' => true,
-                    'multiple' => false,
-                    'choices' => array('M' => 'Masculin', 'F' => 'Féminin')
-                ))
+            ->add('codegenr')
             ->add('codetypeetabautr');
     }
 
@@ -48,6 +47,6 @@ class EffectifeleveListeelevedeplacerversautreetablissementType extends Abstract
      */
     public function getName()
     {
-        return 'sise_corebundle_effectifelevelisteelevedeplacerversautreetablissement';
+        return $this->keyVal;
     }
 }

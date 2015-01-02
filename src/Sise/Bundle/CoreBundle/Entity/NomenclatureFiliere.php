@@ -319,7 +319,7 @@ class NomenclatureFiliere
 
     public function __toString()
     {
-        return $this->codefili;
+        return ($this->getLibefiliar())?($this->getLibefiliar()):"";
     }
 
     /**
@@ -354,4 +354,5 @@ class NomenclatureFiliere
     {
         return $this->codenivescol;
     }
+
 }

@@ -8,6 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EffectifeleveListeeleveemmenagerdesonetablissementType extends AbstractType
 {
+
+    private $keyVal;
+
+
+    public function __construct($keyVal)
+    {
+        $this->keyVal = $keyVal;
+
+
+    }
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,13 +25,8 @@ class EffectifeleveListeeleveemmenagerdesonetablissementType extends AbstractTyp
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
-            ->add('numeelev')
             ->add('nomprenelev')
             ->add('codenivescol')
-            ->add('coderece')
             ->add('codeetabautr')
             ->add('codefili')
             ->add('codegenr')
@@ -43,6 +48,6 @@ class EffectifeleveListeeleveemmenagerdesonetablissementType extends AbstractTyp
      */
     public function getName()
     {
-        return 'sise_corebundle_effectifelevelisteeleveemmenagerdesonetablissement';
+        return $this->keyVal;
     }
 }

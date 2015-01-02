@@ -56,6 +56,17 @@ class EffectifeleveListeelevedeplacerversautreetablissement
      */
     private $numeelev;
 
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeelev=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeelev = $numeelev;
+    }
+
+
+
     /**
      * @var string
      *

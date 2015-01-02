@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectifeleveListeeleveexeclus
  *
- * @ORM\Table(name="effectifeleve_listeeleveexeclus", indexes={@ORM\Index(name="FK_EffectifEleve_ListeEleveExeclus_Nomenclature_Filiere", columns={"CodeFili"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveExeclus_Nomenclature_Genre", columns={"CodeGenr"}), @ORM\Index(name="FK_EffectifEleve_ListeEleveExeclus_Nomenclature_Recensement", columns={"CodeRece"})})
+ * @ORM\Table(name="effectifeleve_listeeleveexeclus")
  * @ORM\Entity
  */
 class EffectifeleveListeeleveexeclus
@@ -56,6 +56,16 @@ class EffectifeleveListeeleveexeclus
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $numeelev;
+
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeelev=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeelev = $numeelev;
+    }
 
     /**
      * @var string
