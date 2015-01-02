@@ -16,7 +16,7 @@ effectifelevenouveaupremierannee_form:
 effectifelevenouveaupremierannee_relatedLists:
     path:     /relatedLists
     defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:relatedLists" }
-effectifelevenouveaupremierannee_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:delete" }
+effectifelevenouveaupremierannee_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:deleteItem" }
     requirements: { _method: post|delete }

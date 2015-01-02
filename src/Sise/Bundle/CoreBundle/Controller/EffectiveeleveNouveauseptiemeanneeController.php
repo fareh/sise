@@ -98,6 +98,57 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
         return new Response("Ereeur");
     }
 
+    public function deleteItemAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $em = $this->getDoctrine()->getManager();
+            $session = $request->getSession();
+            $codeetab =  $session->get('codeetab') ;
+            $codetypeetab = $session->get('codetypeetab');
+            $annescol = $session->get('AnneScol');
+            $coderece = $session->get('CodeRece');
+            $codeetabsour = "";
+            $codetypeetabsour = "";
+            $codeetabsour = $request->get('codeetabsour');
+            $codetypeetabsour = $request->get('codetypeetabsour');
+            if ($codeetab != '' and  $codetypeetab != '' and  $annescol != '' and  $coderece != '' and  $codetypeetabsour != '' and  $codeetabsour != ''  ) {
+                $item = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'codeetabsour' => $codeetabsour, 'codetypeetabsour' => $codetypeetabsour));
+                if (!$item) {
+                    throw $this->createNotFoundException('Unable to find NomenclatureQuestionnaire entity.');
+                }
+                $em->remove($item);
+                $em->flush();
+                $response = new Response();
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent( json_encode(array(
+                    'success' => true,
+                    'data'    => "" // Your data here
+                )));
+                return $response;
+
+
+            }else{
+                $response = new Response();
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent( json_encode(array(
+                    'success' => true,
+                    'data'    => "" // Your data here
+                )));
+                return $response;
+
+            }
+
+        }
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $response->setContent( json_encode(array(
+            'success' => false,
+            'data'    => "" // Your data here
+        )));
+        return $response;
+
+    }
 
     /**
      * Edits an existing EffectiveeleveNouveauseptiemeannee entity.
@@ -123,10 +174,14 @@ class EffectiveeleveNouveauseptiemeanneeController extends Controller
                     $em->persist($item);
                     $em->flush();
                 }else{
+                    $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab' => $parameters['codeetabsour'], 'codetypeetab' => $parameters['codetypeetabsour']));
+                    $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneBy(array('codetypeetab' => $parameters['codetypeetabsour']));
                     $item = new EffectiveeleveNouveauseptiemeannee($codeetab, $codetypeetab, $annescol, $coderece, $parameters['codeetabsour'], $parameters['codetypeetabsour']);
                     $item->setNombelevmasc($parameters['nombelevmasc']);
                     $item->setNombelevfemi($parameters['nombelevfemi']);
                     $item->setNombtotaelev($parameters['nombelevfemi']+$parameters['nombelevmasc']);
+                    $item->setEntityetabsour($etab);
+                    $item->setEntitytypeetabsour($typeetab);
                     $em->persist($item);
                     $em->flush();
                 }

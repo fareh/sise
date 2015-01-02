@@ -4,7 +4,7 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveelevelisteelevehandicap' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+  {% if editForms is defined  and editForms|length > 0 %}
     <center>
         <br>
         <div id="CPHMain_UP">
@@ -101,5 +101,6 @@
 
         </div>
     </center>
+{% endif %}
 
 {% endblock %}

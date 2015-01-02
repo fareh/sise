@@ -67,6 +67,23 @@ class EffectifeleveNouveaupremierannee
     private $codetypeetabsour;
 
     /**
+     * @var NomenclatureEtablissement
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *      @ORM\JoinColumn(name="EntityEtabSour", referencedColumnName="CodeEtab"),
+     *      @ORM\JoinColumn(name="EntityTypeEtabSour", referencedColumnName="CodeTypeEtab")
+     * })
+     */
+    private $entityetabsour;
+
+    /**
+     * @var NomenclatureTypeetablissement
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\JoinColumn(name="EntityTypeEtabSour", referencedColumnName="CodeTypeEtab")
+     */
+    private $entitytypeetabsour;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="NombElevMasc", type="integer", nullable=true)
@@ -244,7 +261,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get codeetabsour
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetabsour()
     {
@@ -267,7 +284,7 @@ class EffectifeleveNouveaupremierannee
     /**
      * Get codetypeetabsour
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetabsour()
     {
@@ -341,5 +358,51 @@ class EffectifeleveNouveaupremierannee
     public function getNombtotaelev()
     {
         return $this->nombtotaelev;
+    }
+
+    /**
+     * Set entityetabsour
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $entityetabsour
+     * @return EffectifeleveNouveaupremierannee
+     */
+    public function setEntityetabsour(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $entityetabsour = null)
+    {
+        $this->entityetabsour = $entityetabsour;
+
+        return $this;
+    }
+
+    /**
+     * Get entityetabsour
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement 
+     */
+    public function getEntityetabsour()
+    {
+        return $this->entityetabsour;
+    }
+
+    /**
+     * Set entitytypeetabsour
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $entitytypeetabsour
+     * @return EffectifeleveNouveaupremierannee
+     */
+    public function setEntitytypeetabsour(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $entitytypeetabsour = null)
+    {
+        $this->entitytypeetabsour = $entitytypeetabsour;
+
+        return $this;
+    }
+
+    /**
+     * Get entitytypeetabsour
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement 
+     */
+    public function getEntitytypeetabsour()
+    {
+        return $this->entitytypeetabsour;
     }
 }

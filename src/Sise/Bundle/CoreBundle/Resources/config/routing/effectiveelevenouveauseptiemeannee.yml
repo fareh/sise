@@ -16,7 +16,7 @@ effectiveelevenouveauseptiemeannee_form:
 effectiveelevenouveauseptiemeannee_relatedLists:
     path:     /relatedLists
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:relatedLists" }
-effectiveelevenouveauseptiemeannee_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:delete" }
+effectiveelevenouveauseptiemeannee_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveNouveauseptiemeannee:deleteItem" }
     requirements: { _method: post|delete }

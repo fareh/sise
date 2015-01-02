@@ -4,99 +4,120 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveelevenouveauseptiemeannee' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if editForms is defined  and editForms|length > 0 %}
+        <center>
+            <br>
 
-    <center>
-        <br>
-
-        <div id="CPHMain_UP">
-            <div>
-                <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
-                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                        <tbody>
-                        <tr>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
-                                <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+            <div id="CPHMain_UP">
+                <div>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
+                            <tr>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                         ع/ ر
                                       </span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
-                                <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
+                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
 المندوبية الجهوية
                                       </span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
 المعتمدية
                                 </span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:17%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:17%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                         إسم المدرسة الاعدادية العمومية أو الخاصة</span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 12%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 12%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                  	نوع المؤسسة
                                 </span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                         ذكر</span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                         أنثى</span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                         الجملة</span></strong>
-                            </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 10%; background-color:#4F81BD">
-                                <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 10%; background-color:#4F81BD">
+                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+ <a class="add_items" style="display: inline-block"
+    rel="effectiveelevenouveauseptiemeannee_form">
+     <img name="sise_add_line" id="sise_add_line"
+          src="/bundles/sisecore/images/16x16/add_16.png">
 
+ </a>
                                       </span></strong>
-                            </th>
-                        </tr>
-                        {% for  form in editForms %}
-
-                            <tr>
-                                <td>
-                                    {{ form.vars.name }}
-                                </td>
-                                <td>{{ form_widget(form.circonscriptionregional, { 'id': 'circonscriptionregional'~form.vars.name,  'attr': {'class': 'circonscriptionregional' }  }) }}</td>
-                                <td>{{ form_widget(form.delegation, { 'id': 'delegation'~form.vars.name,  'attr': {'class': 'delegation' }  }) }}</td>
-                                <td align="right">{{ form_widget(form.codeetabsour, { 'id': 'codeetabsour'~form.vars.name,  'attr': {'class': 'codeetabsour' }  }) }}</td>
-                                <td align="right">
-
-                                    <input type="text" value="" id="codetypeetab{{ form.vars.name}}" name="{{ form.vars.name}}[typetype]" readonly>
-                                    {{ form_widget(form.codetypeetabsour, { 'id': 'codetypeetabsour'~form.vars.name,  'attr': {'class': 'codetypeetabsour' }  }) }}</td>
-                                <td align="right">{{ form_widget(form.nombelevmasc, { 'id': 'nombelevmasc'~form.vars.name,  'attr': {'class': 'nombelevmasc' }  }) }}</td>
-                                <td>{{ form_widget(form.nombelevfemi, { 'id': 'nombelevfemi'~form.vars.name,  'attr': {'class': 'nombelevfemi' } }) }}</td>
-                                <td align="right">{{ form_widget(form.nombtotaelev, { 'id': 'nombtotaelev'~form.vars.name,  'attr': {'class': 'nombtotaelev' } }) }}</td>
-                                <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
-                                    <a class="add_items" style="display: inline-block"
-                                       rel="effectiveelevenouveauseptiemeannee_form">
-                                        <img name="sise_add_line" id="sise_add_line"
-                                             src="/bundles/sisecore/images/16x16/add_16.png">
-
-                                    </a>
-                                    &nbsp;
-                                    <a class="delete_items" style="display: inline-block">
-                                        <img name="sise_delete_line" id="sise_delete_line"
-                                             src="/bundles/sisecore/images/16x16/cancel_16.png">
-                                    </a>
-                                </td>
-
-
+                                </th>
                             </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </form>
+                            {% for  form in editForms %}
+
+                                <tr>
+                                    <td>
+                                        {{ form.vars.name }}
+                                    </td>
+
+                                    {% if form.vars.value.entityetabsour %}
+                                        <td>{{ form.vars.value.entityetabsour.codecircregi.libecircregiar  }}</td>
+                                        <td>{{ form.vars.value.entityetabsour.codedele.libedelear  }}</td>
+                                        <td align="right">{{ form.vars.value.entityetabsour.libeetabar }}
+                                            {{ form_widget(form.codeetabsour, { 'id': 'codeetabsour'~form.vars.name,  'attr': {'class': 'codeetabsour' }  }) }}
+
+                                        </td>
+                                        <td align="right">
+                                            {{ form.vars.value.entitytypeetabsour.libetypeetabar }}
+
+                                            {{ form_widget(form.codetypeetabsour, { 'id': 'codetypeetabsour'~form.vars.name,  'attr': {'class': 'codetypeetabsour' }  }) }}
+
+                                        </td>
+                                    {% else %}
+                                        <td>{{ form_widget(form.circonscriptionregional, { 'id': 'circonscriptionregional'~form.vars.name,  'attr': {'class': 'circonscriptionregional' }  }) }}</td>
+                                        <td>{{ form_widget(form.delegation, { 'id': 'delegation'~form.vars.name,  'attr': {'class': 'delegation' }  }) }}</td>
+                                        <td align="right">{{ form_widget(form.codeetabsour, { 'id': 'codeetabsour'~form.vars.name,  'attr': {'class': 'codeetabsour' }  }) }}</td>
+                                        <td align="right">
+
+                                            <input type="text" value="" id="codetypeetab{{ form.vars.name }}"
+                                                   name="{{ form.vars.name }}[typetype]" readonly>
+                                            {{ form_widget(form.codetypeetabsour, { 'id': 'codetypeetabsour'~form.vars.name,  'attr': {'class': 'codetypeetabsour' }  }) }}
+                                        </td>
+
+
+                                    {% endif %}
+
+                                    <td align="right">{{ form_widget(form.nombelevmasc, { 'id': 'nombelevmasc'~form.vars.name,  'attr': {'class': 'nombelevmasc' }  }) }}</td>
+                                    <td>{{ form_widget(form.nombelevfemi, { 'id': 'nombelevfemi'~form.vars.name,  'attr': {'class': 'nombelevfemi' } }) }}</td>
+                                    <td align="right">{{ form_widget(form.nombtotaelev, { 'id': 'nombtotaelev'~form.vars.name,  'attr': {'class': 'nombtotaelev' } }) }}</td>
+                                    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+                                        <a rel="effectiveelevenouveauseptiemeannee_deleteItem" class="delete_items" style="display: inline-block">
+                                            <img name="sise_delete_line" id="sise_delete_line"
+                                                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+                                        </a>
+                                    </td>
+
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+
+
             </div>
+        </center>
 
-
-        </div>
-    </center>
+    {% endif %}
 
 {% endblock %}

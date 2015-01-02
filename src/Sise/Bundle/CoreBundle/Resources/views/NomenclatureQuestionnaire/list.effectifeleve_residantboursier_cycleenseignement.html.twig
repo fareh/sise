@@ -5,12 +5,6 @@
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
-    {#
-    {% if editForms|length > 0 %}
-        {% for editForm in editForms %}
-            {{ form(editForm) }}
-        {% endfor %}
-    {% endif %}#}
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>

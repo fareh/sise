@@ -3,7 +3,7 @@
 {% block body %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'etablissementactivite' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+ {% if entities is defined  and entities|length > 0 %}
     <center>
         <br>
 
@@ -55,5 +55,6 @@
 
         </div>
     </center>
+{% endif %}
 
 {% endblock %}

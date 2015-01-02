@@ -3,6 +3,7 @@
  */
 relatedLists();
 jQuery(document).ready(function () {
+    deleteItem();
     $( ".add_items" ).click(function() {
        var compteur = parseInt($(this).parents('tbody').find('tr').last().find('td').first().text());
         var newcompteur =parseInt(compteur+1);
@@ -13,11 +14,37 @@ jQuery(document).ready(function () {
             success: function (json) { // quand la réponse de la requete arrive
                 $( ".add_items" ).parents('tbody').find('tr').last().after(json);
                 relatedLists();
+                deleteItem();
             }
         });
     });
 
 });
+
+
+function deleteItem(){
+        $( ".delete_items" ).click(function() {
+            var compteur = parseInt($(this).parents('tr').find('td').first().text())
+            var tr = $(this).parents('tr');
+            $.ajax({
+                url: "/app.php" + Routing.generate($(this).attr("rel")),
+                type: 'POST',
+                data: {'codeetabsour':   $('#codeetabsour'+compteur).val(), 'codetypeetabsour':   $('#codetypeetabsour'+compteur).val()},
+                success: function (json) { // quand la réponse de la requete arrive
+                    if(json.success==true){
+                        tr.css("background-color","#FF3700");
+                        tr.fadeOut(400, function(){
+                            tr.remove();
+                        });
+                    }
+
+
+                }
+            });
+        });
+}
+
+
 
 function relatedLists(){
     $( ".circonscriptionregional" ).change(function() {

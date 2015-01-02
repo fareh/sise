@@ -6,6 +6,7 @@
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
     <br>
+{% if editForm is defined  and editForm|length > 0 %}
     <div id="CPHMain_upGridView">
 
         <table style="font: 8pt verdana; width: 100%" dir="rtl">
@@ -89,5 +90,6 @@
         </div>
 
     </div>
+{% endif %}
 
 {% endblock %}

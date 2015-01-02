@@ -5,6 +5,7 @@ namespace Sise\Bundle\CoreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Sise\Bundle\CoreBundle\EventListener\AddfieldToDisabledInEditViewSubscriber;
 
 class EffectifeleveNouveaupremieranneeType extends AbstractType
 {
@@ -35,10 +36,7 @@ class EffectifeleveNouveaupremieranneeType extends AbstractType
             ->add('delegation', 'choice', array(
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('codeetabsour', 'choice', array(
-                'empty_value' => "-- اختيار --"
-            ))
-            ->add('codetypeetabsour', 'hidden')
+            ->addEventSubscriber(new AddfieldToDisabledInEditViewSubscriber())
             ->add('nombelevmasc')
             ->add('nombelevfemi')
             ->add('nombtotaelev')

@@ -4,7 +4,7 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevenouveaupremierannee' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+  {% if entities is defined  and entities|length > 0 %}
     <center>
         <br>
 
@@ -18,6 +18,16 @@
                             <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                         ع/ ر
                                       </span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
+                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+المندوبية الجهوية
+                                      </span></strong>
+                        </th>
+                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
+                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+المعتمدية
+                                </span></strong>
                         </th>
                         <th style="border-bottom: 1px solid #3768BC; text-align: right; width:17%; background-color:#4F81BD">
                             <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
@@ -47,8 +57,10 @@
                     {% for key ,  entity  in entities %}
                         <tr>
                             <td>{{ key }}</td>
-                            <td align="right">   {{ entity.codeetabsour }}</td>
-                            <td align="right">{{ entity.codetypeetabsour }} </td>
+                            <td>{{ entity.entityetabsour.codecircregi.libecircregiar  }}</td>
+                            <td>{{ entity.entityetabsour.codedele.libedelear  }}</td>
+                            <td>{{ entity.entityetabsour.libeetabar  }}</td>
+                            <td>{{ entity.entityetabsour.codetypeetab.libetypeetabar  }}</td>
                             <td align="right">   {{ entity.nombelevmasc }}</td>
                             <td align="right">{{ entity.nombelevfemi }} </td>
                             <td align="right">{{ entity.nombtotaelev }}</td>
@@ -63,5 +75,6 @@
 
         </div>
     </center>
+{% endif %}
 
 {% endblock %}

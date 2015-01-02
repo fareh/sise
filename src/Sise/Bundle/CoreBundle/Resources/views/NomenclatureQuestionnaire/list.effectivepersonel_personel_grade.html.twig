@@ -3,7 +3,7 @@
 {% block body %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectivepersonelpersonelgrade' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+ {% if entities is defined  and entities|length > 0 %}
     <center>
         <br>
 
@@ -63,5 +63,7 @@
 
         </div>
     </center>
+
+{% endif %}
 
 {% endblock %}

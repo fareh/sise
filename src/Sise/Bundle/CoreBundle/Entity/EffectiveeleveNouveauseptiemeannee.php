@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveNouveauseptiemeannee
  *
  * @ORM\Table(name="effectiveeleve_nouveauseptiemeannee", indexes={@ORM\Index(name="FK_EffectiveEleve_NouveauSeptiemeAnnee_Nomenclature_Recensement", columns={"CodeRece"}), @ORM\Index(name="FK_EffectiveEleve_NouveauSeptiemeAnnee_Nomenclature_Etablissem61", columns={"CodeEtabSour", "CodeTypeEtabSour"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveNouveauseptiemeanneeRepository")
  */
 class EffectiveeleveNouveauseptiemeannee
 {
@@ -56,7 +56,7 @@ class EffectiveeleveNouveauseptiemeannee
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeetabsour;
-   
+
     /**
      * @var string
      *
@@ -65,6 +65,25 @@ class EffectiveeleveNouveauseptiemeannee
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetypeetabsour;
+
+
+    /**
+     * @var NomenclatureEtablissement
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *      @ORM\JoinColumn(name="EntityEtabSour", referencedColumnName="CodeEtab"),
+     *      @ORM\JoinColumn(name="EntityTypeEtabSour", referencedColumnName="CodeTypeEtab")
+     * })
+     */
+    private $entityetabsour;
+
+    /**
+     * @var NomenclatureTypeetablissement
+     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
+     * @ORM\JoinColumn(name="EntityTypeEtabSour", referencedColumnName="CodeTypeEtab")
+     */
+    private $entitytypeetabsour;
+
 
     /**
      * @var integer
@@ -88,13 +107,12 @@ class EffectiveeleveNouveauseptiemeannee
     private $nombtotaelev;
 
 
-    private $circonscriptionregional ;
+    private $circonscriptionregional;
+
     private $delegation;
 
 
-
-
-    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $codeetabsour=null, $codetypeetabsour=null )
+    public function __construct($codeetab = null, $codetypeetab = null, $annescol = null, $coderece = null, $codeetabsour = null, $codetypeetabsour = null)
     {
         $this->codeetab = $codeetab;
         $this->codetypeetab = $codetypeetab;
@@ -103,6 +121,7 @@ class EffectiveeleveNouveauseptiemeannee
         $this->codeetabsour = $codeetabsour;
         $this->codetypeetabsour = $codetypeetabsour;
     }
+
     /**
      * @return mixed
      */
@@ -134,7 +153,6 @@ class EffectiveeleveNouveauseptiemeannee
     {
         $this->circonscriptionregional = $circonscriptionregional;
     }
-
 
 
     /**
@@ -299,7 +317,6 @@ class EffectiveeleveNouveauseptiemeannee
         return $this->nombtotaelev;
     }
 
-   
 
     /**
      * Set codetypeetabsour
@@ -317,14 +334,12 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get codetypeetabsour
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetabsour()
     {
         return $this->codetypeetabsour;
     }
-
-
 
     /**
      * Set codeetabsour
@@ -342,10 +357,60 @@ class EffectiveeleveNouveauseptiemeannee
     /**
      * Get codeetabsour
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetabsour()
     {
         return $this->codeetabsour;
+    }
+
+
+
+    /**
+     * Set entityetabsour
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $entityetabsour
+     * @return EffectiveeleveNouveauseptiemeannee
+     */
+    public function setEntityetabsour(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $entityetabsour = null)
+    {
+        $this->entityetabsour = $entityetabsour;
+
+        return $this;
+    }
+
+    /**
+     * Get entityetabsour
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement 
+     */
+    public function getEntityetabsour()
+    {
+        return $this->entityetabsour;
+    }
+
+
+
+    /**
+     * Set entitytypeetabsour
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $entitytypeetabsour
+     * @return EffectiveeleveNouveauseptiemeannee
+     */
+    public function setEntitytypeetabsour(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $entitytypeetabsour = null)
+    {
+        $this->entitytypeetabsour = $entitytypeetabsour;
+
+        return $this;
+    }
+
+    /**
+     * Get entitytypeetabsour
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement
+     */
+    public function getEntitytypeetabsour()
+    {
+        return $this->entitytypeetabsour;
     }
 }
