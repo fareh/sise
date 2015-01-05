@@ -94,6 +94,9 @@ SiseCoreBundle_effectifelevelisteelevedeplacerversautreetablissement:
 SiseCoreBundle_effectifelevelisteeleveemmenagerdesonetablissement:
     resource: "routing/effectifelevelisteeleveemmenagerdesonetablissement.yml"
     prefix: /stat/effectifelevelisteeleveemmenagerdesonetablissement
+SiseCoreBundle_mouvementelevelisteelevessepareavantconseilclasse:
+    resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
+    prefix: /stat/mouvementelevelisteelevessepareavantconseilclasse
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace
@@ -121,9 +124,6 @@ Siseblog_EtablissementFicheetablissement:
 Siseblog_NomenclatureRecensement:
     resource: "routing/nomenclaturerecensement.yml"
     prefix: /NomenclatureRecensement
-Siseblog_MouvementeleveListeelevessepareavantconseilclasse:
-    resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
-    prefix: /MouvementeleveListeelevessepareavantconseilclasse
 Siseblog_MouvementeleveRecapmouvmenteleve:
     resource: "routing/mouvementeleverecapmouvmenteleve.yml"
     prefix: /MouvementeleveRecapmouvmenteleve

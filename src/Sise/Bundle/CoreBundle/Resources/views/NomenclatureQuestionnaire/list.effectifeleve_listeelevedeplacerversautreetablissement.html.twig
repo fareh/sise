@@ -43,9 +43,15 @@
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                 <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        تاريخ الإنفصال
+                                        نوع المؤسسة
                                         </span></strong>
                             </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        المؤسسة
+                                        </span></strong>
+                            </th>
+
                         </tr>
                         {% for entity in entities %}
                             <tr>
@@ -54,7 +60,8 @@
                                 <td align="right">{{ entity.codegenr }}</td>
                                 <td align="right">{{ entity.codenivescol }}</td>
                                 <td align="right">   {{ entity.codefili }}</td>
-                                <td> {{ entity.dateret }}</td>
+                                <td align="right">   {{ entity.codetypeetabautr }}</td>
+                                <td align="right">   {{ entity.codeetabautr }}</td>
 
 
                             </tr>

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveelevelisteelevehandicap' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'mouvementelevelisteelevessepareavantconseilclasse' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
@@ -41,28 +41,27 @@
                                         الشعبة
                                         </span></strong>
                             </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        نوع المؤسسة
-                                        </span></strong>
+                            <th style="border-bottom: 1px solid #3768BC; text-align:  right; width: 10%; background-color: #4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                                        تاريخ الإنفصال
+                                    </span></strong>
                             </th>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        المؤسسة
-                                        </span></strong>
+                            <th style="border-bottom: 1px solid #3768BC; text-align:  right; width: 10%; background-color: #4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
+                                        الملاحظات
+                                    </span></strong>
                             </th>
 
                         </tr>
                         {% for entity in entities %}
                             <tr>
-                                <td>{{ entity.numeelev }}</td>
+                                <td>{{ entity.numeleve }}</td>
                                 <td align="right">{{ entity.nomprenelev }}</td>
                                 <td align="right">{{ entity.codegenr }}</td>
                                 <td align="right">{{ entity.codenivescol }}</td>
                                 <td align="right">   {{ entity.codefili }}</td>
-                                <td align="right">   {{ entity.codetypeetabautr }}</td>
-                                <td align="right">   {{ entity.codeetabautr }}</td>
-
+                                <td align="right">   {{ entity.datesepa }}</td>
+                                <td align="right">   {{ entity.codetypesepa }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

@@ -8,6 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
 {
+    private $keyVal;
+
+
+    public function __construct($keyVal)
+    {
+        $this->keyVal = $keyVal;
+
+
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,16 +25,11 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
             ->add('nomprenelev')
-            ->add('datesepa')
             ->add('codenivescol')
-            ->add('numeleve')
-            ->add('coderece')
             ->add('codefili')
             ->add('codegenr')
+            ->add('datesepa')
             ->add('codetypesepa');
     }
 
@@ -34,7 +39,7 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\CoreBundle\Entity\MouvementeleveListeelevessepareavantconseilclasse'
+
         ));
     }
 
@@ -43,6 +48,6 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_Corebundle_mouvementelevelisteelevessepareavantconseilclasse';
+        return $this->keyVal;
     }
 }
