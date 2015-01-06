@@ -1,12 +1,21 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: hp
+ * Date: 15/12/2014
+ * Time: 12:13
+ */
 
 namespace Sise\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sise\Bundle\CoreBundle\Form\search\SearchType;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Sise\Bundle\CoreBundle\Entity\EffectiveenseignentListeenseignentEducationtechnique;
+use Sise\Bundle\CoreBundle\Form\search\SearchType;
 use Sise\Bundle\CoreBundle\Form\EffectiveenseignentListeenseignentEducationtechniqueType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * EffectiveenseignentListeenseignentEducationtechnique controller.
@@ -16,19 +25,193 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
 {
 
     /**
-     * Lists all EffectiveenseignentListeenseignentEducationtechnique entities.
+     * Displays a form to edit an existing EffectiveenseignentListeenseignentEducationtechnique entity.
      *
      */
-    public function indexAction(Request $request)
+    public function editAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
+        $url = $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_edit');
         $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        }
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
+        $codetypeetab = ($session->has('codetypeetab')) ? $session->get('codetypeetab') : false;
+        if ($codeetab && $codetypeetab) {
+            $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            if (count($entities) > 0) {
+                foreach ($entities as $key => $item) {
+                    $editForms[$item->getNumeense()] = $this->createEditForm($item, $item->getNumeense())->createView();
+                }
+            } else {
+                $editForms[1] = $this->createEditForm(new EffectiveenseignentListeenseignentEducationtechnique(), 1)->createView();
+            }
+
+            $pathUpdate = $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveenseignent_listeenseignent_educationtechnique');
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveenseignent_listeenseignent_educationtechnique.html.twig', array(
+            'entities' => @$entities,
+            'editForms' => @$editForms,
+            'search' => $search->createView(),
+            'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate,
+            'nameclass' => $nameclass
+        ));
+    }
+
+
+    private function createEditForm(EffectiveenseignentListeenseignentEducationtechnique $entity, $key)
+    {
+        $form = $this->createForm(new EffectiveenseignentListeenseignentEducationtechniqueType($key), $entity);
+        return $form;
+    }
+
+
+    public function deleteItemAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $em = $this->getDoctrine()->getManager();
+            $session = $request->getSession();
+            $codeetab =  $session->get('codeetab') ;
+            $codetypeetab = $session->get('codetypeetab');
+            $annescol = $session->get('AnneScol');
+            $coderece = $session->get('CodeRece');
+            $numeense = "";
+            $numeense = $request->get('numeense');
+            if ($codeetab != '' and  $codetypeetab != '' and  $annescol != '' and  $coderece != '' and  $numeense != ''  ) {
+                $item = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeense' => $numeense));
+                if ($item) {
+                    $em->remove($item);
+                    $em->flush();
+                }
+                $response = new Response();
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent( json_encode(array(
+                    'success' => true,
+                    'data'    => "" // Your data here
+                )));
+                return $response;
+
+
+
+            }else{
+                $response = new Response();
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent( json_encode(array(
+                    'success' => true,
+                    'data'    => "" // Your data here
+                )));
+                return $response;
+
+            }
+
+        }
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $response->setContent( json_encode(array(
+            'success' => false,
+            'data'    => "" // Your data here
+        )));
+        return $response;
+
+    }
+
+    public  function itemAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $newcompteur = '';
+            $newcompteur = $request->get('newcompteur');
+            if ($newcompteur != '') {
+                $form = $this->createEditForm(new EffectiveenseignentListeenseignentEducationtechnique(), $newcompteur)->createView();
+                return $this->render('SiseCoreBundle:Default:prototype_listeenseignent_educationtechnique.html.twig', array(
+                    'form' => @$form,
+                ));
+
+
+            }else{
+                return new Response("Ereeur");
+            }
+
+        }
+
+        return new Response("Ereeur");
+    }
+
+
+    /**
+     * Edits an existing EffectiveenseignentListeenseignentEducationtechnique entity.
+     *
+     */
+    public function updateAction(Request $request, $codeetab, $codetypeetab)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        $annescol = $session->get('AnneScol');
+        $coderece = $session->get('CodeRece');
+        $url = $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_edit');
+        $pathUpdate = $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
+        $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+        if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
+            foreach ($request->request as $numeense => $parameters) {
+
+                $item = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeense'=>$numeense));
+                if($item){
+                    $editForm =   $this->createEditForm($item, $item->getNumeense());
+                    $editForm->handleRequest($request);
+                    $em->persist($item);
+                    $em->flush();
+                }else{
+                    $item = new EffectiveenseignentListeenseignentEducationtechnique($codeetab, $codetypeetab, $annescol, $coderece,$numeense);
+                    $editForm =   $this->createEditForm($item, $numeense);
+                    $editForm->handleRequest($request);
+                    $em->persist($item);
+                    $em->flush();
+                }
+
+
+            }
+            return $this->redirect($this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_edit'));
+        }
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveenseignent_listeenseignent_educationtechnique');
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveenseignent_listeenseignent_educationtechnique.html.twig', array(
+            'entities' => @$entities,
+            'search' => $search->createView(),
+            'pathfilter' => $url,
+            'pathUpdate' => @$pathUpdate,
+            'nameclass' => $nameclass
+        ));
+    }
+
+
+    /**
+     * Displays a form to edit an existing EffectiveenseignentListeenseignentEducationtechnique entity.
+     *
+     */
+    public function listAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $url = $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_list');
+        $session = $request->getSession();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        if ($request->isMethod('POST')) {
+            $params = $request->request->get($search->getName());
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("features", $params);
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -37,205 +220,14 @@ class EffectiveenseignentListeenseignentEducationtechniqueController extends Con
         if ($codeetab && $codetypeetab) {
             $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         }
-
-        return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:index.html.twig', array(
+        $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveenseignent_listeenseignent_educationtechnique');
+        return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveenseignent_listeenseignent_educationtechnique.html.twig', array(
             'entities' => @$entities,
             'search' => $search->createView(),
             'pathfilter' => $url,
+            'nameclass' => $nameclass
         ));
     }
 
-    /**
-     * Creates a new EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     */
-    public function createAction(Request $request)
-    {
-        $entity = new EffectiveenseignentListeenseignentEducationtechnique();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_show', array('id' => $entity->getId())));
-        }
-
-        return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Creates a form to create a EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     * @param EffectiveenseignentListeenseignentEducationtechnique $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(EffectiveenseignentListeenseignentEducationtechnique $entity)
-    {
-        $form = $this->createForm(new EffectiveenseignentListeenseignentEducationtechniqueType(), $entity, array(
-            'action' => $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-
-    /**
-     * Displays a form to create a new EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new EffectiveenseignentListeenseignentEducationtechnique();
-        $form = $this->createCreateForm($entity);
-
-        return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EffectiveenseignentListeenseignentEducationtechnique entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:show.html.twig', array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     */
-    public function editAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique');//->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EffectiveenseignentListeenseignentEducationtechnique entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        // $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            //  'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Creates a form to edit a EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     * @param EffectiveenseignentListeenseignentEducationtechnique $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(EffectiveenseignentListeenseignentEducationtechnique $entity)
-    {
-        $form = $this->createForm(new EffectiveenseignentListeenseignentEducationtechniqueType(), $entity, array(
-            'action' => $this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
-
-    /**
-     * Edits an existing EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EffectiveenseignentListeenseignentEducationtechnique entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_edit', array('id' => $id)));
-        }
-
-        return $this->render('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a EffectiveenseignentListeenseignentEducationtechnique entity.
-     *
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find EffectiveenseignentListeenseignentEducationtechnique entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique'));
-    }
-
-    /**
-     * Creates a form to delete a EffectiveenseignentListeenseignentEducationtechnique entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('effectiveenseignentlisteenseignenteducationtechnique_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm();
-    }
 }

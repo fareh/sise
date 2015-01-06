@@ -1,30 +1,19 @@
-effectiveenseignentlisteenseignenteducationtechnique_list:
-    path:     /list
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:index" }
-
-effectiveenseignentlisteenseignenteducationtechnique_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:show" }
-
-effectiveenseignentlisteenseignenteducationtechnique_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:new" }
-
-effectiveenseignentlisteenseignenteducationtechnique_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:create" }
-    requirements: { _method: post }
-
 effectiveenseignentlisteenseignenteducationtechnique_edit:
-    path:     /edit
+    path:     /Modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:edit" }
 
+effectiveenseignentlisteenseignenteducationtechnique_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:list" }
+
 effectiveenseignentlisteenseignenteducationtechnique_update:
-    path:     /{id}/update
+    path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:update" }
     requirements: { _method: post|put }
-
-effectiveenseignentlisteenseignenteducationtechnique_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:delete" }
+effectiveenseignentlisteenseignenteducationtechnique_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:item" }
+effectiveenseignentlisteenseignenteducationtechnique_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentEducationtechnique:deleteItem" }
     requirements: { _method: post|delete }

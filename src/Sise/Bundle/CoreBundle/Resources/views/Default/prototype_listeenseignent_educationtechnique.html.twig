@@ -1,0 +1,22 @@
+<tr>
+    <td>
+        {{ form.vars.name }}
+    </td>
+    <td align="right">{{ form_widget(form.nompren, { 'id': 'nompren'~form.vars.name,  'attr': {'class': 'nompren' }  }) }}</td>
+    <td align="right">{{ form_widget(form.codegenr, { 'id': 'codegenr'~form.vars.name,  'attr': {'class': 'codegenr' }  }) }}</td>
+    <td align="right">{{ form_widget(form.codedipl, { 'id': 'codedipl'~form.vars.name,  'attr': {'class': 'codedipl' }  }) }}</td>
+    <td>{{ form_widget(form.codespec, { 'id': 'codespec'~form.vars.name,  'attr': {'class': 'codespec' }  }) }}</td>
+    <td align="right">{{ form_widget(form.gradactu, { 'id': 'gradactu'~form.vars.name,  'attr': {'class': 'gradactu' }  }) }}</td>
+    <td align="right">{{ form_widget(form.codetypetrav, { 'id': 'codetypetrav'~form.vars.name,  'attr': {'class': 'codetypetrav' }  }) }}</td>
+    <td>{{ form_widget(form.nombheursema, { 'id': 'nombheursema'~form.vars.name,  'attr': {'class': 'nombheursema' }  }) }}</td>
+    <td>{{ form_widget(form.obse, { 'id': 'obse'~form.vars.name,  'attr': {'class': 'obse' }  }) }}</td>
+    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+        <a rel="effectiveenseignentlisteenseignenteducationtechnique_deleteItem"
+           class="delete_listeenseignent"
+           style="display: inline-block">
+            <img name="sise_delete_line" id="sise_delete_line"
+                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+        </a>
+    </td>
+
+</tr>

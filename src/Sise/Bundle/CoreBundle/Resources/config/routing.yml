@@ -97,9 +97,15 @@ SiseCoreBundle_effectifelevelisteeleveemmenagerdesonetablissement:
 SiseCoreBundle_mouvementelevelisteelevessepareavantconseilclasse:
     resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
     prefix: /stat/mouvementelevelisteelevessepareavantconseilclasse
-Siseblog_effectiveenseignentlisteenseignenttypeenseignement:
+SiseCoreBundle_effectiveenseignentlisteenseignenttypeenseignement:
     resource: "routing/effectiveenseignentlisteenseignenttypeenseignement.yml"
     prefix: /stat/effectiveenseignentlisteenseignenttypeenseignement
+SiseCoreBundle_effectiveenseignentlisteenseignenteducationtechnique:
+    resource: "routing/effectiveenseignentlisteenseignenteducationtechnique.yml"
+    prefix: /stat/effectiveenseignentlisteenseignenteducationtechnique
+SiseCoreBundle_effectiveenseignentlisteenseignenteducationsportif:
+    resource: "routing/effectiveenseignentlisteenseignenteducationsportif.yml"
+    prefix: /stat/effectiveenseignentlisteenseignenteducationsportif
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace
@@ -160,9 +166,6 @@ Siseblog_EffectiveenseignentHeureenseignent:
 Siseblog_EffectiveenseignentListeenseignentheureautreetablissement:
     resource: "routing/effectiveenseignentlisteenseignentheureautreetablissement.yml"
     prefix: /EffectiveenseignentListeenseignentheureautreetablissement
-Siseblog_EffectiveenseignentListeenseignenteducationsportif:
-    resource: "routing/effectiveenseignentlisteenseignenteducationsportif.yml"
-    prefix: /EffectiveenseignentListeenseignenteducationsportif
 Siseblog_EffectiveenseignentListeremplacementprovisoire:
     resource: "routing/effectiveenseignentlisteremplacementprovisoire.yml"
     prefix: /EffectiveenseignentListeremplacementprovisoire
@@ -172,9 +175,6 @@ Siseblog_EffectiveenseignentGradeheuretravail:
 Siseblog_EffectiveenseignentTypetravail:
     resource: "routing/effectiveenseignenttypetravail.yml"
     prefix: /EffectiveenseignentTypetravail
-Siseblog_EffectiveenseignentListeenseignentEducationtechnique:
-    resource: "routing/effectiveenseignentlisteenseignenteducationtechnique.yml"
-    prefix: /EffectiveenseignentListeenseignentEducationtechnique
 Siseblog_PersonnelPersonnel:
     resource: "routing/personnelpersonnel.yml"
     prefix: /PersonnelPersonnel

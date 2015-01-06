@@ -48,20 +48,35 @@ class EffectiveenseignentListeenseignenteducationsportif
      */
     private $coderece;
 
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumeEnse", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $numeense;
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeense=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeense = $numeense;
+    }
+
     /**
      * @var string
      *
      * @ORM\Column(name="NomPren", type="string", length=200, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $nompren;
 
     /**
      * @var NomenclatureGrade
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="NomenclatureGrade")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
@@ -72,7 +87,6 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * @var NomenclatureGenre
      *
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeGenr", referencedColumnName="CodeGenr")
@@ -95,6 +109,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     private $obse;
 
 
+
     /**
      * Set codeetab
      *
@@ -111,7 +126,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get codeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodeetab()
     {
@@ -134,7 +149,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get codetypeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodetypeetab()
     {
@@ -157,7 +172,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get annescol
      *
-     * @return integer
+     * @return integer 
      */
     public function getAnnescol()
     {
@@ -180,11 +195,34 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get coderece
      *
-     * @return string
+     * @return string 
      */
     public function getCoderece()
     {
         return $this->coderece;
+    }
+
+    /**
+     * Set numeense
+     *
+     * @param integer $numeense
+     * @return EffectiveenseignentListeenseignenteducationsportif
+     */
+    public function setNumeense($numeense)
+    {
+        $this->numeense = $numeense;
+
+        return $this;
+    }
+
+    /**
+     * Get numeense
+     *
+     * @return integer 
+     */
+    public function getNumeense()
+    {
+        return $this->numeense;
     }
 
     /**
@@ -203,57 +241,11 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get nompren
      *
-     * @return string
+     * @return string 
      */
     public function getNompren()
     {
         return $this->nompren;
-    }
-
-    /**
-     * Set codegrad
-     *
-     * @param string $codegrad
-     * @return EffectiveenseignentListeenseignenteducationsportif
-     */
-    public function setCodegrad($codegrad)
-    {
-        $this->codegrad = $codegrad;
-
-        return $this;
-    }
-
-    /**
-     * Get codegrad
-     *
-     * @return string
-     */
-    public function getCodegrad()
-    {
-        return $this->codegrad;
-    }
-
-    /**
-     * Set codegenr
-     *
-     * @param string $codegenr
-     * @return EffectiveenseignentListeenseignenteducationsportif
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-
-        return $this;
-    }
-
-    /**
-     * Get codegenr
-     *
-     * @return string
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
     }
 
     /**
@@ -272,7 +264,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get nombheursema
      *
-     * @return float
+     * @return float 
      */
     public function getNombheursema()
     {
@@ -295,10 +287,56 @@ class EffectiveenseignentListeenseignenteducationsportif
     /**
      * Get obse
      *
-     * @return string
+     * @return string 
      */
     public function getObse()
     {
         return $this->obse;
+    }
+
+    /**
+     * Set codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     * @return EffectiveenseignentListeenseignenteducationsportif
+     */
+    public function setCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad = null)
+    {
+        $this->codegrad = $codegrad;
+
+        return $this;
+    }
+
+    /**
+     * Get codegrad
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade 
+     */
+    public function getCodegrad()
+    {
+        return $this->codegrad;
+    }
+
+    /**
+     * Set codegenr
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr
+     * @return EffectiveenseignentListeenseignenteducationsportif
+     */
+    public function setCodegenr(\Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr = null)
+    {
+        $this->codegenr = $codegenr;
+
+        return $this;
+    }
+
+    /**
+     * Get codegenr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre 
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
     }
 }

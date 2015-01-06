@@ -304,6 +304,6 @@ class NomenclatureSpecialite
 
     public function __toString()
     {
-        return $this->codespec;
+        return($this->getLibespecar())?$this->getLibespecar():"";
     }
 }

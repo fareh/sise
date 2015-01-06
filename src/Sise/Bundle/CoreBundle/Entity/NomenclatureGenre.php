@@ -304,6 +304,6 @@ class NomenclatureGenre
 
     public function __toString()
     {
-        return $this->codegenr;
+        return ($this->getLibegenrar())?$this->getLibegenrar():"";
     }
 }

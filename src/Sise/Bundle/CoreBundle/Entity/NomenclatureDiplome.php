@@ -304,6 +304,6 @@ class NomenclatureDiplome
 
     public function __toString()
     {
-        return $this->codedipl;
+        return ($this->getLibediplar())?$this->getLibediplar():"";
     }
 }

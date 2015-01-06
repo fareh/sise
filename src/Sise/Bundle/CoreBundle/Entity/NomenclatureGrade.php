@@ -319,7 +319,7 @@ class NomenclatureGrade
 
     public function __toString()
     {
-        return $this->codegrad;
+        return ($this->getLibegradar())?$this->getLibegradar():"";
     }
 
     /**
@@ -344,4 +344,7 @@ class NomenclatureGrade
     {
         return $this->codecorp;
     }
+
+
+
 }

@@ -1,30 +1,19 @@
-effectiveenseignentlisteenseignenteducationsportif_list:
-    path:     /list
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:index" }
-
-effectiveenseignentlisteenseignenteducationsportif_show:
-    path:     /{id}/show
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:show" }
-
-effectiveenseignentlisteenseignenteducationsportif_new:
-    path:     /new
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:new" }
-
-effectiveenseignentlisteenseignenteducationsportif_create:
-    path:     /create
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:create" }
-    requirements: { _method: post }
-
 effectiveenseignentlisteenseignenteducationsportif_edit:
-    path:     /edit
+    path:     /Modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:edit" }
 
+effectiveenseignentlisteenseignenteducationsportif_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:list" }
+
 effectiveenseignentlisteenseignenteducationsportif_update:
-    path:     /{id}/update
+    path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:update" }
     requirements: { _method: post|put }
-
-effectiveenseignentlisteenseignenteducationsportif_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:delete" }
+effectiveenseignentlisteenseignenteducationsportif_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:item" }
+effectiveenseignentlisteenseignenteducationsportif_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:deleteItem" }
     requirements: { _method: post|delete }

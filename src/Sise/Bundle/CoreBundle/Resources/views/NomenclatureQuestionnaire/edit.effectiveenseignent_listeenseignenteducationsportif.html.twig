@@ -1,0 +1,85 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentlisteenseignenteducationsportif' })) }}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    {% if editForms is defined  and editForms|length > 0 %}
+        <center>
+            <br>
+
+            <div id="CPHMain_UP">
+                <div>
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                        <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                               style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                            <tbody>
+                            <tr>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+                                        ع/ ر
+                                        </span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:35%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الإسم و اللقب</span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:15%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الساعات الأسبوعية</span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:15%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الرتبة</span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:15%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        النوع</span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:15%; background-color:#4F81BD">
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الملاحظات</span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
+                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+      <a class="add_items" style="display: inline-block"
+         rel="effectiveenseignentlisteenseignenteducationsportif_form">
+          <img name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png">
+
+      </a>
+                                        </span></strong>
+                                </th>
+                            </tr>
+
+                            {% for  form in editForms %}
+                                <tr>
+                                    <td>
+                                        {{ form.vars.name }}
+                                    </td>
+                                    <td align="right">{{ form_widget(form.nompren, { 'id': 'nompren'~form.vars.name,  'attr': {'class': 'nompren' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.nombheursema, { 'id': 'nombheursema'~form.vars.name,  'attr': {'class': 'nombheursema' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codegrad, { 'id': 'codegrad'~form.vars.name,  'attr': {'class': 'codegrad' }  }) }}</td>
+                                    <td>{{ form_widget(form.codegenr, { 'id': 'codegenr'~form.vars.name,  'attr': {'class': 'codegenr' }  }) }}</td>
+                                    <td>{{ form_widget(form.obse, { 'id': 'obse'~form.vars.name,  'attr': {'class': 'obse' }  }) }}</td>
+                                    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+                                        <a rel="effectiveenseignentlisteenseignenteducationsportif_deleteItem"
+                                           class="delete_listeenseignent"
+                                           style="display: inline-block">
+                                            <img name="sise_delete_line" id="sise_delete_line"
+                                                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+
+
+            </div>
+        </center>
+    {% endif %}
+
+{% endblock %}

@@ -57,6 +57,15 @@ class EffectiveenseignentListeenseignentEducationtechnique
      */
     private $numeense;
 
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeense=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeense = $numeense;
+    }
+
     /**
      * @var string
      *
@@ -65,7 +74,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $nompren;
 
     /**
-     * @var \NomenclatureGenre
+     * @var NomenclatureGenre
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
      * @ORM\JoinColumns({
@@ -75,7 +84,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $codegenr;
 
     /**
-     * @var \NomenclatureDiplome
+     * @var NomenclatureDiplome
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureDiplome")
      * @ORM\JoinColumns({
@@ -85,7 +94,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $codedipl;
 
     /**
-     * @var \NomenclatureSpecialite
+     * @var NomenclatureSpecialite
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureSpecialite")
      * @ORM\JoinColumns({
@@ -102,7 +111,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $gradactu;
 
     /**
-     * @var \NomenclatureTypetravail
+     * @var NomenclatureTypetravail
      *
      * @ORM\ManyToOne(targetEntity="NomenclatureTypetravail")
      * @ORM\JoinColumns({
@@ -126,6 +135,8 @@ class EffectiveenseignentListeenseignentEducationtechnique
     private $obse;
 
 
+
+
     /**
      * Set codeetab
      *
@@ -142,7 +153,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodeetab()
     {
@@ -165,7 +176,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get codetypeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodetypeetab()
     {
@@ -188,7 +199,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get annescol
      *
-     * @return integer
+     * @return integer 
      */
     public function getAnnescol()
     {
@@ -211,7 +222,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get coderece
      *
-     * @return string
+     * @return string 
      */
     public function getCoderece()
     {
@@ -234,7 +245,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get numeense
      *
-     * @return integer
+     * @return integer 
      */
     public function getNumeense()
     {
@@ -257,80 +268,11 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get nompren
      *
-     * @return string
+     * @return string 
      */
     public function getNompren()
     {
         return $this->nompren;
-    }
-
-    /**
-     * Set codegenr
-     *
-     * @param string $codegenr
-     * @return EffectiveenseignentListeenseignentEducationtechnique
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-
-        return $this;
-    }
-
-    /**
-     * Get codegenr
-     *
-     * @return string
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
-    }
-
-    /**
-     * Set codedipl
-     *
-     * @param string $codedipl
-     * @return EffectiveenseignentListeenseignentEducationtechnique
-     */
-    public function setCodedipl($codedipl)
-    {
-        $this->codedipl = $codedipl;
-
-        return $this;
-    }
-
-    /**
-     * Get codedipl
-     *
-     * @return string
-     */
-    public function getCodedipl()
-    {
-        return $this->codedipl;
-    }
-
-    /**
-     * Set codespec
-     *
-     * @param string $codespec
-     * @return EffectiveenseignentListeenseignentEducationtechnique
-     */
-    public function setCodespec($codespec)
-    {
-        $this->codespec = $codespec;
-
-        return $this;
-    }
-
-    /**
-     * Get codespec
-     *
-     * @return string
-     */
-    public function getCodespec()
-    {
-        return $this->codespec;
     }
 
     /**
@@ -349,34 +291,11 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get gradactu
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getGradactu()
     {
         return $this->gradactu;
-    }
-
-    /**
-     * Set codetypetrav
-     *
-     * @param string $codetypetrav
-     * @return EffectiveenseignentListeenseignentEducationtechnique
-     */
-    public function setCodetypetrav($codetypetrav)
-    {
-        $this->codetypetrav = $codetypetrav;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypetrav
-     *
-     * @return string
-     */
-    public function getCodetypetrav()
-    {
-        return $this->codetypetrav;
     }
 
     /**
@@ -395,7 +314,7 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get nombheursema
      *
-     * @return float
+     * @return float 
      */
     public function getNombheursema()
     {
@@ -418,10 +337,102 @@ class EffectiveenseignentListeenseignentEducationtechnique
     /**
      * Get obse
      *
-     * @return string
+     * @return string 
      */
     public function getObse()
     {
         return $this->obse;
+    }
+
+    /**
+     * Set codegenr
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr
+     * @return EffectiveenseignentListeenseignentEducationtechnique
+     */
+    public function setCodegenr(\Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr = null)
+    {
+        $this->codegenr = $codegenr;
+
+        return $this;
+    }
+
+    /**
+     * Get codegenr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre 
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
+    }
+
+    /**
+     * Set codedipl
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDiplome $codedipl
+     * @return EffectiveenseignentListeenseignentEducationtechnique
+     */
+    public function setCodedipl(\Sise\Bundle\CoreBundle\Entity\NomenclatureDiplome $codedipl = null)
+    {
+        $this->codedipl = $codedipl;
+
+        return $this;
+    }
+
+    /**
+     * Get codedipl
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDiplome 
+     */
+    public function getCodedipl()
+    {
+        return $this->codedipl;
+    }
+
+    /**
+     * Set codespec
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureSpecialite $codespec
+     * @return EffectiveenseignentListeenseignentEducationtechnique
+     */
+    public function setCodespec(\Sise\Bundle\CoreBundle\Entity\NomenclatureSpecialite $codespec = null)
+    {
+        $this->codespec = $codespec;
+
+        return $this;
+    }
+
+    /**
+     * Get codespec
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureSpecialite 
+     */
+    public function getCodespec()
+    {
+        return $this->codespec;
+    }
+
+    /**
+     * Set codetypetrav
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail $codetypetrav
+     * @return EffectiveenseignentListeenseignentEducationtechnique
+     */
+    public function setCodetypetrav(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail $codetypetrav = null)
+    {
+        $this->codetypetrav = $codetypetrav;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypetrav
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail 
+     */
+    public function getCodetypetrav()
+    {
+        return $this->codetypetrav;
     }
 }
