@@ -1,12 +1,19 @@
-effectiveenseignentlisteremplacementprovisoire_list:
-    path:     /list
-    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:index" }
-
 effectiveenseignentlisteremplacementprovisoire_edit:
-    path:     /edit
+    path:     /Modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:edit" }
 
+effectiveenseignentlisteremplacementprovisoire_list:
+    path:     /list
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:list" }
+
 effectiveenseignentlisteremplacementprovisoire_update:
-    path:     /update
+    path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:update" }
     requirements: { _method: post|put }
+effectiveenseignentlisteremplacementprovisoire_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:item" }
+effectiveenseignentlisteremplacementprovisoire_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:deleteItem" }
+    requirements: { _method: post|delete }

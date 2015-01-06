@@ -301,4 +301,10 @@ class NomenclatureCauseremplacementprovisoire
     {
         return $this->colltech;
     }
+
+    public  function __toString(){
+
+
+        return ($this->getLibecausrempprovar())?$this->getLibecausrempprovar():"";
+    }
 }

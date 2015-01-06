@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentlisteremplacementprovisoire' })) }}
+
+    {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
+    <center>
+        <br>
+        {% if entities is defined  and entities|length > 0 %}
+            <div id="CPHMain_UP">
+
+
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:45%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        الإسم و اللقب</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:25%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        عدد الساعات</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:25%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        سبب التعويض</span></strong>
+                            </th>
+
+                        </tr>
+
+                        {% for entity in entities %}
+                            <tr>
+                                <td align="right">{{ entity.nomprenense }}</td>
+                                <td align="right">{{ entity.nombheur }}</td>
+                                <td align="right">{{ entity.codecausrempprov }}</td>
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        {% endif %}
+    </center>
+
+{% endblock %}

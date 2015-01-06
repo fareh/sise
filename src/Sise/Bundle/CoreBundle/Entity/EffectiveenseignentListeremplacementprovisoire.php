@@ -49,10 +49,28 @@ class EffectiveenseignentListeremplacementprovisoire
     private $coderece;
 
     /**
-     * @var \NomenclatureCauseremplacementprovisoire
+     * @var integer
      *
+     * @ORM\Column(name="NumeEnse", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $numeense;
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeense=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeense = $numeense;
+    }
+
+
+
+    /**
+     * @var \NomenclatureCauseremplacementprovisoire
+     *
      * @ORM\ManyToOne(targetEntity="NomenclatureCauseremplacementprovisoire")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeCausRempProv", referencedColumnName="CodeCausRempProv")
@@ -236,5 +254,28 @@ class EffectiveenseignentListeremplacementprovisoire
     public function getCodecausrempprov()
     {
         return $this->codecausrempprov;
+    }
+
+    /**
+     * Set numeense
+     *
+     * @param integer $numeense
+     * @return EffectiveenseignentListeremplacementprovisoire
+     */
+    public function setNumeense($numeense)
+    {
+        $this->numeense = $numeense;
+
+        return $this;
+    }
+
+    /**
+     * Get numeense
+     *
+     * @return integer 
+     */
+    public function getNumeense()
+    {
+        return $this->numeense;
     }
 }

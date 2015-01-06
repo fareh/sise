@@ -1,0 +1,17 @@
+<tr>
+    <td>
+        {{ form.vars.name }}
+    </td>
+    <td align="right">{{ form_widget(form.nomprenense, { 'id': 'nomprenense'~form.vars.name,  'attr': {'class': 'nomprenense' }  }) }}</td>
+    <td align="right">{{ form_widget(form.nombheur, { 'id': 'nombheur'~form.vars.name,  'attr': {'class': 'nombheur' }  }) }}</td>
+    <td align="right">{{ form_widget(form.codecausrempprov, { 'id': 'codecausrempprov'~form.vars.name,  'attr': {'class': 'codecausrempprov' }  }) }}</td>
+    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+        <a rel="effectiveenseignentlisteremplacementprovisoire_deleteItem"
+           class="delete_listeenseignent"
+           style="display: inline-block">
+            <img name="sise_delete_line" id="sise_delete_line"
+                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+        </a>
+    </td>
+
+</tr>

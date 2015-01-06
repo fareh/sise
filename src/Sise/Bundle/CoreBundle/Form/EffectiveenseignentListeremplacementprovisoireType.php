@@ -8,6 +8,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EffectiveenseignentListeremplacementprovisoireType extends AbstractType
 {
+    private $keyval ;
+
+    function __construct($keyval){
+
+        $this->keyval =$keyval;
+
+
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,13 +24,9 @@ class EffectiveenseignentListeremplacementprovisoireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
             ->add('nomprenense')
             ->add('nombheur')
-            ->add('codecausrempprov')
-            ->add('coderece');
+            ->add('codecausrempprov');
     }
 
     /**
@@ -39,6 +44,6 @@ class EffectiveenseignentListeremplacementprovisoireType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_effectiveenseignentlisteremplacementprovisoire';
+        return $this->keyval;
     }
 }
