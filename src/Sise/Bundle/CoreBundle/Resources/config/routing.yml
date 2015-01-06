@@ -97,6 +97,9 @@ SiseCoreBundle_effectifelevelisteeleveemmenagerdesonetablissement:
 SiseCoreBundle_mouvementelevelisteelevessepareavantconseilclasse:
     resource: "routing/mouvementelevelisteelevessepareavantconseilclasse.yml"
     prefix: /stat/mouvementelevelisteelevessepareavantconseilclasse
+Siseblog_effectiveenseignentlisteenseignenttypeenseignement:
+    resource: "routing/effectiveenseignentlisteenseignenttypeenseignement.yml"
+    prefix: /stat/effectiveenseignentlisteenseignenttypeenseignement
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace
@@ -151,9 +154,6 @@ Siseblog_OrientationElevereussitroisiemeannee:
 Siseblog_EffectiveenseignentGradediscipline:
     resource: "routing/effectiveenseignentgradediscipline.yml"
     prefix: /EffectiveenseignentGradediscipline
-Siseblog_EffectiveenseignentListeenseignentTypeenseignement:
-    resource: "routing/effectiveenseignentlisteenseignenttypeenseignement.yml"
-    prefix: /EffectiveenseignentListeenseignentTypeenseignement
 Siseblog_EffectiveenseignentHeureenseignent:
     resource: "routing/effectiveenseignentheureenseignent.yml"
     prefix: /EffectiveenseignentHeureenseignent

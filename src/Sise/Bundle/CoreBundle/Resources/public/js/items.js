@@ -64,6 +64,29 @@ function deleteItem(){
             }
         });
     });
+
+
+
+
+    $( ".delete_enseignement" ).click(function() {
+        var compteur = parseInt($(this).parents('tr').find('td').first().text())
+        var tr = $(this).parents('tr');
+        $.ajax({
+            url: "/app.php" + Routing.generate($(this).attr("rel")),
+            type: 'POST',
+            data:  {'idenuniqense':   $('#idenuniqense'+compteur).val()},
+            success: function (json) { // quand la réponse de la requete arrive
+                if(json.success==true){
+                    tr.css("background-color","#FF3700");
+                    tr.fadeOut(400, function(){
+                        tr.remove();
+                    });
+                }
+
+
+            }
+        });
+    });
 }
 
 

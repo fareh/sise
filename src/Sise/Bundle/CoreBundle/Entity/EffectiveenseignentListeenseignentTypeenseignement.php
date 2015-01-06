@@ -57,6 +57,16 @@ class EffectiveenseignentListeenseignentTypeenseignement
      */
     private $idenuniqense;
 
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $idenuniqense=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->idenuniqense = $idenuniqense;
+    }
+
+
     /**
      * @var string
      *

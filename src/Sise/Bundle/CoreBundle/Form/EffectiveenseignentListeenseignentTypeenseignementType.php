@@ -8,6 +8,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EffectiveenseignentListeenseignentTypeenseignementType extends AbstractType
 {
+
+    private $keyval ;
+
+    function __construct($keyval){
+
+        $this->keyval =$keyval;
+
+
+    }
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,14 +24,10 @@ class EffectiveenseignentListeenseignentTypeenseignementType extends AbstractTyp
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeetab')
-            ->add('codetypeetab')
-            ->add('annescol')
             ->add('idenuniqense')
             ->add('nompren')
             ->add('enseangl')
-            ->add('ensetechinfo')
-            ->add('coderece');
+            ->add('ensetechinfo');
     }
 
     /**
@@ -40,6 +45,6 @@ class EffectiveenseignentListeenseignentTypeenseignementType extends AbstractTyp
      */
     public function getName()
     {
-        return 'sise_corebundle_effectiveenseignentlisteenseignenttypeenseignement';
+        return $this->keyval;
     }
 }
