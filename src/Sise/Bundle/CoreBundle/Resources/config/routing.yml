@@ -109,6 +109,9 @@ SiseCoreBundle_effectiveenseignentlisteenseignenteducationsportif:
 SiseCoreBundle_effectiveenseignentlisteremplacementprovisoire:
     resource: "routing/effectiveenseignentlisteremplacementprovisoire.yml"
     prefix: /stat/effectiveenseignentlisteremplacementprovisoire
+Siseblog_effectiveenseignentlisteenseignentheureautreetablissement:
+    resource: "routing/effectiveenseignentlisteenseignentheureautreetablissement.yml"
+    prefix: /stat/effectiveenseignentlisteenseignentheureautreetablissement
 SiseCoreBundle_infrastructuretypecategorieespace:
     resource: "routing/infrastructuretypecategorieespace.yml"
     prefix:   /stat/infrastructuretypecategorieespace
@@ -166,9 +169,6 @@ Siseblog_EffectiveenseignentGradediscipline:
 Siseblog_EffectiveenseignentHeureenseignent:
     resource: "routing/effectiveenseignentheureenseignent.yml"
     prefix: /EffectiveenseignentHeureenseignent
-Siseblog_EffectiveenseignentListeenseignentheureautreetablissement:
-    resource: "routing/effectiveenseignentlisteenseignentheureautreetablissement.yml"
-    prefix: /EffectiveenseignentListeenseignentheureautreetablissement
 Siseblog_EffectiveenseignentGradeheuretravail:
     resource: "routing/effectiveenseignentgradeheuretravail.yml"
     prefix: /EffectiveenseignentGradeheuretravail

@@ -1,0 +1,21 @@
+<tr>
+    <td>
+        {{ form.vars.name }}
+    </td>
+    <td align="right">{{ form_widget(form.nompren, { 'id': 'nompren'~form.vars.name,  'attr': {'class': 'nompren' }  }) }}</td>
+    <td align="right">{{ form_widget(form.idenuniqense, { 'id': 'idenuniqense'~form.vars.name,  'attr': {'class': 'idenuniqense' }  }) }}</td>
+    <td align="right">{{ form_widget(form.codegrad, { 'id': 'codegrad'~form.vars.name,  'attr': {'class': 'codegrad' }  }) }}</td>
+    <td>{{ form_widget(form.codedele, { 'id': 'codedele'~form.vars.name,  'attr': {'class': 'codedele' }  }) }}</td>
+    <td>{{ form_widget(form.codetypeetabautr, { 'id': 'codetypeetabautr'~form.vars.name,  'attr': {'class': 'codetypeetabautr' }  }) }}</td>
+    <td>{{ form_widget(form.codeetabautr, { 'id': 'codeetabautr'~form.vars.name,  'attr': {'class': 'codeetabautr' }  }) }}</td>
+    <td>{{ form_widget(form.nombheur, { 'id': 'nombheur'~form.vars.name,  'attr': {'class': 'nombheur' }  }) }}</td>
+    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+        <a rel="effectiveenseignentlisteenseignentheureautreetablissement_deleteItem"
+           class="delete_listeenseignent"
+           style="display: inline-block">
+            <img name="sise_delete_line" id="sise_delete_line"
+                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+        </a>
+    </td>
+
+</tr>

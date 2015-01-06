@@ -48,10 +48,30 @@ class EffectiveenseignentListeenseignentheureautreetablissement
      */
     private $coderece;
 
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumeEnse", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $numeense;
+
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeense=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeense = $numeense;
+    }
+
     /**
      * @var NomenclatureEtablissement
      *
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeEtabAutr", referencedColumnName="CodeEtab"),
@@ -63,7 +83,6 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * @var NomenclatureTypeetablissement
      *
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeTypeEtabAutr", referencedColumnName="CodeTypeEtab")
@@ -74,20 +93,10 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * @var integer
      *
-     * @ORM\Column(name="AnneScolAutr", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="AnneScolAutr", type="integer", nullable=true)
      */
     private $annescolautr;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="NumeEnse", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $numeense;
 
     /**
      * @var string
@@ -104,11 +113,9 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     private $idenuniqense;
 
     /**
-     * @var \NomenclatureGrade
+     * @var NomenclatureGrade
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="NomenclatureGrade")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGrade")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeGrad", referencedColumnName="CodeGrad")
      * })
@@ -121,6 +128,17 @@ class EffectiveenseignentListeenseignentheureautreetablissement
      * @ORM\Column(name="NombHeur", type="float", precision=10, scale=0, nullable=true)
      */
     private $nombheur;
+
+
+    /**
+     * @var NomenclatureDelegation
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureDelegation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
+     * })
+     */
+    private $codedele;
 
 
     /**
@@ -139,7 +157,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodeetab()
     {
@@ -162,7 +180,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get codetypeetab
      *
-     * @return string
+     * @return string 
      */
     public function getCodetypeetab()
     {
@@ -185,7 +203,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get annescol
      *
-     * @return integer
+     * @return integer 
      */
     public function getAnnescol()
     {
@@ -208,80 +226,11 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get coderece
      *
-     * @return string
+     * @return string 
      */
     public function getCoderece()
     {
         return $this->coderece;
-    }
-
-    /**
-     * Set codeetabautr
-     *
-     * @param string $codeetabautr
-     * @return EffectiveenseignentListeenseignentheureautreetablissement
-     */
-    public function setCodeetabautr($codeetabautr)
-    {
-        $this->codeetabautr = $codeetabautr;
-
-        return $this;
-    }
-
-    /**
-     * Get codeetabautr
-     *
-     * @return string
-     */
-    public function getCodeetabautr()
-    {
-        return $this->codeetabautr;
-    }
-
-    /**
-     * Set codetypeetabautr
-     *
-     * @param string $codetypeetabautr
-     * @return EffectiveenseignentListeenseignentheureautreetablissement
-     */
-    public function setCodetypeetabautr($codetypeetabautr)
-    {
-        $this->codetypeetabautr = $codetypeetabautr;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypeetabautr
-     *
-     * @return string
-     */
-    public function getCodetypeetabautr()
-    {
-        return $this->codetypeetabautr;
-    }
-
-    /**
-     * Set annescolautr
-     *
-     * @param integer $annescolautr
-     * @return EffectiveenseignentListeenseignentheureautreetablissement
-     */
-    public function setAnnescolautr($annescolautr)
-    {
-        $this->annescolautr = $annescolautr;
-
-        return $this;
-    }
-
-    /**
-     * Get annescolautr
-     *
-     * @return integer
-     */
-    public function getAnnescolautr()
-    {
-        return $this->annescolautr;
     }
 
     /**
@@ -300,11 +249,34 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get numeense
      *
-     * @return integer
+     * @return integer 
      */
     public function getNumeense()
     {
         return $this->numeense;
+    }
+
+    /**
+     * Set annescolautr
+     *
+     * @param integer $annescolautr
+     * @return EffectiveenseignentListeenseignentheureautreetablissement
+     */
+    public function setAnnescolautr($annescolautr)
+    {
+        $this->annescolautr = $annescolautr;
+
+        return $this;
+    }
+
+    /**
+     * Get annescolautr
+     *
+     * @return integer 
+     */
+    public function getAnnescolautr()
+    {
+        return $this->annescolautr;
     }
 
     /**
@@ -323,7 +295,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get nompren
      *
-     * @return string
+     * @return string 
      */
     public function getNompren()
     {
@@ -346,34 +318,11 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get idenuniqense
      *
-     * @return string
+     * @return string 
      */
     public function getIdenuniqense()
     {
         return $this->idenuniqense;
-    }
-
-    /**
-     * Set codegrad
-     *
-     * @param string $codegrad
-     * @return EffectiveenseignentListeenseignentheureautreetablissement
-     */
-    public function setCodegrad($codegrad)
-    {
-        $this->codegrad = $codegrad;
-
-        return $this;
-    }
-
-    /**
-     * Get codegrad
-     *
-     * @return string
-     */
-    public function getCodegrad()
-    {
-        return $this->codegrad;
     }
 
     /**
@@ -392,10 +341,102 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     /**
      * Get nombheur
      *
-     * @return float
+     * @return float 
      */
     public function getNombheur()
     {
         return $this->nombheur;
+    }
+
+    /**
+     * Set codeetabautr
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetabautr
+     * @return EffectiveenseignentListeenseignentheureautreetablissement
+     */
+    public function setCodeetabautr(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetabautr = null)
+    {
+        $this->codeetabautr = $codeetabautr;
+
+        return $this;
+    }
+
+    /**
+     * Get codeetabautr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement 
+     */
+    public function getCodeetabautr()
+    {
+        return $this->codeetabautr;
+    }
+
+    /**
+     * Set codetypeetabautr
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetabautr
+     * @return EffectiveenseignentListeenseignentheureautreetablissement
+     */
+    public function setCodetypeetabautr(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetabautr = null)
+    {
+        $this->codetypeetabautr = $codetypeetabautr;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeetabautr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement 
+     */
+    public function getCodetypeetabautr()
+    {
+        return $this->codetypeetabautr;
+    }
+
+    /**
+     * Set codegrad
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad
+     * @return EffectiveenseignentListeenseignentheureautreetablissement
+     */
+    public function setCodegrad(\Sise\Bundle\CoreBundle\Entity\NomenclatureGrade $codegrad = null)
+    {
+        $this->codegrad = $codegrad;
+
+        return $this;
+    }
+
+    /**
+     * Get codegrad
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGrade 
+     */
+    public function getCodegrad()
+    {
+        return $this->codegrad;
+    }
+
+    /**
+     * Set codedele
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele
+     * @return EffectiveenseignentListeenseignentheureautreetablissement
+     */
+    public function setCodedele(\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele = null)
+    {
+        $this->codedele = $codedele;
+
+        return $this;
+    }
+
+    /**
+     * Get codedele
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation 
+     */
+    public function getCodedele()
+    {
+        return $this->codedele;
     }
 }
