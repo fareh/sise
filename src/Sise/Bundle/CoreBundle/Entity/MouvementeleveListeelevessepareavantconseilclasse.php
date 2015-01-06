@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * MouvementeleveListeelevessepareavantconseilclasse
  *
@@ -56,6 +57,18 @@ class MouvementeleveListeelevessepareavantconseilclasse
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $numeleve;
+
+
+    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeelev=null)
+    {
+        $this->codeetab = $codeetab;
+        $this->codetypeetab = $codetypeetab;
+        $this->annescol = $annescol;
+        $this->coderece = $coderece;
+        $this->numeleve = $numeelev;
+    }
+
+
 
     /**
      * @var string
@@ -112,6 +125,8 @@ class MouvementeleveListeelevessepareavantconseilclasse
      * })
      */
     private $codefili;
+
+
 
     /**
      * Set codeetab
@@ -206,6 +221,29 @@ class MouvementeleveListeelevessepareavantconseilclasse
     }
 
     /**
+     * Set numeleve
+     *
+     * @param integer $numeleve
+     * @return MouvementeleveListeelevessepareavantconseilclasse
+     */
+    public function setNumeleve($numeleve)
+    {
+        $this->numeleve = $numeleve;
+
+        return $this;
+    }
+
+    /**
+     * Get numeleve
+     *
+     * @return integer
+     */
+    public function getNumeleve()
+    {
+        return $this->numeleve;
+    }
+
+    /**
      * Set nomprenelev
      *
      * @param string $nomprenelev
@@ -226,29 +264,6 @@ class MouvementeleveListeelevessepareavantconseilclasse
     public function getNomprenelev()
     {
         return $this->nomprenelev;
-    }
-
-    /**
-     * Set codegenr
-     *
-     * @param string $codegenr
-     * @return MouvementeleveListeelevessepareavantconseilclasse
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-
-        return $this;
-    }
-
-    /**
-     * Get codegenr
-     *
-     * @return string
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
     }
 
     /**
@@ -275,12 +290,35 @@ class MouvementeleveListeelevessepareavantconseilclasse
     }
 
     /**
-     * Set codetypesepa
+     * Set codegenr
      *
-     * @param string $codetypesepa
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr
      * @return MouvementeleveListeelevessepareavantconseilclasse
      */
-    public function setCodetypesepa($codetypesepa)
+    public function setCodegenr(\Sise\Bundle\CoreBundle\Entity\NomenclatureGenre $codegenr = null)
+    {
+        $this->codegenr = $codegenr;
+
+        return $this;
+    }
+
+    /**
+     * Get codegenr
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureGenre
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
+    }
+
+    /**
+     * Set codetypesepa
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeseparation $codetypesepa
+     * @return MouvementeleveListeelevessepareavantconseilclasse
+     */
+    public function setCodetypesepa(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeseparation $codetypesepa = null)
     {
         $this->codetypesepa = $codetypesepa;
 
@@ -290,7 +328,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codetypesepa
      *
-     * @return string
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeseparation
      */
     public function getCodetypesepa()
     {
@@ -300,10 +338,10 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Set codenivescol
      *
-     * @param string $codenivescol
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
      * @return MouvementeleveListeelevessepareavantconseilclasse
      */
-    public function setCodenivescol($codenivescol)
+    public function setCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol = null)
     {
         $this->codenivescol = $codenivescol;
 
@@ -313,7 +351,7 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codenivescol
      *
-     * @return string
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire
      */
     public function getCodenivescol()
     {
@@ -323,10 +361,10 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Set codefili
      *
-     * @param string $codefili
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili
      * @return MouvementeleveListeelevessepareavantconseilclasse
      */
-    public function setCodefili($codefili)
+    public function setCodefili(\Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere $codefili = null)
     {
         $this->codefili = $codefili;
 
@@ -336,33 +374,10 @@ class MouvementeleveListeelevessepareavantconseilclasse
     /**
      * Get codefili
      *
-     * @return string
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere
      */
     public function getCodefili()
     {
         return $this->codefili;
-    }
-
-    /**
-     * Set numeleve
-     *
-     * @param integer $numeleve
-     * @return MouvementeleveListeelevessepareavantconseilclasse
-     */
-    public function setNumeleve($numeleve)
-    {
-        $this->numeleve = $numeleve;
-
-        return $this;
-    }
-
-    /**
-     * Get numeleve
-     *
-     * @return integer
-     */
-    public function getNumeleve()
-    {
-        return $this->numeleve;
     }
 }
