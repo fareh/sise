@@ -49,7 +49,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     private $coderece;
 
     /**
-     * @var \NomenclatureEtablissement
+     * @var NomenclatureEtablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
@@ -61,7 +61,7 @@ class EffectiveenseignentListeenseignentheureautreetablissement
     private $codeetabautr;
 
     /**
-     * @var \NomenclatureTypeetablissement
+     * @var NomenclatureTypeetablissement
      *
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")

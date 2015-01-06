@@ -58,7 +58,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     private $nompren;
 
     /**
-     * @var \NomenclatureGrade
+     * @var NomenclatureGrade
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -70,7 +70,7 @@ class EffectiveenseignentListeenseignenteducationsportif
     private $codegrad;
 
     /**
-     * @var \NomenclatureGenre
+     * @var NomenclatureGenre
      *
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureGenre")
