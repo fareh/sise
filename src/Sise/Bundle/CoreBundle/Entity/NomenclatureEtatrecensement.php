@@ -121,4 +121,8 @@ class NomenclatureEtatrecensement
     {
         return $this->obse;
     }
+    public function __toString()
+    {
+        return $this->libeetatrecear;
+    }
 }

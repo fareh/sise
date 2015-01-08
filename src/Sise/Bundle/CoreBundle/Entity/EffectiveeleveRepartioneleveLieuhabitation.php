@@ -271,8 +271,6 @@ class EffectiveeleveRepartioneleveLieuhabitation
     }
 
 
-
-
     /*public function addEtablissementRecensement(\Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement)
     {
         if (!$this->etablissement_recensement->contains($etablissementRecensement)) {

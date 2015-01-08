@@ -3,11 +3,11 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DoctrineCommonCollectionsArrayCollection;
 /**
  * NomenclatureQuestionnairerecensement
  *
- * @ORM\Table(name="nomenclature_questionnairerecensement", indexes={@ORM\Index(name="FK_Nomenclature_QuestionnaireRecenssement_Nomenclature_Recenss72", columns={"CodeRece"}), @ORM\Index(name="FK_Nomenclature_QuestionnaireRecensement_Nomenclature_Etabliss73", columns={"CodeEtab", "CodeTypeEtab"})})
+ * @ORM\Table(name="nomenclature_questionnairerecensement")
  * @ORM\Entity
  */
 class NomenclatureQuestionnairerecensement
@@ -60,33 +60,106 @@ class NomenclatureQuestionnairerecensement
     /**
      * @var boolean
      *
-     * @ORM\Column(name="Etat", type="boolean", nullable=false)
+     * @ORM\Column(name="Etat", type="boolean", nullable=true)
      */
     private $etat;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="EtatDireRegi", type="boolean", nullable=false)
+     * @ORM\Column(name="EtatDireRegi", type="boolean", nullable=true)
      */
     private $etatdireregi;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="EtatDireCent", type="boolean", nullable=false)
+     * @ORM\Column(name="EtatDireCent", type="boolean", nullable=true)
      */
     private $etatdirecent;
 
+    /**
+     * @var \NomenclatureRecensement
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureRecensement",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeRece", referencedColumnName="CodeRece"),
+     * })
+     */
+    private $rece;
 
-    public function __construct($codeetab, $codetypeetab, $annescol, $coderece)
+    /**
+     * @var \NomenclatureQuestionnaire
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureQuestionnaire",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeQues", referencedColumnName="CodeQues"),
+     * })
+     */
+    private $ques;
+
+    /**
+     * @return \NomenclatureQuestionnaire
+     */
+    public function getQues()
     {
-        $this->codeetab = $codeetab;
-        $this->codetypeetab = $codetypeetab;
-        $this->annescol = $annescol;
-        $this->coderece = $coderece;
+        return $this->ques;
     }
 
+    /**
+     * @param \NomenclatureQuestionnaire $ques
+     */
+    public function setQues($ques)
+    {
+        $this->ques = $ques;
+    }
+
+    public function __construct()
+    {
+
+    }
+
+    /**
+     * Add ques
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire $ques
+     * @return NomenclatureQuestionnairerecensement
+     */
+    public function addQues(\Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire $ques)
+    {
+        $this->ques[] = $ques;
+
+        return $this;
+    }
+
+    /**
+     * Remove ques
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire $ques
+     */
+    public function removeQues(\Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnaire $ques)
+    {
+        $this->ques->removeElement($ques);
+    }
+
+
+    /**
+     * @return \NomenclatureRecensement
+     */
+    public function getRece()
+    {
+        return $this->rece;
+    }
+
+    /**
+     * @param \NomenclatureRecensement $rece
+     */
+    public function setRece($rece)
+    {
+        $this->rece = $rece;
+    }
 
     /**
      * Set codeques

@@ -1,0 +1,33 @@
+nomenclaturequestionnairerecensement:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:index" }
+
+nomenclaturequestionnairerecensement_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:show" }
+
+nomenclaturequestionnairerecensement_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:new" }
+
+nomenclaturequestionnairerecensement_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:create" }
+    requirements: { _method: post }
+
+nomenclaturequestionnairerecensement_edit:
+    path:     /{coderece}/{annescol}/edit
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:edit" }
+
+nomenclaturequestionnairerecensement_update:
+    path:     /{coderece}/{annescol}/update
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:update" }
+    requirements: { _method: post|put }
+
+nomenclaturequestionnairerecensement_delete1:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:delete" }
+    requirements: { _method: post|delete }
+nomenclaturequestionnairerecensement_export:
+    path:     /_export
+    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnairerecensement:export" }
