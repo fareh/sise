@@ -3,11 +3,11 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use DoctrineCommonCollectionsArrayCollection;
 /**
  * NomenclatureRecensement
  *
- * @ORM\Table(name="nomenclature_recensement", indexes={@ORM\Index(name="FK_Nomenclature_Recenssement_Nomenclature_EtatRecenssement", columns={"CodeEtatRece"})})
+ * @ORM\Table(name="nomenclature_recensement")
  * @ORM\Entity
  */
 class NomenclatureRecensement
@@ -17,7 +17,7 @@ class NomenclatureRecensement
      *
      * @ORM\Column(name="CodeRece", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $coderece;
 
@@ -31,14 +31,17 @@ class NomenclatureRecensement
     /**
      * @var string
      *
-     * @ORM\Column(name="LibeReceFr", type="string", length=50, nullable=false)
+     * @ORM\Column(name="LibeReceFr", type="string", length=50, nullable=true)
      */
     private $liberecefr;
 
     /**
-     * @var integer
+     * @var ParametreAnneescolaire
      *
-     * @ORM\Column(name="AnneScol", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="ParametreAnneescolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="AnneScol", referencedColumnName="CodeAnneScol")
+     * })
      */
     private $annescol;
 
@@ -57,9 +60,12 @@ class NomenclatureRecensement
     private $dateclot;
 
     /**
-     * @var string
+     * @var NomenclatureEtatrecensement
      *
-     * @ORM\Column(name="CodeEtatRece", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="NomenclatureEtatrecensement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeEtatRece", referencedColumnName="CodeEtatRece")
+     * })
      */
     private $codeetatrece;
 
@@ -73,7 +79,7 @@ class NomenclatureRecensement
     /**
      * @var boolean
      *
-     * @ORM\Column(name="InitQues", type="boolean", nullable=false)
+     * @ORM\Column(name="InitQues", type="boolean", nullable=true)
      */
     private $initques;
 
@@ -85,9 +91,12 @@ class NomenclatureRecensement
     private $obse;
 
     /**
-     * @var string
+     * @var ParametrePeriodicite
      *
-     * @ORM\Column(name="CodePeri", type="string", length=50, nullable=true)
+     * @ORM\ManyToOne(targetEntity="ParametrePeriodicite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodePeri", referencedColumnName="CodePeri")
+     * })
      */
     private $codeperi;
 
@@ -108,6 +117,15 @@ class NomenclatureRecensement
     {
         return $this->coderece;
     }
+
+    /**
+     * @param string $coderece
+     */
+    public function setCoderece($coderece)
+    {
+        $this->coderece = $coderece;
+    }
+
 
     /**
      * Set liberecear
@@ -156,29 +174,6 @@ class NomenclatureRecensement
     }
 
     /**
-     * Set annescol
-     *
-     * @param integer $annescol
-     * @return NomenclatureRecensement
-     */
-    public function setAnnescol($annescol)
-    {
-        $this->annescol = $annescol;
-
-        return $this;
-    }
-
-    /**
-     * Get annescol
-     *
-     * @return integer
-     */
-    public function getAnnescol()
-    {
-        return $this->annescol;
-    }
-
-    /**
      * Set dateouve
      *
      * @param \DateTime $dateouve
@@ -222,29 +217,6 @@ class NomenclatureRecensement
     public function getDateclot()
     {
         return $this->dateclot;
-    }
-
-    /**
-     * Set codeetatrece
-     *
-     * @param string $codeetatrece
-     * @return NomenclatureRecensement
-     */
-    public function setCodeetatrece($codeetatrece)
-    {
-        $this->codeetatrece = $codeetatrece;
-
-        return $this;
-    }
-
-    /**
-     * Get codeetatrece
-     *
-     * @return string
-     */
-    public function getCodeetatrece()
-    {
-        return $this->codeetatrece;
     }
 
     /**
@@ -317,29 +289,6 @@ class NomenclatureRecensement
     }
 
     /**
-     * Set codeperi
-     *
-     * @param string $codeperi
-     * @return NomenclatureRecensement
-     */
-    public function setCodeperi($codeperi)
-    {
-        $this->codeperi = $codeperi;
-
-        return $this;
-    }
-
-    /**
-     * Get codeperi
-     *
-     * @return string
-     */
-    public function getCodeperi()
-    {
-        return $this->codeperi;
-    }
-
-    /**
      * Set dureperi
      *
      * @param integer $dureperi
@@ -360,5 +309,79 @@ class NomenclatureRecensement
     public function getDureperi()
     {
         return $this->dureperi;
+    }
+    public function __toString()
+    {
+        return $this->coderece;
+    }
+
+
+    /**
+     * Set annescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire $annescol
+     * @return NomenclatureRecensement
+     */
+    public function setAnnescol(\Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire $annescol = null)
+    {
+        $this->annescol = $annescol;
+
+        return $this;
+    }
+
+    /**
+     * Get annescol
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire 
+     */
+    public function getAnnescol()
+    {
+        return $this->annescol;
+    }
+
+    /**
+     * Set codeetatrece
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtatrecensement $codeetatrece
+     * @return NomenclatureRecensement
+     */
+    public function setCodeetatrece(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtatrecensement $codeetatrece = null)
+    {
+        $this->codeetatrece = $codeetatrece;
+
+        return $this;
+    }
+
+    /**
+     * Get codeetatrece
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtatrecensement 
+     */
+    public function getCodeetatrece()
+    {
+        return $this->codeetatrece;
+    }
+
+    /**
+     * Set codeperi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\ParametrePeriodicite $codeperi
+     * @return NomenclatureRecensement
+     */
+    public function setCodeperi(\Sise\Bundle\CoreBundle\Entity\ParametrePeriodicite $codeperi = null)
+    {
+        $this->codeperi = $codeperi;
+
+        return $this;
+    }
+
+    /**
+     * Get codeperi
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\ParametrePeriodicite 
+     */
+    public function getCodeperi()
+    {
+        return $this->codeperi;
     }
 }

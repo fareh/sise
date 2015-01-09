@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturequestionnairerecensement' })) }}
+    <center>
+        <br>
+
+        <div id="CPHMain_upGridView">
+
+
+            <div>
+    <table cellspacing="0" cellpadding="4" id="CPHMain_GV" style="color:#333333;width:100%;border-collapse:collapse;">
+        <thead>
+        <tr>
+            {#    <th>Coderece</th> #}
+
+            <th>إسم التعداد (عربي)</th>
+            <th>إسم التعداد (فرنسي)</th>
+            <th>حالة التعداد</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+              <td><a href="{{ path('nomenclaturequestionnairerecensement_edit', { 'coderece': entity.coderece,'annescol': entity.annescol }) }}">{{ entity.liberecear }}</a></td>
+                <td>{{ entity.liberecefr }}</td>
+                 <td>{{ entity.codeetatrece.libeetatrecear }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </center>
+
+{% endblock %}

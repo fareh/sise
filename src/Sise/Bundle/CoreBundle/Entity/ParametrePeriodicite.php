@@ -331,4 +331,8 @@ class ParametrePeriodicite
     {
         return $this->colltech;
     }
+    public function __toString()
+    {
+        return $this->codeperi;
+    }
 }

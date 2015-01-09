@@ -23,7 +23,6 @@ class NomenclatureEtablissementController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
         $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findAll();
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
         if ($request->isMethod('POST')) {

@@ -1,0 +1,519 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <form action="{{ path('nomenclaturequestionnairerecensement_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturequestionnairerecensement' })) }}
+
+
+
+        {#{{ form_widget(edit_form) }}#}
+        {{ form_errors(form) }}
+        <div id="CPHMain_upmain">
+            <fieldset style="font-size: 14pt; padding-right: 5px">
+                <legend>
+                    معطيات التعداد
+                </legend>
+                <div>
+                    <span id="Label1" style="display:inline-block;height:28px;width:20%;">بيان التعداد</span>
+                    {{ form_widget(form.rece.coderece) }}
+
+                </div>
+                <div>
+                    <span id="Label2" style="display:inline-block;height:28px;width:20%;">اسم التعداد (عربى)</span>
+                    {{ form_widget(form.rece.liberecear) }}
+
+                </div>
+
+                <div>
+
+
+                    <span id="Label4" style="display:inline-block;height:28px;width:20%;">السنة دراسية</span>
+                    {{ form_widget(form.rece.annescol) }}
+                </div>
+
+                <div>
+                    <span id="Label5"
+                          style="display:inline-block;height:28px;width:20%;">تاريخ بداية حجز المعطيات</span>
+                    {{ form_widget(form.rece.dateouve) }}
+                </div>
+
+                <div>
+                    <span id="Label6"
+                          style="display:inline-block;height:28px;width:20%;">تاريخ نهاية حجز المعطيات</span>
+                    {{ form_widget(form.rece.dateclot) }}
+                </div>
+
+                <div>
+                    <span id="Label10" style="display:inline-block;height:28px;width:20%;">دورية</span>
+                    {{ form_widget(form.rece.codeperi) }}
+                </div>
+
+                <div>
+                    <span id="Label9" style="display:inline-block;height:28px;width:20%;">الملاحظات</span>
+                    {{ form_widget(form.rece.obse) }}
+                </div>
+            </fieldset>
+        </div>
+
+        <fieldset style="font-size: 14pt; padding-right: 5px">
+            <legend>
+                الجداول الإحصائية
+            </legend>
+
+            <div>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            بطاقة المؤسسة
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100% " >
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="EB1">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 3)=='EB1'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+{% endif %}
+{% endfor %}
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+
+                                            إحصاء التلاميذ
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="EE">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 2)=='EE'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                {% endif %}
+                {% endfor %}
+<br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+
+
+                                            توجيه التلاميذ
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="O">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 1)=='O'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                {% endif %}
+                {% endfor %}
+
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            حركة التلاميذ
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="ME">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 2)=='ME'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    {% endif %}
+                {% endfor %}
+
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            البناءات و التجهيزات
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="I">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 1)=='I'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    {% endif %}
+                {% endfor %}
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            الموارد البشرية - إطار التدريس
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="RH">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 2)=='RH'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    {% endif %}
+                {% endfor %}
+
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            الموارد البشرية الغير مدرّسة
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="EP">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 2)=='EP'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    {% endif %}
+                {% endfor %}
+
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            متابعة الميزانية
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="B">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 1)=='B'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    {% endif %}
+                {% endfor %}
+
+                <br>
+                <table id="CPHMain_CBCyclEnse" cellpadding="25">
+                    <tbody>
+                    <tr>
+                        <td>
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%"><strong>
+                                            نشاط المؤسسة
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody><tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input type="checkbox" onchange="checkAll(this)" name="chk[]" value="EB2">
+                                    </th>
+
+                                    <th style="width: 10%">
+                                        <strong><span style="font-size: 9pt; color: #FFFFFF">E</span></strong>
+                                    </th>
+                                </tr>
+                                </tbody></table>
+                            {% for key, tag in entities %}
+                            {% if tag.codeques|slice(0, 3)=='EB2'  %}
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody><tr style="background-color: #FFFFFF;">
+                                    <td style="border-bottom: black 1px solid; width: 30%">
+                                        <span style="font-family:verdana;font-size:9pt;">{{ form_label(form.ques.children[key]) }}</span>
+                                    </td>
+                                    <td style="border-bottom: black 1px solid; width: 15%">
+                                        {{ form_widget(form.ques.children[key]) }}
+                                    </td>
+
+                                    <td style="width: 10%">
+
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </fieldset>
+         {{ form_rest(form) }}
+
+    </form>
+
+{% endblock %}

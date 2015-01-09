@@ -17,7 +17,6 @@ class NomenclatureRecensementType extends AbstractType
         $builder
             ->add('coderece')
             ->add('liberecear')
-            ->add('liberecefr')
             ->add('annescol', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire',
                 'property' => 'libeannescolar',
@@ -39,8 +38,6 @@ class NomenclatureRecensementType extends AbstractType
                 'required' => true,
                 'format' => 'dd-MM-yyyy',
                 'required' => true))
-            ->add('codeperisuivbudg')
-            ->add('initques')
             ->add('obse')
             ->add('codeperi', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\ParametrePeriodicite',
@@ -49,14 +46,14 @@ class NomenclatureRecensementType extends AbstractType
                 'multiple' => false,
                 'required' => true,
                 'empty_value' => "-- اختيار --"))
-            ->add('dureperi')
-            ->add('codeetatrece', 'entity', array(
-                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtatrecensement',
-                'property' => 'libeetatrecear',
-                'expanded' => false,
-                'multiple' => false,
-                'required' => true,
-                'empty_value' => "-- اختيار --"));
+//            ->add('codeetatrece', 'entity', array(
+//                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureEtatrecensement',
+//                'property' => 'libeetatrecear',
+//                'expanded' => false,
+//                'multiple' => false,
+//                'required' => true,
+//                'empty_value' => "-- اختيار --"));
+        ;
     }
 
     /**

@@ -178,3 +178,6 @@ Siseblog_EffectiveenseignentTypetravail:
 Siseblog_PersonnelPersonnel:
     resource: "routing/personnelpersonnel.yml"
     prefix: /PersonnelPersonnel
+Siseblog_NomenclatureQuestionnairerecensement:
+    resource: "routing/nomenclaturequestionnairerecensement.yml"
+    prefix: /NomenclatureQuestionnairerecensement

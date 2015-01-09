@@ -607,7 +607,7 @@ class EtablissementFicheetablissement
      *
      * @param \Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo
      */
-    public function removeCodecyclense(\Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo)
+    public function removeSejo(\Sise\Bundle\CoreBundle\Entity\EtablissementSejour $fichetabsejo)
     {
         $this->sejo->removeElement($fichetabsejo);
     }

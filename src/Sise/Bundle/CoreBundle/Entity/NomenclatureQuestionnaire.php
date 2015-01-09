@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NomenclatureQuestionnaire
  *
- * @ORM\Table(name="nomenclature_questionnaire", indexes={@ORM\Index(name="FK_Nomenclature_Questionnaire_SECURITE_ENTITE", columns={"CodeEnti"})})
+ * @ORM\Table(name="nomenclature_questionnaire")
  * @ORM\Entity
  */
 class NomenclatureQuestionnaire
@@ -17,7 +17,7 @@ class NomenclatureQuestionnaire
      *
      * @ORM\Column(name="CodeQues", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeques;
 
@@ -132,7 +132,6 @@ class NomenclatureQuestionnaire
      * @ORM\Column(name="CodeEnti", type="string", length=100, nullable=true)
      */
     private $codeenti;
-
 
     /**
      * Get codeques
@@ -510,5 +509,9 @@ class NomenclatureQuestionnaire
     public function getRouteclass()
     {
         return $this->routeclass;
+    }
+    public  function  __toString(){
+
+        return ($this->getLibequesar())?$this->getLibequesar():"";
     }
 }

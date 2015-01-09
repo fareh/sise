@@ -7,47 +7,27 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EffectiveeleveRepartioneleveLieuhabitation
  *
- * @ORM\Table(name="effectiveeleve_repartioneleve_lieuhabitation")
+ * @ORM\Table(name="effectiveeleve_repartioneleve_lieuhabitation", indexes={@ORM\Index(name="FK_EffectiveEleve_RepartionEleve_LieuHabitation_Nomenclature_D54", columns={"CodeDele"}), @ORM\Index(name="FK_EffectiveEleve_RepartionEleve_LieuHabitation_Nomenclature_R55", columns={"CodeRece"})})
  * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveRepartioneleveLieuhabitationRepository")
  */
 class EffectiveeleveRepartioneleveLieuhabitation
 {
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codeetab;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codetypeetab;
-
-    /**
      * @var integer
-     *
-     * @ORM\Column(name="AnneScol", type="integer", nullable=false)
+     * @ORM\Column(name="repartioneleve_lieuhabitation_id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $annescol;
+    private $id;
 
     /**
-     * @var string
+     * @var EtablissementRecensement
      *
-     * @ORM\Column(name="CodeRece", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="EtablissementRecensement", inversedBy="lieuhabitation")
+     * @ORM\JoinColumn(name="etablissement_recensement_id", referencedColumnName="etablissement_recensement_id")
      */
-    private $coderece;
+    protected $etablissement_recensement;
 
 
     /**
@@ -56,30 +36,37 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
      **/
     private $codedele;
-
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="NumeElev", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=true)
      */
-    private $numeelev;
-
-    public function __construct($codeetab=null, $codetypeetab=null, $annescol=null, $coderece=null, $numeelev=null)
-    {
-        $this->codeetab = $codeetab;
-        $this->codetypeetab = $codetypeetab;
-        $this->annescol = $annescol;
-        $this->coderece = $coderece;
-        $this->numeelev = $numeelev;
-    }
-
+    private $codeetab;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Lieu", type="string", length=150, nullable=false)
+     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=true)
+     */
+    private $codetypeetab;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="AnneScol", type="integer", nullable=true)
+     */
+    private $annescol;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeRece", type="string", length=50, nullable=true)
+     */
+    private $coderece;
+
+    /**
+     * @var string
+     * @ORM\Column(name="Lieu", type="string", length=50, nullable=false)
      */
     private $lieu;
 
@@ -91,11 +78,11 @@ class EffectiveeleveRepartioneleveLieuhabitation
     private $nombelev;
 
     /**
-     * @var NomenclatureDistance
-     * @ORM\ManyToOne(targetEntity="NomenclatureDistance")
-     * @ORM\JoinColumn(name="Dist", referencedColumnName="id")
-     **/
-       private $dist;
+     * @var float
+     *
+     * @ORM\Column(name="Dist", type="string", length=50, nullable=false)
+     */
+    private $dist;
 
     /**
      * Set codeetab
@@ -103,9 +90,9 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param string $codeetab
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setCodeetab($codeetab)
+    public function setCodeetab()
     {
-        $this->codeetab = $codeetab;
+        $this->codeetab = ($this->getEtablissementRecensement()->getCodeetab()) ? $this->getEtablissementRecensement()->getCodeetab() : null;
 
         return $this;
     }
@@ -113,7 +100,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get codeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodeetab()
     {
@@ -126,9 +113,10 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param string $codetypeetab
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setCodetypeetab($codetypeetab)
+    public function setCodetypeetab()
     {
-        $this->codetypeetab = $codetypeetab;
+        $this->codetypeetab = ($this->getEtablissementRecensement()->getCodetypeetab()) ? $this->getEtablissementRecensement()->getCodetypeetab() : null;
+
 
         return $this;
     }
@@ -136,7 +124,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get codetypeetab
      *
-     * @return string 
+     * @return string
      */
     public function getCodetypeetab()
     {
@@ -149,9 +137,9 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param integer $annescol
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setAnnescol($annescol)
+    public function setAnnescol()
     {
-        $this->annescol = $annescol;
+        $this->annescol = ($this->getEtablissementRecensement()->getAnnescol()) ? $this->getEtablissementRecensement()->getAnnescol() : null;
 
         return $this;
     }
@@ -159,7 +147,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get annescol
      *
-     * @return integer 
+     * @return integer
      */
     public function getAnnescol()
     {
@@ -172,9 +160,10 @@ class EffectiveeleveRepartioneleveLieuhabitation
      * @param string $coderece
      * @return EffectiveeleveRepartioneleveLieuhabitation
      */
-    public function setCoderece($coderece)
+    public function setCoderece()
     {
-        $this->coderece = $coderece;
+
+        $this->coderece = ($this->getEtablissementRecensement()->getCoderece()) ? $this->getEtablissementRecensement()->getCoderece() : null;
 
         return $this;
     }
@@ -182,34 +171,11 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get coderece
      *
-     * @return string 
+     * @return string
      */
     public function getCoderece()
     {
         return $this->coderece;
-    }
-
-    /**
-     * Set numeelev
-     *
-     * @param integer $numeelev
-     * @return EffectiveeleveRepartioneleveLieuhabitation
-     */
-    public function setNumeelev($numeelev)
-    {
-        $this->numeelev = $numeelev;
-
-        return $this;
-    }
-
-    /**
-     * Get numeelev
-     *
-     * @return integer 
-     */
-    public function getNumeelev()
-    {
-        return $this->numeelev;
     }
 
     /**
@@ -228,7 +194,7 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get lieu
      *
-     * @return string 
+     * @return string
      */
     public function getLieu()
     {
@@ -251,13 +217,89 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get nombelev
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombelev()
     {
         return $this->nombelev;
     }
-    
+
+    /**
+     * Set dist
+     *
+     * @param float $dist
+     * @return EffectiveeleveRepartioneleveLieuhabitation
+     */
+    public function setDist($dist)
+    {
+        $this->dist = $dist;
+
+        return $this;
+    }
+
+    /**
+     * Get dist
+     *
+     * @return float
+     */
+    public function getDist()
+    {
+        return $this->dist;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     * @return EffectiveeleveRepartioneleveLieuhabitation
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    /*public function addEtablissementRecensement(\Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement)
+    {
+        if (!$this->etablissement_recensement->contains($etablissementRecensement)) {
+            $this->etablissement_recensement->add($etablissementRecensement);
+        }
+    }*/
+
+    /**
+     * Set etablissement_recensement
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement
+     * @return EffectiveeleveRepartioneleveLieuhabitation
+     */
+    public function setEtablissementRecensement(\Sise\Bundle\CoreBundle\Entity\EtablissementRecensement $etablissementRecensement = null)
+    {
+        $this->etablissement_recensement = $etablissementRecensement;
+
+        return $this;
+    }
+
+    /**
+     * Get etablissement_recensement
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\EtablissementRecensement
+     */
+    public function getEtablissementRecensement()
+    {
+        return $this->etablissement_recensement;
+    }
 
     /**
      * Set codedele
@@ -275,33 +317,10 @@ class EffectiveeleveRepartioneleveLieuhabitation
     /**
      * Get codedele
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation 
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation
      */
     public function getCodedele()
     {
         return $this->codedele;
-    }
-
-    /**
-     * Set dist
-     *
-     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDistance $dist
-     * @return EffectiveeleveRepartioneleveLieuhabitation
-     */
-    public function setDist(\Sise\Bundle\CoreBundle\Entity\NomenclatureDistance $dist = null)
-    {
-        $this->dist = $dist;
-
-        return $this;
-    }
-
-    /**
-     * Get dist
-     *
-     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDistance 
-     */
-    public function getDist()
-    {
-        return $this->dist;
     }
 }

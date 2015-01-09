@@ -19,8 +19,6 @@ jQuery(document).ready(function () {
     collectionHolder.find('li').each(function () {
         addTagFormDeleteLink($(this));
     });
-
-
     // ajoute l'ancre « ajouter un tag » et li à la balise ul
     collectionHolder.append($newLinkLi);
 
@@ -33,6 +31,23 @@ jQuery(document).ready(function () {
     });
 });
 
+function checkAll(ele) {
+    var checkboxes = document.getElementsByTagName('input');
+    if (ele.checked) {
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].value.slice(0, 1)==ele.value || checkboxes[i].value.slice(0, 2)==ele.value || checkboxes[i].value.slice(0, 3)==ele.value ) {
+                checkboxes[i].checked = true;
+            }
+        }
+    } else {
+        for (var i = 0; i < checkboxes.length; i++) {
+            console.log(i)
+            if (checkboxes[i].value.slice(0, 1)==ele.value || checkboxes[i].value.slice(0, 2)==ele.value || checkboxes[i].value.slice(0, 3)==ele.value ) {
+                checkboxes[i].checked = false;
+            }
+        }
+    }
+}
 
 function addTagForm(collectionHolder, $newLinkLi) {
     // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
@@ -181,6 +196,8 @@ $(function () {
     $("#sise_corebundle_personnelpersonnel_datesituadmi").datepicker();
     $("#sise_corebundle_personnelpersonnel_datecin").datepicker();
     $("#sise_corebundle_personnelpersonnel_datesoussituadmi").datepicker();
+    $("#sise_corebundle_nomenclaturequestionnairerecensement_rece_dateouve").datepicker();
+    $("#sise_corebundle_nomenclaturequestionnairerecensement_rece_dateclot").datepicker();
 });
 
 $(document).ready(function () {
