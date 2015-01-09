@@ -30,3 +30,8 @@ services:
       arguments: [@security.context, @doctrine.orm.entity_manager]
       tags:
         - { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
+    sise_user.registration_listener:
+        class: Sise\Bundle\UserBundle\EventListener\RegistrationListener
+        arguments: []
+        tags:
+            - { name: kernel.event_subscriber }
