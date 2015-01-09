@@ -1,3 +1,11 @@
+sise_core_securite_roles:
+    resource: "@SiseCoreBundle/Resources/config/routing/securiteprofil.yml"
+    prefix:   /securite/roles
+
+sise_core_securite_groupeutilisateur:
+    resource: "@SiseCoreBundle/Resources/config/routing/securitegroupeutilisateur.yml"
+    prefix:   /securite/groupeutilisateur
+
 sise_core_homepage:
     path:     /
     defaults: { _controller: SiseCoreBundle:Default:index }

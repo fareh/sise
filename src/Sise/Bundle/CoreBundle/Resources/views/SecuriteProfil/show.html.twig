@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>SecuriteProfil</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeprof</th>
+                <td>{{ entity.codeprof }}</td>
+            </tr>
+            <tr>
+                <th>Libeproffr</th>
+                <td>{{ entity.libeproffr }}</td>
+            </tr>
+            <tr>
+                <th>Libeprofar</th>
+                <td>{{ entity.libeprofar }}</td>
+            </tr>
+            <tr>
+                <th>Obse</th>
+                <td>{{ entity.obse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('securite_roles') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('securite_roles_edit', { 'id': entity.codeprof }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

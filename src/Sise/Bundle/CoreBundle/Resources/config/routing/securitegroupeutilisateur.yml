@@ -1,0 +1,30 @@
+securite_groupeutilisateur:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:index" }
+
+securite_groupeutilisateur_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:show" }
+
+securite_groupeutilisateur_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:new" }
+
+securite_groupeutilisateur_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:create" }
+    requirements: { _method: post }
+
+securite_groupeutilisateur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:edit" }
+
+securite_groupeutilisateur_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:update" }
+    requirements: { _method: post|put }
+
+securite_groupeutilisateur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:SecuriteGroupeutilisateur:delete" }
+    requirements: { _method: post|delete }

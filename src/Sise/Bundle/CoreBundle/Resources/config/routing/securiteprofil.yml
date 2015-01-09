@@ -1,0 +1,30 @@
+securite_roles:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:index" }
+
+securite_roles_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:show" }
+
+securite_roles_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:new" }
+
+securite_roles_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:create" }
+    requirements: { _method: post }
+
+securite_roles_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:edit" }
+
+securite_roles_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:update" }
+    requirements: { _method: post|put }
+
+securite_roles_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:SecuriteProfil:delete" }
+    requirements: { _method: post|delete }

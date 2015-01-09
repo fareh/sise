@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>SecuriteGroupeutilisateur</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codegrouutil</th>
+                <td>{{ entity.codegrouutil }}</td>
+            </tr>
+            <tr>
+                <th>Libegrouutilfr</th>
+                <td>{{ entity.libegrouutilfr }}</td>
+            </tr>
+            <tr>
+                <th>Libegrouutilar</th>
+                <td>{{ entity.libegrouutilar }}</td>
+            </tr>
+            <tr>
+                <th>Obse</th>
+                <td>{{ entity.obse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('securite_groupeutilisateur') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('securite_groupeutilisateur_edit', { 'id': entity.codegrouutil }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>SecuriteProfil list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codeprof</th>
+                <th>Libeproffr</th>
+                <th>Libeprofar</th>
+                <th>Obse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('securite_roles_show', { 'id': entity.codeprof }) }}">{{ entity.codeprof }}</a></td>
+                <td>{{ entity.libeproffr }}</td>
+                <td>{{ entity.libeprofar }}</td>
+                <td>{{ entity.obse }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('securite_roles_show', { 'id': entity.codeprof }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('securite_roles_edit', { 'id': entity.codeprof }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('securite_roles_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
