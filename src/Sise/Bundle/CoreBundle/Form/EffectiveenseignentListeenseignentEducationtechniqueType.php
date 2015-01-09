@@ -28,7 +28,9 @@ class EffectiveenseignentListeenseignentEducationtechniqueType extends AbstractT
         ->add('codegenr')
         ->add('codedipl')
         ->add('codespec')
-        ->add('gradactu')
+        ->add('gradactu', 'choice', array(
+            'choices'=>array('0'=>'Ali', '1'=>'Maha')
+        ))
         ->add('codetypetrav')
         ->add('nombheursema')
         ->add('obse');

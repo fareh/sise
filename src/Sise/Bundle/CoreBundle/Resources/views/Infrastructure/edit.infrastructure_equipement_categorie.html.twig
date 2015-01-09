@@ -6,7 +6,7 @@
 
     <center>
         <br>
-
+        {% if entities is defined  and entities|length > 0 %}
         <div id="CPHMain_upGridView">
 
 
@@ -76,6 +76,7 @@
 
 
         </div>
+        {% endif %}
     </center>
 
 {% endblock %}

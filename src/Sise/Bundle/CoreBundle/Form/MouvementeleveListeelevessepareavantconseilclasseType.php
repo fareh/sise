@@ -39,6 +39,7 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\MouvementeleveListeelevessepareavantconseilclasse'
 
         ));
     }

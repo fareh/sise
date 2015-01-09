@@ -6,7 +6,7 @@
 
     <center>
         <br>
-
+        {% if entities is defined  and entities|length > 0 %}
         <div id="CPHMain_UP">
 
 
@@ -56,7 +56,7 @@
                 {% for entity in entities %}
                     <tr>
                         <td style="border-bottom: black 1px solid; width: 1%; vertical-align: top; color: white">
-                            {{ entity.id }}
+                            {{ entity.numeelev }}
                         </td>
                         <td style="border-bottom: black 1px solid; width: 35%; vertical-align: top">
                             {{ entity.lieu }}
@@ -82,6 +82,7 @@
 
 
         </div>
+        {% endif %}
     </center>
 
 {% endblock %}

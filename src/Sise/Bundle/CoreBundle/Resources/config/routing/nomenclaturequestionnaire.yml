@@ -15,19 +15,6 @@ statElev_create:
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:create" }
     requirements: { _method: post }
 
-statElev_edit:
-    path:     /{table}/edit
-    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:edit" }
-
-statElev_listStat:
-    path:     /{table}/stat
-    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:listStat" }
-
-statElev_update:
-    path:     /{table}/{codeetab}/{codetypeetab}/update
-    defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:update" }
-    requirements: { _method: post|put }
-
 statElev_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:NomenclatureQuestionnaire:delete" }

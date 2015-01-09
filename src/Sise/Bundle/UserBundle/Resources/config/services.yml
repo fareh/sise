@@ -11,6 +11,10 @@ services:
         class: Sise\Bundle\UserBundle\Form\Type\RegistrationFormType
         tags:
             - { name: form.type, alias: sise_user_registration }
+    sise_user.relatedItems.form.type:
+        class: Sise\Bundle\UserBundle\Form\Type\relatedItemsFormType
+        tags:
+            - { name: form.type, alias: sise_user_relatedItems }
     sise_user.group.form.type:
          class: Sise\Bundle\UserBundle\Form\Type\GroupFormType
          tags:

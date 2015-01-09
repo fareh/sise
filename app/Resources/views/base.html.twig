@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}SISE{% endblock %}</title>
     {% block stylesheets %}
         <link href="{{ asset('bundles/sisecore/css/master.css') }}" rel="stylesheet"/>
         <link href="{{ asset('bundles/sisecore/css/grid.css') }}" rel="stylesheet"/>
@@ -160,6 +160,7 @@
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     <script src="{{ asset('js/fos_js_routes.js') }}"></script>
     <script src="{{ asset('bundles/sisecore/js/items.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/siseuser/js/users.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/sisecore/js/script.js') }}" type="text/javascript"></script>
 
 

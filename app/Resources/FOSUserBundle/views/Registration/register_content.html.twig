@@ -1,10 +1,86 @@
-
-
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"
+      class="fos_user_registration_register">
+    {#{{ form_widget(form) }}#}
+
+    <div id="fos_user_registration_form">
+
+        <div>
+            {{ form_label(form.username) }}
+            {{ form_errors(form.username) }}
+            {{ form_widget(form.username) }}
+
+        </div>
+
+        <div>
+            {{ form_label(form.email) }}
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email) }}
+
+        </div>
+
+
+        <div>
+
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first) }}
+
+
+        </div>
+        <div>
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second) }}
+
+        </div>
+
+        <div>
+            {{ form_label(form.matr) }}
+            {{ form_errors(form.matr) }}
+            {{ form_widget(form.matr) }}
+
+        </div>
+        <div>
+            {{ form_label(form.nomprenutil) }}
+            {{ form_errors(form.nomprenutil) }}
+            {{ form_widget(form.nomprenutil) }}
+
+        </div>
+        <div>
+            {{ form_label(form.codegrouutil) }}
+            {{ form_errors(form.codegrouutil) }}
+            {{ form_widget(form.codegrouutil) }}
+
+        </div>
+
+
+
+
+
+
+        <div>
+            {{ form_label(form.codeprof) }}
+            {{ form_errors(form.codeprof) }}
+            {{ form_widget(form.codeprof) }}
+
+        </div>
+
+
+
+
+        <div>
+            {{ form_label(form.codenivehier) }}
+            {{ form_errors(form.codenivehier) }}
+            {{ form_widget(form.codenivehier) }}
+
+        </div>
+
+        {{ form_widget(form._token) }}
+        {# {{ form_rest(form) }} #}
+        <div>
+            <input type="submit" value="{{ 'registration.submit'|trans }}"/>
+        </div>
     </div>
+
 </form>

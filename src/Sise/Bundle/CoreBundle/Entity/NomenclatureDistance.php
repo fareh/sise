@@ -91,4 +91,11 @@ class NomenclatureDistance
     {
         return $this->libedistfr;
     }
+
+
+    public  function __toString(){
+
+
+        return ($this->getLibedistar())?$this->getLibedistar():"";
+    }
 }

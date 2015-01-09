@@ -1,19 +1,18 @@
-<div style="width: 1%">
-</div>
+<tr>
+    <td>
+        {{ form.vars.name }}
+    </td>
 
-<div style="width: 35%">
-    {{ form_widget(form.lieu|e) }}
-</div>
-<div style="width: 20%">
-    {{ form_widget(form.nombelev|e) }}
-</div>
+    <td align="right">{{ form_widget(form.lieu) }}</td>
+    <td align="right">{{ form_widget(form.nombelev) }}</td>
+    <td align="right">{{ form_widget(form.codedele) }}</td>
+    <td>{{ form_widget(form.dist) }}</td>
+    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+        <a rel="effectiveeleverepartionelevelieuhabitation_deleteItem" class="delete_handicaps"
+           style="display: inline-block">
+            <img name="sise_delete_line" id="sise_delete_line"
+                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+        </a>
+    </td>
 
-<div style="width: 20%">
-    {{ form_widget(form.codedele|e) }}
-</div>
-
-
-<div style="width: 14%">
-    {{ form_widget(form.dist|e) }}
-
-</div>
+</tr>

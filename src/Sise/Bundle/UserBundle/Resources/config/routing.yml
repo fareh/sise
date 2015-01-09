@@ -4,3 +4,6 @@ sise_user_homepage:
 sise_user_list:
     path:     /securite/users
     defaults: { _controller: SiseUserBundle:Default:users }
+sise_user_item:
+    path:     /securite/item
+    defaults: { _controller: "SiseUserBundle:Default:item" }

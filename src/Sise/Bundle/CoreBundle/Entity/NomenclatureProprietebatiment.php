@@ -304,6 +304,6 @@ class NomenclatureProprietebatiment
 
     public function __toString()
     {
-        return $this->codepropbati;
+        return ($this->getLibepropbatiar())?$this->getLibepropbatiar():"";
     }
 }

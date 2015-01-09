@@ -6,6 +6,7 @@
 
     <center>
         <br>
+        {% if entities is defined  and entities|length > 0 %}
 
         <div id="CPHMain_UP">
 
@@ -61,6 +62,7 @@
             </div>
 
         </div>
+        {% endif %}
     </center>
 
 {% endblock %}

@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
-
 {% block body %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'register', 'TitleContextValue' :  '', 'RouteAction' : 'fos_user_registration' })) }}
+
     <br>
     <div id="CPHMain_upGridView">
         <div>

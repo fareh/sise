@@ -114,7 +114,14 @@ class DefaultController extends Controller
         $RouteRechercherParams = array();
         $RouteCloturerParams = array();
         //
+
         switch ($PageContext) {
+            case 'register':
+                //Mode New
+                $TdRetour = true;
+                $TdAnnuler = true;
+                $TdValider = true;
+                break;
             case 'List':
                 //Mode List
                 $TdExporter = true;
@@ -154,9 +161,13 @@ class DefaultController extends Controller
 
 
         if ($TdExporter == true) $RouteExporter = $RouteAction . '_export';
-        if ($TdNouveau == true) $RouteNouveau = $RouteAction . '_new';
+        if ($TdNouveau == true && $PageContext='New')  $RouteNouveau = $RouteAction . '_new';
+        if ($TdNouveau == true && $PageContext='register')  $RouteNouveau = $RouteAction . '_register';
         if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
+
         if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_new';
+        if ($TdAnnuler == true && $PageContext='register') $RouteAnnuler = $RouteAction . '_register';
+
         if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
 
 
@@ -178,7 +189,7 @@ class DefaultController extends Controller
 
 
             }
-            if ($TdCloturer == true) {
+             if ($TdCloturer == true) {
                 $RouteCloturer = $RouteAction . '';
             }
         } else {
@@ -193,6 +204,7 @@ class DefaultController extends Controller
 
             if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
         }
+        if ($TdRetour == true && $PageContext='register') $RouteRetour = 'sise_user_list';
 
         return $this->render('SiseCoreBundle:Default:menu.html.twig',
             array('TitleContextValue' => $TitleContextValue,

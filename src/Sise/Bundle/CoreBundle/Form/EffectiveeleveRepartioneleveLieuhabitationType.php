@@ -15,11 +15,15 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
     /** @var \Doctrine\ORM\EntityManager */
     private $em;
 
-    public function __construct($codeetab, $codetypeetab, EntityManager $entityManager)
+
+    private $keyval ;
+
+    public function __construct($codeetab, $codetypeetab, $keyval, EntityManager $entityManager)
     {
         $this->codeetab = $codeetab;
         $this->em = $entityManager;
         $this->codetypeetab = $codetypeetab;
+        $this->keyval =$keyval;
 
     }
 
@@ -39,10 +43,9 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
             ))
             ->add('lieu')
             ->add('nombelev')
-            ->add('dist', 'choice', array(
-                'choices' => $this->getAllDistance(),
-                'required' => false,
-            ));
+
+            ->add('dist')
+          ;
     }
 
     /**
@@ -70,7 +73,7 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
 
         foreach ($distances as $distance) {
 
-            $dist[$distance->getLibedistar()] = $distance->getLibedistar();
+            $dist[$distance->getId()] = $distance->getLibedistar();
 
         }
 
@@ -82,6 +85,6 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_bundle_corebundle_effectiveeleverepartionelevelieuhabitation';
+        return $this->keyval;
     }
 }

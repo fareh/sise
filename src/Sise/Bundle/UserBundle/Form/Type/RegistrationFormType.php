@@ -96,6 +96,8 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
+
+
             ->add('codeprof', null, array(
                 'label' => 'صلاحيات',
                 'translation_domain' => 'FOSUserBundle',
@@ -124,94 +126,8 @@ class RegistrationFormType extends AbstractType
                 ),
                 'label_attr' => array(
                     'class' => 'sr-only',
-                )));
-
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($builder) {
-
-            $codecircregi = $event->getData();
-
-            $form = $event->getForm();
-            $data = $event->getData();
-            if (!$data instanceof User || !$data->getCodecircregi())
-                return;
-            if ($data instanceof User) {
-                $codecircregi = ($data->getCodecircregi()) ? $data->getCodecircregi() : null;
-            }
-
-            $builder->addEventListener(FormEvents::PRE_BIND, function (FormEvent $event) use ($builder) {
-                $form = $event->getForm();
-                $data = $event->getData();
-
-
-                var_dump($data);
-
-                if (array_key_exists('country', $data)) {
-                    // $refreshStates($form, $data['country']);
-                }
-            });
-
-            $event->getForm()->add($builder->getFormFactory()->createNamed('codedele', 'entity', null, array(
-                'auto_initialize' => false,
-                'label' => 'المعتمدية',
-                'class' => 'SiseCoreBundle:NomenclatureDelegation',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('c')
-                        ->where('c.codecircregi = :codecircregi')
-                        ->setParameter('codecircregi', '11');
-                },
-                'property' => 'libedelear',
-                'translation_domain' => 'FOSUserBundle',
-                'attr' => array(
-                    'placeholder' => 'المعتمدية',
-                ),
-                'label_attr' => array(
-                    'class' => 'sr-only',
-                ),
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('c')
-                        ->where('c.codecircregi = :codecircregi')
-                        ->setParameter('codecircregi', '11');
-                }
-            )));
-
-
-            $event->getForm()->add($builder->getFormFactory()->createNamed('codetypeetab', 'entity', null, array(
-                'auto_initialize' => false,
-                'label' => 'نوع المؤسسة',
-                'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
-                'property' => 'libetypeetabar',
-                'translation_domain' => 'FOSUserBundle',
-                'attr' => array(
-                    'placeholder' => 'نوع المؤسسة',
-                ),
-                'label_attr' => array(
-                    'class' => 'sr-only',
-                ),
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('c');
-                }
-            )));
-
-
-            $event->getForm()->add($builder->getFormFactory()->createNamed('codeetab', 'entity', null, array(
-                'auto_initialize' => false,
-                'label' => 'المؤسسة',
-                'class' => 'SiseCoreBundle:NomenclatureEtablissement',
-                'property' => 'libeetabar',
-                'translation_domain' => 'FOSUserBundle',
-                'attr' => array(
-                    'placeholder' => 'المؤسسة',
-                ),
-                'label_attr' => array(
-                    'class' => 'sr-only',
-                ),
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('c')
-                        ->where('c.codetypeetab = :codetypeetab')
-                        ->setParameter('codetypeetab', '10');
-                }
-            )));
-        });/*  $builder  ->add('codedele', 'entity', array(
+                )))
+                ->add('codedele', 'entity', array(
                   'label' => 'المعتمدية',
                   'class' => 'SiseCoreBundle:NomenclatureDelegation',
                'query_builder' => function(EntityRepository $er){
@@ -227,12 +143,6 @@ class RegistrationFormType extends AbstractType
                   'label_attr' => array(
                       'class' => 'sr-only',
                   )))
-
-
-
-
-
-
               ->add('codetypeetab', 'entity', array(
                   'label' => 'نوع المؤسسة',
                   'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
@@ -254,9 +164,7 @@ class RegistrationFormType extends AbstractType
                   ),
                   'label_attr' => array(
                       'class' => 'sr-only',
-                  ))) */;
-
-
+                  )));
     }
 
     public function getParent()

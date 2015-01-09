@@ -22,6 +22,6 @@ class MainController extends Controller
     public function registerAction(Request $request)
     {
 
-        die;
+
     }
 }

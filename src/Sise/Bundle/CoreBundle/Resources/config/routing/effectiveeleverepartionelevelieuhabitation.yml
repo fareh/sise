@@ -10,8 +10,10 @@ effectiveeleverepartionelevelieuhabitation_update:
     path:     /{codeetab}/{codetypeetab}/Modif
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:update" }
     requirements: { _method: post|put }
-
-effectiveeleverepartionelevelieuhabitation_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:delete" }
+effectiveeleverepartionelevelieuhabitation_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:item" }
+effectiveeleverepartionelevelieuhabitation_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:deleteItem" }
     requirements: { _method: post|delete }

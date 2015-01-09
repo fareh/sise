@@ -340,7 +340,7 @@ $(function () {
 
 //On PostBack
 jQuery(document).ready(function () {
-    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+  //  Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
     function EndRequestHandler(sender, args) {
         SetUI();
     }
