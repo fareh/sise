@@ -1,6 +1,27 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  '', 'RouteAction' : 'fos_user_registration' })) }}
+
+    <div class="rightMenu">
+
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'ادارة بيانات المستخدمين', 'RouteAction' : '' })) }}
+
+        <br>
+
+        <div class="listLink">
+            <ul>
+                <li><a href="#">Groupes des utilisateurs</a></li>
+                <li><a href="#">Listes des Roles</a></li>
+                <li><a href="#">Listes des utilisateurs</a></li>
+
+            </ul>
+
+
+        </div>
+
+    </div>
+<div class="leftMenu">
+
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'المستخدمين', 'RouteAction' : 'fos_user_registration' })) }}
 
     <br>
     <div id="CPHMain_upGridView">
@@ -43,6 +64,9 @@
 
 
     </div>
+
+    </div>
+
 
 {% endblock %}
 

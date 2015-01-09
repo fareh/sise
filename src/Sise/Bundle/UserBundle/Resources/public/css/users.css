@@ -1,0 +1,9 @@
+.MainPage .leftMenu {
+    float: left;
+    width: 75%;
+}
+
+.MainPage .rightMenu {
+    float: right;
+    width: 25%;
+}
