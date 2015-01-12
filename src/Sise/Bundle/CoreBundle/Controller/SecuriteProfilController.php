@@ -36,6 +36,8 @@ class SecuriteProfilController extends Controller
     public function createAction(Request $request)
     {
         $entity = new SecuriteProfil();
+
+       // var_dump($entity); die;
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,7 +46,7 @@ class SecuriteProfilController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('securite_roles_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('securite_roles'));
         }
 
         return $this->render('SiseCoreBundle:SecuriteProfil:new.html.twig', array(
@@ -143,7 +145,7 @@ class SecuriteProfilController extends Controller
     private function createEditForm(SecuriteProfil $entity)
     {
         $form = $this->createForm(new SecuriteProfilType(), $entity, array(
-            'action' => $this->generateUrl('securite_roles_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('securite_roles_update', array('id' => $entity->getCodeprof())),
             'method' => 'PUT',
         ));
 

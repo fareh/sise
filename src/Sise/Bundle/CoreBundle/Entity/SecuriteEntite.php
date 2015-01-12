@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * SecuriteEntite
@@ -20,6 +21,11 @@ class SecuriteEntite
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codeenti;
+
+    /**
+     * @ORM\OneToMany(targetEntity="SecuriteDroitaccesgroupe" , mappedBy="codeprof" , cascade={"all"})
+     * */
+    protected $droitaccesgroupe;
 
     /**
      * @var string
@@ -180,5 +186,45 @@ class SecuriteEntite
     public function getMainpage()
     {
         return $this->mainpage;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->droitaccesgroupe = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add droitaccesgroupe
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe
+     * @return SecuriteEntite
+     */
+    public function addDroitaccesgroupe(\Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe)
+    {
+        $this->droitaccesgroupe[] = $droitaccesgroupe;
+
+        return $this;
+    }
+
+    /**
+     * Remove droitaccesgroupe
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe
+     */
+    public function removeDroitaccesgroupe(\Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe)
+    {
+        $this->droitaccesgroupe->removeElement($droitaccesgroupe);
+    }
+
+    /**
+     * Get droitaccesgroupe
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDroitaccesgroupe()
+    {
+        return $this->droitaccesgroupe;
     }
 }

@@ -36,6 +36,6 @@ class SecuriteGroupeutilisateurType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_bundle_corebundle_securitegroupeutilisateur';
+        return 'securite';
     }
 }

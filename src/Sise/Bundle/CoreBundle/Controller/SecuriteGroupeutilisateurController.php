@@ -44,7 +44,7 @@ class SecuriteGroupeutilisateurController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('securite_groupeutilisateur_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('securite_groupeutilisateur_show', array('id' => $entity->getCodegrouutil())));
         }
 
         return $this->render('SiseCoreBundle:SecuriteGroupeutilisateur:new.html.twig', array(
@@ -143,7 +143,7 @@ class SecuriteGroupeutilisateurController extends Controller
     private function createEditForm(SecuriteGroupeutilisateur $entity)
     {
         $form = $this->createForm(new SecuriteGroupeutilisateurType(), $entity, array(
-            'action' => $this->generateUrl('securite_groupeutilisateur_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('securite_groupeutilisateur_update', array('id' => $entity->getCodegrouutil())),
             'method' => 'PUT',
         ));
 

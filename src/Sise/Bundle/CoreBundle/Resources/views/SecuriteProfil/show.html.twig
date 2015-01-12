@@ -1,8 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>SecuriteProfil</h1>
-
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :  'SecuriteProfil', 'RouteAction' : 'securite_roles' })) }}
+    <br>
     <table class="record_properties">
         <tbody>
             <tr>
@@ -23,18 +23,4 @@
             </tr>
         </tbody>
     </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('securite_roles') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('securite_roles_edit', { 'id': entity.codeprof }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}

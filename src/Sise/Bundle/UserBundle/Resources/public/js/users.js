@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   // $('#securite_codeprof_codecyclense').multiselect();
     relatedItems('0');
 });
 function relatedItems(cs) {

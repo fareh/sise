@@ -95,7 +95,7 @@ class NomenclatureCycleenseignement
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SecuriteProfil", mappedBy="codecyclense")
+     * @ORM\ManyToMany(targetEntity="SecuriteProfil", mappedBy="codeprof_codecyclense", cascade={"persist"})
      */
     private $codeprof;
 
@@ -432,6 +432,6 @@ class NomenclatureCycleenseignement
     }
     public function __toString()
     {
-        return $this->codecyclense;
+        return ($this->getLibecyclensefr())?$this->getLibecyclensear():"";
     }
 }

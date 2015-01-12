@@ -18,18 +18,27 @@ class SecuriteProfil
      *
      * @ORM\Column(name="CodeProf", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeprof;
+
 
     /**
      * @ORM\OneToMany(targetEntity="Sise\Bundle\UserBundle\Entity\User", mappedBy="codeprof")
      */
     protected $user;
 
-    public function __construct()
+
+    /**
+     * @ORM\OneToMany(targetEntity="SecuriteDroitaccesgroupe" , mappedBy="codeprof" , cascade={"all"})
+     * */
+    protected $droitaccesgroupe;
+
+    public function __construct($coderof=null)
     {
+        $this->codeprof=($coderof)?$coderof:$this->GeraHash(8);
         $this->user = new ArrayCollection();
+        $this->droitaccesgroupe = new ArrayCollection();
         $this->codeprof_codecyclense = new ArrayCollection();
     }
 
@@ -41,10 +50,12 @@ class SecuriteProfil
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement")
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement", inversedBy="codeprof", cascade={"persist"})
      * @ORM\JoinTable(name="securite_profilcycleenseignement",
-     *      joinColumns={@ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")}
+     *      joinColumns={@ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf", onDelete="CASCADE")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse", onDelete="CASCADE")}
      * )
      */
     protected $codeprof_codecyclense;
@@ -70,6 +81,54 @@ class SecuriteProfil
      */
     private $obse;
 
+    public function __toString()
+    {
+        return ($this->getLibeprofar()) ? $this->getLibeprofar() : "";
+    }
+
+
+    function GeraHash($qtd){
+//Under the string $Caracteres you write all the characters you want to be used to randomly generate the code.
+        $Caracteres = 'ABCDEFGHIJKLMOPQRSTUVXWYZ0123456789';
+        $QuantidadeCaracteres = strlen($Caracteres);
+        $QuantidadeCaracteres--;
+
+        $Hash=NULL;
+        for($x=1;$x<=$qtd;$x++){
+            $Posicao = rand(0,$QuantidadeCaracteres);
+            $Hash .= substr($Caracteres,$Posicao,1);
+        }
+
+        return $Hash;
+    }
+
+
+
+
+
+    /**
+     * Set codeprof
+     *
+     * @param string $codeprof
+     * @return SecuriteProfil
+     */
+    public function setCodeprof($codeprof)
+    {
+        $this->codeprof = $codeprof;
+
+        return $this;
+    }
+
+    /**
+     * Get codeprof
+     *
+     * @return string 
+     */
+    public function getCodeprof()
+    {
+        return $this->codeprof;
+    }
+
     /**
      * Set libeproffr
      *
@@ -86,7 +145,7 @@ class SecuriteProfil
     /**
      * Get libeproffr
      *
-     * @return string
+     * @return string 
      */
     public function getLibeproffr()
     {
@@ -109,7 +168,7 @@ class SecuriteProfil
     /**
      * Get libeprofar
      *
-     * @return string
+     * @return string 
      */
     public function getLibeprofar()
     {
@@ -132,21 +191,11 @@ class SecuriteProfil
     /**
      * Get obse
      *
-     * @return string
+     * @return string 
      */
     public function getObse()
     {
         return $this->obse;
-    }
-
-    /**
-     * Get codeprof
-     *
-     * @return string
-     */
-    public function getCodeprof()
-    {
-        return $this->codeprof;
     }
 
     /**
@@ -175,7 +224,7 @@ class SecuriteProfil
     /**
      * Get user
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getUser()
     {
@@ -198,7 +247,7 @@ class SecuriteProfil
     /**
      * Get codegrouutil
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteGroupeutilisateur
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteGroupeutilisateur 
      */
     public function getCodegrouutil()
     {
@@ -231,16 +280,43 @@ class SecuriteProfil
     /**
      * Get codeprof_codecyclense
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getCodeprofCodecyclense()
     {
         return $this->codeprof_codecyclense;
     }
 
-
-    public function __toString()
+    /**
+     * Add droitaccesgroupe
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe
+     * @return SecuriteProfil
+     */
+    public function addDroitaccesgroupe(\Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe)
     {
-        return ($this->getLibeprofar()) ? $this->getLibeprofar() : "";
+        $this->droitaccesgroupe[] = $droitaccesgroupe;
+
+        return $this;
+    }
+
+    /**
+     * Remove droitaccesgroupe
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe
+     */
+    public function removeDroitaccesgroupe(\Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe $droitaccesgroupe)
+    {
+        $this->droitaccesgroupe->removeElement($droitaccesgroupe);
+    }
+
+    /**
+     * Get droitaccesgroupe
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDroitaccesgroupe()
+    {
+        return $this->droitaccesgroupe;
     }
 }

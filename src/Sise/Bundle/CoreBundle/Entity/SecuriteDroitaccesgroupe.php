@@ -13,21 +13,31 @@ use Doctrine\ORM\Mapping as ORM;
 class SecuriteDroitaccesgroupe
 {
     /**
-     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\SecuriteProfil" , inversedBy="codeprof")
-     * @ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     **/
-    protected $codeprof;
+     * @ORM\Column(name="droitaccesgroupe", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @var integer $id
+     */
+    protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CODEENTI", type="string", length=100, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codeenti;
+     * @var SecuriteProfil
+     * @ORM\ManyToOne(targetEntity="SecuriteProfil", inversedBy="droitaccesgroupe")
+     * @ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf")
+     * */
+    protected $codeprof;
+
+
+
+    /**
+     * @var SecuriteEntite
+     * @ORM\ManyToOne(targetEntity="SecuriteEntite", inversedBy="droitaccesgroupe")
+     * @ORM\JoinColumn(name="CODEENTI", referencedColumnName="CODEENTI")
+     * */
+    protected $codeenti;
+
+
 
     /**
      * @var integer
@@ -58,50 +68,15 @@ class SecuriteDroitaccesgroupe
     private $droidele;
 
 
-    /**
-     * Set codegrouutil
-     *
-     * @param string $codegrouutil
-     * @return SecuriteDroitaccesgroupe
-     */
-    public function setCodegrouutil($codegrouutil)
-    {
-        $this->codegrouutil = $codegrouutil;
-
-        return $this;
-    }
 
     /**
-     * Get codegrouutil
+     * Get id
      *
-     * @return string
+     * @return integer 
      */
-    public function getCodegrouutil()
+    public function getId()
     {
-        return $this->codegrouutil;
-    }
-
-    /**
-     * Set codeenti
-     *
-     * @param string $codeenti
-     * @return SecuriteDroitaccesgroupe
-     */
-    public function setCodeenti($codeenti)
-    {
-        $this->codeenti = $codeenti;
-
-        return $this;
-    }
-
-    /**
-     * Get codeenti
-     *
-     * @return string
-     */
-    public function getCodeenti()
-    {
-        return $this->codeenti;
+        return $this->id;
     }
 
     /**
@@ -120,7 +95,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droisele
      *
-     * @return integer
+     * @return integer 
      */
     public function getDroisele()
     {
@@ -143,7 +118,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droiinse
      *
-     * @return integer
+     * @return integer 
      */
     public function getDroiinse()
     {
@@ -166,7 +141,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droiupda
      *
-     * @return integer
+     * @return integer 
      */
     public function getDroiupda()
     {
@@ -189,7 +164,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droidele
      *
-     * @return integer
+     * @return integer 
      */
     public function getDroidele()
     {
@@ -202,7 +177,7 @@ class SecuriteDroitaccesgroupe
      * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
      * @return SecuriteDroitaccesgroupe
      */
-    public function setCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
+    public function setCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof = null)
     {
         $this->codeprof = $codeprof;
 
@@ -212,10 +187,38 @@ class SecuriteDroitaccesgroupe
     /**
      * Get codeprof
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil 
      */
     public function getCodeprof()
     {
         return $this->codeprof;
+    }
+
+    /**
+     * Set codeenti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti
+     * @return SecuriteDroitaccesgroupe
+     */
+    public function setCodeenti(\Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti = null)
+    {
+        $this->codeenti = $codeenti;
+
+        return $this;
+    }
+
+    /**
+     * Get codeenti
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteEntite 
+     */
+    public function getCodeenti()
+    {
+        return $this->codeenti;
+    }
+
+    public function __toString(){
+
+        return ($this->getCodeenti()->getLibeentiar())?$this->getCodeenti()->getLibeentiar():"";
     }
 }

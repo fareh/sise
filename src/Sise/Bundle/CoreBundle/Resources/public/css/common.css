@@ -58,47 +58,6 @@ table#CPHMain_CBCyclEnse {
 
 }
 
-/* formulaire d'enregistrement */
-
-#fos_user_registration_form input, #fos_user_registration_form select {
-    font-style: oblique;
-    height: 28px;
-    padding-right: 10px;
-    width: 35%;
-}
-
-#fos_user_registration_form label {
-    display: block;
-    float: right;
-    font-size: 18px;
-    font-weight: bold;
-    height: 28px;
-    line-height: 28px;
-    width: 30%;
-}
-
-#fos_user_registration_form > div {
-    margin-bottom: 20px;
-}
-
-form.fos_user_registration_register {
-    font-size: 14pt;
-    padding-right: 10px;
-    padding-top: 10px;
-    background-color: #EEEEEE;
-    border-color: #EEEEEE;
-    border-style: None;
-}
-
-#id_with_js input {
-    border-style: none;
-    width: 100%;
-    text-align: center;
-
-}
-
-/* fin formulaire d'enregistrement */
-
 /* prototype css */
 
 .tags > li {

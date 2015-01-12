@@ -1,15 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>SecuriteProfil creation</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil creation', 'RouteAction' : 'securite_roles' })) }}
+    <br>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('securite_roles') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}
