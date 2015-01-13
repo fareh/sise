@@ -97,30 +97,33 @@ class User extends BaseUser
     private $lastActivity;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeEtab", type="string", length=50, nullable=true)
+     * @var NomenclatureEtablissement
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement")
+     * @ORM\JoinColumns({
+     *      @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
+     *      @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
+     * })
      */
     private $codeetab;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=true)
+     * @var NomenclatureTypeetablissement
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement")
+     * @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
      */
     private $codetypeetab;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCircRegi", type="string", length=50, nullable=true)
+     * @var NomenclatureTypeetablissement
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional")
+     * @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
      */
     private $codecircregi;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeDele", type="string", length=50, nullable=true)
+     * @var NomenclatureTypeetablissement
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation")
+     * @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
      */
     private $codedele;
 
@@ -142,10 +145,12 @@ class User extends BaseUser
         }
     }
 
+
+
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -168,7 +173,7 @@ class User extends BaseUser
     /**
      * Get matr
      *
-     * @return string
+     * @return string 
      */
     public function getMatr()
     {
@@ -191,7 +196,7 @@ class User extends BaseUser
     /**
      * Get nomprenutil
      *
-     * @return string
+     * @return string 
      */
     public function getNomprenutil()
     {
@@ -214,7 +219,7 @@ class User extends BaseUser
     /**
      * Get datemaj
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getDatemaj()
     {
@@ -222,95 +227,26 @@ class User extends BaseUser
     }
 
     /**
-     * Set codeetab
+     * Set lastActivity
      *
-     * @param string $codeetab
+     * @param \DateTime $lastActivity
      * @return User
      */
-    public function setCodeetab($codeetab)
+    public function setLastActivity($lastActivity)
     {
-        $this->codeetab = $codeetab;
+        $this->lastActivity = $lastActivity;
 
         return $this;
     }
 
     /**
-     * Get codeetab
+     * Get lastActivity
      *
-     * @return string
+     * @return \DateTime 
      */
-    public function getCodeetab()
+    public function getLastActivity()
     {
-        return $this->codeetab;
-    }
-
-    /**
-     * Set codetypeetab
-     *
-     * @param string $codetypeetab
-     * @return User
-     */
-    public function setCodetypeetab($codetypeetab)
-    {
-        $this->codetypeetab = $codetypeetab;
-
-        return $this;
-    }
-
-    /**
-     * Get codetypeetab
-     *
-     * @return string
-     */
-    public function getCodetypeetab()
-    {
-        return $this->codetypeetab;
-    }
-
-    /**
-     * Set codecircregi
-     *
-     * @param string $codecircregi
-     * @return User
-     */
-    public function setCodecircregi($codecircregi)
-    {
-        $this->codecircregi = $codecircregi;
-
-        return $this;
-    }
-
-    /**
-     * Get codecircregi
-     *
-     * @return string
-     */
-    public function getCodecircregi()
-    {
-        return $this->codecircregi;
-    }
-
-    /**
-     * Set codedele
-     *
-     * @param string $codedele
-     * @return User
-     */
-    public function setCodedele($codedele)
-    {
-        $this->codedele = $codedele;
-
-        return $this;
-    }
-
-    /**
-     * Get codedele
-     *
-     * @return string
-     */
-    public function getCodedele()
-    {
-        return $this->codedele;
+        return $this->lastActivity;
     }
 
     /**
@@ -329,7 +265,7 @@ class User extends BaseUser
     /**
      * Get codeprof
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteProfil 
      */
     public function getCodeprof()
     {
@@ -352,7 +288,7 @@ class User extends BaseUser
     /**
      * Get codenivehier
      *
-     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuriteNiveauhierarchique 
      */
     public function getCodenivehier()
     {
@@ -360,25 +296,94 @@ class User extends BaseUser
     }
 
     /**
-     * Set lastActivity
+     * Set codeetab
      *
-     * @param \DateTime $lastActivity
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab
      * @return User
      */
-    public function setLastActivity($lastActivity)
+    public function setCodeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement $codeetab = null)
     {
-        $this->lastActivity = $lastActivity;
+        $this->codeetab = $codeetab;
 
         return $this;
     }
 
     /**
-     * Get lastActivity
+     * Get codeetab
      *
-     * @return \DateTime
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement 
      */
-    public function getLastActivity()
+    public function getCodeetab()
     {
-        return $this->lastActivity;
+        return $this->codeetab;
+    }
+
+    /**
+     * Set codetypeetab
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetab
+     * @return User
+     */
+    public function setCodetypeetab(\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement $codetypeetab = null)
+    {
+        $this->codetypeetab = $codetypeetab;
+
+        return $this;
+    }
+
+    /**
+     * Get codetypeetab
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement 
+     */
+    public function getCodetypeetab()
+    {
+        return $this->codetypeetab;
+    }
+
+    /**
+     * Set codecircregi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional $codecircregi
+     * @return User
+     */
+    public function setCodecircregi(\Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional $codecircregi = null)
+    {
+        $this->codecircregi = $codecircregi;
+
+        return $this;
+    }
+
+    /**
+     * Get codecircregi
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional 
+     */
+    public function getCodecircregi()
+    {
+        return $this->codecircregi;
+    }
+
+    /**
+     * Set codedele
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele
+     * @return User
+     */
+    public function setCodedele(\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation $codedele = null)
+    {
+        $this->codedele = $codedele;
+
+        return $this;
+    }
+
+    /**
+     * Get codedele
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation 
+     */
+    public function getCodedele()
+    {
+        return $this->codedele;
     }
 }

@@ -44,7 +44,7 @@
                 {% for user in users %}
                     <tr style="background-color:#EFF3FB;">
                         <td>
-                            <a href="{{ path('fos_user_profile_edit') }}">{{ user.id|e }}</a>
+                            <a href="{{ path('sise_user_edit',{'id': user.id|e}) }}">{{ user.id|e }}</a>
 
                         </td>
                         <td>{{ user.nomprenutil|e }}</td>

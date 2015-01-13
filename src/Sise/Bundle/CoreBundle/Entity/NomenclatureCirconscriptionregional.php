@@ -197,7 +197,7 @@ class NomenclatureCirconscriptionregional
 
     public function __toString()
     {
-        return $this->codecircregi;
+        return ($this->getLibecircregiar())?$this->getLibecircregiar():"";
     }
 
     /**

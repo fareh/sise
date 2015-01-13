@@ -169,6 +169,9 @@ class SecuriteProfilController extends Controller
         foreach ($entities as $key => $en) {
             if ($en->getCodepack()) {
                 $access = $em->getRepository('SiseCoreBundle:SecuriteDroitaccesgroupe')->findOneBy(array('codeenti'=>$en->getCodeenti(), 'codeprof'=>$entity->getCodeprof()));
+                if(!$access){
+                    $access = new SecuriteDroitaccesgroupe($en, $entity);
+                }
                 $accessForms[$en->getCodepack()->getCodepack()][$key] = $this->createForm(new SecuriteDroitaccesgroupeType($en->getCodeenti()), $access)->createView();
                 $packs[$en->getCodepack()->getCodepack()] = $en->getCodepack()->getLibepackar();
             }
@@ -225,6 +228,9 @@ class SecuriteProfilController extends Controller
         foreach ($entities as $key => $en) {
             if ($en->getCodepack()) {
                 $access = $em->getRepository('SiseCoreBundle:SecuriteDroitaccesgroupe')->findOneBy(array('codeenti'=>$en->getCodeenti(), 'codeprof'=>$entity->getCodeprof()));
+                if(!$access){
+                    $access = new SecuriteDroitaccesgroupe($en, $entity);
+                }
                 $accessForms[$en->getCodepack()->getCodepack()][$key] = $this->createForm(new SecuriteDroitaccesgroupeType($en->getCodeenti()), $access)->createView();
                 $packs[$en->getCodepack()->getCodepack()] = $en->getCodepack()->getLibepackar();
             }
@@ -235,6 +241,9 @@ class SecuriteProfilController extends Controller
             foreach ($entities as $key => $en) {
                 $params = $request->request->get($en->getCodeenti());
                 $acess = $em->getRepository('SiseCoreBundle:SecuriteDroitaccesgroupe')->findOneBy(array('codeenti'=>$en->getCodeenti(), 'codeprof'=>$entity->getCodeprof()));
+                if(!$acess){
+                    $acess = new SecuriteDroitaccesgroupe($en, $entity);
+                }
                 $acess->setDroisele((@$params['droisele'])?@$params['droisele']:'0');
                 $acess->setDroiinse((@$params['droiinse'])?@$params['droiinse']:'0');
                 $acess->setDroiupda((@$params['droiupda'])?@$params['droiupda']:'0');

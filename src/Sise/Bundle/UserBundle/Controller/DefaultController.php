@@ -50,6 +50,7 @@ class DefaultController extends Controller
 
     public function itemAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
         {
             $valinput = '';
@@ -58,16 +59,16 @@ class DefaultController extends Controller
             $typeinput = $request->get('$typeinput');
             $displayinput = 'codeprof';
             if ($valinput != '' and $typeinput != '') {
-                if($typeinput=='codegrouutil'){
+                if ($typeinput == 'codegrouutil') {
 
                     $form = $this->createForm(new relatedItemsFormType(), new User(), array())
-                   /* $form = $this->createFormBuilder(new User(), array(
-                        'attr' => array('name' => 'search'),
-                    ))*/
+                        /* $form = $this->createFormBuilder(new User(), array(
+                             'attr' => array('name' => 'search'),
+                         ))*/
 
                         ->add('codeprof', 'entity', array(
                             'class' => 'SiseCoreBundle:SecuriteProfil',
-                            'query_builder' => function(EntityRepository $er )use ($valinput){
+                            'query_builder' => function (EntityRepository $er) use ($valinput) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.codegrouutil = :codegrouutil')
                                     ->setParameter('codegrouutil', $valinput);
@@ -76,20 +77,20 @@ class DefaultController extends Controller
                             'translation_domain' => 'FOSUserBundle',
                             'attr' => array(
                                 'placeholder' => 'صلاحيات',
-                                'name'=>'search'
+                                'name' => 'search'
                             ),
                             'label_attr' => array(
                                 'class' => 'sr-only',
                             )))
-                   ->createView();
+                        ->createView();
                     $displayinput = 'codeprof';
 
                 }
 
 
-                if($typeinput=='codeprof'){
+                if ($typeinput == 'codeprof') {
                     /*$form = $this->createFormBuilder(new User())*/
-                          $form = $this->createForm(new relatedItemsFormType(), new User(), array())
+                    $form = $this->createForm(new relatedItemsFormType(), new User(), array())
                         ->add('codenivehier', null, array(
                             'label' => 'المستوى الإداري',
                             'translation_domain' => 'FOSUserBundle',
@@ -99,15 +100,15 @@ class DefaultController extends Controller
                             'label_attr' => array(
                                 'class' => 'sr-only',
                             )))
-                       ->createView();
+                        ->createView();
                     $displayinput = 'codenivehier';
 
                 }
 
 
-                if($typeinput=='codenivehier'){
-                   /* $form = $this->createFormBuilder(new User())*/
-                          $form = $this->createForm(new relatedItemsFormType(), new User(), array())
+                if ($typeinput == 'codenivehier') {
+                    /* $form = $this->createFormBuilder(new User())*/
+                    $form = $this->createForm(new relatedItemsFormType(), new User(), array())
                         ->add('codecircregi', 'entity', array(
                             'label' => 'المندوبية الجهوية ',
                             'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
@@ -124,13 +125,13 @@ class DefaultController extends Controller
                 }
 
 
-                if($typeinput=='codecircregi'){
-                   /* $form = $this->createFormBuilder(new User())*/
-                          $form = $this->createForm(new relatedItemsFormType(), new User(), array())
+                if ($typeinput == 'codecircregi') {
+                    /* $form = $this->createFormBuilder(new User())*/
+                    $form = $this->createForm(new relatedItemsFormType(), new User(), array())
                         ->add('codedele', 'entity', array(
                             'label' => 'المعتمدية',
                             'class' => 'SiseCoreBundle:NomenclatureDelegation',
-                            'query_builder' => function(EntityRepository $er )use ($valinput){
+                            'query_builder' => function (EntityRepository $er) use ($valinput) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.codecircregi = :codecircregi')
                                     ->setParameter('codecircregi', $valinput);
@@ -143,15 +144,15 @@ class DefaultController extends Controller
                             'label_attr' => array(
                                 'class' => 'sr-only',
                             )))
-                       ->createView();
+                        ->createView();
                     $displayinput = 'codedele';
 
                 }
 
 
-                if($typeinput=='codedele'){
+                if ($typeinput == 'codedele') {
                     $form = $this->createForm(new relatedItemsFormType(), new User(), array())
-                   /* $form = $this->createFormBuilder(new User())*/
+                        /* $form = $this->createFormBuilder(new User())*/
                         ->add('codetypeetab', 'entity', array(
                             'label' => 'نوع المؤسسة',
                             'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
@@ -169,41 +170,56 @@ class DefaultController extends Controller
                 }
 
 
-
-                if($typeinput=='codetypeetab'){
+                if ($typeinput == 'codetypeetab') {
                     $valinput2 = $request->get('$valinput2');
-                    $value = array('valinput'=>$valinput, 'valinput2'=>$valinput2);
-                   /* $form = $this->createFormBuilder(new User())*/
+                    $value = array('valinput' => $valinput, 'valinput2' => $valinput2);
+                    /* $form = $this->createFormBuilder(new User())*/
+                    $ids = array();
+                    $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array('codetypeetab' => $valinput, 'codedele' => $valinput2));
+                    foreach ($entities as $entity) {
+                        $ids[$entity->getCodeetab()] = $entity->getLibeetabar();
+                    }
                     $form = $this->createForm(new relatedItemsFormType(), new User(), array())
-                        ->add('codeetab', 'entity', array(
+                        ->add('codeetab', 'choice', array(
+                            'choices' => $ids,
+                            'required' => false,
                             'label' => 'المؤسسة',
-                            'class' => 'SiseCoreBundle:NomenclatureEtablissement',
-                            'query_builder' => function(EntityRepository $er )use ($value){
-                                return $er->createQueryBuilder('c')
-                                    ->where('c.codetypeetab = :codetypeetab')
-                                    ->andWhere('c.codedele = :codedele')
-                                    ->setParameter('codetypeetab', $value['valinput'])
-                                    ->setParameter('codedele', $value['valinput2']);
-                            },
-                            'property' => 'libeetabar',
-                            'translation_domain' => 'FOSUserBundle',
-                            'attr' => array(
-                                'placeholder' => 'المؤسسة',
-                            ),
-                            'label_attr' => array(
-                                'class' => 'sr-only',
-                            )))
-                       ->createView();
+                        ))
+                        /*   ->add('codeetab', 'entity', array(
+                               'label' => 'المؤسسة',
+                               'class' => 'SiseCoreBundle:NomenclatureEtablissement',
+                               'query_builder' => function(EntityRepository $er )use ($value){
+
+
+                                   $res  =  $er->createQueryBuilder('c')
+                                       ->where('c.codetypeetab = :codetypeetab')
+                                       ->andWhere('c.codedele = :codedele')
+                                       ->setParameter('codetypeetab', $value['valinput'])
+                                       ->setParameter('codedele', $value['valinput2'])
+
+                                       ;
+
+
+                                   return $res;
+                               },
+                               'property' => 'codeetab',
+                               'translation_domain' => 'FOSUserBundle',
+                               'attr' => array(
+                                   'placeholder' => 'المؤسسة',
+                               ),
+                               'label_attr' => array(
+                                   'class' => 'sr-only',
+                               )))*/
+                        ->createView();
                     $displayinput = 'codeetab';
                 }
-
 
 
                 //$form_assign = $form->createNamedBuilder('fos_user_registration', 'form', $form, array())
 
                 return $this->render('SiseUserBundle:Default:prototype_user.html.twig', array(
                     'form' => @$form,
-                    'displayinput'=>$displayinput
+                    'displayinput' => $displayinput
                 ));
 
 

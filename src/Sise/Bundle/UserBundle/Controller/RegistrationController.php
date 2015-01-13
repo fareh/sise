@@ -58,6 +58,8 @@ class RegistrationController extends BaseController
         //if ($request->isMethod('POST')) {
 
 
+
+     // $params = $request->request->get($form->getName());var_dump($params); die;
             if ($form->isValid()) {
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
@@ -77,6 +79,61 @@ class RegistrationController extends BaseController
 
         return $this->render('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
+        ));
+    }
+
+
+    /**
+     * @Security("has_role('A')")
+     */
+
+
+    public function editAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('SiseUserBundle:User')->find($id);
+        if (!$user) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+        $event = new GetResponseUserEvent($user, $request);
+        $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_INITIALIZE, $event);
+
+        if (null !== $event->getResponse()) {
+            return $event->getResponse();
+        }
+
+
+        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+       // $formFactory = $this->get('sise_user.profile.form.factory');
+        $formFactory = $this->container->get('sise_user.profile.form.factory');
+
+        $form = $formFactory->createForm();
+        $form->setData($user);
+
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+            $userManager = $this->get('fos_user.user_manager');
+
+            $event = new FormEvent($form, $request);
+            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
+
+            $userManager->updateUser($user);
+
+            if (null === $response = $event->getResponse()) {
+                $url = $this->generateUrl('sise_user_list');
+                $response = new RedirectResponse($url);
+            }
+
+            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+            return $response;
+        }
+        return $this->render('FOSUserBundle:Registration:edit.html.twig', array(
+            'form' => $form->createView(),
+            'user'=>$user
         ));
     }
 

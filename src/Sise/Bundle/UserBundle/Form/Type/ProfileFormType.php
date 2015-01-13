@@ -14,56 +14,33 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 use Doctrine\ORM\EntityRepository;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\Event\DataEvent;
-use Symfony\Component\Form\FormEvent;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Sise\Bundle\UserBundle\EventListener\AddfieldToDisabledInEditViewSubscriber;
 
-
-class RegistrationFormType extends AbstractType
+class ProfileFormType   extends \FOS\UserBundle\Form\Type\ProfileFormType
 {
+
+    private $class;
+
+    /**
+     * @param string $class The User class name
+     */
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
+
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $factory = $builder->getFormFactory();
-        // add your custom field
-        $builder
-            ->add('username', null, array(
-                'label' => 'الرمز المستخدم',
+        $this->buildUserForm($builder, $options);
+            $builder->add('current_password', 'password', array(
+                'label' => 'form.current_password',
                 'translation_domain' => 'FOSUserBundle',
-                'attr' => array(
-                    'placeholder' => 'الرمز المستخدم',
-                ),
-                'label_attr' => array(
-                    'class' => 'sr-only',
-                )))
-            ->add('email', 'email', array(
-                'label' => 'البريد الإلكتروني',
-                'translation_domain' => 'FOSUserBundle',
-                'attr' => array(
-                    'placeholder' => 'البريد الإلكتروني',
-                ),
-                'label_attr' => array(
-                    'class' => 'sr-only',
-                )))
-            ->add('plainPassword', 'repeated', array(
-                'type' => 'password',
-                'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'كلمة المرور',
-                    'attr' => array(
-                        'placeholder' => 'كلمة المرور',
-                    ),
-                    'label_attr' => array(
-                        'class' => 'sr-only',
-                    )),
-                'second_options' => array('label' => 'تأكيد كلمة المرور',
-                    'attr' => array(
-                        'placeholder' => 'تأكيد كلمة المرور',
-                    ),
-                    'label_attr' => array(
-                        'class' => 'sr-only',
-                    )),
-                'invalid_message' => 'fos_user.password.mismatch',
+                'mapped' => false,
+                'constraints' => new UserPassword(),
             ))
             ->add('matr', null, array(
                 'label' => 'المعرف الوحيد',
@@ -111,18 +88,44 @@ class RegistrationFormType extends AbstractType
                 'label_attr' => array(
                     'class' => 'sr-only',
                 )))
-            ->addEventSubscriber(new AddfieldToDisabledInEditViewSubscriber())
+                ->addEventSubscriber(new AddfieldToDisabledInEditViewSubscriber())
             ;
-
     }
 
     public function getParent()
     {
-        return 'fos_user_registration';
+        return 'fos_user_profile';
     }
 
     public function getName()
     {
-        return 'sise_user_registration';
+        return 'sise_user_profile';
     }
-} 
+
+
+
+
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => $this->class,
+            'intention'  => 'profile',
+        ));
+    }
+
+
+    /**
+     * Builds the embedded form representing the user.
+     *
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
+    protected function buildUserForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+        ;
+    }
+}

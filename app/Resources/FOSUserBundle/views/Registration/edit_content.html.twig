@@ -1,0 +1,110 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('sise_user_edit',{'id': user.id}) }}" {{ form_enctype(form) }} method="POST"
+      class="fos_user_registration_register">
+    {#{{ form_widget(form) }}#}
+
+    <div id="fos_user_registration_form">
+
+        <div>
+            {{ form_label(form.username) }}
+            {{ form_errors(form.username) }}
+            {{ form_widget(form.username) }}
+
+
+        </div>
+
+        <div>
+            {{ form_label(form.email) }}
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email) }}
+
+        </div>
+        <div>
+            {{ form_label(form.matr) }}
+            {{ form_errors(form.matr) }}
+            {{ form_widget(form.matr) }}
+
+        </div>
+        <div>
+            {{ form_label(form.nomprenutil) }}
+            {{ form_errors(form.nomprenutil) }}
+            {{ form_widget(form.nomprenutil) }}
+
+        </div>
+        <div>
+            {{ form_label(form.codegrouutil) }}
+            {{ form_errors(form.codegrouutil) }}
+            {{ form_widget(form.codegrouutil) }}
+
+        </div>
+
+
+
+
+
+
+        <div>
+            {{ form_label(form.codeprof) }}
+            {{ form_errors(form.codeprof) }}
+            {{ form_widget(form.codeprof) }}
+
+        </div>
+
+
+
+
+        <div>
+            {{ form_label(form.codenivehier) }}
+            {{ form_errors(form.codenivehier) }}
+            {{ form_widget(form.codenivehier) }}
+
+        </div>
+      {% if form.vars.value.codecircregi  %}
+
+        <div>
+            {{ form_label(form.codecircregi) }}
+            {{ form_errors(form.codecircregi) }}
+            {{ form_widget(form.codecircregi) }}
+
+        </div>
+{% endif %}
+
+        {% if form.vars.value.codedele  %}
+        <div>
+            {{ form_label(form.codedele) }}
+            {{ form_errors(form.codedele) }}
+            {{ form_widget(form.codedele) }}
+
+        </div>
+        {% endif %}
+
+        {% if form.vars.value.codetypeetab  %}
+
+        <div>
+            {{ form_label(form.codetypeetab) }}
+            {{ form_errors(form.codetypeetab) }}
+            {{ form_widget(form.codetypeetab) }}
+
+        </div>
+        {% endif %}
+
+
+        {% if form.vars.value.codeetab  %}
+
+            <div>
+                {{ form_label(form.codeetab) }}
+                {{ form_errors(form.codeetab) }}
+                {{ form_widget(form.codeetab) }}
+
+            </div>
+        {% endif %}
+
+        {{ form_widget(form._token) }}
+        {# {{ form_rest(form) }} #}
+        <div>
+            <input type="submit" value="{{ 'registration.submit'|trans }}"/>
+        </div>
+    </div>
+
+</form>
