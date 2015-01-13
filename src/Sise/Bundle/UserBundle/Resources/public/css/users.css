@@ -18,6 +18,8 @@
     width: 35%;
 }
 
+
+
 #fos_user_registration_form label ,  form[name="securite"] #securite label {
     display: block;
     float: right;
@@ -47,9 +49,27 @@ form.fos_user_registration_register , form[name="securite"]{
     text-align: center;
 
 }
+form[name="securite"] #securite   #CPHMain_UpRpt{
+    width: 100%;
+    clear: both;
+    float: left;
 
+}
+form[name="securite"] #securite   #CPHMain_UpRpt div{
+   width: 50%;
+    float: left;
+    text-align: right;
+}
 
+form[name="securite"] #securite   #CPHMain_UpRpt div label{
+    width: 80%;
 
+}
+
+form[name="securite"] #securite   #CPHMain_UpRpt input[type="checkbox"]{
+    min-height:inherit;
+    width: 20px;
+}
 
 
 /* fin formulaire d'enregistrement */

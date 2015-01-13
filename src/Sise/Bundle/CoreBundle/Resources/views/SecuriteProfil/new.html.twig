@@ -4,6 +4,155 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil creation', 'RouteAction' : 'securite_roles' })) }}
     <br>
 
-    {{ form(form) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
+    <div id="securite">
+
+
+        <div>
+            {{ form_label(form.codeprof) }}
+            {{ form_errors(form.codeprof) }}
+            {{ form_widget(form.codeprof) }}
+
+        </div>
+
+        <div>
+            {{ form_label(form.libeproffr) }}
+            {{ form_errors(form.libeproffr) }}
+            {{ form_widget(form.libeproffr) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(form.libeprofar) }}
+            {{ form_errors(form.libeprofar) }}
+            {{ form_widget(form.libeprofar) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(form.obse) }}
+            {{ form_errors(form.obse) }}
+            {{ form_widget(form.obse) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(form.codegrouutil) }}
+            {{ form_errors(form.codegrouutil) }}
+            {{ form_widget(form.codegrouutil) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(form.codeprof_codecyclense) }}
+            {{ form_errors(form.codeprof_codecyclense) }}
+            {{ form_widget(form.codeprof_codecyclense) }}
+
+        </div>
+
+
+        <div id="CPHMain_UpRpt">
+            {% for pack , accessForm in accessForms %}
+                <table width="98%">
+                    <tbody>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="margin: 0px;">
+
+                                    <span style="font: 12pt verdana;color: #003399;text-decoration: underline; width: 95%">
+                                        <strong>
+                                            {{ packs[pack] }}
+                                        </strong></span>
+                        </td>
+                    </tr>
+                    <tr style="font-size: 12pt">
+                        <td style="margin: 0px">
+
+                            <table style="font: 10pt verdana;color: #003399; width: 100%">
+                                <tbody>
+                                <tr>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 30%">
+
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input rel="#{{ pack }}1" id="{{ pack }}1" type="checkbox" name="{{ pack }}1"
+                                               onclick="SelectAll(this);">
+                                        <strong>
+                                            معاينة المعطيات</strong>
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input rel="#{{ pack }}2" id="{{ pack }}2" type="checkbox" name="{{ pack }}2"
+                                               onclick="SelectAll(this);">
+                                        <strong>
+                                            حجز و تحيين المعطيات</strong>
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 15%">
+                                        <input rel="#{{ pack }}3" id="{{ pack }}3" type="checkbox" name="{{ pack }}3"
+                                               onclick="SelectAll(this);">
+                                        <strong>
+                                            المصادقة على المعطيات</strong>
+                                    </th>
+                                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 10%">
+                                        <input rel="#{{ pack }}4" id="{{ pack }}4" type="checkbox" name="{{ pack }}4"
+                                               onclick="SelectAll(this);">
+                                        <strong>
+                                            حذف المعطيات</strong>
+                                    </th>
+
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <table style="font: 8pt verdana; width: 100%">
+                                <tbody>
+                                {% for key , access in accessForm %}
+
+                                    <tr>
+                                        <td style="border-bottom: black 1px solid; width: 30%">
+                                            <span style="font-family:verdana;font-size:9pt;"> {{ entities[key].libeentiar }} </span>
+                                        </td>
+                                        <td rel="#{{ pack }}1" style="border-bottom: black 1px solid; width: 15%">
+
+                                            {{ form_errors(access.droisele) }}
+                                            {{ form_widget(access.droisele, {'attr': {'novalidate': 'novalidate' }}) }}
+                                        </td>
+
+                                        <td rel="#{{ pack }}2" style="border-bottom: black 1px solid; width: 15%">
+
+                                            {{ form_errors(access.droiinse) }}
+                                            {{ form_widget(access.droiinse, {'attr': {'novalidate': 'novalidate' }}) }}
+                                        </td>
+                                        <td rel="#{{ pack }}3" style="border-bottom: black 1px solid; width: 15%">
+
+                                            {{ form_errors(access.droiupda) }}
+                                            {{ form_widget(access.droiupda, {'attr': {'novalidate': 'novalidate' }}) }}
+                                        </td>
+                                        <td rel="#{{ pack }}4" style="width: 10%">
+
+                                            {{ form_errors(access.droidele) }}
+                                            {{ form_widget(access.droidele, {'attr': {'novalidate': 'novalidate' }}) }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {{ form_end(form) }}
 
 {% endblock %}

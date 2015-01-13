@@ -22,6 +22,11 @@ class SecuritePackage
     private $codepack;
 
     /**
+     * @ORM\OneToMany(targetEntity="SecuriteEntite", mappedBy="codepack")
+     */
+    protected $codeenti;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="LIBEPACKFR", type="string", length=100, nullable=false)
@@ -210,5 +215,45 @@ class SecuritePackage
     public function getOrdeaffi()
     {
         return $this->ordeaffi;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codeenti = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add codeenti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti
+     * @return SecuritePackage
+     */
+    public function addCodeenti(\Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti)
+    {
+        $this->codeenti[] = $codeenti;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeenti
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti
+     */
+    public function removeCodeenti(\Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti)
+    {
+        $this->codeenti->removeElement($codeenti);
+    }
+
+    /**
+     * Get codeenti
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeenti()
+    {
+        return $this->codeenti;
     }
 }

@@ -8,8 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * SecuriteEntite
  *
- * @ORM\Table(name="securite_entite", indexes={@ORM\Index(name="FK_SECURITE_ENTITE_SECURITE_PA", columns={"CODEPACK"})})
- * @ORM\Entity
+ * @ORM\Table(name="securite_entite")
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\SecuriteEntiteRepository")
  */
 class SecuriteEntite
 {
@@ -42,11 +42,11 @@ class SecuriteEntite
     private $libeentiar;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CODEPACK", type="string", length=100, nullable=true)
-     */
-    private $codepack;
+     * @var SecuritePackage
+     * @ORM\ManyToOne(targetEntity="SecuritePackage", inversedBy="codeenti")
+     * @ORM\JoinColumn(name="CODEPACK", referencedColumnName="CODEPACK")
+     * */
+    protected $codepack;
 
     /**
      * @var integer
@@ -117,29 +117,6 @@ class SecuriteEntite
     public function getLibeentiar()
     {
         return $this->libeentiar;
-    }
-
-    /**
-     * Set codepack
-     *
-     * @param string $codepack
-     * @return SecuriteEntite
-     */
-    public function setCodepack($codepack)
-    {
-        $this->codepack = $codepack;
-
-        return $this;
-    }
-
-    /**
-     * Get codepack
-     *
-     * @return string
-     */
-    public function getCodepack()
-    {
-        return $this->codepack;
     }
 
     /**
@@ -226,5 +203,28 @@ class SecuriteEntite
     public function getDroitaccesgroupe()
     {
         return $this->droitaccesgroupe;
+    }
+
+    /**
+     * Set codepack
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\SecuritePackage $codepack
+     * @return SecuriteEntite
+     */
+    public function setCodepack(\Sise\Bundle\CoreBundle\Entity\SecuritePackage $codepack = null)
+    {
+        $this->codepack = $codepack;
+
+        return $this;
+    }
+
+    /**
+     * Get codepack
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\SecuritePackage 
+     */
+    public function getCodepack()
+    {
+        return $this->codepack;
     }
 }

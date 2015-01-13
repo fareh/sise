@@ -8,23 +8,17 @@ use Doctrine\ORM\Mapping as ORM;
  * SecuriteDroitaccesgroupe
  *
  * @ORM\Table(name="securite_droitaccesgroupe", indexes={@ORM\Index(name="FK_SECURITE_DROITACCESGROUPE_S", columns={"CODEENTI"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\SecuriteDroitaccesgroupeRepository")
  */
 class SecuriteDroitaccesgroupe
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(name="droitaccesgroupe", type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var integer $id
-     */
-    protected $id;
 
     /**
      * @var SecuriteProfil
      * @ORM\ManyToOne(targetEntity="SecuriteProfil", inversedBy="droitaccesgroupe")
      * @ORM\JoinColumn(name="CodeProf", referencedColumnName="CodeProf")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
      * */
     protected $codeprof;
 
@@ -34,6 +28,8 @@ class SecuriteDroitaccesgroupe
      * @var SecuriteEntite
      * @ORM\ManyToOne(targetEntity="SecuriteEntite", inversedBy="droitaccesgroupe")
      * @ORM\JoinColumn(name="CODEENTI", referencedColumnName="CODEENTI")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
      * */
     protected $codeenti;
 
@@ -42,47 +38,46 @@ class SecuriteDroitaccesgroupe
     /**
      * @var integer
      *
-     * @ORM\Column(name="DROISELE", type="smallint", nullable=false)
+     * @ORM\Column(name="DROISELE", type="boolean",options={"default":0})
      */
     private $droisele;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="DROIINSE", type="smallint", nullable=false)
+     * @ORM\Column(name="DROIINSE", type="boolean",options={"default":0})
      */
     private $droiinse;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="DROIUPDA", type="smallint", nullable=false)
+     * @ORM\Column(name="DROIUPDA", type="boolean",options={"default":0})
      */
     private $droiupda;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="DROIDELE", type="smallint", nullable=false)
+     * @ORM\Column(name="DROIDELE", type="boolean",options={"default":0})
      */
     private $droidele;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    function __construct($codeenti = null, $codeprof=null)
     {
-        return $this->id;
+        $this->codeenti = $codeenti;
+        $this->codeprof = $codeprof;
+    }
+
+    public function __toString(){
+
+        return ($this->getCodeenti() && $this->getCodeenti()->getCodepack())? $this->getCodeenti()->getCodepack()->getLibepackar().' '.$this->getCodeenti()->getLibeentiar():"";
     }
 
     /**
      * Set droisele
      *
-     * @param integer $droisele
+     * @param boolean $droisele
      * @return SecuriteDroitaccesgroupe
      */
     public function setDroisele($droisele)
@@ -95,7 +90,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droisele
      *
-     * @return integer 
+     * @return boolean 
      */
     public function getDroisele()
     {
@@ -105,7 +100,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Set droiinse
      *
-     * @param integer $droiinse
+     * @param boolean $droiinse
      * @return SecuriteDroitaccesgroupe
      */
     public function setDroiinse($droiinse)
@@ -115,10 +110,11 @@ class SecuriteDroitaccesgroupe
         return $this;
     }
 
+
     /**
      * Get droiinse
      *
-     * @return integer 
+     * @return boolean 
      */
     public function getDroiinse()
     {
@@ -128,7 +124,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Set droiupda
      *
-     * @param integer $droiupda
+     * @param boolean $droiupda
      * @return SecuriteDroitaccesgroupe
      */
     public function setDroiupda($droiupda)
@@ -141,7 +137,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droiupda
      *
-     * @return integer 
+     * @return boolean 
      */
     public function getDroiupda()
     {
@@ -151,7 +147,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Set droidele
      *
-     * @param integer $droidele
+     * @param boolean $droidele
      * @return SecuriteDroitaccesgroupe
      */
     public function setDroidele($droidele)
@@ -164,7 +160,7 @@ class SecuriteDroitaccesgroupe
     /**
      * Get droidele
      *
-     * @return integer 
+     * @return boolean 
      */
     public function getDroidele()
     {
@@ -177,7 +173,7 @@ class SecuriteDroitaccesgroupe
      * @param \Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof
      * @return SecuriteDroitaccesgroupe
      */
-    public function setCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof = null)
+    public function setCodeprof(\Sise\Bundle\CoreBundle\Entity\SecuriteProfil $codeprof)
     {
         $this->codeprof = $codeprof;
 
@@ -200,7 +196,7 @@ class SecuriteDroitaccesgroupe
      * @param \Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti
      * @return SecuriteDroitaccesgroupe
      */
-    public function setCodeenti(\Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti = null)
+    public function setCodeenti(\Sise\Bundle\CoreBundle\Entity\SecuriteEntite $codeenti)
     {
         $this->codeenti = $codeenti;
 
@@ -215,10 +211,5 @@ class SecuriteDroitaccesgroupe
     public function getCodeenti()
     {
         return $this->codeenti;
-    }
-
-    public function __toString(){
-
-        return ($this->getCodeenti()->getLibeentiar())?$this->getCodeenti()->getLibeentiar():"";
     }
 }

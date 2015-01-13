@@ -5,6 +5,7 @@ namespace Sise\Bundle\CoreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class SecuriteProfilType extends AbstractType
 {
@@ -21,11 +22,29 @@ class SecuriteProfilType extends AbstractType
             ->add('obse')
             ->add('codegrouutil')
             ->add('codeprof_codecyclense')
-            ->add('droitaccesgroupe', null, array(
+          /*  ->add('droitaccesgroupe', null, array(
                     "multiple" => true,
                     "expanded" => true
                 )
-            )
+            )*/
+
+          //->add('droitaccesgroupe', 'collection', array('type' => new SecuriteDroitaccesgroupeType()))
+           /*->add('droitaccesgroupe', null, array(
+                "multiple" => true,
+                "expanded" => true,
+                'class' => 'SiseCoreBundle:SecuriteDroitaccesgroupe',
+
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('p')
+                        ->leftJoin('p.codeenti', 'c')
+                        ->leftJoin('c.codepack', 'r')
+                        ->orderBy('r.ordeaffi', 'ASC')
+                         ->where('r.ordeaffi >= :ordeaffi')
+                        ->setParameter('ordeaffi', 0);
+                   // return $er->getDroitAccesGroupe();
+                    //var_dump($er->getDroitAccesGroupe()) ; die;
+                },
+            ))*/
         ;
     }
     

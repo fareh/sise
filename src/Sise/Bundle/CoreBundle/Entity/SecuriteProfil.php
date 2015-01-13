@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * SecuriteProfil
  *
  * @ORM\Table(name="securite_profil")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\SecuriteProfilRepository")
  */
 class SecuriteProfil
 {

@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Sise\Bundle\CoreBundle\Entity\SecuriteProfil;
 use Sise\Bundle\CoreBundle\Form\SecuriteProfilType;
+use Sise\Bundle\CoreBundle\Form\SecuriteDroitaccesgroupeType;
+use Sise\Bundle\CoreBundle\Entity\SecuriteDroitaccesgroupe;
 
 /**
  * SecuriteProfil controller.
@@ -29,6 +31,7 @@ class SecuriteProfilController extends Controller
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new SecuriteProfil entity.
      *
@@ -36,22 +39,43 @@ class SecuriteProfilController extends Controller
     public function createAction(Request $request)
     {
         $entity = new SecuriteProfil();
-
-       // var_dump($entity); die;
+        $em = $this->getDoctrine()->getManager();
+        // var_dump($entity); die;
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+        $accessForms = array();
+        $packs = array();
+        $entities = $em->getRepository('SiseCoreBundle:SecuriteEntite')->getEntities();
+        foreach ($entities as $key => $en) {
+            if ($en->getCodepack()) {
+                $accessForms[$en->getCodepack()->getCodepack()][$key] = $this->createForm(new SecuriteDroitaccesgroupeType($en->getCodeenti()), new SecuriteDroitaccesgroupe())->createView();
+                $packs[$en->getCodepack()->getCodepack()] = $en->getCodepack()->getLibepackar();
+            }
+        }
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
-            $em->flush();
+            foreach ($entities as $key => $en) {
+                $params = $request->request->get($en->getCodeenti());
+                $acess = new SecuriteDroitaccesgroupe($en, $entity);
+                $acess->setDroisele((@$params['droisele'])?@$params['droisele']:'0');
+                $acess->setDroiinse((@$params['droiinse'])?@$params['droiinse']:'0');
+                $acess->setDroiupda((@$params['droiupda'])?@$params['droiupda']:'0');
+                $acess->setDroidele((@$params['droidele'])?@$params['droidele']:'0');
+                $em->persist($acess);
+            }
 
+            $em->flush();
             return $this->redirect($this->generateUrl('securite_roles'));
         }
 
         return $this->render('SiseCoreBundle:SecuriteProfil:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
+            'accessForms' => $accessForms,
+            'entities' => $entities,
+            'packs' => $packs
         ));
     }
 
@@ -80,12 +104,24 @@ class SecuriteProfilController extends Controller
      */
     public function newAction()
     {
+        $em = $this->getDoctrine()->getManager();
         $entity = new SecuriteProfil();
-        $form   = $this->createCreateForm($entity);
-
+        $form = $this->createCreateForm($entity);
+        $accessForms = array();
+        $packs = array();
+        $entities = $em->getRepository('SiseCoreBundle:SecuriteEntite')->getEntities();
+        foreach ($entities as $key => $en) {
+            if ($en->getCodepack()) {
+                $accessForms[$en->getCodepack()->getCodepack()][$key] = $this->createForm(new SecuriteDroitaccesgroupeType($en->getCodeenti()), new SecuriteDroitaccesgroupe())->createView();
+                $packs[$en->getCodepack()->getCodepack()] = $en->getCodepack()->getLibepackar();
+            }
+        }
         return $this->render('SiseCoreBundle:SecuriteProfil:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
+            'accessForms' => $accessForms,
+            'entities' => $entities,
+            'packs' => $packs
         ));
     }
 
@@ -106,7 +142,7 @@ class SecuriteProfilController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:SecuriteProfil:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -127,21 +163,33 @@ class SecuriteProfilController extends Controller
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
-
+        $accessForms = array();
+        $packs = array();
+        $entities = $em->getRepository('SiseCoreBundle:SecuriteEntite')->getEntities();
+        foreach ($entities as $key => $en) {
+            if ($en->getCodepack()) {
+                $access = $em->getRepository('SiseCoreBundle:SecuriteDroitaccesgroupe')->findOneBy(array('codeenti'=>$en->getCodeenti(), 'codeprof'=>$entity->getCodeprof()));
+                $accessForms[$en->getCodepack()->getCodepack()][$key] = $this->createForm(new SecuriteDroitaccesgroupeType($en->getCodeenti()), $access)->createView();
+                $packs[$en->getCodepack()->getCodepack()] = $en->getCodepack()->getLibepackar();
+            }
+        }
         return $this->render('SiseCoreBundle:SecuriteProfil:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'accessForms' => $accessForms,
+            'entities' => $entities,
+            'packs' => $packs
         ));
     }
 
     /**
-    * Creates a form to edit a SecuriteProfil entity.
-    *
-    * @param SecuriteProfil $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a SecuriteProfil entity.
+     *
+     * @param SecuriteProfil $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(SecuriteProfil $entity)
     {
         $form = $this->createForm(new SecuriteProfilType(), $entity, array(
@@ -153,6 +201,7 @@ class SecuriteProfilController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing SecuriteProfil entity.
      *
@@ -170,19 +219,43 @@ class SecuriteProfilController extends Controller
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
+        $accessForms = array();
+        $packs = array();
+        $entities = $em->getRepository('SiseCoreBundle:SecuriteEntite')->getEntities();
+        foreach ($entities as $key => $en) {
+            if ($en->getCodepack()) {
+                $access = $em->getRepository('SiseCoreBundle:SecuriteDroitaccesgroupe')->findOneBy(array('codeenti'=>$en->getCodeenti(), 'codeprof'=>$entity->getCodeprof()));
+                $accessForms[$en->getCodepack()->getCodepack()][$key] = $this->createForm(new SecuriteDroitaccesgroupeType($en->getCodeenti()), $access)->createView();
+                $packs[$en->getCodepack()->getCodepack()] = $en->getCodepack()->getLibepackar();
+            }
+        }
+
 
         if ($editForm->isValid()) {
+            foreach ($entities as $key => $en) {
+                $params = $request->request->get($en->getCodeenti());
+                $acess = $em->getRepository('SiseCoreBundle:SecuriteDroitaccesgroupe')->findOneBy(array('codeenti'=>$en->getCodeenti(), 'codeprof'=>$entity->getCodeprof()));
+                $acess->setDroisele((@$params['droisele'])?@$params['droisele']:'0');
+                $acess->setDroiinse((@$params['droiinse'])?@$params['droiinse']:'0');
+                $acess->setDroiupda((@$params['droiupda'])?@$params['droiupda']:'0');
+                $acess->setDroidele((@$params['droidele'])?@$params['droidele']:'0');
+                $em->persist($acess);
+            }
             $em->flush();
 
             return $this->redirect($this->generateUrl('securite_roles_edit', array('id' => $id)));
         }
 
         return $this->render('SiseCoreBundle:SecuriteProfil:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'accessForms' => $accessForms,
+            'entities' => $entities,
+            'packs' => $packs
         ));
     }
+
     /**
      * Deletes a SecuriteProfil entity.
      *
@@ -220,7 +293,6 @@ class SecuriteProfilController extends Controller
             ->setAction($this->generateUrl('securite_roles_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

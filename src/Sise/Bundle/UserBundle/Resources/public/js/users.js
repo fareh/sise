@@ -1,7 +1,21 @@
 $(document).ready(function () {
    // $('#securite_codeprof_codecyclense').multiselect();
     relatedItems('0');
+
 });
+
+function SelectAll(select){
+     var anchorArray = $("td[rel='"+select.getAttribute('rel')+"']");
+    $.each( anchorArray, function( i, val ) {
+        if (select.checked) {
+      $(this).find('input').attr ( "checked" ,"checked" );
+        }
+        else {
+            $(this).find('input').removeAttr('checked');
+        }
+
+    });
+}
 function relatedItems(cs) {
 
     if (cs == '0') {
