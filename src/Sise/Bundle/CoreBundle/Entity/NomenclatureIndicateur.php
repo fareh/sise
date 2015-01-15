@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureIndicateurType;
 /**
  * NomenclatureIndicateur
  *
@@ -24,16 +24,30 @@ class NomenclatureIndicateur
     /**
      * @var string
      *
+     * @ORM\Column(name="LibeIndiAr", type="string", length=500, nullable=true)
+     */
+    private $libeindiar;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="LibeIndiFr", type="string", length=500, nullable=true)
      */
     private $libeindifr;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="LibeIndiAr", type="string", length=500, nullable=true)
+     * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
      */
-    private $libeindiar;
+    private $ordraffi;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Acti", type="boolean", nullable=true)
+     */
+    private $acti;
 
     /**
      * @var string
@@ -48,21 +62,6 @@ class NomenclatureIndicateur
      * @ORM\Column(name="SPIndicateur", type="string", length=500, nullable=true)
      */
     private $spindicateur;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="Acti", type="boolean", nullable=true)
-     */
-    private $acti;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
-     */
-    private $ordraffi;
-
 
     /**
      * Get codeindi
@@ -211,4 +210,19 @@ class NomenclatureIndicateur
     {
         return $this->ordraffi;
     }
-}
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureIndicateurType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeindi;
+    }}

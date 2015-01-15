@@ -161,7 +161,7 @@ class DefaultController extends Controller
 
 
         if ($TdExporter == true) $RouteExporter = $RouteAction . '_export';
-        if ($TdNouveau == true && $PageContext='New')  $RouteNouveau = $RouteAction . '_new';
+        if ($TdNouveau == true )  $RouteNouveau = $RouteAction . '_new';
         if ($TdNouveau == true && $PageContext='register')  $RouteNouveau = $RouteAction . '_register';
         if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
 

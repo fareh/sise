@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclaturePeriodesuivibudgetType;
 /**
  * NomenclaturePeriodesuivibudget
  *
@@ -300,5 +300,21 @@ class NomenclaturePeriodesuivibudget
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclaturePeriodesuivibudgetType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeperisuivbudg;
     }
 }

@@ -4,6 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureNiveauscolaireType;
 
 /**
  * NomenclatureNiveauscolaire
@@ -19,7 +20,7 @@ class NomenclatureNiveauscolaire
      *
      * @ORM\Column(name="CodeNiveScol", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codenivescol;
 
@@ -34,10 +35,7 @@ class NomenclatureNiveauscolaire
     private $codematiopti;
 
 
-    public function __construct() {
-        $this->codefili = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->codematiopti = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
 
     /**
      * @var string
@@ -115,6 +113,18 @@ class NomenclatureNiveauscolaire
      * @ORM\Column(name="CollTech", type="boolean", nullable=false)
      */
     private $colltech;
+
+    function __construct()
+    {
+        $this->lyce = '0';
+        $this->collgene = '0';
+        $this->ordraffi = '0';
+        $this->prep = '0';
+        $this->prim = '0';
+        $this->colltech = '0';
+        $this->codefili = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codematiopti = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set libenivescolar
@@ -334,6 +344,14 @@ class NomenclatureNiveauscolaire
     }
 
     /**
+     * @param string $codenivescol
+     */
+    public function setCodenivescol($codenivescol)
+    {
+        $this->codenivescol = $codenivescol;
+    }
+
+    /**
      * Set codecyclense
      *
      * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement $codecyclense
@@ -449,6 +467,23 @@ class NomenclatureNiveauscolaire
     public function getCodematiopti()
     {
         return $this->codematiopti;
+    }
+public function iterateVisible() {
+     //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+     return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureNiveauscolaireType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codenivescol;
     }
 
 }

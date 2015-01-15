@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSituationfamilialeType;
 /**
  * NomenclatureSituationfamiliale
  *
@@ -153,6 +153,22 @@ class NomenclatureSituationfamiliale
     }
 
     public function __toString()
+    {
+        return $this->codesitufami;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureSituationfamilialeType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codesitufami;
     }

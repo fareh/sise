@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\ParametreAnneescolaireType;
 /**
  * ParametreAnneescolaire
  *
@@ -302,6 +302,22 @@ class ParametreAnneescolaire
         return $this->colltech;
     }
     public function __toString()
+    {
+        return $this->codeannescol;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new ParametreAnneescolaireType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codeannescol;
     }

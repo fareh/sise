@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+    {% block body -%}
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'مراحل التعليم', 'RouteAction' : 'nomenclatureniveauscolaire' })) }}
+        <br>
+        <table class="records_list">
+            <thead>
+            <tr style="color:White;background-color:#507CD1;font-weight:bold;">
+                <th scope="col">الرمز</th>
+                <th scope="col">الوصف بالعربية</th>
+                <th scope="col">الوصف بالفرنسية</th>
+                <th scope="col">ترتىب العرض</th>
+                <th scope="col">تفعيل التسمية</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for key,entity in entities %}
+                <tr>
+                    <td>
+                        <a href="{{ path('nomenclature_edit', {'context': context, 'id': entity[0] }) }}">{{ entity[0] }}</a>
+                    </td>
+                    <td>{{ entity[1] }}</td>
+                    <td>{{ entity[2] }}</td>
+                    <td>{{ entity[3] }}</td>
+                    <td>{{ entity[4]}}</td>
+                    {#{ entity.codegenr.codegenr == 'M' ? 'checked="checked"' :'' }#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {#<ul>#}
+            {#<li>#}
+                {#<a href="{{ path('nomenclature_new') }}">#}
+                    {#Create a new entry#}
+                {#</a>#}
+            {#</li>#}
+        {#</ul>#}
+    {% endblock %}

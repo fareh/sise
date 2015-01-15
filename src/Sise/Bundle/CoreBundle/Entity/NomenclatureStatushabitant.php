@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureStatushabitantType;
 /**
  * NomenclatureStatushabitant
  *
@@ -305,8 +305,22 @@ class NomenclatureStatushabitant
 
     public function __toString()
     {
-
-
         return ($this->getLibestathabiar()) ? $this->getLibestathabiar() : "";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureStatushabitantType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codestathabi;
     }
 }

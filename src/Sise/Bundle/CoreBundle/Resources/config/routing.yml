@@ -189,3 +189,6 @@ Siseblog_PersonnelPersonnel:
 Siseblog_NomenclatureQuestionnairerecensement:
     resource: "routing/nomenclaturequestionnairerecensement.yml"
     prefix: /NomenclatureQuestionnairerecensement
+SiseCoreBundle_Nomenclature:
+    resource: "routing/nomenclature.yml"
+    prefix: /Nomenclature

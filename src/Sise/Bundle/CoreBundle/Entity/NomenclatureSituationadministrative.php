@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSituationadministrativeType;
 /**
  * NomenclatureSituationadministrative
  *
@@ -303,6 +303,22 @@ class NomenclatureSituationadministrative
     }
 
     public function __toString()
+    {
+        return $this->codesituadmi;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureSituationadministrativeType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codesituadmi;
     }

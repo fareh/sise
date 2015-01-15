@@ -1,49 +1,29 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>NomenclatureCycleenseignement list</h1>
-
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'مراحل التعليم', 'RouteAction' : 'nomenclaturecycleenseignement' })) }}
+    <br>
     <table class="records_list">
         <thead>
-        <tr>
-            <th>Codecyclense</th>
-            <th>Libecyclensear</th>
-            <th>Libecyclensefr</th>
-            <th>Ordraffi</th>
-            <th>Acti</th>
-            <th>Prep</th>
-            <th>Prim</th>
-            <th>Collgene</th>
-            <th>Lyce</th>
-            <th>Colltech</th>
-            <th>Actions</th>
+        <tr style="color:White;background-color:#507CD1;font-weight:bold;">
+            <th scope="col">الرمز</th>
+            <th scope="col">الوصف بالعربية</th>
+            <th scope="col">الوصف بالفرنسية</th>
+            <th scope="col">ترتىب العرض</th>
+            <th scope="col">تفعيل التسمية</th>
         </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td>
-                    <a href="{{ path('nomenclaturecycleenseignement_show', { 'id': entity.codecyclense }) }}">{{ entity.codecyclense }}</a>
+                    <a href="{{ path('nomenclaturecycleenseignement_edit', { 'id': entity.codecyclense }) }}">{{ entity.codecyclense }}</a>
                 </td>
                 <td>{{ entity.libecyclensear }}</td>
                 <td>{{ entity.libecyclensefr }}</td>
                 <td>{{ entity.ordraffi }}</td>
                 <td>{{ entity.acti }}</td>
-                <td>{{ entity.prep }}</td>
-                <td>{{ entity.prim }}</td>
-                <td>{{ entity.collgene }}</td>
-                <td>{{ entity.lyce }}</td>
-                <td>{{ entity.colltech }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('nomenclaturecycleenseignement_show', { 'id': entity.codecyclense }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('nomenclaturecycleenseignement_edit', { 'id': entity.codecyclense }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                {#{ entity.codegenr.codegenr == 'M' ? 'checked="checked"' :'' }#}
             </tr>
         {% endfor %}
         </tbody>
