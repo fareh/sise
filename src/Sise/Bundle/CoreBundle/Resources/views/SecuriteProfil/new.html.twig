@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
-
+{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil creation', 'RouteAction' : 'securite_roles' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
     <br>
 
     {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}

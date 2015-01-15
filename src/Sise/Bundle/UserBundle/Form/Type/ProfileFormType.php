@@ -92,10 +92,7 @@ class ProfileFormType   extends \FOS\UserBundle\Form\Type\ProfileFormType
             ;
     }
 
-    public function getParent()
-    {
-        return 'fos_user_profile';
-    }
+
 
     public function getName()
     {
@@ -111,6 +108,7 @@ class ProfileFormType   extends \FOS\UserBundle\Form\Type\ProfileFormType
         $resolver->setDefaults(array(
             'data_class' => $this->class,
             'intention'  => 'profile',
+            'user' => null
         ));
     }
 

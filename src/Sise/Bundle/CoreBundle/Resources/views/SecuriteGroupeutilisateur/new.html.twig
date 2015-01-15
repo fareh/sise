@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
-
+{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteGroupeutilisateur creation', 'RouteAction' : 'securite_groupeutilisateur' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteGroupeutilisateur'|trans(), 'RouteAction' : 'securite_groupeutilisateur' })) }}
     <br>
 
     {{ form(form) }}
@@ -9,7 +9,7 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('securite_groupeutilisateur') }}">
-            Back to the list
+         {{ 'list'|trans() }}
         </a>
     </li>
 </ul>

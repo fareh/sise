@@ -15,9 +15,15 @@ class SecuriteGroupeutilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('libegrouutilfr')
-            ->add('libegrouutilar')
-            ->add('obse')
+            ->add('libegrouutilfr', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
+            ->add('libegrouutilar', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
+            ->add('obse', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
         ;
     }
     

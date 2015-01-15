@@ -1,16 +1,22 @@
 {% extends '::base.html.twig' %}
-
+{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteProfil list', 'RouteAction' : 'securite_roles' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
     <br>
     <table class="records_list">
         <thead>
             <tr>
-                <th>Codeprof</th>
-                <th>Libeproffr</th>
-                <th>Libeprofar</th>
-                <th>Obse</th>
-                <th>Actions</th>
+                <th>{{'Codeprof'|trans()  }}</th>
+
+                <th>{{'Libeproffr'|trans()  }}</th>
+
+
+                <th>{{'Libeprofar'|trans()  }}</th>
+
+
+                <th>{{'Obse'|trans()  }}</th>
+
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -21,14 +27,8 @@
                 <td>{{ entity.libeprofar }}</td>
                 <td>{{ entity.obse }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('securite_roles_show', { 'id': entity.codeprof }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('securite_roles_edit', { 'id': entity.codeprof }) }}">edit</a>
-                    </li>
-                </ul>
+                        <a href="{{ path('securite_roles_edit', { 'id': entity.codeprof }) }}">{{'edit'|trans()  }}</a>
+
                 </td>
             </tr>
         {% endfor %}
@@ -38,7 +38,7 @@
         <ul>
         <li>
             <a href="{{ path('securite_roles_new') }}">
-                Create a new entry
+                {{'new'|trans()  }}
             </a>
         </li>
     </ul>

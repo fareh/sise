@@ -16,12 +16,24 @@ class SecuriteProfilType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeprof')
-            ->add('libeproffr')
-            ->add('libeprofar')
-            ->add('obse')
-            ->add('codegrouutil')
-            ->add('codeprof_codecyclense')
+       ->add('codeprof', null , array(
+                  'translation_domain' => 'SiseCoreBundle'
+              ))
+            ->add('libeproffr', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
+            ->add('libeprofar', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
+            ->add('obse', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
+            ->add('codegrouutil', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
+            ->add('codeprof_codecyclense', null , array(
+                'translation_domain' => 'SiseCoreBundle'
+            ))
           /*  ->add('droitaccesgroupe', null, array(
                     "multiple" => true,
                     "expanded" => true

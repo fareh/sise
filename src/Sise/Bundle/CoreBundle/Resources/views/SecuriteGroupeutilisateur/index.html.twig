@@ -1,16 +1,16 @@
 {% extends '::base.html.twig' %}
-
+{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteGroupeutilisateur list', 'RouteAction' : 'securite_groupeutilisateur' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteGroupeutilisateur'|trans(), 'RouteAction' : 'securite_groupeutilisateur' })) }}
 <br>
     <table class="records_list">
         <thead>
             <tr>
-                <th>Codegrouutil</th>
-                <th>Libegrouutilfr</th>
-                <th>Libegrouutilar</th>
-                <th>Obse</th>
-                <th>Actions</th>
+                <th>{{'Codegrouutil'|trans()  }}</th>
+                <th> {{'Libegrouutilfr'|trans()  }}</th>
+                <th> {{'Libegrouutilar'|trans()  }}</th>
+                <th> {{'Obse'|trans()  }}</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -21,14 +21,8 @@
                 <td>{{ entity.libegrouutilar }}</td>
                 <td>{{ entity.obse }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('securite_groupeutilisateur_show', { 'id': entity.codegrouutil }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('securite_groupeutilisateur_edit', { 'id': entity.codegrouutil }) }}">edit</a>
-                    </li>
-                </ul>
+
+                        <a href="{{ path('securite_groupeutilisateur_edit', { 'id': entity.codegrouutil }) }}">{{ 'edit'|trans() }}</a>
                 </td>
             </tr>
         {% endfor %}
@@ -38,7 +32,7 @@
         <ul>
         <li>
             <a href="{{ path('securite_groupeutilisateur_new') }}">
-                Create a new entry
+             {{ 'new'|trans() }}
             </a>
         </li>
     </ul>
