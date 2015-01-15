@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureGenreType;
 /**
  * NomenclatureGenre
  *
@@ -305,5 +305,21 @@ class NomenclatureGenre
     public function __toString()
     {
         return ($this->getLibegenrar())?$this->getLibegenrar():"";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureGenreType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codegenr;
     }
 }

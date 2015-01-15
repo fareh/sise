@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSecteurType;
 /**
  * NomenclatureSecteur
  *
@@ -303,6 +303,22 @@ class NomenclatureSecteur
     }
 
     public function __toString()
+    {
+        return $this->codesect;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureSecteurType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codesect;
     }

@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureTypeclotureType;
 /**
  * NomenclatureTypecloture
  *
@@ -300,5 +300,21 @@ class NomenclatureTypecloture
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureTypeclotureType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codetypeclot;
     }
 }

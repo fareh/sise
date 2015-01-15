@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureProprietebatimentType;
 /**
  * NomenclatureProprietebatiment
  *
@@ -305,5 +305,21 @@ class NomenclatureProprietebatiment
     public function __toString()
     {
         return ($this->getLibepropbatiar())?$this->getLibepropbatiar():"";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureProprietebatimentType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codepropbati;
     }
 }

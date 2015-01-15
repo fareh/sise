@@ -4,7 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DoctrineCommonCollectionsArrayCollection;
-
+use Sise\Bundle\CoreBundle\Form\NomenclatureCycleenseignementType;
 /**
  * NomenclatureCycleenseignement
  *
@@ -433,5 +433,21 @@ class NomenclatureCycleenseignement
     public function __toString()
     {
         return ($this->getLibecyclensefr())?$this->getLibecyclensear():"";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCycleenseignementType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codecyclense;
     }
 }

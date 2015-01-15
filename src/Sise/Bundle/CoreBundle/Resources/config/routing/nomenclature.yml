@@ -1,0 +1,32 @@
+nomenclature:
+    path:     /{context}
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:index" }
+
+nomenclature_new:
+    path:     /{context}/new
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:new" }
+
+nomenclature_create:
+    path:     /{context}/create
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:create" }
+    requirements: { _method: post }
+
+nomenclature_edit:
+    path:     /{context}/{id}/edit
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:edit" }
+
+nomenclature_update:
+    path:     /{context}/{id}/update
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:update" }
+    requirements: { _method: post|put }
+
+nomenclature_delete1:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:delete" }
+    requirements: { _method: post|delete }
+nomenclature_export:
+    path:     /export
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:export" }
+nomenclature_list:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:list" }

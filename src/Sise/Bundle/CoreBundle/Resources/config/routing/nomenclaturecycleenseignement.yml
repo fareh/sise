@@ -1,30 +1,33 @@
 nomenclaturecycleenseignement:
     path:     /
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:index" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:index" }
 
 nomenclaturecycleenseignement_show:
     path:     /{id}/show
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:show" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:show" }
 
 nomenclaturecycleenseignement_new:
     path:     /new
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:new" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:new" }
 
 nomenclaturecycleenseignement_create:
     path:     /create
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:create" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:create" }
     requirements: { _method: post }
 
 nomenclaturecycleenseignement_edit:
     path:     /{id}/edit
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:edit" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:edit" }
 
 nomenclaturecycleenseignement_update:
     path:     /{id}/update
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:update" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:update" }
     requirements: { _method: post|put }
 
-nomenclaturecycleenseignement_delete:
+nomenclaturecycleenseignement_delete1:
     path:     /{id}/delete
-    defaults: { _controller: "SiseSiseBundle:NomenclatureCycleenseignement:delete" }
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:delete" }
     requirements: { _method: post|delete }
+nomenclaturecycleenseignement_export:
+    path:     /export
+    defaults: { _controller: "SiseCoreBundle:NomenclatureCycleenseignement:export" }

@@ -24,7 +24,6 @@ class NomenclatureCycleenseignementController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('SiseCoreBundle:NomenclatureCycleenseignement')->findAll();
-
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -45,7 +44,7 @@ class NomenclatureCycleenseignementController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nomenclaturecycleenseignement_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('nomenclaturecycleenseignement'));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:new.html.twig', array(
@@ -68,7 +67,7 @@ class NomenclatureCycleenseignementController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+      //  $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -125,12 +124,12 @@ class NomenclatureCycleenseignementController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+     //   $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:edit.html.twig', array(
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+      //      'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -144,11 +143,11 @@ class NomenclatureCycleenseignementController extends Controller
     private function createEditForm(NomenclatureCycleenseignement $entity)
     {
         $form = $this->createForm(new NomenclatureCycleenseignementType(), $entity, array(
-            'action' => $this->generateUrl('nomenclaturecycleenseignement_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('nomenclaturecycleenseignement_update', array('id' => $entity->getCodecyclense())),
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        //$form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -167,20 +166,20 @@ class NomenclatureCycleenseignementController extends Controller
             throw $this->createNotFoundException('Unable to find NomenclatureCycleenseignement entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+      //  $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-
+//var_dump($entity);die;
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nomenclaturecycleenseignement_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('nomenclaturecycleenseignement'));
         }
 
-        return $this->render('SiseSiseBundle:NomenclatureCycleenseignement:edit.html.twig', array(
+        return $this->render('SiseCoreBundle:NomenclatureCycleenseignement:edit.html.twig', array(
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+          //  'delete_form' => $deleteForm->createView(),
         ));
     }
 

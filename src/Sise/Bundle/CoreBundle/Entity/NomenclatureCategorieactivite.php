@@ -4,7 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureCategorieactiviteType;
 /**
  * NomenclatureCategorieactivite
  *
@@ -21,18 +21,6 @@ class NomenclatureCategorieactivite
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecateacti;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="NomenclatureActivite", mappedBy="codecateacti")
-     */
-    protected $codeacti;
-
-    public function __construct()
-    {
-        $this->codeacti = new ArrayCollection();
-    }
-
 
     /**
      * @var string
@@ -97,6 +85,15 @@ class NomenclatureCategorieactivite
      */
     private $colltech;
 
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureActivite", mappedBy="codecateacti")
+     */
+    protected $codeacti;
+
+    public function __construct()
+    {
+        $this->codeacti = new ArrayCollection();
+    }
 
     /**
      * Get codecateacti
@@ -346,5 +343,21 @@ class NomenclatureCategorieactivite
     public function getCodeacti()
     {
         return $this->codeacti;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCategorieactiviteType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codecateacti;
     }
 }
