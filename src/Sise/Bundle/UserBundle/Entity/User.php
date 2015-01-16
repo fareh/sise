@@ -96,8 +96,32 @@ class User extends BaseUser
      */
     private $lastActivity;
 
+
     /**
-     * @var NomenclatureEtablissement
+     * @var \Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional")
+     * @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
+     */
+    private $codecircregi;
+
+    /**
+     * @var \Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation")
+     * @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
+     */
+    private $codedele;
+
+
+    /**
+     * @var \Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement
+     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement")
+     * @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
+     */
+    private $codetypeetab;
+
+
+    /**
+     * @var \Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement
      * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement")
      * @ORM\JoinColumns({
      *      @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
@@ -105,28 +129,6 @@ class User extends BaseUser
      * })
      */
     private $codeetab;
-
-    /**
-     * @var NomenclatureTypeetablissement
-     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement")
-     * @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
-     */
-    private $codetypeetab;
-
-    /**
-     * @var NomenclatureTypeetablissement
-     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional")
-     * @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
-     */
-    private $codecircregi;
-
-    /**
-     * @var NomenclatureTypeetablissement
-     * @ORM\ManyToOne(targetEntity="\Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation")
-     * @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
-     */
-    private $codedele;
-
 
     /**
      *

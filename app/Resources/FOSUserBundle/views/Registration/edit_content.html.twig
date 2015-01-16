@@ -21,6 +21,20 @@
 
         </div>
         <div>
+
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first) }}
+
+
+        </div>
+        <div>
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second) }}
+
+        </div>
+
+        <div>
             {{ form_label(form.matr) }}
             {{ form_errors(form.matr) }}
             {{ form_widget(form.matr) }}

@@ -16,7 +16,7 @@ services:
             - { name: form.type, alias: sise_user_profile }
     sise_user.profile.form.factory:
         class: Sise\Bundle\UserBundle\Form\Factory\FormFactory
-        arguments: ["@form.factory", "%fos_user.profile.form.name%", "%fos_user.registration.form.type%", "%fos_user.profile.form.validation_groups%"]
+        arguments: ["@form.factory", "%fos_user.registration.form.name%", "%fos_user.registration.form.type%", "%fos_user.registration.form.validation_groups%"]
     sise_user.registration.form.type:
         class: Sise\Bundle\UserBundle\Form\Type\RegistrationFormType
         tags:

@@ -7,13 +7,12 @@ services:
             - { name: twig.extension }
     sise_sise.Search.form.type:
         class: Sise\Bundle\CoreBundle\Form\search\SearchType
-        arguments:
-              - @session
+        arguments: [@session,@doctrine.orm.entity_manager]
         tags:
             - { name: form.type}
     sise_sise.repartioneleveLieuhabitation.form.type:
-      class: Sise\Bundle\CoreBundle\Form\EffectiveeleveRepartioneleveLieuhabitationType
-      arguments: [@doctrine.orm.entity_manager]
+        class: Sise\Bundle\CoreBundle\Form\EffectiveeleveRepartioneleveLieuhabitationType
+        arguments: [@doctrine.orm.entity_manager]
     sise_sise.etablissementRecensement.form.type:
-      class: Sise\Bundle\CoreBundle\Form\EtablissementRecensementType
-      arguments: [@doctrine.orm.entity_manager]
+        class: Sise\Bundle\CoreBundle\Form\EtablissementRecensementType
+        arguments: [@doctrine.orm.entity_manager]

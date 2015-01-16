@@ -615,6 +615,6 @@ class NomenclatureEtablissement
 
     public function __toString()
     {
-        return ($this->getLibeetabar())?$this->getLibeetabar():"";
+        return ($this->getLibeetabar())?$this->getCodeetab(). ":" .$this->getLibeetabar():"";
     }
 }

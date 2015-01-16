@@ -35,13 +35,13 @@ class NomenclatureQuestionnaireController extends Controller
         $colltech = true;
         $session = $request->getSession();
         $codetypeetab = $session->get('codetypeetab');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("features", $params);
-            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em))->getForm();
         }
 
         $entitiestypeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneByCodetypeetab($codetypeetab);

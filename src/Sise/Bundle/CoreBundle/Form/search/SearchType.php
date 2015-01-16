@@ -5,13 +5,26 @@ namespace Sise\Bundle\CoreBundle\Form\search;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Event\DataEvent;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Sise\Bundle\CoreBundle\Repository\NomenclatureEtablissementRepository;
+use Doctrine\ORM\EntityManager;
+
+
+use Sise\Bundle\CoreBundle\EventListener\SearchListener;
+
 class SearchType extends AbstractType
 {
 
     private $session;
     private $features;
+    /** @var \Doctrine\ORM\EntityManager */
+    private $em;
 
-    public function __construct($session = null)
+    public function __construct($session = null, EntityManager $entityManager)
     {
         $this->session = $session;
         if ($this->session != null and $this->session->has('features')) {
@@ -19,6 +32,7 @@ class SearchType extends AbstractType
         } else {
             $this->features = array();
         }
+        $this->em = $entityManager;
     }
 
     /**
@@ -27,86 +41,104 @@ class SearchType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         if (count($this->features) < 1) {
-            $builder->add('NomenclatureCirconscriptionregional', 'entity', array(
-                'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
-                'property' => 'libecircregiar',
-                'empty_value' => "-- اختيار --",
-                'data' => 'codecircregi'
-            ));
-        } else {
 
             $builder->add('NomenclatureCirconscriptionregional', 'entity', array(
                 'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
                 'property' => 'libecircregiar',
-                'data' => $this->features['NomenclatureCirconscriptionregional']
+                'empty_value' => "-- اختيار --"
             ));
 
-
-            /*  $builder ->add('NomenclatureCirconscriptionregional', 'entity', array(
-                  'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
-                  'property' => 'libecircregiar',
-                  'query_builder' => function(\Sise\Bundle\CoreBundle\Repository\NomenclatureCirconscriptionregionalRepository $er)
-                  {
-                      return $er->findNomenclatureCirconscriptionregional($this->features['NomenclatureCirconscriptionregional']);
-                  }
-              ));*/
-
-        }
-
-
-        if (count($this->features) < 1) {
             $builder->add('NomenclatureDelegation', 'choice', array(
                 'empty_value' => "-- اختيار --"
             ));
-        } else {
 
-            $builder->add('NomenclatureDelegation', 'entity', array(
-                'class' => 'SiseCoreBundle:NomenclatureDelegation',
-                'property' => 'libedelear',
-                'query_builder' => function (\Sise\Bundle\CoreBundle\Repository\NomenclatureDelegationRepository $er) {
-                    return $er->findNomenclatureDelegation($this->features['NomenclatureDelegation']);
-                }
-            ));
-
-        }
-
-
-        if (count($this->features) < 1) {
             $builder->add('NomenclatureTypeetablissement', 'choice', array(
                 'empty_value' => "-- اختيار --",
             ));
-        } else {
 
-            $builder->add('NomenclatureTypeetablissement', 'entity', array(
-                'class' => 'SiseCoreBundle:NomenclatureTypeetablissement',
-                'property' => 'libetypeetabar',
-                'query_builder' => function (\Sise\Bundle\CoreBundle\Repository\NomenclatureTypeetablissementRepository $er) {
-                    return $er->findNomenclatureTypeetablissement($this->features['NomenclatureTypeetablissement']);
-                }
-            ));
-
-        }
-        if (count($this->features) < 1) {
             $builder->add('NomenclatureEtablissement', 'choice', array(
                 'empty_value' => "-- اختيار --",
             ))
                 ->add('CodeEtab', 'text');
-        } else {
 
-            $builder->add('NomenclatureEtablissement', 'entity', array(
-                'class' => 'SiseCoreBundle:NomenclatureEtablissement',
-                'property' => 'libeetabar',
-                'query_builder' => function (\Sise\Bundle\CoreBundle\Repository\NomenclatureEtablissementRepository $er) {
-                    return $er->findNomenclatureEtablissement($this->features['NomenclatureEtablissement']);
-                }
+        } else {
+            $items = array();
+            $items = $this->features;
+            $builder->add('NomenclatureCirconscriptionregional', 'choice', array(
+                'choices'=>$this->getCirconscriptionregional(),
+                'data' => $this->features['NomenclatureCirconscriptionregional']
+            ));
+            $builder->add('NomenclatureDelegation', 'choice', array(
+                'choices'=>$this->getDele(),
+                'data' => $this->features['NomenclatureDelegation']
+            ));
+            $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                'choices'=>$this->getTypeEtab(),
+                'data' => $this->features['NomenclatureTypeetablissement']
+            ));
+            $builder->add('NomenclatureEtablissement', 'choice', array(
+               'choices'=>$this->getEtab(),
+                'data' => $this->features['NomenclatureEtablissement']
             ))
                 ->add('CodeEtab', 'text', array(
                     'attr' => array('value' => $this->features['NomenclatureEtablissement'])));
 
-        };
-
+        }
     }
+
+
+
+    public function getCirconscriptionregional(){
+
+        $ids = array();
+        $items =$this->features;
+        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureCirconscriptionregional')->findAll();
+        foreach ($entities as $entity) {
+            $ids[$entity->getCodecircregi()] =$entity->getLibecircregiar();
+        }
+        return $ids;
+    }
+
+
+
+    public function getDele(){
+
+        $ids = array();
+        $items =$this->features;
+        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findBy(array('codecircregi'=>$items["NomenclatureCirconscriptionregional"]));
+        foreach ($entities as $entity) {
+            $ids[$entity->getCodedele()] =$entity->getLibedelear();
+        }
+        return $ids;
+    }
+
+
+
+    public function getTypeEtab(){
+
+        $ids = array();
+        $items =$this->features;
+        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findAll();
+        foreach ($entities as $entity) {
+            $ids[$entity->getCodetypeetab()] =$entity->getLibetypeetabar();
+        }
+        return $ids;
+    }
+
+    public function getEtab(){
+
+        $ids = array();
+        $items =$this->features;
+        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array('codetypeetab' => $items['NomenclatureTypeetablissement'], 'codedele' => $items['NomenclatureDelegation']));
+        foreach ($entities as $entity) {
+            $ids[$entity->getCodeetab()] =$entity->getCodeetab()." | ". $entity->getLibeetabar();
+        }
+        return $ids;
+    }
+
+    // $builder->addEventSubscriber(new SearchListener());
 
 
     /**
