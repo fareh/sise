@@ -2,11 +2,10 @@
 
 namespace Sise\Bundle\CoreBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sise\Bundle\CoreBundle\Form\search\SearchType;
-use Sise\Bundle\CoreBundle\Entity\MouvementeleveRecapmouvmenteleve;
 use Sise\Bundle\CoreBundle\Form\MouvementeleveRecapmouvmenteleveType;
+use Sise\Bundle\CoreBundle\Form\search\SearchType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * MouvementeleveRecapmouvmenteleve controller.
@@ -23,14 +22,16 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('mouvementeleverecapmouvmenteleve_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
+
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("features", $params);
-            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -66,14 +67,17 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('mouvementeleverecapmouvmenteleve_edit');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
+
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("features", $params);
-            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+            $user = $this->get('security.context')->getToken()->getUser();
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -111,8 +115,9 @@ class MouvementeleveRecapmouvmenteleveController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('mouvementeleverecapmouvmenteleve_list');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType())->getForm();
         $session = $request->getSession();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;

@@ -27,7 +27,6 @@ class NomenclatureQuestionnaireController extends Controller
     public function statElevAction(Request $request, $codepack)
     {
         $em = $this->getDoctrine()->getManager();
-        $user= $this->get('security.context')->getToken()->getUser();
         $prep = true;
         $prim = true;
         $collgene = true;
@@ -35,6 +34,7 @@ class NomenclatureQuestionnaireController extends Controller
         $colltech = true;
         $session = $request->getSession();
         $codetypeetab = $session->get('codetypeetab');
+        $user= $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
