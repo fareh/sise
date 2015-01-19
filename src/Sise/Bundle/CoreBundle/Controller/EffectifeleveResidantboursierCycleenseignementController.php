@@ -9,11 +9,10 @@
 namespace Sise\Bundle\CoreBundle\Controller;
 
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Sise\Bundle\CoreBundle\Entity\EffectifeleveResidantboursierCycleenseignement;
 use Sise\Bundle\CoreBundle\Form\search\SearchType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * EffectifeleveResidantboursierCycleenseignement controller.
@@ -31,7 +30,7 @@ class EffectifeleveResidantboursierCycleenseignementController extends Controlle
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
@@ -71,7 +70,7 @@ class EffectifeleveResidantboursierCycleenseignementController extends Controlle
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -125,7 +124,7 @@ class EffectifeleveResidantboursierCycleenseignementController extends Controlle
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectifeleveresidantboursiercycleenseignement_list');
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());

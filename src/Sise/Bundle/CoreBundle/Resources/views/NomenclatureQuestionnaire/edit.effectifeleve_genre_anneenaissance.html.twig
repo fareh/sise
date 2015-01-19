@@ -42,13 +42,15 @@
                                     <td align="right">
                                         <input name="nombelevmasc{{ key }}" type="text"
                                                value="{{ genre.nombelevmasc }}" id="nombelevmasc{{ key }}"
-                                               onchange="javascript:txtChanged(this);">
+                                               onchange="javascript:txtChangedTd('nombelevmasc{{ key }}','nombelevfemi{{ key }}', 'nombtota{{ key }}');">
                                     </td>
                                     <td align="right">
                                         <input name="nombelevfemi{{ key }}" type="text"
                                                value="{{ genre.nombelevfemi }}" id="nombelevfemi{{ key }}"
-                                               onchange="javascript:txtChanged(this);"></td>
-                                    <td align="right" style="background-color:#EEEEEE;">{{ genre.nombtota }}</td>
+                                               onchange="javascript:txtChangedTd('nombelevfemi{{ key }}','nombelevmasc{{ key }}', 'nombtota{{ key }}');">
+
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;" id="nombtota{{ key }}">{{ genre.nombtota }}</td>
                                 </tr>
                             {% endfor %}
 

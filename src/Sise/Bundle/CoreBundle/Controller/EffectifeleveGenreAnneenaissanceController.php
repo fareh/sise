@@ -86,7 +86,7 @@ class EffectifeleveGenreAnneenaissanceController extends Controller
 
                 $item->setNombelevmasc($nombelevmasc);
                 $item->setNombelevfemi($nombelevfemi);
-                $item->setNombtotaelev($nombtota);
+                $item->setNombtota($nombtota);
                 $em->persist($item);
                 $em->flush();
             }

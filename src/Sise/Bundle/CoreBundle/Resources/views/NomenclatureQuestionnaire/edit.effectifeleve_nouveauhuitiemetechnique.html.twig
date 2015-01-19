@@ -60,31 +60,31 @@
 
                                     <input name="nombelevmascvenasept{{ key }}" type="text"
                                            value="{{ entity.nombelevmascvenasept }}" id="nombelevmascvenasept{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
+                                           onchange="javascript:txtChangedTd('nombelevmascvenasept{{ key }}','nombelevfemivenasept{{ key }}', 'nombtotaelevvenasept{{ key }}');">
                                 </td>
                                 <td style="text-align: center;">
 
 
                                     <input name="nombelevfemivenasept{{ key }}" type="text"
                                            value="{{ entity.nombelevfemivenasept }}" id="nombelevfemivenasept{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
+                                           onchange="javascript:txtChangedTd('nombelevmascvenasept{{ key }}','nombelevfemivenasept{{ key }}', 'nombtotaelevvenasept{{ key }}');">
                                 </td>
                                 <td style="text-align: center;">
 
 
                                     <input name="nombelevmascvenahuit{{ key }}" type="text"
                                            value="{{ entity.nombelevmascvenahuit }}" id="nombelevmascvenahuit{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
+                                           onchange="javascript:txtChangedTd('nombelevmascvenahuit{{ key }}','nombelevfemivenahuit{{ key }}', 'nombtotaelevvenahuit{{ key }}');">
                                 </td>
                                 <td style="text-align: center;">
                                     <input name="nombelevfemivenahuit{{ key }}" type="text"
                                            value="{{ entity.nombelevfemivenahuit }}" id="nombelevfemivenahuit{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
+                                           onchange="javascript:txtChangedTd('nombelevmascvenahuit{{ key }}','nombelevfemivenahuit{{ key }}', 'nombtotaelevvenahuit{{ key }}');">
                                 </td>
-                                <td style="background-color:#EEEEEE;  text-align: center;">
+                                <td style="background-color:#EEEEEE;  text-align: center;" id="nombtotaelevvenasept{{ key }}">
                                     {{ entity.nombtotaelevvenasept }}
                                 </td>
-                                <td style="background-color:#EEEEEE;  text-align: center;">
+                                <td style="background-color:#EEEEEE;  text-align: center;" id="nombtotaelevvenahuit{{ key }}">
                                     {{ entity.nombtotaelevvenahuit }}
                                 </td>
                                 <td style="background-color:#EEEEEE;  text-align: center;">
