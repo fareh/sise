@@ -56,30 +56,30 @@
                                     <td align="right">
                                         <input name="nombelevresimasc{{ key }}" type="text"
                                                value="{{ entity.nombelevresimasc }}" id="nombelevresimasc{{ key }}"
-                                               onchange="javascript:txtChanged(this);">
+                                               onchange="javascript:txtChangedTd('nombelevresifemi{{ key }}','nombelevresimasc{{ key }}', 'nombtotaresielev{{ key }}');">
                                     </td>
                                     <td align="left">
                                         <input name="nombelevresifemi{{ key }}" type="text"
                                                value="{{ entity.nombelevresifemi }}" id="nombelevresifemi{{ key }}"
-                                               onchange="javascript:txtChanged(this);">
+                                               onchange="javascript:txtChangedTd('nombelevresifemi{{ key }}','nombelevresimasc{{ key }}', 'nombtotaresielev{{ key }}');">
                                     </td>
-                                    <td align="center" style="background-color:#EEEEEE;">
+                                    <td align="center" style="background-color:#EEEEEE;" id="nombtotaresielev{{ key }}">
                                         {{ entity.nombtotaresielev }}
                                     </td>
                                     <td align="right">
                                         <input name="nombelevbourmasc{{ key }}" type="text"
                                                value="{{ entity.nombelevbourmasc }}"
                                                id="nombelevbourmasc{{ key }}"
-                                               onchange="javascript:txtChanged(this);">
+                                               onchange="javascript:txtChangedTd('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombtotabourelev{{ key }}');">
                                     </td>
                                     <td align="left">
 
                                         <input name="nombelevbourfemi{{ key }}" type="text"
                                                value="{{ entity.nombelevbourfemi }}" id="nombelevbourfemi{{ key }}"
-                                               onchange="javascript:txtChanged(this);">
+                                               onchange="javascript:txtChangedTd('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombtotabourelev{{ key }}');">
 
                                     </td>
-                                    <td align="center" style="background-color:#EEEEEE;">
+                                    <td align="center" style="background-color:#EEEEEE;" id="nombtotabourelev{{ key }}">
                                         {{ entity.nombtotabourelev }}
                                     </td>
                                     <td align="right">

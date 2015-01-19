@@ -308,6 +308,11 @@ function txtChanged(v1, v2, v3) {
     document.getElementById(v3).value = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
 }
 
+
+function txtChangedTd(v1, v2, v3) {
+    document.getElementById(v3).innerText = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+}
+
 $(function () {
     $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
         step: 0.1,

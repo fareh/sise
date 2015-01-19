@@ -30,15 +30,15 @@
                                 <td align="right">
                                     <input type="text" name="nombelevmasc" value="{{ entity.nombelevmasc }}"
                                            id="nombelevmasc"
-                                           onchange="javascript:txtChanged('nombelevmascv','nombelevfemi', 'nombtota' );">
+                                           onchange="javascript:txtChanged('nombelevmasc','nombelevfemi', 'nombtota' );">
                                 </td>
                                 <td align="right">
                                     <input type="text" name="nombelevfemi" value="{{ entity.nombelevfemi }}"
-                                           id="nombelevfeminouv"
+                                           id="nombelevfemi"
                                            onchange="javascript:txtChanged('nombelevfemi','nombelevmasc', 'nombtota' );">
                                 </td>
                                 <td align="right">
-                                    <input type="text" name="nombtota" value="{{ entity.nombtota }}" id="nombtota">
+                                    <input type="text" name="nombtota" value="{{ entity.nombtota }}" id="nombtota" readonly>
                                 </td>
 
                             </tr>

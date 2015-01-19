@@ -241,16 +241,17 @@ class DefaultController extends Controller
     }
 
 
-    public function searchAction()
+    public function searchAction(Request $request)
     {
         // Generation of the form
         $em = $this->getDoctrine()->getManager();
         $user= $this->get('security.context')->getToken()->getUser();
+        $session = $request->getSession();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
 
         // return the form view
         return $this->render('SiseCoreBundle:Default:search.html.twig', array(
-            'form' => $form->createView(),
+            'form' => $search->createView(),
         ));
     }
 
