@@ -27,7 +27,7 @@ class NomenclatureQuestionnaireController extends Controller
     public function statElevAction(Request $request, $codepack)
     {
         $em = $this->getDoctrine()->getManager();
-        //
+        $user= $this->get('security.context')->getToken()->getUser();
         $prep = true;
         $prim = true;
         $collgene = true;
@@ -35,13 +35,13 @@ class NomenclatureQuestionnaireController extends Controller
         $colltech = true;
         $session = $request->getSession();
         $codetypeetab = $session->get('codetypeetab');
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em))->getForm();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("features", $params);
-            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em))->getForm();
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         }
 
         $entitiestypeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->findOneByCodetypeetab($codetypeetab);

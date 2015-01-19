@@ -1,4 +1,5 @@
-<center>
+
+    {% if form.NomenclatureEtablissement is defined  %}
     <form action="{{ pathfilter }}" method="post" {{ form_enctype(form) }} class="well form-search" id="filtrage_sise">
         <div id="CPHMain_EtabFiltre1_upfiltre">
 
@@ -6,13 +7,20 @@
             <table width="100%" style="font-size: 14pt; background-color: #EEEEEE; padding: 10px;">
                 <tbody>
                 <tr style="background: #EEEEEE">
-                    <td id="CPHMain_EtabFiltre1_TdCodeCircRegi" width="15%">
-                        المندوبية الجهوية
-                    </td>
+        {% set Circ = form.NomenclatureCirconscriptionregional.vars.block_prefixes.1  %}
+                    {% set dele = form.NomenclatureDelegation.vars.block_prefixes.1  %}
 
-                    <td id="CPHMain_EtabFiltre1_TdCodeDele" width="15%">
+                    <td id="CPHMain_EtabFiltre1_TdCodeCircRegi" width="15%">     {% if Circ  == 'choice' %}
+                        المندوبية الجهوية
+                        {% endif %} </td>
+
+
+
+
+                    <td id="CPHMain_EtabFiltre1_TdCodeDele" width="15%"> {% if dele  == 'choice' %}
                         المعتمدية
-                    </td>
+                        {% endif %}</td>
+
 
                     <td id="CPHMain_EtabFiltre1_TdCodeTypeEtab" width="15%">
                         نوع المؤسسة
@@ -40,6 +48,8 @@
                     <td>  {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListe("sise_bundle_corebundle_search_NomenclatureCirconscriptionregional","NomenclatureDelegation", "sise_bundle_corebundle_search_NomenclatureDelegation" );' }}
                         ) }}
                     </td>
+
+
                     <td>  {{ form_widget(form.NomenclatureDelegation, {'attr': {'class': 'NomenclatureDelegation', 'onChange': 'getListe("sise_bundle_corebundle_search_NomenclatureDelegation","NomenclatureTypeetablissement", "sise_bundle_corebundle_search_NomenclatureTypeetablissement" );' }}
                         ) }}
                     </td>
@@ -53,18 +63,16 @@
                     <td width="15%" align="center">
                         <input type="submit" name="ctl00$CPHMain$BtnRechercher" value="بحث" id="CPHMain_BtnRechercher"
                                class="BtnRecherche">
-
                     </td>
-
                 </tr>
-
                 </tbody>
             </table>
 
 
         </div>
     </form>
-</center>
+    {% endif %}
+
 
 
 <style>

@@ -10,8 +10,8 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Event\DataEvent;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Sise\Bundle\CoreBundle\Repository\NomenclatureEtablissementRepository;
 use Doctrine\ORM\EntityManager;
+use Sise\Bundle\UserBundle\Entity\User;
 
 
 use Sise\Bundle\CoreBundle\EventListener\SearchListener;
@@ -23,8 +23,9 @@ class SearchType extends AbstractType
     private $features;
     /** @var \Doctrine\ORM\EntityManager */
     private $em;
+    private $user ;
 
-    public function __construct($session = null, EntityManager $entityManager)
+    public function __construct($session = null, EntityManager $entityManager,  $user)
     {
         $this->session = $session;
         if ($this->session != null and $this->session->has('features')) {
@@ -33,6 +34,8 @@ class SearchType extends AbstractType
             $this->features = array();
         }
         $this->em = $entityManager;
+
+        $this->user = $user;
     }
 
     /**
@@ -41,51 +44,166 @@ class SearchType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        if($this->user->getCodeetab()){
+             $params = array(
+                 'NomenclatureCirconscriptionregional'=>$this->user->getCodecircregi()->getCodecircregi(),
+                 'NomenclatureDelegation'=>$this->user->getCodedele()->getCodedele(),
+                 'NomenclatureTypeetablissement'=>$this->user->getCodetypeetab()->getCodetypeetab(),
+                 'NomenclatureEtablissement' =>$this->user->getCodeetab()->getCodeetab()
+             );
+            $this->session->set("codedele", $this->user->getCodedele()->getCodedele());
+            $this->session->set("codetypeetab", $this->user->getCodetypeetab()->getCodetypeetab());
+            $this->session->set("codeetab", $this->user->getCodeetab()->getCodeetab());
+            $this->session->set("features", $params);
+            $builder ;
+        }
+        elseif($this->user->getCodedele()){
+            $params = array(
+                'NomenclatureCirconscriptionregional'=>$this->user->getCodecircregi()->getCodecircregi(),
+                'NomenclatureDelegation'=>$this->user->getCodedele()->getCodedele(),
+            );
+            $this->session->set("codedele", $this->user->getCodedele()->getCodedele());
+            $this->session->set("features", $params);
 
-        if (count($this->features) < 1) {
+            if (count($this->features) < 4) {
 
-            $builder->add('NomenclatureCirconscriptionregional', 'entity', array(
-                'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
-                'property' => 'libecircregiar',
-                'empty_value' => "-- اختيار --"
-            ));
+                $builder->add('NomenclatureCirconscriptionregional', 'hidden', array(
+                    'data'=>$this->user->getCodecircregi()->getCodecircregi()
+                ));
 
-            $builder->add('NomenclatureDelegation', 'choice', array(
-                'empty_value' => "-- اختيار --"
-            ));
+                $builder->add('NomenclatureDelegation', 'hidden', array(
+                    'data'=>$this->user->getCodedele()->getCodedele()
+                ));
+                $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                    'choices'=>$this->getTypeEtab(),
+                    'empty_value' => "-- اختيار --"
+                ));
 
-            $builder->add('NomenclatureTypeetablissement', 'choice', array(
-                'empty_value' => "-- اختيار --",
-            ));
+                $builder->add('NomenclatureEtablissement', 'choice', array(
+                    'empty_value' => "-- اختيار --",
+                ))
+                    ->add('CodeEtab', 'text');
 
-            $builder->add('NomenclatureEtablissement', 'choice', array(
-                'empty_value' => "-- اختيار --",
-            ))
-                ->add('CodeEtab', 'text');
+            } else {
+                $items = array();
+                $items = $this->features;
+                $builder->add('NomenclatureCirconscriptionregional', 'hidden', array(
+                    'data'=>$this->user->getCodecircregi()->getCodecircregi()
+                ));
 
-        } else {
-            $items = array();
-            $items = $this->features;
-            $builder->add('NomenclatureCirconscriptionregional', 'choice', array(
-                'choices'=>$this->getCirconscriptionregional(),
-                'data' => $this->features['NomenclatureCirconscriptionregional']
-            ));
-            $builder->add('NomenclatureDelegation', 'choice', array(
-                'choices'=>$this->getDele(),
-                'data' => $this->features['NomenclatureDelegation']
-            ));
-            $builder->add('NomenclatureTypeetablissement', 'choice', array(
-                'choices'=>$this->getTypeEtab(),
-                'data' => $this->features['NomenclatureTypeetablissement']
-            ));
-            $builder->add('NomenclatureEtablissement', 'choice', array(
-               'choices'=>$this->getEtab(),
-                'data' => $this->features['NomenclatureEtablissement']
-            ))
-                ->add('CodeEtab', 'text', array(
-                    'attr' => array('value' => $this->features['NomenclatureEtablissement'])));
+                $builder->add('NomenclatureDelegation', 'hidden', array(
+                    'data'=>$this->user->getCodedele()->getCodedele()
+                ));
+                $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                    'choices'=>$this->getTypeEtab(),
+                    'data' => $this->features['NomenclatureTypeetablissement']
+                ));
+                $builder->add('NomenclatureEtablissement', 'choice', array(
+                    'choices'=>$this->getEtab($this->features['NomenclatureTypeetablissement'], $this->features['NomenclatureDelegation']),
+                    'data' => $this->features['NomenclatureEtablissement']
+                ))
+                    ->add('CodeEtab', 'text', array(
+                        'attr' => array('value' => $this->features['NomenclatureEtablissement'])));
+
+            }
 
         }
+        elseif($this->user->getCodecircregi()){
+            $params = array(
+                'NomenclatureCirconscriptionregional'=>$this->user->getCodecircregi()->getCodecircregi(),
+            );
+            $this->session->set("features", $params);
+            if (count($this->features) < 4) {
+                $builder->add('NomenclatureCirconscriptionregional', 'hidden', array(
+                    'data'=>$this->user->getCodecircregi()->getCodecircregi()
+                ));
+
+                $builder->add('NomenclatureDelegation', 'choice', array(
+                    'choices'=>$this->getDele($this->user->getCodecircregi()->getCodecircregi())
+                ));
+                $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                    'empty_value' => "-- اختيار --",
+                ));
+                $builder->add('NomenclatureEtablissement', 'choice', array(
+                    'empty_value' => "-- اختيار --",
+                ))
+                    ->add('CodeEtab', 'text');
+
+            }
+            else {
+                $items = array();
+                $items = $this->features;
+                $builder->add('NomenclatureCirconscriptionregional', 'hidden', array(
+                    'data'=>$this->user->getCodecircregi()->getCodecircregi()
+                ));
+                $builder->add('NomenclatureDelegation', 'choice', array(
+                    'choices'=>$this->getDele($this->user->getCodecircregi()->getCodecircregi()),
+                    'data' => $this->features['NomenclatureDelegation']
+                ));
+                $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                    'choices'=>$this->getTypeEtab(),
+                    'data' => $this->features['NomenclatureTypeetablissement']
+                ));
+                $builder->add('NomenclatureEtablissement', 'choice', array(
+                    'choices'=>$this->getEtab($this->features['NomenclatureTypeetablissement'], $this->features['NomenclatureDelegation']),
+                    'data' => $this->features['NomenclatureEtablissement']
+                ))
+                    ->add('CodeEtab', 'text', array(
+                        'attr' => array('value' => $this->features['NomenclatureEtablissement'])));
+
+            }
+
+        }else{
+            if (count($this->features) < 4) {
+                $builder->add('NomenclatureCirconscriptionregional', 'entity', array(
+                    'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
+                    'property' => 'libecircregiar',
+                    'empty_value' => "-- اختيار --"
+                ));
+
+                $builder->add('NomenclatureDelegation', 'choice', array(
+                    'empty_value' => "-- اختيار --"
+                ));
+
+
+                $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                    'empty_value' => "-- اختيار --",
+                ));
+
+                $builder->add('NomenclatureEtablissement', 'choice', array(
+                    'empty_value' => "-- اختيار --",
+                ))
+                    ->add('CodeEtab', 'text');
+
+            }
+            else {
+                $items = array();
+                $items = $this->features;
+                $builder->add('NomenclatureCirconscriptionregional', 'choice', array(
+                    'choices'=>$this->getCirconscriptionregional(),
+                    'data' => $this->features['NomenclatureCirconscriptionregional']
+                ));
+                $builder->add('NomenclatureDelegation', 'choice', array(
+                    'choices'=>$this->getDele($items["NomenclatureCirconscriptionregional"]),
+                    'data' => $this->features['NomenclatureDelegation']
+                ));
+                $builder->add('NomenclatureTypeetablissement', 'choice', array(
+                    'choices'=>$this->getTypeEtab(),
+                    'data' => $this->features['NomenclatureTypeetablissement']
+                ));
+                $builder->add('NomenclatureEtablissement', 'choice', array(
+                    'choices'=>$this->getEtab($this->features['NomenclatureTypeetablissement'], $this->features['NomenclatureDelegation']),
+                    'data' => $this->features['NomenclatureEtablissement']
+                ))
+                    ->add('CodeEtab', 'text', array(
+                        'attr' => array('value' => $this->features['NomenclatureEtablissement'])));
+
+            }
+
+        }
+
+
+
     }
 
 
@@ -103,11 +221,11 @@ class SearchType extends AbstractType
 
 
 
-    public function getDele(){
+    public function getDele($item){
 
         $ids = array();
         $items =$this->features;
-        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findBy(array('codecircregi'=>$items["NomenclatureCirconscriptionregional"]));
+        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureDelegation')->findBy(array('codecircregi'=>$item));
         foreach ($entities as $entity) {
             $ids[$entity->getCodedele()] =$entity->getLibedelear();
         }
@@ -127,11 +245,11 @@ class SearchType extends AbstractType
         return $ids;
     }
 
-    public function getEtab(){
+    public function getEtab($item1, $item2){
 
         $ids = array();
         $items =$this->features;
-        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array('codetypeetab' => $items['NomenclatureTypeetablissement'], 'codedele' => $items['NomenclatureDelegation']));
+        $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array('codetypeetab' => $item1, 'codedele' => $item2));
         foreach ($entities as $entity) {
             $ids[$entity->getCodeetab()] =$entity->getCodeetab()." | ". $entity->getLibeetabar();
         }
