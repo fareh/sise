@@ -58,12 +58,12 @@ class SearchType extends AbstractType
 
                 $builder->add('NomenclatureCirconscriptionregional', 'hidden', array(
                     'data' => $this->user->getCodecircregi()->getCodecircregi(),
-                    'data' => ($this->features['NomenclatureCirconscriptionregional']) ? $this->features['NomenclatureCirconscriptionregional'] : "-- اختيار --"
+                    'data' => (@$this->features['NomenclatureCirconscriptionregional']) ? @$this->features['NomenclatureCirconscriptionregional'] : "-- اختيار --"
                 ));
 
                 $builder->add('NomenclatureDelegation', 'hidden', array(
                     'data' => $this->user->getCodedele()->getCodedele(),
-                    'data' => ($this->features['NomenclatureDelegation']) ? $this->features['NomenclatureDelegation'] : "-- اختيار --"
+                    'data' => (@$this->features['NomenclatureDelegation']) ? @$this->features['NomenclatureDelegation'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
                     'choices' => $this->getTypeEtab(),
