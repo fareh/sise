@@ -29,10 +29,20 @@ class EffectiveeleveListeelevehandicapType extends AbstractType
         $builder
 
             ->add('nompren')
-            ->add('redo')
-            ->add('intefaci')
+            ->add('redo', 'choice', array(
+                'choices'   => array(0 => 'Nouveau', 1 => 'Redoublant'),
+                'required'  => false,
+            ))
+
+            ->add('intefaci', 'choice', array(
+                'choices'   => array(0 => 'Facile', 1 => 'Difficile'),
+                'required'  => false,
+            ))
             ->add('intedefi')
-            ->add('suivcentspec')
+            ->add('suivcentspec', 'choice', array(
+                'choices'   => array(0 => 'Non', 1 => 'Oui'),
+                'required'  => false,
+            ))
             ->add('codegenr')
             ->add('annenais')
             ->add('codenivescol')

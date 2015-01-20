@@ -70,13 +70,13 @@
                                     <td align="right"><input name="nombelevmasc{{ key }}" type="text"
                                                              value="{{ entity.nombelevmasc }}"
                                                              id="nombelevmasc{{ key }}"
-                                                             onchange="javascript:txtChanged(this);">
+                                                             onchange="javascript:txtChangedTd('nombelevfemi{{ key }}','nombelevmasc{{ key }}', 'nombtotaelev{{ key }}');">
                                     </td>
                                     <td align="right"><input name="nombelevfemi{{ key }}" type="text"
                                                              value="{{ entity.nombclass }}" id="nombelevfemi{{ key }}"
-                                                             onchange="javascript:txtChanged(this);">
+                                                             onchange="javascript:txtChangedTd('nombelevfemi{{ key }}','nombelevmasc{{ key }}', 'nombtotaelev{{ key }}');">
                                     </td>
-                                    <td align="right">{{ entity.nombtotaelev }} </td>
+                                    <td align="right" id="nombtotaelev{{ key }}">{{ entity.nombtotaelev }} </td>
 
 
                                 </tr>

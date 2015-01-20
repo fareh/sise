@@ -26,10 +26,13 @@
                                     {{ annenai }}
                                 </td>
                             {% endfor %}
-                            <td align="center" colspan="3"
+                          {#
+                          <td align="center" colspan="3"
                                 style="color:White;background-color:#4F81BD;font-weight:bold;">
                                 جملة
                             </td>
+
+                          #}
                         </tr>
                         <tr>
                             <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي
@@ -39,9 +42,12 @@
                                 <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
                                 <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
                             {% endfor %}
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
+                         {#
+
+                          <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
                             <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
                             <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                         #}
                         </tr>
                         {% set codenivescol = 99999 %}
                         {% set nombelevmasc = 0 %}
@@ -67,7 +73,8 @@
                                             <input name="nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}"
                                                    type="text"
                                                    value="{{ entities[parent+key].nombelevmasc }}"
-                                                   id="nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}">
+                                                   id="nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}"
+                                                   onchange="javascript:txtChangedTd('nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}','nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}', 'nombtotaelev{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}');">
                                         </td>
                                         <td align="right">
 
@@ -75,18 +82,22 @@
                                             <input name="nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}"
                                                    type="text"
                                                    value="{{ entities[parent+key].nombelevfemi }}"
-                                                   id="nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}">
+                                                   id="nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}"
+                                                   onchange="javascript:txtChangedTd('nombelevmasc{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}','nombelevfemi{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}', 'nombtotaelev{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}');">
                                         </td>
-                                        <td align="right" style="background-color:#EEEEEE;">
+                                        <td align="right" style="background-color:#EEEEEE;" id="nombtotaelev{{ entities[parent+key].codenivescol.codenivescol }}{{ entities[parent+key].codeannenais.codeannenais }}">
                                             {{ entities[parent+key].nombtotaelev }}
 
                                         </td>
                                         {% set  nombelevmasc =  entities[parent+key].nombelevmasc + nombelevmasc %}
                                         {% set  nombelevfemi = entities[parent+key].nombelevfemi + nombelevfemi %}
                                     {% endfor %}
+                                   {#
                                     <td style="background-color:#EEEEEE;">{{ nombelevmasc }}</td>
                                     <td style="background-color:#EEEEEE;">{{ nombelevfemi }}</td>
                                     <td style="background-color:#EEEEEE;">{{ nombelevmasc + nombelevfemi }}</td>
+
+                                   #}
                                 {% endif %}
                                 {% set nombelevmasc = 0 %}
                                 {% set  nombelevfemi =  0 %}

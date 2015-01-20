@@ -310,7 +310,7 @@ function txtChanged(v1, v2, v3) {
 
 
 function txtChangedTd(v1, v2, v3) {
-    document.getElementById(v3).innerText = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+    document.getElementById(v3).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
 }
 
 $(function () {
