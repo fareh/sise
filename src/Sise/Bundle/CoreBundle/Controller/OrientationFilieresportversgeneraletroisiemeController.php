@@ -24,13 +24,14 @@ class OrientationFilieresportversgeneraletroisiemeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('orientationfilieresportversgeneraletroisieme_list');
         $session = $request->getSession();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        $user= $this->get('security.context')->getToken()->getUser();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("features", $params);
-            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -67,13 +68,14 @@ class OrientationFilieresportversgeneraletroisiemeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('orientationfilieresportversgeneraletroisieme_list');
         $session = $request->getSession();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        $user= $this->get('security.context')->getToken()->getUser();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("features", $params);
-            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+            $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         }
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -112,7 +114,8 @@ class OrientationFilieresportversgeneraletroisiemeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('orientationfilieresportversgeneraletroisieme_list');
         $session = $request->getSession();
-        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session))->getForm();
+        $user= $this->get('security.context')->getToken()->getUser();
+        $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
         $codeetab = ($session->has('codeetab')) ? $session->get('codeetab') : false;
