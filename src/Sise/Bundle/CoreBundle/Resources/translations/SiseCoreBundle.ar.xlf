@@ -1,5 +1,5 @@
-<?xml version="1.0" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="ar" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="new">
@@ -16,43 +16,63 @@
             </trans-unit>
             <trans-unit id="Obse">
                 <source>Obse</source>
-                <target>الملاحظات </target>
+                <target>الملاحظات</target>
             </trans-unit>
             <trans-unit id="SecuriteProfil">
                 <source>SecuriteProfil</source>
                 <target>صلاحيات</target>
             </trans-unit>
-            <trans-unit id="SecuriteProfil_Codeprof">
+            <trans-unit id="Codeprof">
                 <source>Codeprof</source>
                 <target>الرمز</target>
             </trans-unit>
-            <trans-unit id="SecuriteProfil_Libeproffr">
+            <trans-unit id="Libeproffr">
                 <source>Libeproffr</source>
-                <target>الوصف بالفرنسية </target>
+                <target>الوصف بالفرنسية</target>
             </trans-unit>
-            <trans-unit id="SecuriteProfil_Libeprofar">
+            <trans-unit id="Libeprofar">
                 <source>Libeprofar</source>
-                <target>الوصف بالعربية </target>
+                <target>الوصف بالعربية</target>
             </trans-unit>
-            <trans-unit id="SecuriteProfil_codecyclense">
+            <trans-unit id="codecyclense">
                 <source>Codeprof codecyclense</source>
-                <target>مرحلة التعليم </target>
+                <target>مرحلة التعليم</target>
             </trans-unit>
             <trans-unit id="SecuriteGroupeutilisateur">
                 <source>SecuriteGroupeutilisateur</source>
                 <target>مجموعة المستخدمين</target>
             </trans-unit>
-            <trans-unit id="SecuriteGroupeutilisateur_Codegrouutil">
+            <trans-unit id="Codegrouutil">
                 <source>Codegrouutil</source>
                 <target>الرمز</target>
             </trans-unit>
-            <trans-unit id="SecuriteGroupeutilisateur_Libegrouutilfr">
+            <trans-unit id="Libegrouutilfr">
                 <source>Libegrouutilfr</source>
-                <target>الوصف بالفرنسية </target>
+                <target>الوصف بالفرنسية</target>
             </trans-unit>
-            <trans-unit id="SecuriteGroupeutilisateur_Libegrouutilar">
+            <trans-unit id="Libegrouutilar">
                 <source>Libegrouutilar</source>
-                <target>الوصف بالعربية </target>
+                <target>الوصف بالعربية</target>
+            </trans-unit>
+            <trans-unit id="SecuriteUtilisateur">
+                <source>SecuriteUtilisateur</source>
+                <target>المستخدمين</target>
+            </trans-unit>
+            <trans-unit id="Nomprenutil">
+                <source>Nomprenutil</source>
+                <target>الاسم و اللقب</target>
+            </trans-unit>
+            <trans-unit id="User_Libenivehierar">
+                <source>User_Libenivehierar</source>
+                <target>المستوى الاداري</target>
+            </trans-unit>
+            <trans-unit id="User_Libeprofar">
+                <source>User_Libeprofar</source>
+                <target>الهيكل الاداري</target>
+            </trans-unit>
+            <trans-unit id="LastLogin">
+                <source>LastLogin</source>
+                <target>آخر زيارة</target>
             </trans-unit>
         </body>
     </file>
