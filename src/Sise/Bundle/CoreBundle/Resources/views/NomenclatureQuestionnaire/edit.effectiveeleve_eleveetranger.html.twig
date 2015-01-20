@@ -43,13 +43,15 @@
                                     <td align="right">
                                         <input name="nombelevmasc{{ key }}" type="text"
                                                value="{{ entity.nombelevmasc }}" id="nombelevmasc{{ key }}"
-                                               onchange="javascript:txtChanged(this);"></td>
+                                               onchange="javascript:txtChangedTd('nombelevfemi{{ key }}','nombelevmasc{{ key }}', 'nombtotaelev{{ key }}');">
+                                    </td>
                                     <td align="right">
 
                                         <input name="nombelevfemi{{ key }}" type="text"
                                                value="{{ entity.nombelevfemi }}" id="nombelevfemi{{ key }}"
-                                               onchange="javascript:txtChanged(this);"></td>
-                                    <td align="right" style="background-color:#EEEEEE;">{{ entity.nombtotaelev }}</td>
+                                               onchange="javascript:txtChangedTd('nombelevfemi{{ key }}','nombelevmasc{{ key }}', 'nombtotaelev{{ key }}');">
+                                    </td>
+                                    <td align="right" style="background-color:#EEEEEE;" id="nombtotaelev{{ key }}">{{ entity.nombtotaelev }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>

@@ -60,25 +60,36 @@
                             <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                         متابع من طرف مركز مختص</span></strong>
                         </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
-                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-
-                                      </span></strong>
-                        </th>
                     </tr>
                     {% for entity in entities %}
                     <tr>
                         <td>{{ entity.numeelev }}</td>
                         <td align="right">{{ entity.nompren }}</td>
                         <td align="right">{{ entity.codegenr }}</td>
-                        <td align="right">{{ entity.codegenr }}</td>
                         <td align="right">   {{ entity.annenais }}</td>
                         <td> {{ entity.codenivescol }}</td>
-                        <td align="right">{{ entity.redo }} </td>
+                        <td align="right">
+                            {% if  entity.redo %}
+                                Redoublant
+                            {% else %}
+                                Nouveau
+                            {% endif %}
+                        </td>
                         <td align="right">   {{ entity.codetypehand }}</td>
                         <td align="right">   {{ entity.codedegrhand }}</td>
-                        <td align="right">{{ entity.intefaci }} </td>
-                        <td align="right">{{ entity.suivcentspec }}</td>
+                        <td align="right">
+                            {% if  entity.intefaci %}
+                                Facile
+                            {% else %}
+                                Difficile
+                            {% endif %}
+                          </td>
+                        <td align="right">
+                            {% if  entity.suivcentspec %}
+                                Oui
+                            {% else %}
+                                Non
+                            {% endif %}</td>
 
                     </tr>
                     {% endfor %}
