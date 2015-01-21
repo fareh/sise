@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NomenclatureDisciplineniveauscolaire
  *
- * @ORM\Table(name="nomenclature_disciplineniveauscolaire", indexes={@ORM\Index(name="FK_Nomenclature_DisciplineNiveauScolaire_Nomenclature_Discipline", columns={"CodeDisci"})})
  * @ORM\Entity
  */
 class NomenclatureDisciplineniveauscolaire

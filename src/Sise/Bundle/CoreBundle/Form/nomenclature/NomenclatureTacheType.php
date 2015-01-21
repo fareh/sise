@@ -43,6 +43,6 @@ class NomenclatureTacheType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetache';
+        return 'nomenclature_sise';
     }
 }

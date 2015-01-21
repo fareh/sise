@@ -38,6 +38,6 @@ class NomenclatureDegrehandicapType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturedegrehandicap';
+        return 'nomenclature_sise';
     }
 }

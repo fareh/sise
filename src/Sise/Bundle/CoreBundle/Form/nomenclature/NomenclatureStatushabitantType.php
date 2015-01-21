@@ -38,6 +38,6 @@ class NomenclatureStatushabitantType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturestatushabitant';
+        return 'nomenclature_sise';
     }
 }

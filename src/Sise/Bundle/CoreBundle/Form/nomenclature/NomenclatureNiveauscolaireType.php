@@ -18,6 +18,13 @@ class NomenclatureNiveauscolaireType extends AbstractType
             ->add('codenivescol')
             ->add('libenivescolar')
             ->add('libenivescolfr')
+            ->add('codecyclense', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement',
+                'property' => 'libecyclensear',
+                'expanded' => false,
+                'multiple' => true,
+                'required' => true,
+            ))
             ->add('ordraffi')
             ->add('acti')
         ;
@@ -38,6 +45,6 @@ class NomenclatureNiveauscolaireType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureniveauscolaire';
+        return 'nomenclature_sise';
     }
 }

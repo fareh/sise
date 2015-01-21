@@ -38,6 +38,6 @@ class NomenclatureProprietebatimentType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureproprietebatiment';
+        return 'nomenclature_sise';
     }
 }

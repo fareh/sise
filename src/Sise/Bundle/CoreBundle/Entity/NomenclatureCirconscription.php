@@ -36,13 +36,6 @@ class NomenclatureCirconscription
     private $libecircfr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeGouv", type="string", length=50, nullable=true)
-     */
-    private $codegouv;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -55,6 +48,13 @@ class NomenclatureCirconscription
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeGouv", type="string", length=50, nullable=true)
+     */
+    private $codegouv;
 
     /**
      * @var boolean

@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureFiliereType;
 /**
  * NomenclatureFiliere
  *
@@ -20,21 +20,6 @@ class NomenclatureFiliere
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codefili;
-
-
-    /**
-     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codefili")
-     * * @ORM\JoinTable(name="nomenclature_filiereniveauscolaire",
-     *      joinColumns={@ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
-     *      )
-     **/
-    private $codenivescol;
-
-    public function __construct() {
-        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
 
     /**
      * @var string
@@ -63,6 +48,17 @@ class NomenclatureFiliere
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    private $codecycl ;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codefili")
+     * * @ORM\JoinTable(name="nomenclature_filiereniveauscolaire",
+     *      joinColumns={@ORM\JoinColumn(name="CodeFili", referencedColumnName="CodeFili")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
+     *      )
+     **/
+    private $codenivescol;
 
     /**
      * @var boolean
@@ -99,6 +95,25 @@ class NomenclatureFiliere
      */
     private $colltech;
 
+    public function __construct() {
+        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodecycl()
+    {
+        return $this->codecycl;
+    }
+
+    /**
+     * @param mixed $codecycl
+     */
+    public function setCodecycl($codecycl)
+    {
+        $this->codecycl = $codecycl;
+    }
 
     /**
      * Get codefili
@@ -353,6 +368,22 @@ class NomenclatureFiliere
     public function getCodenivescol()
     {
         return $this->codenivescol;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureFiliereType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codefili;
     }
 
 }

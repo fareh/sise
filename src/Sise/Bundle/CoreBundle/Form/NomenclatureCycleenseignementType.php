@@ -38,6 +38,6 @@ class NomenclatureCycleenseignementType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturecycleenseignement';
+        return 'nomenclature_sise';
     }
 }

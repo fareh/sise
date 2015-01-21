@@ -20,6 +20,11 @@ class NomenclatureTypetravailType extends AbstractType
             ->add('libetypetravfr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     
@@ -38,6 +43,6 @@ class NomenclatureTypetravailType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetypetravail';
+        return 'nomenclature_sise';
     }
 }

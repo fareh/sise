@@ -38,6 +38,6 @@ class NomenclatureSituationfamilialeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturesituationfamiliale';
+        return 'nomenclature_sise';
     }
 }

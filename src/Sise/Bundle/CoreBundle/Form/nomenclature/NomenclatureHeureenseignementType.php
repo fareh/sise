@@ -38,6 +38,6 @@ class NomenclatureHeureenseignementType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureheureenseignement';
+        return 'nomenclature_sise';
     }
 }

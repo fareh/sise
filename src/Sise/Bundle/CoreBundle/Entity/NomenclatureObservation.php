@@ -36,13 +36,6 @@ class NomenclatureObservation
     private $libeobsefr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCateEnti", type="string", length=50, nullable=false)
-     */
-    private $codecateenti;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -55,6 +48,13 @@ class NomenclatureObservation
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeCateEnti", type="string", length=50, nullable=false)
+     */
+    private $codecateenti;
 
     /**
      * @var boolean

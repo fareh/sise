@@ -38,6 +38,6 @@ class NomenclatureFonctionType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturefonction';
+        return 'nomenclature_sise';
     }
 }

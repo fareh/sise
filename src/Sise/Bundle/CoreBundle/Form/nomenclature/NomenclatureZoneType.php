@@ -38,6 +38,6 @@ class NomenclatureZoneType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturezone';
+        return 'nomenclature_sise';
     }
 }

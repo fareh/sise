@@ -44,6 +44,6 @@ class NomenclatureGradeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturegrade';
+        return 'nomenclature_sise';
     }
 }

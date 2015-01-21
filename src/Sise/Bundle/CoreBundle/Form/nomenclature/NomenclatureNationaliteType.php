@@ -43,6 +43,6 @@ class NomenclatureNationaliteType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturenationalite';
+        return 'nomenclature_sise';
     }
 }

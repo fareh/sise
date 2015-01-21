@@ -38,6 +38,6 @@ class NomenclatureSituationreseauelectriqueatelierType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturesituationreseauelectriqueatelier';
+        return 'nomenclature_sise';
     }
 }

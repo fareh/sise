@@ -39,6 +39,6 @@ class NomenclatureIndicateurType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureindicateur';
+        return 'nomenclature_sise';
     }
 }

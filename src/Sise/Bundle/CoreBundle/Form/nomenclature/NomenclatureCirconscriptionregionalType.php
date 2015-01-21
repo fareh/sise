@@ -39,6 +39,6 @@ class NomenclatureCirconscriptionregionalType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturecirconscriptionregional';
+        return 'nomenclature_sise';
     }
 }

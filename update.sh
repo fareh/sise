@@ -26,6 +26,6 @@ fi
 ./app/console fos:js-routing:debug
 ./app/console assetic:dump --env=prod --no-debug -v
 ./app/console doctrine:schema:update --force
-./app/console cache:clear
+./c
 ./app/console cache:clear --env=prod
 ./app/console fos:user:create testuser test@example.com p@ssword

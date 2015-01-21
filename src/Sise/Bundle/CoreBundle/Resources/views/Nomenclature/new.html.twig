@@ -1,37 +1,51 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-
-    <form action="{{ path('nomenclature_create', {'context': context}) }}"
-          method="post" {{ form_enctype(form) }}>
-        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'مراحل التعليم', 'RouteAction' : 'nomenclatureniveauscolaire' })) }}
-        <br>
-        <fieldset style="font-size:14pt; padding-top:10px; padding-right:10px; background-color :#EEEEEE; border-color:#EEEEEE; border-style :none; ">
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'مراحل التعليم', 'RouteAction' : 'nomenclatureniveauscolaire' })) }}
+    <br>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+        <div id="nomenclature_sise">
+            <div>
+                {{ form_label(attribute(form,index[0])) }}
+                {{ form_widget(attribute(form,index[0]),{ 'attr': {'style':'background-color:#EEEEEE;', 'readonly':'readonly' }}) }}
+            </div>
 
             <div>
-                <div>
-                    <span style="display:inline-block;height:28px;width:20%;">الرمز</span>
-                    <span style="display:inline-block;height:28px;width:20%;"> {{ form_widget(attribute(form,index[0])) }}</span>
+                {{ form_label(attribute(form,index[1])) }}
+                {{ form_widget(attribute(form,index[1])) }}
+            </div>
+            <div>
+                {{ form_label(attribute(form,index[2])) }}
+                {{ form_widget(attribute(form,index[2])) }}
+            </div>
+            {% if(context in tabnome) %}
+                <div class="btn-group">
+                    {{ form_label(attribute(form,index[5])) }}
+                    {{ form_widget(attribute(form,index[5])) }}
                 </div>
-            </div>
-            <div>
-                <span id="CPHMain_Label2" style="display:inline-block;height:28px;width:20%;">الوصف بالعربية</span>
-                <span>{{ form_widget(attribute(form,index[1])) }}</span>
-            </div>
-            <div>
-                <span id="CPHMain_Label3" style="display:inline-block;height:28px;width:20%;">الوصف بالفرنسية</span>
-                <span>  {{ form_widget(attribute(form,index[2])) }}</span>
-            </div>
-            <div>
-                <span id="CPHMain_Label5" style="display:inline-block;height:28px;width:20%;">ترتىب العرض</span>
-                <span> {{ form_widget(attribute(form,index[3])) }}</span>
-            </div>
-            <div>
-                <span id="CPHMain_Label6" style="display:inline-block;height:28px;width:20%;">تفعيل التسمية</span>
-                <span>{{ form_widget(attribute(form,index[4])) }}</span>
-                {#{ entity.codegenr.codegenr == 'M' ? 'checked="checked"' :'' }#}
-            </div>
-        </fieldset>
-        {{ form_rest(form) }}
-    </form>
+                <div class="btn-group">
+                    {{ form_label(attribute(form,index[6])) }}
+                    {{ form_widget(attribute(form,index[6])) }}
+                </div>
+                <div>
+                    {{ form_label(attribute(form,index[3])) }}
+                    {{ form_widget(attribute(form,index[3])) }}
+                </div>
+                <div>
+                    {{ form_label(attribute(form,index[4])) }}
+                    {{ form_widget(attribute(form,index[4])) }}
+                </div>
+            {% else %}
+                <div>
+                    {{ form_label(attribute(form,index[3])) }}
+                    {{ form_widget(attribute(form,index[3])) }}
+                </div>
+                <div>
+                    {{ form_label(attribute(form,index[4])) }}
+                    {{ form_widget(attribute(form,index[4])) }}
+                </div>
+            {% endif %}
+        </div>
+    {{ form_end(form) }}
 {% endblock %}

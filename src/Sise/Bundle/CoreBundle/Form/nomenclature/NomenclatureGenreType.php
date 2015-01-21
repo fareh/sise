@@ -38,6 +38,6 @@ class NomenclatureGenreType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturegenre';
+        return 'nomenclature_sise';
     }
 }

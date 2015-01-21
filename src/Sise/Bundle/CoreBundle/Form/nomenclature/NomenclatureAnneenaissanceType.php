@@ -45,6 +45,6 @@ class NomenclatureAnneenaissanceType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureanneenaissance';
+        return 'nomenclature_sise';
     }
 }

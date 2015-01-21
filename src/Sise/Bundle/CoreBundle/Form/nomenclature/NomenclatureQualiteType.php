@@ -38,6 +38,6 @@ class NomenclatureQualiteType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturequalite';
+        return 'nomenclature_sise';
     }
 }

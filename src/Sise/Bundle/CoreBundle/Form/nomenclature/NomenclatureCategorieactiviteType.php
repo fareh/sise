@@ -38,6 +38,6 @@ class NomenclatureCategorieactiviteType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturecategorieactivite';
+        return 'nomenclature_sise';
     }
 }

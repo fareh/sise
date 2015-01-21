@@ -38,6 +38,6 @@ class NomenclatureTypelogementType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetypelogement';
+        return 'nomenclature_sise';
     }
 }

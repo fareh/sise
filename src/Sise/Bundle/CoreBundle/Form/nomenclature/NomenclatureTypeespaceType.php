@@ -38,6 +38,6 @@ class NomenclatureTypeespaceType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetypeespace';
+        return 'nomenclature_sise';
     }
 }

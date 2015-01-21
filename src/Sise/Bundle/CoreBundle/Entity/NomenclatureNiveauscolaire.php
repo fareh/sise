@@ -25,19 +25,6 @@ class NomenclatureNiveauscolaire
     private $codenivescol;
 
     /**
-     * @ORM\ManyToMany(targetEntity="NomenclatureFiliere", mappedBy="codenivescol")
-     **/
-    private $codefili;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="NomenclatureMatiereoptionnelle", mappedBy="codenivescol")
-     **/
-    private $codematiopti;
-
-
-
-
-    /**
      * @var string
      *
      * @ORM\Column(name="LibeNiveScolAr", type="string", length=50, nullable=true)
@@ -50,20 +37,6 @@ class NomenclatureNiveauscolaire
      * @ORM\Column(name="LibeNiveScolFr", type="string", length=50, nullable=true)
      */
     private $libenivescolfr;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement", inversedBy="codenivescol")
-     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
-     */
-    protected $codecyclense;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeNiveScolSuiv", type="string", length=50, nullable=true)
-     */
-    private $codenivescolsuiv;
 
     /**
      * @var integer
@@ -78,6 +51,19 @@ class NomenclatureNiveauscolaire
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement", inversedBy="codenivescol")
+     * @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
+     */
+    protected $codecyclense;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeNiveScolSuiv", type="string", length=50, nullable=true)
+     */
+    private $codenivescolsuiv;
 
     /**
      * @var boolean
@@ -114,6 +100,21 @@ class NomenclatureNiveauscolaire
      */
     private $colltech;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureFiliere", mappedBy="codenivescol")
+     **/
+    private $codefili;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureDiscipline", mappedBy="codenivescol")
+     **/
+    private $codedisci;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureMatiereoptionnelle", mappedBy="codenivescol")
+     **/
+    private $codematiopti;
+
     function __construct()
     {
         $this->lyce = '0';
@@ -124,6 +125,23 @@ class NomenclatureNiveauscolaire
         $this->colltech = '0';
         $this->codefili = new \Doctrine\Common\Collections\ArrayCollection();
         $this->codematiopti = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codedisci = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodedisci()
+    {
+        return $this->codedisci;
+    }
+
+    /**
+     * @param mixed $codedisci
+     */
+    public function setCodedisci($codedisci)
+    {
+        $this->codedisci = $codedisci;
     }
 
     /**

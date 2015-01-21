@@ -39,6 +39,6 @@ class NomenclatureEquipementType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureequipement';
+        return 'nomenclature_sise';
     }
 }

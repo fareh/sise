@@ -22,18 +22,6 @@ class NomenclatureCirconscriptionregional
      */
     private $codecircregi;
 
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="NomenclatureDelegation", mappedBy="codecircregi")
-     **/
-    private $codedele;
-
-    public function __construct() {
-        $this->codedele = new ArrayCollection();
-    }
-
-
     /**
      * @var string
      *
@@ -49,13 +37,6 @@ class NomenclatureCirconscriptionregional
     private $libecircregifr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeGouv", type="string", length=10, nullable=true)
-     */
-    private $codegouv;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -69,6 +50,21 @@ class NomenclatureCirconscriptionregional
      */
     private $acti;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeGouv", type="string", length=10, nullable=true)
+     */
+    private $codegouv;
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureDelegation", mappedBy="codecircregi")
+     **/
+    private $codedele;
+
+    public function __construct() {
+        $this->codedele = new ArrayCollection();
+    }
 
     /**
      * Get codecircregi

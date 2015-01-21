@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureMatiereoptionnelleType;
 /**
  * NomenclatureMatiereoptionnelle
  *
@@ -20,21 +20,6 @@ class NomenclatureMatiereoptionnelle
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codematiopti;
-
-
-    /**
-     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codematiopti")
-     * * @ORM\JoinTable(name="nomenclature_matiereoptionnelleniveauscolaire",
-     *      joinColumns={@ORM\JoinColumn(name="CodeMatiOpti", referencedColumnName="CodeMatiOpti")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
-     *      )
-     **/
-    private $codenivescol;
-
-    public function __construct() {
-        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
 
     /**
      * @var string
@@ -63,6 +48,17 @@ class NomenclatureMatiereoptionnelle
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    private $codecycl ;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codematiopti")
+     * * @ORM\JoinTable(name="nomenclature_matiereoptionnelleniveauscolaire",
+     *      joinColumns={@ORM\JoinColumn(name="CodeMatiOpti", referencedColumnName="CodeMatiOpti")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
+     *      )
+     **/
+    private $codenivescol;
 
     /**
      * @var boolean
@@ -99,6 +95,25 @@ class NomenclatureMatiereoptionnelle
      */
     private $colltech;
 
+    public function __construct() {
+        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodecycl()
+    {
+        return $this->codecycl;
+    }
+
+    /**
+     * @param mixed $codecycl
+     */
+    public function setCodecycl($codecycl)
+    {
+        $this->codecycl = $codecycl;
+    }
 
     /**
      * Get codematiopti
@@ -348,5 +363,21 @@ class NomenclatureMatiereoptionnelle
     public function getCodenivescol()
     {
         return $this->codenivescol;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureMatiereoptionnelleType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codematiopti;
     }
 }

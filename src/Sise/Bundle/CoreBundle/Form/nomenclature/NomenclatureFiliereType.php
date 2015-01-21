@@ -8,6 +8,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class NomenclatureFiliereType extends AbstractType
 {
+
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,18 +17,30 @@ class NomenclatureFiliereType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codefili')
             ->add('libefiliar')
             ->add('libefilifr')
+            ->add('codecycl', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement',
+                'property' => 'libecyclensear',
+                'expanded' => false,
+                'multiple' => true,
+                'required' => true,
+                'empty_value' => "-- اختيار --"
+            ))
+            ->add('codenivescol', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire',
+                'property' => 'libenivescolar',
+                'expanded' => false,
+                'multiple' => true,
+                'required' => true,
+                'empty_value' => "-- اختيار --"
+            ))
             ->add('ordraffi')
             ->add('acti')
-            ->add('prep')
-            ->add('prim')
-            ->add('collgene')
-            ->add('lyce')
-            ->add('colltech')
-            ->add('codenivescol')
         ;
     }
+
     
     /**
      * @param OptionsResolverInterface $resolver
@@ -43,6 +57,6 @@ class NomenclatureFiliereType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturefiliere';
+        return 'nomenclature_sise';
     }
 }

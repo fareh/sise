@@ -38,6 +38,6 @@ class NomenclatureSituationadministrativeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturesituationadministrative';
+        return 'nomenclature_sise';
     }
 }

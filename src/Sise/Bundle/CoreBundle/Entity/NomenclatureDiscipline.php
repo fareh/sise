@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureDisciplineType;
 /**
  * NomenclatureDiscipline
  *
@@ -36,13 +36,6 @@ class NomenclatureDiscipline
     private $libediscifr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
-     */
-    private $codecyclense;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -55,6 +48,17 @@ class NomenclatureDiscipline
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    private $codecycl ;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="NomenclatureNiveauscolaire", inversedBy="codedisci")
+     * * @ORM\JoinTable(name="nomenclature_disciplineniveauscolaire",
+     *      joinColumns={@ORM\JoinColumn(name="CodeDisci", referencedColumnName="CodeDisci")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScol")}
+     *      )
+     **/
+    private $codenivescol;
 
     /**
      * @var boolean
@@ -98,6 +102,65 @@ class NomenclatureDiscipline
      */
     private $matiopti;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
+     */
+    private $codecyclense;
+
+    /**
+     * @return mixed
+     */
+    public function getCodecycl()
+    {
+        return $this->codecycl;
+    }
+
+    /**
+     * @param mixed $codecycl
+     */
+    public function setCodecycl($codecycl)
+    {
+        $this->codecycl = $codecycl;
+    }
+
+    /**
+     * Add codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     * @return NomenclatureDiscipline
+     */
+    public function addCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol[] = $codenivescol;
+
+        return $this;
+    }
+
+    /**
+     * Remove codenivescol
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol
+     */
+    public function removeCodenivescol(\Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire $codenivescol)
+    {
+        $this->codenivescol->removeElement($codenivescol);
+    }
+
+    /**
+     * Get codenivescol
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCodenivescol()
+    {
+        return $this->codenivescol;
+    }
+
+    public function __construct() {
+        $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get codedisci
@@ -363,6 +426,23 @@ class NomenclatureDiscipline
     }
 
     public function __toString()
+    {
+        return $this->codedisci;
+    }
+
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureDisciplineType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codedisci;
     }

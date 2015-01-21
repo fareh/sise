@@ -38,6 +38,6 @@ class NomenclatureGouvernoratType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturegouvernorat';
+        return 'nomenclature_sise';
     }
 }

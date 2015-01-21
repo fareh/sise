@@ -36,13 +36,6 @@ class NomenclatureBassinpedagogique
     private $libebasspedafr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeDele", type="string", length=50, nullable=true)
-     */
-    private $codedele;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -55,6 +48,13 @@ class NomenclatureBassinpedagogique
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeDele", type="string", length=50, nullable=true)
+     */
+    private $codedele;
 
     /**
      * @var boolean

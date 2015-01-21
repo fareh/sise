@@ -39,6 +39,6 @@ class NomenclatureObservationType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureobservation';
+        return 'nomenclature_sise';
     }
 }

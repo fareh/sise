@@ -18,6 +18,21 @@ class NomenclatureMatiereoptionnelleType extends AbstractType
             ->add('codematiopti')
             ->add('libematioptiar')
             ->add('libematioptifr')
+            ->add('codecycl', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement',
+                'property' => 'libecyclensear',
+                'expanded' => false,
+                'multiple' => true,
+                'required' => true,
+                'empty_value' => "-- اختيار --"
+            ))
+            ->add('codenivescol', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire',
+                'property' => 'libenivescolar',
+                'expanded' => false,
+                'multiple' => true,
+                'required' => true,
+            ))
             ->add('ordraffi')
             ->add('acti')
         ;
@@ -38,6 +53,6 @@ class NomenclatureMatiereoptionnelleType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturematiereoptionnelle';
+        return 'nomenclature_sise';
     }
 }

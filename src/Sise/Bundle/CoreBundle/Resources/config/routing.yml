@@ -191,4 +191,4 @@ Siseblog_NomenclatureQuestionnairerecensement:
     prefix: /NomenclatureQuestionnairerecensement
 SiseCoreBundle_Nomenclature:
     resource: "routing/nomenclature.yml"
-    prefix: /Nomenclature
+    prefix: /nomenclature

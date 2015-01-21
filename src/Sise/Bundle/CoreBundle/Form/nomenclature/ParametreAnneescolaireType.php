@@ -38,6 +38,6 @@ class ParametreAnneescolaireType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_sisebundle_parametreanneescolaire';
+        return 'nomenclature_sise';
     }
 }

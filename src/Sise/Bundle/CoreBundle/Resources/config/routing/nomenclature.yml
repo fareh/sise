@@ -30,3 +30,6 @@ nomenclature_export:
 nomenclature_list:
     path:     /
     defaults: { _controller: "SiseCoreBundle:Nomenclature:list" }
+nomenclature_getNivSco:
+    path:     /getNivSco/listeChoice
+    defaults: { _controller: "SiseCoreBundle:Nomenclature:getNivSco" }

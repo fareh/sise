@@ -44,6 +44,6 @@ class NomenclatureCorpsType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturecorps';
+        return 'nomenclature_sise';
     }
 }

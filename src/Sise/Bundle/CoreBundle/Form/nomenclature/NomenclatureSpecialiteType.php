@@ -38,6 +38,6 @@ class NomenclatureSpecialiteType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_sisebundle_nomenclaturespecialite';
+        return 'nomenclature_sise';
     }
 }

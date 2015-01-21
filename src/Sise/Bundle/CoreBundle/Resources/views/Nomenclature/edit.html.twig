@@ -1,35 +1,76 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <form action="{{ path('nomenclature_update', {'context': context,'id': entity.getCode}) }}"
-          method="post" {{ form_enctype(edit_form) }}>
-        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :'niveauscolaire'|trans(), 'RouteAction' : 'nomenclatureniveauscolaire' })) }}
-        <br>
-        <input type="hidden" name="_method" value="PUT"/>
-        <fieldset style="font-size:14pt; padding-top:10px; padding-right:10px; background-color :#EEEEEE; border-color:#EEEEEE; border-style :none; ">
-            <div>
-                <div>
-                    <span style="display:inline-block;height:28px;width:20%;">الرمز</span>
-                    <span style="display:inline-block;height:28px;width:20%;"> {{ form_widget(attribute(edit_form,index[0]),{ 'attr': {'style':'background-color:#EEEEEE;', 'readonly':'readonly' }}) }}</span>
-                </div>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :'المستوى الدراسي', 'RouteAction' : 'nomenclatureniveauscolaire' })) }}
+    <br>
+    {{ form_start(edit_form) }}
+    {{ form_errors(edit_form) }}
+    {% set cyclenseArray = {} %}
+    {% for r in attribute(edit_form.vars.value,index[6]) %}
+        {% set cyclenseArray = cyclenseArray|merge({(loop.index0): r.codecyclense.codecyclense}) %}
+    {% endfor %}
+    <div id="nomenclature_sise">
+        <div>
+            {{ form_label(attribute(edit_form,index[0])) }}
+            {{ form_widget(attribute(edit_form,index[0]),{ 'attr': {'style':'background-color:#EEEEEE;', 'readonly':'readonly' }}) }}
+        </div>
+
+        <div>
+            {{ form_label(attribute(edit_form,index[1])) }}
+            {{ form_widget(attribute(edit_form,index[1])) }}
+        </div>
+        <div>
+            {{ form_label(attribute(edit_form,index[2])) }}
+            {{ form_widget(attribute(edit_form,index[2])) }}
+        </div>
+
+        {% if(context in tabnome) %}
+            <div class="btn-group">
+                {{ form_label(attribute(edit_form,index[5])) }}
+                {{ form_widget(attribute(edit_form,index[5])) }}
+            </div>
+            <div class="btn-group">
+                {{ form_label(attribute(edit_form,index[6])) }}
+                {{ form_widget(attribute(edit_form,index[6])) }}
             </div>
             <div>
-                <span id="CPHMain_Label2" style="display:inline-block;height:28px;width:20%;">الوصف بالعربية</span>
-                <span>{{ form_widget(attribute(edit_form,index[1])) }}</span>
+                {{ form_label(attribute(edit_form,index[3])) }}
+                {{ form_widget(attribute(edit_form,index[3])) }}
             </div>
             <div>
-                <span id="CPHMain_Label3" style="display:inline-block;height:28px;width:20%;">الوصف بالفرنسية</span>
-                <span>  {{ form_widget(attribute(edit_form,index[2])) }}</span>
+                {{ form_label(attribute(edit_form,index[4])) }}
+                {{ form_widget(attribute(edit_form,index[4])) }}
+            </div>
+        {% else %}
+            <div>
+                {{ form_label(attribute(edit_form,index[3])) }}
+                {{ form_widget(attribute(edit_form,index[3])) }}
             </div>
             <div>
-                <span id="CPHMain_Label5" style="display:inline-block;height:28px;width:20%;">ترتىب العرض</span>
-                <span> {{ form_widget(attribute(edit_form,index[3])) }}</span>
+                {{ form_label(attribute(edit_form,index[4])) }}
+                {{ form_widget(attribute(edit_form,index[4])) }}
             </div>
             <div>
-                <span id="CPHMain_Label6" style="display:inline-block;height:28px;width:20%;">تفعيل التسمية</span>
-                <span>{{ form_widget(attribute(edit_form,index[4])) }}</span>
+                {{ form_label(attribute(edit_form,index[5])) }}
+                {{ form_widget(attribute(edit_form,index[5])) }}
             </div>
-        </fieldset>
-        {{ form_rest(edit_form) }}
-    </form>
+            <div>
+                {{ form_label(attribute(edit_form,index[6])) }}
+                {{ form_widget(attribute(edit_form,index[6])) }}
+            </div>
+            <div>
+                {{ form_label(attribute(edit_form,index[7])) }}
+                {{ form_widget(attribute(edit_form,index[7])) }}
+            </div>
+            <div>
+                {{ form_label(attribute(edit_form,index[8])) }}
+                {{ form_widget(attribute(edit_form,index[8])) }}
+            </div>
+            <div>
+                {{ form_label(attribute(edit_form,index[9])) }}
+                {{ form_widget(attribute(edit_form,index[9])) }}
+            </div>
+        {% endif %}
+    </div>
+    {{ form_end(edit_form) }}
 {% endblock %}

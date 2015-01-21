@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureCategorienationalite;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement;
@@ -34,6 +35,9 @@ use Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureSecteur;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureIndicateur;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureDiscipline;
 
 /**
  * Nomenclature controller.
@@ -62,7 +66,7 @@ class NomenclatureController extends Controller
         }
        //var_dump($array);die;
         return $this->render('SiseCoreBundle:Nomenclature:index.html.twig', array(
-            'entities' => $array,
+            'entities' => @$array,
             'context' => $context,
         ));
     }
@@ -76,6 +80,15 @@ class NomenclatureController extends Controller
         switch ($contextList) {
             case 'NomenclatureTypeCloture':
                 $entity = new NomenclatureTypecloture();
+                break;
+            case 'NomenclatureFiliere':
+                $entity = new NomenclatureFiliere();
+                break;
+            case 'NomenclatureMatiereOptionnelle':
+                $entity = new NomenclatureMatiereoptionnelle();
+                break;
+            case 'NomenclatureDiscipline':
+                $entity = new NomenclatureDiscipline();
                 break;
             case 'NomenclatureTypeLogement':
                 $entity = new NomenclatureTypelogement();
@@ -211,6 +224,15 @@ class NomenclatureController extends Controller
             case 'NomenclatureTypeCloture':
                 $entity = new NomenclatureTypecloture();
                 break;
+            case 'NomenclatureFiliere':
+                $entity = new NomenclatureFiliere();
+                break;
+            case 'NomenclatureMatiereOptionnelle':
+                $entity = new NomenclatureMatiereoptionnelle();
+                break;
+            case 'NomenclatureDiscipline':
+                $entity = new NomenclatureDiscipline();
+                break;
             case 'NomenclatureTypeLogement':
                 $entity = new NomenclatureTypelogement();
                 break;
@@ -300,11 +322,16 @@ class NomenclatureController extends Controller
                 break;
         }
         $index=$entity->iterateVisible();
+        $tabnome=array();
+        $tabnome[]='Filiere';
+        $tabnome[]='MatiereOptionnelle';
+        $tabnome[]='Discipline';
       //  var_dump($index);die;
         $form   = $this->createCreateForm($entity,$context);
         return $this->render('SiseCoreBundle:Nomenclature:new.html.twig', array(
             'entity' => $entity,
             'context' => $context,
+            'tabnome' => $tabnome,
             'index' => $index,
             'form'   => $form->createView(),
         ));
@@ -324,14 +351,19 @@ class NomenclatureController extends Controller
             throw $this->createNotFoundException('Unable to find Nomenclature entity.');
         }
        $index=$entity->iterateVisible();
-        $editForm = $this->createEditForm($entity,$context);
+       $editForm = $this->createEditForm($entity,$context);
+       $tabnome=array();
+       $tabnome[]='Filiere';
+       $tabnome[]='MatiereOptionnelle';
+       $tabnome[]='Discipline';
      //   $deleteForm = $this->createDeleteForm($id);
        //$array = array_values($editForm);
-     //var_dump($context);die;
+     //var_dump($index[6]);die;
         return $this->render('SiseCoreBundle:Nomenclature:edit.html.twig', array(
             'entity'      => $entity,
             'index'      => $index,
             'context'      => $context,
+            'tabnome'      => $tabnome,
             'edit_form'   => $editForm->createView(),
           //  'delete_form' => $deleteForm->createView(),
         ));
@@ -345,7 +377,7 @@ class NomenclatureController extends Controller
     {
         $form = $this->createForm($entity->getinstanceType(), $entity, array(
             'action' => $this->generateUrl('nomenclature_update', array('context' => $context,'id' => $entity->getCode())),
-            'method' => 'PUT',
+            'method' => 'PUT'
         ));
 
        // $form->add('submit', 'submit', array('label' => 'Update'));
@@ -431,4 +463,37 @@ class NomenclatureController extends Controller
     {
         return $this->render('SiseCoreBundle:Nomenclature:list.html.twig');
     }
+
+    public function getNivScoAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $listeChoice = array();
+            $listeChoice = $request->get('$listeChoice');
+            if (count($listeChoice)>0) {
+                    $nomenclatureNiveauscolaire = $em->getRepository('SiseCoreBundle:NomenclatureNiveauscolaire')->findByCodecyclense($listeChoice);
+                    $json = array();
+                    /*$json[0]['code'] = '';
+                    $json[0]['libelle'] = '-- اختيار --';*/
+                    $i = 1;
+                    foreach ($nomenclatureNiveauscolaire as $nomenclatureNiveauscolaire) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                    {
+                        $json[$i]['code'] = $nomenclatureNiveauscolaire->getCodenivescol();
+                        $json[$i]['libelle'] = $nomenclatureNiveauscolaire->getLibenivescolar();
+                        $i++;
+                    }
+                $response = new Response();
+                $data = json_encode($json); // c'est pour formater la réponse de la requete en format que jquery va comprendre
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent($data);
+                return $response;
+            }
+
+        }
+        return new Response('Erreur');
+    }
+
 }

@@ -39,6 +39,6 @@ class NomenclatureDelegationType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturedelegation';
+        return 'nomenclature_sise';
     }
 }

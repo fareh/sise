@@ -38,6 +38,6 @@ class NomenclaturePeriodesuivibudgetType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureperiodesuivibudget';
+        return 'nomenclature_sise';
     }
 }

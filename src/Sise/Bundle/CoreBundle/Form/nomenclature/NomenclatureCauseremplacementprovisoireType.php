@@ -38,6 +38,6 @@ class NomenclatureCauseremplacementprovisoireType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturecauseremplacementprovisoire';
+        return 'nomenclature_sise';
     }
 }

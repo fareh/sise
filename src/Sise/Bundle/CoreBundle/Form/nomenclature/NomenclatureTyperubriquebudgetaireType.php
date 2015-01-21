@@ -38,6 +38,6 @@ class NomenclatureTyperubriquebudgetaireType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetyperubriquebudgetaire';
+        return 'nomenclature_sise';
     }
 }

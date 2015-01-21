@@ -38,6 +38,6 @@ class NomenclatureRessourceelectriciteType extends AbstractType
      */
     public function getName()
     {
-        return 'sisecorebundle_nomenclatureressourceelectricite';
+        return 'nomenclature_sise';
     }
 }

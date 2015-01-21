@@ -38,6 +38,6 @@ class NomenclatureSourceprovonanceType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturesourceprovonance';
+        return 'nomenclature_sise';
     }
 }

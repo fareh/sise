@@ -22,7 +22,6 @@ class NomenclatureEtablissementType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
-                'empty_value' => "-- اختيار --"
             ))
             ->add('libeetabar')
             ->add('libeetabfr')
@@ -34,7 +33,6 @@ class NomenclatureEtablissementType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
-                'empty_value' => "-- اختيار --"
             ))
             ->add('codedele', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation',

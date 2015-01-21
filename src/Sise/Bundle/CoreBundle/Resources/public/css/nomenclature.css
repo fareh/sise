@@ -1,0 +1,155 @@
+
+
+/* css nomenclature */
+form[name="nomenclature_sise"] #nomenclature_sise input, form[name="nomenclature_sise"] #nomenclature_sise select {
+    font-style: oblique;
+    min-height: 28px;
+    padding-right: 10px;
+    width: 35%;
+}
+
+
+
+ form[name="nomenclature_sise"] #nomenclature_sise label {
+    display: block;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 28px;
+    line-height: 28px;
+    width: 30%;
+}
+
+form[name="nomenclature_sise"] #nomenclature_sise > div{
+    margin-bottom: 20px;
+}
+form[name="nomenclature_sise"] #nomenclature_sise > div > .btn-group{
+    width: 35%;
+    float: right;
+    position: relative;
+}
+
+form[name="nomenclature_sise"] #nomenclature_sise > div > .btn-group  button{
+    min-height: 28px;
+    width: 100%;
+}
+  form[name="nomenclature_sise"]{
+    font-size: 14pt;
+    padding-right: 10px;
+    padding-top: 10px;
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+    border-style: None;
+}
+
+#id_with_js input {
+    border-style: none;
+    width: 100%;
+    text-align: center;
+
+}
+form[name="nomenclature_sise"] #nomenclature_sise   {
+    width: 100%;
+    clear: both;
+display: inline-block;
+}
+form[name="nomenclature_sise"] #nomenclature_sise    div{
+    width: 100%;
+    float: left;
+    text-align: right;
+}
+
+form[name="nomenclature_sise"] #nomenclature_sise   label{
+    width: 20%;
+
+}
+
+form[name="nomenclature_sise"] #nomenclature_sise   input[type="checkbox"]{
+    min-height:inherit;
+    width: 15px;
+    padding: 0;
+    margin: 0;
+}
+form[name="nomenclature_sise"] #nomenclature_sise .multiselect-container {
+
+    width: 100%;
+}
+form[name="nomenclature_sise"] #nomenclature_sise .multiselect-container li {
+    width: 100%;
+    float: left;
+
+}
+
+form[name="nomenclature_sise"] #nomenclature_sise .multiselect-container li a label {
+font-size: 12px;
+    color: #000000;
+    line-height: 14px;
+    width: 52%;
+    text-align: right;
+}
+
+form[name="nomenclature_sise"] #nomenclature_sise .multiselect-container li a label input[type="checkbox"]{
+  padding: 0 !important;
+    margin: 0;
+    height: 14px !important;
+    width: 15px !important;
+    min-height: 14px !important;
+}
+
+/* fin css nomenclature */
+
+
+
+/* added css by Ramzi */
+form[name="nomenclature_sise"] #nomenclature_sise  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+input#nomenclature_sise_acti
+{
+    display:inline-block;
+    height:17px;
+    width:35%;
+}
+form[name="nomenclature_sise"] #nomenclature_sise  .open>.dropdown-menu {
+    display: block;
+}
+#entete, #menu, #contenu, #footer {
+    padding:1px 0;
+}
+#entete {
+    background-color:#FFFFFF;
+    text-align:center;
+}
+#main {
+    max-with:960px;
+    margin:auto;
+}
+#menu  {
+    float:right;
+    width:240px;
+    background-color:#FFFFFF;
+}
+#contenu {
+    margin-right:245px;
+    background-color:#FFFFFF;
+}
+/* fin added  css */

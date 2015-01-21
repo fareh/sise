@@ -38,6 +38,6 @@ class NomenclatureDiplomeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturediplome';
+        return 'nomenclature_sise';
     }
 }

@@ -38,6 +38,6 @@ class NomenclatureRessouceeauType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureressouceeau';
+        return 'nomenclature_sise';
     }
 }

@@ -36,13 +36,6 @@ class NomenclatureNationalite
     private $libenatifr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCateNati", type="string", length=50, nullable=true)
-     */
-    private $codecatenati;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -55,6 +48,13 @@ class NomenclatureNationalite
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeCateNati", type="string", length=50, nullable=true)
+     */
+    private $codecatenati;
 
     /**
      * @var boolean

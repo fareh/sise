@@ -38,6 +38,6 @@ class NomenclatureTypeetablissementType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetypeetablissement';
+        return 'nomenclature_sise';
     }
 }

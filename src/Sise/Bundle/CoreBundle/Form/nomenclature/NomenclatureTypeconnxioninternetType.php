@@ -38,6 +38,6 @@ class NomenclatureTypeconnxioninternetType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturetypeconnxioninternet';
+        return 'nomenclature_sise';
     }
 }

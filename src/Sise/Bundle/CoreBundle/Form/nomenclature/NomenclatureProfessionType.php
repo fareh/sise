@@ -38,6 +38,6 @@ class NomenclatureProfessionType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclatureprofession';
+        return 'nomenclature_sise';
     }
 }

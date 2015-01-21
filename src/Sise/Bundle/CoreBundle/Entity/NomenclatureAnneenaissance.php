@@ -36,6 +36,20 @@ class NomenclatureAnneenaissance
     private $libeannenaisfr;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
+     */
+    private $ordraffi;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Acti", type="boolean", nullable=true)
+     */
+    private $acti;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="CodeAnneScol", type="string", length=50, nullable=true)
@@ -55,20 +69,6 @@ class NomenclatureAnneenaissance
      * @ORM\Column(name="AnneNais", type="integer", nullable=true)
      */
     private $annenais;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
-     */
-    private $ordraffi;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="Acti", type="boolean", nullable=true)
-     */
-    private $acti;
 
     /**
      * @var boolean

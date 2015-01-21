@@ -39,6 +39,6 @@ class NomenclatureCirconscriptionType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturecirconscription';
+        return 'nomenclature_sise';
     }
 }
