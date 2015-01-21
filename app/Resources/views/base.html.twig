@@ -30,7 +30,7 @@
     <div style="width: 50%; float: right; direction: rtl">
         <span style="vertical-align: top">{{ 'Système information statistique'|trans({}, 'SiseCoreBundle') }}</span>
     </div>
-    <form method="post" action="/app.php" id="form1" dir="rtl">
+    <form method="post" action="/" id="form1" dir="rtl">
         <div style="width: 50%; float: left; direction: ltr">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ path('fos_user_security_logout') }}" class="buttonStyle">
@@ -55,7 +55,7 @@
 </div>
 <div class="container">
     <ul id="nav" dir="rtl">
-        <li class="active"><a href="/app.php">
+        <li class="active"><a href="/">
                 {{ '‪Accueil'|trans({}, 'SiseCoreBundle') }}
             </a></li>
         <li>
@@ -184,6 +184,7 @@
 
 {% endblock %}
 {% block CPHScript %}{% endblock %}
+
 <footer id="colophon" class="app-footer" role="contentinfo">
     <div class="app-info">
         <a href="http://prodit.net/" title="powered by prodit   2015">powered by prodit  2015</a>

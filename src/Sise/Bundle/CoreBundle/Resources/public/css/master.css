@@ -18,10 +18,8 @@ body {
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    width: 96%;
+    margin: auto;
+    width: 94%;
 }
 
 .containertitre {
@@ -33,18 +31,12 @@ body {
 }
 
 .containertitre2 {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+    margin: auto auto 15px;
+    vertical-align: top;
     width: 94%;
-    vertical-align: middle;
 }
-
 .MainPage {
-    margin-left: auto;
-    margin-right: 3%;
-    float: Right;
-    position: relative;
+    margin: auto auto 70px;
     width: 94%;
     z-index: -1;
 }
@@ -71,16 +63,15 @@ body {
     padding: 0;
 }
 
-#nav {
-    background-color: #F5F5F5;
-    border-bottom: 5px solid #333333;
-    float: Right;
-    margin-left: 1%;
-    margin-right: 1%;
-    position: relative;
-    width: 98%;
-}
 
+#nav {
+    background-color: #f5f5f5;
+    border-bottom: 5px solid #333333;
+    clear: both;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
 #nav ul.subs {
     background-color: #FFFFFF;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);

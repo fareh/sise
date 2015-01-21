@@ -78,12 +78,36 @@ table#CPHMain_CBCyclEnse {
     width: 88%;
 }
 
-
+.RowStyle {
+    height: 40px;
+}
 
 /* footer */
+footer {
+    clear: both;
+    position:fixed;
+    bottom:0;
+    width: 100%;
+}
+
 footer .app-info {
+    vertical-align: middle;
     margin: 0 auto;
     max-width: 94%;
+    height: 56px;
+    background-color: #eeeeee;
+    margin-top: 30px;
+    margin-bottom: 1px;
 }
+.app-info > a {
+    vertical-align: middle;
+    color: #666666;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    line-height: 56px;
+}
+
 
 /* fin footer */
