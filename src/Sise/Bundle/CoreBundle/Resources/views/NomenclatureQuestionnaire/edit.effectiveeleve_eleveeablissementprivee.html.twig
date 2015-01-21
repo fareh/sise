@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveeleveeablissementprivee' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entities is defined  and entities|length > 0 %}
@@ -24,7 +25,7 @@
                                     style="color:White;background-color:#4F81BD;font-weight:bold;">الراسبون
                                 </td>
                                 <td align="center" colspan="3"
-                                    style="color:White;background-color:#4F81BD;font-weight:bold;">الجملة
+                                    style="color:White;background-color:#4F81BD;font-weight:bold;">{{ 'nombtotaelev'|trans() }}
                                 </td>
                             </tr>
                             <tr>
@@ -34,13 +35,13 @@
                                 <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
                                     الدراسي
                                 </th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }} </th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
                             </tr>
                             {% set testRepeat = 9999 %}
                             {% for key , entity in entities %}

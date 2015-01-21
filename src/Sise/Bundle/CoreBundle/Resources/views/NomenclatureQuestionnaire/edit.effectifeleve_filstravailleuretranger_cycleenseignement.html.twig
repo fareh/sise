@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevefilstravailleuretrangercycleenseignement' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entities is defined  and entities|length > 0 %}
@@ -21,9 +22,9 @@
                             <tr>
                                 <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المرحلة
                                 </th>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombtotaelev'|trans() }}</th>
                             </tr>
 
                             {% for key , entity  in entities %}

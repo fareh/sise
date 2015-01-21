@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevenouveauhuitiemetechnique' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entities is defined  and entities|length > 0 %}
@@ -19,32 +20,39 @@
                             موجهون من الثامنة أساسي إلى الثامنة تقني
                         </td>
                         <td colspan="3">
-                            الجملة
+                            {{ 'nombtotaelev'|trans() }}
                         </td>
                     </tr>
 
 
                     <tr style="background-color: #92B3CF; color: White;" align="center">
                         <td>
-                            <span id="CPHMain_Label4" style="display:inline-block;width:98%;">ذكر</span>
+                            <span id="CPHMain_Label4"
+                                  style="display:inline-block;width:98%;">{{ 'nombelevmasc'|trans() }}</span>
                         </td>
                         <td>
-                            <span id="CPHMain_Label5" style="display:inline-block;width:98%;">أنثى</span>
+                            <span id="CPHMain_Label5"
+                                  style="display:inline-block;width:98%;">{{ 'nombelevfemi'|trans() }}</span>
                         </td>
                         <td>
-                            <span id="CPHMain_Label7" style="display:inline-block;width:98%;">ذكر</span>
+                            <span id="CPHMain_Label7"
+                                  style="display:{{ 'nombelevmasc'|trans() }}ine-block;width:98%;">{{ 'nombelevmasc'|trans() }}</span>
                         </td>
                         <td>
-                            <span id="CPHMain_Label8" style="display:inline-block;width:98%;">أنثى</span>
+                            <span id="CPHMain_Label8"
+                                  style="display:inline-block;width:98%;">{{ 'nombelevfemi'|trans() }}</span>
                         </td>
                         <td>
-                            <span id="CPHMain_Label6" style="display:inline-block;width:98%;">ذكر</span>
+                            <span id="CPHMain_label6"
+                                  style="display:inline-block;width:98%;">{{ 'nombelevmasc'|trans() }}</span>
                         </td>
                         <td>
-                            <span id="CPHMain_Label9" style="display:inline-block;width:98%;">أنثى</span>
+                            <span id="CPHMain_Label9"
+                                  style="display:inline-block;width:98%;">{{ 'nombelevfemi'|trans() }}</span>
                         </td>
                         <td>
-                            <span id="CPHMain_Label1" style="display:inline-block;width:98%;">جملة</span>
+                            <span id="CPHMain_Label1"
+                                  style="display:inline-block;width:98%;">{{ 'nombtotaelev'|trans() }}</span>
                         </td>
                     </tr>
                     {% for entity in entities %}

@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifeleveelevedomainsousdomain' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entities is defined  and entities|length > 0 %}
@@ -33,9 +34,9 @@
                             </th>
                             <th align="center" style="color:White;background-color:#4F81BD;" scope="col">عدد الفرق</th>
                             <th align="center" style="color:White;background-color:#4F81BD;" scope="col">عدد الفصول</th>
-                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">ذكر</th>
-                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">أنثى</th>
-                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">الجملة</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">{{ 'nombtotaelev'|trans() }}</th>
                         </tr>
                         {% set nombgrou = 0 %}
                         {% set class = 0 %}
@@ -64,7 +65,7 @@
 
                         <tr align="center"
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
-                            <td>الجملة:</td>
+                            <td>{{ 'nombtotaelev'|trans() }}:</td>
                             <td>&nbsp;</td>
                             <td>{{ class }}</td>
                             <td>{{ nombgrou }}</td>

@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectivepersonelpersonelgrade' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
  {% if entities is defined  and entities|length > 0 %}
@@ -27,9 +28,9 @@
                     <tr>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">السلك</th>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombtotaelev'|trans() }}</th>
                     </tr>
 
 
@@ -51,7 +52,7 @@
 
                     <tr align="center"
                         style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
-                        <td>الجملة:</td>
+                        <td>{{ 'nombtotaelev'|trans() }}:</td>
                         <td>&nbsp;</td>
                         <td>0</td>
                         <td>0</td>

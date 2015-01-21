@@ -1,13 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveniveauscolaireanneenaissance' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
 
     <center>
         <br>
-
+        {% if entities is defined  and entities|length > 0 %}
         <div id="CPHMain_upGridView">
 
             <div>
@@ -23,21 +24,19 @@
                                 {{ annenai }}
                             </td>
                         {% endfor %}
-                        <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">
-                            جملة
-                        </td>
+                        <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">{{ 'nombtotaelev'|trans() }}</td>
                     </tr>
                     <tr>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى الدراسي
                         </th>
                         {% for key,  annenai in annenais %}
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
                         {% endfor %}
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكر</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">أنثى</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">الجملة</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
                     </tr>
                     {% set codenivescol = 99999 %}
                     {% set nombelevmasc = 0 %}
@@ -72,6 +71,7 @@
             </div>
 
         </div>
+        {% endif %}
     </center>
 
 {% endblock %}

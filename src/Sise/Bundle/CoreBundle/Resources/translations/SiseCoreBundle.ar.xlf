@@ -18,6 +18,18 @@
                 <source>Obse</source>
                 <target>الملاحظات</target>
             </trans-unit>
+            <trans-unit id="nombelevmasc">
+                <source>nombelevmasc</source>
+                <target>ذكر</target>
+            </trans-unit>
+            <trans-unit id="nombelevfemi">
+                <source>nombelevfemi</source>
+                <target>أنثى</target>
+            </trans-unit>
+            <trans-unit id="nombtotaelev">
+                <source>nombtotaelev</source>
+                <target>الجملة</target>
+            </trans-unit>
             <trans-unit id="SecuriteProfil">
                 <source>SecuriteProfil</source>
                 <target>صلاحيات</target>

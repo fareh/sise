@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignenttypetravail' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
@@ -28,9 +29,9 @@
                                 <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع
                                     التكليف
                                 </th>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ذكر</th>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">أنثى</th>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الجملة</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombtotaelev'|trans() }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -62,7 +63,7 @@
                             {% endfor %}
                             <tr align="center"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
-                                <td>الجملة:</td>
+                                <td>{{ 'nombtotaelev'|trans() }}:</td>
                                 <td>{{ totalnombensemasc }}</td>
                                 <td>{{ totalnombensefemi }}</td>
                                 <td>{{ totalnombtotaense }}</td>
