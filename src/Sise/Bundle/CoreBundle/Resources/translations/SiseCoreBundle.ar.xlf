@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="new">
                 <source>new</source>
-                <target>اظافة</target>
+                <target>إضافة</target>
             </trans-unit>
             <trans-unit id="edit">
                 <source>edit</source>
@@ -29,6 +29,38 @@
             <trans-unit id="nombtotaelev">
                 <source>nombtotaelev</source>
                 <target>الجملة</target>
+            </trans-unit>
+            <trans-unit id="niveauscolaire">
+                <source>niveauscolaire</source>
+                <target>المستوى الدراسي</target>
+            </trans-unit>
+            <trans-unit id="observation">
+                <source>observation</source>
+                <target>الملاحظات</target>
+            </trans-unit>
+            <trans-unit id="nomprenelev">
+                <source>nomprenelev</source>
+                <target>الاسم و اللقب</target>
+            </trans-unit>
+            <trans-unit id="codecyclense2">
+                <source>codecyclense</source>
+                <target>المرحلة</target>
+            </trans-unit>
+            <trans-unit id="nombbour">
+                <source>nombbour</source>
+                <target>عدد المنح</target>
+            </trans-unit>
+            <trans-unit id="nombelevbour">
+                <source>nombelevbour</source>
+                <target>الممنوحون</target>
+            </trans-unit>
+            <trans-unit id="nombelevresi">
+                <source>nombelevresi</source>
+                <target>أنصاف المقيمين</target>
+            </trans-unit>
+            <trans-unit id="nombelevresiall">
+                <source>nombelevresiall</source>
+                <target>المقيمين</target>
             </trans-unit>
             <trans-unit id="SecuriteProfil">
                 <source>SecuriteProfil</source>

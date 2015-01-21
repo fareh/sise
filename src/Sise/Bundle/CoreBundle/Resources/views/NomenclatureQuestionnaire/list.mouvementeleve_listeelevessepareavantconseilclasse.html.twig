@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'mouvementelevelisteelevessepareavantconseilclasse' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
@@ -22,9 +23,7 @@
                                         </span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الإسم واللقب
-                                        </span></strong>
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'nomprenelev'|trans() }}</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                 <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
@@ -33,7 +32,7 @@
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                 <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        المستوى الدراسي
+                                        {{'niveauscolaire'|trans()}}
                                         </span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
@@ -48,7 +47,7 @@
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align:  right; width: 10%; background-color: #4F81BD">
                                 <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
-                                        الملاحظات
+                                        {{'observation'|trans()}}
                                     </span></strong>
                             </th>
 

@@ -9,7 +9,7 @@
         <form action="{{ pathfilter }}" method="get" {{ form_enctype(form) }} id="form_nivescol">
             <div style="background-color: #EEEEEE; font-size: 14pt; padding: 10px 10px 5px 5px;">
                 <span id="CPHMain_lblNiveScol"
-                      style="display:inline-block;height:28px;width:10%;">المستوى الدراسي</span>
+                      style="display:inline-block;height:28px;width:10%;">{{'niveauscolaire'|trans()}}</span>
                 &nbsp;
 
                 {{ form_widget(form.niveauscolaires) }}
