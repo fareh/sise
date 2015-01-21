@@ -14,27 +14,27 @@
               rel="stylesheet"/>
 
     {% endblock %}
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
     {% block head %}{% endblock %}
 </head>
 <body dir="rtl">
 <div class="containertitre">
     <img id="Image1" src="{{ asset('bundles/sisecore/images/flag_tn.gif') }}"/>
-    <span style="vertical-align: top">الجمهورية التونسية | وزارة التربية</span>
+    <span style="vertical-align: top">{{ 'REPUBLIQUE TUNISIENNE'|trans({}, 'SiseCoreBundle') }}
+        | {{ '‪Ministère de Education'|trans({}, 'SiseCoreBundle') }}</span>
 </div>
 <div class="containertitre2">
-    <span style="vertical-align: top">الإدارة العامة للدراسات و التخطيط و نظم المعلومات</span>
+    <span style="vertical-align: top">{{ 'Direction Générale des Etudes et des systèmes de planification et information'|trans({}, 'SiseCoreBundle') }} </span>
 </div>
 <div class="containertitre2">
     <div style="width: 50%; float: right; direction: rtl">
-        <span style="vertical-align: top">النظام المعلوماتي للإحصاء</span>
+        <span style="vertical-align: top">{{ 'Système information statistique'|trans({}, 'SiseCoreBundle') }}</span>
     </div>
     <form method="post" action="index.php" id="form1" dir="rtl">
         <div style="width: 50%; float: left; direction: ltr">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ path('fos_user_security_logout') }}" class="buttonStyle">
-                    {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-                    خروج
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>
                 &nbsp;
                 <a href="{{ path('fos_user_resetting_request') }}" class="buttonStyle">
@@ -56,96 +56,107 @@
 <div class="container">
     <ul id="nav" dir="rtl">
         <li class="active"><a href="../index.php">
-                الصفحة الرئيسية
+                {{ '‪Accueil'|trans({}, 'SiseCoreBundle') }}
             </a></li>
-        <li><a href="#">المؤسسة التربوية</a>
+        <li>
+            <a href="#"> {{ 'Etablissement enseignement'|trans({}, 'SiseCoreBundle') }}</a>
             <span id="Span4"></span>
             <ul class="subs">
-                <li><a href="{{ path('nomenclatureetablissement') }}">
-                        قائمة المؤسسات التربوية</a></li>
-                <li><a href="{{ path('etablissementficheetablissement') }}">
-                        بطاقة المؤسسة /مساحة الارض والمباني</a></li>
-            </ul>
-        </li>
-        <li><a href="#s1">التلاميذ</a> <span id="s1"></span>
-            <ul class="subs">
-                <li><a href='{{ path("statElev", {"codepack":"StatElev"}) }}'>
-
-
-                        إحصاءالتلاميذ</a>
+                <li>
+                    <a href="{{ path('nomenclatureetablissement') }}">  {{ 'Etablissement enseignement'|trans({}, 'SiseCoreBundle') }}</a>
                 </li>
-                <li><a href="{{ path('statElev', {'codepack':'OrieElev'}) }}">توجيه التلاميذ</a></li>
-                <li><a href="{{ path('statElev', {'codepack':'MouvEleve'}) }}">حركة التلاميذ</a></li>
-            </ul>
-        </li>
-        <li><a href="{{ path('statElev', {'codepack':'StatEquipement'}) }}" >البناءات
-                و التجهيزات</a>
-           {# <span id="s2"></span>
-            <ul class="subs">
-                <li><a href="StatEquipement/Espaces.php">
-                        فضاءات المؤسسة</a></li>
-                <li><a href="StatEquipement/Equipements.php">
-                        تجهيزات المؤسسة</a></li>
-                <li><a href="StatEquipement/Logement.php">
-                        المساكن الوظيفية</a></li>
-            </ul>#}
-        </li>
-        <li><a href="#">الموارد البشرية</a> <span id="Span1"></span>
-            <ul class="subs">
-                <li><a href="{{ path('statElev', {'codepack':'StatEnse'}) }}">إطار التدريس</a></li>
-                <li><a href="{{ path('statElev', {'codepack':'StatPers'}) }}">الموارد البشريةالغير مدرّسة</a>
-                </li>
-                <li><a href="{{ path('personnelpersonnel') }}">قائمة اسمية بالموارد البشرية</a>
+                <li>
+                    <a href="{{ path('etablissementficheetablissement') }}"> {{ 'Fondation région et immeubles / terrains carte'|trans({}, 'SiseCoreBundle') }}</a>
                 </li>
             </ul>
         </li>
-        <li><a href="{{ path('statElev', {'codepack':'StatBudget'}) }}">الميزانية</a> <span id="Span2">
+        <li><a href="#s1"> {{ 'les élèves'|trans({}, 'SiseCoreBundle') }}</a> <span id="s1"></span>
+            <ul class="subs">
+                <li>
+                    <a href='{{ path("statElev", {"codepack":"StatElev"}) }}'>{{ 'Statistiques élèves'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('statElev', {'codepack':'OrieElev'}) }}">{{ 'Statistiques relatives aux directions des élèves'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('statElev', {'codepack':'MouvEleve'}) }}">{{ 'Statistiques relatives aux mouvements des élèves'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{{ path('statElev', {'codepack':'StatEquipement'}) }}"> {{ 'Structures et équipements'|trans({}, 'SiseCoreBundle') }}</a>
+        </li>
+        <li>
+            <a href="#">  {{ 'Ressources humaines'|trans({}, 'SiseCoreBundle') }}</a> <span id="Span1"></span>
+            <ul class="subs">
+                <li>
+                    <a href="{{ path('statElev', {'codepack':'StatEnse'}) }}">{{ 'le personnel enseignant'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('statElev', {'codepack':'StatPers'}) }}">{{ 'rh non enseignant'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li><a href="{{ path('personnelpersonnel') }}">{{ 'rh enseignant'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{{ path('statElev', {'codepack':'StatBudget'}) }}">{{ 'Budget'|trans({}, 'SiseCoreBundle') }}</a> <span
+                    id="Span2">
             </span>
             <ul class="subs">
-                <li><a href="{{ path('statElev', {'codepack':'StatBudget'}) }}">
-                        استمارة متابعة الميزانية</a></li>
+                <li>
+                    <a href="{{ path('statElev', {'codepack':'StatBudget'}) }}"> {{ 'Suivi de la forme du budget'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
             </ul>
         </li>
 
 
-        <li><a href="{{ path('statElev', {'codepack':'ActiEtab'}) }}">نشاط المؤسسة</a> <span
+        <li>
+            <a href="{{ path('statElev', {'codepack':'ActiEtab'}) }}"> {{ 'Fondation activité'|trans({}, 'SiseCoreBundle') }} </a> <span
                     id="Span3"></span>
             <ul class="subs">
-                <li><a href="{{ path('statElev', {'codepack':'ActiEtab'}) }}">
-                        التقرير اليومي لنشاط المؤسسة</a></li>
+                <li>
+                    <a href="{{ path('statElev', {'codepack':'ActiEtab'}) }}"> {{ 'Rapport quotidien Fondation activité'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
             </ul>
         </li>
-        <li><a href="Stat/Stat.php">تقارير إحصائية</a>
+        <li>
+            <a href="Stat/Stat.php">{{ 'Les rapports statistiques'|trans({}, 'SiseCoreBundle') }} </a>
             <ul class="subs">
-                <li><a href="Stat/ResumeStatistique.php">
-                        ملخص لنتائج الاحصاء المدرسي</a></li>
-                <li><a href="RapportStatistique/RapportStatistique.php">
-                        تقارير إحصائية</a></li>
-                <li><a href="Stat/Stat.php?P=1">
-                        إحصاءالتلاميذ</a></li>
-                <li><a href="Stat/Stat.php?P=2">
-                        إحصاء الموارد البشرية</a></li>
-                <li><a href="Stat/Stat.php?P=3">
-
-                        إحصاء البناءات و التجهيزات
-                </a></li>
-                <li><a href="Stat/Stat.php?P=4">
-                        متابعة الميزانية</a></li>
-                <li><a href="Stat/Stat.php?P=5">
-                        إحصاء حركة التلاميذ</a></li>
-                <li><a href="Stat/Stat.php?P=6">
-                        إحصاء توجيه التلاميذ</a></li>
-                <li><a href="Stat/Stat.php?P=7">
-                        المؤسسة</a></li>
-                <li><a href="Stat/ListIndicateur.php">
-                        المؤشرات</a></li>
+                <li>
+                    <a href="Stat/ResumeStatistique.php">{{ 'Un résumé des résultats du recensement de l école'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="RapportStatistique/RapportStatistique.php">{{ 'Les rapports statistiques'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li><a href="Stat/Stat.php?P=1">{{ 'Statistiques élèves'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="Stat/Stat.php?P=2">{{ 'Ressources humaines recensement'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="Stat/Stat.php?P=3">{{ 'Statistiques des structures et de l équipement'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li><a href="Stat/Stat.php?P=4">{{ 'suivi budgétaire'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li>
+                    <a href="Stat/Stat.php?P=5">{{ 'Statistiques relatives aux mouvements des élèves'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="Stat/Stat.php?P=6">{{ 'Statistiques relatives aux directions des élèves'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li><a href="Stat/Stat.php?P=7">{{ 'fondation'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="Stat/Stat.php?P=8">{{ 'indicateurs'|trans({}, 'SiseCoreBundle') }}</a></li>
             </ul>
         </li>
-        <li><a href="#">إدارة النظام</a>
+        <li><a href="#">{{ 'gestion du système'|trans({}, 'SiseCoreBundle') }}</a>
             <ul class="subs">
-                <li><a href="{{ path('sise_user_list') }}">ادارة بيانات المستخدمين</a></li>
-                <li><a href="{{ path('nomenclature_list') }}">إدارة بيانات التسميات</a></li>
-                <li><a href="{{ path('nomenclaturequestionnairerecensement') }}">التعداد</a></li>
+                <li>
+                    <a href="{{ path('sise_user_list') }}"> {{ 'La gestion des données des utilisateurs'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('nomenclature_list') }}"> {{ 'La gestion des données des étiquettes'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
+                <li>
+                    <a href="{{ path('nomenclaturequestionnairerecensement') }}">{{ 'recensement'|trans({}, 'SiseCoreBundle') }}</a>
+                </li>
             </ul>
         </li>
     </ul>

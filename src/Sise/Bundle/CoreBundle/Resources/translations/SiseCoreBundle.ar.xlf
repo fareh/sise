@@ -2,6 +2,134 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="ar" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="global_republique_tunisienne">
+                <source>REPUBLIQUE TUNISIENNE</source>
+                <target>الجمهورية التونسية</target>
+            </trans-unit>
+            <trans-unit id="global_‪ministry_education">
+                <source>‪Ministère de Education</source>
+                <target>وزارة التربية</target>
+            </trans-unit>
+            <trans-unit id="global_direction_generale_etudes_systemes">
+                <source>Direction Générale des Etudes et des systèmes de planification et information</source>
+                <target>الإدارة العامة للدراسات و التخطيط و نظم المعلومات</target>
+            </trans-unit>
+            <trans-unit id="global_systeme_information_statistique">
+                <source>Système information statistique</source>
+                <target>النظام المعلوماتي للإحصاء</target>
+            </trans-unit>
+            <trans-unit id="global_accueil">
+                <source>‪Accueil</source>
+                <target>الصفحة الرئيسية</target>
+            </trans-unit>
+            <trans-unit id="global_etablissement_enseignement">
+                <source>Etablissement enseignement</source>
+                <target>المؤسسة التربوية</target>
+            </trans-unit>
+            <trans-unit id="global_eleves">
+                <source>les élèves</source>
+                <target>التلاميذ</target>
+            </trans-unit>
+            <trans-unit id="global_structures_equipements">
+                <source>Structures et équipements</source>
+                <target>البناءات و التجهيزات</target>
+            </trans-unit>
+            <trans-unit id="global_ressources_humaines">
+                <source>Ressources humaines</source>
+                <target>الموارد البشرية</target>
+            </trans-unit>
+            <trans-unit id="global_fondation_activite">
+                <source>Fondation activité</source>
+                <target>نشاط المؤسسة</target>
+            </trans-unit>
+            <trans-unit id="global_rapports_statistiques">
+                <source>Les rapports statistiques</source>
+                <target>تقارير إحصائية</target>
+            </trans-unit>
+            <trans-unit id="global_resumé_resultats_recensement_ecole">
+                <source>Un résumé des résultats du recensement de l école</source>
+                <target>ملخص لنتائج الاحصاء المدرسي</target>
+            </trans-unit>
+            <trans-unit id="global__rapports_statistiques">
+                <source>Les rapports statistiques</source>
+                <target>تقارير إحصائية</target>
+            </trans-unit>
+            <trans-unit id="global_budget">
+                <source>Budget</source>
+                <target>الميزانية</target>
+            </trans-unit>
+            <trans-unit id="global_statistiques_eleves">
+                <source>Statistiques élèves</source>
+                <target>إحصاء التلاميذ</target>
+            </trans-unit>
+            <trans-unit id="global_ressources_humaines_recensement">
+                <source>Ressources humaines recensement</source>
+                <target>إحصاء الموارد البشرية</target>
+            </trans-unit>
+            <trans-unit id="global_statistiques_structures_equipement">
+                <source>Statistiques des structures et de l équipement</source>
+                <target>إحصاء البناءات و التجهيزات</target>
+            </trans-unit>
+            <trans-unit id="global_suivi_budgetaire">
+                <source>suivi budgétaire</source>
+                <target>متابعة الميزانية</target>
+            </trans-unit>
+            <trans-unit id="global_statistiques_relatives_mouvements_eleves">
+                <source>Statistiques relatives aux mouvements des élèves</source>
+                <target>إحصاء حركة التلاميذ</target>
+            </trans-unit>
+            <trans-unit id="global_statistiques_relatives_directions_eleves">
+                <source>Statistiques relatives aux directions des élèves</source>
+                <target>إحصاء توجيه التلاميذ</target>
+            </trans-unit>
+            <trans-unit id="global_fondation">
+                <source>fondation</source>
+                <target>المؤسسة</target>
+            </trans-unit>
+            <trans-unit id="global_indicateurs">
+                <source>indicateurs</source>
+                <target>المؤشرات</target>
+            </trans-unit>
+            <trans-unit id="global_gestion_systeme">
+                <source>gestion du système</source>
+                <target>إدارة النظام</target>
+            </trans-unit>
+            <trans-unit id="global_personnel_enseignant">
+                <source>le personnel enseignant</source>
+                <target>إطار التدريس</target>
+            </trans-unit>
+            <trans-unit id="global_rh_non_enseignant">
+                <source>rh non enseignant</source>
+                <target>الموارد البشرية الغير مدرّسة</target>
+            </trans-unit>
+            <trans-unit id="global_rh_enseignant">
+                <source>rh enseignant</source>
+                <target>قائمة اسمية بالموارد البشرية</target>
+            </trans-unit>
+            <trans-unit id="global_fondation_region_terrains">
+                <source>Fondation région et immeubles / terrains carte</source>
+                <target>بطاقة المؤسسة /مساحة الارض والمباني</target>
+            </trans-unit>
+            <trans-unit id="global_suivi_forme_budget">
+                <source>Suivi de la forme du budget</source>
+                <target>استمارة متابعة الميزانية</target>
+            </trans-unit>
+            <trans-unit id="global_rapport_quotidien_fondation">
+                <source>Rapport quotidien Fondation activité</source>
+                <target>التقرير اليومي لنشاط المؤسسة</target>
+            </trans-unit>
+            <trans-unit id="global_gestion_donnees_user">
+                <source>La gestion des données des utilisateurs</source>
+                <target>ادارة بيانات المستخدمين</target>
+            </trans-unit>
+            <trans-unit id="global_gestion_etiquettes">
+                <source>La gestion des données des étiquettes</source>
+                <target>إدارة بيانات التسميات</target>
+            </trans-unit>
+            <trans-unit id="global_recensement">
+                <source>recensement</source>
+                <target>التعداد</target>
+            </trans-unit>
             <trans-unit id="new">
                 <source>new</source>
                 <target>إضافة</target>
