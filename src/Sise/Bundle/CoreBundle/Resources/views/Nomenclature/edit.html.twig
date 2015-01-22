@@ -41,34 +41,65 @@
                 {{ form_label(attribute(edit_form,index[4])) }}
                 {{ form_widget(attribute(edit_form,index[4])) }}
             </div>
-        {% else %}
+        {% elseif(context in tabnomecycl) %}
             <div>
                 {{ form_label(attribute(edit_form,index[3])) }}
                 {{ form_widget(attribute(edit_form,index[3])) }}
             </div>
+
             <div>
                 {{ form_label(attribute(edit_form,index[4])) }}
                 {{ form_widget(attribute(edit_form,index[4])) }}
             </div>
+
+            {% if context == "TypeEtablissement" %}
             <div>
-                {{ form_label(attribute(edit_form,index[5])) }}
-                {{ form_widget(attribute(edit_form,index[5])) }}
+                {{ form_label(attribute(edit_form,index[10])) }}
+                {{ form_widget(attribute(edit_form,index[10])) }}
             </div>
+            {% endif %}
+                <div class="btn-group list">
+                    <label>Test</label>
+
+                <ul id="parent_list_choice">
+                    <span id="list_items_choices" class="btn btn-default">Select item</span>
+                    <li>
+                        {{ form_widget(attribute(edit_form,index[5])) }}
+                        {{ form_label(attribute(edit_form,index[5])) }}
+                    </li>
+
+                    <li>
+                        {{ form_widget(attribute(edit_form,index[6])) }}
+                        {{ form_label(attribute(edit_form,index[6])) }}
+                    </li>
+
+                    <li>
+                        {{ form_widget(attribute(edit_form,index[7])) }}
+                        {{ form_label(attribute(edit_form,index[7])) }}
+                    </li>
+
+                    <li>
+                        {{ form_widget(attribute(edit_form,index[8])) }}
+                        {{ form_label(attribute(edit_form,index[8])) }}
+                    </li>
+
+                    <li>
+                        {{ form_widget(attribute(edit_form,index[9])) }}
+                        {{ form_label(attribute(edit_form,index[9])) }}
+                    </li>
+
+                </ul>
+
+                    </div>
+            {% else %}
             <div>
-                {{ form_label(attribute(edit_form,index[6])) }}
-                {{ form_widget(attribute(edit_form,index[6])) }}
+                {{ form_label(attribute(edit_form,index[3])) }}
+                {{ form_widget(attribute(edit_form,index[3])) }}
             </div>
+
             <div>
-                {{ form_label(attribute(edit_form,index[7])) }}
-                {{ form_widget(attribute(edit_form,index[7])) }}
-            </div>
-            <div>
-                {{ form_label(attribute(edit_form,index[8])) }}
-                {{ form_widget(attribute(edit_form,index[8])) }}
-            </div>
-            <div>
-                {{ form_label(attribute(edit_form,index[9])) }}
-                {{ form_widget(attribute(edit_form,index[9])) }}
+                {{ form_label(attribute(edit_form,index[4])) }}
+                {{ form_widget(attribute(edit_form,index[4])) }}
             </div>
         {% endif %}
     </div>

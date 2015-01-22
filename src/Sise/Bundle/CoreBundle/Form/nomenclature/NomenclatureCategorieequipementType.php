@@ -20,6 +20,11 @@ class NomenclatureCategorieequipementType extends AbstractType
             ->add('libecateequifr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     

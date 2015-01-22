@@ -20,6 +20,11 @@ class NomenclatureSpecialiteType extends AbstractType
             ->add('libespecfr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     
@@ -29,7 +34,7 @@ class NomenclatureSpecialiteType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\SiseBundle\Entity\NomenclatureSpecialite'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSpecialite'
         ));
     }
 

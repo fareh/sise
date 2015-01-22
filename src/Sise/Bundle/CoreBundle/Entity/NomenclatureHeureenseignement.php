@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureHeureenseignementType;
 /**
  * NomenclatureHeureenseignement
  *
@@ -17,7 +17,7 @@ class NomenclatureHeureenseignement
      *
      * @ORM\Column(name="CodeHeurEnse", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeheurense;
 
@@ -300,5 +300,21 @@ class NomenclatureHeureenseignement
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureHeureenseignementType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeheurense;
     }
 }

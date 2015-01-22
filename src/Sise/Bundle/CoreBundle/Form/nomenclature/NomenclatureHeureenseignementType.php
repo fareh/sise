@@ -20,6 +20,11 @@ class NomenclatureHeureenseignementType extends AbstractType
             ->add('libeheurensefr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     

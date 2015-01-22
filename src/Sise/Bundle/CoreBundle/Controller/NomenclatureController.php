@@ -38,7 +38,14 @@ use Sise\Bundle\CoreBundle\Entity\NomenclatureIndicateur;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureFiliere;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureMatiereoptionnelle;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureDiscipline;
-
+use Sise\Bundle\CoreBundle\Entity\NomenclatureSpecialite;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureTypetravail;
+use Sise\Bundle\CoreBundle\Entity\Nomenclatureheureenseignement;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureCauseremplacementprovisoire;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieequipement;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureTypeetablissement;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureSourceprovonance;
 /**
  * Nomenclature controller.
  *
@@ -78,6 +85,30 @@ class NomenclatureController extends Controller
     {
         $contextList='Nomenclature'.$context;
         switch ($contextList) {
+            case 'NomenclatureSpecialite':
+                $entity = new NomenclatureSpecialite();
+                break;
+            case 'NomenclatureSourceProvonance':
+                $entity = new NomenclatureSourceprovonance();
+                break;
+            case 'NomenclatureTypeEtablissement':
+                $entity = new NomenclatureTypeetablissement();
+                break;
+            case 'NomenclatureTypeTravail':
+                $entity = new NomenclatureTypetravail();
+                break;
+            case 'NomenclatureHeureEnseignement':
+                $entity = new NomenclatureHeureenseignement();
+                break;
+            case 'NomenclatureCauseRemplacementProvisoire':
+                $entity = new NomenclatureCauseremplacementprovisoire();
+                break;
+            case 'NomenclatureCategorieEspace':
+                $entity = new NomenclatureCategorieespace();
+                break;
+            case 'NomenclatureCategorieEquipement':
+                $entity = new NomenclatureCategorieequipement();
+                break;
             case 'NomenclatureTypeCloture':
                 $entity = new NomenclatureTypecloture();
                 break;
@@ -221,6 +252,30 @@ class NomenclatureController extends Controller
     {
         $contextList='Nomenclature'.$context;
         switch ($contextList) {
+            case 'NomenclatureTypeEtablissement':
+                $entity = new NomenclatureTypeetablissement();
+                break;
+            case 'NomenclatureSpecialite':
+                $entity = new NomenclatureSpecialite();
+                break;
+            case 'NomenclatureSourceProvonance':
+                $entity = new NomenclatureSourceprovonance();
+                break;
+            case 'NomenclatureTypeTravail':
+                $entity = new NomenclatureTypetravail();
+                break;
+            case 'NomenclatureHeureEnseignement':
+                $entity = new NomenclatureHeureenseignement();
+                break;
+            case 'NomenclatureCauseRemplacementProvisoire':
+                $entity = new NomenclatureCauseremplacementprovisoire();
+                break;
+            case 'NomenclatureCategorieEspace':
+                $entity = new NomenclatureCategorieespace();
+                break;
+            case 'NomenclatureCategorieEquipement':
+                $entity = new NomenclatureCategorieequipement();
+                break;
             case 'NomenclatureTypeCloture':
                 $entity = new NomenclatureTypecloture();
                 break;
@@ -324,14 +379,25 @@ class NomenclatureController extends Controller
         $index=$entity->iterateVisible();
         $tabnome=array();
         $tabnome[]='Filiere';
+        $tabnome[]='Niveauscolaire';
         $tabnome[]='MatiereOptionnelle';
         $tabnome[]='Discipline';
+        $tabnomecycl=array();
+        $tabnomecycl[]='TypeTravail';
+        $tabnomecycl[]='Specialite';
+        $tabnomecycl[]='SourceProvonance';
+        $tabnomecycl[]='TypeEtablissement';
+        $tabnomecycl[]='HeureEnseignement';
+        $tabnomecycl[]='CauseRemplacementProvisoire';
+        $tabnomecycl[]='CategorieEspace';
+        $tabnomecycl[]='CategorieEquipement';
       //  var_dump($index);die;
         $form   = $this->createCreateForm($entity,$context);
         return $this->render('SiseCoreBundle:Nomenclature:new.html.twig', array(
             'entity' => $entity,
             'context' => $context,
             'tabnome' => $tabnome,
+            'tabnomecycl' => $tabnomecycl,
             'index' => $index,
             'form'   => $form->createView(),
         ));
@@ -356,6 +422,17 @@ class NomenclatureController extends Controller
        $tabnome[]='Filiere';
        $tabnome[]='MatiereOptionnelle';
        $tabnome[]='Discipline';
+       $tabnomecycl=array();
+       $tabnomecycl[]='TypeTravail';
+       $tabnomecycl[]='Specialite';
+       $tabnomecycl[]='SourceProvonance';
+       $tabnomecycl[]='HeureEnseignement';
+       $tabnomecycl[]='TypeEtablissement';
+       $tabnomecycl[]='CauseRemplacementProvisoire';
+       $tabnomecycl[]='CategorieEspace';
+       $tabnomecycl[]='CategorieEquipement';
+        $tabnomepart=array();
+        $tabnomepart[]='Niveauscolaire';
      //   $deleteForm = $this->createDeleteForm($id);
        //$array = array_values($editForm);
      //var_dump($index[6]);die;
@@ -364,6 +441,8 @@ class NomenclatureController extends Controller
             'index'      => $index,
             'context'      => $context,
             'tabnome'      => $tabnome,
+            'tabnomecycl'      => $tabnomecycl,
+            'tabnomepart'      => $tabnomepart,
             'edit_form'   => $editForm->createView(),
           //  'delete_form' => $deleteForm->createView(),
         ));

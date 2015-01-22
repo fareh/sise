@@ -4,7 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureCategorieequipementType;
 /**
  * NomenclatureCategorieequipement
  *
@@ -21,16 +21,6 @@ class NomenclatureCategorieequipement
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codecateequi;
-
-    /**
-     * @ORM\OneToMany(targetEntity="NomenclatureEquipement", mappedBy="codecateequi")
-     */
-    protected $codeequi;
-
-    public function __construct()
-    {
-        $this->codeequi = new ArrayCollection();
-    }
 
     /**
      * @var string
@@ -95,6 +85,16 @@ class NomenclatureCategorieequipement
      */
     private $colltech;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureEquipement", mappedBy="codecateequi")
+     */
+    protected $codeequi;
+
+    public function __construct()
+    {
+        $this->codeequi = new ArrayCollection();
+    }
 
     /**
      * Get codecateequi
@@ -344,5 +344,21 @@ class NomenclatureCategorieequipement
     public function getCodeequi()
     {
         return $this->codeequi;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCategorieequipementType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codecateequi;
     }
 }

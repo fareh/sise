@@ -4,7 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureCategorieespaceType;
 
 /**
  * NomenclatureCategorieespace
@@ -19,21 +19,9 @@ class NomenclatureCategorieespace
      *
      * @ORM\Column(name="CodeCateEspa", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codecateespa;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="NomenclatureTypeespace", mappedBy="codecateespa")
-     */
-    protected $codetypeespa;
-
-    public function __construct()
-    {
-        $this->codetypeespa = new ArrayCollection();
-    }
-
 
     /**
      * @var string
@@ -98,6 +86,15 @@ class NomenclatureCategorieespace
      */
     private $colltech;
 
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureTypeespace", mappedBy="codecateespa")
+     */
+    protected $codetypeespa;
+
+    public function __construct()
+    {
+        $this->codetypeespa = new ArrayCollection();
+    }
 
     /**
      * Get codecateespa
@@ -347,5 +344,21 @@ class NomenclatureCategorieespace
     public function getCodetypeespa()
     {
         return $this->codetypeespa;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCategorieespaceType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codecateespa;
     }
 }

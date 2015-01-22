@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSpecialiteType;
 /**
  * NomenclatureSpecialite
  *
@@ -17,7 +17,7 @@ class NomenclatureSpecialite
      *
      * @ORM\Column(name="CodeSpec", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codespec;
 
@@ -305,5 +305,21 @@ class NomenclatureSpecialite
     public function __toString()
     {
         return($this->getLibespecar())?$this->getLibespecar():"";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureSpecialiteType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codespec;
     }
 }

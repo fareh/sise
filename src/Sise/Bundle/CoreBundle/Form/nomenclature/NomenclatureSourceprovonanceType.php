@@ -20,6 +20,11 @@ class NomenclatureSourceprovonanceType extends AbstractType
             ->add('libesourprovfr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     

@@ -15,11 +15,17 @@ class NomenclatureTypeetablissementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codetypeetab')
             ->add('libetypeetabar')
             ->add('libetypeetabfr')
             ->add('ordraffi')
             ->add('acti')
             ->add('concrece')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     

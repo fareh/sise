@@ -17,7 +17,7 @@ class NomenclatureTypetravail
      *
      * @ORM\Column(name="CodeTypeTrav", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetypetrav;
 

@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureTypeetablissementType;
 /**
  * NomenclatureTypeetablissement
  *
@@ -17,7 +17,7 @@ class NomenclatureTypeetablissement
      *
      * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetypeetab;
 
@@ -335,5 +335,21 @@ class NomenclatureTypeetablissement
     public function __toString()
     {
         return ($this->getLibetypeetabar())?$this->getLibetypeetabar():"";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureTypeetablissementType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codetypeetab;
     }
 }

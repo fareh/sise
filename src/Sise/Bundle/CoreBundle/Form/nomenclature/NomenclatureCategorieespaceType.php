@@ -20,6 +20,11 @@ class NomenclatureCategorieespaceType extends AbstractType
             ->add('libecateespafr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     

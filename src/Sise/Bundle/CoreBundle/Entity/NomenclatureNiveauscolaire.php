@@ -59,9 +59,13 @@ class NomenclatureNiveauscolaire
     protected $codecyclense;
 
     /**
-     * @var string
+     * @var \NomenclatureNiveauscolaire
      *
-     * @ORM\Column(name="CodeNiveScolSuiv", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScolSuiv")
+     * })
      */
     private $codenivescolsuiv;
 

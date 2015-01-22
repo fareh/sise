@@ -25,6 +25,13 @@ class NomenclatureNiveauscolaireType extends AbstractType
                 'multiple' => true,
                 'required' => true,
             ))
+            ->add('codenivescolsuiv', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire',
+                'property' => 'libenivescolar',
+                'expanded' => false,
+                'multiple' => true,
+                'required' => true,
+            ))
             ->add('ordraffi')
             ->add('acti')
         ;

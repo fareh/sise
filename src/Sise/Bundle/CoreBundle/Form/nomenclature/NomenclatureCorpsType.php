@@ -15,10 +15,9 @@ class NomenclatureCorpsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codecorp')
             ->add('libecorpar')
             ->add('libecorpfr')
-            ->add('codecyclense')
-            ->add('corpense')
             ->add('ordraffi')
             ->add('acti')
             ->add('prep')
