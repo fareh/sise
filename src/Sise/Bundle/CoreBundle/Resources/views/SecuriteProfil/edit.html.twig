@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
-{% trans_default_domain 'SiseCoreBundle' %}
+
 {% block body -%}
+{% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : '' })) }}
     <br>
     {{ form_start(edit_form, {'attr': {'novalidate': 'novalidate' }})}}

@@ -1,6 +1,25 @@
 {% extends '::base.html.twig' %}
-{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
+{% trans_default_domain 'SiseCoreBundle' %}
+<div class="rightMenu">
+
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
+
+    <br>
+
+    <div class="listLink">
+        <ul>
+            <li><a href="{{ path('securite_groupeutilisateur') }}">{{'SecuriteGroupeutilisateur'|trans()  }}</a></li>
+            <li><a href="{{ path('securite_roles') }}">{{'SecuriteProfil'|trans()  }}</a></li>
+            <li><a href="{{ path('sise_user_list') }}">{{'SecuriteUtilisateur'|trans()  }}</a></li>
+
+        </ul>
+
+
+    </div>
+
+</div>
+<div class="leftMenu">
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
     <br>
     <table class="records_list">
@@ -42,4 +61,5 @@
             </a>
         </li>
     </ul>
+    </div>
     {% endblock %}
