@@ -2,8 +2,32 @@ jQuery(document).ready(function () {
 $('#form_nivescol select').on('change', function() {
     document.getElementById("form_nivescol").submit();
 });
+});
+
+
+jQuery(document).ready(function () {
+    $( "#TdValider2, #Valider2" ).click(function() {
+
+        if (document.getElementById('id_with_js')) {
+            document.getElementById('id_with_js').submit();
+        }
+
+        if (document.securite) {
+            document.securite.submit();
+        }
+
+
+
+        if (document.nomenclature_sise) {
+            document.nomenclature_sise.submit();
+        }
+
+    });
 
 });
+
+
+
 
 // Récupère le div qui contient la collection de tags
 var collectionHolder = $('ul.tags');

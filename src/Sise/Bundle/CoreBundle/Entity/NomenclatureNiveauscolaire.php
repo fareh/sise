@@ -64,7 +64,7 @@ class NomenclatureNiveauscolaire
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureNiveauscolaire")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeNiveScol", referencedColumnName="CodeNiveScolSuiv")
+     *   @ORM\JoinColumn(name="CodeNiveScolSuiv", referencedColumnName="CodeNiveScol")
      * })
      */
     private $codenivescolsuiv;
