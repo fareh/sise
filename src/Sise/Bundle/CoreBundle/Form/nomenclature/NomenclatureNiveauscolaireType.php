@@ -22,14 +22,14 @@ class NomenclatureNiveauscolaireType extends AbstractType
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement',
                 'property' => 'libecyclensear',
                 'expanded' => false,
-                'multiple' => true,
+                'multiple' => false,
                 'required' => true,
             ))
             ->add('codenivescolsuiv', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire',
                 'property' => 'libenivescolar',
                 'expanded' => false,
-                'multiple' => true,
+                'multiple' => false,
                 'required' => true,
             ))
             ->add('ordraffi')

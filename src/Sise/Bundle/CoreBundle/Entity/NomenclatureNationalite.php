@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureNationaliteType;
 /**
  * NomenclatureNationalite
  *
@@ -17,7 +17,7 @@ class NomenclatureNationalite
      *
      * @ORM\Column(name="CodeNati", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codenati;
 
@@ -50,9 +50,13 @@ class NomenclatureNationalite
     private $acti;
 
     /**
-     * @var string
+     * @var \NomenclatureCategorienationalite
      *
-     * @ORM\Column(name="CodeCateNati", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorienationalite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeCateNati", referencedColumnName="CodeCateNati")
+     * })
      */
     private $codecatenati;
 
@@ -333,6 +337,23 @@ class NomenclatureNationalite
     }
 
     public function __toString()
+    {
+        return $this->codenati;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureNationaliteType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codenati;
     }

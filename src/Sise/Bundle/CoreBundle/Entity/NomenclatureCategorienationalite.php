@@ -17,7 +17,7 @@ class NomenclatureCategorienationalite
      *
      * @ORM\Column(name="CodeCateNati", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codecatenati;
 

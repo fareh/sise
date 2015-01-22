@@ -451,7 +451,7 @@ class NomenclatureNiveauscolaire
     /**
      * Get codefili
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodefili()
     {
@@ -484,18 +484,18 @@ class NomenclatureNiveauscolaire
     /**
      * Get codematiopti
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodematiopti()
     {
         return $this->codematiopti;
     }
-public function iterateVisible() {
-     //   echo "MyClass::iterateVisible:\n";
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
         foreach($this as $key => $value) {
             $indice[]=$key;
         }
-     return $indice;
+        return $indice;
     }
 
     public function getinstanceType() {

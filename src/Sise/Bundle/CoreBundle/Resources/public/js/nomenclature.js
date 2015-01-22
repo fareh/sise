@@ -22,8 +22,8 @@ function getNivSco() {
     })
 
 }
-$('#nomenclature_sise_codenivescol').multiselect({maxHeight: 200, numberDisplayed: 20});
-$('#nomenclature_sise_codecycl').multiselect({
+$('.btn-group > #nomenclature_sise_codenivescol').multiselect({maxHeight: 200, numberDisplayed: 20});
+$('.btn-group > #nomenclature_sise_codecycl').multiselect({
     maxHeight: 200,
     numberDisplayed: 20
 });

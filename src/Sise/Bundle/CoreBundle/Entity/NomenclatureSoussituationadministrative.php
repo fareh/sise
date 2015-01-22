@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSoussituationadministrativeType;
 /**
  * NomenclatureSoussituationadministrative
  *
@@ -17,7 +17,7 @@ class NomenclatureSoussituationadministrative
      *
      * @ORM\Column(name="CodeSousSituAdmi", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codesoussituadmi;
 
@@ -36,16 +36,6 @@ class NomenclatureSoussituationadministrative
     private $libesoussituadmifr;
 
     /**
-     * @var \NomenclatureSituationadministrative
-     *
-     * @ORM\ManyToOne(targetEntity="NomenclatureSituationadministrative")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeSituAdmi", referencedColumnName="CodeSituAdmi")
-     * })
-     */
-    private $codesituadmi;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -58,6 +48,16 @@ class NomenclatureSoussituationadministrative
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var \NomenclatureSituationadministrative
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureSituationadministrative")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeSituAdmi", referencedColumnName="CodeSituAdmi")
+     * })
+     */
+    private $codesituadmi;
 
     /**
      * @var boolean
@@ -336,6 +336,23 @@ class NomenclatureSoussituationadministrative
     }
 
     public function __toString()
+    {
+        return $this->codesoussituadmi;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureSoussituationadministrativeType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codesoussituadmi;
     }

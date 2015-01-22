@@ -20,12 +20,13 @@ class NomenclatureGradeType extends AbstractType
             ->add('libegradfr')
             ->add('ordraffi')
             ->add('acti')
-            ->add('prep')
-            ->add('prim')
-            ->add('collgene')
-            ->add('lyce')
-            ->add('colltech')
-            ->add('codecorp')
+            ->add('codecorp', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCorps',
+                'property' => 'libecorpar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     

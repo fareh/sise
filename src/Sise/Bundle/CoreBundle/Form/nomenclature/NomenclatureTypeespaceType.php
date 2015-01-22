@@ -15,11 +15,23 @@ class NomenclatureTypeespaceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codetypeespa')
             ->add('libetypeespaar')
             ->add('libetypeespafr')
             ->add('ordraffi')
             ->add('acti')
-            ->add('codecateespa')
+            ->add('codecateespa','entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace',
+                'property' => 'libecateespaar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
         ;
     }
     

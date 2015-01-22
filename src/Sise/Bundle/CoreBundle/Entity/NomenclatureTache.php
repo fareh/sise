@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureTacheType;
 /**
  * NomenclatureTache
  *
@@ -17,7 +17,7 @@ class NomenclatureTache
      *
      * @ORM\Column(name="CodeTach", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetach;
 
@@ -36,13 +36,6 @@ class NomenclatureTache
     private $libetachfr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCorp", type="string", length=50, nullable=true)
-     */
-    private $codecorp;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=false)
@@ -55,6 +48,17 @@ class NomenclatureTache
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var \NomenclatureCorps
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCorps")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeCorp", referencedColumnName="CodeCorp")
+     * })
+     */
+    private $codecorp;
 
     /**
      * @var boolean
@@ -333,6 +337,23 @@ class NomenclatureTache
     }
 
     public function __toString()
+    {
+        return $this->codetach;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureTacheType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codetach;
     }

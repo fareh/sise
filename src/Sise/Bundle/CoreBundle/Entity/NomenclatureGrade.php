@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureGradeType;
 /**
  * NomenclatureGrade
  *
@@ -36,21 +36,6 @@ class NomenclatureGrade
     private $libegradfr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCorp", type="string", length=50, nullable=true)
-     */
-    // private $codecorp;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="NomenclatureCorps", inversedBy="codegrad")
-     * @ORM\JoinColumn(name="CodeCorp", referencedColumnName="CodeCorp")
-     */
-    protected $codecorp;
-
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -63,6 +48,12 @@ class NomenclatureGrade
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCorps", inversedBy="codegrad")
+     * @ORM\JoinColumn(name="CodeCorp", referencedColumnName="CodeCorp")
+     */
+    protected $codecorp;
 
     /**
      * @var boolean
@@ -344,7 +335,21 @@ class NomenclatureGrade
     {
         return $this->codecorp;
     }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
 
-
-
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureGradeType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codegrad;
+    }
 }

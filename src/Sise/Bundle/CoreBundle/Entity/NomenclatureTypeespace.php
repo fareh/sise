@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureTypeespaceType;
 /**
  * NomenclatureTypeespace
  *
@@ -34,13 +34,6 @@ class NomenclatureTypeespace
      * @ORM\Column(name="LibeTypeEspaFr", type="string", length=50, nullable=true)
      */
     private $libetypeespafr;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieespace", inversedBy="codetypeespa")
-     * @ORM\JoinColumn(name="CodeCateEspa", referencedColumnName="CodeCateEspa")
-     */
-    protected $codecateespa;
-
 
     /**
      * @var integer
@@ -91,6 +84,11 @@ class NomenclatureTypeespace
      */
     private $colltech;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieespace", inversedBy="codetypeespa")
+     * @ORM\JoinColumn(name="CodeCateEspa", referencedColumnName="CodeCateEspa")
+     */
+    protected $codecateespa;
 
     /**
      * Get codetypeespa
@@ -331,5 +329,22 @@ class NomenclatureTypeespace
     public function getCodecateespa()
     {
         return $this->codecateespa;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureTypeespaceType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codetypeespa;
     }
 }

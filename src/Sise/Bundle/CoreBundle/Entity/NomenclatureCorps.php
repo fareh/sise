@@ -4,7 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureCorpsType;
 /**
  * NomenclatureCorps
  *
@@ -35,20 +35,6 @@ class NomenclatureCorps
      * @ORM\Column(name="LibeCorpFr", type="string", length=50, nullable=true)
      */
     private $libecorpfr;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
-     */
-    private $codecyclense;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="CorpEnse", type="boolean", nullable=false)
-     */
-    private $corpense;
 
     /**
      * @var integer
@@ -99,6 +85,19 @@ class NomenclatureCorps
      */
     private $colltech;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
+     */
+    private $codecyclense;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="CorpEnse", type="boolean", nullable=false)
+     */
+    private $corpense;
 
     /**
      * @ORM\OneToMany(targetEntity="NomenclatureGrade", mappedBy="codecorp")
@@ -408,6 +407,23 @@ class NomenclatureCorps
     }
 
     public function __toString()
+    {
+        return $this->codecorp;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCorpsType();
+        return $instancetype;
+    }
+    public function getCode()
     {
         return $this->codecorp;
     }

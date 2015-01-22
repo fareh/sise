@@ -15,16 +15,18 @@ class NomenclatureNationaliteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codenati')
             ->add('libenatiar')
             ->add('libenatifr')
             ->add('ordraffi')
             ->add('acti')
-            ->add('prep')
-            ->add('prim')
-            ->add('collgene')
-            ->add('lyce')
-            ->add('colltech')
-            ->add('codecatenati')
+            ->add('codecatenati', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCategorienationalite',
+                'property' => 'libecatenatiar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     

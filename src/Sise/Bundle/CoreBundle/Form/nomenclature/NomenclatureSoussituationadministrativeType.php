@@ -1,6 +1,6 @@
 <?php
 
-namespace Sise\Bundle\CoreBundle\Form;
+namespace Sise\Bundle\CoreBundle\Form\nomenclature;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,6 +15,11 @@ class NomenclatureSoussituationadministrativeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codesoussituadmi')
+            ->add('libesoussituadmiar')
+            ->add('libesoussituadmifr')
+            ->add('ordraffi')
+            ->add('acti')
             ->add('codesituadmi', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureSituationadministrative',
                 'property' => 'libesituadmiar',
@@ -40,6 +45,6 @@ class NomenclatureSoussituationadministrativeType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_corebundle_nomenclaturesoussituationadministrative';
+        return 'nomenclature_sise';
     }
 }
