@@ -2,24 +2,14 @@
 
 {% block body -%}
     {% trans_default_domain 'SiseCoreBundle' %}
-    <style>
-        td {
-            background-color:#fff
-        }
-    </style>
+    <div class="rightMenu">
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'Nomenclature'|trans(), 'RouteAction' : '' })) }}
 
-    <div id="entete">
-        En tête
-    </div>
-
-    <div id="main">
+        <br>
         {{ include('SiseCoreBundle:Default:list.nomenclature.html.twig') }}
-    <div id="contenu">
-        Contenu
     </div>
-    </div>
-
-    <div id="footer">
-        Pied de Page
-    </div>
+<div class="leftMenu">
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'ListNomenclature'|trans() , 'RouteAction' : '' })) }}
+    <br>
+</div>
 {% endblock %}
