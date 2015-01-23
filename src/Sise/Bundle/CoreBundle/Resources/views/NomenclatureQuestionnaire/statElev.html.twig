@@ -16,7 +16,7 @@
                         <img src="{{ asset('bundles/sisecore/images/16x16/symbol.png') }}" width="12px">
                         <span>{{ entity.libequesar }}</span>
                     </td>
-                    <td width="10%" class="RowStyle" align="center">
+                    <td width="10%" class="RowStyle" align="center" >
 
                         {% if (entity.nameclass|lower|replace({'_': ""})~'_list')|routeExists == 1 %}
                             <a href="{{ path(entity.nameclass|lower|replace({'_': ""})~'_list') }}"
