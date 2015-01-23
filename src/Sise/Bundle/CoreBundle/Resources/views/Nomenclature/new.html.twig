@@ -37,7 +37,7 @@
                     {{ form_widget(attribute(form,index[4])) }}
                 </div>
             {% elseif(context in tabnomecycl) %}
-                {% if context == "TypeEtablissement" or context == "Typeespace"%}
+                {% if context == "TypeEtablissement" or context == "Typeespace" or context == "Equipement" %}
                     <div>
                         {{ form_label(attribute(form,index[10])) }}
                         {{ form_widget(attribute(form,index[10])) }}
@@ -86,16 +86,24 @@
                     {{ form_widget(attribute(form,index[4])) }}
                 </div>
             {% elseif(context in tabnomepart) %}
-                <div class="btn-group">
+                {% if context == "Anneenaissance"%}
+                    <div>
+                        {{ form_label(attribute(form,index[7])) }}
+                        {{ form_widget(attribute(form,index[7])) }}
+                    </div>
+                {% endif %}
+            {% if context != "ParametreAnneescolaire" %}
+                <div>
                     {{ form_label(attribute(form,index[5])) }}
                     {{ form_widget(attribute(form,index[5])) }}
                 </div>
-            {% if context == "Niveauscolaire" %}
-                <div class="btn-group">
-                    {{ form_label(attribute(form,index[6])) }}
-                    {{ form_widget(attribute(form,index[6])) }}
-                </div>
             {% endif %}
+                {% if context == "Niveauscolaire" or context == "Anneenaissance"%}
+                    <div>
+                        {{ form_label(attribute(form,index[6])) }}
+                        {{ form_widget(attribute(form,index[6])) }}
+                    </div>
+                {% endif %}
                 <div>
                     {{ form_label(attribute(form,index[3])) }}
                     {{ form_widget(attribute(form,index[3])) }}

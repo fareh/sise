@@ -1,12 +1,12 @@
 <?php
 
-namespace Sise\Bundle\CoreBundle\Form\nomenclature;
+namespace Sise\Bundle\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class NomenclatureCirconscriptionType extends AbstractType
+class NomenclatureOrientationfiliereType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,18 +15,11 @@ class NomenclatureCirconscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codecirc')
-            ->add('libecircar')
-            ->add('libecircfr')
-            ->add('codegouv', 'entity', array(
-                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat',
-                'property' => 'libegouvar',
-                'expanded' => false,
-                'multiple' => false,
-                'required' => true,
-            ))
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codefili')
+            ->add('codenivescol')
+            ->add('codefilisuiv')
+            ->add('codenivescolsuiv')
+            ->add('etat')
         ;
     }
     
@@ -36,7 +29,7 @@ class NomenclatureCirconscriptionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscription'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureOrientationfiliere'
         ));
     }
 

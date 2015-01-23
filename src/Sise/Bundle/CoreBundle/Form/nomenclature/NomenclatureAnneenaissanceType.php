@@ -15,18 +15,26 @@ class NomenclatureAnneenaissanceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codeannenais')
             ->add('libeannenaisar')
             ->add('libeannenaisfr')
             ->add('annenais')
             ->add('ordraffi')
             ->add('acti')
-            ->add('prep')
-            ->add('prim')
-            ->add('collgene')
-            ->add('lyce')
-            ->add('colltech')
-            ->add('codeannescol')
-            ->add('codecyclense')
+            ->add('codeannescol', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire',
+                'property' => 'libeannescolar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
+            ->add('codecyclense', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement',
+                'property' => 'libecyclensear',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     

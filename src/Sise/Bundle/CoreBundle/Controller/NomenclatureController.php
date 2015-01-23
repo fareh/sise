@@ -53,6 +53,16 @@ use Sise\Bundle\CoreBundle\Entity\NomenclatureSoussituationadministrative;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureTache;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureNationalite;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureTypeespace;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureEquipement;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureActivite;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscription;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureAnneenaissance;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureObservation;
+use Sise\Bundle\CoreBundle\Entity\BudgetRubriquebudgetaire;
+use Sise\Bundle\CoreBundle\Entity\NomenclatureBassinpedagogique;
+
 /**
  * Nomenclature controller.
  *
@@ -67,12 +77,21 @@ class NomenclatureController extends Controller
     public function indexAction($context)
     {
         $em = $this->getDoctrine()->getManager();
-
+     if($context == "BudgetRubriquebudgetaire" or $context == "ParametreAnneescolaire")
+       {
+       $query = $em->createQuery(
+        'SELECT F
+             FROM SiseCoreBundle:'.$context." ".'F');
+       $entities = $query ->getArrayResult();
+       }
+        else
+        {
        // $entities = $em->getRepository('SiseCoreBundle:Nomenclature')->findAll();
         $query = $em->createQuery(
             'SELECT F
              FROM SiseCoreBundle:Nomenclature'.$context." ".'F');
         $entities = $query ->getArrayResult();
+        }
     //var_dump($entities);die;
         foreach($entities as $key=>$en)
         {
@@ -90,10 +109,44 @@ class NomenclatureController extends Controller
      */
     public function createAction(Request $request,$context)
     {
+        if($context == "BudgetRubriquebudgetaire")
+        {
+            $entity = new BudgetRubriquebudgetaire();
+        }
+        elseif($context == "ParametreAnneescolaire")
+        {
+            $entity = new ParametreAnneescolaire();
+        }
+        else
+        {
         $contextList='Nomenclature'.$context;
         switch ($contextList) {
             case 'NomenclatureNiveauscolaire':
                 $entity = new NomenclatureNiveauscolaire();
+                break;
+            case 'NomenclatureBassinpedagogique':
+                $entity = new NomenclatureBassinpedagogique();
+                break;
+            case 'NomenclatureObservation':
+                $entity = new NomenclatureObservation();
+                break;
+            case 'NomenclatureCirconscriptionregional':
+                $entity = new NomenclatureCirconscriptionregional();
+                break;
+            case 'NomenclatureDelegation':
+                $entity = new NomenclatureDelegation();
+                break;
+            case 'NomenclatureAnneenaissance':
+                $entity = new NomenclatureAnneenaissance();
+                break;
+            case 'NomenclatureCirconscription':
+                $entity = new NomenclatureCirconscription();
+                break;
+            case 'NomenclatureActivite':
+                $entity = new NomenclatureActivite();
+                break;
+            case 'NomenclatureEquipement':
+                $entity = new NomenclatureEquipement();
                 break;
             case 'NomenclatureTypeespace':
                 $entity = new NomenclatureTypeespace();
@@ -236,7 +289,7 @@ class NomenclatureController extends Controller
             case 'NomenclatureTypeHandicap':
                 $entity = new NomenclatureTypehandicap();
                 break;
-        }
+        }}
        // var_dump($entity);die;
         $form = $this->createCreateForm($entity,$context);
         $form->handleRequest($request);
@@ -278,10 +331,44 @@ class NomenclatureController extends Controller
      */
     public function newAction($context)
     {
+        if($context == "BudgetRubriquebudgetaire")
+        {
+            $entity = new BudgetRubriquebudgetaire();
+        }
+        elseif($context == "ParametreAnneescolaire")
+        {
+            $entity = new ParametreAnneescolaire();
+        }
+        else
+        {
         $contextList='Nomenclature'.$context;
         switch ($contextList) {
             case 'NomenclatureCorps':
                 $entity = new NomenclatureCorps();
+                break;
+            case 'NomenclatureBassinpedagogique':
+                $entity = new NomenclatureBassinpedagogique();
+                break;
+            case 'NomenclatureObservation':
+                $entity = new NomenclatureObservation();
+                break;
+            case 'NomenclatureCirconscriptionregional':
+                $entity = new NomenclatureCirconscriptionregional();
+                break;
+            case 'NomenclatureDelegation':
+                $entity = new NomenclatureDelegation();
+                break;
+            case 'NomenclatureAnneenaissance':
+                $entity = new NomenclatureAnneenaissance();
+                break;
+            case 'NomenclatureCirconscription':
+                $entity = new NomenclatureCirconscription();
+                break;
+            case 'NomenclatureActivite':
+                $entity = new NomenclatureActivite();
+                break;
+            case 'NomenclatureEquipement':
+                $entity = new NomenclatureEquipement();
                 break;
             case 'NomenclatureTypeespace':
                 $entity = new NomenclatureTypeespace();
@@ -424,7 +511,7 @@ class NomenclatureController extends Controller
             case 'NomenclatureTypeHandicap':
                 $entity = new NomenclatureTypehandicap();
                 break;
-        }
+        }}
         $index=$entity->iterateVisible();
         $tabnome=array();
         $tabnome[]='Filiere';
@@ -434,6 +521,7 @@ class NomenclatureController extends Controller
         $tabnomecycl=array();
         $tabnomecycl[]='TypeTravail';
         $tabnomecycl[]='Corps';
+        $tabnomecycl[]='Equipement';
         $tabnomecycl[]='Specialite';
         $tabnomecycl[]='SourceProvonance';
         $tabnomecycl[]='TypeEtablissement';
@@ -445,6 +533,15 @@ class NomenclatureController extends Controller
         $tabnomepart=array();
         $tabnomepart[]='Niveauscolaire';
         $tabnomepart[]='Grade';
+        $tabnomepart[]='Bassinpedagogique';
+        $tabnomepart[]='Observation';
+        $tabnomepart[]='ParametreAnneescolaire';
+        $tabnomepart[]='BudgetRubriquebudgetaire';
+        $tabnomepart[]='Circonscription';
+        $tabnomepart[]='Activite';
+        $tabnomepart[]='Circonscriptionregional';
+        $tabnomepart[]='Delegation';
+        $tabnomepart[]='Anneenaissance';
         $tabnomepart[]='Soussituationadministrative';
         $tabnomepart[]='Tache';
         $tabnomepart[]='Nationalite';
@@ -468,9 +565,15 @@ class NomenclatureController extends Controller
     public function editAction($context,$id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:Nomenclature'.$context)->find($id);
-       //var_dump($entity);die;
+        if($context == "BudgetRubriquebudgetaire" or $context == "ParametreAnneescolaire")
+        {
+            $entity = $em->getRepository('SiseCoreBundle:'.$context)->find($id);
+        }
+        else
+        {
+            $entity = $em->getRepository('SiseCoreBundle:Nomenclature' . $context)->find($id);
+        }
+      //var_dump($entity);die;
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Nomenclature entity.');
         }
@@ -483,6 +586,7 @@ class NomenclatureController extends Controller
        $tabnomecycl=array();
        $tabnomecycl[]='TypeTravail';
        $tabnomecycl[]='Corps';
+       $tabnomecycl[]='Equipement';
        $tabnomecycl[]='Specialite';
        $tabnomecycl[]='SourceProvonance';
        $tabnomecycl[]='HeureEnseignement';
@@ -494,6 +598,15 @@ class NomenclatureController extends Controller
        $tabnomepart=array();
        $tabnomepart[]='Niveauscolaire';
        $tabnomepart[]='Grade';
+       $tabnomepart[]='Circonscription';
+       $tabnomepart[]='Activite';
+       $tabnomepart[]='Observation';
+       $tabnomepart[]='Bassinpedagogique';
+       $tabnomepart[]='ParametreAnneescolaire';
+       $tabnomepart[]='BudgetRubriquebudgetaire';
+       $tabnomepart[]='Circonscriptionregional';
+       $tabnomepart[]='Delegation';
+       $tabnomepart[]='Anneenaissance';
        $tabnomepart[]='Soussituationadministrative';
        $tabnomepart[]='Tache';
        $tabnomepart[]='Nationalite';

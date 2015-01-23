@@ -20,7 +20,13 @@ class NomenclatureDelegationType extends AbstractType
             ->add('libedelefr')
             ->add('ordraffi')
             ->add('acti')
-            ->add('codegouv')
+            ->add('codecircregi', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCirconscriptionregional',
+                'property' => 'libecircregiar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     

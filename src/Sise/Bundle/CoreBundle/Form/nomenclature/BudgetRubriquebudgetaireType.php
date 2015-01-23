@@ -15,14 +15,18 @@ class BudgetRubriquebudgetaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('coderubrbudg')
             ->add('liberubrbudgar')
             ->add('liberubrbudgfr')
             ->add('ordraffi')
-            ->add('acti','choice' , array(
-    'choices'   => array('0' => 'Non', '1' => 'Oui'),
-    'required'  => false,
-))  
-            ->add('codetyperubrbudg')
+            ->add('acti')
+            ->add('codetyperubrbudg', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureTyperubriquebudgetaire',
+                'property' => 'libetyperubrbudgar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     

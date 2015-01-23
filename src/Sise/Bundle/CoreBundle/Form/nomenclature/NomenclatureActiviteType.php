@@ -20,6 +20,13 @@ class NomenclatureActiviteType extends AbstractType
             ->add('libeactifr')
             ->add('ordraffi')
             ->add('acti')
+            ->add('codecateacti', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieactivite',
+                'property' => 'libecateactiar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     

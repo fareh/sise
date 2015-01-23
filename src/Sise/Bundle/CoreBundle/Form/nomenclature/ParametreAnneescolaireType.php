@@ -29,7 +29,7 @@ class ParametreAnneescolaireType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sise\SiseBundle\Entity\ParametreAnneescolaire'
+            'data_class' => 'Sise\Bundle\CoreBundle\Entity\ParametreAnneescolaire'
         ));
     }
 

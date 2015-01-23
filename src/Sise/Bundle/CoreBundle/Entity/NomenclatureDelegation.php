@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureDelegationType;
 /**
  * NomenclatureDelegation
  *
@@ -17,7 +17,7 @@ class NomenclatureDelegation
      *
      * @ORM\Column(name="CodeDele", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codedele;
 
@@ -48,6 +48,16 @@ class NomenclatureDelegation
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @var \NomenclatureCirconscriptionregional
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureCirconscriptionregional", inversedBy="codedele")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
+     * })
+     */
+    private $codecircregi;
 
     /**
      * @var boolean
@@ -85,23 +95,12 @@ class NomenclatureDelegation
     private $colltech = '0';
 
     /**
-     * @var \NomenclatureCirconscriptionregional
-     *
-     * @ORM\ManyToOne(targetEntity="NomenclatureCirconscriptionregional", inversedBy="codedele")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="codecircregi", referencedColumnName="codecircregi")
-     * })
-     */
-    private $codecircregi;
-
-
-    /**
      * @ORM\OneToMany(targetEntity="NomenclatureEtablissement", mappedBy="codedele")
      **/
     private $codeetab;
 
     public function __construct() {
-        $this->codeetab = new ArrayCollection();
+   //     $this->codeetab = new ArrayCollection();
     }
 
     /**
@@ -381,5 +380,22 @@ class NomenclatureDelegation
     public function getCodeetab()
     {
         return $this->codeetab;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureDelegationType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codedele;
     }
 }

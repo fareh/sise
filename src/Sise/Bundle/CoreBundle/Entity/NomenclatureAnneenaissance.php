@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureAnneenaissanceType;
 /**
  * NomenclatureAnneenaissance
  *
@@ -50,16 +50,24 @@ class NomenclatureAnneenaissance
     private $acti;
 
     /**
-     * @var string
+     * @var ParametreAnneescolaire
      *
-     * @ORM\Column(name="CodeAnneScol", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="ParametreAnneescolaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeAnneScol", referencedColumnName="CodeAnneScol")
+     * })
      */
     private $codeannescol;
 
     /**
-     * @var string
+     * @var NomenclatureCycleenseignement
      *
-     * @ORM\Column(name="CodeCyclEnse", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCycleenseignement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeCyclEnse", referencedColumnName="CodeCyclEnse")
+     * })
      */
     private $codecyclense;
 
@@ -104,7 +112,6 @@ class NomenclatureAnneenaissance
      * @ORM\Column(name="CollTech", type="boolean", nullable=false)
      */
     private $colltech;
-
 
     /**
      * Set libeannenaisar
@@ -420,5 +427,22 @@ class NomenclatureAnneenaissance
 
 
         return ($this->getLibeannenaisar())?$this->getLibeannenaisfr():"";
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureAnneenaissanceType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeannenais;
     }
 }

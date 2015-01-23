@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\BudgetRubriquebudgetaireType;
 /**
  * BudgetRubriquebudgetaire
  *
@@ -36,13 +36,6 @@ class BudgetRubriquebudgetaire
     private $liberubrbudgfr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeTypeRubrBudg", type="string", length=50, nullable=false)
-     */
-    private $codetyperubrbudg;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=true)
@@ -56,6 +49,16 @@ class BudgetRubriquebudgetaire
      */
     private $acti;
 
+    /**
+     * @var NomenclatureTyperubriquebudgetaire
+     *
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureTyperubriquebudgetaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeTypeRubrBudg", referencedColumnName="CodeTypeRubrBudg")
+     * })
+     */
+    private $codetyperubrbudg;
 
     /**
      * Get coderubrbudg
@@ -180,5 +183,22 @@ class BudgetRubriquebudgetaire
     public function getActi()
     {
         return $this->acti;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new BudgetRubriquebudgetaireType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->coderubrbudg;
     }
 }

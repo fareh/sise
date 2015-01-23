@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureCirconscriptionType;
 /**
  * NomenclatureCirconscription
  *
@@ -17,7 +17,7 @@ class NomenclatureCirconscription
      *
      * @ORM\Column(name="CodeCirc", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codecirc;
 
@@ -50,9 +50,13 @@ class NomenclatureCirconscription
     private $acti;
 
     /**
-     * @var string
+     * @var \NomenclatureGouvernorat
      *
-     * @ORM\Column(name="CodeGouv", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGouvernorat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGouv", referencedColumnName="CodeGouv")
+     * })
      */
     private $codegouv;
 
@@ -335,5 +339,22 @@ class NomenclatureCirconscription
     public function __toString()
     {
         return $this->libecircar;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCirconscriptionType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codecirc;
     }
 }

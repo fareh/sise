@@ -15,17 +15,19 @@ class NomenclatureBassinpedagogiqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codebasspeda')
             ->add('libebasspedaar')
             ->add('libebasspedafr')
             ->add('ordraffi')
             ->add('acti')
-            ->add('prep')
-            ->add('prim')
-            ->add('collgene')
-            ->add('lyce')
-            ->add('colltech')
-            ->add('codedele')
-            ->add('codeetab')
+            ->add('codedele', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureDelegation',
+                'property' => 'libedelear',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
+
         ;
     }
     

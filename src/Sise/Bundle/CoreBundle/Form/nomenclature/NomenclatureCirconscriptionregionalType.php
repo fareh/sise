@@ -18,7 +18,13 @@ class NomenclatureCirconscriptionregionalType extends AbstractType
             ->add('codecircregi')
             ->add('libecircregiar')
             ->add('libecircregifr')
-            ->add('codegouv')
+            ->add('codegouv', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureGouvernorat',
+                'property' => 'libegouvar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
             ->add('ordraffi')
             ->add('acti')
         ;

@@ -361,4 +361,8 @@ class NomenclatureCategorieequipement
     {
         return $this->codecateequi;
     }
+    public function __toString()
+    {
+        return $this->codecateequi;
+    }
 }

@@ -18,7 +18,13 @@ class NomenclatureObservationType extends AbstractType
             ->add('codeobse')
             ->add('libeobsear')
             ->add('libeobsefr')
-            ->add('codecateenti')
+            ->add('codecateenti', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieentite',
+                'property' => 'libecateentiar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
             ->add('ordraffi')
             ->add('acti')
         ;

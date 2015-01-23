@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureActiviteType;
 /**
  * NomenclatureActivite
  *
@@ -36,20 +36,6 @@ class NomenclatureActivite
     private $libeactifr;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCateActi", type="string", length=50, nullable=false)
-     */
-    // private $codecateacti;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieactivite", inversedBy="codeacti")
-     * @ORM\JoinColumn(name="CodeCateActi", referencedColumnName="CodeCateActi")
-     */
-    protected $codecateacti;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="OrdrAffi", type="integer", nullable=false)
@@ -62,6 +48,12 @@ class NomenclatureActivite
      * @ORM\Column(name="Acti", type="boolean", nullable=true)
      */
     private $acti;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieactivite", inversedBy="codeacti")
+     * @ORM\JoinColumn(name="CodeCateActi", referencedColumnName="CodeCateActi")
+     */
+    protected $codecateacti;
 
     /**
      * @var boolean
@@ -337,5 +329,22 @@ class NomenclatureActivite
     public function getCodecateacti()
     {
         return $this->codecateacti;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureActiviteType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeacti;
     }
 }

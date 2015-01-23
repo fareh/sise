@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureBassinpedagogiqueType;
 /**
  * NomenclatureBassinpedagogique
  *
@@ -17,7 +17,7 @@ class NomenclatureBassinpedagogique
      *
      * @ORM\Column(name="CodeBassPeda", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codebasspeda;
 
@@ -50,9 +50,13 @@ class NomenclatureBassinpedagogique
     private $acti;
 
     /**
-     * @var string
+     * @var NomenclatureDelegation
      *
-     * @ORM\Column(name="CodeDele", type="string", length=50, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureDelegation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
+     * })
      */
     private $codedele;
 
@@ -330,5 +334,22 @@ class NomenclatureBassinpedagogique
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureBassinpedagogiqueType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codebasspeda;
     }
 }

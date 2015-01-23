@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureEquipementType;
 /**
  * NomenclatureEquipement
  *
@@ -34,21 +34,6 @@ class NomenclatureEquipement
      * @ORM\Column(name="LibeEquiFr", type="string", length=50, nullable=true)
      */
     private $libeequifr;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeCateEqui", type="string", length=50, nullable=true)
-     */
-    // private $codecateequi;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieequipement", inversedBy="codeequi")
-     * @ORM\JoinColumn(name="CodeCateEqui", referencedColumnName="CodeCateEqui")
-     */
-    protected $codecateequi;
-
 
     /**
      * @var integer
@@ -99,6 +84,11 @@ class NomenclatureEquipement
      */
     private $colltech;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieequipement", inversedBy="codeequi")
+     * @ORM\JoinColumn(name="CodeCateEqui", referencedColumnName="CodeCateEqui")
+     */
+    protected $codecateequi;
 
     /**
      * Get codeequi
@@ -339,5 +329,22 @@ class NomenclatureEquipement
     public function getCodecateequi()
     {
         return $this->codecateequi;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureEquipementType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeequi;
     }
 }

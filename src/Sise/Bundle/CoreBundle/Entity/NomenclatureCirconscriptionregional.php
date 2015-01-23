@@ -4,7 +4,7 @@ namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureCirconscriptionregionalType;
 /**
  * NomenclatureCirconscriptionregional
  *
@@ -51,9 +51,13 @@ class NomenclatureCirconscriptionregional
     private $acti;
 
     /**
-     * @var string
+     * @var \NomenclatureGouvernorat
      *
-     * @ORM\Column(name="CodeGouv", type="string", length=10, nullable=true)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureGouvernorat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeGouv", referencedColumnName="CodeGouv")
+     * })
      */
     private $codegouv;
 
@@ -63,7 +67,7 @@ class NomenclatureCirconscriptionregional
     private $codedele;
 
     public function __construct() {
-        $this->codedele = new ArrayCollection();
+  //      $this->codedele = new ArrayCollection();
     }
 
     /**
@@ -227,5 +231,22 @@ class NomenclatureCirconscriptionregional
     public function getCodedele()
     {
         return $this->codedele;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureCirconscriptionregionalType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codecircregi;
     }
 }

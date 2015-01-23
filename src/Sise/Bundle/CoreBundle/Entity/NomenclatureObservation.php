@@ -3,7 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureObservationType;
 /**
  * NomenclatureObservation
  *
@@ -50,9 +50,13 @@ class NomenclatureObservation
     private $acti;
 
     /**
-     * @var string
+     * @var NomenclatureCategorieentite
      *
-     * @ORM\Column(name="CodeCateEnti", type="string", length=50, nullable=false)
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\ManyToOne(targetEntity="NomenclatureCategorieentite")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeCateEnti", referencedColumnName="CodeCateEnti")
+     * })
      */
     private $codecateenti;
 
@@ -330,5 +334,22 @@ class NomenclatureObservation
     public function getColltech()
     {
         return $this->colltech;
+    }
+    public function iterateVisible() {
+        //   echo "MyClass::iterateVisible:\n";
+        foreach($this as $key => $value) {
+            $indice[]=$key;
+        }
+        return $indice;
+    }
+
+    public function getinstanceType() {
+        //   echo "MyClass::iterateVisible:\n";
+        $instancetype=new NomenclatureObservationType();
+        return $instancetype;
+    }
+    public function getCode()
+    {
+        return $this->codeobse;
     }
 }

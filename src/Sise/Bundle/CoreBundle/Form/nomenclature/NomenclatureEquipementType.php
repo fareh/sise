@@ -20,7 +20,18 @@ class NomenclatureEquipementType extends AbstractType
             ->add('libeequifr')
             ->add('ordraffi')
             ->add('acti')
-            ->add('codecateequi')
+            ->add('prep')
+            ->add('prim')
+            ->add('collgene')
+            ->add('lyce')
+            ->add('colltech')
+            ->add('codecateequi', 'entity', array(
+                'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieequipement',
+                'property' => 'libecateequiar',
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+            ))
         ;
     }
     
