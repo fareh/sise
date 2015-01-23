@@ -136,13 +136,17 @@
             {% endif %}
             {% if TdExporter == true and  Route.Exporter|routeExists==1 %}
                 <td id="TdExporter2" align="center" style="background-color: #68217A; color: White; font-size: 1em; ">
-                    <a href="{{ path( Route.Exporter) }}"
-                       style="color:White;background-color:Transparent;border-style:None; display: block">إكسال
+                 {#
+                    <a href="#"
+                       style="color:White;background-color:Transparent;border-style:None; display: block">
                     </a>
+                 #}
 
+                        <a id="TdExporter" style="display: block; color: #ffffff" download="somedata.xls" href="#" onclick="return ExcellentExport.excel(this, 'CPHMain_GridView_Browse', 'Sheet Name Here');">
+                            إكسال</a>
                 </td>
             {% endif %}
-
+{#{{ path( Route.Exporter) }}#}
             {% if TdValider == true %}
                 <td id="TdValider2" align="center" style="background-color: #52B043; color: White; font-size: 1em;">
 

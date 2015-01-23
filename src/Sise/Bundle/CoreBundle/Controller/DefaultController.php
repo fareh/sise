@@ -172,7 +172,7 @@ class DefaultController extends Controller
 
 
         if (strpos($PageContext, 'Ques') !== false) {
-
+            $RouteExporter = $RouteAction . '_edit';
             if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
             if ($TdValider == true) $RouteValider = '_create';
 

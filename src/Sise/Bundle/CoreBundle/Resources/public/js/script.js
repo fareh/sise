@@ -26,6 +26,24 @@ jQuery(document).ready(function () {
 
     });
 
+
+
+    $( "#TdExporter" ).click(function() {
+
+        if (document.getElementById('CPHMain_GridView_Browse')) {
+          return ExcellentExport.excel($( "#TdExporter" ), 'CPHMain_GridView_Browse', 'Sheet Name Here') ;
+         }
+      /*  if (document.getElementById('customers')) {
+            $('#customers').tableExport({type:'excel',escape:'false', htmlContent:'true'});
+        }
+*/
+
+
+
+
+    });
+
+
 });
 
 
