@@ -65,7 +65,6 @@ class SecuriteProfilController extends Controller
                 $acess->setDroidele((@$params['droidele'])?@$params['droidele']:'0');
                 $em->persist($acess);
             }
-
             $em->flush();
             return $this->redirect($this->generateUrl('securite_roles'));
         }
@@ -92,9 +91,6 @@ class SecuriteProfilController extends Controller
             'action' => $this->generateUrl('securite_roles_create'),
             'method' => 'POST',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
         return $form;
     }
 
@@ -199,9 +195,6 @@ class SecuriteProfilController extends Controller
             'action' => $this->generateUrl('securite_roles_update', array('id' => $entity->getCodeprof())),
             'method' => 'PUT',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
         return $form;
     }
 

@@ -2,7 +2,7 @@
 
 {% block body -%}
 {% trans_default_domain 'SiseCoreBundle' %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : '' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
     <br>
     {{ form_start(edit_form, {'attr': {'novalidate': 'novalidate' }})}}
     <div id="securite">
@@ -148,6 +148,9 @@
                 </table>
             {% endfor %}
         </div>
+
+
+        <div style="height: 30px;">&nbsp;</div>
 
     </div>
 

@@ -25,6 +25,6 @@ securite_roles_update:
     requirements: { _method: post|put }
 
 securite_roles_delete:
-    path:     /{id}/delete
+    path:    /delete
     defaults: { _controller: "SiseCoreBundle:SecuriteProfil:delete" }
     requirements: { _method: post|delete }

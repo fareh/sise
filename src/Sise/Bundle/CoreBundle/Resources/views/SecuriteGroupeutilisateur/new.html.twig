@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
-{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteGroupeutilisateur'|trans(), 'RouteAction' : 'securite_groupeutilisateur' })) }}
     <br>
 

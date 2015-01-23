@@ -11,7 +11,9 @@ jQuery(document).ready(function () {
         if (document.getElementById('id_with_js')) {
             document.getElementById('id_with_js').submit();
         }
-
+        if (document.getElementById('fos_user_registration_register')) {
+            document.getElementById('fos_user_registration_register').submit();
+        }
         if (document.securite) {
             document.securite.submit();
         }

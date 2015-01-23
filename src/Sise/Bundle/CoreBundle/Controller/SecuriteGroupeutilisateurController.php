@@ -37,14 +37,13 @@ class SecuriteGroupeutilisateurController extends Controller
     {
         $entity = new SecuriteGroupeutilisateur();
         $form = $this->createCreateForm($entity);
+        $params = $request->request->get($form->getName());
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('securite_groupeutilisateur_show', array('id' => $entity->getCodegrouutil())));
+            return $this->redirect($this->generateUrl('securite_groupeutilisateur'));
         }
 
         return $this->render('SiseCoreBundle:SecuriteGroupeutilisateur:new.html.twig', array(
@@ -67,7 +66,6 @@ class SecuriteGroupeutilisateurController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -147,7 +145,6 @@ class SecuriteGroupeutilisateurController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }

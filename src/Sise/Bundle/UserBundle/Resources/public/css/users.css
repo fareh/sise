@@ -71,5 +71,11 @@ form[name="securite"] #securite   #CPHMain_UpRpt input[type="checkbox"]{
     width: 20px;
 }
 
+.MainPage .rightMenu .listLink ul {
+    list-style: none;
+    padding-right: 5px;
+
+}
+
 
 /* fin formulaire d'enregistrement */
