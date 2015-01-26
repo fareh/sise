@@ -1,3 +1,11 @@
+sise_core_nomenclatureparametrespindicateur:
+    resource: "@SiseCoreBundle/Resources/config/routing/nomenclatureparametrespindicateur.yml"
+    prefix:   /nomenclatureparametrespindicateur
+
+sise_core_nomenclatureindicateur:
+    resource: "@SiseCoreBundle/Resources/config/routing/nomenclatureindicateur.yml"
+    prefix:   /nomenclatureindicateur
+
 sise_core_securite_roles:
     resource: "@SiseCoreBundle/Resources/config/routing/securiteprofil.yml"
     prefix:   /securite/roles

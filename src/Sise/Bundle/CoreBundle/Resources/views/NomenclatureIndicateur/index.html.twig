@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NomenclatureIndicateur list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codeindi</th>
+                <th>Libeindiar</th>
+                <th>Libeindifr</th>
+                <th>Ordraffi</th>
+                <th>Acti</th>
+                <th>Definition</th>
+                <th>Spindicateur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('nomenclatureindicateur_show', { 'id': entity.codeindi }) }}">{{ entity.codeindi }}</a></td>
+                <td>{{ entity.libeindiar }}</td>
+                <td>{{ entity.libeindifr }}</td>
+                <td>{{ entity.ordraffi }}</td>
+                <td>{{ entity.acti }}</td>
+                <td>{{ entity.definition }}</td>
+                <td>{{ entity.spindicateur }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('nomenclatureindicateur_show', { 'id': entity.codeindi }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('nomenclatureindicateur_edit', { 'id': entity.codeindi }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('nomenclatureindicateur_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

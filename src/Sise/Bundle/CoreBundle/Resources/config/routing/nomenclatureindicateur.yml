@@ -1,0 +1,30 @@
+nomenclatureindicateur:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:index" }
+
+nomenclatureindicateur_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:show" }
+
+nomenclatureindicateur_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:new" }
+
+nomenclatureindicateur_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:create" }
+    requirements: { _method: post }
+
+nomenclatureindicateur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:edit" }
+
+nomenclatureindicateur_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:update" }
+    requirements: { _method: post|put }
+
+nomenclatureindicateur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:NomenclatureIndicateur:delete" }
+    requirements: { _method: post|delete }

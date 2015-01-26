@@ -13,22 +13,23 @@ use Doctrine\ORM\Mapping as ORM;
 class NomenclatureParametrespindicateur
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeIndi", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codeindi;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="CodeParaIndi", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codeparaindi;
+
+
+    /**
+     * @var NomenclatureIndicateur
+     * @ORM\ManyToOne(targetEntity="NomenclatureIndicateur", inversedBy="codeparaindi")
+     * @ORM\JoinColumn(name="CodeIndi", referencedColumnName="CodeIndi")
+     */
+    private $codeindi;
+
+
 
     /**
      * @var string
@@ -45,58 +46,11 @@ class NomenclatureParametrespindicateur
     private $valepara;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeParaExog", type="string", length=50, nullable=true)
+     * @var NomenclatureParametreexogene
+     * @ORM\ManyToOne(targetEntity="NomenclatureParametreexogene", inversedBy="codeparaindi")
+     * @ORM\JoinColumn(name="CodeParaExog", referencedColumnName="CodeParaExog")
      */
     private $codeparaexog;
-
-
-    /**
-     * Set codeindi
-     *
-     * @param string $codeindi
-     * @return NomenclatureParametrespindicateur
-     */
-    public function setCodeindi($codeindi)
-    {
-        $this->codeindi = $codeindi;
-
-        return $this;
-    }
-
-    /**
-     * Get codeindi
-     *
-     * @return string
-     */
-    public function getCodeindi()
-    {
-        return $this->codeindi;
-    }
-
-    /**
-     * Set codeparaindi
-     *
-     * @param integer $codeparaindi
-     * @return NomenclatureParametrespindicateur
-     */
-    public function setCodeparaindi($codeparaindi)
-    {
-        $this->codeparaindi = $codeparaindi;
-
-        return $this;
-    }
-
-    /**
-     * Get codeparaindi
-     *
-     * @return integer
-     */
-    public function getCodeparaindi()
-    {
-        return $this->codeparaindi;
-    }
 
     /**
      * Set nompara
@@ -144,13 +98,61 @@ class NomenclatureParametrespindicateur
         return $this->valepara;
     }
 
+
+    /**
+     * Set codeparaindi
+     *
+     * @param integer $codeparaindi
+     * @return NomenclatureParametrespindicateur
+     */
+    public function setCodeparaindi($codeparaindi)
+    {
+        $this->codeparaindi = $codeparaindi;
+
+        return $this;
+    }
+
+    /**
+     * Get codeparaindi
+     *
+     * @return integer 
+     */
+    public function getCodeparaindi()
+    {
+        return $this->codeparaindi;
+    }
+
+
+    /**
+     * Set codeindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureIndicateur $codeindi
+     * @return NomenclatureParametrespindicateur
+     */
+    public function setCodeindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureIndicateur $codeindi = null)
+    {
+        $this->codeindi = $codeindi;
+
+        return $this;
+    }
+
+    /**
+     * Get codeindi
+     *
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureIndicateur 
+     */
+    public function getCodeindi()
+    {
+        return $this->codeindi;
+    }
+
     /**
      * Set codeparaexog
      *
-     * @param string $codeparaexog
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametreexogene $codeparaexog
      * @return NomenclatureParametrespindicateur
      */
-    public function setCodeparaexog($codeparaexog)
+    public function setCodeparaexog(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametreexogene $codeparaexog = null)
     {
         $this->codeparaexog = $codeparaexog;
 
@@ -160,7 +162,7 @@ class NomenclatureParametrespindicateur
     /**
      * Get codeparaexog
      *
-     * @return string
+     * @return \Sise\Bundle\CoreBundle\Entity\NomenclatureParametreexogene 
      */
     public function getCodeparaexog()
     {

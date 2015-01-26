@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NomenclatureParametrespindicateur</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeparaindi</th>
+                <td>{{ entity.codeparaindi }}</td>
+            </tr>
+            <tr>
+                <th>Nompara</th>
+                <td>{{ entity.nompara }}</td>
+            </tr>
+            <tr>
+                <th>Valepara</th>
+                <td>{{ entity.valepara }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('nomenclatureparametrespindicateur') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('nomenclatureparametrespindicateur_edit', { 'id': entity.codeparaindi }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

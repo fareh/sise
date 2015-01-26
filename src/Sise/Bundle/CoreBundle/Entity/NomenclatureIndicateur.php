@@ -17,9 +17,14 @@ class NomenclatureIndicateur
      *
      * @ORM\Column(name="CodeIndi", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeindi;
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureParametrespindicateur", mappedBy="codeindi")
+     */
+    protected $codeparaindi;
 
     /**
      * @var string
@@ -63,15 +68,7 @@ class NomenclatureIndicateur
      */
     private $spindicateur;
 
-    /**
-     * Get codeindi
-     *
-     * @return string
-     */
-    public function getCodeindi()
-    {
-        return $this->codeindi;
-    }
+
 
     /**
      * Set libeindifr
@@ -225,4 +222,54 @@ class NomenclatureIndicateur
     public function getCode()
     {
         return $this->codeindi;
-    }}
+    }    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codeparaindi = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get codeindi
+     *
+     * @return string 
+     */
+    public function getCodeindi()
+    {
+        return $this->codeindi;
+    }
+
+    /**
+     * Add codeparaindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     * @return NomenclatureIndicateur
+     */
+    public function addCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    {
+        $this->codeparaindi[] = $codeparaindi;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeparaindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     */
+    public function removeCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    {
+        $this->codeparaindi->removeElement($codeparaindi);
+    }
+
+    /**
+     * Get codeparaindi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeparaindi()
+    {
+        return $this->codeparaindi;
+    }
+}

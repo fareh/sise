@@ -1,0 +1,30 @@
+nomenclatureparametrespindicateur:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:index" }
+
+nomenclatureparametrespindicateur_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:show" }
+
+nomenclatureparametrespindicateur_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:new" }
+
+nomenclatureparametrespindicateur_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:create" }
+    requirements: { _method: post }
+
+nomenclatureparametrespindicateur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:edit" }
+
+nomenclatureparametrespindicateur_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:update" }
+    requirements: { _method: post|put }
+
+nomenclatureparametrespindicateur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametrespindicateur:delete" }
+    requirements: { _method: post|delete }

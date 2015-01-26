@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NomenclatureIndicateur</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeindi</th>
+                <td>{{ entity.codeindi }}</td>
+            </tr>
+            <tr>
+                <th>Libeindiar</th>
+                <td>{{ entity.libeindiar }}</td>
+            </tr>
+            <tr>
+                <th>Libeindifr</th>
+                <td>{{ entity.libeindifr }}</td>
+            </tr>
+            <tr>
+                <th>Ordraffi</th>
+                <td>{{ entity.ordraffi }}</td>
+            </tr>
+            <tr>
+                <th>Acti</th>
+                <td>{{ entity.acti }}</td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>{{ entity.definition }}</td>
+            </tr>
+            <tr>
+                <th>Spindicateur</th>
+                <td>{{ entity.spindicateur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('nomenclatureindicateur') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('nomenclatureindicateur_edit', { 'id': entity.codeindi }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

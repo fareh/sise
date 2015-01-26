@@ -21,6 +21,12 @@ class NomenclatureParametreexogene
      */
     private $codeparaexog;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="NomenclatureParametrespindicateur", mappedBy="codeparaexog")
+     */
+    protected $codeparaindi;
+
     /**
      * @var string
      *
@@ -195,5 +201,45 @@ class NomenclatureParametreexogene
     public function getValeindi()
     {
         return $this->valeindi;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codeparaindi = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add codeparaindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     * @return NomenclatureParametreexogene
+     */
+    public function addCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    {
+        $this->codeparaindi[] = $codeparaindi;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeparaindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     */
+    public function removeCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    {
+        $this->codeparaindi->removeElement($codeparaindi);
+    }
+
+    /**
+     * Get codeparaindi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeparaindi()
+    {
+        return $this->codeparaindi;
     }
 }
