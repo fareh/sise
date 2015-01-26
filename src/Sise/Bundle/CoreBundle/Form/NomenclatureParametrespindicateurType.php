@@ -16,9 +16,9 @@ class NomenclatureParametrespindicateurType extends AbstractType
     {
         $builder
             ->add('nompara')
-            ->add('valepara')
-            ->add('codeindi')
             ->add('codeparaexog')
+            ->add('valepara')
+
         ;
     }
     
@@ -37,6 +37,6 @@ class NomenclatureParametrespindicateurType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_bundle_corebundle_nomenclatureparametrespindicateur';
+        return 'nomenclature_sise';
     }
 }

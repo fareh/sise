@@ -1,16 +1,83 @@
 {% extends '::base.html.twig' %}
-
 {% block body -%}
-    <h1>NomenclatureIndicateur edit</h1>
+    {% trans_default_domain 'SiseCoreBundle' %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
+    <br>
 
-    {{ form(edit_form) }}
+    {{ form_start(edit_form, {'attr': {'novalidate': 'novalidate' }}) }}
+    <div id="nomenclature_sise">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('nomenclatureindicateur') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+        <div>
+            {{ form_label(edit_form.codeindi) }}
+            {{ form_errors(edit_form.codeindi) }}
+            {{ form_widget(edit_form.codeindi) }}
+
+        </div>
+        <div>
+            {{ form_label(edit_form.libeindiar) }}
+            {{ form_errors(edit_form.libeindiar) }}
+            {{ form_widget(edit_form.libeindiar) }}
+
+        </div>
+
+        <div>
+            {{ form_label(edit_form.libeindifr) }}
+            {{ form_errors(edit_form.libeindifr) }}
+            {{ form_widget(edit_form.libeindifr) }}
+
+        </div>
+        <div>
+            {{ form_label(edit_form.ordraffi) }}
+            {{ form_errors(edit_form.ordraffi) }}
+            {{ form_widget(edit_form.ordraffi) }}
+
+        </div>
+        <div>
+            {{ form_label(edit_form.acti) }}
+            {{ form_errors(edit_form.acti) }}
+            {{ form_widget(edit_form.acti) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(edit_form.definition) }}
+            {{ form_errors(edit_form.definition) }}
+            {{ form_widget(edit_form.definition) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(edit_form.spindicateur) }}
+            {{ form_errors(edit_form.spindicateur) }}
+            {{ form_widget(edit_form.spindicateur) }}
+
+        </div>
+        <div>
+                <ul class="tags"  data-prototype="
+                {% filter escape %}
+                {{ include('SiseCoreBundle:Default:prototype_codeparaindi.html.twig', { 'codeparaindi': edit_form.codeparaindi.vars.prototype }) }}
+                {% endfilter %}">
+                <li>
+                    <div> {{'nompara'|trans() }}</div>
+                    <div> {{'codeparaexog'|trans() }}</div>
+                    <div> {{'valepara'|trans() }}</div>
+                </li>
+                {% for codeparaindi in edit_form.codeparaindi %}
+
+                    <li>
+                        <div> {{ form_widget(codeparaindi.nompara) }}</div>
+                        <div> {{ form_widget(codeparaindi.codeparaexog) }}</div>
+                        <div> {{ form_widget(codeparaindi.valepara) }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="height: 30px;">&nbsp;</div>
+    </div>
+
+    {{ form_end(edit_form) }}
+
 {% endblock %}

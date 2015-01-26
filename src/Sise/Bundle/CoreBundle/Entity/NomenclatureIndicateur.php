@@ -21,8 +21,9 @@ class NomenclatureIndicateur
      */
     private $codeindi;
 
+
     /**
-     * @ORM\OneToMany(targetEntity="NomenclatureParametrespindicateur", mappedBy="codeindi")
+     * @ORM\OneToMany(targetEntity="NomenclatureParametrespindicateur", mappedBy="codeindi", cascade={"persist"})
      */
     protected $codeparaindi;
 
@@ -67,7 +68,6 @@ class NomenclatureIndicateur
      * @ORM\Column(name="SPIndicateur", type="string", length=500, nullable=true)
      */
     private $spindicateur;
-
 
 
     /**
@@ -230,6 +230,24 @@ class NomenclatureIndicateur
         $this->codeparaindi = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+    /**
+     * @param mixed $codeparaindi
+     */
+    public function setCodeparaindi(\Doctrine\Common\Collections\ArrayCollection $codeparaindis = null)
+    {
+        foreach($codeparaindis as $codeparaindi){
+
+            $codeparaindi->setCodeindi($this);
+
+        }
+
+
+        $this->codeparaindi = $codeparaindis;
+    }
+
+
+
     /**
      * Get codeindi
      *
@@ -238,6 +256,19 @@ class NomenclatureIndicateur
     public function getCodeindi()
     {
         return $this->codeindi;
+    }
+
+
+    /**
+     * Set codeindi
+     *
+     * @param integer $codeindi
+     * @return NomenclatureIndicateur
+     */
+
+    public function setCodeindi($codeindi)
+    {
+        $this->codeindi = $codeindi;
     }
 
     /**
@@ -271,5 +302,10 @@ class NomenclatureIndicateur
     public function getCodeparaindi()
     {
         return $this->codeparaindi;
+    }
+
+    public function __toString(){
+
+        return ($this->getLibeindiar())?$this->getLibeindiar():"";
     }
 }

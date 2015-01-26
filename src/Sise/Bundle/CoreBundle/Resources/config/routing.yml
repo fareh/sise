@@ -1,3 +1,7 @@
+sise_core_nomenclatureparametreexogene:
+    resource: "@SiseCoreBundle/Resources/config/routing/nomenclatureparametreexogene.yml"
+    prefix:   /nomenclatureparametreexogene
+
 sise_core_nomenclatureparametrespindicateur:
     resource: "@SiseCoreBundle/Resources/config/routing/nomenclatureparametrespindicateur.yml"
     prefix:   /nomenclatureparametrespindicateur

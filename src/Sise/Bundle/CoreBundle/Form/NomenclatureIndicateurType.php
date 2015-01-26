@@ -15,13 +15,20 @@ class NomenclatureIndicateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
+            ->add('codeindi')
             ->add('libeindiar')
             ->add('libeindifr')
             ->add('ordraffi')
             ->add('acti')
             ->add('definition')
             ->add('spindicateur')
-          ->add('codeparaindi', 'collection', array('type' => new NomenclatureParametrespindicateurType()))
+          ->add('codeparaindi', 'collection', array(
+              'type' => new NomenclatureParametrespindicateurType(),
+              'allow_add' => true,
+              'by_reference' => false,
+
+          ))
         ;
     }
     
@@ -40,6 +47,6 @@ class NomenclatureIndicateurType extends AbstractType
      */
     public function getName()
     {
-        return 'sise_bundle_corebundle_nomenclatureindicateur';
+        return 'nomenclature_sise';
     }
 }

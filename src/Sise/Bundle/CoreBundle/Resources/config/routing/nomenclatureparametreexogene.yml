@@ -1,0 +1,30 @@
+nomenclatureparametreexogene:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:index" }
+
+nomenclatureparametreexogene_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:show" }
+
+nomenclatureparametreexogene_new:
+    path:     /new
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:new" }
+
+nomenclatureparametreexogene_create:
+    path:     /create
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:create" }
+    requirements: { _method: post }
+
+nomenclatureparametreexogene_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:edit" }
+
+nomenclatureparametreexogene_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:update" }
+    requirements: { _method: post|put }
+
+nomenclatureparametreexogene_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:delete" }
+    requirements: { _method: post|delete }

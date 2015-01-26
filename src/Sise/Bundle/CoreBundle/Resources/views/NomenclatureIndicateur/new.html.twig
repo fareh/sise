@@ -1,15 +1,77 @@
 {% extends '::base.html.twig' %}
-
+{% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
-    <h1>NomenclatureIndicateur creation</h1>
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
+    <br>
 
-    {{ form(form) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
+    <div id="nomenclature_sise">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('nomenclatureindicateur') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+
+        <div>
+            {{ form_label(form.codeindi) }}
+            {{ form_errors(form.codeindi) }}
+            {{ form_widget(form.codeindi) }}
+
+        </div>
+        <div>
+            {{ form_label(form.libeindiar) }}
+            {{ form_errors(form.libeindiar) }}
+            {{ form_widget(form.libeindiar) }}
+
+        </div>
+
+        <div>
+            {{ form_label(form.libeindifr) }}
+            {{ form_errors(form.libeindifr) }}
+            {{ form_widget(form.libeindifr) }}
+
+        </div>
+        <div>
+            {{ form_label(form.ordraffi) }}
+            {{ form_errors(form.ordraffi) }}
+            {{ form_widget(form.ordraffi) }}
+
+        </div>
+        <div>
+            {{ form_label(form.acti) }}
+            {{ form_errors(form.acti) }}
+            {{ form_widget(form.acti) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(form.definition) }}
+            {{ form_errors(form.definition) }}
+            {{ form_widget(form.definition) }}
+
+        </div>
+
+
+        <div>
+            {{ form_label(form.spindicateur) }}
+            {{ form_errors(form.spindicateur) }}
+            {{ form_widget(form.spindicateur) }}
+
+        </div>
+        <div>
+            <ul class="tags"  data-prototype="
+                {% filter escape %}
+                {{ include('SiseCoreBundle:Default:prototype_codeparaindi.html.twig', { 'codeparaindi': form.codeparaindi.vars.prototype }) }}
+                {% endfilter %}">
+                {% for codeparaindi in form.codeparaindi %}
+                    <li>
+                      <div> {{ form_widget(codeparaindi.nompara) }}</div>
+                        <div> {{ form_widget(codeparaindi.codeparaexog) }}</div>
+                        <div> {{ form_widget(codeparaindi.valepara) }}</div>
+                        </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="height: 30px;">&nbsp;</div>
+    </div>
+
+    {{ form_end(form) }}
+
 {% endblock %}

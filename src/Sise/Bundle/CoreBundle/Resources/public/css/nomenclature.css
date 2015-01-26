@@ -68,6 +68,29 @@ form[name="nomenclature_sise"] #nomenclature_sise   label{
     list-style: outside none none;
     width: 100%;
 }
+
+#nomenclature_sise ul.tags li div{
+
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+#nomenclature_sise ul.tags li div:nth-child(2n) {
+    width: 40%;
+}
+
+
+#nomenclature_sise ul.tags li div:nth-child(2n+1) {
+    width: 20%;
+}
+
+
+form[name="nomenclature_sise"] #nomenclature_sise ul.tags li div  input , form[name="nomenclature_sise"] #nomenclature_sise ul.tags li div  select {
+    width: 100%;
+}
+
+
 form[name="nomenclature_sise"] #nomenclature_sise   input[type="checkbox"]{
     min-height:inherit;
     width: 15px;

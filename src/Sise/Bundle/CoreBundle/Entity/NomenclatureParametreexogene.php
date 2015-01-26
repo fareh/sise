@@ -13,13 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class NomenclatureParametreexogene
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="CodeParaExog", type="string", length=50, nullable=false)
+     * @ORM\Column(name="CodeParaExog", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codeparaexog;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeFK", type="string", length=50, nullable=false)
+     */
+    private $codefk;
 
 
     /**
@@ -27,14 +34,7 @@ class NomenclatureParametreexogene
      */
     protected $codeparaindi;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeFK", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $codefk;
+
 
     /**
      * @var string
@@ -63,6 +63,30 @@ class NomenclatureParametreexogene
      * @ORM\Column(name="ValeIndi", type="string", length=50, nullable=true)
      */
     private $valeindi;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="choicefk", type="string", length=250, nullable=true)
+     */
+    private $choicefk;
+
+    /**
+     * @return mixed
+     */
+    public function getChoicefk()
+    {
+        return $this->choicefk;
+    }
+
+    /**
+     * @param mixed $choicefk
+     */
+    public function setChoicefk($choicefk)
+    {
+        $this->choicefk = $choicefk;
+    }
 
 
     /**
@@ -236,10 +260,15 @@ class NomenclatureParametreexogene
     /**
      * Get codeparaindi
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCodeparaindi()
     {
         return $this->codeparaindi;
+    }
+
+    public function __toString(){
+
+        return ($this->getLibeparaexogar())?$this->getLibeparaexogar():"";
     }
 }

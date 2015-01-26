@@ -48,7 +48,9 @@ class NomenclatureParametrespindicateur
     /**
      * @var NomenclatureParametreexogene
      * @ORM\ManyToOne(targetEntity="NomenclatureParametreexogene", inversedBy="codeparaindi")
-     * @ORM\JoinColumn(name="CodeParaExog", referencedColumnName="CodeParaExog")
+     * @ORM\JoinColumns({
+     *      @ORM\JoinColumn(name="CodeParaExog", referencedColumnName="CodeParaExog")
+     * })
      */
     private $codeparaexog;
 

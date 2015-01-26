@@ -44,7 +44,7 @@ class NomenclatureIndicateurController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nomenclatureindicateur_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('nomenclatureindicateur_show', array('id' => $entity->getCodeindi())));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureIndicateur:new.html.twig', array(
@@ -143,7 +143,7 @@ class NomenclatureIndicateurController extends Controller
     private function createEditForm(NomenclatureIndicateur $entity)
     {
         $form = $this->createForm(new NomenclatureIndicateurType(), $entity, array(
-            'action' => $this->generateUrl('nomenclatureindicateur_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('nomenclatureindicateur_update', array('id' => $entity->getCodeindi())),
             'method' => 'PUT',
         ));
 

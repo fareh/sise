@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+    {% trans_default_domain 'SiseCoreBundle' %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
+    <br>
+
+    {{ form_start(edit_form, {'attr': {'novalidate': 'novalidate' }}) }}
+    <div id="nomenclature_sise">
+
+        <div>
+            {{ form_label(edit_form.libeparaexogar) }}
+            {{ form_errors(edit_form.libeparaexogar) }}
+            {{ form_widget(edit_form.libeparaexogar) }}
+
+        </div>
+        <div>
+            {{ form_label(edit_form.libeparaexogfr) }}
+            {{ form_errors(edit_form.libeparaexogfr) }}
+            {{ form_widget(edit_form.libeparaexogfr) }}
+
+        </div>
+
+        <div>
+            {{ form_label(edit_form.choicefk) }}
+            {{ form_errors(edit_form.choicefk) }}
+            {{ form_widget(edit_form.choicefk) }}
+
+        </div>
+
+        <div style="height: 30px;">&nbsp;</div>
+    </div>
+
+    {{ form_end(edit_form) }}
+
+{% endblock %}
