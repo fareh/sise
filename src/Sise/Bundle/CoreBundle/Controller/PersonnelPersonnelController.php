@@ -5,7 +5,7 @@ namespace Sise\Bundle\CoreBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sise\Bundle\CoreBundle\Form\search\SearchPersonnelType;
-use Sise\Bundle\CoreBundle\Form\NomenclatureSoussituationadministrativeType;
+use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSoussituationadministrativeType;
 use Sise\Bundle\CoreBundle\Entity\PersonnelPersonnel;
 use Sise\Bundle\CoreBundle\Form\PersonnelPersonnelType;
 

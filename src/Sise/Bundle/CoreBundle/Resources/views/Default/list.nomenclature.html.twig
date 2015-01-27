@@ -1,10 +1,21 @@
-<style>
-    #menu > div > table > tbody > tr > td{
-        background-color:#fff
-    }
-</style>
+    <style>
+        #menu > table > tbody > tr > td{
+            background-color:#fff
+        }
+    </style>
+
+<div class="tree">
+    <ul>
+        <li><a>Second</a>
+            <ul>
+                <li><a>Second Level</a></li>
+                <li><a>Second Level</a></li>
+                <li><a>Second Level</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 <div id="menu">
-<div>
 <table>
 <tbody>
 <tr>
@@ -211,6 +222,4 @@
     <td><a href="Orientation">{{ 'Orientation'|trans({}, 'SiseCoreBundle') }}</a></td>
 </tr>
 </tbody></table>
-</div>
-
 </div>

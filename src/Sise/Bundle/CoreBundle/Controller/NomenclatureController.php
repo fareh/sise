@@ -717,7 +717,311 @@ class NomenclatureController extends Controller
      */
     public function listAction()
     {
-        return $this->render('SiseCoreBundle:Nomenclature:list.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCycleEnseignement F');
+             $entities = $query ->getArrayResult();
+         $array= array();
+         $array['CycleEnseignement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureNiveauscolaire F');
+        $entities = $query ->getArrayResult();
+        $array['Niveauscolaire'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureFiliere F');
+        $entities = $query ->getArrayResult();
+        $array['Filiere'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureDiscipline F');
+        $entities = $query ->getArrayResult();
+        $array['Discipline'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureMatiereoptionnelle F');
+        $entities = $query ->getArrayResult();
+        $array['Matiereoptionnelle'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSourceProvonance F');
+        $entities = $query ->getArrayResult();
+        $array['SourceProvonance'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureGenre F');
+        $entities = $query ->getArrayResult();
+        $array['Genre'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureGrade F');
+        $entities = $query ->getArrayResult();
+        $array['Grade'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeTravail F');
+        $entities = $query ->getArrayResult();
+        $array['TypeTravail'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSpecialite F');
+        $entities = $query ->getArrayResult();
+        $array['Specialite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureHeureEnseignement F');
+        $entities = $query ->getArrayResult();
+        $array['HeureEnseignement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCauseRemplacementProvisoire F');
+        $entities = $query ->getArrayResult();
+        $array['CauseRemplacementProvisoire'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureDiplome F');
+        $entities = $query ->getArrayResult();
+        $array['Diplome'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureQualite F');
+        $entities = $query ->getArrayResult();
+        $array['Qualite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCorps F');
+        $entities = $query ->getArrayResult();
+        $array['Corps'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSituationFamiliale F');
+        $entities = $query ->getArrayResult();
+        $array['SituationFamiliale'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureProfession F');
+        $entities = $query ->getArrayResult();
+        $array['Profession'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeAffectation F');
+        $entities = $query ->getArrayResult();
+        $array['TypeAffectation'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureFonction F');
+        $entities = $query ->getArrayResult();
+        $array['Fonction'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSituationAdministrative F');
+        $entities = $query ->getArrayResult();
+        $array['SituationAdministrative'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSousSituationAdministrative F');
+        $entities = $query ->getArrayResult();
+        $array['SousSituationAdministrative'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTache F');
+        $entities = $query ->getArrayResult();
+        $array['Tache'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureLangueEnseignement F');
+        $entities = $query ->getArrayResult();
+        $array['LangueEnseignement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureDegreHandicap F');
+        $entities = $query ->getArrayResult();
+        $array['DegreHandicap'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeHandicap F');
+        $entities = $query ->getArrayResult();
+        $array['TypeHandicap'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCategorieNationalite F');
+        $entities = $query ->getArrayResult();
+        $array['CategorieNationalite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureNationalite F');
+        $entities = $query ->getArrayResult();
+        $array['Nationalite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCategorieEspace F');
+        $entities = $query ->getArrayResult();
+        $array['CategorieEspace'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeEspace F');
+        $entities = $query ->getArrayResult();
+        $array['TypeEspace'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCategorieEquipement F');
+        $entities = $query ->getArrayResult();
+        $array['CategorieEquipement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureEquipement F');
+        $entities = $query ->getArrayResult();
+        $array['Equipement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeCloture F');
+        $entities = $query ->getArrayResult();
+        $array['TypeCloture'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeLogement F');
+        $entities = $query ->getArrayResult();
+        $array['TypeLogement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureStatusHabitant F');
+        $entities = $query ->getArrayResult();
+        $array['StatusHabitant'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureProprieteBatiment F');
+        $entities = $query ->getArrayResult();
+        $array['ProprieteBatiment'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureProprieteBatiment F');
+        $entities = $query ->getArrayResult();
+        $array['ProprieteBatiment'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSituationCompteurEauElectricite F');
+        $entities = $query ->getArrayResult();
+        $array['SituationCompteurEauElectricite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureRessouceEau F');
+        $entities = $query ->getArrayResult();
+        $array['RessouceEau'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureRessourceElectricite F');
+        $entities = $query ->getArrayResult();
+        $array['RessourceElectricite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureZone F');
+        $entities = $query ->getArrayResult();
+        $array['Zone'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeConnxionInternet F');
+        $entities = $query ->getArrayResult();
+        $array['TypeConnxionInternet'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSituationReseauElectriqueAtelier F');
+        $entities = $query ->getArrayResult();
+        $array['SituationReseauElectriqueAtelier'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeRubriqueBudgetaire F');
+        $entities = $query ->getArrayResult();
+        $array['TypeRubriqueBudgetaire'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:BudgetRubriquebudgetaire F');
+        $entities = $query ->getArrayResult();
+        $array['RubriqueBudgetaire'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclaturePeriodeSuiviBudget F');
+        $entities = $query ->getArrayResult();
+        $array['PeriodeSuiviBudget'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:ParametreAnneescolaire F');
+        $entities = $query ->getArrayResult();
+        $array['AnneeScolaire'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCategorieActivite F');
+        $entities = $query ->getArrayResult();
+        $array['CategorieActivite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureActivite F');
+        $entities = $query ->getArrayResult();
+        $array['Activite'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureAnneeNaissance F');
+        $entities = $query ->getArrayResult();
+        $array['AnneeNaissance'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureTypeEtablissement F');
+        $entities = $query ->getArrayResult();
+        $array['TypeEtablissement'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCirconscription F');
+        $entities = $query ->getArrayResult();
+        $array['Circonscription'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureDelegation F');
+        $entities = $query ->getArrayResult();
+        $array['Delegation'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureCirconscriptionRegional F');
+        $entities = $query ->getArrayResult();
+        $array['CirconscriptionRegional'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureGouvernorat F');
+        $entities = $query ->getArrayResult();
+        $array['Gouvernorat'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureObservation F');
+        $entities = $query ->getArrayResult();
+        $array['Observation'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureSecteur F');
+        $entities = $query ->getArrayResult();
+        $array['Secteur'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureBassinPedagogique F');
+        $entities = $query ->getArrayResult();
+        $array['BassinPedagogique'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureIndicateur F');
+        $entities = $query ->getArrayResult();
+        $array['Indicateur'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureParametreExogene F');
+        $entities = $query ->getArrayResult();
+        $array['ParametreExogene'] = $entities['0']['1'];
+        $query = $em->createQuery(
+            'SELECT COUNT(F)
+             FROM SiseCoreBundle:NomenclatureOrientationfiliere F');
+        $entities = $query ->getArrayResult();
+        $array['Orientation'] = $entities['0']['1'];
+        return $this->render('SiseCoreBundle:Nomenclature:list.html.twig', array(
+            'entities' => @$array,
+        ));
     }
 
     public function getNivScoAction(Request $request)

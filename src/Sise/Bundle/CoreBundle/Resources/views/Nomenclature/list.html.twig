@@ -9,7 +9,338 @@
         {{ include('SiseCoreBundle:Default:list.nomenclature.html.twig') }}
     </div>
 <div class="leftMenu">
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'ListNomenclature'|trans() , 'RouteAction' : '' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'ListNomenclature'|trans() , 'RouteAction' : 'nomenclature' })) }}
     <br>
+
+    <div>
+    <table cellspacing="0" cellpadding="4" style="color:#333333;width:100%;border-collapse:collapse;">
+    <tbody>
+    <tr style="color:White;background-color:#507CD1;font-weight:bold;">
+        <th scope="col" color="White">{{ 'Libeprofar'|trans({}, 'SiseCoreBundle') }}</th>
+        <th scope="col" color="White">عدد العناصر</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">مجال التنظيم البيداغوجي </td>
+    </tr>
+    <tr>
+        <td>{{ 'CycleEnseignement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['CycleEnseignement'] }}</td>
+        <td><a href="CycleEnseignement/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    <tr>
+        <td>{{ 'Niveauscolaire'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['Niveauscolaire'] }}</td>
+        <td><a href="Niveauscolaire/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Filiere'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['Filiere'] }}</td>
+        <td><a href="Filiere/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'Discipline'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Discipline'] }}</td>
+        <td><a href="Discipline/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'Matiereoptionnelle'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['Matiereoptionnelle'] }}</td>
+        <td> <a href="Matiereoptionnelle/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'SourceProvonance'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['SourceProvonance'] }}</td>
+        <td><a href="SourceProvonance/new">  {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">مجال الموارد البشرية</td>
+    </tr>
+    <tr>
+        <td>{{ 'Genre'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Genre'] }}</td>
+        <td><a href="Genre/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}  </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Grade'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Grade'] }}</td>
+        <td><a href="Grade/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'TypeTravail'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeTravail'] }}</td>
+        <td><a href="TypeTravail/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'Specialite'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Specialite'] }}</td>
+        <td><a href="Specialite/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'HeureEnseignement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['HeureEnseignement'] }}</td>
+        <td> <a href="HeureEnseignement/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'CauseRemplacementProvisoire'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['CauseRemplacementProvisoire'] }}</td>
+        <td> <a href="CauseRemplacementProvisoire/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Diplome'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Diplome'] }}</td>
+        <td><a href="Diplome/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Qualite'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Qualite'] }}</td>
+        <td> <a href="Qualite/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Corps'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Corps'] }}</td>
+        <td> <a href="Corps/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'SituationFamiliale'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['SituationFamiliale'] }}</td>
+        <td><a href="SituationFamiliale/new">  {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+
+    <tr>
+        <td>{{ 'Profession'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Profession'] }}</td>
+        <td><a href="Profession/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeAffectation'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeAffectation'] }}</td>
+        <td><a href="TypeAffectation/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Fonction'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Fonction'] }}</td>
+        <td><a href="Fonction/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'SituationAdministrative'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['SituationAdministrative'] }}</td>
+        <td><a href="SituationAdministrative/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <td>{{ 'SousSituationAdministrative'|trans({}, 'SiseCoreBundle') }}</td>
+    <td>{{ entities['SousSituationAdministrative'] }}</td>
+    <td> <a href="SousSituationAdministrative/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Tache'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Tache'] }}</td>
+        <td><a href="Tache/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'LangueEnseignement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['LangueEnseignement'] }}</td>
+        <td><a href="LangueEnseignement/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">مجال التلاميذ </td>
+    </tr>
+    <tr>
+        <td>{{ 'DegreHandicap'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['DegreHandicap'] }}</td>
+        <td><a href="DegreHandicap/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeHandicap'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeHandicap'] }}</td>
+        <td><a href="TypeHandicap/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'CategorieNationalite'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['CategorieNationalite'] }}</td>
+        <td><a href="CategorieNationalite/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Nationalite'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['Nationalite'] }}</td>
+        <td><a href="Nationalite/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">البنية التحتية ، الفضاءات و التجهيزات </td>
+    </tr>
+
+    <tr>
+        <td>{{ 'CategorieEspace'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['CategorieEspace'] }}</td>
+        <td><a href="CategorieEspace/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeEspace'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeEspace'] }}</td>
+        <td><a href="TypeEspace/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'CategorieEquipement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['CategorieEquipement'] }}</td>
+        <td><a href="CategorieEquipement/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Equipement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Equipement'] }}</td>
+        <td><a href="Equipement/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeCloture'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeCloture'] }}</td>
+        <td><a href="TypeCloture/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeLogement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeLogement'] }}</td>
+        <td><a href="TypeLogement/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'StatusHabitant'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['StatusHabitant'] }}</td>
+        <td><a href="StatusHabitant/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'ProprieteBatiment'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['ProprieteBatiment'] }}</td>
+        <td><a href="ProprieteBatiment/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'SituationCompteurEauElectricite'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['SituationCompteurEauElectricite'] }}</td>
+        <td><a href="SituationCompteurEauElectricite/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'RessouceEau'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['RessouceEau'] }}</td>
+        <td><a href="RessouceEau/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'RessourceElectricite'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['RessourceElectricite'] }}</td>
+        <td><a href="RessourceElectricite/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Zone'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Zone'] }}</td>
+        <td><a href="Zone/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeConnxionInternet'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeConnxionInternet'] }}</td>
+        <td><a href="TypeConnxionInternet/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'SituationReseauElectriqueAtelier'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['SituationReseauElectriqueAtelier'] }}</td>
+        <td><a href="SituationReseauElectriqueAtelier/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">الميزانية </td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeRubriqueBudgetaire'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeRubriqueBudgetaire'] }}</td>
+        <td><a href="TypeRubriqueBudgetaire/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'RubriqueBudgetaire'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['RubriqueBudgetaire'] }}</td>
+        <td><a href="RubriqueBudgetaire/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'PeriodeSuiviBudget'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['PeriodeSuiviBudget'] }}</td>
+        <td><a href="PeriodeSuiviBudget/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">ثوابت أخرى </td>
+    </tr>
+
+    <tr>
+        <td>{{ 'AnneeScolaire'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['AnneeScolaire'] }}</td>
+        <td><a href="AnneeScolaire/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'CategorieActivite'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['CategorieActivite'] }}</td>
+        <td><a href="CategorieActivite/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Activite'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Activite'] }}</td>
+        <td><a href="Activite/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'AnneeNaissance'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['AnneeNaissance'] }}</td>
+        <td><a href="AnneeNaissance/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'TypeEtablissement'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['TypeEtablissement'] }}</td>
+        <td><a href="TypeEtablissement/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Circonscription'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Circonscription'] }}</td>
+        <td><a href="Circonscription/new"> {{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Delegation'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Delegation'] }}</td>
+        <td><a href="Delegation/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'CirconscriptionRegional'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['CirconscriptionRegional'] }}</td>
+        <td><a href="CirconscriptionRegional/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Gouvernorat'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['Gouvernorat'] }}</td>
+        <td><a href="Gouvernorat/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Observation'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Observation'] }}</td>
+        <td><a href="Observation/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Secteur'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Secteur'] }}</td>
+        <td><a href="Secteur/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'BassinPedagogique'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['BassinPedagogique'] }}</td>
+        <td><a href="BassinPedagogique/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Indicateur'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Indicateur'] }}</td>
+        <td><a href="Indicateur/new">{{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
+    </tr>
+    <tr>
+        <td>{{ 'ParametreExogene'|trans({}, 'SiseCoreBundle') }} </td>
+        <td>{{ entities['ParametreExogene'] }}</td>
+        <td><a href="ParametreExogene/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    <tr>
+        <td>{{ 'Orientation'|trans({}, 'SiseCoreBundle') }}</td>
+        <td>{{ entities['Orientation'] }}</td>
+        <td><a href="Orientation/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
+    </tr>
+    </tbody></table>
+    </div>
 </div>
 {% endblock %}

@@ -114,6 +114,13 @@ class NomenclatureCycleenseignement
         $this->codenivescol = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @param string $codecyclense
+     */
+    public function setCodecyclense($codecyclense)
+    {
+        $this->codecyclense = $codecyclense;
+    }
 
     /**
      * Get codecyclense
