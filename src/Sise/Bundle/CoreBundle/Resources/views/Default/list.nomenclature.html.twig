@@ -1,225 +1,107 @@
-    <style>
-        #menu > table > tbody > tr > td{
-            background-color:#fff
-        }
-    </style>
-
 <div class="tree">
     <ul>
-        <li><a>Second</a>
+        <li><a>مجال التنظيم البيداغوجي </a>
             <ul>
-                <li><a>Second Level</a></li>
-                <li><a>Second Level</a></li>
-                <li><a>Second Level</a></li>
+                <li><a href="CycleEnseignement"> {{ 'CycleEnseignement'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="Niveauscolaire"> {{ 'Niveauscolaire'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Filiere"> {{ 'Filiere'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Discipline"> {{ 'Discipline'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li> <a href="Matiereoptionnelle"> {{ 'Matiereoptionnelle'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="SourceProvonance">  {{ 'SourceProvonance'|trans({}, 'SiseCoreBundle') }} </a></li>
             </ul>
         </li>
     </ul>
 </div>
-<div id="menu">
-<table>
-<tbody>
-<tr>
-    <td>مجال التنظيم البيداغوجي </td>
-</tr>
-<tr>
-    <td><a href="CycleEnseignement"> {{ 'CycleEnseignement'|trans({}, 'SiseCoreBundle') }}</a></td>
-<tr>
-    <td><a href="Niveauscolaire"> {{ 'Niveauscolaire'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Filiere"> {{ 'Filiere'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td><a href="Discipline"> {{ 'Discipline'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td> <a href="Matiereoptionnelle"> {{ 'Matiereoptionnelle'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td><a href="SourceProvonance">  {{ 'SourceProvonance'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td>مجال الموارد البشرية</td>
-</tr>
-<tr>
-    <td><a href="Genre">  {{ 'Genre'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Grade"> {{ 'Grade'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td><a href="TypeTravail"> {{ 'TypeTravail'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td><a href="Specialite"> {{ 'Specialite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td> <a href="HeureEnseignement"> {{ 'HeureEnseignement'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td> <a href="CauseRemplacementProvisoire"> {{ 'CauseRemplacementProvisoire'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="Diplome"> {{ 'Diplome'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td> <a href="Qualite">  {{ 'Qualite'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td> <a href="Corps"> {{ 'Corps'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td><a href="SituationFamiliale">  {{ 'SituationFamiliale'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-
-<tr>
-    <td><a href="Profession">  {{ 'Profession'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="TypeAffectation"> {{ 'TypeAffectation'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="Fonction"> {{ 'Fonction'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="SituationAdministrative"> {{ 'SituationAdministrative'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<td> <a href="SousSituationAdministrative">{{ 'SousSituationAdministrative'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Tache"> {{ 'Tache'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="LangueEnseignement">{{ 'LangueEnseignement'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td>مجال التلاميذ </td>
-</tr>
-<tr>
-    <td><a href="DegreHandicap">{{ 'DegreHandicap'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="TypeHandicap">{{ 'TypeHandicap'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="CategorieNationalite">{{ 'CategorieNationalite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Nationalite">{{ 'Nationalite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td>البنية التحتية ، الفضاءات و التجهيزات </td>
-</tr>
-
-<tr>
-    <td><a href="CategorieEspace">{{ 'CategorieEspace'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="TypeEspace">{{ 'TypeEspace'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="CategorieEquipement">{{ 'CategorieEquipement'|trans({}, 'SiseCoreBundle') }}  </a></td>
-</tr>
-<tr>
-    <td><a href="Equipement"> {{ 'Equipement'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="TypeCloture">{{ 'TypeCloture'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="TypeLogement">{{ 'TypeLogement'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="StatusHabitant">{{ 'StatusHabitant'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="ProprieteBatiment">{{ 'ProprieteBatiment'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="SituationCompteurEauElectricite">{{ 'SituationCompteurEauElectricite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="RessouceEau">{{ 'RessouceEau'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="RessourceElectricite">{{ 'RessourceElectricite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Zone">{{ 'Zone'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="TypeConnxionInternet">{{ 'TypeConnxionInternet'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="SituationReseauElectriqueAtelier">{{ 'SituationReseauElectriqueAtelier'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td>الميزانية </td>
-</tr>
-
-<tr>
-    <td><a href="TypeRubriqueBudgetaire">{{ 'TypeRubriqueBudgetaire'|trans({}, 'SiseCoreBundle') }}  </a></td>
-</tr>
-<tr>
-    <td><a href="RubriqueBudgetaire">{{ 'RubriqueBudgetaire'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="PeriodeSuiviBudget">{{ 'PeriodeSuiviBudget'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td>ثوابت أخرى </td>
-</tr>
-
-<tr>
-    <td><a href="AnneeScolaire">{{ 'AnneeScolaire'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="CategorieActivite">{{ 'CategorieActivite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Activite">{{ 'Activite'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="AnneeNaissance">{{ 'AnneeNaissance'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="TypeEtablissement">{{ 'TypeEtablissement'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-<tr>
-    <td><a href="Circonscription">{{ 'Circonscription'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Delegation">{{ 'Delegation'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="CirconscriptionRegional">{{ 'CirconscriptionRegional'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Gouvernorat">{{ 'Gouvernorat'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Observation">{{ 'Observation'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Secteur">{{ 'Secteur'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="BassinPedagogique">{{ 'BassinPedagogique'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Indicateur">{{ 'Indicateur'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="ParametreExogene">{{ 'ParametreExogene'|trans({}, 'SiseCoreBundle') }} </a></td>
-</tr>
-<tr>
-    <td><a href="Orientation">{{ 'Orientation'|trans({}, 'SiseCoreBundle') }}</a></td>
-</tr>
-</tbody></table>
+<div class="tree">
+    <ul>
+        <li><a>مجال الموارد البشرية</a>
+            <ul>
+                <li><a href="Genre">  {{ 'Genre'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Grade"> {{ 'Grade'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="TypeTravail"> {{ 'TypeTravail'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Specialite"> {{ 'Specialite'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li> <a href="HeureEnseignement"> {{ 'HeureEnseignement'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li> <a href="CauseRemplacementProvisoire"> {{ 'CauseRemplacementProvisoire'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="Diplome"> {{ 'Diplome'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li> <a href="Qualite">  {{ 'Qualite'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li> <a href="Corps"> {{ 'Corps'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="SituationFamiliale">  {{ 'SituationFamiliale'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Profession">  {{ 'Profession'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="TypeAffectation"> {{ 'TypeAffectation'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="Fonction"> {{ 'Fonction'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="SituationAdministrative"> {{ 'SituationAdministrative'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li> <a href="SousSituationAdministrative">{{ 'SousSituationAdministrative'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Tache"> {{ 'Tache'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="LangueEnseignement">{{ 'LangueEnseignement'|trans({}, 'SiseCoreBundle') }}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="tree">
+    <ul>
+        <li><a>مجال التلاميذ </a>
+            <ul>
+                <li><a href="DegreHandicap">{{ 'DegreHandicap'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="TypeHandicap">{{ 'TypeHandicap'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="CategorieNationalite">{{ 'CategorieNationalite'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Nationalite">{{ 'Nationalite'|trans({}, 'SiseCoreBundle') }} </a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="tree">
+    <ul>
+        <li><a>البنية التحتية ، الفضاءات و التجهيزات </a>
+            <ul>
+                <li><a href="CategorieEspace">{{ 'CategorieEspace'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="TypeEspace">{{ 'TypeEspace'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="CategorieEquipement">{{ 'CategorieEquipement'|trans({}, 'SiseCoreBundle') }}  </a></li>
+                <li><a href="Equipement"> {{ 'Equipement'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="TypeCloture">{{ 'TypeCloture'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="TypeLogement">{{ 'TypeLogement'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="StatusHabitant">{{ 'StatusHabitant'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="ProprieteBatiment">{{ 'ProprieteBatiment'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="SituationCompteurEauElectricite">{{ 'SituationCompteurEauElectricite'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="RessouceEau">{{ 'RessouceEau'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="RessourceElectricite">{{ 'RessourceElectricite'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Zone">{{ 'Zone'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="TypeConnxionInternet">{{ 'TypeConnxionInternet'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="SituationReseauElectriqueAtelier">{{ 'SituationReseauElectriqueAtelier'|trans({}, 'SiseCoreBundle') }}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="tree">
+    <ul>
+        <li><a>الميزانية </a>
+            <ul>
+                <li><a href="TypeRubriqueBudgetaire">{{ 'TypeRubriqueBudgetaire'|trans({}, 'SiseCoreBundle') }}  </a></li>
+                <li><a href="BudgetRubriquebudgetaire">{{ 'BudgetRubriquebudgetaire'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="PeriodeSuiviBudget">{{ 'PeriodeSuiviBudget'|trans({}, 'SiseCoreBundle') }}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="tree">
+    <ul>
+        <li><a>ثوابت أخرى </a>
+            <ul>
+                <li><a href="ParametreAnneescolaire">{{ 'ParametreAnneescolaire'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="CategorieActivite">{{ 'CategorieActivite'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Activite">{{ 'Activite'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="AnneeNaissance">{{ 'AnneeNaissance'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="TypeEtablissement">{{ 'TypeEtablissement'|trans({}, 'SiseCoreBundle') }}</a></li>
+                <li><a href="Circonscription">{{ 'Circonscription'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Delegation">{{ 'Delegation'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="CirconscriptionRegional">{{ 'CirconscriptionRegional'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Gouvernorat">{{ 'Gouvernorat'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Observation">{{ 'Observation'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Secteur">{{ 'Secteur'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="BassinPedagogique">{{ 'BassinPedagogique'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Indicateur">{{ 'Indicateur'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="ParametreExogene">{{ 'ParametreExogene'|trans({}, 'SiseCoreBundle') }} </a></li>
+                <li><a href="Orientation">{{ 'Orientation'|trans({}, 'SiseCoreBundle') }}</a></li>
+            </ul>
+        </li>
+    </ul>
 </div>

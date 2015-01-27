@@ -178,16 +178,16 @@
                 <source>TypeRubriqueBudgetaire</source>
                 <target>نوع بند الميزانية </target>
             </trans-unit>
-            <trans-unit id="global_RubriqueBudgetaire">
-                <source>RubriqueBudgetaire</source>
+            <trans-unit id="global_BudgetRubriquebudgetaire">
+                <source>BudgetRubriquebudgetaire</source>
                 <target>بند الميزانية </target>
             </trans-unit>
             <trans-unit id="global_PeriodeSuiviBudget">
                 <source>PeriodeSuiviBudget</source>
                 <target>فترة رصد الميزانية  </target>
             </trans-unit>
-            <trans-unit id="global_AnneeScolaire">
-                <source>AnneeScolaire</source>
+            <trans-unit id="global_ParametreAnneescolaire">
+                <source>ParametreAnneescolaire</source>
                 <target>السنة الدراسية </target>
             </trans-unit>
             <trans-unit id="global_CategorieActivite">
