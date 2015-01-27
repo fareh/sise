@@ -159,14 +159,13 @@ class DefaultController extends Controller
                 break;
         };
 
-
         if ($TdExporter == true) $RouteExporter = $RouteAction . '_export';
         if ($TdNouveau == true )  $RouteNouveau = $RouteAction . '_new';
-        if ($TdNouveau == true && $PageContext='register')  $RouteNouveau = $RouteAction . '_register';
+       if ($TdNouveau == true && $PageContext=='register')  $RouteNouveau = $RouteAction . '_register';
         if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
 
         if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_new';
-        if ($TdAnnuler == true && $PageContext='register') $RouteAnnuler = $RouteAction . '_register';
+        if ($TdAnnuler == true && $PageContext=='register') $RouteAnnuler = $RouteAction . '_register';
 
         if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
 
