@@ -22,6 +22,11 @@ class NomenclatureParametreexogene
     private $codeparaexog;
 
     /**
+     * @ORM\OneToMany(targetEntity="NomenclatureValueexogene", mappedBy="codeparaexog", cascade={"persist"})
+     */
+    protected $codevalueexogene ;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="CodeFK", type="string", length=50, nullable=false)
@@ -33,8 +38,6 @@ class NomenclatureParametreexogene
      * @ORM\OneToMany(targetEntity="NomenclatureParametrespindicateur", mappedBy="codeparaexog")
      */
     protected $codeparaindi;
-
-
 
     /**
      * @var string
@@ -56,6 +59,7 @@ class NomenclatureParametreexogene
      * @ORM\Column(name="LibeParaExogFr", type="string", length=250, nullable=true)
      */
     private $libeparaexogfr;
+
 
     /**
      * @var string
@@ -270,5 +274,38 @@ class NomenclatureParametreexogene
     public function __toString(){
 
         return ($this->getLibeparaexogar())?$this->getLibeparaexogar():"";
+    }
+
+    /**
+     * Add codevalueexogene
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureValueexogene $codevalueexogene
+     * @return NomenclatureParametreexogene
+     */
+    public function addCodevalueexogene(\Sise\Bundle\CoreBundle\Entity\NomenclatureValueexogene $codevalueexogene)
+    {
+        $this->codevalueexogene[] = $codevalueexogene;
+
+        return $this;
+    }
+
+    /**
+     * Remove codevalueexogene
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureValueexogene $codevalueexogene
+     */
+    public function removeCodevalueexogene(\Sise\Bundle\CoreBundle\Entity\NomenclatureValueexogene $codevalueexogene)
+    {
+        $this->codevalueexogene->removeElement($codevalueexogene);
+    }
+
+    /**
+     * Get codevalueexogene
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodevalueexogene()
+    {
+        return $this->codevalueexogene;
     }
 }

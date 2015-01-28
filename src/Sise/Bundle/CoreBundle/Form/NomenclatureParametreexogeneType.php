@@ -38,6 +38,10 @@ class NomenclatureParametreexogeneType extends AbstractType
                     'empty_value' => "-- اختيار --"
                 ))
                 ->add('valeindi');
+        }else{
+            $builder
+                ->add('tablnamefk', 'hidden')
+                ->add('valeindi');
         }
     }
 

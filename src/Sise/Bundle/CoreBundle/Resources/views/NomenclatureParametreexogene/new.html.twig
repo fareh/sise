@@ -19,12 +19,44 @@
             {{ form_widget(form.libeparaexogfr) }}
 
         </div>
+        <div>
+            {{ form_label(form.valeindi) }}
+            {{ form_errors(form.valeindi) }}
+            {{ form_widget(form.valeindi) }}
 
+        </div>
         <div>
             {{ form_label(form.choicefk) }}
             {{ form_errors(form.choicefk) }}
             {{ form_widget(form.choicefk) }}
 
+        </div>
+
+        <div>
+            <table cellspacing="0" rules="all">
+                <tbody>
+                <tr>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                        Number
+                    </th>
+                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                    {{ form_label(form.tablnamefk) }}
+                </th>
+                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                    {{ form_label(form.valeindi) }}
+                 </th>
+                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
+
+      <a class="add_items" style="display: inline-block"
+         rel="effectiveeleverepartionelevelieuhabitation_form">
+          <img name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png">
+
+      </a>
+
+                </th>
+</tr>
+                </tbody>
+            </table>
         </div>
 
 

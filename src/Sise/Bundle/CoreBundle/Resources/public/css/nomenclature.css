@@ -84,9 +84,22 @@ form[name="nomenclature_sise"] #nomenclature_sise   label{
 #nomenclature_sise ul.tags li div:nth-child(2n+1) {
     width: 20%;
 }
+#nomenclature_sise ul.paraexog li  {
+
+}
+#nomenclature_sise ul.paraexog li div {
+    width: 40%;
+    padding: 5px;
+}
 
 
 form[name="nomenclature_sise"] #nomenclature_sise ul.tags li div  input , form[name="nomenclature_sise"] #nomenclature_sise ul.tags li div  select {
+    width: 100%;
+}
+
+
+
+form[name="nomenclature_sise"] #nomenclature_sise ul.paraexog li div  input , form[name="nomenclature_sise"] #nomenclature_sise ul.paraexog li div  select {
     width: 100%;
 }
 
@@ -316,3 +329,5 @@ a{
     margin: 0 auto;
     width: 300px;
 }
+
+

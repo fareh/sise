@@ -21,15 +21,12 @@ class NomenclatureParametrespindicateur
      */
     private $codeparaindi;
 
-
     /**
      * @var NomenclatureIndicateur
      * @ORM\ManyToOne(targetEntity="NomenclatureIndicateur", inversedBy="codeparaindi")
      * @ORM\JoinColumn(name="CodeIndi", referencedColumnName="CodeIndi")
      */
     private $codeindi;
-
-
 
     /**
      * @var string

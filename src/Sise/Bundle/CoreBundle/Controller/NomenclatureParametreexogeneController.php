@@ -222,3 +222,6 @@ class NomenclatureParametreexogeneController extends Controller
         ;
     }
 }
+
+
+
