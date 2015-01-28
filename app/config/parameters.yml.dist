@@ -22,3 +22,22 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
+
+
+# param local server
+parameters:
+    database_driver: pdo_mysql
+    database_host: 192.168.1.50
+    database_port: 3306
+    database_name: db_sise
+    database_user: siseuser
+    database_password: admin2o13
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: ar
+    secret: ThisTokenIsNotSoSecretChangeIt
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
