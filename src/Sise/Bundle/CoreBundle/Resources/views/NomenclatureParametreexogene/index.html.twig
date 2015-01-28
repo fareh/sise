@@ -7,8 +7,7 @@
         <thead>
             <tr>
                 <th>Codeparaexog</th>
-                <th>Codefk</th>
-                <th>Tablnamefk</th>
+                <th>choicefk</th>
                 <th>Libeparaexogar</th>
                 <th>Libeparaexogfr</th>
                 <th>Valeindi</th>
@@ -19,8 +18,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('nomenclatureparametreexogene_show', { 'id': entity.codeparaexog }) }}">{{ entity.codeparaexog }}</a></td>
-                <td>{{ entity.codefk }}</td>
-                <td>{{ entity.tablnamefk }}</td>
+                <td>{{ entity.choicefk }}</td>
                 <td>{{ entity.libeparaexogar }}</td>
                 <td>{{ entity.libeparaexogfr }}</td>
                 <td>{{ entity.valeindi }}</td>

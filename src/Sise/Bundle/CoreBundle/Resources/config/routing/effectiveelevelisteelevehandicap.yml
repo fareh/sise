@@ -13,10 +13,6 @@ effectiveelevelisteelevehandicap_update:
 effectiveelevelisteelevehandicap_form:
     path:     /form
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:item" }
-effectiveelevelisteelevehandicap_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:delete" }
-    requirements: { _method: post|delete }
 effectiveelevelisteelevehandicap_deleteItem:
     path:     /deleteItem
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveListeelevehandicap:deleteItem" }

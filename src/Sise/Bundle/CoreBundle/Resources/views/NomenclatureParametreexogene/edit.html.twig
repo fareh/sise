@@ -19,15 +19,61 @@
             {{ form_widget(edit_form.libeparaexogfr) }}
 
         </div>
+        <div>
+            {{ form_label(edit_form.valeindi) }}
+            {{ form_errors(edit_form.valeindi) }}
+            {{ form_widget(edit_form.valeindi) }}
 
+        </div>
         <div>
             {{ form_label(edit_form.choicefk) }}
             {{ form_errors(edit_form.choicefk) }}
             {{ form_widget(edit_form.choicefk) }}
 
         </div>
+        <div>
+            <table cellspacing="0" rules="all">
+                <tbody>
+                <tr>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                        {{ 'number'|trans() }}
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                        {{ 'tablnamefk'|trans() }}
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                        {{ 'valeindi'|trans() }}
+                    </th>
+                    <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
 
+                        <a id="nomenclatureparametreexogene_form_items"  style="display: inline-block"
+                           rel="nomenclatureparametreexogene_form">
+                            <img name="nomenclatureparametreexogene_add_line" id="nomenclatureparametreexogene_add_line"
+                                 src="/bundles/sisecore/images/16x16/add_16.png">
 
+                        </a>
+
+                    </th>
+                </tr>
+                {% for editForm in editForms %}
+                    <tr class="item-tr">
+                        <td>
+                            {{ editForm.vars.name }}
+                        </td>
+                        <td align="right">{{ form_widget(editForm.tablnamefk) }}</td>
+                        <td align="right">{{ form_widget(editForm.valeindi) }}</td>
+                        <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+                            <a rel="nomenclatureparametreexogene_deleteItem" class="delete_handicaps"
+                               style="display: inline-block">
+                                <img name="sise_delete_line" id="nomenclatureparametreexogene_delete_line"
+                                     src="/bundles/sisecore/images/16x16/cancel_16.png">
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
         <div style="height: 30px;">&nbsp;</div>
     </div>

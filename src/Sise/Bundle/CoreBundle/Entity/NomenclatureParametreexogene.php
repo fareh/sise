@@ -24,27 +24,12 @@ class NomenclatureParametreexogene
     /**
      * @ORM\OneToMany(targetEntity="NomenclatureValueexogene", mappedBy="codeparaexog", cascade={"persist"})
      */
-    protected $codevalueexogene ;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CodeFK", type="string", length=50, nullable=false)
-     */
-    private $codefk;
-
+    protected $codevalueexogene;
 
     /**
      * @ORM\OneToMany(targetEntity="NomenclatureParametrespindicateur", mappedBy="codeparaexog")
      */
     protected $codeparaindi;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="TablNameFK", type="string", length=250, nullable=true)
-     */
-    private $tablnamefk;
 
     /**
      * @var string
@@ -77,89 +62,22 @@ class NomenclatureParametreexogene
     private $choicefk;
 
     /**
-     * @return mixed
+     * Constructor
      */
-    public function getChoicefk()
+    public function __construct()
     {
-        return $this->choicefk;
-    }
-
-    /**
-     * @param mixed $choicefk
-     */
-    public function setChoicefk($choicefk)
-    {
-        $this->choicefk = $choicefk;
-    }
-
-
-    /**
-     * Set codeparaexog
-     *
-     * @param string $codeparaexog
-     * @return NomenclatureParametreexogene
-     */
-    public function setCodeparaexog($codeparaexog)
-    {
-        $this->codeparaexog = $codeparaexog;
-
-        return $this;
+        $this->codevalueexogene = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codeparaindi = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Get codeparaexog
      *
-     * @return string
+     * @return integer 
      */
     public function getCodeparaexog()
     {
         return $this->codeparaexog;
-    }
-
-    /**
-     * Set codefk
-     *
-     * @param string $codefk
-     * @return NomenclatureParametreexogene
-     */
-    public function setCodefk($codefk)
-    {
-        $this->codefk = $codefk;
-
-        return $this;
-    }
-
-    /**
-     * Get codefk
-     *
-     * @return string
-     */
-    public function getCodefk()
-    {
-        return $this->codefk;
-    }
-
-    /**
-     * Set tablnamefk
-     *
-     * @param string $tablnamefk
-     * @return NomenclatureParametreexogene
-     */
-    public function setTablnamefk($tablnamefk)
-    {
-        $this->tablnamefk = $tablnamefk;
-
-        return $this;
-    }
-
-    /**
-     * Get tablnamefk
-     *
-     * @return string
-     */
-    public function getTablnamefk()
-    {
-        return $this->tablnamefk;
     }
 
     /**
@@ -178,7 +96,7 @@ class NomenclatureParametreexogene
     /**
      * Get libeparaexogar
      *
-     * @return string
+     * @return string 
      */
     public function getLibeparaexogar()
     {
@@ -201,7 +119,7 @@ class NomenclatureParametreexogene
     /**
      * Get libeparaexogfr
      *
-     * @return string
+     * @return string 
      */
     public function getLibeparaexogfr()
     {
@@ -224,56 +142,34 @@ class NomenclatureParametreexogene
     /**
      * Get valeindi
      *
-     * @return string
+     * @return string 
      */
     public function getValeindi()
     {
         return $this->valeindi;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->codeparaindi = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add codeparaindi
+     * Set choicefk
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     * @param string $choicefk
      * @return NomenclatureParametreexogene
      */
-    public function addCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    public function setChoicefk($choicefk)
     {
-        $this->codeparaindi[] = $codeparaindi;
+        $this->choicefk = $choicefk;
 
         return $this;
     }
 
     /**
-     * Remove codeparaindi
+     * Get choicefk
      *
-     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     * @return string 
      */
-    public function removeCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    public function getChoicefk()
     {
-        $this->codeparaindi->removeElement($codeparaindi);
-    }
-
-    /**
-     * Get codeparaindi
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCodeparaindi()
-    {
-        return $this->codeparaindi;
-    }
-
-    public function __toString(){
-
-        return ($this->getLibeparaexogar())?$this->getLibeparaexogar():"";
+        return $this->choicefk;
     }
 
     /**
@@ -307,5 +203,43 @@ class NomenclatureParametreexogene
     public function getCodevalueexogene()
     {
         return $this->codevalueexogene;
+    }
+
+    /**
+     * Add codeparaindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     * @return NomenclatureParametreexogene
+     */
+    public function addCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    {
+        $this->codeparaindi[] = $codeparaindi;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeparaindi
+     *
+     * @param \Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi
+     */
+    public function removeCodeparaindi(\Sise\Bundle\CoreBundle\Entity\NomenclatureParametrespindicateur $codeparaindi)
+    {
+        $this->codeparaindi->removeElement($codeparaindi);
+    }
+
+    /**
+     * Get codeparaindi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodeparaindi()
+    {
+        return $this->codeparaindi;
+    }
+
+    public function __toString(){
+
+      return  ($this->getLibeparaexogar())?$this->getLibeparaexogar():"";
     }
 }

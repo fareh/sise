@@ -29,20 +29,8 @@ class NomenclatureParametreexogeneType extends AbstractType
             ->add('choicefk', 'choice', array(
                 'choices' => array('NomenclatureCycleenseignement' => 'CyclEnse', 'NomenclatureNiveauscolaire' => 'NiveScol', 'NomenclatureFiliere' => 'Fili'),
                 'required' => false,
-            ));
-
-        if ($this->tablnamefk) {
-            $builder
-                ->add('tablnamefk', 'entity', array(
-                    'class' => 'SiseCoreBundle:'.$this->tablnamefk,
-                    'empty_value' => "-- اختيار --"
-                ))
-                ->add('valeindi');
-        }else{
-            $builder
-                ->add('tablnamefk', 'hidden')
-                ->add('valeindi');
-        }
+            ))
+        ->add('valeindi');
     }
 
     /**

@@ -28,3 +28,11 @@ nomenclatureparametreexogene_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:delete" }
     requirements: { _method: post|delete }
+
+nomenclatureparametreexogene_form:
+    path:     /form
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:item" }
+nomenclatureparametreexogene_deleteItem:
+    path:     /deleteItem
+    defaults: { _controller: "SiseCoreBundle:NomenclatureParametreexogene:deleteItem" }
+    requirements: { _method: post|delete }
