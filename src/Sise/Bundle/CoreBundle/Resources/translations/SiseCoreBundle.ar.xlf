@@ -6,6 +6,10 @@
                 <source>CycleEnseignement</source>
                 <target>مراحل التعليم </target>
             </trans-unit>
+            <trans-unit id="global_observation">
+                <source>observation</source>
+                <target>الملاحظات</target>
+            </trans-unit>
             <trans-unit id="global_Nomenclature">
                 <source>Nomenclature</source>
                 <target>التسميات </target>

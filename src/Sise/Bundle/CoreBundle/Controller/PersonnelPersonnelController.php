@@ -120,28 +120,6 @@ class PersonnelPersonnelController extends Controller
     }
 
     /**
-     * Finds and displays a PersonnelPersonnel entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find PersonnelPersonnel entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('SiseCoreBundle:PersonnelPersonnel:show.html.twig', array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
      * Displays a form to edit an existing PersonnelPersonnel entity.
      *
      */
@@ -252,7 +230,7 @@ class PersonnelPersonnelController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('personnelpersonnel_delete1', array('id' => $id)))
             ->setMethod('DELETE')
-            //   ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
     }
 }

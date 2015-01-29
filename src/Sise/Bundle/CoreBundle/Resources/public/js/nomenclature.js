@@ -70,3 +70,8 @@ $( document ).ready( function( ) {
         $( this ).parent().children( 'ul' ).slideToggle( 'fast' );
     });
 });
+
+$('#overlay').modal('show');
+setTimeout(function() {
+    $('#overlay').modal('hide');
+}, 10000);
