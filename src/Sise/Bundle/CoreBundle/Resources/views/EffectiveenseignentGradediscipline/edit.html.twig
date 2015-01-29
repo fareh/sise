@@ -65,24 +65,28 @@
                                     <td align="right" style="background-color: #EFF3FB">
                                         <input type="text" name="nombensetunimasc{{ key }}"
                                                value="{{ entity.nombensetunimasc }} "
-                                               id="nombensetunimasc{{ key }}">
+                                               id="nombensetunimasc{{ key }}"
+                                               onchange="javascript:txtChangedTd2('nombensetunimasc{{ key }}','nombensetunifemi{{ key }}', 'nombenseetramasc{{ key }}', 'nombenseetrafemi{{ key }}', 'nombtotaense{{ key }}');">
                                     </td>
                                     <td align="right" style="background-color: #EFF3FB">
                                         <input type="text" name="nombensetunifemi{{ key }}"
                                                value="{{ entity.nombensetunifemi }} "
-                                               id="nombensetunifemi{{ key }}">
+                                               id="nombensetunifemi{{ key }}"
+                                               onchange="javascript:txtChangedTd2('nombensetunimasc{{ key }}','nombensetunifemi{{ key }}', 'nombenseetramasc{{ key }}', 'nombenseetrafemi{{ key }}', 'nombtotaense{{ key }}');">
                                     </td>
                                     <td align="right" style="background-color: #EFF3FB">
                                         <input type="text" name="nombenseetramasc{{ key }}"
                                                value="{{ entity.nombenseetramasc }} "
-                                               id="nombenseetramasc{{ key }}">
+                                               id="nombenseetramasc{{ key }}"
+                                               onchange="javascript:txtChangedTd2('nombensetunimasc{{ key }}','nombensetunifemi{{ key }}', 'nombenseetramasc{{ key }}', 'nombenseetrafemi{{ key }}', 'nombtotaense{{ key }}');">
                                     </td>
                                     <td align="right" style="background-color: #EFF3FB">
                                         <input type="text" name="nombenseetrafemi{{ key }}"
                                                value="{{ entity.nombenseetrafemi }} "
-                                               id="nombenseetrafemi{{ key }}">
+                                               id="nombenseetrafemi{{ key }}"
+                                               onchange="javascript:txtChangedTd2('nombensetunimasc{{ key }}','nombensetunifemi{{ key }}', 'nombenseetramasc{{ key }}', 'nombenseetrafemi{{ key }}', 'nombtotaense{{ key }}');">
                                     </td>
-                                    <td>{{ entity.nombtotaense }}</td>
+                                    <td id="nombtotaense{{ key }}">{{ entity.nombtotaense }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>

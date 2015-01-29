@@ -51,23 +51,25 @@
                                     <td align="right" style="background-color: #EFF3FB">
                                         <input type="text" name="nombensemasc{{ key }}"
                                                value="{{ entity.nombensemasc }} "
-                                               id="nombensemasc{{ key }}">
+                                               id="nombensemasc{{ key }}"
+                                               onchange="javascript:txtChangedTd('nombensemasc{{ key }}','nombensefemi{{ key }}', 'nombtotaense{{ key }}');">
                                     </td>
                                     <td align="right" style="background-color: #EFF3FB">
                                         <input type="text" name="nombensefemi{{ key }}"
                                                value="{{ entity.nombensefemi }} "
-                                               id="nombensefemi{{ key }}">
+                                               id="nombensefemi{{ key }}"
+                                               onchange="javascript:txtChangedTd('nombensemasc{{ key }}','nombensefemi{{ key }}', 'nombtotaense{{ key }}');">
                                     </td>
-                                    <td>{{ entity.nombtotaense }}</td>
+                                    <td id="nombtotaense{{ key }}">{{ entity.nombtotaense }}</td>
                                 </tr>
                             {% endfor %}
-                            <tr align="center"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
-                                <td>{{ 'nombtotaelev'|trans() }}:</td>
-                                <td>{{ totalnombensemasc }}</td>
-                                <td>{{ totalnombensefemi }}</td>
-                                <td>{{ totalnombtotaense }}</td>
-                            </tr>
+                            {#<tr align="center"#}
+                                {#style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">#}
+                                {#<td>{{ 'nombtotaelev'|trans() }}:</td>#}
+                                {#<td>{{ totalnombensemasc }}</td>#}
+                                {#<td>{{ totalnombensefemi }}</td>#}
+                                {#<td>{{ totalnombtotaense }}</td>#}
+                            {#</tr>#}
                             </tbody>
                         </table>
                     </form>
