@@ -206,6 +206,10 @@
                 <source>AnneeNaissance</source>
                 <target>سنة الولادة</target>
             </trans-unit>
+                <trans-unit id="global_Etablissement">
+                            <source>Etablissement</source>
+                            <target>المؤسسة</target>
+                        </trans-unit>
             <trans-unit id="global_TypeEtablissement">
                 <source>TypeEtablissement</source>
                 <target>نوع المؤسسة </target>
@@ -406,6 +410,12 @@
                 <source>nombtotaelev</source>
                 <target>الجملة</target>
             </trans-unit>
+
+                 <trans-unit id="nombreordinal">
+                            <source>nombreordinal</source>
+                            <target>ع/ ر</target>
+                        </trans-unit>
+
                          <trans-unit id="nombelevvenasepttechnique">
                                         <source>nombelevvenasepttechnique</source>
                                         <target>موجهون من السابعة أساسي إلى الثامنة تقنــي </target>
