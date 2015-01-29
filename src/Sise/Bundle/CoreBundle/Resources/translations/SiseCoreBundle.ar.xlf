@@ -438,10 +438,18 @@
                 <source>codecyclense</source>
                 <target>المرحلة</target>
             </trans-unit>
-               <trans-unit id="datesepa">
-                            <source>datesepa</source>
-                            <target>تاريخ الإنفصال</target>
-                        </trans-unit>
+            <trans-unit id="datesepa">
+                <source>datesepa</source>
+                <target>تاريخ الإنفصال</target>
+            </trans-unit>
+            <trans-unit id="nombheursema">
+                <source>nombheursema</source>
+                <target>الساعات الأسبوعية</target>
+            </trans-unit>
+            <trans-unit id="codegrad">
+                <source>codegrad</source>
+                <target>الرتبة</target>
+            </trans-unit>
             <trans-unit id="codeannenais">
                 <source>codeannenais</source>
                 <target>سنـــة الــولادة</target>
