@@ -68,14 +68,12 @@
                                     </td>
 
 
-                                    <td align="right">{{ form_widget(form.nomprenelev) }}</td>
-                                    <td align="right">{{ form_widget(form.codegenr) }}</td>
-                                    <td align="right">{{ form_widget(form.codenivescol) }}</td>
-                                    <td>{{ form_widget(form.codefili) }}</td>
-                                    <td align="right">{{ form_widget(form.datesepa) }}</td>
-                                    <td align="right">{{ form_widget(form.codetypesepa) }}</td>
-
-
+                                    <td align="right">{{ form_widget(form.nomprenelev, { 'id': 'nomprenelev'~form.vars.name,  'attr': {'class': 'nomprenelev' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codegenr, { 'id': 'codegenr'~form.vars.name,  'attr': {'class': 'codegenr' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codenivescol, { 'id': 'codenivescol'~form.vars.name,  'attr': {'class': 'codenivescol' }  }) }}</td>
+                                    <td>{{ form_widget(form.codefili, { 'id': 'codefili'~form.vars.name,  'attr': {'class': 'codefili' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.datesepa, { 'id': 'datesepa'~form.vars.name,  'attr': {'class': 'datesepa' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codetypesepa, { 'id': 'codetypesepa'~form.vars.name,  'attr': {'class': 'codetypesepa' }  }) }}</td>
                                     <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
                                         <a rel="mouvementelevelisteelevessepareavantconseilclasse_deleteItem"
                                            class="delete_handicaps"
