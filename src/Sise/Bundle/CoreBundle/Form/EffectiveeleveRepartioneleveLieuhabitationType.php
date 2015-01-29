@@ -43,7 +43,6 @@ class EffectiveeleveRepartioneleveLieuhabitationType extends AbstractType
             ))
             ->add('lieu')
             ->add('nombelev')
-
             ->add('dist')
           ;
     }

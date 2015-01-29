@@ -5,6 +5,7 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevenouveaupremierannee' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+
     {% if editForms is defined  and editForms|length > 0 %}
         <center>
             <br>
@@ -97,7 +98,7 @@
                                     {% endif %}
                                     <td align="right">{{ form_widget(form.nombelevmasc, { 'id': 'nombelevmasc'~form.vars.name,  'attr': {'class': 'nombelevmasc' }  }) }}</td>
                                     <td>{{ form_widget(form.nombelevfemi, { 'id': 'nombelevfemi'~form.vars.name,  'attr': {'class': 'nombelevfemi' } }) }}</td>
-                                    <td align="right">{{ form_widget(form.nombtotaelev, { 'id': 'nombtotaelev'~form.vars.name,  'attr': {'class': 'nombtotaelev' } }) }}</td>
+                                    <td align="right">{{ form_widget(form.nombtotaelev, { 'id': 'nombtotaelev'~form.vars.name,  'attr': {'class': 'nombtotaelev',  'readonly':'readonly' } }) }}</td>
                                     <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
                                         <a rel="effectifelevenouveaupremierannee_deleteItem" class="delete_items"
                                            style="display: inline-block">
@@ -119,4 +120,21 @@
         </center>
     {% endif %}
 
+
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script>
+            $(document).ready(function(){
+                $( ".nombelevmasc" ).calculsise({
+                    fDIV: "nombelevmasc",
+                    sDIV: "nombelevfemi",
+                    tdIV : "nombtotaelev"
+                });
+                $( ".nombelevfemi" ).calculsise();
+            });
+        </script>
+    {% endblock %}
 {% endblock %}
+

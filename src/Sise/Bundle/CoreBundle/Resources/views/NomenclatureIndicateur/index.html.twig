@@ -19,7 +19,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('nomenclatureindicateur_show', { 'id': entity.codeindi }) }}">{{ entity.codeindi }}</a></td>
+                <td><a href="{{ path('nomenclatureindicateur_edit', { 'id': entity.codeindi }) }}">{{ entity.codeindi }}</a></td>
                 <td>{{ entity.libeindiar }}</td>
                 <td>{{ entity.libeindifr }}</td>
                 <td>{{ entity.ordraffi }}</td>
@@ -28,9 +28,6 @@
                 <td>{{ entity.spindicateur }}</td>
                 <td>
                 <ul>
-                    <li>
-                        <a href="{{ path('nomenclatureindicateur_show', { 'id': entity.codeindi }) }}">show</a>
-                    </li>
                     <li>
                         <a href="{{ path('nomenclatureindicateur_edit', { 'id': entity.codeindi }) }}">edit</a>
                     </li>

@@ -16,7 +16,7 @@ class NomenclatureIndicateurType extends AbstractType
     {
         $builder
 
-            ->add('codeindi')
+          /*  ->add('codeindi')*/
             ->add('libeindiar')
             ->add('libeindifr')
             ->add('ordraffi')
@@ -26,6 +26,7 @@ class NomenclatureIndicateurType extends AbstractType
           ->add('codeparaindi', 'collection', array(
               'type' => new NomenclatureParametrespindicateurType(),
               'allow_add' => true,
+              'allow_delete' => true,
               'by_reference' => false,
 
           ))

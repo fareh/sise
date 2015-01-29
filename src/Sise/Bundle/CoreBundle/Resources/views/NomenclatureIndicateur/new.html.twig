@@ -1,19 +1,19 @@
 {% extends '::base.html.twig' %}
 {% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :  'nomenclatureindicateur'|trans() , 'RouteAction' : 'nomenclatureindicateur' })) }}
     <br>
 
     {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
     <div id="nomenclature_sise">
 
 
-        <div>
+      {# <div>
             {{ form_label(form.codeindi) }}
             {{ form_errors(form.codeindi) }}
             {{ form_widget(form.codeindi) }}
 
-        </div>
+        </div>#}
         <div>
             {{ form_label(form.libeindiar) }}
             {{ form_errors(form.libeindiar) }}
@@ -55,11 +55,18 @@
             {{ form_widget(form.spindicateur) }}
 
         </div>
+        {##}
         <div>
+            <span> {{ form_label(form.codeparaindi) }}</span>
             <ul class="tags"  data-prototype="
                 {% filter escape %}
                 {{ include('SiseCoreBundle:Default:prototype_codeparaindi.html.twig', { 'codeparaindi': form.codeparaindi.vars.prototype }) }}
                 {% endfilter %}">
+                <li>
+                    <div> {{'nompara'|trans() }}</div>
+                    <div> {{'codeparaexog'|trans() }}</div>
+                    <div> {{'valepara'|trans() }}</div>
+                </li>
                 {% for codeparaindi in form.codeparaindi %}
                     <li>
                       <div> {{ form_widget(codeparaindi.nompara) }}</div>

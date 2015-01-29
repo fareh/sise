@@ -17,16 +17,13 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('nomenclatureparametreexogene_show', { 'id': entity.codeparaexog }) }}">{{ entity.codeparaexog }}</a></td>
+                <td><a href="{{ path('nomenclatureparametreexogene_edit', { 'id': entity.codeparaexog }) }}">{{ entity.codeparaexog }}</a></td>
                 <td>{{ entity.choicefk }}</td>
                 <td>{{ entity.libeparaexogar }}</td>
                 <td>{{ entity.libeparaexogfr }}</td>
                 <td>{{ entity.valeindi }}</td>
                 <td>
                 <ul>
-                    <li>
-                        <a href="{{ path('nomenclatureparametreexogene_show', { 'id': entity.codeparaexog }) }}">show</a>
-                    </li>
                     <li>
                         <a href="{{ path('nomenclatureparametreexogene_edit', { 'id': entity.codeparaexog }) }}">edit</a>
                     </li>

@@ -8,6 +8,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class NomenclatureParametrespindicateurType extends AbstractType
 {
+    private $compteur;
+
+    function __construct($compteur = null)
+    {
+        $this->compteur = $compteur;
+
+    }
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -37,6 +44,6 @@ class NomenclatureParametrespindicateurType extends AbstractType
      */
     public function getName()
     {
-        return 'nomenclature_sise';
+        return 'nomenclature_siseaaaa';
     }
 }

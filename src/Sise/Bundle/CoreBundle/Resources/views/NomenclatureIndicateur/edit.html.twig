@@ -8,12 +8,16 @@
     <div id="nomenclature_sise">
 
 
+     {#
+
         <div>
             {{ form_label(edit_form.codeindi) }}
             {{ form_errors(edit_form.codeindi) }}
             {{ form_widget(edit_form.codeindi) }}
 
         </div>
+
+     #}
         <div>
             {{ form_label(edit_form.libeindiar) }}
             {{ form_errors(edit_form.libeindiar) }}
@@ -56,18 +60,18 @@
 
         </div>
         <div>
-                <ul class="tags"  data-prototype="
+            <span> {{ form_label(edit_form.codeparaindi) }}</span>
+            <ul class="tags" data-prototype="
                 {% filter escape %}
                 {{ include('SiseCoreBundle:Default:prototype_codeparaindi.html.twig', { 'codeparaindi': edit_form.codeparaindi.vars.prototype }) }}
                 {% endfilter %}">
                 <li>
-                    <div> {{'nompara'|trans() }}</div>
-                    <div> {{'codeparaexog'|trans() }}</div>
-                    <div> {{'valepara'|trans() }}</div>
+                    <div> {{ 'nompara'|trans() }}</div>
+                    <div> {{ 'codeparaexog'|trans() }}</div>
+                    <div> {{ 'valepara'|trans() }}</div>
                 </li>
                 {% for codeparaindi in edit_form.codeparaindi %}
-
-                    <li>
+                    <li class="item_line">
                         <div> {{ form_widget(codeparaindi.nompara) }}</div>
                         <div> {{ form_widget(codeparaindi.codeparaexog) }}</div>
                         <div> {{ form_widget(codeparaindi.valepara) }}</div>

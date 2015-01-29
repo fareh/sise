@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Sise\Bundle\CoreBundle\Entity\NomenclatureIndicateur;
 use Sise\Bundle\CoreBundle\Form\NomenclatureIndicateurType;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * NomenclatureIndicateur controller.
  *
@@ -37,14 +37,18 @@ class NomenclatureIndicateurController extends Controller
     {
         $entity = new NomenclatureIndicateur();
         $form = $this->createCreateForm($entity);
+        echo "<pre>";
+        var_dump($request->request->all()); die;
         $form->handleRequest($request);
+
+
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nomenclatureindicateur_show', array('id' => $entity->getCodeindi())));
+            return $this->redirect($this->generateUrl('nomenclatureindicateur'));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureIndicateur:new.html.twig', array(
@@ -165,16 +169,41 @@ class NomenclatureIndicateurController extends Controller
             throw $this->createNotFoundException('Unable to find NomenclatureIndicateur entity.');
         }
 
+
+        $originalTags = new ArrayCollection();
+        foreach ($entity->getCodeparaindi() as $paraindi) {
+            $originalTags->add($paraindi);
+        }
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
 
-        if ($editForm->isValid()) {
-            $em->flush();
+         echo "<pre>";
+        var_dump($request->request->all()); die;
+        if ($request->isMethod('PUT')) {
+            //$editForm->handleRequest($request);
+            $editForm->submit($request->request->all());
+            if ($editForm->isValid()) {
+                if(count($entity->getCodeparaindi())>0){
+                    foreach ($entity->getCodeparaindi() as $paraindi) {
+                        $em->remove($paraindi);
+                    }
+                }
+                /*  foreach ($originalTags as $paraindi) {
+                      if ($entity->getCodeparaindi()->contains($paraindi) == false) {
+                          $paraindi->getCodeindi()->removeCodeparaindi($paraindi);
+                          $em->persist($paraindi);
+                      }
+                  }*/
 
-            return $this->redirect($this->generateUrl('nomenclatureindicateur_edit', array('id' => $id)));
+
+
+                //  $em->persist($entity);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('nomenclatureindicateur'));
+            }
+
         }
-
         return $this->render('SiseCoreBundle:NomenclatureIndicateur:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),

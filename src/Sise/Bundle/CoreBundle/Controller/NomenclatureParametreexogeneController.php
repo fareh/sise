@@ -56,7 +56,7 @@ class NomenclatureParametreexogeneController extends Controller
                 }
             }
             $em->flush();
-            return $this->redirect($this->generateUrl('nomenclatureparametreexogene_show', array('id' => $entity->getCodeparaexog())));
+            return $this->redirect($this->generateUrl('nomenclatureparametreexogene'));
         }
 
         return $this->render('SiseCoreBundle:NomenclatureParametreexogene:new.html.twig', array(
@@ -143,6 +143,9 @@ class NomenclatureParametreexogeneController extends Controller
      */
     public function editAction($id)
     {
+
+
+
         $em = $this->getDoctrine()->getManager();
         $editForms = array();
         $entity = $em->getRepository('SiseCoreBundle:NomenclatureParametreexogene')->find($id);
@@ -155,6 +158,9 @@ class NomenclatureParametreexogeneController extends Controller
                 $editForms[$item->getCodevalueexogene()] = $this->createValueexogeneForm($item, $entity->getChoicefk(), $item->getCodevalueexogene())->createView();
             }
         }
+
+
+
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
@@ -231,7 +237,7 @@ class NomenclatureParametreexogeneController extends Controller
                 }
             }
             $em->flush();
-            return $this->redirect($this->generateUrl('nomenclatureparametreexogene_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('nomenclatureparametreexogene'));
         }
 
         return $this->redirect($this->generateUrl('nomenclatureparametreexogene_edit', array('id' => $id)));

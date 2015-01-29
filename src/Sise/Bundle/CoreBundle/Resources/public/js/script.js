@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
 
     // ajoute un lien de suppression à tous les éléments li de
     // formulaires de tag existants
-    collectionHolder.find('li').each(function () {
+    collectionHolder.find('li.item_line').each(function () {
         addTagFormDeleteLink($(this));
     });
     // ajoute l'ancre « ajouter un tag » et li à la balise ul

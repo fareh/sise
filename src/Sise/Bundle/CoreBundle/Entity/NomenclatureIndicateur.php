@@ -13,11 +13,11 @@ use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureIndicateurType;
 class NomenclatureIndicateur
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="CodeIndi", type="string", length=50, nullable=false)
+     * @ORM\Column(name="CodeIndi", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codeindi;
 
@@ -234,15 +234,13 @@ class NomenclatureIndicateur
     /**
      * @param mixed $codeparaindi
      */
-    public function setCodeparaindi(\Doctrine\Common\Collections\ArrayCollection $codeparaindis = null)
+    public function setCodeparaindi(\Doctrine\Common\Collections\ArrayCollection $codeparaindis)
     {
         foreach($codeparaindis as $codeparaindi){
 
             $codeparaindi->setCodeindi($this);
 
         }
-
-
         $this->codeparaindi = $codeparaindis;
     }
 
