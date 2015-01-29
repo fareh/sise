@@ -68,22 +68,39 @@
                                     <td align="right">
                                         <input type="text" name="nombelevmascnouv{{ key }}"
                                                value="{{ entity.nombelevmascnouv }} "
-                                               id="nombelevmascnouv{{ key }}">
+                                               id="nombelevmascnouv{{ key }}"
+                                               onchange="
+                                                javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );
+                                                javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
+                                                ">
                                     </td>
                                     <td align="right">
                                         <input type="text" name="nombelevfeminouv{{ key }}"
                                                value="{{ entity.nombelevfeminouv }} "
-                                               id="nombelevfeminouv{{ key }}">
+                                               id="nombelevfeminouv{{ key }}"
+                                               onchange="
+                                                javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );
+                                                javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
+
+                                                ">
                                     </td>
                                     <td align="right">
                                         <input type="text" name="nombelevmascredo{{ key }}"
                                                value="{{ entity.nombelevmascredo }} "
-                                               id="nombelevmascredo{{ key }}">
+                                               id="nombelevmascredo{{ key }}"
+                                               onchange="
+                                                javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );
+                                                javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
+                                                ">
                                     </td>
                                     <td align="right">
                                         <input type="text" name="nombelevfemiredo{{ key }}"
                                                value="{{ entity.nombelevfemiredo }} "
-                                               id="nombelevfemiredo{{ key }}">
+                                               id="nombelevfemiredo{{ key }}"
+                                               onchange="
+                                                javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );
+                                                javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
+                                                ">
                                     </td>
                                     <td align="right">
                                         <input type="text" name="nombtotaelevmasc{{ key }}"

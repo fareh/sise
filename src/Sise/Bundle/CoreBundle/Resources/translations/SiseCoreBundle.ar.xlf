@@ -406,6 +406,14 @@
                 <source>nombtotaelev</source>
                 <target>الجملة</target>
             </trans-unit>
+                         <trans-unit id="nombelevvenasepttechnique">
+                                        <source>nombelevvenasepttechnique</source>
+                                        <target>موجهون من السابعة أساسي إلى الثامنة تقنــي </target>
+                                    </trans-unit>
+                             <trans-unit id="nombelevvenahuittechnique">
+                                                    <source>nombelevvenahuittechnique</source>
+                                                    <target>موجهون من الثامنة أساسي إلى الثامنة تقني </target>
+                                                </trans-unit>
             <trans-unit id="niveauscolaire">
                 <source>niveauscolaire</source>
                 <target>المستوى الدراسي</target>

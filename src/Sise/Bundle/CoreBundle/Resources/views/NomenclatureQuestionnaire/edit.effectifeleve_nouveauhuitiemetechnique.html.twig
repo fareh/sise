@@ -15,13 +15,12 @@
                     <table width="100%">
                         <tbody>
                         <tr style="background-color: #4F81BD; color: White;" align="center">
-                            <td colspan="2">
-                                موجهون من السابعة أساسي إلى الثامنة تقنــي
-                            </td>
-                            <td colspan="2">
-                                موجهون من الثامنة أساسي إلى الثامنة تقني
+                            <td colspan="3">{{ 'nombelevvenasepttechnique'|trans() }}
                             </td>
                             <td colspan="3">
+                                {{ 'nombelevvenahuittechnique'|trans() }}
+                            </td>
+                            <td colspan="1">
                                 {{ 'nombtotaelev'|trans() }}
                             </td>
                         </tr>
@@ -29,24 +28,25 @@
 
                         <tr style="background-color: #92B3CF; color: White;" align="center">
                             <td>
-                                <span id="CPHMain_Label4" style="display:inline-block;width:98%;">{{ 'nombelevmasc'|trans() }}'nombelevmasc'|trans() }}</span>
+                                <span id="CPHMain_Label4">{{ 'nombelevmasc'|trans() }}</span>
                             </td>
                             <td>
-                                <span id="CPHMain_Label5" style="display:inline-block;width:98%;">{{ 'nombelevfemi'|trans() }}</span>
+                                <span id="CPHMain_Label5">{{ 'nombelevfemi'|trans() }}</span>
                             </td>
                             <td>
-                                <span id="CPHMai{{ 'nombelevmasc'|trans() }}abel7" style="display:{{ 'nombelevmasc'|trans() }}ine-block;width:98%;">ذكر</span>
+                                <span id="CPHMain_Label1">{{ 'nombtotaelev'|trans() }}</span>
                             </td>
                             <td>
-                                <span id="CPHMain_Label8" style="display:inline-block;width:98%;">{{ 'nombelevfemi'|trans() }}</span>
-                            </td>
-                            <td{{ 'nombelevmasc'|trans() }}                               <span id="CPHMai{{ 'nombelevmasc'|trans() }}abel6" style="display:inline-block;width:98%;">ذكر</span>
+                                <span id="CPHMain_Label8">{{ 'nombelevfemi'|trans() }}</span>
                             </td>
                             <td>
-                                <span id="CPHMain_Label9" style="display:inline-block;width:98%;">{{ 'nombelevfemi'|trans() }}</span>
+                                <span id="CPHMai_label6">{{ 'nombelevmasc'|trans() }}</span>
                             </td>
                             <td>
-                                <span id="CPHMain_Label1" style="display:inline-block;width:98%;">جملة</span>
+                                <span id="CPHMain_Label1">{{ 'nombtotaelev'|trans() }}</span>
+                            </td>
+                            <td>
+                                <span id="CPHMain_Label1">{{ 'nombtotaelev'|trans() }}</span>
                             </td>
                         </tr>
                         {% for key, entity in entities %}
@@ -60,34 +60,51 @@
 
                                     <input name="nombelevmascvenasept{{ key }}" type="text"
                                            value="{{ entity.nombelevmascvenasept }}" id="nombelevmascvenasept{{ key }}"
-                                           onchange="javascript:txtChangedTd('nombelevmascvenasept{{ key }}','nombelevfemivenasept{{ key }}', 'nombtotaelevvenasept{{ key }}');">
+                                           onchange="
+                                                   javascript:txtChangedTd('nombelevmascvenasept{{ key }}','nombelevfemivenasept{{ key }}', 'nombtotaelevvenasept{{ key }}');
+                                                   javascript:txtChangedTdTd('nombtotaelevvenasept{{ key }}','nombtotaelevvenahuit{{ key }}', 'nombtotaelev{{ key }}');
+                                                   ">
                                 </td>
                                 <td style="text-align: center;">
 
 
                                     <input name="nombelevfemivenasept{{ key }}" type="text"
                                            value="{{ entity.nombelevfemivenasept }}" id="nombelevfemivenasept{{ key }}"
-                                           onchange="javascript:txtChangedTd('nombelevmascvenasept{{ key }}','nombelevfemivenasept{{ key }}', 'nombtotaelevvenasept{{ key }}');">
+                                           onchange="
+                                                   javascript:txtChangedTd('nombelevfemivenasept{{ key }}', 'nombelevmascvenasept{{ key }}','nombtotaelevvenasept{{ key }}');
+                                                   javascript:txtChangedTdTd('nombtotaelevvenasept{{ key }}','nombtotaelevvenahuit{{ key }}', 'nombtotaelev{{ key }}');
+                                                   ">
+                                </td>
+
+                                <td style="background-color:#EEEEEE;  text-align: center;"
+                                    id="nombtotaelevvenasept{{ key }}">
+                                    {{ entity.nombtotaelevvenasept }}
                                 </td>
                                 <td style="text-align: center;">
 
 
                                     <input name="nombelevmascvenahuit{{ key }}" type="text"
                                            value="{{ entity.nombelevmascvenahuit }}" id="nombelevmascvenahuit{{ key }}"
-                                           onchange="javascript:txtChangedTd('nombelevmascvenahuit{{ key }}','nombelevfemivenahuit{{ key }}', 'nombtotaelevvenahuit{{ key }}');">
+                                           onchange="
+                                                   javascript:txtChangedTd('nombelevmascvenahuit{{ key }}','nombelevfemivenahuit{{ key }}', 'nombtotaelevvenahuit{{ key }}');
+                                                   javascript:txtChangedTdTd('nombtotaelevvenasept{{ key }}','nombtotaelevvenahuit{{ key }}', 'nombtotaelev{{ key }}');
+
+                                                   ">
                                 </td>
                                 <td style="text-align: center;">
                                     <input name="nombelevfemivenahuit{{ key }}" type="text"
                                            value="{{ entity.nombelevfemivenahuit }}" id="nombelevfemivenahuit{{ key }}"
-                                           onchange="javascript:txtChangedTd('nombelevmascvenahuit{{ key }}','nombelevfemivenahuit{{ key }}', 'nombtotaelevvenahuit{{ key }}');">
+                                           onchange="
+                                                   javascript:txtChangedTd('nombelevfemivenahuit{{ key }}', 'nombelevmascvenahuit{{ key }}','nombtotaelevvenahuit{{ key }}');
+                                                   javascript:txtChangedTdTd('nombtotaelevvenasept{{ key }}','nombtotaelevvenahuit{{ key }}', 'nombtotaelev{{ key }}');
+                                                   ">
                                 </td>
-                                <td style="background-color:#EEEEEE;  text-align: center;" id="nombtotaelevvenasept{{ key }}">
-                                    {{ entity.nombtotaelevvenasept }}
-                                </td>
-                                <td style="background-color:#EEEEEE;  text-align: center;" id="nombtotaelevvenahuit{{ key }}">
+
+                                <td style="background-color:#EEEEEE;  text-align: center;"
+                                    id="nombtotaelevvenahuit{{ key }}">
                                     {{ entity.nombtotaelevvenahuit }}
                                 </td>
-                                <td style="background-color:#EEEEEE;  text-align: center;">
+                                <td style="background-color:#EEEEEE;  text-align: center;" id="nombtotaelev{{ key }}">
                                     {{ entity.nombtotaelevvenasept + entity.nombtotaelevvenahuit }}
                                 </td>
                             </tr>

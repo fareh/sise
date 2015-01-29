@@ -2,6 +2,7 @@ jQuery(document).ready(function () {
 $('#form_nivescol select').on('change', function() {
     document.getElementById("form_nivescol").submit();
 });
+    $('.datesepa').mask('00-00-0000');
 });
 
 
@@ -349,6 +350,10 @@ function txtChangedTd(v1, v2, v3) {
     document.getElementById(v3).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
 }
 
+
+function txtChangedTdTd(v1, v2, v3) {
+    document.getElementById(v3).textContent = parseInt(document.getElementById(v1).textContent) + parseInt(document.getElementById(v2).textContent);
+}
 $(function () {
     $("#sise_corebundle_etablissementficheetablissement_resp_ancidireense").spinner({
         step: 0.1,
