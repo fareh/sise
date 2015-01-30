@@ -6,8 +6,8 @@
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <div style="display: none">
-        <a href="{{ path("statElev", {"codepack":"StatBudget"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
-        <a href="{{ path('effectifelevedemiresidant_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+        <a href="{{ path("statElev", {"codepack":"StatElev"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <a href="{{ path('effectiveelevenouveauseptiemeannee_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
     </div>
     {% if entities is defined  and entities|length > 0 %}
         <center>
@@ -19,13 +19,9 @@
                            style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                         <tbody>
                         <tr>
-                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
-
-{{ 'nombreordinal'|trans() }}
-                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">{{ 'nombreordinal'|trans() }} </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
-                                <strong> <span
-                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">{{ 'CirconscriptionRegional'|trans() }}</span></strong>
+                                <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">{{ 'CirconscriptionRegional'|trans() }}</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
                                 <strong><span
