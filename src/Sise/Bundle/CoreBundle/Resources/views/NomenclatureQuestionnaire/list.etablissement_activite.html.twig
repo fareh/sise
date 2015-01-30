@@ -4,45 +4,49 @@
     {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'etablissementactivite' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
- {% if entities is defined  and entities|length > 0 %}
-    <center>
-        <br>
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
 
-        <div id="CPHMain_upGridView">
+            <div id="CPHMain_upGridView">
 
 
-            <div>
-                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                       style="border-color:#4F81BD;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;">
-                    <tbody>
-                    <tr>
-                        <td align="center" colspan="5"
-                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
-                    </tr>
-                    <tr>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف الحدث</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الحدث</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">العدد</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{'observation'|trans()}}</th>
-                    </tr>
-                    {% set testRepeat = 0 %}
-                    {% for key , entity in entities %}
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
                         <tr>
-                            {% if entity.codeacti.codecateacti.codecateacti!=testRepeat %}
-                                <td style="background: #ffffff"
-                                    rowspan="{{ rowspan[entity.codeacti.codecateacti.codecateacti]|length }}">{{ entity.codeacti.codecateacti.libecateactiar }}</td>
-                            {% endif %}
-                            {% set testRepeat = entity.codeacti.codecateacti.codecateacti %}
-                            <td>{{ entity.codeacti.libeactiar }}</td>
-                            <td>{{ entity.nombacti }}</td>
-                            <td>{{ entity.obse }}</td>
+                            <td align="center" colspan="5"
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                        <tr>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'type actualite'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'actualite'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'nombre'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'observation'|trans() }}</th>
+                        </tr>
+                        {% set testRepeat = 0 %}
+                        {% for key , entity in entities %}
+                            <tr>
+                                {% if entity.codeacti.codecateacti.codecateacti!=testRepeat %}
+                                    <td style="background: #ffffff"
+                                        rowspan="{{ rowspan[entity.codeacti.codecateacti.codecateacti]|length }}">{{ entity.codeacti.codecateacti.libecateactiar }}</td>
+                                {% endif %}
+                                {% set testRepeat = entity.codeacti.codecateacti.codecateacti %}
+                                <td>{{ entity.codeacti.libeactiar }}</td>
+                                <td>{{ entity.nombacti }}</td>
+                                <td>{{ entity.obse }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
 
-        </div>
-    </center>
-{% endif %}
+            </div>
+        </center>
+    {% endif %}
 {% endblock %}

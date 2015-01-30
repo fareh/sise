@@ -18,21 +18,28 @@
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                         <td align="center" colspan="3"
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                            متقدمون
+                            {{ 'nombelevinsc'|trans() }}
                         </td>
                         <td align="center" colspan="3"
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                            ناجحون
+                            {{ 'nombelevreus'|trans() }}
                         </td>
                     </tr>
                     <tr>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المجال</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#4F81BD;">{{ 'codedoma'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                        <th align="center" scope="col"
+                            style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
                     </tr>
                     {% for key , entity in entities %}
 

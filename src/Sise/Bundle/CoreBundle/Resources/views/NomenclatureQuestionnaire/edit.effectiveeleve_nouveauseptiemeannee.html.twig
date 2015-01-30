@@ -18,27 +18,24 @@
                             <tr>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-                                        ع/ ر
+{{ 'nombreordinal'|trans() }}
                                       </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
-                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-المندوبية الجهوية
-                                      </span></strong>
+                                    <strong> <span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD ">{{ 'CirconscriptionRegional'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-المعتمدية
-                                </span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'Delegation'|trans() }} </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:17%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        إسم المدرسة الاعدادية العمومية أو الخاصة</span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'codeetabsour'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 12%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                 	نوع المؤسسة
-                                </span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'TypeEtablissement'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
@@ -71,8 +68,8 @@
                                     </td>
 
                                     {% if form.vars.value.entityetabsour %}
-                                        <td>{{ form.vars.value.entityetabsour.codecircregi.libecircregiar  }}</td>
-                                        <td>{{ form.vars.value.entityetabsour.codedele.libedelear  }}</td>
+                                        <td>{{ form.vars.value.entityetabsour.codecircregi.libecircregiar }}</td>
+                                        <td>{{ form.vars.value.entityetabsour.codedele.libedelear }}</td>
                                         <td align="right">{{ form.vars.value.entityetabsour.libeetabar }}
                                             {{ form_widget(form.codeetabsour, { 'id': 'codeetabsour'~form.vars.name,  'attr': {'class': 'codeetabsour' }  }) }}
 
@@ -101,7 +98,8 @@
                                     <td>{{ form_widget(form.nombelevfemi, { 'id': 'nombelevfemi'~form.vars.name,  'attr': {'class': 'nombelevfemi' } }) }}</td>
                                     <td align="right">{{ form_widget(form.nombtotaelev, { 'id': 'nombtotaelev'~form.vars.name,  'attr': {'class': 'nombtotaelev' } }) }}</td>
                                     <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
-                                        <a rel="effectiveelevenouveauseptiemeannee_deleteItem" class="delete_items" style="display: inline-block">
+                                        <a rel="effectiveelevenouveauseptiemeannee_deleteItem" class="delete_items"
+                                           style="display: inline-block">
                                             <img name="sise_delete_line" id="sise_delete_line"
                                                  src="/bundles/sisecore/images/16x16/cancel_16.png">
                                         </a>

@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentlisteremplacementprovisoire' })) }}
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
@@ -17,16 +18,16 @@
                         <tbody>
                         <tr>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:45%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الإسم و اللقب</span></strong>
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'nomprenelev'|trans() }}</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:25%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        عدد الساعات</span></strong>
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'nombheur'|trans() }}</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:25%; background-color:#4F81BD">
-                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        سبب التعويض</span></strong>
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'codecausrempprov'|trans() }}</span></strong>
                             </th>
 
                         </tr>

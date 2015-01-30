@@ -8,96 +8,97 @@
     <center>
         <br>
         {% if entities is defined  and entities|length > 0 %}
-        <div id="CPHMain_UP">
+            <div id="CPHMain_UP">
 
 
-            <div>
-                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                    <tbody>
-                    <tr>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
-                            <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-                                        ع/ ر
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
+                        <tr>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                                <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
+{{ 'nombreordinal'|trans() }}
                                       </span></strong>
-                        </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'nomprenelev'|trans() }}</span></strong>
-                        </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        النوع</span></strong>
-                        </th>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'nomprenelev'|trans() }}</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'Genre'|trans() }}</span></strong>
+                            </th>
 
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        سنة الولادة</span></strong>
-                        </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        {{'niveauscolaire'|trans()}}</span></strong>
-                        </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الصفة</span></strong>
-                        </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'AnneeNaissance'|trans() }}</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
+                                        {{ 'niveauscolaire'|trans() }}</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'Qualite'|trans() }}</span></strong>
+                            </th>
 
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        نوع الإعاقة</span></strong>
-                        </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        درجة الإعاقة</span></strong>
-                        </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'TypeHandicap'|trans() }}</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'codedegrhand'|trans() }}</span></strong>
+                            </th>
 
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:8%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        عملية الإدماج</span></strong>
-                        </th>
-                        <th style="border-bottom: 1px solid #3768BC; text-align: right; width:7%; background-color:#4F81BD">
-                            <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        متابع من طرف مركز مختص</span></strong>
-                        </th>
-                    </tr>
-                    {% for entity in entities %}
-                    <tr>
-                        <td>{{ entity.numeelev }}</td>
-                        <td align="right">{{ entity.nompren }}</td>
-                        <td align="right">{{ entity.codegenr }}</td>
-                        <td align="right">   {{ entity.annenais }}</td>
-                        <td> {{ entity.codenivescol }}</td>
-                        <td align="right">
-                            {% if  entity.redo %}
-                                Redoublant
-                            {% else %}
-                                Nouveau
-                            {% endif %}
-                        </td>
-                        <td align="right">   {{ entity.codetypehand }}</td>
-                        <td align="right">   {{ entity.codedegrhand }}</td>
-                        <td align="right">
-                            {% if  entity.intefaci %}
-                                Facile
-                            {% else %}
-                                Difficile
-                            {% endif %}
-                          </td>
-                        <td align="right">
-                            {% if  entity.suivcentspec %}
-                                Oui
-                            {% else %}
-                                Non
-                            {% endif %}</td>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:8%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'intefaci'|trans() }}</span></strong>
+                            </th>
+                            <th style="border-bottom: 1px solid #3768BC; text-align: right; width:7%; background-color:#4F81BD">
+                                <strong><span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'suivcentspec'|trans() }}</span></strong>
+                            </th>
+                        </tr>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ entity.numeelev }}</td>
+                                <td align="right">{{ entity.nompren }}</td>
+                                <td align="right">{{ entity.codegenr }}</td>
+                                <td align="right">   {{ entity.annenais }}</td>
+                                <td> {{ entity.codenivescol }}</td>
+                                <td align="right">
+                                    {% if  entity.redo %}
+                                        Redoublant
+                                    {% else %}
+                                        Nouveau
+                                    {% endif %}
+                                </td>
+                                <td align="right">   {{ entity.codetypehand }}</td>
+                                <td align="right">   {{ entity.codedegrhand }}</td>
+                                <td align="right">
+                                    {% if  entity.intefaci %}
+                                        Facile
+                                    {% else %}
+                                        Difficile
+                                    {% endif %}
+                                </td>
+                                <td align="right">
+                                    {% if  entity.suivcentspec %}
+                                        Oui
+                                    {% else %}
+                                        Non
+                                    {% endif %}</td>
 
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
             </div>
-
-
-        </div>
         {% endif %}
     </center>
 

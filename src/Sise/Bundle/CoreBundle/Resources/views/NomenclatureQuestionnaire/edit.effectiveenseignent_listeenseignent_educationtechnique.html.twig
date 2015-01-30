@@ -17,48 +17,46 @@
                             <tr>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-                                        ع/ ر
+{{ 'nombreordinal'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الاسم واللقب
+{{ 'nomprenelev'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        النوع
+{{ 'Genre'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الشهادة
+{{ 'Diplome'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الاختصاص
-                                        </span></strong>
+{{ 'Specialite'|trans() }}                            </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الرتبة الحالية
+{{ 'codegrad'|trans() }}
                                         </span></strong>
                                 </th>
 
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'codetypetrav'|trans() }}</span></strong>
+                                </th>
+                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الأعمال المكلف بها
+{{ 'nombheursema'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الساعات الأسبوعية
-                                        </span></strong>
-                                </th>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        ملاحظات
+{{ 'obse'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
@@ -74,29 +72,29 @@
 
                             {% for  form in editForms %}
                                 <tr>
-                                <td>
-                                    {{ form.vars.name }}
-                                </td>
+                                    <td>
+                                        {{ form.vars.name }}
+                                    </td>
 
 
-                                <td align="right">{{ form_widget(form.nompren, { 'id': 'nompren'~form.vars.name,  'attr': {'class': 'nompren' }  }) }}</td>
-                                <td align="right">{{ form_widget(form.codegenr, { 'id': 'codegenr'~form.vars.name,  'attr': {'class': 'codegenr' }  }) }}</td>
-                                <td align="right">{{ form_widget(form.codedipl, { 'id': 'codedipl'~form.vars.name,  'attr': {'class': 'codedipl' }  }) }}</td>
-                                <td>{{ form_widget(form.codespec, { 'id': 'codespec'~form.vars.name,  'attr': {'class': 'codespec' }  }) }}</td>
-                                <td align="right">{{ form_widget(form.gradactu, { 'id': 'gradactu'~form.vars.name,  'attr': {'class': 'gradactu' }  }) }}</td>
-                                <td align="right">{{ form_widget(form.codetypetrav, { 'id': 'codetypetrav'~form.vars.name,  'attr': {'class': 'codetypetrav' }  }) }}</td>
-                                <td>{{ form_widget(form.nombheursema, { 'id': 'nombheursema'~form.vars.name,  'attr': {'class': 'nombheursema' }  }) }}</td>
-                                <td>{{ form_widget(form.obse, { 'id': 'obse'~form.vars.name,  'attr': {'class': 'obse' }  }) }}</td>
-                                <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
-                                    <a rel="effectiveenseignentlisteenseignenteducationtechnique_deleteItem"
-                                       class="delete_listeenseignent"
-                                       style="display: inline-block">
-                                        <img name="sise_delete_line" id="sise_delete_line"
-                                             src="/bundles/sisecore/images/16x16/cancel_16.png">
-                                    </a>
-                                </td>
+                                    <td align="right">{{ form_widget(form.nompren, { 'id': 'nompren'~form.vars.name,  'attr': {'class': 'nompren' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codegenr, { 'id': 'codegenr'~form.vars.name,  'attr': {'class': 'codegenr' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codedipl, { 'id': 'codedipl'~form.vars.name,  'attr': {'class': 'codedipl' }  }) }}</td>
+                                    <td>{{ form_widget(form.codespec, { 'id': 'codespec'~form.vars.name,  'attr': {'class': 'codespec' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.gradactu, { 'id': 'gradactu'~form.vars.name,  'attr': {'class': 'gradactu' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codetypetrav, { 'id': 'codetypetrav'~form.vars.name,  'attr': {'class': 'codetypetrav' }  }) }}</td>
+                                    <td>{{ form_widget(form.nombheursema, { 'id': 'nombheursema'~form.vars.name,  'attr': {'class': 'nombheursema' }  }) }}</td>
+                                    <td>{{ form_widget(form.obse, { 'id': 'obse'~form.vars.name,  'attr': {'class': 'obse' }  }) }}</td>
+                                    <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
+                                        <a rel="effectiveenseignentlisteenseignenteducationtechnique_deleteItem"
+                                           class="delete_listeenseignent"
+                                           style="display: inline-block">
+                                            <img name="sise_delete_line" id="sise_delete_line"
+                                                 src="/bundles/sisecore/images/16x16/cancel_16.png">
+                                        </a>
+                                    </td>
 
-                            </tr>
+                                </tr>
                             {% endfor %}
                             </tbody>
                         </table>

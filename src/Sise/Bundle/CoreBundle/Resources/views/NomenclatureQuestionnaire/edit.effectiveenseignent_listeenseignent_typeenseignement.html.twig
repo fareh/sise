@@ -1,8 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentlisteenseignenttypeenseignement' })) }}
-
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if editForms is defined  and editForms|length > 0 %}
         <center>
@@ -17,24 +17,20 @@
                             <tr>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-                                        ع/ ر
+{{ 'nombreordinal'|trans() }}
                                         </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        المعرف الوحيد</span></strong>
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'idenuniqense'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:35%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        الإسم و اللقب</span></strong>
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'nomprenelev'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:25%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        يدرسون الإنقليزية</span></strong>
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'enseangl'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:25%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        يدرسون تكنولوجيا المعلومات</span></strong>
+                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'ensetechinfo'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">

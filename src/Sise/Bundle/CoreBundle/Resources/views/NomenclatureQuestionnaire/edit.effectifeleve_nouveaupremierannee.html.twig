@@ -19,26 +19,25 @@
                             <tr>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-                                        ع/ ر
+{{ 'nombreordinal'|trans() }}
                                       </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
-                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-المندوبية الجهوية
-                                      </span></strong>
+                                    <strong> <span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD ">{{ 'CirconscriptionRegional'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 14%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-المعتمدية
+{{ 'Delegation'|trans() }}
                                 </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:17%; background-color:#4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                        إسم المدرسة الاعدادية العمومية أو الخاصة</span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD">{{ 'codeetabsour'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 12%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-                                 	نوع المؤسسة
+                                 	{{ 'TypeEtablissement'|trans() }}
                                 </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
@@ -126,13 +125,13 @@
         {{ parent() }}
 
         <script>
-            $(document).ready(function(){
-                $( ".nombelevmasc" ).calculsise({
+            $(document).ready(function () {
+                $(".nombelevmasc").calculsise({
                     fDIV: "nombelevmasc",
                     sDIV: "nombelevfemi",
-                    tdIV : "nombtotaelev"
+                    tdIV: "nombtotaelev"
                 });
-                $( ".nombelevfemi" ).calculsise();
+                $(".nombelevfemi").calculsise();
             });
         </script>
     {% endblock %}

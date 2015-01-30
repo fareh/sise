@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="global_CycleEnseignement">
                 <source>CycleEnseignement</source>
-                <target>مراحل التعليم </target>
+                <target>مراحل التعليم</target>
             </trans-unit>
             <trans-unit id="global_observation">
                 <source>observation</source>
@@ -12,11 +12,11 @@
             </trans-unit>
             <trans-unit id="global_Nomenclature">
                 <source>Nomenclature</source>
-                <target>التسميات </target>
+                <target>التسميات</target>
             </trans-unit>
             <trans-unit id="global_ListNomenclature">
                 <source>ListNomenclature</source>
-                <target>قائمة التسميات </target>
+                <target>قائمة التسميات</target>
             </trans-unit>
             <trans-unit id="global_Niveauscolaire">
                 <source>Niveauscolaire</source>
@@ -24,27 +24,27 @@
             </trans-unit>
             <trans-unit id="global_Filiere">
                 <source>Filiere</source>
-                <target>الشعبة </target>
+                <target>الشعبة</target>
             </trans-unit>
             <trans-unit id="global_Discipline">
                 <source>Discipline</source>
-                <target>مادّة التدريس </target>
+                <target>مادّة التدريس</target>
             </trans-unit>
             <trans-unit id="global_Matiereoptionnelle">
                 <source>Matiereoptionnelle</source>
-                <target>موادّ التدريس الاختيارية </target>
+                <target>موادّ التدريس الاختيارية</target>
             </trans-unit>
             <trans-unit id="global_SourceProvonance">
                 <source>SourceProvonance</source>
-                <target>مصدر الإلتحاق بالمؤسسة </target>
+                <target>مصدر الإلتحاق بالمؤسسة</target>
             </trans-unit>
             <trans-unit id="global_Genre">
                 <source>Genre</source>
-                <target>النوع الاجتماعي </target>
+                <target>النوع الاجتماعي</target>
             </trans-unit>
             <trans-unit id="global_Grade">
                 <source>Grade</source>
-                <target>الرتبة </target>
+                <target>الرتبة</target>
             </trans-unit>
             <trans-unit id="global_TypeTravail">
                 <source>TypeTravail</source>
@@ -52,7 +52,7 @@
             </trans-unit>
             <trans-unit id="global_Specialite">
                 <source>Specialite</source>
-                <target>الاختصاص </target>
+                <target>الاختصاص</target>
             </trans-unit>
             <trans-unit id="global_HeureEnseignement">
                 <source>HeureEnseignement</source>
@@ -62,17 +62,29 @@
                 <source>CauseRemplacementProvisoire</source>
                 <target>سبب التعويض الظرفي</target>
             </trans-unit>
+            <trans-unit id="global_codecausrempprov">
+                <source>codecausrempprov</source>
+                <target>سبب التعويض</target>
+            </trans-unit>
+            <trans-unit id="global_codetypetrav">
+                <source>codetypetrav</source>
+                <target>الأعمال المكلف بها</target>
+            </trans-unit>
             <trans-unit id="global_Diplome">
                 <source>Diplome</source>
                 <target>الشهادة</target>
             </trans-unit>
             <trans-unit id="global_Qualite">
                 <source>Qualite</source>
-                <target>الصفة </target>
+                <target>الصفة</target>
+            </trans-unit>
+            <trans-unit id="global_codesourprov">
+                <source>codesourprov</source>
+                <target>المصدر</target>
             </trans-unit>
             <trans-unit id="global_Corps">
                 <source>Corps</source>
-                <target>السلك </target>
+                <target>السلك</target>
             </trans-unit>
             <trans-unit id="global_SituationFamiliale">
                 <source>SituationFamiliale</source>
@@ -80,11 +92,11 @@
             </trans-unit>
             <trans-unit id="global_Profession">
                 <source>Profession</source>
-                <target>وظيفة القرين </target>
+                <target>وظيفة القرين</target>
             </trans-unit>
             <trans-unit id="global_TypeAffectation">
                 <source>TypeAffectation</source>
-                <target>نوع التعيين  </target>
+                <target>نوع التعيين</target>
             </trans-unit>
             <trans-unit id="global_Fonction">
                 <source>Fonction</source>
@@ -92,11 +104,11 @@
             </trans-unit>
             <trans-unit id="global_SituationAdministrative">
                 <source>SituationAdministrative</source>
-                <target>الوضع الاداري </target>
+                <target>الوضع الاداري</target>
             </trans-unit>
             <trans-unit id="global_SousSituationAdministrative">
                 <source>SousSituationAdministrative</source>
-                <target>الوضع الاداري الفرعي </target>
+                <target>الوضع الاداري الفرعي</target>
             </trans-unit>
             <trans-unit id="global_Tache">
                 <source>Tache</source>
@@ -104,7 +116,7 @@
             </trans-unit>
             <trans-unit id="global_LangueEnseignement">
                 <source>LangueEnseignement</source>
-                <target>لغة التدريس </target>
+                <target>لغة التدريس</target>
             </trans-unit>
             <trans-unit id="global_DegreHandicap">
                 <source>DegreHandicap</source>
@@ -112,11 +124,23 @@
             </trans-unit>
             <trans-unit id="global_TypeHandicap">
                 <source>TypeHandicap</source>
-                <target>نوع الإعاقة  </target>
+                <target>نوع الإعاقة</target>
+            </trans-unit>
+            <trans-unit id="global_codedegrhand">
+                <source>codedegrhand</source>
+                <target>درجة الإعاقة</target>
+            </trans-unit>
+            <trans-unit id="global_intefaci">
+                <source>intefaci</source>
+                <target>عملية الإدماج</target>
+            </trans-unit>
+            <trans-unit id="global_suivcentspec">
+                <source>suivcentspec</source>
+                <target>متابع من طرف مركز مختص</target>
             </trans-unit>
             <trans-unit id="global_CategorieNationalite">
                 <source>CategorieNationalite</source>
-                <target>صنف الجنسية </target>
+                <target>صنف الجنسية</target>
             </trans-unit>
             <trans-unit id="global_Nationalite">
                 <source>Nationalite</source>
@@ -124,11 +148,11 @@
             </trans-unit>
             <trans-unit id="global_CategorieEspace">
                 <source>CategorieEspace</source>
-                <target>صنف الفضاء  </target>
+                <target>صنف الفضاء</target>
             </trans-unit>
             <trans-unit id="global_TypeEspace">
                 <source>TypeEspace</source>
-                <target>نوع الفضاء </target>
+                <target>نوع الفضاء</target>
             </trans-unit>
             <trans-unit id="global_CategorieEquipement">
                 <source>CategorieEquipement</source>
@@ -140,19 +164,19 @@
             </trans-unit>
             <trans-unit id="global_TypeCloture">
                 <source>TypeCloture</source>
-                <target>نوع السياج  </target>
+                <target>نوع السياج</target>
             </trans-unit>
             <trans-unit id="global_TypeLogement">
                 <source>TypeLogement</source>
-                <target>نوع المسكن الوطيفي </target>
+                <target>نوع المسكن الوطيفي</target>
             </trans-unit>
             <trans-unit id="global_StatusHabitant">
                 <source>StatusHabitant</source>
-                <target>الوضعية العقارية </target>
+                <target>الوضعية العقارية</target>
             </trans-unit>
             <trans-unit id="global_ProprieteBatiment">
                 <source>ProprieteBatiment</source>
-                <target>ملكية البناءات </target>
+                <target>ملكية البناءات</target>
             </trans-unit>
             <trans-unit id="global_SituationCompteurEauElectricite">
                 <source>SituationCompteurEauElectricite</source>
@@ -160,7 +184,7 @@
             </trans-unit>
             <trans-unit id="global_RessouceEau">
                 <source>RessouceEau</source>
-                <target>الموارد المائية </target>
+                <target>الموارد المائية</target>
             </trans-unit>
             <trans-unit id="global_RessourceElectricite">
                 <source>RessourceElectricite</source>
@@ -168,7 +192,7 @@
             </trans-unit>
             <trans-unit id="global_Zone">
                 <source>Zone</source>
-                <target>الوسط </target>
+                <target>الوسط</target>
             </trans-unit>
             <trans-unit id="global_TypeConnxionInternet">
                 <source>TypeConnxionInternet</source>
@@ -180,31 +204,35 @@
             </trans-unit>
             <trans-unit id="global_TypeRubriqueBudgetaire">
                 <source>TypeRubriqueBudgetaire</source>
-                <target>نوع بند الميزانية </target>
+                <target>نوع بند الميزانية</target>
             </trans-unit>
             <trans-unit id="global_BudgetRubriquebudgetaire">
                 <source>BudgetRubriquebudgetaire</source>
-                <target>بند الميزانية </target>
+                <target>بند الميزانية</target>
             </trans-unit>
             <trans-unit id="global_PeriodeSuiviBudget">
                 <source>PeriodeSuiviBudget</source>
-                <target>فترة رصد الميزانية  </target>
+                <target>فترة رصد الميزانية</target>
             </trans-unit>
             <trans-unit id="global_ParametreAnneescolaire">
                 <source>ParametreAnneescolaire</source>
-                <target>السنة الدراسية </target>
+                <target>السنة الدراسية</target>
             </trans-unit>
             <trans-unit id="global_CategorieActivite">
                 <source>CategorieActivite</source>
-                <target>فئة النشاط </target>
+                <target>فئة النشاط</target>
             </trans-unit>
             <trans-unit id="global_Activite">
                 <source>Activite</source>
-                <target>النشاط </target>
+                <target>النشاط</target>
             </trans-unit>
             <trans-unit id="global_AnneeNaissance">
                 <source>AnneeNaissance</source>
                 <target>سنة الولادة</target>
+            </trans-unit>
+            <trans-unit id="global_codedele">
+                <source>codedele</source>
+                <target>المعتمــديـة</target>
             </trans-unit>
             <trans-unit id="global_Etablissement">
                 <source>Etablissement</source>
@@ -212,35 +240,35 @@
             </trans-unit>
             <trans-unit id="global_TypeEtablissement">
                 <source>TypeEtablissement</source>
-                <target>نوع المؤسسة </target>
+                <target>نوع المؤسسة</target>
             </trans-unit>
             <trans-unit id="global_Circonscription">
                 <source>Circonscription</source>
-                <target>الدائرة </target>
+                <target>الدائرة</target>
             </trans-unit>
             <trans-unit id="global_Delegation">
                 <source>Delegation</source>
-                <target>المعتمديّة </target>
+                <target>المعتمديّة</target>
             </trans-unit>
             <trans-unit id="global_CirconscriptionRegional">
                 <source>CirconscriptionRegional</source>
-                <target>المندوبية الجهوية </target>
+                <target>المندوبية الجهوية</target>
             </trans-unit>
             <trans-unit id="global_Gouvernorat">
                 <source>Gouvernorat</source>
-                <target>الولاية </target>
+                <target>الولاية</target>
             </trans-unit>
             <trans-unit id="global_Observation">
                 <source>Observation</source>
-                <target>الملاحظات </target>
+                <target>الملاحظات</target>
             </trans-unit>
             <trans-unit id="global_Secteur">
                 <source>Secteur</source>
-                <target>القطاع </target>
+                <target>القطاع</target>
             </trans-unit>
             <trans-unit id="global_BassinPedagogique">
                 <source>BassinPedagogique</source>
-                <target>الحوض البيداغوجي </target>
+                <target>الحوض البيداغوجي</target>
             </trans-unit>
             <trans-unit id="global_Indicateur">
                 <source>Indicateur</source>
@@ -248,11 +276,11 @@
             </trans-unit>
             <trans-unit id="global_ParametreExogene">
                 <source>ParametreExogene</source>
-                <target>المعطيات الخارجية </target>
+                <target>المعطيات الخارجية</target>
             </trans-unit>
             <trans-unit id="global_Orientation">
                 <source>Orientation</source>
-                <target>جدول التوجيه و اعادة التوجيه  </target>
+                <target>جدول التوجيه و اعادة التوجيه</target>
             </trans-unit>
             <trans-unit id="global_republique_tunisienne">
                 <source>REPUBLIQUE TUNISIENNE</source>
@@ -289,6 +317,10 @@
             <trans-unit id="global_ressources_humaines">
                 <source>Ressources humaines</source>
                 <target>الموارد البشرية</target>
+            </trans-unit>
+            <trans-unit id="global_ressources_non_enseignant">
+                <source>Les ressources humaines de non-enseignant</source>
+                <target>الموارد البشريّة الغير مدرّسة</target>
             </trans-unit>
             <trans-unit id="global_fondation_activite">
                 <source>Fondation activité</source>
@@ -398,6 +430,50 @@
                 <source>Obse</source>
                 <target>الملاحظات</target>
             </trans-unit>
+            <trans-unit id="codedoma">
+                <source>codedoma</source>
+                <target>المجال</target>
+            </trans-unit>
+            <trans-unit id="nombelevinsc">
+                <source>nombelevinsc</source>
+                <target>متقدمون</target>
+            </trans-unit>
+            <trans-unit id="nombelevreus">
+                <source>nombelevreus</source>
+                <target>ناجحون</target>
+            </trans-unit>
+            <trans-unit id="nombelevinsc9">
+                <source>nombelevinsc9</source>
+                <target>المسجلون بتاريخ 15 نوفمبر</target>
+            </trans-unit>
+            <trans-unit id="nombelevreus9">
+                <source>nombelevreus9</source>
+                <target>المرتقون في جوان</target>
+            </trans-unit>
+            <trans-unit id="codecyclense_basique">
+                <source>codecyclense_basique</source>
+                <target>المرحلة ثانية من التعليم الأساسي</target>
+            </trans-unit>
+            <trans-unit id="codesousdoma">
+                <source>codesousdoma</source>
+                <target>المجال الفرعي</target>
+            </trans-unit>
+            <trans-unit id="nombgrou">
+                <source>nombgrou</source>
+                <target>عدد الفرق</target>
+            </trans-unit>
+            <trans-unit id="nombclass">
+                <source>nombclass</source>
+                <target>عدد الفصول</target>
+            </trans-unit>
+            <trans-unit id="moyen_eleve_nombclass">
+                <source>moyen_eleve_nombclass</source>
+                <target>معدل التلاميذ للفصل الواحد</target>
+            </trans-unit>
+            <trans-unit id="nombelev">
+                <source>nombelev</source>
+                <target>عــدد  التـلاميــذ</target>
+            </trans-unit>
             <trans-unit id="nombelevmasc">
                 <source>nombelevmasc</source>
                 <target>ذكر</target>
@@ -410,17 +486,49 @@
                 <source>nombtotaelev</source>
                 <target>الجملة</target>
             </trans-unit>
+            <trans-unit id="lieu">
+                <source>lieu</source>
+                <target>المكــان</target>
+            </trans-unit>
+            <trans-unit id="dist">
+                <source>dist</source>
+                <target>المســافة</target>
+            </trans-unit>
             <trans-unit id="nombreordinal">
                 <source>nombreordinal</source>
                 <target>ع/ ر</target>
             </trans-unit>
+            <trans-unit id="nombre">
+                <source>nombre</source>
+                <target>العدد</target>
+            </trans-unit>
+            <trans-unit id="actualite">
+                <source>actualite</source>
+                <target>الحدث</target>
+            </trans-unit>
+            <trans-unit id="actualite_type">
+                <source>type actualite</source>
+                <target>صنف الحدث</target>
+            </trans-unit>
             <trans-unit id="nombelevvenasepttechnique">
                 <source>nombelevvenasepttechnique</source>
-                <target>موجهون من السابعة أساسي إلى الثامنة تقنــي </target>
+                <target>موجهون من السابعة أساسي إلى الثامنة تقنــي</target>
             </trans-unit>
             <trans-unit id="nombelevvenahuittechnique">
                 <source>nombelevvenahuittechnique</source>
-                <target>موجهون من الثامنة أساسي إلى الثامنة تقني </target>
+                <target>موجهون من الثامنة أساسي إلى الثامنة تقني</target>
+            </trans-unit>
+            <trans-unit id="codeetabsour">
+                <source>codeetabsour</source>
+                <target>إسم المدرسة الاعدادية العمومية أو الخاصة</target>
+            </trans-unit>
+            <trans-unit id="enseangl">
+                <source>enseangl</source>
+                <target>يدرسون الإنقليزية</target>
+            </trans-unit>
+            <trans-unit id="ensetechinfo">
+                <source>ensetechinfo</source>
+                <target>يدرسون تكنولوجيا المعلومات</target>
             </trans-unit>
             <trans-unit id="niveauscolaire">
                 <source>niveauscolaire</source>
@@ -445,6 +553,14 @@
             <trans-unit id="nombheursema">
                 <source>nombheursema</source>
                 <target>الساعات الأسبوعية</target>
+            </trans-unit>
+            <trans-unit id="nombheur">
+                <source>nombheur</source>
+                <target>عدد الساعات</target>
+            </trans-unit>
+            <trans-unit id="idenuniqense">
+                <source>idenuniqense</source>
+                <target>المعرف الوحيد</target>
             </trans-unit>
             <trans-unit id="codegrad">
                 <source>codegrad</source>
@@ -478,6 +594,42 @@
                 <source>Codeprof</source>
                 <target>الرمز</target>
             </trans-unit>
+            <trans-unit id="liberubrbudgar">
+                <source>liberubrbudgar</source>
+                <target>البيان</target>
+            </trans-unit>
+            <trans-unit id="credouve">
+                <source>credouve</source>
+                <target>الإعتماد المفتوح</target>
+            </trans-unit>
+            <trans-unit id="corrcred">
+                <source>corrcred</source>
+                <target>التنقيح</target>
+            </trans-unit>
+            <trans-unit id="totaenga">
+                <source>totaenga</source>
+                <target>جملة التعهدات</target>
+            </trans-unit>
+            <trans-unit id="restenga">
+                <source>restenga</source>
+                <target>باقي التعهدات</target>
+            </trans-unit>
+            <trans-unit id="totapaye">
+                <source>totapaye</source>
+                <target>جملة الدفوعات</target>
+            </trans-unit>
+            <trans-unit id="restpaye">
+                <source>restpaye</source>
+                <target>باقي الدفوعات</target>
+            </trans-unit>
+            <trans-unit id="pourenga">
+                <source>pourenga</source>
+                <target>نسبة التعهّد</target>
+            </trans-unit>
+            <trans-unit id="pourpaye">
+                <source>pourpaye</source>
+                <target>نسبة الدفوعات</target>
+            </trans-unit>
             <trans-unit id="Libeproffr">
                 <source>Libeproffr</source>
                 <target>الوصف بالفرنسية</target>
@@ -485,6 +637,14 @@
             <trans-unit id="Libeprofar">
                 <source>Libeprofar</source>
                 <target>الوصف بالعربية</target>
+            </trans-unit>
+            <trans-unit id="nombelevnouv">
+                <source>nombelevnouv</source>
+                <target>الجدد</target>
+            </trans-unit>
+            <trans-unit id="nombelevredo">
+                <source>nombelevredo</source>
+                <target>الراسبون</target>
             </trans-unit>
             <trans-unit id="codecyclense">
                 <source>Codeprof codecyclense</source>

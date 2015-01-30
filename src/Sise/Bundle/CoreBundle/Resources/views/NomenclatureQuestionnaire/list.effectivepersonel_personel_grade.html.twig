@@ -4,67 +4,71 @@
     {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectivepersonelpersonelgrade' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
- {% if entities is defined  and entities|length > 0 %}
-    <center>
-        <br>
+    {% if entities is defined  and entities|length > 0 %}
+        <center>
+            <br>
 
-        <div id="CPHMain_upGridView">
+            <div id="CPHMain_upGridView">
 
-            <div>
-                <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
-                       style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
-                    <tbody>
-                    <tr>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        <td align="center" colspan="2" style="color:White;background-color:#4F81BD;font-weight:bold;">
-                            الموارد البشريّة الغير مدرّسة
-                        </td>
-                        <td align="center" colspan="1"
-                            style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                    </tr>
-                    <tr>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">السلك</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الرتبة</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'nombtotaelev'|trans() }}</th>
-                    </tr>
-
-
-                    {% set testRepeat = 0 %}
-                    {% for key , entity in entities %}
+                <div>
+                    <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
+                           style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
+                        <tbody>
                         <tr>
-                            {% if entity.codegrad.codecorp.codecorp!=testRepeat %}
-                                <td style="background: #ffffff"
-                                    rowspan="{{ rowspan[entity.codegrad.codecorp.codecorp]|length }}">{{ entity.codegrad.codecorp.libecorpar }}</td>
-                            {% endif %}
-                            {% set testRepeat = entity.codegrad.codecorp.codecorp %}
-                            <td>{{ entity.codegrad.libegradar }}</td>
-                            <td>{{ entity.nombpersmasc }}</td>
-                            <td>{{ entity.nombpersfemi }}</td>
-                            <td>{{ entity.nombtotapers }}</td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                            <td align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">{{ 'Les ressources humaines de non-enseignant'|trans() }}</td>
+                            <td align="center" colspan="1"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
                         </tr>
-                    {% endfor %}
+                        <tr>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'Corps'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'codegrad'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'nombtotaelev'|trans() }}</th>
+                        </tr>
 
 
-                    <tr align="center"
-                        style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
-                        <td>{{ 'nombtotaelev'|trans() }}:</td>
-                        <td>&nbsp;</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    </tbody>
-                </table>
+                        {% set testRepeat = 0 %}
+                        {% for key , entity in entities %}
+                            <tr>
+                                {% if entity.codegrad.codecorp.codecorp!=testRepeat %}
+                                    <td style="background: #ffffff"
+                                        rowspan="{{ rowspan[entity.codegrad.codecorp.codecorp]|length }}">{{ entity.codegrad.codecorp.libecorpar }}</td>
+                                {% endif %}
+                                {% set testRepeat = entity.codegrad.codecorp.codecorp %}
+                                <td>{{ entity.codegrad.libegradar }}</td>
+                                <td>{{ entity.nombpersmasc }}</td>
+                                <td>{{ entity.nombpersfemi }}</td>
+                                <td>{{ entity.nombtotapers }}</td>
+                            </tr>
+                        {% endfor %}
+
+
+                        <tr align="center"
+                            style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
+                            <td>{{ 'nombtotaelev'|trans() }}:</td>
+                            <td>&nbsp;</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
+        </center>
 
-        </div>
-    </center>
-
-{% endif %}
+    {% endif %}
 
 {% endblock %}

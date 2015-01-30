@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'budgetsuivibudget' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
  {% if entities is defined  and entities|length > 0 %}
@@ -15,25 +16,17 @@
                            style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                         <tbody>
                         <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الالرمز</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">البيان</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">الإعتماد
-                                المفتوح
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'Codeprof'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'liberubrbudgar'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'credouve'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'corrcred'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'totaenga'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'restenga'|trans() }}</th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'totapaye'|trans() }} </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'restpaye'|trans() }}
                             </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">التنقيح</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة التعهدات
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي التعهّد
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">جملة الدفوعات
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">باقي الدفوعات
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة التعهّد
-                                %
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نسبة الدفوعات %
-                            </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'pourenga'|trans() }} </th>
+                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{ 'pourpaye'|trans() }} </th>
                         </tr>
                         {% for key , entity in entities %}
                             <tr>

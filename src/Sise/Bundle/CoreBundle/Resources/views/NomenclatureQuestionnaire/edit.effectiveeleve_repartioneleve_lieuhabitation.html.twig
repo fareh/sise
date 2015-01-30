@@ -1,8 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleverepartionelevelieuhabitation' })) }}
-
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if editForms is defined  and editForms|length > 0 %}
         <center>
@@ -16,30 +16,28 @@
                             <tbody>
                             <tr>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
-                                    <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
-                                        ع/ ر
-                                        </span></strong>
+                                    <strong> <span
+                                                style="font-size: 12pt; color: #fff; background-color:#4F81BD ">{{ 'nombreordinal'|trans() }} </span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 35%; background-color: #4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
-                                        المكــان
-                                    </span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color: #4F81BD">{{ 'lieu'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 15%; background-color: #4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
-                                        عــدد التـلاميــذ</span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color: #4F81BD">{{ 'nombelev'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 15%; background-color: #4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
-                                        المعتمــديـة</span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color: #4F81BD">{{ 'codedele'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right;
                                     width: 14%; background-color: #4F81BD">
-                                    <strong><span style="font-size: 12pt; color: #fff; background-color: #4F81BD">
-                                        المســافة</span></strong>
+                                    <strong><span
+                                                style="font-size: 12pt; color: #fff; background-color: #4F81BD">{{ 'dist'|trans() }}</span></strong>
                                 </th>
                                 <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
@@ -62,7 +60,8 @@
                                     <td align="right">{{ form_widget(form.codedele) }}</td>
                                     <td>{{ form_widget(form.dist) }}</td>
                                     <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
-                                        <a rel="effectiveeleverepartionelevelieuhabitation_deleteItem" class="delete_handicaps"
+                                        <a rel="effectiveeleverepartionelevelieuhabitation_deleteItem"
+                                           class="delete_handicaps"
                                            style="display: inline-block">
                                             <img name="sise_delete_line" id="sise_delete_line"
                                                  src="/bundles/sisecore/images/16x16/cancel_16.png">

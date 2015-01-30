@@ -25,18 +25,25 @@
                                 colspan="2"></td>
                             <td align="center"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;font-weight:bold;"
-                                colspan="3">عــدد التـلاميــذ
+                                colspan="3"> {{ 'nombelev'|trans() }}
                             </td>
                         </tr>
                         <tr>
-                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">المجال</th>
-                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">المجال الفرعي
+                            <th align="center" style="color:White;background-color:#4F81BD;"
+                                scope="col">{{ 'codedoma'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#4F81BD;"
+                                scope="col">{{ 'codesousdoma'|trans() }}
                             </th>
-                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">عدد الفرق</th>
-                            <th align="center" style="color:White;background-color:#4F81BD;" scope="col">عدد الفصول</th>
-                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">{{ 'nombelevmasc'|trans() }}</th>
-                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">{{ 'nombelevfemi'|trans() }}</th>
-                            <th align="center" style="color:White;background-color:#92B3CF;" scope="col">{{ 'nombtotaelev'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#4F81BD;"
+                                scope="col">{{ 'nombgrou'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#4F81BD;"
+                                scope="col">{{ 'nombclass'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;"
+                                scope="col">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;"
+                                scope="col">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" style="color:White;background-color:#92B3CF;"
+                                scope="col">{{ 'nombtotaelev'|trans() }}</th>
                         </tr>
                         {% set nombgrou = 0 %}
                         {% set class = 0 %}

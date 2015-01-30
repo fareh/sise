@@ -23,11 +23,11 @@
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                             <td align="center" colspan="2"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                الجدد
+                                {{ 'nombelevnouv'|trans() }}
                             </td>
                             <td align="center" colspan="2"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                الراسبون
+                                {{ 'nombelevredo'|trans() }}
                             </td>
                             <td align="center" colspan="3"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
@@ -37,20 +37,26 @@
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                         </tr>
                         <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المستوى
-                                الدراسي
-                            </th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">عدد الفصول</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
-                            <th align="center" scope="col" style="color:White;background-color:#92B3CF;">معدل التلاميذ
-                                للفصل الواحد
-                            </th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'Niveauscolaire'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'nombclass'|trans() }} </th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#92B3CF;">{{ 'moyen_eleve_nombclass'|trans() }}</th>
                         </tr>
                         {% set codecyclense = 0 %}
                         {% set nombclasselev = 0 %}

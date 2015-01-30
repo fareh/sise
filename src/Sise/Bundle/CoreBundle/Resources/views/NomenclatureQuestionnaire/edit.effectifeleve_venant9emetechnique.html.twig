@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectifelevevenant9emetechnique' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     {% if entity is defined  and entity|length > 0 %}
@@ -16,9 +17,12 @@
                             <thead>
 
                             <tr>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">ذكور</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">إناث</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
 
                             </tr>
 
@@ -38,7 +42,8 @@
                                            onchange="javascript:txtChanged('nombelevfemi','nombelevmasc', 'nombtota' );">
                                 </td>
                                 <td align="right">
-                                    <input type="text" name="nombtota" value="{{ entity.nombtota }}" id="nombtota" readonly>
+                                    <input type="text" name="nombtota" value="{{ entity.nombtota }}" id="nombtota"
+                                           readonly>
                                 </td>
 
                             </tr>

@@ -20,21 +20,28 @@
                                     style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                                 <td align="center" colspan="3"
                                     style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                    المسجلون بتاريخ 15 نوفمبر
+                                    {{ 'nombelevinsc9'|trans() }}
                                 </td>
                                 <td align="center" colspan="3"
                                     style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;">
-                                    المرتقون في جوان
+                                    {{ 'nombelevreus9'|trans() }}
                                 </td>
                             </tr>
                             <tr>
-                                <th align="center" scope="col" style="color:White;background-color:#4F81BD;">المجال</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
-                                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#4F81BD;">{{ 'codedoma'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombelevmasc'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombelevfemi'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
                             </tr>
                             {% for key , entity in entities %}
 
@@ -63,7 +70,8 @@
                                     </td>
                                     <td align="right" style="background-color:#EEEEEE;">
                                         <input type="text" name="nombtotainscelev{{ key }}"
-                                               value="{{ entity.nombtotainscelev }} " id="nombtotainscelev{{ key }}" readonly>
+                                               value="{{ entity.nombtotainscelev }} " id="nombtotainscelev{{ key }}"
+                                               readonly>
                                     </td>
                                     <td align="right" style="background-color:#EEEEEE;">
 
@@ -80,7 +88,8 @@
                                     </td>
                                     <td align="right" style="background-color:#EEEEEE;">
                                         <input type="text" name="nombtotareuselev{{ key }}"
-                                               value="{{ entity.nombtotareuselev }} " id="nombtotareuselev{{ key }}" readonly>
+                                               value="{{ entity.nombtotareuselev }} " id="nombtotareuselev{{ key }}"
+                                               readonly>
                                     </td>
                                 </tr>
                             {% endfor %}
