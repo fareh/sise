@@ -17,7 +17,7 @@ class NomenclatureMatiereoptionnelle
      *
      * @ORM\Column(name="CodeMatiOpti", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codematiopti;
 

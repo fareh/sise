@@ -15,14 +15,16 @@ class NomenclatureTypeespaceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codetypeespa')
-            ->add('libetypeespaar')
-            ->add('libetypeespafr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codetypeespa','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libetypeespaar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libetypeespafr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
             ->add('codecateespa','entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCategorieespace',
                 'property' => 'libecateespaar',
+                'label' => 'codecateespa',
+                'translation_domain' => 'SiseCoreBundle',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,

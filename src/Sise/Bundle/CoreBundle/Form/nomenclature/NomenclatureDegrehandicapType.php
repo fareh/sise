@@ -15,11 +15,11 @@ class NomenclatureDegrehandicapType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codedegrhand')
-            ->add('libedegrhandar')
-            ->add('libedegrhandfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codedegrhand','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libedegrhandar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libedegrhandfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

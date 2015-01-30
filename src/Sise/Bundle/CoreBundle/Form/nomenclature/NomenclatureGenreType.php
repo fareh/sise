@@ -15,11 +15,11 @@ class NomenclatureGenreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codegenr')
-            ->add('libegenrar')
-            ->add('libegenrfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codegenr','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libegenrar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libegenrfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

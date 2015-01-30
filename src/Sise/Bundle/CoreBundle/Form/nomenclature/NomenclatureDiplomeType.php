@@ -15,11 +15,11 @@ class NomenclatureDiplomeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codedipl')
-            ->add('libediplar')
-            ->add('libediplfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codedipl','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libediplar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libediplfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

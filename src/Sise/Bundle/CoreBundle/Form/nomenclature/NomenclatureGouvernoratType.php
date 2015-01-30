@@ -15,11 +15,11 @@ class NomenclatureGouvernoratType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codegouv')
-            ->add('libegouvar')
-            ->add('libegouvfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codegouv','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libegouvar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libegouvfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

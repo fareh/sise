@@ -15,11 +15,11 @@ class NomenclaturePeriodesuivibudgetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codeperisuivbudg')
-            ->add('libeperisuivbudgar')
-            ->add('libeperisuivbudgfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codeperisuivbudg','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libeperisuivbudgar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libeperisuivbudgfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

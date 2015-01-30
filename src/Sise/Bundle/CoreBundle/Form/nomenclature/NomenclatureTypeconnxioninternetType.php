@@ -15,11 +15,11 @@ class NomenclatureTypeconnxioninternetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codetypeconninte')
-            ->add('libetypeconnintear')
-            ->add('libetypeconnintefr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codetypeconninte','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libetypeconnintear','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libetypeconnintefr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

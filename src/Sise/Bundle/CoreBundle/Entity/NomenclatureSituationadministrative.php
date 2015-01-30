@@ -17,7 +17,7 @@ class NomenclatureSituationadministrative
      *
      * @ORM\Column(name="CodeSituAdmi", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codesituadmi;
 

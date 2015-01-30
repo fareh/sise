@@ -216,7 +216,6 @@ class NomenclatureQuestionnairerecensementController extends Controller
         set_time_limit(0);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-//var_dump($entity);die;
         if ($form->isValid()) {
             $listques="";
             foreach($entity->getQues() as $en)

@@ -130,7 +130,7 @@ class NomenclatureController extends Controller
                 case 'NomenclatureDelegation':
                     $entity = new NomenclatureDelegation();
                     break;
-                case 'NomenclatureAnneenaissance':
+                case 'NomenclatureAnneeNaissance':
                     $entity = new NomenclatureAnneenaissance();
                     break;
                 case 'NomenclatureCirconscription':
@@ -348,7 +348,7 @@ class NomenclatureController extends Controller
                 case 'NomenclatureDelegation':
                     $entity = new NomenclatureDelegation();
                     break;
-                case 'NomenclatureAnneenaissance':
+                case 'NomenclatureAnneeNaissance':
                     $entity = new NomenclatureAnneenaissance();
                     break;
                 case 'NomenclatureCirconscription':
@@ -506,7 +506,6 @@ class NomenclatureController extends Controller
         $index = $entity->iterateVisible();
         $tabnome = array();
         $tabnome[] = 'Filiere';
-        $tabnome[] = 'Niveauscolaire';
         $tabnome[] = 'MatiereOptionnelle';
         $tabnome[] = 'Discipline';
         $tabnomecycl = array();
@@ -532,7 +531,7 @@ class NomenclatureController extends Controller
         $tabnomepart[] = 'Activite';
         $tabnomepart[] = 'Circonscriptionregional';
         $tabnomepart[] = 'Delegation';
-        $tabnomepart[] = 'Anneenaissance';
+        $tabnomepart[] = 'AnneeNaissance';
         $tabnomepart[] = 'Soussituationadministrative';
         $tabnomepart[] = 'Tache';
         $tabnomepart[] = 'Nationalite';
@@ -594,7 +593,7 @@ class NomenclatureController extends Controller
         $tabnomepart[] = 'BudgetRubriquebudgetaire';
         $tabnomepart[] = 'Circonscriptionregional';
         $tabnomepart[] = 'Delegation';
-        $tabnomepart[] = 'Anneenaissance';
+        $tabnomepart[] = 'AnneeNaissance';
         $tabnomepart[] = 'Soussituationadministrative';
         $tabnomepart[] = 'Tache';
         $tabnomepart[] = 'Nationalite';

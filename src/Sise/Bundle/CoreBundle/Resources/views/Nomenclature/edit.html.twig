@@ -61,7 +61,7 @@
             </div>
             {% endif %}
                 <div class="btn-group list">
-                    <label>Test</label>
+                    <label>{{'Codecycl'|trans({}, 'SiseCoreBundle') }}</label>
 
                 <ul id="parent_list_choice">
                     <span id="list_items_choices" class="btn btn-default">Select item</span>
@@ -103,7 +103,7 @@
                 {{ form_widget(attribute(edit_form,index[4])) }}
             </div>
            {% elseif(context in tabnomepart) %}
-            {% if context == "Anneenaissance"%}
+            {% if context == "AnneeNaissance"%}
                 <div>
                     {{ form_label(attribute(edit_form,index[7])) }}
                     {{ form_widget(attribute(edit_form,index[7])) }}
@@ -115,7 +115,7 @@
                 {{ form_widget(attribute(edit_form,index[5])) }}
             </div>
             {% endif %}
-        {% if context == "Niveauscolaire" or context == "Anneenaissance"%}
+        {% if context == "Niveauscolaire" or context == "AnneeNaissance"%}
             <div>
                 {{ form_label(attribute(edit_form,index[6])) }}
                 {{ form_widget(attribute(edit_form,index[6])) }}

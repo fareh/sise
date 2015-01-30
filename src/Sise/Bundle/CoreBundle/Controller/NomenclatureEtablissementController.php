@@ -118,27 +118,6 @@ class NomenclatureEtablissementController extends Controller
     }
 
     /**
-     * Finds and displays a NomenclatureEtablissement entity.
-     *
-     */
-    public function showAction($codetypeetab, $codeetab)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codetypeetab' => $codetypeetab, 'codeetab' => $codeetab), array());
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find NomenclatureEtablissement entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($codeetab);
-
-        return $this->render('SiseCoreBundle:NomenclatureEtablissement:show.html.twig', array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
      * Displays a form to edit an existing NomenclatureEtablissement entity.
      *
      */

@@ -17,7 +17,7 @@ class NomenclatureTypeespace
      *
      * @ORM\Column(name="CodeTypeEspa", type="string", length=50, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codetypeespa;
 

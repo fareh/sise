@@ -2,6 +2,86 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="ar" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="global_Code">
+                <source>Code</source>
+                <target>الرمز</target>
+            </trans-unit>
+            <trans-unit id="global_Codetyperubrbudg">
+                <source>codetyperubrbudg</source>
+                <target>نوع بند الميزانية</target>
+            </trans-unit>
+            <trans-unit id="global_Codecateequi">
+                <source>codecateequi</source>
+                <target>صنف التجهيزات</target>
+            </trans-unit>
+            <trans-unit id="global_Codecateespa">
+                <source>codecateespa</source>
+                <target>نوع الفضاء</target>
+            </trans-unit>
+            <trans-unit id="global_Codesituadmi">
+                <source>codesituadmi</source>
+                <target>الوضع الاداري</target>
+            </trans-unit>
+            <trans-unit id="global_Codecatenati">
+                <source>codecatenati</source>
+                <target>صنف الجنسية</target>
+            </trans-unit>
+            <trans-unit id="global_Codecorp">
+                <source>codecorp</source>
+                <target>السلك</target>
+            </trans-unit>
+            <trans-unit id="global_Codegouv">
+                <source>codegouv</source>
+                <target>الولاية</target>
+            </trans-unit>
+            <trans-unit id="global_Codedele">
+                <source>codedele</source>
+                <target>المعتمديّة</target>
+            </trans-unit>
+            <trans-unit id="global_annenais">
+                <source>annenais</source>
+                <target>سنة الولادة</target>
+            </trans-unit>
+            <trans-unit id="global_codeannescol">
+                <source>codeannescol</source>
+                <target>السنة الدراسية</target>
+            </trans-unit>
+            <trans-unit id="global_Codecateacti">
+                <source>codecateacti</source>
+                <target>فئة النشاط</target>
+            </trans-unit>
+            <trans-unit id="global_Codescol">
+                <source>Codescol</source>
+                <target>المستوى الدراسي</target>
+            </trans-unit>
+            <trans-unit id="global_Codescolsuiv">
+                <source>Codescolsuiv</source>
+                <target>المستوى الدراسي التالي</target>
+            </trans-unit>
+            <trans-unit id="global_Concrece">
+                <source>concrece</source>
+                <target>يتعلق بالتعداد</target>
+            </trans-unit>
+            <trans-unit id="global_Codecycl">
+                <source>Codecycl</source>
+                <target>مرحلة التعليم</target>
+            </trans-unit>
+            <trans-unit id="global_Libear">
+                <source>Libear</source>
+                <target>الوصف بالعربية</target>
+            </trans-unit>
+            <trans-unit id="global_Libefr">
+                 <source>Libefr</source>
+                 <target>الوصف بالفرنسية</target>
+            </trans-unit>
+            <trans-unit id="global_ordraffi">
+                 <source>ordraffi</source>
+                 <target>ترتىب العرض</target>
+            </trans-unit>
+            <trans-unit id="global_acti">
+                <source>acti</source>
+                <target>تفعيل التسمية</target>
+            </trans-unit>
             <trans-unit id="global_CycleEnseignement">
                 <source>CycleEnseignement</source>
                 <target>مراحل التعليم</target>

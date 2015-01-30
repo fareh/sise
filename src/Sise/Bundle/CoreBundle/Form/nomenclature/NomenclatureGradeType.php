@@ -15,14 +15,16 @@ class NomenclatureGradeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codegrad')
-            ->add('libegradar')
-            ->add('libegradfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('codegrad','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libegradar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libegradfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
             ->add('codecorp', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCorps',
                 'property' => 'libecorpar',
+                'label' => 'codecorp',
+                'translation_domain' => 'SiseCoreBundle',
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,

@@ -15,11 +15,11 @@ class NomenclatureRessourceelectriciteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('coderesselec')
-            ->add('liberesselecar')
-            ->add('liberesselecfr')
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('coderesselec','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('liberesselecar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('liberesselecfr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

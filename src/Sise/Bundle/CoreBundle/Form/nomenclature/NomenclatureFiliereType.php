@@ -17,12 +17,14 @@ class NomenclatureFiliereType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('codefili')
-            ->add('libefiliar')
-            ->add('libefilifr')
+            ->add('codefili','text',array('label' => 'Code','translation_domain' => 'SiseCoreBundle'))
+            ->add('libefiliar','text',array('label' => 'Libear','translation_domain' => 'SiseCoreBundle'))
+            ->add('libefilifr','text',array('label' => 'Libefr','translation_domain' => 'SiseCoreBundle'))
             ->add('codecycl', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCycleenseignement',
                 'property' => 'libecyclensear',
+                'label' => 'Codecycl',
+                'translation_domain' => 'SiseCoreBundle',
                 'expanded' => false,
                 'multiple' => true,
                 'required' => true,
@@ -31,13 +33,15 @@ class NomenclatureFiliereType extends AbstractType
             ->add('codenivescol', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureNiveauscolaire',
                 'property' => 'libenivescolar',
+                'label' => 'Codescol',
+                'translation_domain' => 'SiseCoreBundle',
                 'expanded' => false,
                 'multiple' => true,
                 'required' => true,
                 'empty_value' => "-- اختيار --"
             ))
-            ->add('ordraffi')
-            ->add('acti')
+            ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
+            ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
         ;
     }
 
