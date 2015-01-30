@@ -36,9 +36,39 @@ jQuery(document).ready(function () {
          }
     });
 
+    $( "#TdCloturer, #TdCloturer2" ).menusise({
+        fId: "TdCloturer",
+        sId: "BtnCloturer"
+    });
 
+    $( "#TdRetour2, #TdRetour" ).menusise({
+        fId: "TdRetour",
+        sId: "BtnRetour"
+    });
+
+
+    $( "#TdEditer2, #TdEditer" ).menusise({
+        fId: "TdEditer",
+        sId: "BtnEditer"
+    });
+
+    $( "#Td"+"Nouveau"+"2", "#Td"+"Nouveau" ).menusise({
+        fId: "#Td"+"Nouveau",
+        sId: "Btn"+"Nouveau"
+    });
+    $( "#Td"+"Annuler"+"2", "#Td"+"Annuler" ).menusise({
+        fId: "#Td"+"Annuler",
+        sId: "Btn"+"Annuler"
+    });
+    $( "#Td"+"Supprimer"+"2", "#Td"+"Supprimer" ).menusise({
+        fId: "#Td"+"Supprimer",
+        sId: "Btn"+"Supprimer"
+    });
+    $( "#Td"+"Rechercher"+"2", "#Td"+"Rechercher" ).menusise({
+        fId: "#Td"+"Rechercher",
+        sId: "Btn"+"Rechercher"
+    });
 });
-
 
 
 

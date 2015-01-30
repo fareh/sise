@@ -1,3 +1,16 @@
+{#
+ <div style="display: none">
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnAnnuler">BtnAnnuler</a>
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnSupprimer">BtnSupprimer</a>
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnRechercher">BtnRechercher</a>
+            <a href="/stat/StatEquipement/statElev" style="display:inline-block" id="BtnCloturer111">Cloturer</a>
+            <input id="BtnCloturer" type="reset" onclick="alert('aaa');" >
+        </div>
+
+        #}
 <br/>
 <style type="text/css">
     .TopfixedMenu {
@@ -52,16 +65,16 @@
                 &nbsp; {{ TitleContextValue }}
             </td>
 
-            {% if TdNouveau == true and  Route.Nouveau|routeExists == 1 %}
+            {% if TdNouveau == true %}
                 <td id="TdNouveau" width="6%" align="center" style="background-color:#EEEEEE; height:32px;">
-                    <a href="{{ path( Route.Nouveau) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/add.png') }}"/> </a>
                 </td>
             {% endif %}
-            {% if TdExporter == true and  Route.Exporter|routeExists==1 %}
+            {% if TdExporter == true %}
                 <td id="TdExporter" width="6%" align="center" style="background-color:#EEEEEE;height:32px;">
-                    <a href="{{ path( Route.Exporter) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/excel.png') }}"/> </a>
                 </td>
@@ -73,135 +86,127 @@
                            src="{{ asset('bundles/sisecore/images/32x32/save.png') }}" type="submit">
                 </td>
             {% endif %}
-            {% if TdRetour == true and  Route.Retour|routeExists==1 %}
+            {% if TdRetour == true %}
                 <td id="TdRetour" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    {% if RouteParams.Retour=='' %}
-                        <a href="{{ path(Route.Retour ) }}"
+
+                        <a href="#"
                            style="background-color:Transparent;border-style:None; display: block">
                             <img src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"/> </a>
 
-                    {% else %}
-                        <a href="{{ path(Route.Retour, RouteParams.Retour) }}"
-                           style="background-color:Transparent;border-style:None; display: block">
-                            <img src="{{ asset('bundles/sisecore/images/32x32/return.png') }}"/> </a>
-                    {% endif %}
 
                 </td>
             {% endif %}
-            {% if TdAnnuler == true and  Route.Annuler|routeExists==1 %}
+            {% if TdAnnuler == true %}
                 <td id="TdAnnuler" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path( Route.Annuler) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/cancel.png') }}"/></a>
                 </td>
             {% endif %}
-            {% if TdSupprimer == true and  Route.Supprimer|routeExists==1 %}
+            {% if TdSupprimer == true %}
                 <td id="TdSupprimer" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path( Route.Supprimer) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/delete.png') }}"/> </a>
                 </td>
             {% endif %}
-            {% if TdRechercher == true and  Route.Rechercher|routeExists==1 %}
+            {% if TdRechercher == true %}
                 <td id="TdRechercher" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path( Route.Rechercher) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/find.png') }}"/> </a>
                 </td>
             {% endif %}
-            {% if TdEditer == true and  Route.Editer|routeExists==1 %}
+            {% if TdEditer == true %}
                 <td id="TdEditer" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path( Route.Editer) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/edit_file.png') }}"/> </a>
                 </td>
             {% endif %}
-            {% if TdCloturer == true and  Route.Cloturer|routeExists==1 %}
+            {% if TdCloturer == true  %}
                 <td id="TdCloturer" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
-                    <a href="{{ path( Route.Cloturer) }}"
+                    <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/valider.png') }}"/> </a>
                 </td>
             {% endif %}
         </tr>
         <tr>
-            {% if TdNouveau == true and  Route.Nouveau|routeExists == 1 %}
+            {% if TdNouveau == true  %}
                 <td id="TdNouveau2" align="center" style="background-color: #00BCF2; color: White; font-size: 1em; ">
-                    <a href="{{ path( Route.Nouveau) }}"
+                    <a href="#"
                        style="color:White;background-color:Transparent;border-style:None; display: block">
                         إضافة
                     </a>
                 </td>
             {% endif %}
-            {% if TdExporter == true and  Route.Exporter|routeExists==1 %}
+            {% if TdExporter == true  %}
                 <td id="TdExporter2" align="center" style="background-color: #68217A; color: White; font-size: 1em; ">
-                 {#
-                    <a href="#"
-                       style="color:White;background-color:Transparent;border-style:None; display: block">
-                    </a>
-                 #}
+                    {#
+                       <a href="#"
+                          style="color:White;background-color:Transparent;border-style:None; display: block">
+                       </a>
+                    #}
 
-                        <a id="TdExporter" style="display: block; color: #ffffff" download="somedata.xls" href="#" onclick="return ExcellentExport.excel(this, 'CPHMain_GridView_Browse', 'Sheet Name Here');">
-                            إكسال</a>
+                    <a id="TdExporter" style="display: block; color: #ffffff" download="somedata.xls" href="#"
+                       onclick="return ExcellentExport.excel(this, 'CPHMain_GridView_Browse', 'Sheet Name Here');">
+                        إكسال</a>
                 </td>
             {% endif %}
-{#{{ path( Route.Exporter) }}#}
+            {#{{ path( Route.Exporter) }}#}
             {% if TdValider == true %}
                 <td id="TdValider2" align="center" style="background-color: #52B043; color: White; font-size: 1em;">
 
-                    <input name="Valider2" style="color:White;background-color:Transparent;border-style:None;" value="تأكيد" type="submit">
+                    <input name="Valider2" style="color:White;background-color:Transparent;border-style:None;"
+                           value="تأكيد" type="submit">
                 </td>
             {% endif %}
-            {% if TdRetour == true and  Route.Retour|routeExists==1 %}
+            {% if TdRetour == true %}
                 <td id="TdRetour2" align="center" style="background-color: #00AEEF; color: White; font-size: 1em;">
-                    {% if RouteParams.Retour=='' %}
-                        <a href="{{ path( Route.Retour  ) }}"
+            
+                        <a href="#" id="TdRetour"
                            style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
                         </a>
 
-                    {% else %}
-                        <a href="{{ path( Route.Retour, RouteParams.Retour ) }}"
-                           style="color:White;background-color:Transparent;border-style:None; display: block">قائمة
-                        </a>
-                    {% endif %}
 
                 </td>
             {% endif %}
-            {% if TdAnnuler == true and  Route.Annuler|routeExists==1 %}
+            {% if TdAnnuler == true  %}
                 <td id="TdAnnuler2" align="center" style="background-color: #FFB800; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Annuler) }}"
+                    <a href="#"
                        style="color:White;background-color:Transparent;border-style:None; display: block">إلغاء
                     </a>
 
                 </td>
             {% endif %}
-            {% if TdSupprimer == true and  Route.Supprimer|routeExists==1 %}
+            {% if TdSupprimer == true  %}
                 <td id="TdSupprimer2" align="center" style="background-color: #EA3E23; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Supprimer) }}"
+                    <a href="#"
                        style="color:White;background-color:Transparent;border-style:None; display: block">مسح
                     </a>
 
                 </td>
             {% endif %}
-            {% if TdRechercher == true and  Route.Rechercher|routeExists==1 %}
+            {% if TdRechercher == true  %}
                 <td id="TdRechercher2" align="center" style="background-color: #FFB800; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Rechercher) }}"
+                    <a href="#"
                        style="color:White;background-color:Transparent;border-style:None; display: block">بحث
                     </a>
 
                 </td>
             {% endif %}
-            {% if TdEditer == true and  Route.Editer|routeExists==1 %}
+            {% if TdEditer == true  %}
                 <td id="TdEditer2" align="center" style="background-color: #52B043; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Editer) }}"
+                    <a href="#"
                        style="color:White;background-color:Transparent;border-style:None; display: block">تحيين
                     </a>
 
                 </td>
             {% endif %}
-            {% if TdCloturer == true and  Route.Cloturer|routeExists==1 %}
+            {% if TdCloturer == true  %}
                 <td id="TdCloturer2" align="center" style="background-color: #EA3E23; color: White; font-size: 1em;">
-                    <a href="{{ path( Route.Cloturer) }}"
+                    <a href="#" id="TdCloturer"
                        style="color:White;background-color:Transparent;border-style:None; display: block">المصادقة
                     </a>
 
@@ -212,3 +217,4 @@
     </table>
 
 </div>
+

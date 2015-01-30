@@ -93,28 +93,6 @@ class DefaultController extends Controller
         $TdValider = false;
         $TdRechercher = false;
         $TdCloturer = false;
-        //Route
-        $RouteExporter = '';
-        $RouteNouveau = '';
-        $RouteRetour = '';
-        $RouteEditer = '';
-        $RouteAnnuler = '';
-        $RouteSupprimer = '';
-        $RouteValider = '';
-        $RouteRechercher = '';
-        $RouteCloturer = '';
-        //RouteParams    
-        $RouteExporterParams = array();
-        $RouteNouveauParams = array();
-        $RouteRetourParams = array();
-        $RouteEditerParams = array();
-        $RouteAnnulerParams = array();
-        $RouteSupprimerParams = array();
-        $RouteValiderParams = array();
-        $RouteRechercherParams = array();
-        $RouteCloturerParams = array();
-        //
-
         switch ($PageContext) {
             case 'register':
                 //Mode New
@@ -158,53 +136,6 @@ class DefaultController extends Controller
                 $TdCloturer = true;
                 break;
         };
-
-        if ($TdExporter == true) $RouteExporter = $RouteAction . '_export';
-        if ($TdNouveau == true )  $RouteNouveau = $RouteAction . '_new';
-       if ($TdNouveau == true && $PageContext=='register')  $RouteNouveau = $RouteAction . '_register';
-        if ($TdRechercher == true) $RouteRechercher = $RouteAction . '';
-
-        if ($TdAnnuler == true) $RouteAnnuler = $RouteAction . '_new';
-        if ($TdAnnuler == true && $PageContext=='register') $RouteAnnuler = $RouteAction . '_register';
-
-        if ($TdSupprimer == true) $RouteSupprimer = $RouteAction . '_delete';
-
-
-        if (strpos($PageContext, 'Ques') !== false) {
-            $RouteExporter = $RouteAction . '_edit';
-            if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
-            if ($TdValider == true) $RouteValider = '_create';
-
-            $em = $this->getDoctrine()->getManager();
-            $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByRouteclass($RouteAction);
-
-            if ($TdRetour == true) {
-                $RouteRetour = 'statElev';
-                if ($nameclass === null) {
-                    $RouteRetourParams = array('codepack' => '');
-                } else {
-                    $RouteRetourParams = array('codepack' => $nameclass->getCodepack());
-                }
-
-
-            }
-             if ($TdCloturer == true) {
-                $RouteCloturer = $RouteAction . '';
-            }
-        } else {
-
-            if ($TdEditer == true) $RouteEditer = $RouteAction . '_edit';
-            if ($TdValider == true) $RouteValider = '_create';
-
-            if ($TdRetour == true) {
-                $RouteRetour = $RouteAction . '';
-                $RouteRetourParams = array('codepack' => '');
-            }
-
-            if ($TdCloturer == true) $RouteCloturer = $RouteAction . '';
-        }
-        if ($TdRetour == true && $PageContext='register') $RouteRetour = 'sise_user_list';
-
         return $this->render('SiseCoreBundle:Default:menu.html.twig',
             array('TitleContextValue' => $TitleContextValue,
                 'TdExporter' => $TdExporter,
@@ -215,28 +146,8 @@ class DefaultController extends Controller
                 'TdSupprimer' => $TdSupprimer,
                 'TdValider' => $TdValider,
                 'TdRechercher' => $TdRechercher,
-                'TdCloturer' => $TdCloturer,
-                'Route' => array('Exporter' => $RouteExporter,
-                    'Nouveau' => $RouteNouveau,
-                    'Rechercher' => $RouteRechercher,
-                    'Retour' => $RouteRetour,
-                    'Editer' => $RouteEditer,
-                    'Annuler' => $RouteAnnuler,
-                    'Supprimer' => $RouteSupprimer,
-                    'Valider' => $RouteValider,
-                    'Cloturer' => $RouteCloturer),
-                'RouteParams' => array('Exporter' => $RouteExporterParams,
-                    'Nouveau' => $RouteNouveauParams,
-                    'Rechercher' => $RouteRechercherParams,
-                    'Retour' => $RouteRetourParams,
-                    'Editer' => $RouteEditerParams,
-                    'Annuler' => $RouteAnnulerParams,
-                    'Supprimer' => $RouteSupprimerParams,
-                    'Valider' => $RouteValiderParams,
-                    'Cloturer' => $RouteCloturerParams)
+                'TdCloturer' => $TdCloturer
             ));
-
-
     }
 
 

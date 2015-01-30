@@ -4,6 +4,10 @@
     {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveeleveeablissementprivee' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
+    <div style="display: none">
+        <a href="{{ path("statElev", {"codepack":"StatBudget"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <a href="{{ path('effectifelevedemiresidant_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+    </div>
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
