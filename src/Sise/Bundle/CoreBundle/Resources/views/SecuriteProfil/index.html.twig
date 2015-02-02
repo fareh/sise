@@ -20,8 +20,13 @@
 
 </div>
 <div class="leftMenu">
+
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteProfil'|trans() , 'RouteAction' : 'securite_roles' })) }}
     <br>
+    <div style="display: none">
+        <a href="{{ path('fos_user_registration_register') }}" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+    </div>
+
     <table class="records_list">
         <thead>
             <tr>

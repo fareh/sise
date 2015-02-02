@@ -53,19 +53,19 @@ jQuery(document).ready(function () {
     });
 
     $( "#Td"+"Nouveau"+"2", "#Td"+"Nouveau" ).menusise({
-        fId: "#Td"+"Nouveau",
+        fId: "Td"+"Nouveau",
         sId: "Btn"+"Nouveau"
     });
     $( "#Td"+"Annuler"+"2", "#Td"+"Annuler" ).menusise({
-        fId: "#Td"+"Annuler",
+        fId: "Td"+"Annuler",
         sId: "Btn"+"Annuler"
     });
     $( "#Td"+"Supprimer"+"2", "#Td"+"Supprimer" ).menusise({
-        fId: "#Td"+"Supprimer",
+        fId: "Td"+"Supprimer",
         sId: "Btn"+"Supprimer"
     });
     $( "#Td"+"Rechercher"+"2", "#Td"+"Rechercher" ).menusise({
-        fId: "#Td"+"Rechercher",
+        fId: "Td"+"Rechercher",
         sId: "Btn"+"Rechercher"
     });
 });

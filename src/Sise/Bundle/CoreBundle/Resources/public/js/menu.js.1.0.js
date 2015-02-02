@@ -9,9 +9,10 @@
             fId: "TdRetour",
             sId: "BtnRetour"
         }, options);
-        this.click(function () {
+        this.click(function () {       alert("click");
             if ($(this).attr('id') == settings.fId || $(this).attr('id') == settings.fId+"2"  ) {
                 if ($("#"+settings.sId).is("input")) {
+
                     $("#"+settings.sId).click();
                 }else{
                     window.location.href = $("#"+settings.sId).attr("href");

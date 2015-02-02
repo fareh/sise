@@ -4,7 +4,7 @@
 
     <div class="rightMenu">
 
-        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' :  'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
 
         <br>
 
@@ -25,6 +25,9 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteUtilisateur'|trans(), 'RouteAction' : 'fos_user_registration' })) }}
 
     <br>
+    <div style="display: none">
+        <a href="{{ path('fos_user_registration_register') }}" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+    </div>
     <div id="CPHMain_upGridView">
         <div>
             <table cellspacing="0" cellpadding="4" id="CPHMain_GV"

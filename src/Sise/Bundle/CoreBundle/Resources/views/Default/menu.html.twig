@@ -66,8 +66,8 @@
             </td>
 
             {% if TdNouveau == true %}
-                <td id="TdNouveau" width="6%" align="center" style="background-color:#EEEEEE; height:32px;">
-                    <a href="#"
+                <td width="6%" align="center" style="background-color:#EEEEEE; height:32px;">
+                    <a id="TdNouveau" href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/add.png') }}"/> </a>
                 </td>
@@ -97,7 +97,7 @@
                 </td>
             {% endif %}
             {% if TdAnnuler == true %}
-                <td id="TdAnnuler" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
+                <td id="TdAnnuler2" width="6%" align="center" style="background-color:#EEEEEE;height:32px">
                     <a href="#"
                        style="background-color:Transparent;border-style:None; display: block">
                         <img src="{{ asset('bundles/sisecore/images/32x32/cancel.png') }}"/></a>
@@ -135,7 +135,7 @@
         <tr>
             {% if TdNouveau == true  %}
                 <td id="TdNouveau2" align="center" style="background-color: #00BCF2; color: White; font-size: 1em; ">
-                    <a href="#"
+                    <a href="#" id="TdNouveau"
                        style="color:White;background-color:Transparent;border-style:None; display: block">
                         إضافة
                     </a>
@@ -173,7 +173,7 @@
                 </td>
             {% endif %}
             {% if TdAnnuler == true  %}
-                <td id="TdAnnuler2" align="center" style="background-color: #FFB800; color: White; font-size: 1em;">
+                <td id="TdAnnuler" align="center" style="background-color: #FFB800; color: White; font-size: 1em;">
                     <a href="#"
                        style="color:White;background-color:Transparent;border-style:None; display: block">إلغاء
                     </a>
