@@ -61,7 +61,7 @@ jQuery(document).ready(function () {
         sId: "BtnAnnuler"
     });
     $( "#TdSupprimer2, #TdSupprimer" ).menusise({
-        fId: "#TdSupprimer",
+        fId: "TdSupprimer",
         sId: "BtnSupprimer"
     });
     $( "#TdRechercher2, #TdRechercher" ).menusise({
