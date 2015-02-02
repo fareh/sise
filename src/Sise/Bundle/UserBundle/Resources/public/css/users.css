@@ -77,7 +77,6 @@ form[name="securite"] #securite   #CPHMain_UpRpt input[type="checkbox"]{
 
 }
 
-
 form[name="securite"] #securite  table > tbody > tr:nth-of-type(2n+1) {
     background-color: transparent;
     border-color: #000;
@@ -91,5 +90,10 @@ form[name="securite"] #securite  table {
 form[name="securite"] #securite  table > tbody > tr td table > tbody > tr td{
 
     border-bottom: black 1px solid;
+}
+
+
+ form[name="securite"] #securite table tr td  input {
+    width: initial;
 }
 /* fin formulaire d'enregistrement */

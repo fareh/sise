@@ -2,16 +2,26 @@ $(document).ready(function () {
    // $('#securite_codeprof_codecyclense').multiselect();
     relatedItems('0');
 
+   /* var callbacks_list = $('#securite table');
+    $('tr td  input').on('ifCreated ifClicked ifChanged ifChecked ifUnchecked ifDisabled ifEnabled ifDestroyed', function(event){
+        callbacks_list.prepend('<li><span>#' + this.id + '</span> is ' + event.type.replace('if', '').toLowerCase() + '</li>');
+    }).iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%'
+    });*/
+
 });
 
+
 function SelectAll(select){
-     var anchorArray = $("td[rel='"+select.getAttribute('rel')+"']");
+    var anchorArray = $("td[rel='"+select.getAttribute('rel')+"']");
     $.each( anchorArray, function( i, val ) {
         if (select.checked) {
-      $(this).find('input').attr ( "checked" ,"checked" );
+            $(this).find('input').iCheck('check');;
         }
         else {
-            $(this).find('input').removeAttr('checked');
+            $(this).find('input').iCheck('uncheck');
         }
 
     });
