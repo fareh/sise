@@ -1,6 +1,10 @@
 {% extends '::base.html.twig' %}
 
     {% block body -%}
+        {% set listnew="/app.php/nomenclature/"~context~"/new"%}
+        <div style="display: none">
+            <a href={{ listnew }} style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+        </div>
         {% trans_default_domain 'SiseCoreBundle' %}
         <div class="rightMenu">
             {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' : 'Nomenclature'|trans(), 'RouteAction' : '' })) }}

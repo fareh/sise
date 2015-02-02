@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :nameclass.libequesar, 'RouteAction' : 'etablissementficheetablissement' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ListNome', 'TitleContextValue' :nameclass.libequesar, 'RouteAction' : 'etablissementficheetablissement' })) }}
     {{ include('SiseCoreBundle:Default:searchetab.html.twig', {'form': searchetab, 'pathfilter' : pathfilter}) }}
     {% if entities is defined  and entities|length > 0 %}
         <table class="records_list" id="CPHMain_GridView_Browse">
