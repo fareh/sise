@@ -9,7 +9,7 @@
             fId: "TdRetour",
             sId: "BtnRetour"
         }, options);
-        this.click(function () {       alert("click");
+        this.click(function () {
             if ($(this).attr('id') == settings.fId || $(this).attr('id') == settings.fId+"2"  ) {
                 if ($("#"+settings.sId).is("input")) {
 

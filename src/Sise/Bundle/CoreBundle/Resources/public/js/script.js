@@ -52,21 +52,21 @@ jQuery(document).ready(function () {
         sId: "BtnEditer"
     });
 
-    $( "#Td"+"Nouveau"+"2", "#Td"+"Nouveau" ).menusise({
-        fId: "Td"+"Nouveau",
-        sId: "Btn"+"Nouveau"
+    $( "#TdNouveau2, #TdNouveau" ).menusise({
+        fId: "TdNouveau",
+        sId: "BtnNouveau"
     });
-    $( "#Td"+"Annuler"+"2", "#Td"+"Annuler" ).menusise({
-        fId: "Td"+"Annuler",
-        sId: "Btn"+"Annuler"
+    $( "#TdAnnuler2, #TdAnnuler" ).menusise({
+        fId: "TdAnnuler",
+        sId: "BtnAnnuler"
     });
-    $( "#Td"+"Supprimer"+"2", "#Td"+"Supprimer" ).menusise({
-        fId: "Td"+"Supprimer",
-        sId: "Btn"+"Supprimer"
+    $( "#TdSupprimer2, #TdSupprimer" ).menusise({
+        fId: "#TdSupprimer",
+        sId: "BtnSupprimer"
     });
-    $( "#Td"+"Rechercher"+"2", "#Td"+"Rechercher" ).menusise({
-        fId: "Td"+"Rechercher",
-        sId: "Btn"+"Rechercher"
+    $( "#TdRechercher2, #TdRechercher" ).menusise({
+        fId: "TdRechercher",
+        sId: "BtnRechercher"
     });
 });
 
