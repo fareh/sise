@@ -20,7 +20,7 @@ nomenclature_update:
     defaults: { _controller: "SiseCoreBundle:Nomenclature:update" }
     requirements: { _method: post|put }
 
-nomenclature_delete1:
+nomenclature_delete:
     path:     /{context}/{id}/delete
     defaults: { _controller: "SiseCoreBundle:Nomenclature:delete" }
     requirements: { _method: post|delete }

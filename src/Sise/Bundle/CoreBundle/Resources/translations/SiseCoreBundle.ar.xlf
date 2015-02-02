@@ -6,6 +6,58 @@
                 <source>Code</source>
                 <target>الرمز</target>
             </trans-unit>
+            <trans-unit id="global_HeuresSupplementaires">
+                <source>HeuresSupplementaires</source>
+                <target>جملة الساعات التكميلية</target>
+            </trans-unit>
+            <trans-unit id="global_NombTotalHeuresEnseignement">
+                <source>NombTotalHeuresEnseignement</source>
+                <target>جملة ساعات التدريس</target>
+            </trans-unit>
+            <trans-unit id="global_NombTotalHeuresSupplementaires">
+                <source>NombTotalHeuresSupplementaires</source>
+                <target>جملة الساعات الإضافية</target>
+            </trans-unit>
+            <trans-unit id="global_nombEnseignants">
+                <source>nombEnseignants</source>
+                <target>عدد المدرسين</target>
+            </trans-unit>
+            <trans-unit id="global_matEnseignement">
+                <source>matEnseignement</source>
+                <target>مادة التدريس</target>
+            </trans-unit>
+            <trans-unit id="global_EnseignantsEtrangers">
+                <source>EnseignantsEtrangers</source>
+                <target>مدرسون أجانب</target>
+            </trans-unit>
+            <trans-unit id="global_EnseignantsTunisiens">
+                <source>EnseignantsTunisiens</source>
+                <target>مدرسون تونسيون</target>
+            </trans-unit>
+            <trans-unit id="global_NombreChamps">
+                <source>NombreChamps</source>
+                <target>عدد العناصر</target>
+            </trans-unit>
+            <trans-unit id="global_AutreActivite">
+                <source>AutreActivite</source>
+                <target>ثوابت أخرى </target>
+            </trans-unit>
+            <trans-unit id="global_InfrastructuresLocauxEquipements">
+                <source>InfrastructuresLocauxEquipements</source>
+                <target>البنية التحتية ، الفضاءات و التجهيزات </target>
+            </trans-unit>
+            <trans-unit id="global_ElevesRegion">
+                <source>DomaineEleves</source>
+                <target>مجال التلاميذ</target>
+            </trans-unit>
+            <trans-unit id="global_RH">
+                <source>DomaineRessourcesHumaines</source>
+                <target>مجال الموارد البشرية</target>
+            </trans-unit>
+            <trans-unit id="global_DomaineOrganisationPedagogique">
+                <source>DomaineOrganisationPedagogique</source>
+                <target>مجال التنظيم البيداغوجي </target>
+            </trans-unit>
             <trans-unit id="global_Codetyperubrbudg">
                 <source>codetyperubrbudg</source>
                 <target>نوع بند الميزانية</target>

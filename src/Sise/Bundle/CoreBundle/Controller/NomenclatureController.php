@@ -707,7 +707,7 @@ class NomenclatureController extends Controller
     private function createDeleteForm($id, $context)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('nomenclature_delete1', array('context' => $context, 'id' => $id)))
+            ->setAction($this->generateUrl('nomenclature_delete', array('context' => $context, 'id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();

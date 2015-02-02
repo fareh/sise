@@ -3,7 +3,7 @@
 {% block body -%}
     {% trans_default_domain 'SiseCoreBundle' %}
     <div class="rightMenu">
-        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'Nomenclature'|trans(), 'RouteAction' : '' })) }}
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' : 'Nomenclature'|trans(), 'RouteAction' : '' })) }}
 
         <br>
         {{ include('SiseCoreBundle:Default:list.nomenclature.html.twig') }}
@@ -17,11 +17,11 @@
     <tbody>
     <tr style="color:White;background-color:#507CD1;font-weight:bold;">
         <th scope="col" color="White">{{ 'Libeprofar'|trans({}, 'SiseCoreBundle') }}</th>
-        <th scope="col" color="White">عدد العناصر</th>
+        <th scope="col" color="White">{{ 'NombreChamps'|trans({}, 'SiseCoreBundle') }}</th>
         <th></th>
     </tr>
     <tr>
-        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">مجال التنظيم البيداغوجي </td>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">{{ 'DomaineOrganisationPedagogique'|trans({}, 'SiseCoreBundle') }}</td>
     </tr>
     <tr>
         <td>{{ 'CycleEnseignement'|trans({}, 'SiseCoreBundle') }}</td>
@@ -56,7 +56,7 @@
         <td><a href="SourceProvonance/new">  {{ 'new'|trans({}, 'SiseCoreBundle') }} </a></td>
     </tr>
     <tr>
-        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">مجال الموارد البشرية</td>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">{{ 'DomaineRessourcesHumaines'|trans({}, 'SiseCoreBundle') }}</td>
     </tr>
     <tr>
         <td>{{ 'Genre'|trans({}, 'SiseCoreBundle') }}</td>
@@ -147,7 +147,7 @@
         <td><a href="LangueEnseignement/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
     </tr>
     <tr>
-        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">مجال التلاميذ </td>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">{{ 'DomaineEleves'|trans({}, 'SiseCoreBundle') }}</td>
     </tr>
     <tr>
         <td>{{ 'DegreHandicap'|trans({}, 'SiseCoreBundle') }} </td>
@@ -170,7 +170,7 @@
         <td><a href="Nationalite/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
     </tr>
     <tr>
-        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">البنية التحتية ، الفضاءات و التجهيزات </td>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">{{ 'InfrastructuresLocauxEquipements'|trans({}, 'SiseCoreBundle') }}</td>
     </tr>
 
     <tr>
@@ -244,7 +244,7 @@
         <td><a href="SituationReseauElectriqueAtelier/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
     </tr>
     <tr>
-        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">الميزانية </td>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">{{ 'Budget'|trans({}, 'SiseCoreBundle') }} </td>
     </tr>
     <tr>
         <td>{{ 'TypeRubriqueBudgetaire'|trans({}, 'SiseCoreBundle') }}</td>
@@ -262,7 +262,7 @@
         <td><a href="PeriodeSuiviBudget/new">{{ 'new'|trans({}, 'SiseCoreBundle') }}</a></td>
     </tr>
     <tr>
-        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">ثوابت أخرى </td>
+        <td align="center" valign="middle" colspan="4" style="color:White;background-color:#00BCF2;font-size:Larger;font-weight:bold;">{{ 'AutreActivite'|trans({}, 'SiseCoreBundle') }}</td>
     </tr>
 
     <tr>
