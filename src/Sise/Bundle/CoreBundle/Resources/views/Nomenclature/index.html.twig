@@ -3,22 +3,22 @@
     {% block body -%}
         {% trans_default_domain 'SiseCoreBundle' %}
         <div class="rightMenu">
-            {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'Nomenclature'|trans(), 'RouteAction' : '' })) }}
+            {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' : 'Nomenclature'|trans(), 'RouteAction' : '' })) }}
 
             <br>
             {{ include('SiseCoreBundle:Default:list.nomenclature.html.twig') }}
         </div>
         <div class="leftMenu">
-            {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  context|trans({}, 'SiseCoreBundle') , 'RouteAction' : '' })) }}
+            {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  context|trans({}, 'SiseCoreBundle') , 'RouteAction' : 'nomenclature' })) }}
 <br>
             <table class="records_list">
             <thead>
             <tr style="color:White;background-color:#507CD1;font-weight:bold;">
-                <th scope="col">الرمز</th>
-                <th scope="col">الوصف بالعربية</th>
-                <th scope="col">الوصف بالفرنسية</th>
-                <th scope="col">ترتىب العرض</th>
-                <th scope="col">تفعيل التسمية</th>
+                <th scope="col">{{ 'Code'|trans({}, 'SiseCoreBundle') }}</th>
+                <th scope="col">{{ 'Libear'|trans({}, 'SiseCoreBundle') }}</th>
+                <th scope="col">{{ 'Libefr'|trans({}, 'SiseCoreBundle') }}</th>
+                <th scope="col">{{ 'ordraffi'|trans({}, 'SiseCoreBundle') }}</th>
+                <th scope="col">{{ 'acti'|trans({}, 'SiseCoreBundle') }}</th>
             </tr>
             </thead>
             <tbody>

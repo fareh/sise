@@ -9,14 +9,14 @@
                style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
             <thead>
             <tr>
-                <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">ساعات
-                    التدريس
+                <td align="center" colspan="3" style="color:White;background-color:#4F81BD;font-weight:bold;">
+            {{ 'HeureEnseignement'|trans({}, 'SiseCoreBundle') }}
                 </td>
             </tr>
             <tr>
-                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة ساعات التدريس</th>
-                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة الساعات الإضافية</th>
-                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">جملة الساعات التكميلية</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'NombTotalHeuresEnseignement'|trans({}, 'SiseCoreBundle') }}</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'NombTotalHeuresSupplementaires'|trans({}, 'SiseCoreBundle') }}</th>
+                <th align="center" scope="col" style="color:White;background-color:#92B3CF;">{{ 'HeuresSupplementaires'|trans({}, 'SiseCoreBundle') }}</th>
             </tr>
             </thead>
             <tbody>
