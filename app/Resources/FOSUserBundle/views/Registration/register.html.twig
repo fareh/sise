@@ -1,15 +1,13 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'register', 'TitleContextValue' :  '', 'RouteAction' : 'fos_user_registration' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'register', 'TitleContextValue' : 'SecuriteUtilisateur'|trans({}, 'SiseCoreBundle'), 'RouteAction' : 'fos_user_registration' })) }}
 
     <br>
     <div id="CPHMain_upGridView">
         <div>
-
             {% block fos_user_content %}
                 {% include "FOSUserBundle:Registration:register_content.html.twig" %}
             {% endblock fos_user_content %}
-
         </div>
 
 

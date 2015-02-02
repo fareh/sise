@@ -5,6 +5,9 @@
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
     <center>
+        <div style="display: none">
+            <a href="{{ path("statElev", {"codepack":"StatEquipement"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        </div>
         <br>
 
         {% if entities is defined  and entities|length > 0 %}

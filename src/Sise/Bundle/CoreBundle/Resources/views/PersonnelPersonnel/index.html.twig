@@ -4,6 +4,9 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :'قائمة اسمية بالموارد البشرية', 'RouteAction' : 'personnelpersonnel' })) }}
     {{ include('SiseCoreBundle:Default:searchpersonnel.html.twig', {'form': searchpersonnel, 'pathfilter' : pathfilter}) }}
     <br>
+    <div style="display: none">
+        <a href="{{ path('fos_user_registration_register') }}" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+    </div>
     <table cellspacing="0" cellpadding="4" id="CPHMain_GV" style="color:#333333;width:100%;border-collapse:collapse;">
         <thead>
         <tr style="color:White;background-color:#507CD1;font-weight:bold;">

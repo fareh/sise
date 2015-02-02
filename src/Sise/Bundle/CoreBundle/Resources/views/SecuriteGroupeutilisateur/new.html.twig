@@ -5,7 +5,10 @@
     <br>
 
     {{ form(form) }}
-
+    <div style="display: none">
+        <a href="{{ path('sise_user_list') }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <input type="reset" value="BtnAnnuler" id="BtnAnnuler">
+    </div>
         <ul class="record_actions">
     <li>
         <a href="{{ path('securite_groupeutilisateur') }}">

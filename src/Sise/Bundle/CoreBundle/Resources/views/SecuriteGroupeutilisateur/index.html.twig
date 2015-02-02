@@ -1,6 +1,9 @@
 {% extends '::base.html.twig' %}
 {% trans_default_domain 'SiseCoreBundle' %}
 {% block body -%}
+    <div style="display: none">
+        <a href="{{ path('fos_user_registration_register') }}" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+    </div>
 <div class="rightMenu">
 
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
@@ -20,7 +23,7 @@
 
 </div>
 <div class="leftMenu">
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' :  'SecuriteGroupeutilisateur'|trans(), 'RouteAction' : 'securite_groupeutilisateur' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' :  'SecuriteGroupeutilisateur'|trans(), 'RouteAction' : 'securite_groupeutilisateur' })) }}
 <br>
     <table class="records_list">
         <thead>

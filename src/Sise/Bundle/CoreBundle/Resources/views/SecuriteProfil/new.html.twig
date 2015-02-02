@@ -149,7 +149,10 @@
         </div>
         <div style="height: 30px;">&nbsp;</div>
     </div>
-
+    <div style="display: none">
+        <a href="{{ path('sise_user_list') }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <input type="reset" value="BtnAnnuler" id="BtnAnnuler">
+    </div>
     {{ form_end(form) }}
 
 {% endblock %}

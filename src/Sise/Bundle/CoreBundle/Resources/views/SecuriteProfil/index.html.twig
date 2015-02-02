@@ -1,9 +1,12 @@
 {% extends '::base.html.twig' %}
 {% block body -%}
 {% trans_default_domain 'SiseCoreBundle' %}
+    <div style="display: none">
+        <a href="{{ path('fos_user_registration_register') }}" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+    </div>
 <div class="rightMenu">
 
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' : 'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
 
     <br>
 

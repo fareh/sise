@@ -6,6 +6,10 @@
 
     <center>
         <br>
+        <div style="display: none">
+            <a href="{{ path("statElev", {"codepack":"StatEquipement"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+            <a href="{{ path('infrastructuretypecategorieespace_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+        </div>
         {% if entities is defined  and entities|length > 0 %}
 
         <div id="CPHMain_upGridView">
