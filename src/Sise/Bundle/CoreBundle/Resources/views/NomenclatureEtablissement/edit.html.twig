@@ -6,9 +6,12 @@
             color: #336699;
         }
     </style>
+    <div style="display: none">
+        <a href="/app.php/NomenclatureEtablissement/" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+    </div>
     <form action="{{ path('nomenclatureetablissement_update', {  'codetypeetab': entity.codetypeetab , 'codeetab': entity.codeetab }) }}"
           method="post" {{ form_enctype(edit_form) }}>
-        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : 'بطاقة المؤسسة', 'RouteAction' : 'nomenclatureetablissement' })) }}
+        {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditSansSupp', 'TitleContextValue' : 'بطاقة المؤسسة', 'RouteAction' : 'nomenclatureetablissement' })) }}
 
         <div id="CPHMain_upmain">
 

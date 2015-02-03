@@ -598,19 +598,20 @@ class NomenclatureController extends Controller
         $tabnomepart[] = 'Tache';
         $tabnomepart[] = 'Nationalite';
 
-        $deleteForm = $this->createDeleteForm($id, $context);
+       // $deleteForm = $this->createDeleteForm($id, $context);
         //   $deleteForm = $this->createDeleteForm($id);
         //$array = array_values($editForm);
         //var_dump($index[6]);die;
         return $this->render('SiseCoreBundle:Nomenclature:edit.html.twig', array(
             'entity' => $entity,
             'index' => $index,
+            'code' => $id,
             'context' => $context,
             'tabnome' => $tabnome,
             'tabnomecycl' => $tabnomecycl,
             'tabnomepart' => $tabnomepart,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+         //   'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -672,7 +673,7 @@ class NomenclatureController extends Controller
         $form = $this->createDeleteForm($id, $context);
         $form->handleRequest($request);
         $session = new Session();
-        if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             if ($context == "BudgetRubriquebudgetaire" or $context == "ParametreAnneescolaire") {
                 $entity = $em->getRepository('SiseCoreBundle:' . $context)->find($id);
@@ -683,7 +684,6 @@ class NomenclatureController extends Controller
 //            if ($entity->get) {
 //               throw $this->createNotFoundException('Impossible de supprimer des champs utilisé dans une autre table.');
 //           }
-
             try {
                 //  var_dump($em->removeElement($entity));die;
                 $em->remove($entity);
@@ -693,7 +693,6 @@ class NomenclatureController extends Controller
                 $session->getFlashBag()->add('warnig_delete', 'You can not delete this item');
                 return $this->redirect($this->generateUrl('nomenclature_edit', array('context' => $context, 'id' => $id)));
             }
-        }
         return $this->redirect($this->generateUrl('nomenclature', array('context' => $context)));
     }
 
@@ -709,7 +708,7 @@ class NomenclatureController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('nomenclature_delete', array('context' => $context, 'id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+          //  ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
     }
 

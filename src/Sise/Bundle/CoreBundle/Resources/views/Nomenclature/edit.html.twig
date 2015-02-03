@@ -1,8 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+    {% set listretour="/app.php/nomenclature/"~context%}
+    {% set listsupprimer="/app.php/nomenclature/"~context~"/"~code~"/delete"%}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' : context|trans({}, 'SiseCoreBundle'), 'RouteAction' : 'nomenclature' })) }}
     <br>
+    <div style="display: none">
+        <a href={{ listretour }} style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <a href={{ listsupprimer }}  style="display:inline-block" id="BtnSupprimer">BtnSupprimer</a>
+    </div>
     {% for flashMessage in app.session.flashbag.get('warnig_delete') %}
         <div class="modal fade" id="overlay">
             <div class="modal-dialog">
@@ -142,8 +148,4 @@
         {% endif %}
     </div>
     {{ form_end(edit_form) }}
-  <ul>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
 {% endblock %}

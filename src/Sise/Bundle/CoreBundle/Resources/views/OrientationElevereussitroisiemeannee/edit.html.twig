@@ -4,7 +4,9 @@
     {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'orientationelevereussitroisiemeannee' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+    <div style="display: none">
+        <a href="/app.php/stat/OrieElev/statElev" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+    </div>
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>

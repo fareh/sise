@@ -1,9 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+    {% set listretour="/app.php/nomenclature/"~context%}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : context|trans({}, 'SiseCoreBundle'), 'RouteAction' : 'nomenclature' })) }}
     <br>
     {{ form_start(form) }}
+    <div style="display: none">
+        <a href={{ listretour }} style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <input type="reset" id="BtnAnnuler">
+    </div>
     {{ form_errors(form) }}
         <div id="nomenclature_sise">
             <div>

@@ -1,10 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+
     <form action="{{ path('nomenclatureetablissement_create') }}" method="post" {{ form_enctype(form) }}>
         {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'بطاقة المؤسسة', 'RouteAction' : 'nomenclatureetablissement' })) }}
         <div id="CPHMain_upmain">
-
+            <div style="display: none">
+                <a href="/app.php/NomenclatureEtablissement/" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+                <input type="reset" id="BtnAnnuler">
+            </div>
 
             {#{{ form_widget(edit_form) }}#}
             {{ form_errors(form) }}

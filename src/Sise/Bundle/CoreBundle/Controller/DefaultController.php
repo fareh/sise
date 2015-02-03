@@ -105,6 +105,10 @@ class DefaultController extends Controller
                 $TdExporter = true;
                 $TdNouveau = true;
                 break;
+            case 'ListNome':
+                //Mode List
+                $TdExporter = true;
+                break;
             case 'ListFind':
                 // Mode List avec un boutton de recherche
                 $TdExporter = true;
@@ -116,6 +120,11 @@ class DefaultController extends Controller
                 $TdRetour = true;
                 $TdValider = true;
                 $TdSupprimer = true;
+                break;
+            case 'EditSansSupp':
+                //Mode Edition
+                $TdRetour = true;
+                $TdValider = true;
                 break;
             case 'New':
                 //Mode New
