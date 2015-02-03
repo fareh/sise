@@ -11,14 +11,100 @@ $(document).ready(function () {
         increaseArea: '20%'
     });*/
 
+    var StatElev3 = $("td[rel='#StatElev3']");
+    var FicheEtab3= $("td[rel='#FicheEtab3']");
+    var OrieElev3= $("td[rel='#OrieElev3']");
+    var MouvEleve3= $("td[rel='#MouvEleve3']");
+    var StatEquipement3= $("td[rel='#StatEquipement3']");
+    var StatEnse3= $("td[rel='#StatEnse3']");
+    var Stat3= $("td[rel='#Stat3']");
+    var GestUtil3= $("td[rel='#GestUtil3']");
+
+    $.each( StatElev3, function( i, val ) {
+            $(StatElev3).find('input').iCheck('disable');
+
+    });
+    $.each( FicheEtab3, function( i, val ) {
+        $(FicheEtab3).find('input').iCheck('disable');
+
+    });
+    $.each( OrieElev3, function( i, val ) {
+        $(OrieElev3).find('input').iCheck('disable');
+
+    });
+    $.each( MouvEleve3, function( i, val ) {
+        $(MouvEleve3).find('input').iCheck('disable');
+
+    });
+
+
+    $.each( StatEquipement3, function( i, val ) {
+        $(StatEquipement3).find('input').iCheck('disable');
+
+    });
+
+    $.each( StatEnse3, function( i, val ) {
+        $(StatEnse3).find('input').iCheck('disable');
+
+    });
+
+
+    $.each( Stat3, function( i, val ) {
+        $(Stat3).find('input').iCheck('disable');
+
+    });
+
+    $.each( GestUtil3, function( i, val ) {
+        $(GestUtil3).find('input').iCheck('disable');
+
+    });
+
+    var StatPers3= $("td[rel='#StatPers3']");
+    $.each( StatPers3, function( i, val ) {
+        $(StatPers3).find('input').iCheck('disable');
+
+    });
+
+    var Rece3= $("td[rel='#Rece3']");
+    $.each( Rece3, function( i, val ) {
+        $(Rece3).find('input').iCheck('disable');
+
+    });
+    var GestNome3= $("td[rel='#GestNome3']");
+
+    $.each( GestNome3, function( i, val ) {
+        $(GestNome3).find('input').iCheck('disable');
+
+    });
+    var ActiEtab3= $("td[rel='#ActiEtab3']");
+    $.each( ActiEtab3, function( i, val ) {
+        $(ActiEtab3).find('input').iCheck('disable');
+
+    });
+
+       var StatBudget_droiupda= $("td[rel='#StatBudget_droiupda']");
+    $.each( StatBudget_droiupda, function( i, val ) {
+        $(StatBudget_droiupda).find('input').iCheck('disable');
+
+    });
+
+
+    var StatBudget3= $("td[rel='#StatBudget3']");
+    $.each( StatBudget3, function( i, val ) {
+        $(StatBudget3).find('input').iCheck('disable');
+
+    });
+
+
 });
 
 
 function SelectAll(select){
+    var StatElev3 = $("td[rel='#StatElev3']");
     var anchorArray = $("td[rel='"+select.getAttribute('rel')+"']");
     $.each( anchorArray, function( i, val ) {
         if (select.checked) {
-            $(this).find('input').iCheck('check');;
+            $(this).find('input').iCheck('check');
         }
         else {
             $(this).find('input').iCheck('uncheck');

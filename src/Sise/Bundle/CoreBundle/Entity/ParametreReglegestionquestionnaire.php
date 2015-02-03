@@ -13,38 +13,21 @@ use Doctrine\ORM\Mapping as ORM;
 class ParametreReglegestionquestionnaire
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="CodeReglGest", type="string", length=50, nullable=false)
+     * @ORM\Column(name="CodeParam", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codereglgest;
+    private $codeparam;
 
     /**
      * @var string
      *
      * @ORM\Column(name="CodeQues", type="string", length=50, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codeques;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Nume", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $nume;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="DescRegl", type="string", length=250, nullable=true)
-     */
-    private $descregl;
 
     /**
      * @var boolean
@@ -53,12 +36,21 @@ class ParametreReglegestionquestionnaire
      */
     private $acti;
 
+
     /**
      * @var float
      *
-     * @ORM\Column(name="ValeurComparaison", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="ValeurMin", type="float", precision=10, scale=0, nullable=true)
      */
-    private $valeurcomparaison;
+    private $valeurmin;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ValeurMax", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $valeurmax;
+
 
     /**
      * @var string
@@ -76,26 +68,27 @@ class ParametreReglegestionquestionnaire
 
 
     /**
-     * Set codereglgest
+     * @var string
      *
-     * @param string $codereglgest
-     * @return ParametreReglegestionquestionnaire
+     * @ORM\Column(name="MessageErreurFr", type="text", nullable=true)
      */
-    public function setCodereglgest($codereglgest)
-    {
-        $this->codereglgest = $codereglgest;
-
-        return $this;
-    }
+    private $messageerreurfr;
 
     /**
-     * Get codereglgest
+     * @var string
      *
-     * @return string
+     * @ORM\Column(name="DescRegl", type="string", length=250, nullable=true)
      */
-    public function getCodereglgest()
+    private $descregl;
+
+    /**
+     * Get codeparam
+     *
+     * @return integer 
+     */
+    public function getCodeparam()
     {
-        return $this->codereglgest;
+        return $this->codeparam;
     }
 
     /**
@@ -114,57 +107,11 @@ class ParametreReglegestionquestionnaire
     /**
      * Get codeques
      *
-     * @return string
+     * @return string 
      */
     public function getCodeques()
     {
         return $this->codeques;
-    }
-
-    /**
-     * Set nume
-     *
-     * @param integer $nume
-     * @return ParametreReglegestionquestionnaire
-     */
-    public function setNume($nume)
-    {
-        $this->nume = $nume;
-
-        return $this;
-    }
-
-    /**
-     * Get nume
-     *
-     * @return integer
-     */
-    public function getNume()
-    {
-        return $this->nume;
-    }
-
-    /**
-     * Set descregl
-     *
-     * @param string $descregl
-     * @return ParametreReglegestionquestionnaire
-     */
-    public function setDescregl($descregl)
-    {
-        $this->descregl = $descregl;
-
-        return $this;
-    }
-
-    /**
-     * Get descregl
-     *
-     * @return string
-     */
-    public function getDescregl()
-    {
-        return $this->descregl;
     }
 
     /**
@@ -183,7 +130,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get acti
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getActi()
     {
@@ -191,26 +138,49 @@ class ParametreReglegestionquestionnaire
     }
 
     /**
-     * Set valeurcomparaison
+     * Set valeurmin
      *
-     * @param float $valeurcomparaison
+     * @param float $valeurmin
      * @return ParametreReglegestionquestionnaire
      */
-    public function setValeurcomparaison($valeurcomparaison)
+    public function setValeurmin($valeurmin)
     {
-        $this->valeurcomparaison = $valeurcomparaison;
+        $this->valeurmin = $valeurmin;
 
         return $this;
     }
 
     /**
-     * Get valeurcomparaison
+     * Get valeurmin
      *
-     * @return float
+     * @return float 
      */
-    public function getValeurcomparaison()
+    public function getValeurmin()
     {
-        return $this->valeurcomparaison;
+        return $this->valeurmin;
+    }
+
+    /**
+     * Set valeurmax
+     *
+     * @param float $valeurmax
+     * @return ParametreReglegestionquestionnaire
+     */
+    public function setValeurmax($valeurmax)
+    {
+        $this->valeurmax = $valeurmax;
+
+        return $this;
+    }
+
+    /**
+     * Get valeurmax
+     *
+     * @return float 
+     */
+    public function getValeurmax()
+    {
+        return $this->valeurmax;
     }
 
     /**
@@ -229,7 +199,7 @@ class ParametreReglegestionquestionnaire
     /**
      * Get sqlcomparaison
      *
-     * @return string
+     * @return string 
      */
     public function getSqlcomparaison()
     {
@@ -252,10 +222,56 @@ class ParametreReglegestionquestionnaire
     /**
      * Get messageerreur
      *
-     * @return string
+     * @return string 
      */
     public function getMessageerreur()
     {
         return $this->messageerreur;
+    }
+
+    /**
+     * Set messageerreurfr
+     *
+     * @param string $messageerreurfr
+     * @return ParametreReglegestionquestionnaire
+     */
+    public function setMessageerreurfr($messageerreurfr)
+    {
+        $this->messageerreurfr = $messageerreurfr;
+
+        return $this;
+    }
+
+    /**
+     * Get messageerreurfr
+     *
+     * @return string 
+     */
+    public function getMessageerreurfr()
+    {
+        return $this->messageerreurfr;
+    }
+
+    /**
+     * Set descregl
+     *
+     * @param string $descregl
+     * @return ParametreReglegestionquestionnaire
+     */
+    public function setDescregl($descregl)
+    {
+        $this->descregl = $descregl;
+
+        return $this;
+    }
+
+    /**
+     * Get descregl
+     *
+     * @return string 
+     */
+    public function getDescregl()
+    {
+        return $this->descregl;
     }
 }
