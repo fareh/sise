@@ -264,11 +264,14 @@ class EffectifeleveNouveaupremieranneeController extends Controller
                 $json[0]['code'] = '';
                 $json[0]['libelle'] = '-- اختيار --';
                 $i = 1;
+                $type=array(20);
                 foreach ($nomenclatureetablissements as $nomenclatureetablissement) // pour transformer la réponse à ta requete en tableau qui replira le select2
                 {
-                    $json[$i]['code'] = $nomenclatureetablissement->getCodeetab();
-                    $json[$i]['libelle'] = $nomenclatureetablissement->getCodeetab() . ' | ' . $nomenclatureetablissement->getLibeetabar();
-                    $i++;
+                    if (in_array($nomenclatureetablissement->getCodetypeetab()->getCodetypeetab(), $type)) {
+                        $json[$i]['code'] = $nomenclatureetablissement->getCodeetab();
+                        $json[$i]['libelle'] = $nomenclatureetablissement->getCodeetab() . ' | ' . $nomenclatureetablissement->getLibeetabar();
+                        $i++;
+                    }
                 }
             }
             elseif ($request->get('_codeetabsour') != '') {

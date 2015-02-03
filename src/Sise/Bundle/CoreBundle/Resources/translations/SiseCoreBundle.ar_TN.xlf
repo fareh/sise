@@ -654,6 +654,11 @@
                 <source>codeetabsour</source>
                 <target>إسم المدرسة الاعدادية العمومية أو الخاصة</target>
             </trans-unit>
+
+               <trans-unit id="codeetabsour_pr">
+                            <source>codeetabsour_pr</source>
+                            <target>إسم المدرسة إبتدائية العمومية أو الخاصة</target>
+                        </trans-unit>
             <trans-unit id="enseangl">
                 <source>enseangl</source>
                 <target>يدرسون الإنقليزية</target>

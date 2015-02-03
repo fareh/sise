@@ -7,6 +7,8 @@
     <div style="display: none">
         <a href="{{ path("statElev", {"codepack":"StatElev"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
     </div>
+
+    {{ controls["masc"]}}
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>
@@ -63,6 +65,8 @@
                                 <tr>
                                     <td>{{ entity.codenivescol.libenivescolar }}
 
+
+
                                         <input type="hidden" name="val_{{ key }}"
                                                value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codefili.codefili }}|{{ entity.codenivescol.codenivescol }}">
                                         <input type="hidden" name="key_{{ key }}"
@@ -73,10 +77,12 @@
                                                value="{{ entity.nombclasselev }} "
                                                id="nombclasselev{{ key }}">
                                     </td>
+                                    {% if entity.codenivescol.codenivescol=='c' %}
                                     <td align="right">
                                         <input type="text" name="nombelevmascnouv{{ key }}"
                                                value="{{ entity.nombelevmascnouv }} "
                                                id="nombelevmascnouv{{ key }}"
+                                               min="{{ controls['masc'] }}"
                                                onchange="
                                                        javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );
                                                        javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
@@ -86,12 +92,35 @@
                                         <input type="text" name="nombelevfeminouv{{ key }}"
                                                value="{{ entity.nombelevfeminouv }} "
                                                id="nombelevfeminouv{{ key }}"
+                                               min="{{ controls['femin'] }}"
                                                onchange="
                                                        javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );
                                                        javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
 
                                                        ">
                                     </td>
+
+                                        {% else %}
+                                            <td align="right">
+                                                <input type="text" name="nombelevmascnouv{{ key }}"
+                                                       value="{{ entity.nombelevmascnouv }} "
+                                                       id="nombelevmascnouv{{ key }}"
+                                                       onchange="
+                                                               javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );
+                                                               javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
+                                                               ">
+                                            </td>
+                                            <td align="right">
+                                                <input type="text" name="nombelevfeminouv{{ key }}"
+                                                       value="{{ entity.nombelevfeminouv }} "
+                                                       id="nombelevfeminouv{{ key }}"
+                                                       onchange="
+                                                               javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );
+                                                               javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
+
+                                                               ">
+                                            </td>
+                                        {% endif %}
                                     <td align="right">
                                         <input type="text" name="nombelevmascredo{{ key }}"
                                                value="{{ entity.nombelevmascredo }} "
@@ -113,17 +142,17 @@
                                     <td align="right">
                                         <input type="text" name="nombtotaelevmasc{{ key }}"
                                                value="{{ entity.nombtotaelevmasc }} "
-                                               id="nombtotaelevmasc{{ key }}">
+                                               id="nombtotaelevmasc{{ key }}" readonly>
                                     </td>
                                     <td align="right">
                                         <input type="text" name="nombtotaelevfemi{{ key }}"
                                                value="{{ entity.nombtotaelevfemi }} "
-                                               id="nombtotaelevfemi{{ key }}">
+                                               id="nombtotaelevfemi{{ key }}" readonly>
                                     </td>
                                     <td align="right">
                                         <input type="text" name="nombtotaelev{{ key }}"
                                                value="{{ entity.nombtotaelev }} "
-                                               id="nombtotaelev{{ key }}">
+                                               id="nombtotaelev{{ key }}" readonly>
                                     </td>
                                 </tr>
                             {% endfor %}

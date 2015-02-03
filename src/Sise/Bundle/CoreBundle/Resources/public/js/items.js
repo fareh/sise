@@ -188,12 +188,13 @@ function relatedLists() {
         var compteur = parseInt($(this).parents('tr').find('td').first().text());
         $('#codeetabsour' + compteur).html('');
         //$('#codeetabsour'+compteur).html('');
-        //$('#codetypeetabsour'+compteur).html('');
+        //$('#codetypeetabsour'+compte
+        // ur).html('');
         $.ajax({
             //  url: "{{ path('sise_core_getList') }}",
             url: "/app.php" + Routing.generate('effectiveelevenouveauseptiemeannee_relatedLists'),
             type: 'POST',
-            data: {'_delegation': $(this).val()},
+            data: {'_delegation': $(this).val(), '_type':$("#sise_add_line").attr('rel')},
             dataType: 'json',
             success: function (json) { // quand la réponse de la requete arrive
                 $.each(json, function (index, value) { // et  boucle sur la réponse contenu dans la variable passé à la function du success "json"

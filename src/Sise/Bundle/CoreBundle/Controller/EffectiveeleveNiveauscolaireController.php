@@ -8,11 +8,10 @@
 
 namespace Sise\Bundle\CoreBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Sise\Bundle\CoreBundle\Entity\EffectiveeleveNiveauscolaire;
 use Sise\Bundle\CoreBundle\Form\search\SearchType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * EffectiveeleveNiveauscolaire controller.
@@ -30,8 +29,9 @@ class EffectiveeleveNiveauscolaireController extends controller
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
+        $controls = array('masc' =>10, 'femin' => 0);
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
@@ -50,11 +50,28 @@ class EffectiveeleveNiveauscolaireController extends controller
             $params = $request->request->get($search->getName());
             $session->set("features", $params);
             $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+            if ($codetypeetab == 20) {
+                $items = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+                foreach ($items as $item) {
+
+                    $controls['masc'] = $controls['masc'] + $item->getNombelevmasc();
+                    $controls['femin'] = $controls['femin'] + $item->getNombelevfemi();
+                }
+            } elseif ($codetypeetab == 30) {
+                $items = $em->getRepository('SiseCoreBundle:EffectifeleveNouveaupremierannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
+                foreach ($items as $item) {
+                    $controls['masc'] = $controls['masc'] + $item->getNombelevmasc();
+                    $controls['femin'] = $controls['femin'] + $item->getNombelevfemi();
+                }
+
+            }
+
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_niveauscolaire');
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_niveauscolaire.html.twig', array(
             'entities' => @$entities,
+            'controls'=>$controls,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,
@@ -71,7 +88,7 @@ class EffectiveeleveNiveauscolaireController extends controller
     {
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -129,7 +146,7 @@ class EffectiveeleveNiveauscolaireController extends controller
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveeleveniveauscolaire_list');
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
