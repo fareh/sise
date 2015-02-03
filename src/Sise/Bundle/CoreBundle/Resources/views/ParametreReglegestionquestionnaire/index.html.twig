@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+    {% trans_default_domain 'SiseCoreBundle' %}
+    <div style="display: none">
+        <a href="{{ path('fos_user_registration_register') }}" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+    </div>
+
+{{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : '', 'TitleContextValue' : 'La gestion des données des utilisateurs'|trans(), 'RouteAction' : '' })) }}
+    <br>
+    <div>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codeparam</th>
+                <th>Codeques</th>
+                <th>Acti</th>
+                <th>Valeurmin</th>
+                <th>Valeurmax</th>
+                <th>Sqlcomparaison</th>
+                <th>Messageerreur</th>
+                <th>Messageerreurfr</th>
+                <th>Descregl</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('parametrereglegestionquestionnaire_show', { 'id': entity.codeparam }) }}">{{ entity.codeparam }}</a></td>
+                <td>{{ entity.codeques }}</td>
+                <td>{{ entity.acti }}</td>
+                <td>{{ entity.valeurmin }}</td>
+                <td>{{ entity.valeurmax }}</td>
+                <td>{{ entity.sqlcomparaison }}</td>
+                <td>{{ entity.messageerreur }}</td>
+                <td>{{ entity.messageerreurfr }}</td>
+                <td>{{ entity.descregl }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('parametrereglegestionquestionnaire_show', { 'id': entity.codeparam }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('parametrereglegestionquestionnaire_edit', { 'id': entity.codeparam }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </div>
+
+{% endblock %}

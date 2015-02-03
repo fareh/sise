@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+{% trans_default_domain 'SiseCoreBundle' %}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'Edit', 'TitleContextValue' :  'ParametreReglegestionquestionnaire'|trans() , 'RouteAction' : 'securite_roles' })) }}
+<br>
+{{ form_start(edit_form, {'attr': {'novalidate': 'novalidate' }})}}
+<div id="securite">
+    {{ form(edit_form) }}
+
+    </div>
+    {{ form_end(edit_form) }}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ParametreReglegestionquestionnaire</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codeparam</th>
+                <td>{{ entity.codeparam }}</td>
+            </tr>
+            <tr>
+                <th>Codeques</th>
+                <td>{{ entity.codeques }}</td>
+            </tr>
+            <tr>
+                <th>Acti</th>
+                <td>{{ entity.acti }}</td>
+            </tr>
+            <tr>
+                <th>Valeurmin</th>
+                <td>{{ entity.valeurmin }}</td>
+            </tr>
+            <tr>
+                <th>Valeurmax</th>
+                <td>{{ entity.valeurmax }}</td>
+            </tr>
+            <tr>
+                <th>Sqlcomparaison</th>
+                <td>{{ entity.sqlcomparaison }}</td>
+            </tr>
+            <tr>
+                <th>Messageerreur</th>
+                <td>{{ entity.messageerreur }}</td>
+            </tr>
+            <tr>
+                <th>Messageerreurfr</th>
+                <td>{{ entity.messageerreurfr }}</td>
+            </tr>
+            <tr>
+                <th>Descregl</th>
+                <td>{{ entity.descregl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('parametrereglegestionquestionnaire') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('parametrereglegestionquestionnaire_edit', { 'id': entity.codeparam }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
