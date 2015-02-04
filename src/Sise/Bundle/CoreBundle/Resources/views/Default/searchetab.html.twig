@@ -21,13 +21,15 @@
                     <table style="font-size :14pt; background-color:#EEEEEE; padding :10px;" width="100%">
                         <tbody>
                         <tr style="background-color:#EEEEEE;">
-                            <td style="padding-right:5px; " width="15%">
+                            {% set Circ = form.NomenclatureCirconscriptionregional.vars.block_prefixes.1  %}
+                            {% set dele = form.NomenclatureDelegation.vars.block_prefixes.1  %}
+                            <td style="padding-right:5px; " width="15%"> {% if Circ  == 'choice' %}
                                 المندوبية الجهوية
-                            </td>
+                         {% endif %}   </td>
 
-                            <td style="padding-right:5px; " width="15%">
+                            <td style="padding-right:5px; " width="15%"> {% if dele  == 'choice' %}
                                 المعتمدية
-                            </td>
+                           {% endif %} </td>
 
                             <td style="padding-right:5px; " width="15%">
                                 الدائرة

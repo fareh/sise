@@ -174,10 +174,13 @@ class DefaultController extends Controller
         ));
     }
 
-    public function searchetabAction()
+    public function searchetabAction(Request $request)
     {
         // Generation of the form
-        $form = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
+        $em = $this->getDoctrine()->getManager();
+        $user= $this->get('security.context')->getToken()->getUser();
+        $session = $request->getSession();
+        $form = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
 
         // return the form view
         return $this->render('SiseCoreBundle:Default:searchetab.html.twig', array(

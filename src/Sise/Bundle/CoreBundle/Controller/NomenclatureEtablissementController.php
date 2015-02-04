@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sise\Bundle\CoreBundle\Form\search\SearchEtabType;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement;
@@ -23,10 +24,17 @@ class NomenclatureEtablissementController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+        $user= $this->get('security.context')->getToken()->getUser();
+       // var_dump($user->getCodecircregi());die;
         $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findAll();
-        $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
+        $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchetab->getName());
+          //  $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("featuresetab", $params);
+
             $FiltreArray = array();
 
             if ($params['NomenclatureCirconscriptionregional'] != '') {
@@ -47,14 +55,12 @@ class NomenclatureEtablissementController extends Controller
             if ($params['NomenclatureZone'] != '') {
                 $FiltreArray['codezone'] = $params['NomenclatureZone'];
             }
+            $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
             $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy($FiltreArray);
-
-
-            //  var_dump($params); die ;
         }
         return $this->render('SiseCoreBundle:NomenclatureEtablissement:index.html.twig', array(
             'entities' => $entities,
-            'searchetab' => $searchetab->createView(),
+            'searchetab' => @$searchetab->createView(),
             'pathfilter' => ''
         ));
     }

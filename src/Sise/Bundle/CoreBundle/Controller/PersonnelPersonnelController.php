@@ -3,6 +3,7 @@
 namespace Sise\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sise\Bundle\CoreBundle\Form\search\SearchPersonnelType;
 use Sise\Bundle\CoreBundle\Form\nomenclature\NomenclatureSoussituationadministrativeType;
@@ -134,12 +135,13 @@ class PersonnelPersonnelController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+       // $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SiseCoreBundle:PersonnelPersonnel:edit.html.twig', array(
             'entity' => $entity,
+            'code' => $id,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+          //  'delete_form' => $deleteForm->createView(),
             'formpers' => $formpers->createView(),
         ));
     }
@@ -177,7 +179,7 @@ class PersonnelPersonnelController extends Controller
             throw $this->createNotFoundException('Unable to find PersonnelPersonnel entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+       // $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -190,7 +192,7 @@ class PersonnelPersonnelController extends Controller
         return $this->render('SiseCoreBundle:PersonnelPersonnel:edit.html.twig', array(
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+       //     'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -202,19 +204,18 @@ class PersonnelPersonnelController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-
-        if ($form->isValid()) {
+        $session = new Session();
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find PersonnelPersonnel entity.');
-            }
-
+        try {
+            //  var_dump($em->removeElement($entity));die;
             $em->remove($entity);
             $em->flush();
+            $session->getFlashBag()->add('confirm_delete', 'this element is successfully deleted');
+        } catch (\Exception $e) {
+            $session->getFlashBag()->add('warnig_delete', 'You can not delete this item');
+            return $this->redirect($this->generateUrl('personnelpersonnel_edit', array('id' => $id)));
         }
-
         return $this->redirect($this->generateUrl('personnelpersonnel'));
     }
 
@@ -228,9 +229,9 @@ class PersonnelPersonnelController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('personnelpersonnel_delete1', array('id' => $id)))
+            ->setAction($this->generateUrl('personnelpersonnel_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+        //    ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
     }
 }

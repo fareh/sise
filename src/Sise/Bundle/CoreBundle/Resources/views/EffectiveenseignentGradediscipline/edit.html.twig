@@ -4,7 +4,10 @@
     {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentgradediscipline' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+    <div style="display: none">
+        <a href="/app.php/stat/StatEnse/statElev" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <a href="/app.php/EffectiveenseignentGradediscipline/edit" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+    </div>
     {% if entities is defined  and entities|length > 0 %}
         <center>
             <br>

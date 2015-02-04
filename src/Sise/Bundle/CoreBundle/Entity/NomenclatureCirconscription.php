@@ -95,6 +95,31 @@ class NomenclatureCirconscription
      */
     private $colltech;
 
+    /**
+     * @var \NomenclatureDelegation
+     *
+     * @ORM\ManyToOne(targetEntity="NomenclatureDelegation", inversedBy="codeetab")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="CodeDele", referencedColumnName="CodeDele")
+     * })
+     */
+    private $codedele;
+
+    /**
+     * @return \NomenclatureDelegation
+     */
+    public function getCodedele()
+    {
+        return $this->codedele;
+    }
+
+    /**
+     * @param \NomenclatureDelegation $codedele
+     */
+    public function setCodedele($codedele)
+    {
+        $this->codedele = $codedele;
+    }
 
     /**
      * Get codecirc

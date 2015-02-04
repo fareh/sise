@@ -4,17 +4,14 @@
 
     <form action="{{ path('personnelpersonnel_create') }}" method="post" {{ form_enctype(form) }}>
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' :'بطاقة الموظف', 'RouteAction' : 'personnelpersonnel' })) }}
-
+    <div style="display: none">
+        <a href="/app.php/PersonnelPersonnel" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <input type="reset" id="BtnAnnuler">
+    </div>
     <div id="CPHMain_upmain">
-
 
     <input type="hidden" name="_method" value="POST"/>
     {#{{ form_errors(form) }}#}
-
-
-
-
-
     <div id="accordion">
     <h3>
         معلومات عامة</h3>

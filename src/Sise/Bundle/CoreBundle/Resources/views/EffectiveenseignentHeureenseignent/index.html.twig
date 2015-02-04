@@ -4,6 +4,10 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveenseignentheureenseignent' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <br>
+    <div style="display: none">
+        <a href="/app.php/stat/StatEnse/statElev" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <a href="/app.php/EffectiveenseignentHeureenseignent/edit" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+    </div>
     {% if entities is defined  and entities|length > 0 %}
         <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
                style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">

@@ -24,10 +24,9 @@ personnelpersonnel_update:
     defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:update" }
     requirements: { _method: post|put }
 
-personnelpersonnel_delete1:
+personnelpersonnel_delete:
     path:     /{id}/delete
     defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:delete" }
-    requirements: { _method: post|delete }
 personnelpersonnel_export:
     path:     /_export
     defaults: { _controller: "SiseCoreBundle:PersonnelPersonnel:export" }
