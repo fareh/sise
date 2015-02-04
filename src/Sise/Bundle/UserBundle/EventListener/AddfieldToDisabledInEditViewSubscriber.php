@@ -7,10 +7,11 @@
  */
 
 namespace Sise\Bundle\UserBundle\EventListener;
+
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Doctrine\ORM\EntityRepository;
 
 class AddfieldToDisabledInEditViewSubscriber implements EventSubscriberInterface
 {
@@ -31,7 +32,6 @@ class AddfieldToDisabledInEditViewSubscriber implements EventSubscriberInterface
         // This should be considered a new object
         if (!$data) {
             $form
-
                 ->add('codecircregi', 'entity', array(
                     'label' => 'المندوبية الجهوية ',
                     'class' => 'SiseCoreBundle:NomenclatureCirconscriptionregional',
@@ -76,11 +76,9 @@ class AddfieldToDisabledInEditViewSubscriber implements EventSubscriberInterface
                     'label_attr' => array(
                         'class' => 'sr-only',
                     )));
-        }
-        else
-        {
+        } else {
             $codecircregi = $data->getCodecircregi();
-            $etab= array('codedele'=>$data->getCodedele(), 'codetypeetab'=>$data->getCodetypeetab());
+            $etab = array('codedele' => $data->getCodedele(), 'codetypeetab' => $data->getCodetypeetab());
             $form
                 ->add('codecircregi', 'entity', array(
                     'label' => 'المندوبية الجهوية ',
@@ -123,17 +121,13 @@ class AddfieldToDisabledInEditViewSubscriber implements EventSubscriberInterface
                 ->add('codeetab', 'entity', array(
                     'label' => 'المؤسسة',
                     'class' => 'SiseCoreBundle:NomenclatureEtablissement',
-                    'query_builder' => function(EntityRepository $er )use ($etab){
-
-
-                        $res  =  $er->createQueryBuilder('c')
+                    'query_builder' => function (EntityRepository $er) use ($etab) {
+                        $res = $er->createQueryBuilder('c')
                             ->where('c.codetypeetab = :codetypeetab')
                             ->andWhere('c.codedele = :codedele')
                             ->setParameter('codetypeetab', $etab['codetypeetab'])
                             ->setParameter('codedele', $etab['codedele'])
-                            ->orderBy('c.codeetab', 'DESC')
-
-                        ;
+                            ->orderBy('c.codeetab', 'DESC');
                         return $res;
                     },
                     'property' => 'libeetabar',
@@ -143,9 +137,7 @@ class AddfieldToDisabledInEditViewSubscriber implements EventSubscriberInterface
                     ),
                     'label_attr' => array(
                         'class' => 'sr-only',
-                    )))
-
-            ;
+                    )));
         }
     }
 }

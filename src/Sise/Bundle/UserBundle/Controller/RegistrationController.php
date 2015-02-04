@@ -33,6 +33,7 @@ class RegistrationController extends BaseController
 
     public function registerAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
@@ -52,41 +53,48 @@ class RegistrationController extends BaseController
 
         $form = $formFactory->createForm();
         $form->setData($user);
-
         $form->handleRequest($request);
-
-        //if ($request->isMethod('POST')) {
-
-
-
-     // $params = $request->request->get($form->getName());var_dump($params); die;
-            if ($form->isValid()) {
+        if ($request->isMethod('POST')) {
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+            $params = $request->request->get($form->getName());
+            if($params["codedele"]){
+                $del = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->find($params["codedele"]);
+                if($del){
+                    $user->setCodedele($del);
+                }
+            }
+
+            if($params["codetypeetab"]){
+                $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($params["codetypeetab"]);
+                if($typeetab){
+                    $user->setCodetypeetab($typeetab);
+                }
+            }
+            if($params["codeetab"]){
+                $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab'=>$params["codeetab"], 'codetypeetab'=>$typeetab));
+                if($typeetab and $etab){
+                    $user->setCodeetab($etab);
+                }
+            }
 
             $userManager->updateUser($user);
-
             if (null === $response = $event->getResponse()) {
               //  $url = $this->generateUrl('fos_user_registration_confirmed');
                 $url = $this->generateUrl('sise_user_list');
                 $response = new RedirectResponse($url);
             }
-
-            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
+           // $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
             return $response;
         }
-
         return $this->render('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
         ));
     }
 
-
     /**
      * @Security("has_role('A')")
      */
-
 
     public function editAction(Request $request, $id)
     {
@@ -111,17 +119,13 @@ class RegistrationController extends BaseController
 
         $form = $formFactory->createForm();
         $form->setData($user);
-
         $form->handleRequest($request);
         if ($form->isValid()) {
             /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
-
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
-
             $userManager->updateUser($user);
-
             if (null === $response = $event->getResponse()) {
                 $url = $this->generateUrl('sise_user_list');
                 $response = new RedirectResponse($url);

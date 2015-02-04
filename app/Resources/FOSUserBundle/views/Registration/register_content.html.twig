@@ -19,15 +19,10 @@
             {{ form_widget(form.email) }}
 
         </div>
-
-
         <div>
-
             {{ form_label(form.plainPassword.first) }}
             {{ form_errors(form.plainPassword.first) }}
             {{ form_widget(form.plainPassword.first) }}
-
-
         </div>
         <div>
             {{ form_label(form.plainPassword.second) }}
@@ -53,39 +48,25 @@
             {{ form_widget(form.codegrouutil) }}
 
         </div>
-
-
-
-
-
-
         <div>
             {{ form_label(form.codeprof) }}
             {{ form_errors(form.codeprof) }}
             {{ form_widget(form.codeprof) }}
 
         </div>
-
-
-
-
         <div>
             {{ form_label(form.codenivehier) }}
             {{ form_errors(form.codenivehier) }}
             {{ form_widget(form.codenivehier) }}
 
         </div>
-
-        <div style="display: none">
-            <a href="{{ path('sise_user_list') }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
-            <input type="reset" value="BtnAnnuler" id="BtnAnnuler">
-        </div>
-
-
-<div style="height: 30px;">&nbsp;</div>
+        <div style="height: 30px;">&nbsp;</div>
         {{ form_widget(form._token) }}
         {# {{ form_rest(form) }} #}
 
     </div>
-
+    <div style="display: none">
+        <a href="{{ path('sise_user_list') }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+        <input type="reset" value="BtnAnnuler" id="BtnAnnuler">
+    </div>
 </form>
