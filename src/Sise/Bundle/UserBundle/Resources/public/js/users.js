@@ -117,6 +117,10 @@ function relatedItems(cs) {
     if (cs == '0') {
         $("#fos_user_registration_form_codegrouutil").change(function () {
             $("#fos_user_registration_form_codeprof").closest('div').remove();
+            $("#fos_user_registration_form_codecircregi").closest('div').remove();
+            $("#fos_user_registration_form_codedele").closest('div').remove();
+            $("#fos_user_registration_form_codetypeetab").closest('div').remove();
+            $("#fos_user_registration_form_codeetab").closest('div').remove();
             var $codegrouutil = $(this).val();
             $.ajax({
                 //  url: "{{ path('sise_core_getList') }}",

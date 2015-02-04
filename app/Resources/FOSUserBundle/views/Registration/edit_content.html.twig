@@ -1,7 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <form action="{{ path('sise_user_edit',{'id': user.id}) }}" {{ form_enctype(form) }} method="POST"
-      class="fos_user_registration_register">
+      class="fos_user_registration_register"  id="fos_user_registration_register">
     {#{{ form_widget(form) }}#}
 
     <div id="fos_user_registration_form">
@@ -113,12 +113,10 @@
 
             </div>
         {% endif %}
-
+        <div style="height: 30px;">&nbsp;</div>
         {{ form_widget(form._token) }}
         {# {{ form_rest(form) }} #}
-        <div>
-            <input type="submit" value="{{ 'registration.submit'|trans }}"/>
-        </div>
+
     </div>
 
 </form>

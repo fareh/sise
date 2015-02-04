@@ -52,9 +52,9 @@ class RegistrationController extends BaseController
         }
 
         $form = $formFactory->createForm();
-        $form->setData($user);
-        $form->handleRequest($request);
         if ($request->isMethod('POST')) {
+            $form->setData($user);
+            $form->handleRequest($request);
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
             $params = $request->request->get($form->getName());
@@ -64,7 +64,6 @@ class RegistrationController extends BaseController
                     $user->setCodedele($del);
                 }
             }
-
             if($params["codetypeetab"]){
                 $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($params["codetypeetab"]);
                 if($typeetab){
@@ -77,15 +76,17 @@ class RegistrationController extends BaseController
                     $user->setCodeetab($etab);
                 }
             }
+            if ($form->isValid()) {
+                $userManager->updateUser($user);
+                if (null === $response = $event->getResponse()) {
+                    //  $url = $this->generateUrl('fos_user_registration_confirmed');
+                    $url = $this->generateUrl('sise_user_list');
+                    $response = new RedirectResponse($url);
+                }
+                // $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                return $response;
 
-            $userManager->updateUser($user);
-            if (null === $response = $event->getResponse()) {
-              //  $url = $this->generateUrl('fos_user_registration_confirmed');
-                $url = $this->generateUrl('sise_user_list');
-                $response = new RedirectResponse($url);
             }
-           // $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-            return $response;
         }
         return $this->render('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
@@ -107,12 +108,9 @@ class RegistrationController extends BaseController
         $dispatcher = $this->get('event_dispatcher');
         $event = new GetResponseUserEvent($user, $request);
         $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_INITIALIZE, $event);
-
         if (null !== $event->getResponse()) {
             return $event->getResponse();
         }
-
-
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
        // $formFactory = $this->get('sise_user.profile.form.factory');
         $formFactory = $this->container->get('sise_user.profile.form.factory');
@@ -120,6 +118,25 @@ class RegistrationController extends BaseController
         $form = $formFactory->createForm();
         $form->setData($user);
         $form->handleRequest($request);
+        $params = $request->request->get($form->getName());
+        if($params["codedele"]){
+            $del = $em->getRepository('SiseCoreBundle:NomenclatureDelegation')->find($params["codedele"]);
+            if($del){
+                $user->setCodedele($del);
+            }
+        }
+        if($params["codetypeetab"]){
+            $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($params["codetypeetab"]);
+            if($typeetab){
+                $user->setCodetypeetab($typeetab);
+            }
+        }
+        if($params["codeetab"]){
+            $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab'=>$params["codeetab"], 'codetypeetab'=>$typeetab));
+            if($typeetab and $etab){
+                $user->setCodeetab($etab);
+            }
+        }
         if ($form->isValid()) {
             /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');

@@ -1,14 +1,29 @@
 jQuery(document).ready(function () {
-$('#form_nivescol select').on('change', function() {
-    document.getElementById("form_nivescol").submit();
-});
+    $('#form_nivescol select').on('change', function () {
+        document.getElementById("form_nivescol").submit();
+    });
     $('.datesepa').mask('00-00-0000');
 });
+$('form#id_with_js').quickValidate();
 
+
+function testVal(id, minNumber) {
+    if (parseInt(document.getElementById(id).value) === parseInt(parseInt(document.getElementById(id).value), 10)) {
+        if (parseInt(document.getElementById(id).value) < minNumber) {
+            alert('Le numéro doit supérieur ou égal à' + minNumber);
+            document.getElementById(id).value = 0;
+        }
+
+    } else {
+
+        document.getElementById(id).value = 0;
+    }
+
+
+}
 
 jQuery(document).ready(function () {
-    $( "#TdValider2, #Valider2" ).click(function() {
-
+    $("#TdValider2, #Valider2").click(function () {
         if (document.getElementById('id_with_js')) {
             document.getElementById('id_with_js').submit();
         }
@@ -20,7 +35,6 @@ jQuery(document).ready(function () {
         }
 
 
-
         if (document.nomenclature_sise) {
             document.nomenclature_sise.submit();
         }
@@ -28,48 +42,47 @@ jQuery(document).ready(function () {
     });
 
 
-
-    $( "#TdExporter" ).click(function() {
+    $("#TdExporter").click(function () {
 
         if (document.getElementById('CPHMain_GridView_Browse')) {
-          return ExcellentExport.excel($( "#TdExporter" ), 'CPHMain_GridView_Browse', 'Sheet Name Here') ;
-         }
+            return ExcellentExport.excel($("#TdExporter"), 'CPHMain_GridView_Browse', 'Sheet Name Here');
+        }
     });
 
-    $( "#TdCloturer, #TdCloturer2" ).menusise({
+    $("#TdCloturer, #TdCloturer2").menusise({
         fId: "TdCloturer",
         sId: "BtnCloturer"
     });
 
-    $( "#TdRetour2, #TdRetour" ).menusise({
+    $("#TdRetour2, #TdRetour").menusise({
         fId: "TdRetour",
         sId: "BtnRetour"
     });
 
 
-    $( "#TdEditer2, #TdEditer" ).menusise({
+    $("#TdEditer2, #TdEditer").menusise({
         fId: "TdEditer",
         sId: "BtnEditer"
     });
 
-    $( "#TdNouveau2, #TdNouveau" ).menusise({
+    $("#TdNouveau2, #TdNouveau").menusise({
         fId: "TdNouveau",
         sId: "BtnNouveau"
     });
-    $( "#TdAnnuler2, #TdAnnuler" ).menusise({
+    $("#TdAnnuler2, #TdAnnuler").menusise({
         fId: "TdAnnuler",
         sId: "BtnAnnuler"
     });
-    $( "#TdSupprimer2, #TdSupprimer" ).menusise({
+    $("#TdSupprimer2, #TdSupprimer").menusise({
         fId: "TdSupprimer",
         sId: "BtnSupprimer"
     });
-    $( "#TdRechercher2, #TdRechercher" ).menusise({
+    $("#TdRechercher2, #TdRechercher").menusise({
         fId: "TdRechercher",
         sId: "BtnRechercher"
     });
-});
-
+})
+;
 
 
 // Récupère le div qui contient la collection de tags
@@ -102,14 +115,14 @@ function checkAll(ele) {
     var checkboxes = document.getElementsByTagName('input');
     if (ele.checked) {
         for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].value.slice(0, 1)==ele.value || checkboxes[i].value.slice(0, 2)==ele.value || checkboxes[i].value.slice(0, 3)==ele.value ) {
+            if (checkboxes[i].value.slice(0, 1) == ele.value || checkboxes[i].value.slice(0, 2) == ele.value || checkboxes[i].value.slice(0, 3) == ele.value) {
                 checkboxes[i].checked = true;
             }
         }
     } else {
         for (var i = 0; i < checkboxes.length; i++) {
             console.log(i)
-            if (checkboxes[i].value.slice(0, 1)==ele.value || checkboxes[i].value.slice(0, 2)==ele.value || checkboxes[i].value.slice(0, 3)==ele.value ) {
+            if (checkboxes[i].value.slice(0, 1) == ele.value || checkboxes[i].value.slice(0, 2) == ele.value || checkboxes[i].value.slice(0, 3) == ele.value) {
                 checkboxes[i].checked = false;
             }
         }
@@ -384,7 +397,7 @@ function txtChangedTdTd(v1, v2, v3) {
 }
 
 function txtChangedTd2(v1, v2, v3, v4, v5) {
-    document.getElementById(v5).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value)+ parseInt(document.getElementById(v3).value)+ parseInt(document.getElementById(v4).value);
+    document.getElementById(v5).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value) + parseInt(document.getElementById(v3).value) + parseInt(document.getElementById(v4).value);
 }
 
 $(function () {
@@ -436,7 +449,7 @@ $(function () {
 
 //On PostBack
 jQuery(document).ready(function () {
-  //  Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+    //  Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
     function EndRequestHandler(sender, args) {
         SetUI();
     }

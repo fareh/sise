@@ -17,7 +17,7 @@
 
 
                 <div>
-                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js">
+                    <form action="{{ pathUpdate }}" method="post" class="well form-search" id="id_with_js" novalidate="novalidate">
                         <table cellspacing="0" rules="all" id="CPHMain_GridView_Browse"
                                style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                             <tbody>
@@ -63,10 +63,8 @@
                             {% for key , entity in entities %}
 
                                 <tr>
-                                    <td>{{ entity.codenivescol.libenivescolar }}
-
-
-
+                                    <td>
+                                        {{ entity.codenivescol.libenivescolar }}
                                         <input type="hidden" name="val_{{ key }}"
                                                value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codefili.codefili }}|{{ entity.codenivescol.codenivescol }}">
                                         <input type="hidden" name="key_{{ key }}"
@@ -77,13 +75,14 @@
                                                value="{{ entity.nombclasselev }} "
                                                id="nombclasselev{{ key }}">
                                     </td>
-                                    {% if entity.codenivescol.codenivescol=='c' %}
+                                    {% if entity.codenivescol.codenivescol=='c' or  entity.codenivescol.codenivescol=='7'  %}
                                     <td align="right">
                                         <input type="text" name="nombelevmascnouv{{ key }}"
                                                value="{{ entity.nombelevmascnouv }} "
                                                id="nombelevmascnouv{{ key }}"
-                                               min="{{ controls['masc'] }}"
+                                               class="quickValidate" data-validate="required,number,range=0-99"
                                                onchange="
+                                                       javascript:testVal('nombelevmascnouv{{ key }}', {{ controls['masc'] }} );
                                                        javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );
                                                        javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
                                                        ">
@@ -93,7 +92,9 @@
                                                value="{{ entity.nombelevfeminouv }} "
                                                id="nombelevfeminouv{{ key }}"
                                                min="{{ controls['femin'] }}"
+                                               class="quickValidate" data-validate="required,number,range=0-99"
                                                onchange="
+                                                       javascript:testVal('nombelevfeminouv{{ key }}', {{ controls['femin'] }} );
                                                        javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );
                                                        javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
 
@@ -105,6 +106,8 @@
                                                 <input type="text" name="nombelevmascnouv{{ key }}"
                                                        value="{{ entity.nombelevmascnouv }} "
                                                        id="nombelevmascnouv{{ key }}"
+                                                       min="{{ controls['femin'] }}"
+                                                       class="quickValidate" data-validate="required,number,range=0-99"
                                                        onchange="
                                                                javascript:txtChanged('nombelevmascnouv{{ key }}','nombelevmascredo{{ key }}', 'nombtotaelevmasc{{ key }}' );
                                                                javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
@@ -114,6 +117,8 @@
                                                 <input type="text" name="nombelevfeminouv{{ key }}"
                                                        value="{{ entity.nombelevfeminouv }} "
                                                        id="nombelevfeminouv{{ key }}"
+                                                       min="{{ controls['femin'] }}"
+                                                       class="quickValidate" data-validate="required,number,range=0-99"
                                                        onchange="
                                                                javascript:txtChanged('nombelevfeminouv{{ key }}','nombelevfemiredo{{ key }}', 'nombtotaelevfemi{{ key }}' );
                                                                javascript:txtChanged('nombtotaelevmasc{{ key }}','nombtotaelevfemi{{ key }}', 'nombtotaelev{{ key }}' );
