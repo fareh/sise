@@ -24,14 +24,11 @@ class EtablissementFicheetablissement
     private $codeetab;
 
     /**
-     * @var \NomenclatureTypeetablissement
+     * @var string
      *
+     * @ORM\Column(name="CodeTypeEtab", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
-     * })
      */
     private $codetypeetab;
 

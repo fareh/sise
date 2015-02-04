@@ -27,7 +27,23 @@ class NomenclatureEtablissementController extends Controller
         $session = $request->getSession();
         $user= $this->get('security.context')->getToken()->getUser();
        // var_dump($user->getCodecircregi());die;
-        $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findAll();
+        if ($user->getCodeetab())
+        {
+         //   var_dump($user->getCodetypeetab());die;
+            return $this->redirect($this->generateUrl('nomenclatureetablissement_edit', array('codetypeetab' => $user->getCodetypeetab()->getCodetypeetab(), 'codeetab' => $user->getCodeetab()->getCodeetab())));
+        }
+        elseif ($user->getCodedele())
+        {
+            $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array('codedele' => $user->getCodedele()), array());
+        }
+        elseif ($user->getCodecircregi())
+        {
+           $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array('codecircregi' => $user->getCodecircregi()), array());
+        }
+        else
+        {
+            $entities = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findAll();
+        }
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchetab->getName());

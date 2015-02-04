@@ -60,7 +60,7 @@ class SearchEtabType extends AbstractType
                     'data' => (@$this->featuresetab['NomenclatureDelegation']) ? @$this->featuresetab['NomenclatureDelegation'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
-                    'choices' => $this->getCirconscription($this->user->getCodecircregi()->getCodegouv()),
+                    'choices' => $this->getCirconscription($this->user->getCodedele()->getCodedele()),
                     'required' => false,
                     'data' => (@$this->featuresetab['NomenclatureCirconscription']) ? @$this->featuresetab['NomenclatureCirconscription'] : "-- اختيار --"
                 ));
@@ -91,7 +91,7 @@ class SearchEtabType extends AbstractType
                     'data' => $this->user->getCodedele()->getCodedele()
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
-                    'choices' => $this->getCirconscription($this->user->getCodecircregi()->getCodegouv()),
+                    'choices' => $this->getCirconscription($this->user->getCodedele()->getCodedele()),
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureCirconscription']
                 ));
@@ -127,7 +127,7 @@ class SearchEtabType extends AbstractType
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
                     'required' => false,
-                    'choices' => $this->getCirconscription($this->user->getCodecircregi()->getCodegouv()),
+                    'choices' => $this->getCirconscription("",$this->user->getCodecircregi()->getCodecircregi()),
                     'data' => (@$this->featuresetab['NomenclatureCirconscription']) ? @$this->featuresetab['NomenclatureCirconscription'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
@@ -158,7 +158,7 @@ class SearchEtabType extends AbstractType
                     'data' => $this->featuresetab['NomenclatureDelegation']
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
-                    'choices' => $this->getCirconscription($this->user->getCodecircregi()->getCodegouv()),
+                    'choices' => $this->getCirconscription($items["NomenclatureDelegation"]),
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureCirconscription']
                 ));
@@ -229,7 +229,7 @@ class SearchEtabType extends AbstractType
                     'data' => $this->featuresetab['NomenclatureDelegation']
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
-                    'choices' => $this->getCirconscription("",$items["NomenclatureCirconscriptionregional"]),
+                    'choices' => $this->getCirconscription($items["NomenclatureDelegation"]),
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureCirconscription']
                 ));
@@ -292,7 +292,7 @@ class SearchEtabType extends AbstractType
         {
             $ids = array();
             $items = $this->featuresetab;
-            $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findBy(array('codegouv' => $item));
+            $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findBy(array('codedele' => $item));
             foreach ($entities as $entity) {
                 $ids[$entity->getCodecirc()] = $entity->getLibecircar();
             }
@@ -302,8 +302,7 @@ class SearchEtabType extends AbstractType
         {
             $ids = array();
             $items = $this->featuresetab;
-            $entitycir=$this->em->getRepository('SiseCoreBundle:NomenclatureCirconscriptionregional')->findOneBy(array('codecircregi' => $item2));
-            $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findBy(array('codegouv' => $entitycir->getCodegouv()->getCodegouv()));
+            $entities = $this->em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findBy(array('codegouv' =>$item2));
             foreach ($entities as $entity) {
                 $ids[$entity->getCodecirc()] = $entity->getLibecircar();
             }

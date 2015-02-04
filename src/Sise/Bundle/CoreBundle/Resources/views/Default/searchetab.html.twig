@@ -56,11 +56,10 @@
 
                         <tr>
                             <td id="CPHMain_divCodeCircRegi2"
-                                width="15%"> {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListeMulti("sise_bundle_corebundle_searchetab_NomenclatureCirconscriptionregional","NomenclatureDelegation","NomenclatureCirconscription","sise_bundle_corebundle_searchetab_NomenclatureDelegation", "sise_bundle_corebundle_searchetab_NomenclatureCirconscription");' }}
-                                ) }}
+                                width="15%"> {{ form_widget(form.NomenclatureCirconscriptionregional, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureCirconscriptionregional","NomenclatureDelegation", "sise_bundle_corebundle_searchetab_NomenclatureDelegation" );' }}) }}
                             </td>
                             <td id="CPHMain_divCodeCircRegi2"
-                                width="15%"> {{ form_widget(form.NomenclatureDelegation) }}</td>
+                                width="15%"> {{ form_widget(form.NomenclatureDelegation, {'attr': {'class': 'NomenclatureCirconscriptionregional', 'onChange': 'getListe("sise_bundle_corebundle_searchetab_NomenclatureDelegation","NomenclatureCirconscription", "sise_bundle_corebundle_searchetab_NomenclatureCirconscription" );' }}) }}</td>
                             <td id="CPHMain_divCodeCircRegi2"
                                 width="15%">  {{ form_widget(form.NomenclatureCirconscription) }}</td>
                             <td id="CPHMain_divCodeCircRegi2"

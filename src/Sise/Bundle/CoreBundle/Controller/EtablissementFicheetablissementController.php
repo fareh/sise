@@ -28,8 +28,40 @@ class EtablissementFicheetablissementController extends Controller
         $coderece = $session->get('CodeRece');
         ini_set('memory_limit', '256M');
         set_time_limit(0);
-        $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findBy(array('annescol' => $annescol, 'coderece' => $coderece));
-        $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType())->getForm();
+        $user= $this->get('security.context')->getToken()->getUser();
+        if ($user->getCodeetab())
+        {
+            //   var_dump($user->getCodetypeetab());die;
+            return $this->redirect($this->generateUrl('etablissementficheetablissement_edit', array('codetypeetab' => $user->getCodetypeetab()->getCodetypeetab(), 'codeetab' => $user->getCodeetab()->getCodeetab(),'annescol' => $annescol, 'coderece' => $coderece)));
+        }
+        elseif ($user->getCodedele())
+        {
+            $query = $em->createQuery(
+                'SELECT F,P
+             FROM SiseCoreBundle:EtablissementFicheetablissement F
+             INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab
+              WHERE P.codedele=:codedeleuser and F.annescol=:annescoluser and F.coderece=:codereceuser')->setParameter('codedeleuser',$user->getCodedele()->getCodedele())
+                                                                                                        ->setParameter('annescoluser',$annescol)
+                                                                                                        ->setParameter('codereceuser',$coderece);
+            $entities = $query->execute();
+        }
+        elseif ($user->getCodecircregi())
+        {
+            $query = $em->createQuery(
+                'SELECT F,P
+             FROM SiseCoreBundle:EtablissementFicheetablissement F
+             INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab
+              WHERE P.codecircregi=:codedeleuser and F.annescol=:annescoluser and F.coderece=:codereceuser')->setParameter('codedeleuser',$user->getCodecircregi()->getCodecircregi())
+                                                                                                        ->setParameter('annescoluser',$annescol)
+                                                                                                        ->setParameter('codereceuser',$coderece);
+            $entities = $query->execute();
+
+        }
+        else
+        {
+            $entities = $em->getRepository('SiseCoreBundle:EtablissementFicheetablissement')->findBy(array('annescol' => $annescol, 'coderece' => $coderece));
+        }
+        $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchetab->getName());
             $FiltreArray = '';
@@ -55,7 +87,8 @@ class EtablissementFicheetablissementController extends Controller
                 'SELECT F,P
              FROM SiseCoreBundle:EtablissementFicheetablissement F
              INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab
-              ' . ($FiltreArray != '' ? ' WHERE ' . $FiltreArray : ''));
+              ' . ($FiltreArray != '' ? ' WHERE F.annescol=:annescoluser and F.coderece=:codereceuser and' . $FiltreArray : '')) ->setParameter('annescoluser',$annescol)
+                                                                                                                                 ->setParameter('codereceuser',$coderece);;
             $entities = $query->execute();
             //        $items = array();
 //        foreach ($entities as $item) {

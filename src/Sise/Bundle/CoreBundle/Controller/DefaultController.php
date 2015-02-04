@@ -252,7 +252,7 @@ class DefaultController extends Controller
                     }
                     $session->set("codetypeetab", $codegouv);
                 } elseif ($entity == 'NomenclatureCirconscription') {
-                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodecirc($codegouv);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodedele($codegouv);
                     $json = array();
                     $json[0]['code'] = '';
                     $json[0]['libelle'] = '-- اختيار --';
