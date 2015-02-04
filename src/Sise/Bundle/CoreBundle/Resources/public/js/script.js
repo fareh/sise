@@ -385,19 +385,37 @@ $(function () {
 });
 
 function txtChanged(v1, v2, v3) {
-    document.getElementById(v3).value = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+    if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
+        document.getElementById(v3).value = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+    }else{
+        document.getElementById(v1).value=0;
+    }
+
 }
 
 function txtChangedTd(v1, v2, v3) {
-    document.getElementById(v3).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+    if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
+        document.getElementById(v3).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
+    }else{
+        document.getElementById(v1).value=0;
+    }
 }
 
 function txtChangedTdTd(v1, v2, v3) {
-    document.getElementById(v3).textContent = parseInt(document.getElementById(v1).textContent) + parseInt(document.getElementById(v2).textContent);
+    if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
+        document.getElementById(v3).textContent = parseInt(document.getElementById(v1).textContent) + parseInt(document.getElementById(v2).textContent);
+    }else{
+        document.getElementById(v1).value=0;
+    }
 }
 
 function txtChangedTd2(v1, v2, v3, v4, v5) {
-    document.getElementById(v5).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value) + parseInt(document.getElementById(v3).value) + parseInt(document.getElementById(v4).value);
+    if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
+        document.getElementById(v5).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value) + parseInt(document.getElementById(v3).value) + parseInt(document.getElementById(v4).value);
+    }else{
+        document.getElementById(v1).value=0;
+    }
+
 }
 
 $(function () {
