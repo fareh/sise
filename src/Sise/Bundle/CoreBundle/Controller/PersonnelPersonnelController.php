@@ -26,39 +26,114 @@ class PersonnelPersonnelController extends Controller
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
         $user= $this->get('security.context')->getToken()->getUser();
+        if ($user->getCodeetab())
+        {
+            $query = $em->createQuery(
+                'SELECT E,P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+             WHERE E.codeetab=:codeetabuser and E.codetypeetab=:codetypeetabuser ')->setParameter('codeetabuser',$user->getCodeetab()->getCodeetab())
+                                                                                   ->setParameter('codetypeetabuser',$user->getCodetypeetab()->getCodetypeetab());
+            $entities = $query->execute();
+//            $etabArray=array();
+//            $etabArray['codeetab']=$user->getCodeetab();
+//            $etabArray['codetypeetab']=$user->getCodetypeetab();
+//            $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->getPersonels($etabArray);
+        }
+        elseif ($user->getCodedele())
+        {
+            $query = $em->createQuery(
+                'SELECT E,P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+             WHERE E.codedele=:codedeleuser')->setParameter('codedeleuser',$user->getCodedele()->getCodedele());
+            $entities = $query->execute();
+        }
+        elseif ($user->getCodecircregi())
+        {
+            $query = $em->createQuery(
+                'SELECT E,P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+             WHERE E.codecircregi=:codecircregiuser')->setParameter('codecircregiuser',$user->getCodecircregi()->getCodecircregi());
+            $entities = $query->execute();        }
+        else
+        {
+            $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->findAll();
+        }
         $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType($session, $em, $user))->getForm();
-        $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->findAll();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchpersonnel->getName());
             $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("featurespers", $params);
-            $FiltreArray = array();
+            $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType($session, $em, $user))->getForm();
+            $FiltreArray = '';
+            if ($params['NomenclatureCirconscriptionregional'] != '') {
+                $FiltreArray .= " E.codecircregi ='" . $params['NomenclatureCirconscriptionregional'] . "'";
+            }
+            if ($params['NomenclatureDelegation'] != '') {
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . " E.codedele = '" . $params['NomenclatureDelegation'] . "'";
+            }
             if ($params['NomenclatureTypeetablissement'] != '') {
-                $FiltreArray['codetypeetab'] = $params['NomenclatureTypeetablissement'];
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . "P.codetypeetab='" . $params['NomenclatureTypeetablissement'] . "'";
             }
             if ($params['NomenclatureEtablissement'] != '') {
-                $FiltreArray['codeetab'] = $params['NomenclatureEtablissement'];
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . "E.codeetab='" . $params['NomenclatureEtablissement'] . "'";
             }
             if ($params['NomenclatureNationalite'] != '') {
-                $FiltreArray['codenati'] = $params['NomenclatureNationalite'];
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . "P.codenati='" . $params['NomenclatureNationalite'] . "'";
             }
             if ($params['NomenclatureSoussituationadministrative'] != '') {
-                $FiltreArray['codesoussituadmi'] = $params['NomenclatureSoussituationadministrative'];
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . "P.codesoussituadmi='" . $params['NomenclatureSoussituationadministrative'] . "'";
             }
             if ($params['NomenclatureCorps'] != '') {
-                $FiltreArray['codecorp'] = $params['NomenclatureCorps'];
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . "P.codecorp='" . $params['NomenclatureCorps'] . "'";
             }
             if ($params['NomenclatureQualite'] != '') {
-                $FiltreArray['codequal'] = $params['NomenclatureQualite'];
+                $FiltreArray .= ($FiltreArray != '' ? ' and ' : '') . "P.codequal='" . $params['NomenclatureQualite'] . "'";
             }
-            $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType($session, $em, $user))->getForm();
-            // var_dump($FiltreArray);die;
-           // $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find(10);
-           // $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab'=>'100101','codetypeetab'=>'10'));
-            $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->getPersonels($FiltreArray);
-           //var_dump($entities);die;
+            if ($user->getCodeetab())
+            {
+                $query = $em->createQuery(
+                    'SELECT P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+            ' . ($FiltreArray != '' ? ' WHERE E.codeetab=:codeetabuser and E.codetypeetab=:codetypeetabuser and ' . $FiltreArray : ''))->setParameter('codeetabuser',$user->getCodeetab()->getCodeetab())
+                                                                                                                                       ->setParameter('codetypeetabuser',$user->getCodetypeetab()->getCodetypeetab());
+                $entities = $query->execute();
+
+            }
+            elseif ($user->getCodedele())
+            {
+                $query = $em->createQuery(
+                    'SELECT P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+            ' . ($FiltreArray != '' ? ' WHERE E.codedele=:codedeleuser and ' . $FiltreArray : ''))->setParameter('codedeleuser',$user->getCodedele()->getCodedele());
+                $entities = $query->execute();
+            }
+            elseif ($user->getCodecircregi())
+            {
+                $query = $em->createQuery(
+                    'SELECT P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+            ' . ($FiltreArray != '' ? ' WHERE E.codecircregi=:codecircregiuser and ' . $FiltreArray : ''))->setParameter('codecircregiuser',$user->getCodecircregi()->getCodecircregi());
+                $entities = $query->execute();
+            }
+            else
+            {
+                $query = $em->createQuery(
+                    'SELECT P
+             FROM SiseCoreBundle:PersonnelPersonnel P
+             JOIN  P.codeetab E
+            ' . ($FiltreArray != '' ? ' WHERE ' . $FiltreArray : ''));
+                $entities = $query->execute();
+            }
+          //  var_dump($entities);die;
         }
+        //var_dump($entities);die;
         return $this->render('SiseCoreBundle:PersonnelPersonnel:index.html.twig', array(
             'entities' => @$entities,
             'searchpersonnel' => $searchpersonnel->createView(),

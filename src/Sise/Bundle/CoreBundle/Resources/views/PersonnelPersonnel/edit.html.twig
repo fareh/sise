@@ -203,7 +203,7 @@
         </div>
         <div class="Row">
             <span id="CPHMain_Label37" style="display:inline-block;height:28px;width:25%;">نوع المؤسسة</span>
-            {{ form_widget(edit_form.codetypeetab) }}
+            {{ form_widget(edit_form.codetypeetab, {'attr': {'class': 'NomenclatureTypeetablissement', 'onChange': 'getListe("sise_corebundle_personnelpersonnel_codetypeetab","NomenclatureEtablissementType", "sise_corebundle_personnelpersonnel_codeetab" );' }}) }}
         </div>
         <div class="Row">
             <span id="CPHMain_Label36" style="display:inline-block;height:28px;width:25%;">المؤسسة</span>

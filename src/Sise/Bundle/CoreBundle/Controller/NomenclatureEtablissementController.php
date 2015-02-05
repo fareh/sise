@@ -50,9 +50,7 @@ class NomenclatureEtablissementController extends Controller
           //  $session->set("codeetab", $params['NomenclatureEtablissement']);
             $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
             $session->set("featuresetab", $params);
-
             $FiltreArray = array();
-
             if ($params['NomenclatureCirconscriptionregional'] != '') {
                 $FiltreArray['codecircregi'] = $params['NomenclatureCirconscriptionregional'];
             }

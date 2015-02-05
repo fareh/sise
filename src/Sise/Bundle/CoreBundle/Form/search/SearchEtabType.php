@@ -52,30 +52,36 @@ class SearchEtabType extends AbstractType
 
                 $builder->add('NomenclatureCirconscriptionregional', 'hidden', array(
                     'data' => $this->user->getCodecircregi()->getCodecircregi(),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureCirconscriptionregional']) ? @$this->featuresetab['NomenclatureCirconscriptionregional'] : "-- اختيار --"
                 ));
 
                 $builder->add('NomenclatureDelegation', 'hidden', array(
                     'data' => $this->user->getCodedele()->getCodedele(),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureDelegation']) ? @$this->featuresetab['NomenclatureDelegation'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
                     'choices' => $this->getCirconscription($this->user->getCodedele()->getCodedele()),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => (@$this->featuresetab['NomenclatureCirconscription']) ? @$this->featuresetab['NomenclatureCirconscription'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
                     'choices' => $this->getTypeEtab(),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => (@$this->featuresetab['NomenclatureTypeetablissement']) ? @$this->featuresetab['NomenclatureTypeetablissement'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureSecteur', 'choice', array(
                     'choices' => $this->getSecteur(),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => (@$this->featuresetab['NomenclatureSecteur']) ? @$this->featuresetab['NomenclatureSecteur'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureZone', 'choice', array(
                     'choices' => $this->getZone(),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => (@$this->featuresetab['NomenclatureZone']) ? @$this->featuresetab['NomenclatureZone'] : "-- اختيار --"
                 ));
@@ -92,21 +98,25 @@ class SearchEtabType extends AbstractType
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
                     'choices' => $this->getCirconscription($this->user->getCodedele()->getCodedele()),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureCirconscription']
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
                     'choices' => $this->getTypeEtab(),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureTypeetablissement']
                 ));
                 $builder->add('NomenclatureSecteur', 'choice', array(
                     'choices' => $this->getSecteur(),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureSecteur']
                 ));
                 $builder->add('NomenclatureZone', 'choice', array(
                     'choices' => $this->getZone(),
+                    'empty_value' => "-- اختيار --",
                     'required' => false,
                     'data' => $this->featuresetab['NomenclatureZone']
                 ));
@@ -123,26 +133,31 @@ class SearchEtabType extends AbstractType
                 $builder->add('NomenclatureDelegation', 'choice', array(
                     'required' => false,
                     'choices' => $this->getDele($this->user->getCodecircregi()->getCodecircregi()),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureDelegation']) ? @$this->featuresetab['NomenclatureDelegation'] : ""
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
                     'required' => false,
                     'choices' => $this->getCirconscription("",$this->user->getCodecircregi()->getCodecircregi()),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureCirconscription']) ? @$this->featuresetab['NomenclatureCirconscription'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
                     'required' => false,
                     'choices' => $this->getTypeEtab(),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureTypeetablissement']) ? @$this->featuresetab['NomenclatureTypeetablissement'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureSecteur', 'choice', array(
                     'required' => false,
                     'choices' => $this->getSecteur(),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureSecteur']) ? @$this->featuresetab['NomenclatureSecteur'] : "-- اختيار --"
                 ));
                 $builder->add('NomenclatureZone', 'choice', array(
                     'required' => false,
                     'choices' => $this->getZone(),
+                    'empty_value' => "-- اختيار --",
                     'data' => (@$this->featuresetab['NomenclatureZone']) ? @$this->featuresetab['NomenclatureZone'] : "-- اختيار --"
                 ));
 
@@ -155,26 +170,31 @@ class SearchEtabType extends AbstractType
                 $builder->add('NomenclatureDelegation', 'choice', array(
                     'choices' => $this->getDele($this->user->getCodecircregi()->getCodecircregi()),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureDelegation']
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
                     'choices' => $this->getCirconscription($items["NomenclatureDelegation"]),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureCirconscription']
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
                     'choices' => $this->getTypeEtab(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureTypeetablissement']
                 ));
                 $builder->add('NomenclatureSecteur', 'choice', array(
                     'choices' => $this->getSecteur(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureSecteur']
                 ));
                 $builder->add('NomenclatureZone', 'choice', array(
                     'choices' => $this->getZone(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureZone']
                 ));
 
@@ -221,31 +241,37 @@ class SearchEtabType extends AbstractType
                 $builder->add('NomenclatureCirconscriptionregional', 'choice', array(
                     'choices' => $this->getCirconscriptionregional(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureCirconscriptionregional']
                 ));
                 $builder->add('NomenclatureDelegation', 'choice', array(
                     'choices' => $this->getDele($items["NomenclatureCirconscriptionregional"]),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureDelegation']
                 ));
                 $builder->add('NomenclatureCirconscription', 'choice', array(
                     'choices' => $this->getCirconscription($items["NomenclatureDelegation"]),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureCirconscription']
                 ));
                 $builder->add('NomenclatureTypeetablissement', 'choice', array(
                     'choices' => $this->getTypeEtab(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureTypeetablissement']
                 ));
                 $builder->add('NomenclatureSecteur', 'choice', array(
                     'choices' => $this->getSecteur(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureSecteur']
                 ));
                 $builder->add('NomenclatureZone', 'choice', array(
                     'choices' => $this->getZone(),
                     'required' => false,
+                    'empty_value' => "-- اختيار --",
                     'data' => $this->featuresetab['NomenclatureZone']
                 ));
             }

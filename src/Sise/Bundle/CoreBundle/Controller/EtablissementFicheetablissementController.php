@@ -51,7 +51,7 @@ class EtablissementFicheetablissementController extends Controller
                 'SELECT F,P
              FROM SiseCoreBundle:EtablissementFicheetablissement F
              INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab
-              WHERE P.codecircregi=:codedeleuser and F.annescol=:annescoluser and F.coderece=:codereceuser')->setParameter('codedeleuser',$user->getCodecircregi()->getCodecircregi())
+              WHERE P.codecircregi=:codecircregiuser and F.annescol=:annescoluser and F.coderece=:codereceuser')->setParameter('codecircregiuser',$user->getCodecircregi()->getCodecircregi())
                                                                                                         ->setParameter('annescoluser',$annescol)
                                                                                                         ->setParameter('codereceuser',$coderece);
             $entities = $query->execute();
@@ -64,6 +64,10 @@ class EtablissementFicheetablissementController extends Controller
         $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchetab->getName());
+            //$session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("featuresetab", $params);
+            $searchetab = $this->container->get('form.factory')->createBuilder(new SearchEtabType($session, $em, $user))->getForm();
             $FiltreArray = '';
             if ($params['NomenclatureCirconscriptionregional'] != '') {
                 $FiltreArray .= " P.codecircregi ='" . $params['NomenclatureCirconscriptionregional'] . "'";

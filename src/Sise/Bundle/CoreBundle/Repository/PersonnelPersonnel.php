@@ -24,7 +24,7 @@ class PersonnelPersonnel extends EntityRepository
             ->setParameter('codeetab', $fieldArray['codeetab'])
             ->setParameter('codetypeetab', $fieldArray['codetypeetab'])
             ->orderBy('p.idenuniq', 'DESC')
-            ->getQuery()->getResult();
+            ->getQuery()->execute();
     }
 
 
