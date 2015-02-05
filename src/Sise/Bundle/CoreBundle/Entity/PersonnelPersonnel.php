@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * PersonnelPersonnel
  *
  * @ORM\Table(name="personnel_personnel")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\PersonnelPersonnel")
  */
 class PersonnelPersonnel
 {
@@ -22,14 +22,6 @@ class PersonnelPersonnel
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $idenuniq;
-
-    /**
-     * @param string $idenuniq
-     */
-    public function setIdenuniq($idenuniq)
-    {
-        $this->idenuniq = $idenuniq;
-    }
 
     /**
      * @var string
@@ -63,25 +55,9 @@ class PersonnelPersonnel
     private $codegenr;
 
     /**
-     * @return \NomenclatureGenre
-     */
-    public function getCodegenr()
-    {
-        return $this->codegenr;
-    }
-
-    /**
-     * @param \NomenclatureGenre $codegenr
-     */
-    public function setCodegenr($codegenr)
-    {
-        $this->codegenr = $codegenr;
-    }
-
-    /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateNais", type="datetime", nullable=true)
+     * @ORM\Column(name="DateNais", type="string", length=50, nullable=true)
      */
     private $datenais;
 
@@ -100,9 +76,9 @@ class PersonnelPersonnel
     private $numecin;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateCIN", type="datetime", nullable=true)
+     * @ORM\Column(name="DateCIN", type="string", length=50, nullable=true)
      */
     private $datecin;
 
@@ -282,30 +258,29 @@ class PersonnelPersonnel
     private $codecorp;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateEntrFoncPubl", type="datetime", nullable=true)
+     * @ORM\Column(name="DateEntrFoncPubl", type="string", length=50, nullable=true)
      */
     private $dateentrfoncpubl;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateRecrME", type="datetime", nullable=true)
+     * @ORM\Column(name="DateRecrME", type="string", length=50, nullable=true)
      */
     private $daterecrme;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateTitu", type="datetime", nullable=true)
+     * @ORM\Column(name="DateTitu", type="string", length=50, nullable=true)
      */
     private $datetitu;
 
     /**
      * @var \NomenclatureEtablissement
      *
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureEtablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeEtab", referencedColumnName="CodeEtab"),
@@ -317,7 +292,6 @@ class PersonnelPersonnel
     /**
      * @var \NomenclatureTypeetablissement
      *
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="NomenclatureTypeetablissement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="CodeTypeEtab", referencedColumnName="CodeTypeEtab")
@@ -326,9 +300,9 @@ class PersonnelPersonnel
     private $codetypeetab;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateAffeEtabActu", type="datetime", nullable=true)
+     * @ORM\Column(name="DateAffeEtabActu", type="string", length=50, nullable=true)
      */
     private $dateaffeetabactu;
 
@@ -353,16 +327,16 @@ class PersonnelPersonnel
     private $codegrad;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateGradActu", type="datetime", nullable=true)
+     * @ORM\Column(name="DateGradActu", type="string", length=50, nullable=true)
      */
     private $dategradactu;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateConfGradActu", type="datetime", nullable=true)
+     * @ORM\Column(name="DateConfGradActu", type="string", length=50, nullable=true)
      */
     private $dateconfgradactu;
 
@@ -377,9 +351,9 @@ class PersonnelPersonnel
     private $codefonc;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateFonc", type="datetime", nullable=true)
+     * @ORM\Column(name="DateFonc", type="string", length=50, nullable=true)
      */
     private $datefonc;
 
@@ -404,6 +378,30 @@ class PersonnelPersonnel
     private $codesoussituadmi;
 
     /**
+     * @return \NomenclatureGenre
+     */
+    public function getCodegenr()
+    {
+        return $this->codegenr;
+    }
+
+    /**
+     * @param \NomenclatureGenre $codegenr
+     */
+    public function setCodegenr($codegenr)
+    {
+        $this->codegenr = $codegenr;
+    }
+
+    /**
+     * @param string $idenuniq
+     */
+    public function setIdenuniq($idenuniq)
+    {
+        $this->idenuniq = $idenuniq;
+    }
+
+    /**
      * @return \NomenclatureSoussituationadministrative
      */
     public function getCodesoussituadmi()
@@ -421,16 +419,16 @@ class PersonnelPersonnel
 
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateSituAdmi", type="datetime", nullable=true)
+     * @ORM\Column(name="DateSituAdmi", type="string", length=50, nullable=true)
      */
     private $datesituadmi;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateSousSituAdmi", type="datetime", nullable=true)
+     * @ORM\Column(name="DateSousSituAdmi", type="string", length=50, nullable=true)
      */
     private $datesoussituadmi;
 
@@ -452,16 +450,16 @@ class PersonnelPersonnel
     private $roul;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateDebuRoul", type="datetime", nullable=true)
+     * @ORM\Column(name="DateDebuRoul", type="string", length=50, nullable=true)
      */
     private $datedeburoul;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateFinRoul", type="datetime", nullable=true)
+     * @ORM\Column(name="DateFinRoul", type="string", length=50, nullable=true)
      */
     private $datefinroul;
 
@@ -607,16 +605,16 @@ class PersonnelPersonnel
     private $cont;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateDebuCont", type="datetime", nullable=true)
+     * @ORM\Column(name="DateDebuCont", type="string", length=50, nullable=true)
      */
     private $datedebucont;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="DateFinCont", type="datetime", nullable=true)
+     * @ORM\Column(name="DateFinCont", type="string", length=50, nullable=true)
      */
     private $datefincont;
 
@@ -692,7 +690,7 @@ class PersonnelPersonnel
     /**
      * Set datenais
      *
-     * @param \DateTime $datenais
+     * @param string $datenais
      * @return PersonnelPersonnel
      */
     public function setDatenais($datenais)
@@ -705,7 +703,7 @@ class PersonnelPersonnel
     /**
      * Get datenais
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatenais()
     {
@@ -761,7 +759,7 @@ class PersonnelPersonnel
     /**
      * Set datecin
      *
-     * @param \DateTime $datecin
+     * @param string $datecin
      * @return PersonnelPersonnel
      */
     public function setDatecin($datecin)
@@ -774,7 +772,7 @@ class PersonnelPersonnel
     /**
      * Get datecin
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatecin()
     {
@@ -1313,7 +1311,7 @@ class PersonnelPersonnel
     /**
      * Set dateentrfoncpubl
      *
-     * @param \DateTime $dateentrfoncpubl
+     * @param string $dateentrfoncpubl
      * @return PersonnelPersonnel
      */
     public function setDateentrfoncpubl($dateentrfoncpubl)
@@ -1326,7 +1324,7 @@ class PersonnelPersonnel
     /**
      * Get dateentrfoncpubl
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDateentrfoncpubl()
     {
@@ -1336,7 +1334,7 @@ class PersonnelPersonnel
     /**
      * Set daterecrme
      *
-     * @param \DateTime $daterecrme
+     * @param string $daterecrme
      * @return PersonnelPersonnel
      */
     public function setDaterecrme($daterecrme)
@@ -1349,7 +1347,7 @@ class PersonnelPersonnel
     /**
      * Get daterecrme
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDaterecrme()
     {
@@ -1428,7 +1426,7 @@ class PersonnelPersonnel
     /**
      * Set dateaffeetabactu
      *
-     * @param \DateTime $dateaffeetabactu
+     * @param string $dateaffeetabactu
      * @return PersonnelPersonnel
      */
     public function setDateaffeetabactu($dateaffeetabactu)
@@ -1441,7 +1439,7 @@ class PersonnelPersonnel
     /**
      * Get dateaffeetabactu
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDateaffeetabactu()
     {
@@ -1497,7 +1495,7 @@ class PersonnelPersonnel
     /**
      * Set dategradactu
      *
-     * @param \DateTime $dategradactu
+     * @param string $dategradactu
      * @return PersonnelPersonnel
      */
     public function setDategradactu($dategradactu)
@@ -1510,7 +1508,7 @@ class PersonnelPersonnel
     /**
      * Get dategradactu
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDategradactu()
     {
@@ -1520,7 +1518,7 @@ class PersonnelPersonnel
     /**
      * Set dateconfgradactu
      *
-     * @param \DateTime $dateconfgradactu
+     * @param string $dateconfgradactu
      * @return PersonnelPersonnel
      */
     public function setDateconfgradactu($dateconfgradactu)
@@ -1533,7 +1531,7 @@ class PersonnelPersonnel
     /**
      * Get dateconfgradactu
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDateconfgradactu()
     {
@@ -1612,7 +1610,7 @@ class PersonnelPersonnel
     /**
      * Set datesituadmi
      *
-     * @param \DateTime $datesituadmi
+     * @param string $datesituadmi
      * @return PersonnelPersonnel
      */
     public function setDatesituadmi($datesituadmi)
@@ -1625,7 +1623,7 @@ class PersonnelPersonnel
     /**
      * Get datesituadmi
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatesituadmi()
     {
@@ -1635,7 +1633,7 @@ class PersonnelPersonnel
     /**
      * Set datesoussituadmi
      *
-     * @param \DateTime $datesoussituadmi
+     * @param string $datesoussituadmi
      * @return PersonnelPersonnel
      */
     public function setDatesoussituadmi($datesoussituadmi)
@@ -1648,7 +1646,7 @@ class PersonnelPersonnel
     /**
      * Get datesoussituadmi
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatesoussituadmi()
     {
@@ -1704,7 +1702,7 @@ class PersonnelPersonnel
     /**
      * Set datedeburoul
      *
-     * @param \DateTime $datedeburoul
+     * @param string $datedeburoul
      * @return PersonnelPersonnel
      */
     public function setDatedeburoul($datedeburoul)
@@ -1717,7 +1715,7 @@ class PersonnelPersonnel
     /**
      * Get datedeburoul
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatedeburoul()
     {
@@ -1727,7 +1725,7 @@ class PersonnelPersonnel
     /**
      * Set datefinroul
      *
-     * @param \DateTime $datefinroul
+     * @param string $datefinroul
      * @return PersonnelPersonnel
      */
     public function setDatefinroul($datefinroul)
@@ -1740,7 +1738,7 @@ class PersonnelPersonnel
     /**
      * Get datefinroul
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatefinroul()
     {
@@ -2164,7 +2162,7 @@ class PersonnelPersonnel
     /**
      * Set datedebucont
      *
-     * @param \DateTime $datedebucont
+     * @param string $datedebucont
      * @return PersonnelPersonnel
      */
     public function setDatedebucont($datedebucont)
@@ -2177,7 +2175,7 @@ class PersonnelPersonnel
     /**
      * Get datedebucont
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatedebucont()
     {
@@ -2187,7 +2185,7 @@ class PersonnelPersonnel
     /**
      * Set datefincont
      *
-     * @param \DateTime $datefincont
+     * @param string $datefincont
      * @return PersonnelPersonnel
      */
     public function setDatefincont($datefincont)
@@ -2200,28 +2198,11 @@ class PersonnelPersonnel
     /**
      * Get datefincont
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDatefincont()
     {
         return $this->datefincont;
-    }
-
-    public function __construct()
-    {
-        $this->datenais = new \DateTime();
-        $this->datecin = new \DateTime();
-        $this->dateentrfoncpubl = new \DateTime();
-        $this->daterecrme = new \DateTime();
-        $this->datetitu = new \DateTime();
-        $this->dategradactu = new \DateTime();
-        $this->dateconfgradactu = new \DateTime();
-        $this->datefonc = new \DateTime();
-        $this->datedeburoul = new \DateTime();
-        $this->datefinroul = new \DateTime();
-        $this->datedebucont = new \DateTime();
-        $this->datefincont = new \DateTime();
-        $this->dateaffeetabactu = new \DateTime();
     }
 
     public function __toString()
@@ -2260,8 +2241,8 @@ class PersonnelPersonnel
 //     */
 //    public function updatedTimestamps()
 //    {
-//        $date = new \DateTime('now');
-//        if ($date instanceof \DateTime) {
+//        $date = new string('now');
+//        if ($date instanceof string) {
 //            if ($this->getDatecreabd() == null) {
 //                $this->setDatecreabd($date);
 //            }

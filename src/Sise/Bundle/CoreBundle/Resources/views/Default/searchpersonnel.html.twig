@@ -55,7 +55,7 @@
 
                         <tr>
                             <td id="CPHMain_divCodeCircRegi2"
-                                width="15%"> {{ form_widget(form.NomenclatureTypeetablissement) }}</td>
+                                width="15%"> {{ form_widget(form.NomenclatureTypeetablissement, {'attr': {'onChange': 'getListe("sise_bundle_corebundle_searchpersonnel_NomenclatureTypeetablissement","NomenclatureEtablissementType", "sise_bundle_corebundle_searchpersonnel_NomenclatureEtablissement" );' }}) }}</td>
                             <td id="CPHMain_divCodeCircRegi2"
                                 width="15%"> {{ form_widget(form.NomenclatureEtablissement) }}</td>
                             <td id="CPHMain_divCodeCircRegi2"

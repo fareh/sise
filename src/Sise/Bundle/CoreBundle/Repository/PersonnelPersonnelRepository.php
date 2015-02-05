@@ -19,7 +19,7 @@ class PersonnelPersonnelRepository extends EntityRepository
         return $this->createQueryBuilder('p')
             ->leftJoin('p.codeetab', 'c')
             ->leftJoin('p.codetypeetab', 't')
-            ->where('r.codeetab = :codeetab')
+            ->where('c.codeetab = :codeetab')
             ->andWhere('t.codetypeetab = :codetypeetab')
             ->setParameter('codeetab', $fieldArray['codeetab'])
             ->setParameter('codetypeetab', $fieldArray['codetypeetab'])

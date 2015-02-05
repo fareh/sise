@@ -188,10 +188,13 @@ class DefaultController extends Controller
         ));
     }
 
-    public function searchpersonnelAction()
+    public function searchpersonnelAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $user= $this->get('security.context')->getToken()->getUser();
+        $session = $request->getSession();
         // Generation of the form
-        $form = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType())->getForm();
+        $form = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType($session, $em, $user))->getForm();
 
         // return the form view
         return $this->render('SiseCoreBundle:Default:searchPersonnel.html.twig', array(
@@ -251,7 +254,21 @@ class DefaultController extends Controller
                         $i++;
                     }
                     $session->set("codetypeetab", $codegouv);
-                } elseif ($entity == 'NomenclatureCirconscription') {
+                }elseif ($entity == 'NomenclatureEtablissementType') {
+                    // $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findByCodetypeetab($codegouv);
+                    $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findBy(array("codetypeetab" => $codegouv));
+                    $json = array();
+                    $json[0]['code'] = '';
+                    $json[0]['libelle'] = '-- اختيار --';
+                    $i = 1;
+                    foreach ($nomenclatureDelegations as $nomenclatureDelegation) // pour transformer la réponse à ta requete en tableau qui replira le select2
+                    {
+                        $json[$i]['code'] = $nomenclatureDelegation->getCodeetab();
+                        $json[$i]['libelle'] = $nomenclatureDelegation->getCodeetab() . ' | ' . $nomenclatureDelegation->getLibeetabar();
+                        $i++;
+                    }
+                    $session->set("codetypeetab", $codegouv);
+                }elseif ($entity == 'NomenclatureCirconscription') {
                     $nomenclatureDelegations = $em->getRepository('SiseCoreBundle:NomenclatureCirconscription')->findByCodedele($codegouv);
                     $json = array();
                     $json[0]['code'] = '';

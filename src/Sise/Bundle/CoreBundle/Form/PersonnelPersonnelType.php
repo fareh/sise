@@ -19,22 +19,10 @@ class PersonnelPersonnelType extends AbstractType
             ->add('pren')
             ->add('nom')
             ->add('nomjeunfille')
-            ->add('datenais', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
+            ->add('datenais')
             ->add('lieunais')
             ->add('numecin')
-            ->add('datecin', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
+            ->add('datecin')
             ->add('natituni', 'choice',
                 array('required' => true,
                     'expanded' => true,
@@ -66,80 +54,21 @@ class PersonnelPersonnelType extends AbstractType
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
             ->add('idenuniqconj')
-            ->add('dateentrfoncpubl', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('daterecrme', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('datetitu', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('dateaffeetabactu', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('dategradactu', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('dateconfgradactu', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('datefonc', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('datesituadmi', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
+            ->add('dateentrfoncpubl')
+            ->add('daterecrme')
+            ->add('datetitu')
+            ->add('dateaffeetabactu')
+            ->add('dategradactu')
+            ->add('dateconfgradactu')
+            ->add('datefonc')
+            ->add('datesituadmi')
             ->add('roul', 'choice',
                 array('required' => true,
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('datedeburoul', 'datetime', array(
-                'data' => new \DateTime(),
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => false,
-                'format' => 'dd-MM-yyyy'))
-            ->add('datefinroul', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
+            ->add('datedeburoul')
+            ->add('datefinroul')
             ->add('dipltuni', 'choice',
                 array('required' => true,
                     'expanded' => true,
@@ -173,27 +102,9 @@ class PersonnelPersonnelType extends AbstractType
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array('1' => 'نعم', '0' => 'لا')))
-            ->add('datedebucont', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('datesoussituadmi', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
-            ->add('datefincont', 'datetime', array(
-                'input' => 'datetime',
-                'widget' => 'single_text',
-                'max_length' => 100,
-                'required' => true,
-                'format' => 'dd-MM-yyyy',
-                'required' => true))
+            ->add('datedebucont')
+            ->add('datesoussituadmi')
+            ->add('datefincont')
             ->add('codecorp', 'entity', array(
                 'class' => 'Sise\Bundle\CoreBundle\Entity\NomenclatureCorps',
                 'property' => 'libecorpar',

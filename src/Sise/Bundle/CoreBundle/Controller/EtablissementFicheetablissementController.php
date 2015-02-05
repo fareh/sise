@@ -88,7 +88,7 @@ class EtablissementFicheetablissementController extends Controller
              FROM SiseCoreBundle:EtablissementFicheetablissement F
              INNER JOIN SiseCoreBundle:NomenclatureEtablissement P  WITH  P.codeetab=F.codeetab and P.codetypeetab=F.codetypeetab
               ' . ($FiltreArray != '' ? ' WHERE F.annescol=:annescoluser and F.coderece=:codereceuser and' . $FiltreArray : '')) ->setParameter('annescoluser',$annescol)
-                                                                                                                                 ->setParameter('codereceuser',$coderece);;
+                                                                                                                                 ->setParameter('codereceuser',$coderece);
             $entities = $query->execute();
             //        $items = array();
 //        foreach ($entities as $item) {

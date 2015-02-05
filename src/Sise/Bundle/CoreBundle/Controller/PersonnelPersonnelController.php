@@ -24,13 +24,16 @@ class PersonnelPersonnelController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        //    $session = $request->getSession();
-        $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType())->getForm();
+        $session = $request->getSession();
+        $user= $this->get('security.context')->getToken()->getUser();
+        $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType($session, $em, $user))->getForm();
         $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->findAll();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($searchpersonnel->getName());
+            $session->set("codeetab", $params['NomenclatureEtablissement']);
+            $session->set("codetypeetab", $params['NomenclatureTypeetablissement']);
+            $session->set("featurespers", $params);
             $FiltreArray = array();
-
             if ($params['NomenclatureTypeetablissement'] != '') {
                 $FiltreArray['codetypeetab'] = $params['NomenclatureTypeetablissement'];
             }
@@ -49,13 +52,15 @@ class PersonnelPersonnelController extends Controller
             if ($params['NomenclatureQualite'] != '') {
                 $FiltreArray['codequal'] = $params['NomenclatureQualite'];
             }
-            $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->findBy($FiltreArray);
-
-
-            //  var_dump($params); die ;
+            $searchpersonnel = $this->container->get('form.factory')->createBuilder(new SearchPersonnelType($session, $em, $user))->getForm();
+            // var_dump($FiltreArray);die;
+           // $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find(10);
+           // $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab'=>'100101','codetypeetab'=>'10'));
+            $entities = $em->getRepository('SiseCoreBundle:PersonnelPersonnel')->getPersonels($FiltreArray);
+           //var_dump($entities);die;
         }
         return $this->render('SiseCoreBundle:PersonnelPersonnel:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => @$entities,
             'searchpersonnel' => $searchpersonnel->createView(),
             'pathfilter' => '',
         ));
@@ -133,7 +138,6 @@ class PersonnelPersonnelController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find PersonnelPersonnel entity.');
         }
-
         $editForm = $this->createEditForm($entity);
        // $deleteForm = $this->createDeleteForm($id);
 
