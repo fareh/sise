@@ -10,7 +10,7 @@ $('form#id_with_js').quickValidate();
 function testVal(id, minNumber) {
     if (parseInt(document.getElementById(id).value) === parseInt(parseInt(document.getElementById(id).value), 10)) {
         if (parseInt(document.getElementById(id).value) < minNumber) {
-            alert('Le numéro doit supérieur ou égal à' + minNumber);
+            alert('Le numéro doit supérieur ou égal à ' + minNumber);
             document.getElementById(id).value = 0;
         }
 
@@ -21,6 +21,42 @@ function testVal(id, minNumber) {
 
 
 }
+
+function bourseResidant(id_bourse, id_total) {
+    if (parseInt(document.getElementById(id_bourse).value) === parseInt(parseInt(document.getElementById(id_bourse).value), 10)) {
+        if (parseInt(document.getElementById(id_bourse).value) > parseInt(document.getElementById(id_total).textContent)) {
+            alert('Le numéro doit inférieur ou égal à ' + parseInt(document.getElementById(id_total).textContent));
+            document.getElementById(id_bourse).value = 0;
+        }
+    } else {
+        document.getElementById(id_bourse).value = 0;
+    }
+}
+
+function residantBourse(id_boursem, id_boursef,id_residantm, id_residantf, id) {
+    var b1 = parseInt(document.getElementById(id_boursem).value);
+    var b2 = parseInt(document.getElementById(id_boursef).value);
+    var r1 = parseInt(document.getElementById(id_residantm).value);
+    var r2 = parseInt(document.getElementById(id_residantf).value);
+
+    if ((b1 + b2) < (r1 + r2)) {
+        alert("le nombre des élèves résidants doit être inférieur ou égal au nombre des élèves boursiers")
+        id.value = 0;
+    }
+}
+
+function bourseDemiResidant(id_bourse, id_total) {
+    if (parseInt(document.getElementById(id_bourse).value) === parseInt(parseInt(document.getElementById(id_bourse).value), 10)) {
+        if (parseInt(document.getElementById(id_bourse).value) > parseInt(document.getElementById(id_total).textContent)/2) {
+            alert('Le numéro doit inférieur ou égal à ' + parseInt(document.getElementById(id_total).textContent)/2);
+            document.getElementById(id_bourse).value = 0;
+        }
+    } else {
+        document.getElementById(id_bourse).value = 0;
+    }
+}
+
+
 
 jQuery(document).ready(function () {
     $("#TdValider2, #Valider2").click(function () {
@@ -387,8 +423,8 @@ $(function () {
 function txtChanged(v1, v2, v3) {
     if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
         document.getElementById(v3).value = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
-    }else{
-        document.getElementById(v1).value=0;
+    } else {
+        document.getElementById(v1).value = 0;
     }
 
 }
@@ -396,24 +432,24 @@ function txtChanged(v1, v2, v3) {
 function txtChangedTd(v1, v2, v3) {
     if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
         document.getElementById(v3).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value);
-    }else{
-        document.getElementById(v1).value=0;
+    } else {
+        document.getElementById(v1).value = 0;
     }
 }
 
 function txtChangedTdTd(v1, v2, v3) {
     if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
         document.getElementById(v3).textContent = parseInt(document.getElementById(v1).textContent) + parseInt(document.getElementById(v2).textContent);
-    }else{
-        document.getElementById(v1).value=0;
+    } else {
+        document.getElementById(v1).value = 0;
     }
 }
 
 function txtChangedTd2(v1, v2, v3, v4, v5) {
     if (parseInt(document.getElementById(v1).value) === parseInt(parseInt(document.getElementById(v1).value), 10)) {
         document.getElementById(v5).textContent = parseInt(document.getElementById(v1).value) + parseInt(document.getElementById(v2).value) + parseInt(document.getElementById(v3).value) + parseInt(document.getElementById(v4).value);
-    }else{
-        document.getElementById(v1).value=0;
+    } else {
+        document.getElementById(v1).value = 0;
     }
 
 }

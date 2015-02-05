@@ -69,14 +69,18 @@
                                     <td align="right">
                                         <input name="nombelevresimasc{{ key }}" type="text"
                                                value="{{ entity.nombelevresimasc }}" id="nombelevresimasc{{ key }}"
-                                               onchange="javascript:txtChangedTd('nombelevresifemi{{ key }}','nombelevresimasc{{ key }}', 'nombtotaresielev{{ key }}');">
+                                               onchange="
+                                                       javascript:residantBourse('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombelevresifemi{{ key }}', 'nombelevresimasc{{ key }}',this);
+                                                       javascript:txtChangedTd('nombelevresifemi{{ key }}','nombelevresimasc{{ key }}', 'nombtotaresielev{{ key }}');">
                                     </td>
                                     <td align="left">
 
 
                                         <input name="nombelevresifemi{{ key }}" type="text"
                                                value="{{ entity.nombelevresifemi }}" id="nombelevresifemi{{ key }}"
-                                               onchange="javascript:txtChangedTd('nombelevresifemi{{ key }}','nombelevresimasc{{ key }}', 'nombtotaresielev{{ key }}');">
+                                               onchange="
+                                                       javascript:residantBourse('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombelevresifemi{{ key }}', 'nombelevresimasc{{ key }}',this);
+                                                       javascript:txtChangedTd('nombelevresifemi{{ key }}','nombelevresimasc{{ key }}', 'nombtotaresielev{{ key }}');">
                                     </td>
                                     <td align="center" style="background-color:#EEEEEE;" id="nombtotaresielev{{ key }}">
                                         {{ entity.nombtotaresielev }}
@@ -85,20 +89,28 @@
                                         <input name="nombelevbourmasc{{ key }}" type="text"
                                                value="{{ entity.nombelevbourmasc }}"
                                                id="nombelevbourmasc{{ key }}"
-                                               onchange="javascript:txtChangedTd('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombtotabourelev{{ key }}');">
+                                               onchange="
+                                                       javascript:residantBourse('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombelevresifemi{{ key }}', 'nombelevresimasc{{ key }}',this);
+                                                       javascript:txtChangedTd('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombtotabourelev{{ key }}');">
 
                                     </td>
                                     <td align="left">
                                         <input name="nombelevbourfemi{{ key }}" type="text"
                                                value="{{ entity.nombelevbourfemi }}" id="nombelevbourfemi{{ key }}"
-                                               onchange="javascript:txtChangedTd('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombtotabourelev{{ key }}');">
+                                               onchange="
+                                                       javascript:residantBourse('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombelevresifemi{{ key }}', 'nombelevresimasc{{ key }}',this);
+                                                       javascript:txtChangedTd('nombelevbourfemi{{ key }}','nombelevbourmasc{{ key }}', 'nombtotabourelev{{ key }}');">
                                     </td>
                                     <td align="center" style="background-color:#EEEEEE;" id="nombtotabourelev{{ key }}">
                                         {{ entity.nombtotabourelev }}
                                     </td>
                                     <td align="right">
                                         <input name="nombbour{{ key }}" type="text" value="{{ entity.nombbour }}"
-                                               id="nombbour{{ key }}">
+                                               id="nombbour{{ key }}"
+                                               onchange="
+                                                       javascript:bourseDemiResidant('nombbour{{ key }}', 'nombtotabourelev{{ key }}' );
+                                                       "
+                                                >
                                     </td>
                                 </tr>
                             {% endfor %}
