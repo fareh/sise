@@ -11,7 +11,7 @@ namespace Sise\Bundle\CoreBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 
-class PersonnelPersonnelRepository extends EntityRepository
+class PersonnelPersonnel extends EntityRepository
 {
 
     public function getPersonels($fieldArray)
