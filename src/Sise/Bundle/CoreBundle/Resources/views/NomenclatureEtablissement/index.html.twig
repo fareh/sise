@@ -4,7 +4,7 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'قائمة المؤسسات التربوية', 'RouteAction' : 'nomenclatureetablissement' })) }}
     {{ include('SiseCoreBundle:Default:searchetab.html.twig', {'form': searchetab, 'pathfilter' : pathfilter}) }}
     <div style="display: none">
-        <a href="/app.php/NomenclatureQuestionnairerecensement/new" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
+        <a href="/app.php/NomenclatureEtablissement/new" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
     </div>
     {% if entities is defined  and entities|length > 0 %}
         <table class="records_list" id="CPHMain_GridView_Browse">
