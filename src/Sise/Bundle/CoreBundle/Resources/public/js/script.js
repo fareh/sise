@@ -18,8 +18,6 @@ function testVal(id, minNumber) {
 
         document.getElementById(id).value = 0;
     }
-
-
 }
 
 function bourseResidant(id_bourse, id_total) {
@@ -41,6 +39,19 @@ function residantBourse(id_boursem, id_boursef,id_residantm, id_residantf, id) {
 
     if ((b1 + b2) < (r1 + r2)) {
         alert("le nombre des élèves résidants doit être inférieur ou égal au nombre des élèves boursiers")
+        id.value = 0;
+    }
+}
+
+
+function insReussi(id_rm, id_rf,id_im, id_if, id) {
+    var b1 = parseInt(document.getElementById(id_rm).value);
+    var b2 = parseInt(document.getElementById(id_rf).value);
+    var r1 = parseInt(document.getElementById(id_im).value);
+    var r2 = parseInt(document.getElementById(id_if).value);
+
+    if ((b1 + b2) > (r1 + r2)) {
+        alert("le nombre des élèves inscrits doit être supérieur  ou égal au nombre des élèves réussis")
         id.value = 0;
     }
 }

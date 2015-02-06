@@ -53,6 +53,8 @@ form[name="nomenclature_sise"] #nomenclature_sise > div > .btn-group  button{
     text-align: center;
 
 }
+
+#CPHMain_GridView_Browse td{ text-align: center;}
 form[name="nomenclature_sise"] #nomenclature_sise   {
     width: 100%;
     clear: both;

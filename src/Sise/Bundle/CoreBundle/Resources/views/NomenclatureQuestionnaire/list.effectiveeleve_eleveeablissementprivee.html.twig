@@ -55,12 +55,12 @@
                         {% for key , entity in entities %}
                             <tr>
                                 {% if entity.codenivescol.codecyclense.codecyclense!=testRepeat %}
-                                    <td style="background: #ffffff"
+                                    <td align="right" style="background: #ffffff"
                                         rowspan="{{ rowspan[entity.codenivescol.codecyclense.codecyclense]|length }}">{{ entity.codenivescol.codecyclense.libecyclensear }}</td>
                                 {% endif %}
                                 {% set testRepeat = entity.codenivescol.codecyclense.codecyclense %}
-                                <td>
-                                    {{ entity.codenivescol.libenivescolar }}{{ entity.codenivescol.codenivescol }}
+                                <td align="right">
+                                    {{ entity.codenivescol.libenivescolar }}
                                 </td>
 
 

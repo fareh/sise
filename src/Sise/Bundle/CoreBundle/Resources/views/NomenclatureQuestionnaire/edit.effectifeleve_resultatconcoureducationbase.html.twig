@@ -61,13 +61,18 @@
                                     <input type="text" name="nombelevinscmasc{{ key }}"
                                            value="{{ entity.nombelevinscmasc }} "
                                            id="nombelevinscmasc{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', 'nombtotainscelev{{ key }}' );">
+                                           onchange="
+                                                   javascript:insReussi('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', this);
+                                                   javascript:txtChanged('nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', 'nombtotainscelev{{ key }}' );
+                                                   ">
 
                                 </td>
                                 <td align="right" style="background-color:#EEEEEE;">
                                     <input type="text" name="nombelevinscfemi{{ key }}"
                                            value="{{ entity.nombelevinscfemi }} " id="nombelevinscfemi{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevinscfemi{{ key }}','nombelevinscmasc{{ key }}', 'nombtotainscelev{{ key }}' );">
+                                           onchange="
+                                                   javascript:insReussi('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', this);
+                                                   javascript:txtChanged('nombelevinscfemi{{ key }}','nombelevinscmasc{{ key }}', 'nombtotainscelev{{ key }}' );">
                                 </td>
                                 <td align="right" style="background-color:#EEEEEE;">
                                     <input type="text" name="nombtotainscelev{{ key }}"
@@ -79,13 +84,17 @@
                                     <input type="text" name="nombelevreusmasc{{ key }}"
                                            value="{{ entity.nombelevreusmasc }} "
                                            id="nombelevreusmasc{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombtotareuselev{{ key }}' );">
+                                           onchange="
+                                                   javascript:insReussi('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', this);
+                                                   javascript:txtChanged('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombtotareuselev{{ key }}' );">
 
                                 </td>
                                 <td align="right" style="background-color:#EEEEEE;">
                                     <input type="text" name="nombelevreusfemi{{ key }}"
                                            value="{{ entity.nombelevreusfemi }} " id="nombelevreusfemi{{ key }}"
-                                           onchange="javascript:txtChanged('nombelevreusfemi{{ key }}','nombelevreusmasc{{ key }}', 'nombtotareuselev{{ key }}' );">
+                                           onchange="
+                                                   javascript:insReussi('nombelevreusmasc{{ key }}','nombelevreusfemi{{ key }}', 'nombelevinscmasc{{ key }}','nombelevinscfemi{{ key }}', this);
+                                                   javascript:txtChanged('nombelevreusfemi{{ key }}','nombelevreusmasc{{ key }}', 'nombtotareuselev{{ key }}' );">
                                 </td>
                                 <td align="right" style="background-color:#EEEEEE;">
                                     <input type="text" name="nombtotareuselev{{ key }}"
