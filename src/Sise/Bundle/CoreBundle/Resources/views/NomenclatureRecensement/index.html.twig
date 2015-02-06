@@ -3,7 +3,7 @@
 {% block body -%}
 
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturerecensement' })) }}
-    <table class="records_list">
+    <table class="records_list" id="CPHMain_GridView_Browse">
         <thead>
         <tr>
             {#    <th>Coderece</th> #}
