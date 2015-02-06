@@ -304,6 +304,6 @@ class NomenclatureTypeseparation
 
     public function __toString()
     {
-        return $this->codetypesepa;
+        return ($this->getLibetypesepaar())?$this->getLibetypesepaar():"";
     }
 }

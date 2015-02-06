@@ -40,11 +40,11 @@
             </trans-unit>
             <trans-unit id="global_AutreActivite">
                 <source>AutreActivite</source>
-                <target>ثوابت أخرى </target>
+                <target>ثوابت أخرى</target>
             </trans-unit>
             <trans-unit id="global_InfrastructuresLocauxEquipements">
                 <source>InfrastructuresLocauxEquipements</source>
-                <target>البنية التحتية ، الفضاءات و التجهيزات </target>
+                <target>البنية التحتية ، الفضاءات و التجهيزات</target>
             </trans-unit>
             <trans-unit id="global_ElevesRegion">
                 <source>DomaineEleves</source>
@@ -56,7 +56,7 @@
             </trans-unit>
             <trans-unit id="global_DomaineOrganisationPedagogique">
                 <source>DomaineOrganisationPedagogique</source>
-                <target>مجال التنظيم البيداغوجي </target>
+                <target>مجال التنظيم البيداغوجي</target>
             </trans-unit>
             <trans-unit id="global_Codetyperubrbudg">
                 <source>codetyperubrbudg</source>
@@ -123,12 +123,12 @@
                 <target>الوصف بالعربية</target>
             </trans-unit>
             <trans-unit id="global_Libefr">
-                 <source>Libefr</source>
-                 <target>الوصف بالفرنسية</target>
+                <source>Libefr</source>
+                <target>الوصف بالفرنسية</target>
             </trans-unit>
             <trans-unit id="global_ordraffi">
-                 <source>ordraffi</source>
-                 <target>ترتىب العرض</target>
+                <source>ordraffi</source>
+                <target>ترتىب العرض</target>
             </trans-unit>
             <trans-unit id="global_acti">
                 <source>acti</source>
@@ -654,11 +654,10 @@
                 <source>codeetabsour</source>
                 <target>إسم المدرسة الاعدادية العمومية أو الخاصة</target>
             </trans-unit>
-
-               <trans-unit id="codeetabsour_pr">
-                            <source>codeetabsour_pr</source>
-                            <target>إسم المدرسة إبتدائية العمومية أو الخاصة</target>
-                        </trans-unit>
+            <trans-unit id="codeetabsour_pr">
+                <source>codeetabsour_pr</source>
+                <target>إسم المدرسة إبتدائية العمومية أو الخاصة</target>
+            </trans-unit>
             <trans-unit id="enseangl">
                 <source>enseangl</source>
                 <target>يدرسون الإنقليزية</target>
@@ -687,15 +686,18 @@
                 <source>datesepa</source>
                 <target>تاريخ الإنفصال</target>
             </trans-unit>
-
-
-               <trans-unit id="dateretourscolaire">
-                            <source>La date de retour scolaire</source>
-                            <target>تاريخ العودة للدراسة</target>
-                        </trans-unit>
-
-
-
+            <trans-unit id="dateretourscolaire">
+                <source>La date de retour scolaire</source>
+                <target>تاريخ العودة للدراسة</target>
+            </trans-unit>
+            <trans-unit id="isole_automatiquement">
+                <source>isole automatiquement</source>
+                <target>مفصول تلقائيا</target>
+            </trans-unit>
+            <trans-unit id="légalement séparés">
+                <source>legalement separes</source>
+                <target>مفصول قانونا</target>
+            </trans-unit>
             <trans-unit id="nombheursema">
                 <source>nombheursema</source>
                 <target>الساعات الأسبوعية</target>

@@ -40,7 +40,11 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
             ->add('codefili')
             ->add('codegenr')
             ->add('datesepa')
-            ->add('codetypesepa');
+            ->add('codetypesepa')
+           /* ->add('codetypesepa', null, array(
+                'translation_domain' => 'SiseCoreBundle',
+                'choices'=>array(''=>'' , 0=>'isole automatiquement', 1=>'legalement separes')
+            ))*/;
     }
 
     /**
