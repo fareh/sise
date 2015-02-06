@@ -1,5 +1,5 @@
 effectifelevenouveauhuitiemetechnique_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveauhuitiemetechnique:edit" }
 
 effectifelevenouveauhuitiemetechnique_list:

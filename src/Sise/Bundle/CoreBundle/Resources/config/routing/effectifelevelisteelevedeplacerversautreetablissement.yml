@@ -1,5 +1,5 @@
 effectifelevelisteelevedeplacerversautreetablissement_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeelevedeplacerversautreetablissement:edit" }
 
 effectifelevelisteelevedeplacerversautreetablissement_list:

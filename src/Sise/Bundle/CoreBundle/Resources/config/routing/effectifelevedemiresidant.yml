@@ -1,5 +1,5 @@
 effectifelevedemiresidant_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveDemiresidant:edit" }
 
 effectifelevedemiresidant_list:

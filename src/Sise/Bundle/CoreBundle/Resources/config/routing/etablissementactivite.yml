@@ -1,5 +1,5 @@
 etablissementactivite_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EtablissementActivite:edit" }
 
 etablissementactivite_list:

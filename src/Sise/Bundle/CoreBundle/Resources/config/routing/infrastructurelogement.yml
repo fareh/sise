@@ -1,5 +1,5 @@
 infrastructurelogement_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:InfrastructureLogement:edit" }
 
 infrastructurelogement_list:

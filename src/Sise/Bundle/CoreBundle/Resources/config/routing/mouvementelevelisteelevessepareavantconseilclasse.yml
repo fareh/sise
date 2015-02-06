@@ -1,5 +1,5 @@
 mouvementelevelisteelevessepareavantconseilclasse_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:MouvementeleveListeelevessepareavantconseilclasse:edit" }
 
 mouvementelevelisteelevessepareavantconseilclasse_list:

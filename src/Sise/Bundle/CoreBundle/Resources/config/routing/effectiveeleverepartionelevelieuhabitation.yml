@@ -1,5 +1,5 @@
 effectiveeleverepartionelevelieuhabitation_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveRepartioneleveLieuhabitation:edit" }
 
 effectiveeleverepartionelevelieuhabitation_list:

@@ -1,5 +1,5 @@
 effectiveeleveeleveeablissementprivee_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveeablissementprivee:edit" }
 
 effectiveeleveeleveeablissementprivee_list:

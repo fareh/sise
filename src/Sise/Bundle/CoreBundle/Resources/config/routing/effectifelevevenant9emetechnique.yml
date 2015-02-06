@@ -1,5 +1,5 @@
 effectifelevevenant9emetechnique_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveVenant9emetechnique:edit" }
 
 effectifelevevenant9emetechnique_list:

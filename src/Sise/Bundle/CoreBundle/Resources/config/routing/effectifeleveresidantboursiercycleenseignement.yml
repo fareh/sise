@@ -1,5 +1,5 @@
 effectifeleveresidantboursiercycleenseignement_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveResidantboursierCycleenseignement:edit" }
 
 effectifeleveresidantboursiercycleenseignement_list:

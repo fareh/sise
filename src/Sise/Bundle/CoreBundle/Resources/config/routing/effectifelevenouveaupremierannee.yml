@@ -1,5 +1,5 @@
 effectifelevenouveaupremierannee_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveNouveaupremierannee:edit" }
 
 effectifelevenouveaupremierannee_list:

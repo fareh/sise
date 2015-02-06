@@ -2,14 +2,14 @@
 
 {% block body %}
     {% trans_default_domain 'SiseCoreBundle' %}
-    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructuretypecategorieespace' })) }}
+    {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'infrastructureequipementcategorie' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
 
     <center>
 
         <div style="display: none">
             <a href="{{ path("statElev", {"codepack":"StatEquipement"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
-            <a href="{{ path('infrastructuretypecategorieespace_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+            <a href="{{ path('infrastructureequipementcategorie_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
         </div>
         <br>
         {% if entities is defined  and entities|length > 0 %}
@@ -26,9 +26,7 @@
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">قابلة للاستعمال
                         </th>
 
-                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">بغير قابلة
-                            للاستعمال
-                        </th>
+                        <th align="center" scope="col" style="color:White;background-color:#4F81BD;">غير قابلة للاستعمال</th>
                         <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{'observation'|trans()}}</th>
                     </tr>
                     {% set testRepeat = 0 %}

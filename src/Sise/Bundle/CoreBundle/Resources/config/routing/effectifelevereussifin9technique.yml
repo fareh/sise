@@ -1,5 +1,5 @@
 effectifelevereussifin9technique_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveReussifin9technique:edit" }
 
 effectifelevereussifin9technique_list:

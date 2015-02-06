@@ -1,5 +1,5 @@
 effectiveenseignentlisteremplacementprovisoire_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeremplacementprovisoire:edit" }
 
 effectiveenseignentlisteremplacementprovisoire_list:

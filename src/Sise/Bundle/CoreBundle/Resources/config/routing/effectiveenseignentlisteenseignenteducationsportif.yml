@@ -1,5 +1,5 @@
 effectiveenseignentlisteenseignenteducationsportif_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignenteducationsportif:edit" }
 
 effectiveenseignentlisteenseignenteducationsportif_list:

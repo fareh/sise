@@ -1,5 +1,5 @@
 infrastructureequipementcategorie_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:InfrastructureEquipementCategorie:edit" }
 
 infrastructureequipementcategorie_list:

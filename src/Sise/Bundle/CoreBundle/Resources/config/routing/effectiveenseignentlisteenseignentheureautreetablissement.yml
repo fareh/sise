@@ -1,5 +1,5 @@
 effectiveenseignentlisteenseignentheureautreetablissement_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentheureautreetablissement:edit" }
 
 effectiveenseignentlisteenseignentheureautreetablissement_list:

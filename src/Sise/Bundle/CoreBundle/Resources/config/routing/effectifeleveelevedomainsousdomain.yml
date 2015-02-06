@@ -1,5 +1,5 @@
 effectifeleveelevedomainsousdomain_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveElevedomainsousdomain:edit" }
 
 effectifeleveelevedomainsousdomain_list:

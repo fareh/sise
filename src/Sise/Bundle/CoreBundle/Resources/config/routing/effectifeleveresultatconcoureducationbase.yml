@@ -1,5 +1,5 @@
 effectifeleveresultatconcoureducationbase_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveResultatconcoureducationbase:edit" }
 
 effectifeleveresultatconcoureducationbase_list:

@@ -1,5 +1,5 @@
 effectiveeleveeleveetranger_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveEleveetranger:edit" }
 
 effectiveeleveeleveetranger_list:

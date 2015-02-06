@@ -1,5 +1,5 @@
 effectivepersonelpersonelgrade_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectivepersonelPersonelGrade:edit" }
 
 effectivepersonelpersonelgrade_list:

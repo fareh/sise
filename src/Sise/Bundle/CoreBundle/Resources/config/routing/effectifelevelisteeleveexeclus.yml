@@ -1,5 +1,5 @@
 effectifelevelisteeleveexeclus_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveListeeleveexeclus:edit" }
 
 effectifelevelisteeleveexeclus_list:

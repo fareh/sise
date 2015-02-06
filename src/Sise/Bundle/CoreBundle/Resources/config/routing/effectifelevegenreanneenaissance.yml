@@ -1,5 +1,5 @@
 effectifelevegenreanneenaissance_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveGenreAnneenaissance:edit" }
 
 effectifelevegenreanneenaissance_list:

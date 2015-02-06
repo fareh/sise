@@ -1,5 +1,5 @@
 infrastructuretypecategorieespace_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:InfrastructureTypecategorieespace:edit" }
 
 infrastructuretypecategorieespace_list:

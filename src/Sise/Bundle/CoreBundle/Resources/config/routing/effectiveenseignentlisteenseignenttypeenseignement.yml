@@ -1,5 +1,5 @@
 effectiveenseignentlisteenseignenttypeenseignement_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveenseignentListeenseignentTypeenseignement:edit" }
 
 effectiveenseignentlisteenseignenttypeenseignement_list:

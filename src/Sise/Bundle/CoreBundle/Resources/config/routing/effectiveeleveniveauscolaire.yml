@@ -1,5 +1,5 @@
 effectiveeleveniveauscolaire_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveNiveauscolaire:edit" }
 
 effectiveeleveniveauscolaire_list:

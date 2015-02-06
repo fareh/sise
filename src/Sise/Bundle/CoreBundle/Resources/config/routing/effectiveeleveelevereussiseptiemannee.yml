@@ -1,5 +1,5 @@
 effectiveeleveelevereussiseptiemannee_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectiveeleveElevereussiseptiemannee:edit" }
 
 effectiveeleveelevereussiseptiemannee_list:

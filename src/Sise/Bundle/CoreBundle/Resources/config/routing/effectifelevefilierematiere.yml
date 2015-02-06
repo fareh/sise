@@ -1,5 +1,5 @@
 effectifelevefilierematiere_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveFilierematiere:edit" }
 
 effectifelevefilierematiere_list:

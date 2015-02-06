@@ -1,5 +1,5 @@
 effectifelevefilstravailleuretrangercycleenseignement_edit:
-    path:     /Modifier
+    path:     /modifier
     defaults: { _controller: "SiseCoreBundle:EffectifeleveFilstravailleuretrangerCycleenseignement:edit" }
 
 effectifelevefilstravailleuretrangercycleenseignement_list:
