@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-
+    {% trans_default_domain 'SiseCoreBundle' %}
     <form action="{{ path('nomenclaturequestionnairerecensement_create') }}" method="post" {{ form_enctype(form) }}>
         {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturequestionnairerecensement' })) }}
 

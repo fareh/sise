@@ -94,6 +94,13 @@ jQuery(document).ready(function () {
         if (document.getElementById('CPHMain_GridView_Browse')) {
             return ExcellentExport.excel($("#TdExporter"), 'CPHMain_GridView_Browse', 'Sheet Name Here');
         }
+
+        if (document.getElementById('CPHMain_GV')) {
+            return ExcellentExport.excel($("#TdExporter"), 'CPHMain_GV', 'Sheet Name Here');
+        }
+
+
+
     });
 
     $("#TdCloturer, #TdCloturer2").menusise({

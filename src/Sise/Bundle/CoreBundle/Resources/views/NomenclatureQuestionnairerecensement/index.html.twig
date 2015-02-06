@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-
+    {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'List', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturequestionnairerecensement' })) }}
     <center>
         <br>
@@ -13,7 +13,7 @@
                 <div style="display: none">
                     <a href="/app.php/NomenclatureQuestionnairerecensement/new" style="display:inline-block" id="BtnNouveau">BtnNouveau</a>
                 </div>
-    <table cellspacing="0" cellpadding="4" id="CPHMain_GV" style="color:#333333;width:100%;border-collapse:collapse;">
+    <table cellspacing="0" cellpadding="4" id="CPHMain_GridView_Browse" style="color:#333333;width:100%;border-collapse:collapse;">
         <thead>
         <tr>
             {#    <th>Coderece</th> #}
