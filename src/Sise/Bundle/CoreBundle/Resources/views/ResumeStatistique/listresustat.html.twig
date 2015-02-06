@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+{% for key, entity in entities %}
+    {{ entity[key][AnneScol] }}
+    {{ entity[key][TotaEtab] }}
+    {{ entity[key][TotaEtabRura] }}
+    {{ entity[key][TotaGrou] }}
+    {{ entity[key][TotaElev] }}
+    {{ entity[key][TotaElevFemi] }}
+    {{ entity[key][TotaEnse] }}
+    {{ entity[key][PourEtabRura] }}
+    {{ entity[key][DensGrou] }}
+    {{ entity[key][PourFemi] }}
+    {{ 'rrrrrrr' }}
+{% endfor %}
+{% endblock %}

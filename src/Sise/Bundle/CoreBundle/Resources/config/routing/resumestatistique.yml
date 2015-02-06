@@ -1,0 +1,4 @@
+resumestatistique_list:
+    path:     /
+    defaults: { _controller: "SiseCoreBundle:ResumeStatistique:listresustat" }
+
