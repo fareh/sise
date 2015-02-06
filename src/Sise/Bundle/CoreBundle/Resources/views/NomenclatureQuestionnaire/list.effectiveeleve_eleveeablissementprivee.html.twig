@@ -51,7 +51,7 @@
                             <th align="center" scope="col"
                                 style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
                         </tr>
-                        {% set testRepeat = 0 %}
+                        {% set testRepeat = 9999 %}
                         {% for key , entity in entities %}
                             <tr>
                                 {% if entity.codenivescol.codecyclense.codecyclense!=testRepeat %}
@@ -60,8 +60,10 @@
                                 {% endif %}
                                 {% set testRepeat = entity.codenivescol.codecyclense.codecyclense %}
                                 <td>
-                                    {{ entity.codenivescol.libenivescolar }}
+                                    {{ entity.codenivescol.libenivescolar }}{{ entity.codenivescol.codenivescol }}
                                 </td>
+
+
                                 <td align="right">{{ entity.nombelevmascnouv }}</td>
                                 <td align="right">{{ entity.nombelevfeminouv }}</td>
                                 <td align="right">{{ entity.nombelevmascredo }}</td>

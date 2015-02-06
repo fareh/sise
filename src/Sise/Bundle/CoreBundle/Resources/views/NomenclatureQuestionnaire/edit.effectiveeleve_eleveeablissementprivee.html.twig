@@ -68,6 +68,29 @@
                                         <input type="hidden" name="key_{{ key }}"
                                                value="codeetab|codetypeetab|annescol|coderece|codenivescol">
                                     </td>
+                                    {% if entity.codenivescol.codenivescol == 1 %}
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombelevmascnouv }}
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombelevfeminouv }}
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombelevmascredo }}
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombelevfemiredo }}
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombtotaelevmasc }}
+
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombtotaelevfemi }}
+                                        </td>
+                                        <td align="right" style="background-color:#EEEEEE;">
+                                            {{ entity.nombtotaelev }}</td>
+                                    {% else %}
                                     <td align="right">
                                         <input type="text" name="nombelevmascnouv{{ key }}"
                                                value="{{ entity.nombelevmascnouv }}" id="nombelevmascnouv{{ key }}"
@@ -120,6 +143,8 @@
                                         <input type="text" name="nombtotaelev{{ key }}"
                                                value="{{ entity.nombtotaelev }} " id="nombtotaelev{{ key }}" readonly>
                                     </td>
+
+                                    {% endif %}
 
                                 </tr>
                             {% endfor %}

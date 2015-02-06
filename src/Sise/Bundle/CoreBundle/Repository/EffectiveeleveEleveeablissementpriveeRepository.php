@@ -25,7 +25,7 @@ class EffectiveeleveEleveeablissementpriveeRepository extends EntityRepository
             ->setParameter('codetypeetab', $codetypeetab)
             ->setParameter('annescol', $annescol)
             ->setParameter('coderece', $coderece)
-            ->orderBy('r.codecyclense', 'DESC')
+            ->orderBy('c.codenivescol', 'ASC')
             /* ->groupBy('r.codecateespa')*/
             ->getQuery()->getResult();
     }
