@@ -66,7 +66,7 @@ class NomenclatureQuestionnaireController extends Controller
                 $FilterArray['colltech'] = true;
             }
 
-
+  // var_dump($FilterArray)
             $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findBy($FilterArray);//findByCodepack($codepack);
 
         } else {
