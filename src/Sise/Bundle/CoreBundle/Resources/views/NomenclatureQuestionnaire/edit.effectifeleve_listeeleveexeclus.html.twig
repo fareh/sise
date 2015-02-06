@@ -19,38 +19,38 @@
                                style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                             <tbody>
                             <tr>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 3%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width: 3%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
 {{ 'nombreordinal'|trans() }}
                                         </span></strong>
                                 </th>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width: 17%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
 {{ 'nomprenelev'|trans() }}
                                         </span></strong>
                                 </th>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
 {{ 'Genre'|trans() }}
                                         </span></strong>
                                 </th>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
                                         {{ 'niveauscolaire'|trans() }}
                                         </span></strong>
                                 </th>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
 {{ 'Filiere'|trans() }}
                                         </span></strong>
                                 </th>
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width:10%; background-color:#4F81BD">
                                     <strong><span style="font-size: 12pt; color: #fff; background-color:#4F81BD">
-{{ 'datesepa'|trans() }}
+{{ 'La date de retour scolaire'|trans() }}
                                         </span></strong>
                                 </th>
 
-                                <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 5%; background-color:#4F81BD">
+                                <th style="border-bottom: 1px solid #3768BC; text-align: center; width: 5%; background-color:#4F81BD">
                                     <strong> <span style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
       <a class="add_items" style="display: inline-block" rel="effectifelevelisteeleveexeclus_form">
           <img name="sise_add_line" id="sise_add_line" src="/bundles/sisecore/images/16x16/add_16.png">
@@ -65,11 +65,11 @@
                                     <td>
                                         {{ form.vars.name }}
                                     </td>
-                                    <td align="right">{{ form_widget(form.nomprenelev) }}</td>
-                                    <td align="right">{{ form_widget(form.codegenr) }}</td>
-                                    <td align="right">{{ form_widget(form.codenivescol) }}</td>
-                                    <td>{{ form_widget(form.codefili) }}</td>
-                                    <td align="right">{{ form_widget(form.dateret) }}</td>
+                                    <td align="right">{{ form_widget(form.nomprenelev, { 'id': 'nomprenelev'~form.vars.name,  'attr': {'class': 'nomprenelev' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codegenr, { 'id': 'codegenr'~form.vars.name,  'attr': {'class': 'codegenr' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.codenivescol, { 'id': 'codenivescol'~form.vars.name,  'attr': {'class': 'codenivescol' }  }) }}</td>
+                                    <td>{{ form_widget(form.codefili, { 'id': 'codefili'~form.vars.name,  'attr': {'class': 'codefili' }  }) }}</td>
+                                    <td align="right">{{ form_widget(form.dateret, { 'id': 'dateret'~form.vars.name,  'attr': {'class': 'datesepa' }  }) }}</td>
                                     <td style="border-bottom: black 1px solid; width: 5%;  vertical-align:top">
                                         <a rel="effectifelevelisteeleveexeclus_deleteItem" class="delete_handicaps"
                                            style="display: inline-block">

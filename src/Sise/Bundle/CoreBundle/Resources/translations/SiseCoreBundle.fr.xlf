@@ -687,6 +687,15 @@
                 <source>datesepa</source>
                 <target>تاريخ الإنفصال</target>
             </trans-unit>
+
+
+               <trans-unit id="dateretourscolaire">
+                            <source>La date de retour scolaire</source>
+                            <target>تاريخ العودة للدراسة</target>
+                        </trans-unit>
+
+
+
             <trans-unit id="nombheursema">
                 <source>nombheursema</source>
                 <target>الساعات الأسبوعية</target>
