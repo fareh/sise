@@ -20,36 +20,23 @@
                         <tbody>
                         <tr>
                             <td class="headerCellfusion" align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">صنف فضاء</th>
                             <td class="headerCellfusion" align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">نوع فضاء</th>
+                            <td class="headerCellWithoutfusion" align="center" colspan="1"
                                 style="color:White;background-color:#4F81BD;font-weight:bold;">مستغلّة
                             </td>
-                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            <td class="headerCellWithoutfusion" align="center" colspan="1"
                                 style="color:White;background-color:#4F81BD;font-weight:bold;">غير مستغلّة
                             </td>
-                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            <td class="headerCellWithoutfusion" align="center" colspan="1"
                                 style="color:White;background-color:#4F81BD;font-weight:bold;">بصدد التهيئة
                             </td>
-                            <td class="headerCellWithoutfusion" align="center" colspan="2"
+                            <td class="headerCellWithoutfusion" align="center" colspan="1"
                                 style="color:White;background-color:#4F81BD;font-weight:bold;">بصدد البناء
                             </td>
                             <td class="headerCellfusion" align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;font-weight:bold;"></td>
-                        </tr>
-                        <tr>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">صنف فضاء</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">نوع فضاء</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ع</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">ط.إ</th>
-                            <th align="center" scope="col" style="color:White;background-color:#4F81BD;">{{'observation'|trans()}}</th>
+                                style="color:White;background-color:#4F81BD;font-weight:bold;">{{'observation'|trans()}}</td>
                         </tr>
                         {% set codecateespa = 0 %}
                         {% for key , entity in entities %}
@@ -74,47 +61,30 @@
 
                                 </td>
 
-
                                 <td align="right">
                                     <input name="nombespautil{{ key }}" type="text"
                                            value="{{ entity.nombespautil }}" id="nombespautil{{ key }}"
                                            onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="right">
-                                    <input name="capaaccuespautil{{ key }}" type="text"
-                                           value="{{ entity.capaaccuespautil }}" id="capaaccuespautil{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
-                                </td>
+
                                 <td align="right">
                                     <input name="nombespanonutil{{ key }}" type="text"
                                            value="{{ entity.nombespanonutil }}" id="nombespanonutil{{ key }}"
                                            onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="right">
-                                    <input name="capaaccuespanonutil{{ key }}" type="text"
-                                           value="{{ entity.capaaccuespanonutil }}" id="capaaccuespanonutil{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
-                                </td>
+
                                 <td align="right">
                                     <input name="nombespaencoamen{{ key }}" type="text"
                                            value="{{ entity.nombespaencoamen }}" id="nombespaencoamen{{ key }}"
                                            onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="right">
-                                    <input name="capaaccuespaencoamen{{ key }}" type="text"
-                                           value="{{ entity.capaaccuespaencoamen }}" id="capaaccuespaencoamen{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
-                                </td>
+
                                 <td align="right">
                                     <input name="nombespaencocons{{ key }}" type="text"
                                            value="{{ entity.nombespaencocons }}" id="nombespaencocons{{ key }}"
                                            onchange="javascript:txtChanged(this);">
                                 </td>
-                                <td align="right">
-                                    <input name="capaaccuespaencocons{{ key }}" type="text"
-                                           value="{{ entity.capaaccuespaencocons }}" id="capaaccuespaencocons{{ key }}"
-                                           onchange="javascript:txtChanged(this);">
-                                </td>
+
                                 <td align="right">
                                     <input name="obse{{ key }}" type="text"
                                            value="{{ entity.obse }}" id="obse{{ key }}"
