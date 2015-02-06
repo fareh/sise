@@ -65,14 +65,17 @@ class NomenclatureQuestionnaireController extends Controller
             if ($colltech == true and $entitiestypeetab->getColltech() == true) {
                 $FilterArray['colltech'] = true;
             }
-            //var_dump($FilterArray); die;
+
 
             $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findBy($FilterArray);//findByCodepack($codepack);
-            //var_dump($entities); die;
+
         } else {
 
             $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
         }
+
+
+
         $Package = $em->getRepository('SiseCoreBundle:SecuritePackage')->findOneByCodepack($codepack);
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:statElev.html.twig', array(
             'entities' => $entities,

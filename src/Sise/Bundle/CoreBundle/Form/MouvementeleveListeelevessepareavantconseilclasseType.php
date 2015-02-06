@@ -5,6 +5,7 @@ namespace Sise\Bundle\CoreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
 {
@@ -27,6 +28,15 @@ class MouvementeleveListeelevessepareavantconseilclasseType extends AbstractType
         $builder
             ->add('nomprenelev')
             ->add('codenivescol')
+            ->add('codenivescol', null, array(
+                'class' => 'SiseCoreBundle:NomenclatureNiveauscolaire',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('p')
+                        ->where('p.codecyclense not IN  (:codecyclense)')
+                        ->orderBy('p.ordraffi', 'ASC')
+                        ->setParameter('codecyclense', array(0,3));
+                },
+            ))
             ->add('codefili')
             ->add('codegenr')
             ->add('datesepa')
