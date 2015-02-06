@@ -4,7 +4,9 @@
     {% trans_default_domain 'SiseCoreBundle' %}
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'EditQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'mouvementeleverecapmouvmenteleve' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
-
+    <div style="display: none">
+        <a href="/app.php/stat/MouvEleve/statElev" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+    </div>
     {% if entities is defined  and entities|length > 0 %}
 <center>
     <br>
@@ -19,7 +21,7 @@
             <thead>
             {% set filiverif=0 %}
             {% for key, entity in entities %}
-                {% if entity.codenivescol.codecyclense == '2' %}
+                {% if entity.codenivescol.codecyclense.codecyclense == '2' %}
                     {% set filiverif=1 %}
                 {% endif %}
             {% endfor %}
@@ -118,7 +120,9 @@
                     <tr align="center"
                         style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
                         <td>{{ 'nombtotaelev'|trans() }}:</td>
+                        {% if filiverif==1 %}
                         <td></td>
+                        {% endif %}
                         <td>{{ Totalnombelev16octobrecyclense }}  </td>
                         <td>{{ Totalnombelevvenaautretabcyclense }}</td>
                         <td>{{ Totalnombelevdeplautretabcyclense }}</td>
@@ -282,7 +286,9 @@
             <tr align="center"
                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
                 <td>{{ 'nombtotaelev'|trans() }}:</td>
+                {% if filiverif==1 %}
                 <td></td>
+                {% endif %}
                 <td>{{ Totalnombelev16octobrecyclense }}  </td>
                 <td>{{ Totalnombelevvenaautretabcyclense }}</td>
                 <td>{{ Totalnombelevdeplautretabcyclense }}</td>
@@ -298,7 +304,9 @@
             <tr align="center"
                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
                 <td>{{ 'nombtotaelev'|trans() }}:</td>
+                {% if filiverif==1 %}
                 <td></td>
+                {% endif %}
                 <td></td>
                 <td>{{ Totalnombelev16octobre }}  </td>
                 <td>{{ Totalnombelevvenaautretab }}</td>

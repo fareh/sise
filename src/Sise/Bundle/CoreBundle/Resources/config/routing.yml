@@ -208,3 +208,6 @@ Siseblog_NomenclatureQuestionnairerecensement:
 SiseCoreBundle_Nomenclature:
     resource: "routing/nomenclature.yml"
     prefix: /nomenclature
+SiseCoreBundle_Resumestatistique:
+    resource: "routing/resumestatistique.yml"
+    prefix: /resumestatistique
