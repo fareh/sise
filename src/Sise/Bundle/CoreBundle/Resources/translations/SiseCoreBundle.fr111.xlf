@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="new">
+                <source>new</source>
+                <target>إضافة</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>تحيين</target>
+            </trans-unit>
+            <trans-unit id="list">
+                <source>list</source>
+                <target>قائمة</target>
+            </trans-unit>
+            <trans-unit id="Obse">
+                <source>Obse</source>
+                <target>الملاحظات</target>
+            </trans-unit>
+            <trans-unit id="nombelevmasc">
+                <source>nombelevmasc</source>
+                <target>ذكر</target>
+            </trans-unit>
+            <trans-unit id="nombelevfemi">
+                <source>nombelevfemi</source>
+                <target>أنثى</target>
+            </trans-unit>
+            <trans-unit id="nombtotaelev">
+                <source>nombtotaelev</source>
+                <target>الجملة</target>
+            </trans-unit>
+            <trans-unit id="niveauscolaire">
+                <source>niveauscolaire</source>
+                <target>المستوى الدراسي</target>
+            </trans-unit>
+            <trans-unit id="observation">
+                <source>observation</source>
+                <target>الملاحظات</target>
+            </trans-unit>
+            <trans-unit id="nomprenelev">
+                <source>nomprenelev</source>
+                <target>الاسم و اللقب</target>
+            </trans-unit>
+            <trans-unit id="codecyclense">
+                <source>codecyclense</source>
+                <target>المرحلة</target>
+            </trans-unit>
+            <trans-unit id="nombbour">
+                <source>nombbour</source>
+                <target>عدد المنح</target>
+            </trans-unit>
+            <trans-unit id="nombelevbourmasc">
+                <source>nombelevbourmasc</source>
+                <target>الممنوحون</target>
+            </trans-unit>
+
+
+
+                        
+            <trans-unit id="SecuriteProfil">
+                <source>SecuriteProfil</source>
+                <target>صلاحيات</target>
+            </trans-unit>
+            <trans-unit id="Codeprof">
+                <source>Codeprof</source>
+                <target>الرمز</target>
+            </trans-unit>
+            <trans-unit id="Libeproffr">
+                <source>Libeproffr</source>
+                <target>الوصف بالفرنسية</target>
+            </trans-unit>
+            <trans-unit id="Libeprofar">
+                <source>Libeprofar</source>
+                <target>الوصف بالعربية</target>
+            </trans-unit>
+            <trans-unit id="codecyclense">
+                <source>Codeprof codecyclense</source>
+                <target>مرحلة التعليم</target>
+            </trans-unit>
+            <trans-unit id="SecuriteGroupeutilisateur">
+                <source>SecuriteGroupeutilisateur</source>
+                <target>مجموعة المستخدمين</target>
+            </trans-unit>
+            <trans-unit id="Codegrouutil">
+                <source>Codegrouutil</source>
+                <target>الرمز</target>
+            </trans-unit>
+            <trans-unit id="Libegrouutilfr">
+                <source>Libegrouutilfr</source>
+                <target>الوصف بالفرنسية</target>
+            </trans-unit>
+            <trans-unit id="Libegrouutilar">
+                <source>Libegrouutilar</source>
+                <target>الوصف بالعربية</target>
+            </trans-unit>
+            <trans-unit id="SecuriteUtilisateur">
+                <source>SecuriteUtilisateur</source>
+                <target>المستخدمين</target>
+            </trans-unit>
+            <trans-unit id="Nomprenutil">
+                <source>Nomprenutil</source>
+                <target>الاسم و اللقب</target>
+            </trans-unit>
+            <trans-unit id="User_Libenivehierar">
+                <source>User_Libenivehierar</source>
+                <target>المستوى الاداري</target>
+            </trans-unit>
+            <trans-unit id="User_Libeprofar">
+                <source>User_Libeprofar</source>
+                <target>الهيكل الاداري</target>
+            </trans-unit>
+            <trans-unit id="LastLogin">
+                <source>LastLogin</source>
+                <target>آخر زيارة</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
