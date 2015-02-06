@@ -6,7 +6,10 @@
         {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'New', 'TitleContextValue' : 'التعداد', 'RouteAction' : 'nomenclaturequestionnairerecensement' })) }}
 
 
-
+        <div style="display: none">
+            <a href="/app.php/NomenclatureQuestionnairerecensement" style="display:inline-block" id="BtnRetour">BtnRetour</a>
+            <input type="reset" id="BtnAnnuler">
+        </div>
         {#{{ form_widget(edit_form) }}#}
         {{ form_errors(form) }}
         <div id="CPHMain_upmain">
