@@ -71,7 +71,7 @@ class NomenclatureQuestionnaireController extends Controller
 
         } else {
 
-            $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findByCodepack($codepack);
+            $entities = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->getQuestionnaires($codepack);
         }
 
 
