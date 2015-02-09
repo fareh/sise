@@ -19,10 +19,7 @@ class ResumeStatistiqueController extends Controller
     public function listresustatAction(Request $request)
     {
         $entities=$this->storedProcedure('SP_ResuStat_ResumeStatistiquePrep','0');
-        foreach($entities as $key=>$en)
-        {
-
-        }
+       // var_dump($tab);die;
         return $this->render('SiseCoreBundle:ResumeStatistique:listresustat.html.twig', array('entities' => $entities));
     }
 }
