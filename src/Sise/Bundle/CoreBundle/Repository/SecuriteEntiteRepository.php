@@ -16,6 +16,8 @@ class SecuriteEntiteRepository extends EntityRepository
     {
         return $this->createQueryBuilder('c')
             ->leftJoin('c.codepack', 'r')
+            ->where('c.codepack != :codepack')
+            ->setParameter('codepack', '')
             ->orderBy('r.ordeaffi', 'ASC')
             ->getQuery()->getResult();
     }
