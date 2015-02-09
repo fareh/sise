@@ -54,7 +54,7 @@ class InfrastructureLogementController extends Controller
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('infrastructure_logement');
         return $this->render('SiseCoreBundle:Infrastructure:edit.infrastructure_logement.html.twig', array(
             'entities' => @$entities,
-            'editForms' => $editForms,
+            'editForms' => @$editForms,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'pathUpdate' => @$pathUpdate,

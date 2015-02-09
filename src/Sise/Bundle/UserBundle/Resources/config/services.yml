@@ -4,6 +4,14 @@ services:
 #    sise_user.example:
 #        class: Sise\Bundle\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
     sise_user.password_resetting:
         class: Sise\Bundle\UserBundle\EventListener\PasswordResettingListener
         arguments: [@router]
