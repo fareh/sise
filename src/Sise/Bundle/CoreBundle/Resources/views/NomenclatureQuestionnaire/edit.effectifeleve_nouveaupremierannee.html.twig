@@ -124,10 +124,12 @@
 
 
 
+{% endblock %}
+
+
     {% block javascripts %}
         {{ parent() }}
-
-        <script>
+        <script >
             $(document).ready(function () {
                 $(".nombelevmasc").calculsise({
                     fDIV: "nombelevmasc",
@@ -137,6 +139,5 @@
                 $(".nombelevfemi").calculsise();
             });
         </script>
-    {% endblock %}
-{% endblock %}
 
+    {% endblock %}

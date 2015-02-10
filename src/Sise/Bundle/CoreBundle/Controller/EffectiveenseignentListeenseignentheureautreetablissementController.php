@@ -8,14 +8,13 @@
 
 namespace Sise\Bundle\CoreBundle\Controller;
 
+use Sise\Bundle\CoreBundle\Entity\EffectiveenseignentListeenseignentheureautreetablissement;
+use Sise\Bundle\CoreBundle\Form\EffectiveenseignentListeenseignentheureautreetablissementType;
+use Sise\Bundle\CoreBundle\Form\search\SearchType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Sise\Bundle\CoreBundle\Entity\EffectiveenseignentListeenseignentheureautreetablissement;
-use Sise\Bundle\CoreBundle\Form\search\SearchType;
-use Sise\Bundle\CoreBundle\Form\EffectiveenseignentListeenseignentheureautreetablissementType;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * EffectiveenseignentListeenseignentheureautreetablissement controller.
@@ -33,7 +32,7 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveenseignentlisteenseignentheureautreetablissement_edit');
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());
@@ -50,10 +49,10 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
             $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentheureautreetablissement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
             if (count($entities) > 0) {
                 foreach ($entities as $key => $item) {
-                    $editForms[$item->getNumeense()] = $this->createEditForm($item, $item->getNumeense())->createView();
+                    $editForms[$item->getNumeense()] = $this->createEditForm($item, $item->getNumeense(), $session)->createView();
                 }
             } else {
-                $editForms[1] = $this->createEditForm(new EffectiveenseignentListeenseignentheureautreetablissement(), 1)->createView();
+                $editForms[1] = $this->createEditForm(new EffectiveenseignentListeenseignentheureautreetablissement(), 1, $session)->createView();
             }
 
             $pathUpdate = $this->generateUrl('effectiveenseignentlisteenseignentheureautreetablissement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
@@ -70,9 +69,9 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
     }
 
 
-    private function createEditForm(EffectiveenseignentListeenseignentheureautreetablissement $entity, $key)
+    private function createEditForm(EffectiveenseignentListeenseignentheureautreetablissement $entity, $key, $session)
     {
-        $form = $this->createForm(new EffectiveenseignentListeenseignentheureautreetablissementType($key), $entity);
+        $form = $this->createForm(new EffectiveenseignentListeenseignentheureautreetablissementType($key, $session), $entity);
         return $form;
     }
 
@@ -83,13 +82,13 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
         {
             $em = $this->getDoctrine()->getManager();
             $session = $request->getSession();
-            $codeetab =  $session->get('codeetab') ;
+            $codeetab = $session->get('codeetab');
             $codetypeetab = $session->get('codetypeetab');
             $annescol = $session->get('AnneScol');
             $coderece = $session->get('CodeRece');
             $numeense = "";
             $numeense = $request->get('numeense');
-            if ($codeetab != '' and  $codetypeetab != '' and  $annescol != '' and  $coderece != '' and  $numeense != ''  ) {
+            if ($codeetab != '' and $codetypeetab != '' and $annescol != '' and $coderece != '' and $numeense != '') {
                 $item = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentheureautreetablissement')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeense' => $numeense));
                 if ($item) {
                     $em->remove($item);
@@ -97,20 +96,19 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
                 }
                 $response = new Response();
                 $response->headers->set('Content-Type', 'application/json');
-                $response->setContent( json_encode(array(
+                $response->setContent(json_encode(array(
                     'success' => true,
-                    'data'    => "" // Your data here
+                    'data' => "" // Your data here
                 )));
                 return $response;
 
 
-
-            }else{
+            } else {
                 $response = new Response();
                 $response->headers->set('Content-Type', 'application/json');
-                $response->setContent( json_encode(array(
+                $response->setContent(json_encode(array(
                     'success' => true,
-                    'data'    => "" // Your data here
+                    'data' => "" // Your data here
                 )));
                 return $response;
 
@@ -119,28 +117,29 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
         }
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
-        $response->setContent( json_encode(array(
+        $response->setContent(json_encode(array(
             'success' => false,
-            'data'    => "" // Your data here
+            'data' => "" // Your data here
         )));
         return $response;
 
     }
 
-    public  function itemAction(Request $request)
+    public function itemAction(Request $request)
     {
+        $session = $request->getSession();
         if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
         {
             $newcompteur = '';
             $newcompteur = $request->get('newcompteur');
             if ($newcompteur != '') {
-                $form = $this->createEditForm(new EffectiveenseignentListeenseignentheureautreetablissement(), $newcompteur)->createView();
+                $form = $this->createEditForm(new EffectiveenseignentListeenseignentheureautreetablissement(), $newcompteur, $session)->createView();
                 return $this->render('SiseCoreBundle:Default:prototype_listeenseignentheureautreetablissement.html.twig', array(
                     'form' => @$form,
                 ));
 
 
-            }else{
+            } else {
                 return new Response("Ereeur");
             }
 
@@ -159,7 +158,7 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
         $em = $this->getDoctrine()->getManager();
 
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         $annescol = $session->get('AnneScol');
         $coderece = $session->get('CodeRece');
@@ -167,18 +166,47 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
         $pathUpdate = $this->generateUrl('effectiveenseignentlisteenseignentheureautreetablissement_update', array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab));
         $entities = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentheureautreetablissement')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
         if ($codeetab && $codetypeetab && $request->isMethod('POST')) {
+            /*echo "<pre>";
+                        var_dump($request->request); die;*/
             foreach ($request->request as $numeense => $parameters) {
 
-                $item = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentheureautreetablissement')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeense'=>$numeense));
-                if($item){
-                    $editForm =   $this->createEditForm($item, $item->getNumeense());
+                $item = $em->getRepository('SiseCoreBundle:EffectiveenseignentListeenseignentheureautreetablissement')->findOneBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece, 'numeense' => $numeense));
+                if ($item) {
+                    $editForm = $this->createEditForm($item, $item->getNumeense(), $session);
                     $editForm->handleRequest($request);
+                    if (!$item->getCodetypeetabautr()) {
+                        $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($parameters['codetypeetabautr']);
+                        $item->setCodetypeetabautr($typeetab);
+                        $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab' => $parameters['codeetabautr'], 'codetypeetab' => $typeetab));
+                        $item->setCodeetabautr($etab);
+                    }
+                    if (!$item->getCodeetabautr()||$item->getCodetypeetabautr()->getCodetypeetab()!=$item->getCodeetabautr()->getCodetypeetab()->getCodetypeetab()) {
+                        $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($parameters['codetypeetabautr']);
+                        $item->setCodetypeetabautr($typeetab);
+                        $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab' => $parameters['codeetabautr'], 'codetypeetab' => $typeetab));
+                        $item->setCodeetabautr($etab);
+                    }
                     $em->persist($item);
                     $em->flush();
-                }else{
-                    $item = new EffectiveenseignentListeenseignentheureautreetablissement($codeetab, $codetypeetab, $annescol, $coderece,$numeense);
-                    $editForm =   $this->createEditForm($item, $numeense);
+                } else {
+                    $item = new EffectiveenseignentListeenseignentheureautreetablissement($codeetab, $codetypeetab, $annescol, $coderece, $numeense);
+                    $editForm = $this->createEditForm($item, $numeense, $session);
                     $editForm->handleRequest($request);
+                    if (!$item->getCodetypeetabautr()) {
+                        $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($parameters['codetypeetabautr']);
+                        $item->setCodetypeetabautr($typeetab);
+                        $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab' => $parameters['codeetabautr'], 'codetypeetab' => $typeetab));
+                       // echo count($etab); die;
+                        $item->setCodeetabautr($etab);
+                    }
+                    if (!$item->getCodeetabautr()) {
+                        $typeetab = $em->getRepository('SiseCoreBundle:NomenclatureTypeetablissement')->find($parameters['codetypeetabautr']);
+                        $item->setCodetypeetabautr($typeetab);
+                        $etab = $em->getRepository('SiseCoreBundle:NomenclatureEtablissement')->findOneBy(array('codeetab' => $parameters['codeetabautr'], 'codetypeetab' => $typeetab));
+                       // echo count($etab); die;
+                        $item->setCodeetabautr($etab);
+
+                    }
                     $em->persist($item);
                     $em->flush();
                 }
@@ -207,7 +235,7 @@ class EffectiveenseignentListeenseignentheureautreetablissementController extend
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveenseignentlisteenseignentheureautreetablissement_list');
         $session = $request->getSession();
-        $user= $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $search = $this->container->get('form.factory')->createBuilder(new SearchType($session, $em, $user))->getForm();
         if ($request->isMethod('POST')) {
             $params = $request->request->get($search->getName());

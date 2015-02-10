@@ -6,8 +6,10 @@
 
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <div style="display: none">
-        <a href="{{ path("statElev", {"codepack":"StatEnse"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
-        <a href="{{ path('effectiveenseignentlisteenseignentheureautreetablissement_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+        <a href="{{ path("statElev", {"codepack":"StatEnse"}) }}" style="display:inline-block"
+           id="BtnRetour">BtnRetour</a>
+        <a href="{{ path('effectiveenseignentlisteenseignentheureautreetablissement_edit') }}"
+           style="display:inline-block" id="BtnEditer">BtnEditer</a>
     </div>
     <center>
         <br>
@@ -22,32 +24,38 @@
 
                         <tr>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width: 17%; background-color:#4F81BD">
-                                {{ 'nomprenelev'|trans() }}
-                            </th>
+                                <strong> <span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">  {{ 'nomprenelev'|trans() }}
+                           </span></strong></th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-
+                                <strong> <span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                 {{ 'idenuniqense'|trans() }}
-
+</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-
+                                <strong> <span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                 {{ 'codegrad'|trans() }}
-
+</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-
+                                <strong> <span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                 {{ 'codegrad'|trans() }}
-
+</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-
+                                <strong> <span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                 {{ 'TypeEtablissement'|trans() }}
-
+</span></strong>
                             </th>
                             <th style="border-bottom: 1px solid #3768BC; text-align: right; width:10%; background-color:#4F81BD">
-
+                                <strong> <span
+                                            style="font-size: 12pt; color: #fff; background-color:#4F81BD ">
                                 {{ 'Etablissement'|trans() }}
-
+</span></strong>
                             </th>
 
                         </tr>

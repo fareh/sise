@@ -17,9 +17,9 @@ class NomenclatureQuestionnaireRepository extends EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.codepack = :codepack')
-            ->andWhere('p.codeenti != :codeenti')
+         /*   ->andWhere('p.codeenti != :codeenti')*/
             ->setParameter('codepack', $codepack)
-            ->setParameter('codeenti', '')
+         /*   ->setParameter('codeenti', '')*/
             ->getQuery()->getResult();
     }
 
