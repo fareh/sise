@@ -40,10 +40,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th align="center" scope="col"
-                                    style="color:White;background-color:#4F81BD;">{{ 'Filiere'|trans() }}</th>
+
                                 <th align="center" scope="col"
                                     style="color:White;background-color:#4F81BD;">{{ 'Niveauscolaire'|trans() }}</th>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#4F81BD;">{{ 'Filiere'|trans() }}</th>
                                 <th align="center" scope="col"
                                     style="color:White;background-color:#4F81BD;">{{ 'nombclass'|trans() }} </th>
                                 <th align="center" scope="col"
@@ -62,17 +63,20 @@
                                     style="color:White;background-color:#92B3CF;">{{ 'nombtotaelev'|trans() }}</th>
 
                             </tr>
+                            {% set nivscolaire = 9999 %}
                             {% for key , entity in entities %}
 
                                 <tr>
-                                    <td colspan="{{ entity.codefili|length  }}">{{ entity.codefili.libefiliar }}</td>
-                                    <td>
-                                        {{ entity.codenivescol.libenivescolar }}
+                                    {% if entity.codenivescol.codenivescol != nivscolaire %}
+                                        <td rowspan="{{ rowspan[entity.codenivescol.codenivescol]|length }}">{{ entity.codenivescol.libenivescolar }}</td>
+                                    {% endif %}
+
+                                    {% set nivscolaire = entity.codenivescol.codenivescol %}
+                                    <td >{{ entity.codefili.libefiliar }}
                                         <input type="hidden" name="val_{{ key }}"
-                                               value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codefili.codefili }}|{{ entity.codenivescol.codenivescol }}">
+                                                                                     value="{{ entity.codeetab }}|{{ entity.codetypeetab }}|{{ entity.annescol }}|{{ entity.coderece }}|{{ entity.codefili.codefili }}|{{ entity.codenivescol.codenivescol }}">
                                         <input type="hidden" name="key_{{ key }}"
-                                               value="codeetab|codetypeetab|annescol|coderece|codefili|codenivescol">
-                                    </td>
+                                               value="codeetab|codetypeetab|annescol|coderece|codefili|codenivescol"></td>
                                     <td align="right">
                                         <input type="text" name="nombclasselev{{ key }}"
                                                value="{{ entity.nombclasselev }} "

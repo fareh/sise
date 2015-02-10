@@ -5,8 +5,10 @@
     {{ render(controller("SiseCoreBundle:Default:menu" , { 'PageContext' : 'ConsQues', 'TitleContextValue' : nameclass.libequesar, 'RouteAction' : 'effectiveeleveniveauscolaire' })) }}
     {{ include('SiseCoreBundle:Default:search.html.twig', {'form': search, 'pathfilter' : pathfilter}) }}
     <div style="display: none">
-        <a href="{{ path("statElev", {"codepack":"StatElev"}) }}" style="display:inline-block" id="BtnRetour">BtnRetour</a>
-        <a href="{{ path('effectiveeleveniveauscolaire_edit') }}" style="display:inline-block" id="BtnEditer">BtnEditer</a>
+        <a href="{{ path("statElev", {"codepack":"StatElev"}) }}" style="display:inline-block"
+           id="BtnRetour">BtnRetour</a>
+        <a href="{{ path('effectiveeleveniveauscolaire_edit') }}" style="display:inline-block"
+           id="BtnEditer">BtnEditer</a>
     </div>
     {% if entities is defined  and entities|length > 0 %}
         <center>
@@ -37,13 +39,15 @@
                                 {{ 'nombtotaelev'|trans() }}
                             </td>
                             <td align="center" colspan="1"
-                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold; width: 10%;">&nbsp;</td>
+                                style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold; width: 10%;">
+                                &nbsp;</td>
                         </tr>
                         <tr>
-                            <th align="center" scope="col"
-                                style="color:White;background-color:#4F81BD;">{{ 'Filiere'|trans() }}</th>
+
                             <th align="center" scope="col"
                                 style="color:White;background-color:#4F81BD;">{{ 'Niveauscolaire'|trans() }}</th>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'Filiere'|trans() }}</th>
                             <th align="center" scope="col"
                                 style="color:White;background-color:#4F81BD;">{{ 'nombclass'|trans() }} </th>
                             <th align="center" scope="col"
@@ -80,8 +84,12 @@
                         {% for key , entity in entities %}
 
                             <tr>
-                                <td colspan="{{ entity.codefili|length  }}">{{ entity.codefili.libefiliar }}</td>
-                                <td>{{ entity.codenivescol.libenivescolar }}</td>
+                                {% if entity.codenivescol.codenivescol != nivscolaire %}
+                                    <td rowspan="{{ rowspan[entity.codenivescol.codenivescol]|length }}">{{ entity.codenivescol.libenivescolar }}</td>
+                                {% endif %}
+
+                                {% set nivscolaire = entity.codenivescol.codenivescol %}
+                                <td colspan="{{ entity.codefili|length }}">{{ entity.codefili.libefiliar }}</td>
                                 <td align="right">{{ entity.nombclasselev }} {% set nombclasselev = nombclasselev + entity.nombclasselev %}</td>
                                 <td align="right">{{ entity.nombelevmascnouv }} {% set nombelevmascnouv = nombelevmascnouv + entity.nombelevmascnouv %}</td>
                                 <td align="right">{{ entity.nombelevfeminouv }} {% set nombelevfeminouv = nombelevfeminouv + entity.nombelevfeminouv %}</td>
@@ -105,10 +113,10 @@
                             <td>{{ nombclasselev }}</td>
                             <td>{{ nombelevmascnouv }}</td>
                             <td>{{ nombelevfeminouv }}</td>
-                            <td>{{nombelevmascnouv+ nombelevfeminouv }}</td>
+                            <td>{{ nombelevmascnouv+ nombelevfeminouv }}</td>
                             <td>{{ nombelevmascredo }}</td>
                             <td>{{ nombelevfemiredo }}</td>
-                            <td>{{nombelevmascredo+ nombelevfemiredo }}</td>
+                            <td>{{ nombelevmascredo+ nombelevfemiredo }}</td>
                             <td>{{ nombtotaelevmasc }}</td>
                             <td>{{ nombtotaelevfemi }}</td>
                             <td>{{ nombtotaelev }}</td>
@@ -116,9 +124,9 @@
                                 {% if nombclasselev >0 %}
 
                                     {{ nombtotaelev / nombclasselev }}
-                                    {% else %}
+                                {% else %}
 
-                                   0
+                                    0
                                 {% endif %}
                             </td>
                         </tr>

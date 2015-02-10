@@ -27,6 +27,7 @@ class EffectiveeleveNiveauscolaireController extends controller
      */
     public function editAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
         $user = $this->get('security.context')->getToken()->getUser();
@@ -51,6 +52,9 @@ class EffectiveeleveNiveauscolaireController extends controller
             $session->set("features", $params);
            // $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
              $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->getEffectiveeleveNiveauscolaire($codeetab, $codetypeetab,  $annescol, $coderece);
+            foreach ($entities as $key => $entity) {
+                $rowspan[$entity->getCodenivescol()->getCodenivescol()][$key] = $entity->getCodenivescol()->getCodenivescol();
+            }
             if ($codetypeetab == 20) {
                 $items = $em->getRepository('SiseCoreBundle:EffectiveeleveNouveauseptiemeannee')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
                 foreach ($items as $item) {
@@ -72,6 +76,7 @@ class EffectiveeleveNiveauscolaireController extends controller
 
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:edit.effectiveeleve_niveauscolaire.html.twig', array(
             'entities' => @$entities,
+            'rowspan' => @$rowspan,
             'controls'=>$controls,
             'search' => $search->createView(),
             'pathfilter' => $url,
@@ -144,6 +149,7 @@ class EffectiveeleveNiveauscolaireController extends controller
      */
     public function listAction(Request $request)
     {
+        $rowspan = array();
         $em = $this->getDoctrine()->getManager();
         $url = $this->generateUrl('effectiveeleveniveauscolaire_list');
         $session = $request->getSession();
@@ -163,11 +169,14 @@ class EffectiveeleveNiveauscolaireController extends controller
         if ($codeetab && $codetypeetab) {
            // $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->findBy(array('codeetab' => $codeetab, 'codetypeetab' => $codetypeetab, 'annescol' => $annescol, 'coderece' => $coderece));
             $entities = $em->getRepository('SiseCoreBundle:EffectiveeleveNiveauscolaire')->getEffectiveeleveNiveauscolaire($codeetab, $codetypeetab,  $annescol, $coderece);
-
+            foreach ($entities as $key => $entity) {
+                $rowspan[$entity->getCodenivescol()->getCodenivescol()][$key] = $entity->getCodenivescol()->getCodenivescol();
+            }
         }
         $nameclass = $em->getRepository('SiseCoreBundle:NomenclatureQuestionnaire')->findOneByNameclass('effectiveeleve_niveauscolaire');
         return $this->render('SiseCoreBundle:NomenclatureQuestionnaire:list.effectiveeleve_niveauscolaire.html.twig', array(
             'entities' => @$entities,
+            'rowspan' => @$rowspan,
             'search' => $search->createView(),
             'pathfilter' => $url,
             'nameclass' => $nameclass
