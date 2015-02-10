@@ -22,7 +22,7 @@
                                style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                             <tbody>
                             <tr>
-                                <td align="center" colspan="1"
+                                <td align="center" colspan="2"
                                     style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                                 <td align="center" colspan="1"
                                     style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
@@ -40,6 +40,8 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th align="center" scope="col"
+                                    style="color:White;background-color:#4F81BD;">{{ 'Filiere'|trans() }}</th>
                                 <th align="center" scope="col"
                                     style="color:White;background-color:#4F81BD;">{{ 'Niveauscolaire'|trans() }}</th>
                                 <th align="center" scope="col"
@@ -63,6 +65,7 @@
                             {% for key , entity in entities %}
 
                                 <tr>
+                                    <td colspan="{{ entity.codefili|length  }}">{{ entity.codefili.libefiliar }}</td>
                                     <td>
                                         {{ entity.codenivescol.libenivescolar }}
                                         <input type="hidden" name="val_{{ key }}"

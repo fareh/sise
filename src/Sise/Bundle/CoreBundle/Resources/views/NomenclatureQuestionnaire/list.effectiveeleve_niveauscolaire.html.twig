@@ -20,7 +20,7 @@
                            style="border-color:#4F81BD;border-width:2px;border-style:Solid;width:100%;border-collapse:collapse;">
                         <tbody>
                         <tr>
-                            <td align="center" colspan="1"
+                            <td align="center" colspan="2"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
                             <td align="center" colspan="1"
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold;"></td>
@@ -40,6 +40,8 @@
                                 style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:1px;border-style:Solid;font-weight:bold; width: 10%;">&nbsp;</td>
                         </tr>
                         <tr>
+                            <th align="center" scope="col"
+                                style="color:White;background-color:#4F81BD;">{{ 'Filiere'|trans() }}</th>
                             <th align="center" scope="col"
                                 style="color:White;background-color:#4F81BD;">{{ 'Niveauscolaire'|trans() }}</th>
                             <th align="center" scope="col"
@@ -65,6 +67,7 @@
                             <th align="center" scope="col"
                                 style="color:White;background-color:#92B3CF;">{{ 'moyen_eleve_nombclass'|trans() }}</th>
                         </tr>
+                        {% set nivscolaire = 9999 %}
                         {% set codecyclense = 0 %}
                         {% set nombclasselev = 0 %}
                         {% set nombelevmascnouv = 0 %}
@@ -77,6 +80,7 @@
                         {% for key , entity in entities %}
 
                             <tr>
+                                <td colspan="{{ entity.codefili|length  }}">{{ entity.codefili.libefiliar }}</td>
                                 <td>{{ entity.codenivescol.libenivescolar }}</td>
                                 <td align="right">{{ entity.nombclasselev }} {% set nombclasselev = nombclasselev + entity.nombclasselev %}</td>
                                 <td align="right">{{ entity.nombelevmascnouv }} {% set nombelevmascnouv = nombelevmascnouv + entity.nombelevmascnouv %}</td>
@@ -97,7 +101,7 @@
                         {% endfor %}
                         <tr align="center"
                             style="color:White;background-color:#4F81BD;border-color:#4F81BD;border-width:2px;border-style:Solid;">
-                            <td>{{ 'nombtotaelev'|trans() }}:</td>
+                            <td colspan="2">{{ 'nombtotaelev'|trans() }}:</td>
                             <td>{{ nombclasselev }}</td>
                             <td>{{ nombelevmascnouv }}</td>
                             <td>{{ nombelevfeminouv }}</td>

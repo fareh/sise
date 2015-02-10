@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EffectiveeleveNiveauscolaire
  *
  * @ORM\Table(name="effectiveeleve_niveauscolaire", indexes={@ORM\Index(name="FK_EffectiveEleve_NiveauScolaire_Nomenclature_FiliereNiveauSco43", columns={"CodeFili", "CodeNiveScol"}), @ORM\Index(name="FK_EffectiveEleve_NiveauScolaire_Nomenclature_Recensement", columns={"CodeRece"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sise\Bundle\CoreBundle\Repository\EffectiveeleveNiveauscolaireRepository")
  */
 class EffectiveeleveNiveauscolaire
 {
