@@ -38,6 +38,13 @@
                                 <td align="right">{{ entity.nombtotaelev }}</td>
                             </tr>
                         {% endfor %}
+                        <tr>
+                            <td>{{ 'nombtotaelev'|trans() }}</td>
+                            <td id="nombelevmasc"></td>
+                            <td id="nombelevfemi"></td>
+                            <td id="nombtotaelev"></td>
+
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -47,3 +54,13 @@
         </center>
     {% endif %}
 {% endblock %}
+ {% block javascripts %}
+     {{ parent() }}
+     <script >
+         $("#nombelevmasc").html(sumOfColumns("CPHMain_GridView_Browse", 2, true));
+         $("#nombelevfemi").html(sumOfColumns("CPHMain_GridView_Browse", 3, true));
+         $("#nombtotaelev").html(sumOfColumns("CPHMain_GridView_Browse", 4, true));
+
+     </script>
+
+ {% endblock %}

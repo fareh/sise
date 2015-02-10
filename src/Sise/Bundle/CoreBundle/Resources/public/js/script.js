@@ -5,8 +5,19 @@ jQuery(document).ready(function () {
     $('.datesepa').mask('00-00-0000');
 });
 $('form#id_with_js').quickValidate();
+/* function for sum columns */
+function sumOfColumns(tableID, columnIndex, hasHeader) {
+    var tot = 0;
+    $("#" + tableID + " tr" + (hasHeader ? ":gt(0)" : ""))
+        .children("td:nth-child(" + columnIndex + ")")
+        .each(function() {
+            if (parseInt($(this).html()) === parseInt(parseInt($(this).html()), 10)) {
+                tot += parseInt($(this).html());
+            }
+        });
+    return tot;
 
-
+}
 function testVal(id, minNumber) {
     if (parseInt(document.getElementById(id).value) === parseInt(parseInt(document.getElementById(id).value), 10)) {
         if (parseInt(document.getElementById(id).value) < minNumber) {

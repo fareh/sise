@@ -76,6 +76,18 @@
                                     style="background-color:#EEEEEE;">{{ entity.nombtotaelev }}</td>
                             </tr>
                         {% endfor %}
+                        <tr>
+                        <td colspan="2">{{ 'nombtotaelev'|trans() }}</td>
+                        <td id="nombelevmascnouv"></td>
+                        <td id="nombelevfeminouv"></td>
+                        <td id="nombelevmascredo"></td>
+                        <td id="nombelevfemiredo"></td>
+                        <td id="nombtotaelevmasc"></td>
+                        <td id="nombtotaelevfemi"></td>
+                        <td id="nombtotaelev"></td>
+                        </tr>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -85,3 +97,17 @@
         </center>
     {% endif %}
 {% endblock %}
+ {% block javascripts %}
+     {{ parent() }}
+     <script >
+         $("#nombelevmascnouv").html(sumOfColumns("CPHMain_upGridView", 3, true));
+         $("#nombelevfeminouv").html(sumOfColumns("CPHMain_upGridView", 4, true));
+         $("#nombelevmascredo").html(sumOfColumns("CPHMain_upGridView", 5, true));
+         $("#nombelevfemiredo").html(sumOfColumns("CPHMain_upGridView", 6, true));
+         $("#nombtotaelevmasc").html(sumOfColumns("CPHMain_upGridView", 7, true));
+         $("#nombtotaelevfemi").html(sumOfColumns("CPHMain_upGridView", 8, true));
+         $("#nombtotaelev").html(sumOfColumns("CPHMain_upGridView", 9, true));
+
+     </script>
+
+ {% endblock %}
