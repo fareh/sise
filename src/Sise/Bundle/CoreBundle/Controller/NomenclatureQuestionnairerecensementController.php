@@ -9,6 +9,7 @@ use Sise\Bundle\CoreBundle\Entity\NomenclatureQuestionnairerecensement;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureRecensement;
 use Sise\Bundle\CoreBundle\Entity\NomenclatureEtablissement;
 use Sise\Bundle\CoreBundle\Form\NomenclatureQuestionnairerecensementType;
+use Symfony\Component\Process\Process;
 
 /**
  * NomenclatureQuestionnairerecensement controller.
@@ -37,6 +38,14 @@ class NomenclatureQuestionnairerecensementController extends Controller
     public function storedProcedure($proc_name,$annescol, $coderec, $p_CodeQues){
         $em = $this->getDoctrine()->getManager()->getConnection();
         $sth = $em->prepare("CALL ".$proc_name."(".$annescol.",'".$coderec."','".$p_CodeQues."');");
+        $sth->execute();
+        return true;
+    }
+
+
+    public function InitProcedure($proc_name,$annescol, $coderece){
+        $em = $this->getDoctrine()->getManager()->getConnection();
+        $sth = $em->prepare("CALL ".$proc_name."(".$annescol.",'".$coderece."');");
         $sth->execute();
         return true;
     }
@@ -79,7 +88,11 @@ class NomenclatureQuestionnairerecensementController extends Controller
             $em->flush();
         //  var_dump($entityrece);die;
        //     $ques = '\'EE7\',\'EE8\',\'EE9\'';
-        $res = $this->storedProcedure('CreateRecensementQuestionnaire',$entity->getRece()->getAnnescol(),$entity->getRece()->getCoderece(),$listques);
+            $process = new Process('ls -lsa');
+            $process->run(
+                $this->storedProcedure('CreateRecensementQuestionnaire',$entity->getRece()->getAnnescol(),$entity->getRece()->getCoderece(),$listques),
+             $this->InitProcedure('SP_Init_Questionnaire',$entity->getRece()->getAnnescol(),$entity->getRece()->getCoderece())
+        );
 
             return $this->redirect($this->generateUrl('nomenclaturequestionnairerecensement'));
         }
