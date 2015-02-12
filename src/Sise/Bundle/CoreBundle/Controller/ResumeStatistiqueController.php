@@ -45,14 +45,13 @@ class ResumeStatistiqueController extends Controller
         $entitiesevoloriepremanne=$this->storedProcedure('SP_ResuStat_EvolutionOrientationPremierAnnee_Etatique',"","");
         $entitiesevoloriedeuxanne=$this->storedProcedure('SP_ResuStat_EvolutionOrientationDeuxiemeAnnee_Etatique',"","");
         $entitiesevoltauxscol1218=$this->storedProcedure('SP_ResuStat_EvolutionTauxScolarisation1218_Etatique',"","");
-        $entitiesevoltauxscol616=$this->storedProcedure('SP_ResuStat_EvolutionTauxScolarisation616_Etatique',"","");
+         $entitiesevoltauxscol616=$this->storedProcedure('SP_ResuStat_EvolutionTauxScolarisation616_Etatique',"","");
         $entitiessecond=$this->storedProcedure('SP_ResuStat_ResumeStatistiquePrep','2','PU');
         $entitiesevoltauxpromsecond=$this->storedProcedure('SP_ResuStat_EvolutionTauxPromotionCyclSeco_Etatique',"","");
         $entitiesevoltauxredosecond=$this->storedProcedure('SP_ResuStat_EvolutionTauxRedoublementCyclSeco_Etatique',"","");
         $entitiesevoltauxabansecond=$this->storedProcedure('SP_ResuStat_EvolutionTauxAbandonCyclSeco_Etatique',"","");
         $entitiesevolcyclsecondpriv=$this->storedProcedure('SP_ResuStat_ResumeStatistiquePrep','2','PR');
         $entitiesevolcycltechpriv=$this->storedProcedure('SP_ResuStat_EvolutionCycleTechnique_Privee','2','PR');
-
         $arrevoltauxscol616=array();
         $arrannevoltauxscol616=array();
         $arrevoll616=array();

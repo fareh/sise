@@ -308,9 +308,7 @@
         <tr>
             <td> {{ entity['LibeAnneScolAr'] }}</td>
             {% endif %}
-            {% if entity['Taux']!="" %}
                 <td> {{ entity['Taux'] }}</td>
-            {% endif %}
             {% endfor %}
         </tr>
         </tbody>
@@ -342,9 +340,7 @@
         <tr>
             <td> {{ entity['LibeAnneScolAr'] }}</td>
             {% endif %}
-            {% if entity['Taux']!="" %}
                 <td> {{ entity['Taux'] }}</td>
-            {% endif %}
             {% endfor %}
         </tr>
         </tbody>
@@ -376,9 +372,7 @@
         <tr>
             <td> {{ entity['LibeAnneScolAr'] }}</td>
             {% endif %}
-            {% if entity['Taux']!="" %}
                 <td> {{ entity['Taux'] }}</td>
-            {% endif %}
             {% endfor %}
         </tr>
         </tbody>
@@ -662,13 +656,13 @@
             </tr>
             <tr>
                 <td>فتيات</td>
-                {% for key, entityanne in arrannevoltauxscol1218 %}
+                {% for key, entityanne in arrannevoltauxscol616 %}
                     <td>  {{ entity[entityanne~'ElevFemi'] }}</td>
                 {% endfor %}
             </tr>
             <tr>
                 <td>جملة</td>
-                {% for key, entityanne in arrannevoltauxscol1218 %}
+                {% for key, entityanne in arrannevoltauxscol616 %}
                     <td>  {{ entity[entityanne~'TotaElev'] }}</td>
                 {% endfor %}
             </tr>
@@ -762,8 +756,8 @@
                                              السنة الدراسية
             </span></strong></th>
             {% for key, entity in entitiesevoltauxpromsecond %}
-                <th><strong><span>
                 {% if key <7  %}
+                <th><strong><span>
                     {{ entity['LibeNiveScolAr'] }}
                     </span></strong> </th>
                 {% endif %}
@@ -778,11 +772,9 @@
         <tr>
             <td> {{ entity['LibeAnneScolAr'] }}</td>
             {% endif %}
-            {% if entity['Taux']!="" %}
-                <td> {{ entity['Taux'] }}</td>
-            {% endif %}
+                <td> {{ entity['Taux']}}</td>
             {% endfor %}
-        </tr>
+        <tr/>
         </tbody>
     </table>
     <br>
@@ -796,8 +788,8 @@
                                              السنة الدراسية
             </span></strong></th>
             {% for key, entity in entitiesevoltauxredosecond %}
-                <th><strong><span>
                 {% if key <7  %}
+                <th><strong><span>
                     {{ entity['LibeNiveScolAr'] }}
                     </span></strong> </th>
                 {% endif %}
@@ -812,9 +804,7 @@
         <tr>
             <td> {{ entity['LibeAnneScolAr'] }}</td>
             {% endif %}
-            {% if entity['Taux']!="" %}
                 <td> {{ entity['Taux'] }}</td>
-            {% endif %}
             {% endfor %}
         </tr>
         </tbody>
@@ -830,8 +820,8 @@
                                              السنة الدراسية
             </span></strong></th>
             {% for key, entity in entitiesevoltauxabansecond %}
-                <th><strong><span>
                 {% if key <7  %}
+                <th><strong><span>
                     {{ entity['LibeNiveScolAr'] }}
                     </span></strong> </th>
                 {% endif %}
@@ -846,9 +836,7 @@
         <tr>
             <td> {{ entity['LibeAnneScolAr'] }}</td>
             {% endif %}
-            {% if entity['Taux']!="" %}
                 <td> {{ entity['Taux'] }}</td>
-            {% endif %}
             {% endfor %}
         </tr>
         </tbody>
