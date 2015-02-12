@@ -17,11 +17,666 @@
         table > tbody tr td     {
             border-bottom: black 1px solid;
             width: 10%;
+            text-align: center;
             font: 12pt verdana;
             vertical-align: top
         }
     </style>
- <span style="font-size: 1em; font-weight: 700">تطور معطيات السنة التحضيرية بالقطاع العمومي</span>
+    <div id="accordion">
+    <h3>السنة التحضيرية</h3>
+    <div>
+        <span style="font-size: 1em; font-weight: 700">تطور معطيات السنة التحضيرية بالقطاع العمومي</span>
+        <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+            <thead>
+            <tr>
+                <th></th>
+                <th colspan="3"> <strong><span>
+                المدارس
+            </span></strong> </th>
+                <th></th>
+                <th colspan="2"><strong><span>
+                الأطفال المرسمين
+         </span></strong>   </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr><th>
+                    <strong><span>
+                                             السنة الدراسية
+                                        </span></strong>
+                </th>
+                <th>
+                    <strong><span>
+                                            الجملة</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                            عدد المدارس بمناطق غير بلدية</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                             نسبة المدارس بمناطق غير بلدية</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                            الأفواج</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                            جملة</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                            منهم اناث</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                            المربون</span></strong>
+                </th>
+                <th  >
+                    <strong><span>
+                                            متوسط كثافة الفوج</span></strong>
+                </th>
+                <th  >
+                    <strong><span  >
+                                            نسبة الاناث</span></strong>
+                </th>
+            </tr></thead>
+            <tbody>
+            {% for key, entity in entitiesprep %}
+                <tr>
+                    <td> {{ entity['AnneScol'] }}</td>
+                    <td> {{ entity['TotaEtab'] }}</td>
+                    <td>  {{ entity['TotaEtabRura'] }}</td>
+                    <td>  {{ entity['PourEtabRura'] }}</td>
+                    <td>  {{ entity['TotaGrou'] }}</td>
+                    <td>  {{ entity['TotaElev'] }}</td>
+                    <td>  {{ entity['TotaElevFemi'] }}</td>
+                    <td>  {{ entity['TotaEnse'] }}</td>
+                    <td>  {{ entity['DensGrou'] }}</td>
+                    <td>   {{ entity['PourFemi'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+    </div>
+    <h3>المرحلة الابتدائية</h3>
+    <div>
+    <span style="font-size: 1em; font-weight: 700"> تطور معطيات السنة الابتدائية بالقطاع العمومي</span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th colspan="2"><strong><span>
+                التلاميذ
+           </span></strong> </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            <th><strong><span>
+            المدارس
+           </span></strong></th>
+            <th>
+                <strong><span>
+                                            الجملة</span></strong>
+            </th>
+            <th><strong><span>
+                    اناث منهم
+            </span></strong></th>
+            <th><strong><span>
+           الفصول
+            </span></strong></th>
+            <th><strong><span>
+                   المدرسون
+            </span></strong></th>
+            <th><strong><span>
+            متوسط كثافة الفصل
+            </span></strong></th>
+            <th><strong><span>
+                 نصيب كل معلم من التلاميذ
+            </span></strong></th>
+            <th><strong><span>
+              نسبة الاناث
+            </span></strong></th>
+        </tr></thead>
+        <tbody>
+        {% for key, entity in entitiesevolcyclprim %}
+            <tr>
+                <td> {{ entity['AnneScol'] }}</td>
+                <td> {{ entity['TotaEtab'] }}</td>
+                <td>  {{ entity['TotaElev'] }}</td>
+                <td>  {{ entity['TotaElevFemi'] }}</td>
+                <td>  {{ entity['TotaClas'] }}</td>
+                <td>  {{ entity['TotaEnse'] }}</td>
+                <td>  {{ entity['MoyeClasElev'] }}</td>
+                <td>  {{ entity['MoyeClasEnse'] }}</td>
+                <td>  {{ entity['PourFemi'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بالفصول ذات الفرق  بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th></th>
+            <th  colspan="3"><strong><span>
+                منطقة بلدية
+            </span></strong> </th>
+            <th colspan="3"><strong><span>
+منطقة غير بلدية
+           </span></strong> </th>
+            <th colspan="3"><strong><span>
+الجملة
+           </span></strong> </th>
+        </tr>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            <th><strong><span>
+            المدارس
+           </span></strong></th>
+            <th>
+                <strong><span>
+                        التلاميذ
+                </span></strong>
+            </th>
+            <th><strong><span>
+الفصول ذات الفرق
+            </span></strong></th>
+            <th><strong><span>
+المدارس
+            </span></strong></th>
+            <th><strong><span>
+التلاميذ
+            </span></strong></th>
+            <th><strong><span>
+الفصول ذات الفرق
+            </span></strong></th>
+            <th><strong><span>
+المدارس
+            </span></strong></th>
+            <th><strong><span>
+التلاميذ
+            </span></strong></th>
+            <th><strong><span>
+الفصول ذات الفرق
+            </span></strong></th>
+        </tr></thead>
+        <tbody>
+        {% for key, entity in entitiesevolclascyclprim %}
+            <tr>
+                <td> {{ entity['AnneScol'] }}</td>
+                <td> {{ entity['TotaEtabUrba'] }}</td>
+                <td>  {{ entity['TotaElevUrba'] }}</td>
+                <td>  {{ entity['TotaClasUrba'] }}</td>
+                <td>  {{ entity['TotaEtabRura'] }}</td>
+                <td>  {{ entity['TotaElevRura'] }}</td>
+                <td>  {{ entity['TotaClasRura'] }}</td>
+                <td>  {{ entity['TotaEtab'] }}</td>
+                <td>  {{ entity['TotaElev'] }}</td>
+                <td>  {{ entity['TotaClas'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بالنسب الصافية للتمدرس بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+الفئة العمرية
+            </span></strong> </th>
+            <th><strong><span>
+النوع الاجتماعي
+           </span></strong> </th>
+
+            {% for entityan in arrannevoltauxscol %}
+                <th><strong><span>
+     {{ entityan }}
+           </span></strong> </th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% set TracAgeprec=''%}
+        {% for key, entity in entitiesevoltauxscol %}
+
+            <tr>
+                <td rowspan="4"> {{ entity['TracAge'] }}</td> </tr>
+            <tr>
+                <td>فتيان</td>
+                {% for key, entityanne in arrannevoltauxscol %}
+                    <td> {{ entity[entityanne~'ElevMasc'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>فتيات</td>
+                {% for key, entityanne in arrannevoltauxscol %}
+                    <td>  {{ entity[entityanne~'ElevFemi'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>جملة</td>
+                {% for key, entityanne in arrannevoltauxscol %}
+                    <td>  {{ entity[entityanne~'TotaElev'] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بنسب الارتقاء بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            {% for key, entity in entitiesevoltauxprom %}
+                {% if key <6  %}
+                    <th><strong><span>
+        {{ entity['LibeNiveScolAr'] }}
+            </span></strong> </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoltauxprom %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            {% if entity['Taux']!="" %}
+                <td> {{ entity['Taux'] }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بنسب الرسوب بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            {% for key, entity in entitiesevoltauxredo %}
+                {% if key <6  %}
+                    <th><strong><span>
+        {{ entity['LibeNiveScolAr'] }}
+            </span></strong> </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoltauxredo %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            {% if entity['Taux']!="" %}
+                <td> {{ entity['Taux'] }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بنسب الانقطاع بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            {% for key, entity in entitiesevoltauxaban %}
+                {% if key <6  %}
+                    <th><strong><span>
+        {{ entity['LibeNiveScolAr'] }}
+            </span></strong> </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoltauxaban %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            {% if entity['Taux']!="" %}
+                <td> {{ entity['Taux'] }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <span style="font-size: 1em; font-weight: 700">تطور المعطيات السنة الابتدائية بالقطاع الخاص </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th colspan="2"><strong><span>
+                التلاميذ
+           </span></strong> </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            <th><strong><span>
+            المدارس
+           </span></strong></th>
+            <th>
+                <strong><span>
+                                            الجملة</span></strong>
+            </th>
+            <th><strong><span>
+                    اناث منهم
+            </span></strong></th>
+            <th><strong><span>
+           الفصول
+            </span></strong></th>
+            <th><strong><span>
+                   المدرسون
+            </span></strong></th>
+            <th><strong><span>
+            متوسط كثافة الفصل
+            </span></strong></th>
+            <th><strong><span>
+                 نصيب كل معلم من التلاميذ
+            </span></strong></th>
+            <th><strong><span>
+              نسبة الاناث
+            </span></strong></th>
+        </tr></thead>
+        <tbody>
+        {% for key, entity in entitiesevolcyclprimpriv %}
+            <tr>
+                <td> {{ entity['AnneScol'] }}</td>
+                <td> {{ entity['TotaEtab'] }}</td>
+                <td>  {{ entity['TotaElev'] }}</td>
+                <td>  {{ entity['TotaElevFemi'] }}</td>
+                <td>  {{ entity['TotaClas'] }}</td>
+                <td>  {{ entity['TotaEnse'] }}</td>
+                <td>  {{ entity['MoyeClasElev'] }}</td>
+                <td>  {{ entity['MoyeClasEnse'] }}</td>
+                <td>  {{ entity['PourFemi'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    </div>
+    <h3>مرحلة الاعدادي العام و التعليم الثانوي</h3>
+    <div>
+    <span style="font-size: 1em; font-weight: 700">تطور المعطيات المرحلة بالقطاع العمومي</span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th colspan="2"><strong><span>
+                التلاميذ
+           </span></strong> </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            <th><strong><span>
+            المدارس
+           </span></strong></th>
+            <th>
+                <strong><span>
+                                            الجملة</span></strong>
+            </th>
+            <th><strong><span>
+                    اناث منهم
+            </span></strong></th>
+            <th><strong><span>
+           الفصول
+            </span></strong></th>
+            <th><strong><span>
+                   المدرسون
+            </span></strong></th>
+            <th><strong><span>
+            متوسط كثافة الفصل
+            </span></strong></th>
+            <th><strong><span>
+                 نصيب كل معلم من التلاميذ
+            </span></strong></th>
+            <th><strong><span>
+              نسبة الاناث
+            </span></strong></th>
+        </tr></thead>
+        <tbody>
+        {% for key, entity in entitiesevolcyclprimetat %}
+            <tr>
+                <td> {{ entity['AnneScol'] }}</td>
+                <td> {{ entity['TotaEtab'] }}</td>
+                <td>  {{ entity['TotaElev'] }}</td>
+                <td>  {{ entity['TotaElevFemi'] }}</td>
+                <td>  {{ entity['TotaClas'] }}</td>
+                <td>  {{ entity['TotaEnse'] }}</td>
+                <td>  {{ entity['MoyeClasElev'] }}</td>
+                <td>  {{ entity['MoyeClasEnse'] }}</td>
+                <td>  {{ entity['PourFemi'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700"> تطور نسب التوجيه في نهاية السنة الأولى بالقطاع العمومي</span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th colspan="11"><strong><span>
+                مسالك التوجيه
+            </span></strong> </th>
+        </tr>
+        <tr>
+            <th><strong><span>
+السنة الدراسية
+            </span></strong></th>
+            {%set Filiprec=''  %}
+            {% for key, entity in entitiesevoloriepremanne %}
+                {% if Filiprec!= entity['LibeFiliAr']  %}
+                    {%set Filiprec= entity['LibeFiliAr']  %}
+                    <th><strong><span>
+               {{ entity['LibeFiliAr'] }}
+           </span></strong></th>
+                {% endif %}
+            {% endfor %}
+        </tr></thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoloriepremanne %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            <td> {{ entity['NombElevTotal'] }}</td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700"> تطور نسب التوجيه في نهاية السنة الثانية بالقطاع العمومي</span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th colspan="11"><strong><span>
+شعب التوجيه
+            </span></strong> </th>
+        </tr>
+        <tr>
+            <th><strong><span>
+السنة الدراسية
+            </span></strong></th>
+            {%set Filiprec=''  %}
+            {% for key, entity in entitiesevoloriedeuxanne %}
+                {% if Filiprec!= entity['LibeFiliAr']  %}
+                    {%set Filiprec= entity['LibeFiliAr']  %}
+                    <th><strong><span>
+               {{ entity['LibeFiliAr'] }}
+           </span></strong></th>
+                {% endif %}
+            {% endfor %}
+        </tr></thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoloriedeuxanne %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            <td> {{ entity['NombElevTotal'] }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بالنسب الصافية للتمدرس (الفئة العمرية 12-18) بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+الفئة العمرية
+            </span></strong> </th>
+            <th><strong><span>
+النوع الاجتماعي
+           </span></strong> </th>
+            {% for entityan in arrannevoltauxscol1218 %}
+                <th><strong><span>
+     {{ entityan }}
+           </span></strong> </th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% set TracAgeprec=''%}
+        {% for key, entity in entitiesevoltauxscol1218 %}
+
+            <tr>
+                <td rowspan="4"> {{ entity['TracAge'] }}</td> </tr>
+            <tr>
+                <td>فتيان</td>
+                {% for key, entityanne in arrannevoltauxscol1218 %}
+                    <td> {{ entity[entityanne~'ElevMasc'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>فتيات</td>
+                {% for key, entityanne in arrannevoltauxscol1218 %}
+                    <td>  {{ entity[entityanne~'ElevFemi'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>جملة</td>
+                {% for key, entityanne in arrannevoltauxscol1218 %}
+                    <td>  {{ entity[entityanne~'TotaElev'] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بالنسب الصافية للتمدرس  (الفئة العمرية 6-16) بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+الفئة العمرية
+            </span></strong> </th>
+            <th><strong><span>
+النوع الاجتماعي
+           </span></strong> </th>
+            </span></strong> </th>
+            {% for entityan in arrannevoltauxscol616 %}
+                <th><strong><span>
+        {{ entityan }}
+           </span></strong> </th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% set TracAgeprec=''%}
+        {% for key, entity in entitiesevoltauxscol616 %}
+
+            <tr>
+                <td rowspan="4"> {{ entity['TracAge'] }}</td> </tr>
+            <tr>
+                <td>فتيان</td>
+                {% for key, entityanne in arrannevoltauxscol616 %}
+                    <td> {{ entity[entityanne~'ElevMasc'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>فتيات</td>
+                {% for key, entityanne in arrannevoltauxscol1218 %}
+                    <td>  {{ entity[entityanne~'ElevFemi'] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>جملة</td>
+                {% for key, entityanne in arrannevoltauxscol1218 %}
+                    <td>  {{ entity[entityanne~'TotaElev'] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">تطور المعطيات المرحلة المتعلقة بمعدل عدد التلاميذلأعوان التأطير و التنفيذ بالقطاع العمومي</span>
     <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
         <thead>
         <tr>
@@ -80,20 +735,266 @@
             </th>
         </tr></thead>
         <tbody>
-    {% for key, entity in entities %}
-        <tr>
-  <td> {{ entity['AnneScol'] }}</td>
-  <td> {{ entity['TotaEtab'] }}</td>
-  <td>  {{ entity['TotaEtabRura'] }}</td>
-  <td>  {{ entity['TotaGrou'] }}</td>
-  <td>  {{ entity['TotaElev'] }}</td>
-  <td>  {{ entity['TotaElevFemi'] }}</td>
-  <td>  {{ entity['TotaEnse'] }}</td>
-  <td>  {{ entity['PourEtabRura'] }}</td>
-  <td>  {{ entity['DensGrou'] }}</td>
-  <td>   {{ entity['PourFemi'] }}</td>
-        </tr>
-{% endfor %}
+        {% for key, entity in entitiessecond %}
+            <tr>
+                <td> {{ entity['AnneScol'] }}</td>
+                <td> {{ entity['TotaEtab'] }}</td>
+                <td>  {{ entity['TotaEtabRura'] }}</td>
+                <td>  {{ entity['PourEtabRura'] }}</td>
+                <td>  {{ entity['TotaGrou'] }}</td>
+                <td>  {{ entity['TotaElev'] }}</td>
+                <td>  {{ entity['TotaElevFemi'] }}</td>
+                <td>  {{ entity['TotaEnse'] }}</td>
+                <td>  {{ entity['DensGrou'] }}</td>
+                <td>   {{ entity['PourFemi'] }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بنسب الارتقاء بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            {% for key, entity in entitiesevoltauxpromsecond %}
+                <th><strong><span>
+                {% if key <7  %}
+                    {{ entity['LibeNiveScolAr'] }}
+                    </span></strong> </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoltauxpromsecond %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            {% if entity['Taux']!="" %}
+                <td> {{ entity['Taux'] }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بنسب الرسوب بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            {% for key, entity in entitiesevoltauxredosecond %}
+                <th><strong><span>
+                {% if key <7  %}
+                    {{ entity['LibeNiveScolAr'] }}
+                    </span></strong> </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoltauxredosecond %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            {% if entity['Taux']!="" %}
+                <td> {{ entity['Taux'] }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">
+تطور المعطيات الخاصة بنسب الانقطاع بالقطاع العمومي
+    </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+            {% for key, entity in entitiesevoltauxabansecond %}
+                <th><strong><span>
+                {% if key <7  %}
+                    {{ entity['LibeNiveScolAr'] }}
+                    </span></strong> </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {%set AnneScolprec=''  %}
+        {% for key, entity in entitiesevoltauxabansecond %}
+        {% if AnneScolprec!= entity['LibeAnneScolAr']  %}
+        {%set AnneScolprec= entity['LibeAnneScolAr']  %}
+        <tr>
+            <td> {{ entity['LibeAnneScolAr'] }}</td>
+            {% endif %}
+            {% if entity['Taux']!="" %}
+                <td> {{ entity['Taux'] }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <span style="font-size: 1em; font-weight: 700">تطور المعطيات المرحلة بالقطاع الخاص </span>
+    <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+        <thead>
+        <tr>
+            <th></th>
+            <th colspan="3"> <strong><span>
+                المدارس
+            </span></strong> </th>
+            <th></th>
+            <th colspan="2"><strong><span>
+                الأطفال المرسمين
+         </span></strong>   </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr><th>
+                <strong><span>
+                                             السنة الدراسية
+                                        </span></strong>
+            </th>
+            <th>
+                <strong><span>
+                                            الجملة</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                            عدد المدارس بمناطق غير بلدية</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                             نسبة المدارس بمناطق غير بلدية</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                            الأفواج</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                            جملة</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                            منهم اناث</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                            المربون</span></strong>
+            </th>
+            <th  >
+                <strong><span>
+                                            متوسط كثافة الفوج</span></strong>
+            </th>
+            <th  >
+                <strong><span  >
+                                            نسبة الاناث</span></strong>
+            </th>
+        </tr></thead>
+        <tbody>
+        {% for key, entity in entitiesevolcyclsecondpriv %}
+            <tr>
+                <td> {{ entity['AnneScol'] }}</td>
+                <td> {{ entity['TotaEtab'] }}</td>
+                <td>  {{ entity['TotaEtabRura'] }}</td>
+                <td>  {{ entity['PourEtabRura'] }}</td>
+                <td>  {{ entity['TotaGrou'] }}</td>
+                <td>  {{ entity['TotaElev'] }}</td>
+                <td>  {{ entity['TotaElevFemi'] }}</td>
+                <td>  {{ entity['TotaEnse'] }}</td>
+                <td>  {{ entity['DensGrou'] }}</td>
+                <td>   {{ entity['PourFemi'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    </div>
+    <h3>التعليم التقني</h3>
+    <div>
+        <span style="font-size: 1em; font-weight: 700">تطور المعطيات الخاصة بالتعليم التقني </span>
+        <table style="border: 0px; font: 8pt verdana; width: 100%" dir="rtl">
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th colspan="2"><strong><span>
+                التلاميذ
+           </span></strong> </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th><strong><span>
+                                             السنة الدراسية
+            </span></strong></th>
+                <th><strong><span>
+            المدارس
+           </span></strong></th>
+                <th>
+                    <strong><span>
+                                            الجملة</span></strong>
+                </th>
+                <th><strong><span>
+                    اناث منهم
+            </span></strong></th>
+                <th><strong><span>
+           الفصول
+            </span></strong></th>
+                <th><strong><span>
+                   المدرسون
+            </span></strong></th>
+                <th><strong><span>
+            متوسط كثافة الفصل
+            </span></strong></th>
+                <th><strong><span>
+                 نصيب كل معلم من التلاميذ
+            </span></strong></th>
+                <th><strong><span>
+              نسبة الاناث
+            </span></strong></th>
+            </tr></thead>
+            <tbody>
+            {% for key, entity in entitiesevolcycltechpriv %}
+                <tr>
+                    <td> {{ entity['AnneScol'] }}</td>
+                    <td> {{ entity['TotaEtab'] }}</td>
+                    <td>  {{ entity['TotaElev'] }}</td>
+                    <td>  {{ entity['TotaElevFemi'] }}</td>
+                    <td>  {{ entity['TotaClas'] }}</td>
+                    <td>  {{ entity['TotaEnse'] }}</td>
+                    <td>  {{ entity['MoyeClasElev'] }}</td>
+                    <td>  {{ entity['MoyeClasEnse'] }}</td>
+                    <td>  {{ entity['PourFemi'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+    </div>
+    </div>
 {% endblock %}
