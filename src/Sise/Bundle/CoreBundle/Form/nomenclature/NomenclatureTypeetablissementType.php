@@ -21,11 +21,11 @@ class NomenclatureTypeetablissementType extends AbstractType
             ->add('ordraffi','integer',array('label' => 'ordraffi','translation_domain' => 'SiseCoreBundle'))
             ->add('acti','checkbox',array('label' => 'acti','translation_domain' => 'SiseCoreBundle'))
             ->add('concrece','checkbox',array('label' => 'concrece','translation_domain' => 'SiseCoreBundle'))
-            ->add('prep')
-            ->add('prim')
-            ->add('collgene')
-            ->add('lyce')
-            ->add('colltech')
+            ->add('prep','checkbox',array('label' => 'prep','translation_domain' => 'SiseCoreBundle'))
+            ->add('prim','checkbox',array('label' => 'prim','translation_domain' => 'SiseCoreBundle'))
+            ->add('collgene','checkbox',array('label' => 'collgene','translation_domain' => 'SiseCoreBundle'))
+            ->add('lyce','checkbox',array('label' => 'lyce','translation_domain' => 'SiseCoreBundle'))
+            ->add('colltech','checkbox',array('label' => 'colltech','translation_domain' => 'SiseCoreBundle'))
         ;
     }
     

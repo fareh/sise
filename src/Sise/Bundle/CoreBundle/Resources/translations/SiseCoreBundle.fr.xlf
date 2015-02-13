@@ -6,6 +6,26 @@
                 <source>Code</source>
                 <target>الرمز</target>
             </trans-unit>
+            <trans-unit id="global_colltech">
+                <source>colltech</source>
+                <target>المرحلة الإعدادية التقنية</target>
+            </trans-unit>
+            <trans-unit id="global_lyce">
+                <source>lyce</source>
+                <target>مرحلة التعليم الثانوي</target>
+            </trans-unit>
+            <trans-unit id="global_collgene">
+                <source>collgene</source>
+                <target>المرحلة ثانية من التعليم الأساسي</target>
+            </trans-unit>
+            <trans-unit id="global_prim">
+                <source>prim</source>
+                <target>المرحلة أولى من التعليم الأساسي</target>
+            </trans-unit>
+            <trans-unit id="global_prep">
+                <source>prep</source>
+                <target>مرحلة تحضيرية</target>
+            </trans-unit>
             <trans-unit id="global_HeuresSupplementaires">
                 <source>HeuresSupplementaires</source>
                 <target>جملة الساعات التكميلية</target>
